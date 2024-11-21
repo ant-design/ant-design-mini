@@ -1,3 +1,4 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 @guideTourPrefix: ant-guide-tour;
@@ -9,9 +10,9 @@
 // 层级-3
 @guide-tour-z-index-3: 10001;
 // 主要文字颜色
-@guide-tour-text-color: @COLOR_WHITE_DEFAULT;
+@guide-tour-text-color: var(--guide-tour-text-color, @COLOR_WHITE);
 // 关闭按钮颜色
-@guide-tour-clear-color: @COLOR_TEXT_ASSIST_DEFAULT;
+@guide-tour-clear-color: var(--guide-tour-clear-color, @COLOR_TEXT_ASSIST);
 // 按钮距离底部
 @guide-tour-button-bottom: calc(100 * @rpx + env(safe-area-inset-bottom));
 // 按钮高度
@@ -19,7 +20,7 @@
 // 步骤条点的长宽
 @guide-tour-dot-size: 6 * @rpx;
 // 步骤条点的颜色
-@guide-tour-dot-color: @COLOR_TEXT_ASSIST_DEFAULT;
+@guide-tour-dot-color: var(--guide-tour-dot-color, @COLOR_TEXT_ASSIST);
 // 激活步骤条点的长度
 @guide-tour-dot-active-width:26 * @rpx;
 // 步骤条点的弧度
@@ -28,3 +29,9 @@
 @guide-tour-dot-bottom: calc(
   @guide-tour-button-bottom + 40 * @rpx + @guide-tour-button-height
 );
+
+@guide-tour-border-color: var(--guide-tour-border-color, @COLOR_BORDER);
+
+@guide-tour-btn-color: var(--guide-tour-btn-color, @COLOR_TEXT_PRIMARY);
+
+@guide-tour-right-btn-color: var(--guide-tour-right-btn-color, @COLOR_TEXT_PRIMARY);

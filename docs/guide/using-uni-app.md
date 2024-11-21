@@ -1,8 +1,9 @@
 ---
+order: 3
 toc: true
 ---
 
-## 在 uni-app 中使用
+# 在 uni-app 中使用
 
 这里以按钮组件（Button）为例，讲解如何在 uni-app 项目中使用 antd-mini。
 

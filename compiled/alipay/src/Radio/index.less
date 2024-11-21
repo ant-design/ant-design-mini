@@ -3,7 +3,7 @@
 @radioItemPrefix: ant-radio-item;
 
 .@{radioItemPrefix} {
-  color: @COLOR_TEXT_PRIMARY;
+  color: @radio-text-color;
   margin-right: 16 * @rpx;
 
 
@@ -43,7 +43,7 @@
     justify-content: center;
     align-items: center;
     &-icon {
-      background-color: @COLOR_CARD;
+      background-color: @radio-fake-icon-background-color;
       border: @radio-border-width solid @radio-border-color;
       border-radius: @radio-corner-radius;
       width: 100%;
@@ -59,7 +59,7 @@
       align-items: center;
       justify-content: center;
       &-icon {
-        color: @COLOR_WHITE;
+        color: @radio-icon-color;
         font-size: 28 * @rpx;
       }
     }

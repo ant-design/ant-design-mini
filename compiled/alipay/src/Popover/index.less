@@ -10,6 +10,36 @@
     z-index: 999;
   }
 
+  &-close {
+    margin-left: 24 * @rpx;
+    width: 38 * @rpx;
+    height: 38 * @rpx;
+    .ant-popover-close-icon {
+      position: absolute;
+      top: 20 * @rpx;
+      right: 20 * @rpx;
+      font-size: 36 * @rpx;
+      .ant-icon {
+        color: @popover-inner-color;
+      }
+    }
+  }
+
+  &-image {
+    padding-right: 24 * @rpx;
+    border-radius: 16 * @rpx;
+  }
+  &-action {
+    background: @popover-bg;
+    font-weight: 400;
+    font-size: 24 * @rpx;
+    color: @popover-text-color;
+    padding: 10 * @rpx 20 * @rpx;
+    line-height: 33 * @rpx;
+    border-radius: 50vh;
+    margin-left: 24 * @rpx;
+  }
+
   &-mask {
     z-index: 998;
     background: none;
@@ -22,13 +52,34 @@
   }
   &-inner {
     position: relative;
-    border-radius: 16 * @rpx;
+    border-radius: 24 * @rpx;
     overflow: hidden;
-    font-size: 30 * @rpx;
-    background-color: @COLOR_BACKGROUND_POPOVER;
-    color: @COLOR_WHITE_DEFAULT;
-    padding: 16 * @rpx 24 * @rpx;
+    font-size: 28 * @rpx;
+    background-color: @popover-inner-bg;
+    color: @popover-inner-color;
+    padding: 20 * @rpx;
     width: max-content;
+    .ant-icon {
+      color: @popover-inner-color;
+    }
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &-text {
+      word-break: break-all;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2; /* 这里是超出几行省略 */
+      overflow: hidden;
+      max-width: 420 * @rpx;
+      line-height: 40 * @rpx;
+    }
+    .ant-popover-image-content-image {
+      width: 80 * @rpx;
+      height: 80 * @rpx;
+    }
   }
   &-arrow {
     position: absolute;
@@ -36,7 +87,7 @@
     height: 0;
     border-left: 18 * @rpx solid transparent;
     border-right: 18 * @rpx solid transparent;
-    border-bottom: 18 * @rpx solid @COLOR_BACKGROUND_POPOVER;
+    border-bottom: 18 * @rpx solid @popover-inner-bg;
   }
 
   &-top {

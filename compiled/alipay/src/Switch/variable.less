@@ -1,7 +1,8 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 // 激活时颜色
-@switch-fill: @COLOR_BRAND1;
+@switch-fill: var(--switch-fill, @COLOR_BRAND1);
 // 开关宽度
 @switch-width: 102 * @rpx;
 // 开关高度
@@ -22,3 +23,13 @@
 @switch-height-x-small: 32 * @rpx;
 // 开关边框
 @switch-border-x-small: 2 * @rpx;
+
+@switch-border-color: var(--switch-border-color, @COLOR_BORDER);
+@switch-loading-color: var(--switch-loading-color, @COLOR_BRAND1);
+@switch-handle-bg: var(--switch-handle-bg, @COLOR_WHITE);
+@switch-handle-shadow: 0 0 2px 0
+    var(--color-black-fade-20, @COLOR_BLACK_FADED_20),
+  0 2px 11.5px 0 var(--color-black-fade-8, @COLOR_BLACK_FADED_8),
+  -1px 2px 2px 0 var(--color-black-fade-10, @COLOR_BLACK_FADED_10);
+
+@switch-inner-color: var(--switch-inner-color, @COLOR_TEXT_ASSIST);

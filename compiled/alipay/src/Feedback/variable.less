@@ -1,0 +1,27 @@
+@import (reference) '../style/variables.less';
+@import (reference) '../style/themes/index.less';
+
+// 字体颜色
+@feedback-text-color: var(--feedback-text-color, @COLOR_TEXT_PRIMARY);
+
+// 背景颜色
+@feedback-background-color: var(
+  --feedback-background-color,
+  rgba(216, 216, 216, 0.42)
+);
+// mask颜色
+@feedback-mask-color: var(--feedback-mask-color, rgba(0, 0, 0, 0.25));
+
+// content颜色
+@feedback-content-background-color: var(
+  --feedback-content-background-color,
+  @COLOR_CARD_DEFAULT
+);
+
+// list背景色
+@feedback-list-background-color: var(
+  --feedback-list-background-color,
+  @COLOR_BACKGROUND_DEFAULT
+);
+// list字体颜色
+@feedback-list-text-color: var(--feedback-list-text-color @COLOR_TEXT_PRIMARY);

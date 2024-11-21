@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Divider",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-divider": "../../../src/Divider/index",
     "ant-container": "../../../src/Container/index"

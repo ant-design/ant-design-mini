@@ -1,0 +1,91 @@
+@import (reference) './variable.less';
+@import (reference) '../style/mixins/hairline.less';
+
+@prefixCls: ant-number-input;
+
+.@{prefixCls} {
+  background: @number-input-background-color;
+  padding: @v-spacing-standard;
+  border-radius: @corner-radius-lg;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: @v-spacing-standard;
+  }
+
+  &-title {
+    font-size: @font-size-subtitle;
+    color: @number-input-title-color;
+  }
+
+  &-link {
+    font-size: @font-size-subtitle;
+    color: @number-input-link-color;
+  }
+
+  &-unit {
+    height: 28rpx;
+    margin-top: 30rpx;
+    margin-left: 50rpx;
+    &-text {
+      position: relative;
+      font-size: @sizeFont5;
+      color: @number-input-unit-color;
+      text-align: left;
+      line-height: 28rpx;
+      text-indent: 0.5em;
+      .hairline('left', @number-input-border-color);
+    }
+  }
+
+  &-content {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    margin-bottom: @v-spacing-standard;
+    .hairline('bottom', @number-input-border-color);
+  }
+
+  &-prefix {
+    font-size: @sizeFont12;
+    color: @number-input-prefix-color;
+    margin-right: @h-spacing-standard;
+  }
+
+  &-field {
+    flex: 1;
+    .ant-input-content {
+      height: 125rpx;
+      font-size: @sizeFont14;
+      line-height: 74rpx;
+      caret-color: @number-input-caret-color;
+    }
+  }
+
+  &-placeholder {
+    font-size: @sizeFont5;
+  }
+
+  &-quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: @h-spacing-standard;
+    margin-bottom: @v-spacing-standard;
+
+    &-item {
+      font-size: @sizeFont5;
+      line-height: @default-line-height;
+      color: @number-input-quick-text-color;
+      padding: @size-1 @size-3;
+      border: 1rpx solid @number-input-quick-border-color;
+      border-radius: @corner-radius-circle;
+
+      &:active {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+

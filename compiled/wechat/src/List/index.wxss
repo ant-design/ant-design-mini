@@ -1,21 +1,21 @@
 .ant-list-radius {
-  margin: 0 12px;
+  margin: 0 24rpx;
 }
 .ant-list-radius .ant-list-body {
-  border-radius: 8px;
+  border-radius: 24rpx;
 }
 .ant-list-radius .ant-list-header,
 .ant-list-radius .ant-list-footer {
-  padding: 8px 0;
+  padding: 16rpx 0;
 }
 .ant-list-header,
 .ant-list-footer {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 16rpx 24rpx;
   line-height: 1.4;
-  font-size: 15px;
-  color: #999999;
+  font-size: 30rpx;
+  color: var(--list-header-color, #999999);
 }
 .ant-list-header:empty,
 .ant-list-footer:empty {

@@ -5,12 +5,15 @@
 
   /// #if ALIPAY
   "defaultTitle": "Tabs",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
     "container": "../../../src/Container/index",
     "tabs": "../../../src/Tabs/index",
     "badge": "../../../src/Badge/index",
-    "icon": "../../../src/Icon/index"
+    "icon": "../../../src/Icon/index",
+    "ant-button": "../../../src/Button/index",
   }
 }

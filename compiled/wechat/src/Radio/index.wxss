@@ -1,8 +1,8 @@
 .ant-radio-item {
-  color: #333333;
-  margin-right: 8px;
-  height: 29.8px;
-  line-height: 29.8px;
+  color: var(--radio-text-color, #333333);
+  margin-right: 16rpx;
+  height: 59.6rpx;
+  line-height: 59.6rpx;
   display: inline-block;
 }
 .ant-radio-item-container {
@@ -10,14 +10,14 @@
   align-items: center;
 }
 .ant-radio-item-content {
-  padding-left: 5px;
+  padding-left: 10rpx;
   text-align: left;
 }
 .ant-radio-item-wrap {
   position: relative;
-  width: 22px;
-  height: 22px;
-  flex: 0 0 22px;
+  width: 44rpx;
+  height: 44rpx;
+  flex: 0 0 44rpx;
 }
 .ant-radio-item-base {
   position: absolute;
@@ -41,8 +41,8 @@
   align-items: center;
 }
 .ant-radio-item-fake-icon {
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
+  background-color: var(--radio-fake-icon-background-color, #ffffff);
+  border: 2rpx solid var(--radio-border-color, #cccccc);
   border-radius: 50vh;
   width: 100%;
   height: 100%;
@@ -50,7 +50,7 @@
 }
 .ant-radio-item-fake-checkedIcon {
   border-radius: 50vh;
-  background-color: #1677ff;
+  background-color: var(--radio-background-color, #1677ff);
   width: 100%;
   height: 100%;
   display: flex;
@@ -58,21 +58,21 @@
   justify-content: center;
 }
 .ant-radio-item-fake-checkedIcon-icon {
-  color: #ffffff;
-  font-size: 14px;
+  color: var(--radio-icon-color, #ffffff);
+  font-size: 28rpx;
 }
 .ant-radio-item-fake-disbaledIcon {
   box-sizing: border-box;
-  border: 1px solid #cccccc;
+  border: 2rpx solid var(--radio-border-color, #cccccc);
   border-radius: 50vh;
   width: 100%;
   height: 100%;
-  background-color: #f5f5f5;
+  background-color: var(--radio-disabled-background, #f5f5f5);
 }
 .ant-radio-item-fake-disabledCheckedIcon {
   box-sizing: border-box;
-  border: 1px solid #cccccc;
-  background-color: #f5f5f5;
+  border: 2rpx solid var(--radio-border-color, #cccccc);
+  background-color: var(--radio-disabled-background, #f5f5f5);
   border-radius: 50vh;
   width: 100%;
   height: 100%;
@@ -81,8 +81,8 @@
   justify-content: center;
 }
 .ant-radio-item-fake-disabledCheckedIcon-icon {
-  color: #cccccc;
-  font-size: 14px;
+  color: var(--radio-border-color, #cccccc);
+  font-size: 28rpx;
 }
 .ant-radio-item-disabled {
   opacity: 0.4;

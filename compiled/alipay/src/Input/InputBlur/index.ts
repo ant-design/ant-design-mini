@@ -1,6 +1,6 @@
+import mixinValue from '../../mixins/value';
 import { Component, triggerEvent } from '../../_util/simply';
 import { InputBlurDefaultProps } from './props';
-import mixinValue from '../../mixins/value';
 
 Component(
   InputBlurDefaultProps,

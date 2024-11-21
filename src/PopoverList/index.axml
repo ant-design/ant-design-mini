@@ -1,0 +1,46 @@
+<view
+  a:if="{{ list.length > 0 }}"
+  class="ant-popover-list {{ showMask && mixin.value ? 'ant-popover-list-children' : '' }} {{ className ? className : '' }}"
+  style="{{ style || '' }}">
+  <view
+    id="ant-popover-list-children{{ $id ? '-' + $id : '' }}"
+    onTap="onVisibleChange">
+    <!-- #if ALIPAY -->
+    <slot />
+    <!-- #endif -->
+    <!-- #if WECHAT -->
+    <view id="ant-popover-list-children-container">
+      <slot />
+    </view>
+    <!-- #endif -->
+  </view>
+  <view
+    a:if="{{ !destroyOnClose || mixin.value }}"
+    hidden="{{ !mixin.value }}"
+    id="ant-popover-list-content{{ $id ? '-' + $id : '' }}"
+    class="ant-popover-list-content ant-popover-list-{{ adjustedPlacement }} ant-popover-list-content"
+    style="{{ popoverContentStyle }}; {{ adjustedPlacement ? '' : 'opacity: 0' }}">
+    <view
+      class="ant-popover-list-content-arrow ant-popover-list-{{ adjustedPlacement }}-arrow" />
+    <view
+      a:for="{{ list }}"
+      onTap="onTapItem"
+      data-item="{{ item }}"
+      class="ant-popover-list-item ant-popover-list-item-{{ index }} {{ contentClassName || '' }}">
+      <view a:if="{{ item.iconImage || item.icon }}" class="ant-popover-list-item-left">
+        <image a:if="{{ item.iconImage }}" class="ant-popover-list-item-image" mode="scaleToFill" src="{{ item.iconImage }}" />
+        <ant-icon a:elif="{{ item.icon }}" type="{{ item.icon }}"></ant-icon>
+      </view>
+      <view class="ant-popover-list-item-text">
+        {{ item.text }}
+        <view a:if="{{ item.showBadge }}" class="ant-popover-list-item-text-badge" />
+      </view>
+    </view>
+  </view>
+</view>
+<ant-mask
+  show="{{ showMask && mixin.value }}"
+  id="ant-popover-list-mask{{ $id ? '-' + $id : '' }}"
+  className="ant-popover-list-mask {{ maskClassName || '' }}"
+  style="{{ maskStyle }}"
+  onMaskTap="onVisibleChange" />

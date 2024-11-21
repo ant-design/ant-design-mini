@@ -1,20 +1,29 @@
+import { effect } from '@preact/signals-core';
+import equal from 'fast-deep-equal';
+import mixinValue from '../mixins/value';
 import {
-  Component,
+  ComponentWithSignalStoreImpl,
+  getValueFromProps,
   triggerEvent,
   triggerEventOnly,
   triggerEventValues,
-  getValueFromProps,
 } from '../_util/simply';
-import equal from 'fast-deep-equal';
+import i18nController from '../_util/store';
 import { PickerDefaultProps } from './props';
 import {
-  getMatchedItemByValue,
   getMatchedItemByIndex,
+  getMatchedItemByValue,
   getStrictMatchedItemByValue,
 } from './utils';
-import mixinValue from '../mixins/value';
 
-Component(
+ComponentWithSignalStoreImpl(
+  {
+    store: () => i18nController,
+    updateHook: effect,
+    mapState: {
+      locale: ({ store }) => store.currentLocale.value,
+    },
+  },
   PickerDefaultProps,
   {
     // visible受控判断
@@ -197,6 +206,10 @@ Component(
     columns: [],
     visible: false,
     selectedIndex: [],
+    locale: {
+      locale: '23123',
+      global: {},
+    },
   },
   [
     mixinValue({

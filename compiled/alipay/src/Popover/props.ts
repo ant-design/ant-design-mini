@@ -48,6 +48,10 @@ export interface IPopoverProps extends IBaseProps {
    */
   onVisibleChange?: (visible: boolean, e: Record<string, any>) => void;
   /**
+   * @description 点击行动点
+   */
+  onTapAction?: () => void;
+  /**
    * @description 气泡框位置
    */
   placement:
@@ -74,13 +78,31 @@ export interface IPopoverProps extends IBaseProps {
    * @default true
    */
   autoAdjustOverflow: boolean;
+  /**
+   * @description 是否关闭的icon
+   * @default false
+   */
+  showCloseIcon: boolean;
+  /**
+   * @description 气泡左侧的图片链接
+   * @default ''
+   */
+  imageUrl: string;
+  /**
+   * @description 右侧操作按钮文案
+   * @default ''
+   */
+  actionText: string;
 }
 
 export const PopoverDefaultProps: Partial<IPopoverProps> = {
   visible: null,
+  imageUrl: '',
   defaultVisible: false,
   destroyOnClose: false,
+  showCloseIcon: false,
   contentClassName: '',
+  actionText: '',
   color: '',
   contentStyle: '',
   showMask: true,
@@ -90,4 +112,5 @@ export const PopoverDefaultProps: Partial<IPopoverProps> = {
   maskStyle: '',
   content: '',
   onVisibleChange() {},
+  onTapAction() {},
 };

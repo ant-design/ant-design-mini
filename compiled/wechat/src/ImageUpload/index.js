@@ -54,22 +54,30 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { UploaderDefaultProps } from './props';
-import { chooseImage } from '../_util/jsapi/choose-image';
+import { effect } from '@preact/signals-core';
 import createValue from '../mixins/value';
-Component(UploaderDefaultProps, {
+import { chooseImage } from '../_util/jsapi/choose-image';
+import { ComponentWithSignalStoreImpl, getValueFromProps, triggerEvent, } from '../_util/simply';
+import i18nController from '../_util/store';
+import { UploaderDefaultProps } from './props';
+ComponentWithSignalStoreImpl({
+    store: function () { return i18nController; },
+    updateHook: effect,
+    mapState: {
+        locale: function (_a) {
+            var store = _a.store;
+            return store.currentLocale.value;
+        },
+    },
+}, UploaderDefaultProps, {
     chooseImage: function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, onBeforeUpload, onUpload, fileList, _b, maxCount, sourceType, localFileList, chooseImageRes, err_1, beforeUploadRes, err_2, tasks;
+            var _a, onBeforeUpload, onUpload, onChooseImageError, fileList, _b, maxCount, sourceType, localFileList, chooseImageRes, err_1, beforeUploadRes, err_2, tasks;
             var _this = this;
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
-                        _a = getValueFromProps(this, [
-                            'onBeforeUpload',
-                            'onUpload',
-                        ]), onBeforeUpload = _a[0], onUpload = _a[1];
+                        _a = getValueFromProps(this, ['onBeforeUpload', 'onUpload', 'onChooseImageError']), onBeforeUpload = _a[0], onUpload = _a[1], onChooseImageError = _a[2];
                         if (!onUpload) {
                             throw new Error('need props onUpload');
                         }
@@ -111,7 +119,7 @@ Component(UploaderDefaultProps, {
                         return [3 /*break*/, 4];
                     case 3:
                         err_1 = _c.sent();
-                        triggerEvent(this, 'chooseImageError', err_1);
+                        onChooseImageError(err_1);
                         return [2 /*return*/];
                     case 4:
                         if (!onBeforeUpload) return [3 /*break*/, 8];

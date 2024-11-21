@@ -5,11 +5,11 @@
 .ant-badge-content {
   position: absolute;
   display: flex;
-  height: 14px;
+  height: 28rpx;
   align-self: center;
   align-items: center;
-  font-size: 9px;
-  padding: 2px 4px;
+  font-size: 18rpx;
+  padding: 4rpx 8rpx;
   box-sizing: border-box;
   word-break: keep-all;
   justify-content: center;
@@ -18,36 +18,36 @@
   transform: translate(-50%, -50%);
 }
 .ant-badge-content-stroke {
-  border: 1px solid #ffffff;
+  border: 2rpx solid var(--badge-text-color, #ffffff);
 }
 .ant-badge-content-text {
-  padding-left: 2px;
+  padding-left: 4rpx;
 }
 .ant-badge-content-text:empty {
   display: none;
 }
 .ant-badge-content .ant-icon {
-  font-size: 9px;
-  color: #ffffff;
+  font-size: 18rpx;
+  color: var(--badge-text-color, #ffffff);
 }
 .ant-badge-content-not-dot {
-  min-width: 14px;
-  height: 14px;
-  border-radius: 14px;
+  min-width: 28rpx;
+  height: 28rpx;
+  border-radius: 28rpx;
   display: flex;
-  background-color: #ff3141;
+  background-color: var(--badge-background-color, #ff3141);
 }
 .ant-badge-dot {
-  width: 10px;
-  height: 10px;
+  width: 20rpx;
+  height: 20rpx;
   border-radius: 50%;
-  background-color: #ff3141;
+  background-color: var(--badge-background-color, #ff3141);
 }
 .ant-badge-dot-stroke {
-  border: 1px solid #ffffff;
+  border: 2rpx solid var(--badge-text-color, #ffffff);
 }
 .ant-badge-number,
 .ant-badge-text,
 .ant-badge-bubble {
-  color: #ffffff;
+  color: var(--badge-text-color, #ffffff);
 }

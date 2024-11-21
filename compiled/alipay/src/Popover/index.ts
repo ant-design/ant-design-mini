@@ -1,8 +1,13 @@
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { PopoverDefaultProps } from './props';
 import mixinValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
+import {
+  Component,
+  getValueFromProps,
+  triggerEvent,
+  triggerEventOnly,
+} from '../_util/simply';
+import { PopoverDefaultProps } from './props';
 import { getPopoverStyle } from './utils';
 
 Component(
@@ -70,6 +75,10 @@ Component(
         this.update(value);
       }
       triggerEvent(this, 'visibleChange', value, e);
+    },
+    onTapAction() {
+      this.onVisibleChange();
+      triggerEventOnly(this, 'tapAction');
     },
   },
   {

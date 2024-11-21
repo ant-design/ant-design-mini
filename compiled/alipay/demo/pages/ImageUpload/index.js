@@ -27,6 +27,20 @@ Page({
                 status: 'done',
             },
         ],
+        fileList: [
+            {
+                url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*znK_ToIL8rQAAAAAAAAAAAAAARQnAQ',
+                status: 'done',
+            },
+            {
+                url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*kStORbDQxwMAAAAAAAAAAAAAARQnAQ',
+                status: 'pending',
+            },
+            {
+                url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*K4Z-RLHuliYAAAAAAAAAAAAAARQnAQ',
+                status: 'error',
+            },
+        ],
     },
     onChange(fileList) {
         // 这里的数据包括上传失败和成功的图片列表，如果需要筛选出上传成功的图片需要在此处理
@@ -49,5 +63,17 @@ Page({
         localFileList = localFileList.filter((item) => item.size < 10000);
         console.log('修改上传的图片列表为：', localFileList);
         return localFileList;
+    },
+    handleControlledChange(fileList) {
+        this.setData({
+            fileList,
+        });
+    },
+    handleUploaderRef(ref) {
+        console.log('handleUploaderRef', ref);
+        this.handleUploaderRef = ref;
+    },
+    upload() {
+        this.handleUploaderRef.chooseImage();
     },
 });

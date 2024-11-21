@@ -5,9 +5,14 @@
 
   /// #if ALIPAY
   "defaultTitle": "Collapse",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
-    "ant-collapse": "../../../src/Collapse/index"
+    "ant-collapse": "../../../src/Collapse/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-button": "../../../src/Button/index",
+    "ant-checkbox": "../../../src/Checkbox/index"
   }
 }

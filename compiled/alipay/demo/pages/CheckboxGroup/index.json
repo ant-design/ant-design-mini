@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "CheckboxGroup",
-  "usingComponents": {
-    "ant-checkbox-group": "../../../src/Checkbox/CheckboxGroup/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

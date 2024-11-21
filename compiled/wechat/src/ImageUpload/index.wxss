@@ -1,23 +1,23 @@
 .ant-image-upload {
   display: flex;
   flex-wrap: wrap;
-  background: #ffffff;
+  background: var(--image-upload-background-color, #ffffff);
 }
 .ant-image-upload-show {
   position: relative;
 }
 .ant-image-upload-image {
-  width: 80px;
-  height: 80px;
-  margin: 2px 4px;
-  border-radius: 4px;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 4rpx 8rpx;
+  border-radius: 8rpx;
 }
 .ant-image-upload-close {
-  width: 20px;
-  height: 20px;
+  width: 40rpx;
+  height: 40rpx;
   position: absolute;
   z-index: 99;
-  top: -2px;
+  top: -4rpx;
   right: 0;
   background: url('https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*_Az1QavR4OsAAAAAAAAAAAAAARQnAQ') no-repeat;
   background-size: cover;
@@ -26,22 +26,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
-  margin: 2px 4px 6px;
-  background-color: #f5f5f5;
-  border-radius: 4px;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 4rpx 8rpx 12rpx;
+  background-color: var(--image-upload-wrapper-background, #f5f5f5);
+  border-radius: 8rpx;
 }
 .ant-image-upload-add-image-icon {
   color: #999999;
 }
 .ant-image-upload-cover {
   position: absolute;
-  width: 80px;
-  height: 80px;
-  margin: 2px 4px;
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.4);
+  width: 160rpx;
+  height: 160rpx;
+  margin: 4rpx 8rpx;
+  border-radius: 8rpx;
+  background-color: var(--image-upload-cover-background, rgba(0, 0, 0, 0.4));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,23 +50,23 @@
   text-align: center;
 }
 .ant-image-upload-cover-loading-icon {
-  width: 24px;
-  height: 24px;
+  width: 48rpx;
+  height: 48rpx;
 }
 .ant-image-upload-cover-loading-text {
-  color: #ffffff;
-  font-size: 12px;
-  margin-top: 4px;
+  color: var(--image-upload-text-color, #ffffff);
+  font-size: 24rpx;
+  margin-top: 8rpx;
 }
 .ant-image-upload-cover-error {
   text-align: center;
 }
 .ant-image-upload-cover-error-icon {
   font-size: 48rpx;
-  color: #ffffff;
+  color: var(--image-upload-text-color, #ffffff);
 }
 .ant-image-upload-cover-error-text {
-  color: #ffffff;
+  color: var(--image-upload-text-color, #ffffff);
   font-size: 24rpx;
   margin-top: 8rpx;
 }

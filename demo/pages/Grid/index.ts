@@ -117,10 +117,13 @@ Page({
         icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*I27zQbOu8ScAAAAAAAAAAAAAARQnAQ',
       },
     ],
+    items5More: [],
   },
   onLoad() {
+    const { items5 } = this.data;
     this.setData({
       scrollItems: this.data.items4.concat(this.data.items4),
+      items5More: [...items5, ...items5],
     });
   },
   handleTapItem(item) {

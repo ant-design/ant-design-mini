@@ -1,27 +1,71 @@
 .ant-empty {
   text-align: center;
-  margin-top: 20px;
+}
+.ant-empty-normal .ant-empty-image-element {
+  width: 510rpx;
+  height: 282rpx;
+}
+.ant-empty-normal .ant-empty-text-main {
+  color: var(--empty-text-color, #333333);
+  font-size: 36rpx;
+  margin-top: 24rpx;
+}
+.ant-empty-normal .ant-empty-text-sub {
+  margin-top: 12rpx;
+  color: var(--empty-asisst-text-color, #999999);
+}
+.ant-empty-normal .ant-empty-button {
+  padding-top: 80rpx;
+}
+.ant-empty-small .ant-empty-image-element {
+  width: 416rpx;
+  height: 230rpx;
+}
+.ant-empty-small .ant-empty-text-main {
+  color: var(--empty-asisst-text-color, #999999);
+  font-size: 32rpx;
+  margin-top: 24rpx;
+}
+.ant-empty-small .ant-empty-text-sub {
+  color: #cccccc;
+  margin-top: 8rpx;
+}
+.ant-empty-small .ant-empty-button {
+  padding-top: 32rpx;
 }
 .ant-empty-image {
   display: flex;
   justify-content: center;
 }
-.ant-empty-image-element {
-  width: 100px;
-  height: 85px;
-}
 .ant-empty-text {
-  margin-top: 12px;
+  margin-top: 24rpx;
+  line-height: 50rpx;
 }
 .ant-empty-text-main {
   color: #333333;
-  font-size: 20px;
+  font-size: 36rpx;
 }
 .ant-empty-text-sub {
-  color: #999999;
-  font-size: 13px;
-  margin-top: 8px;
+  font-size: 24rpx;
+  margin-top: 32rpx;
+  line-height: 37rpx;
+}
+.ant-empty-button-layout-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24rpx;
+}
+.ant-empty-button-layout-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32rpx;
+}
+.ant-empty-button-layout-vertical .ant-button {
+  min-width: 368rpx;
 }
 .ant-empty-extra {
-  padding-top: 20px;
+  padding-top: 32rpx;
 }

@@ -39,7 +39,10 @@ export interface IPageProps extends IBaseProps {
    * @description 页面异常状态-标题
    */
   title?: string;
-
+  /**
+   * @description 页面异常状态-图片
+   */
+  image?: string;
   /**
    * @description 页面异常状态-描述
    */
@@ -67,32 +70,45 @@ export interface IPageProps extends IBaseProps {
 }
 
 export const PageDefaultProps: IPageProps = {
+  loading: false,
   safeArea: 'both',
   loadingColor: '#ccc',
   loadingSize: 'medium',
   loadingType: 'spin',
+  status: null,
+  title: '',
+  image: '',
+  message: '',
+  actionText: '',
+  secondaryActionText: '',
+  onActionTap: null,
+  onSecondaryActionTap: null,
 };
 
 // 内置异常配置
 export const BuiltinStatus = {
-  'failed': {
-    image: 'https://gw.alipayobjects.com/mdn/rms_7cc883/afts/img/A*PG7NQoXbN38AAAAAAAAAAAAAARQnAQ',
-    title: '页面遇到一些小问题',
-    message: '待会来试试'
+  failed: {
+    image:
+      'https://gw.alipayobjects.com/mdn/rms_7cc883/afts/img/A*PG7NQoXbN38AAAAAAAAAAAAAARQnAQ',
+    title: '',
+    message: '',
   },
-  'disconnected': {
-    image: 'https://mdn.alipayobjects.com/huamei_yqdpol/afts/img/A*uqB5TY4urA4AAAAAAAAAAAAADj16AQ/original',
-    title: '网络有点忙',
-    message: '动动手指帮忙修复'
+  disconnected: {
+    image:
+      'https://mdn.alipayobjects.com/huamei_yqdpol/afts/img/A*uqB5TY4urA4AAAAAAAAAAAAADj16AQ/original',
+    title: '',
+    message: '',
   },
-  'empty': {
-    title: '这里什么也没有',
-    message: '看看其它吧',
-    image: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ'
+  empty: {
+    title: '',
+    message: '',
+    image:
+      'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ',
   },
-  'busy': {
-    image: 'https://mdn.alipayobjects.com/huamei_yqdpol/afts/img/A*avTGQIyeHk0AAAAAAAAAAAAADj16AQ/original',
-    title: '前方拥堵',
-    message: '刷新试试'
-  }
+  busy: {
+    image:
+      'https://mdn.alipayobjects.com/huamei_yqdpol/afts/img/A*avTGQIyeHk0AAAAAAAAAAAAADj16AQ/original',
+    title: '',
+    message: '',
+  },
 };

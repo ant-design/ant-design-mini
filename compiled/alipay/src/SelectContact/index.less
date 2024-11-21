@@ -1,0 +1,201 @@
+@import (reference) './variable.less';
+
+.ant-select-contact-component {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  .search-line {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+  }
+  .search-bar {
+    padding: 4px 0 4px 0;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.4s;
+    flex: 1;
+
+    &-focus {
+      border-color: @select-contact-search-bar-focus-color;
+    }
+  }
+
+  .cancel {
+    color:@select-contact-search-cancel-color;
+    margin-left: 8px;
+  }
+
+  // 取消搜索框右侧空白
+  .hidden-cancel-button {
+    .am-search-cancel {
+      display: none;
+    }
+  }
+
+  // 取消搜索框左边距
+  .am-search {
+    padding: 0;
+  }
+
+  .scc-blank {
+    height: 24rpx;
+    min-height: 24rpx;
+  }
+
+  .scc-contact-wrap {
+    flex: 1;
+    overflow: hidden;
+
+    .contact-loading {
+      height: 100%;
+      background: @select-wrap-contact-loading-bg;
+      border-radius: 12rpx;
+      padding: 24rpx;
+      box-sizing: border-box;
+    }
+
+    .contact-scroll {
+      position: relative;
+      height: 100%;
+      background-color: @select-contact-scroll-bg;
+      border-radius: 24rpx;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .contact-recommend {
+      width: 100%;
+      height: 138rpx;
+    }
+
+    .contact-list {
+      padding: 0 24rpx 24rpx;
+      background: @select-contact-list-bg;
+      border-radius: 12rpx;
+
+      .title {
+        font-size: 28rpx;
+        line-height: 48rpx;
+        color: @select-contact-title-color;
+        background: @select-contact-title-bg;
+
+        &__ios {
+          position: -webkit-sticky;
+          position: sticky;
+          top: -1rpx;
+          z-index: 2;
+        }
+      }
+
+      .title.first-level {
+        font-size: 30rpx;
+        line-height: 80rpx;
+        color: @select-contact-title-first-color;
+        border-bottom: 2rpx solid @select-contact-title-first-border;
+      }
+
+      .tag {
+        padding: 0 8rpx;
+        margin-left: 8rpx;
+        font-size: 20rpx;
+        color: @select-contact-tag-color;
+        border: 0.5px solid @select-contact-tag-border;
+        border-radius: 6rpx;
+      }
+
+      .am-list-prefix {
+        padding-left: 0;
+      }
+      .am-list-line {
+        padding-right: 0;
+      }
+      .am-auto-sizer-content {
+        border-radius: 8rpx;
+      }
+    }
+
+    // 将字母表的位置设为聚合居中
+    .alphabet-container {
+      transform: translate(0, calc(-50% + 48rpx));
+    }
+  }
+
+  .scc-search-wrap {
+    overflow: hidden;
+    border-radius: 24rpx;
+    flex: 1;
+
+    .normal {
+      height: 100%;
+
+      .tag {
+        padding: 0 8rpx;
+        margin-left: 8rpx;
+        font-size: 20rpx;
+        color: @select-contact-tag-color;
+        border: 0.5px solid @select-contact-tag-border;
+        border-radius: 6rpx;
+      }
+
+      .am-list-item:nth-of-type(1) {
+        border-top-left-radius: 24rpx;
+        border-top-right-radius: 24rpx;
+      }
+      .am-list-item:nth-last-of-type(1) {
+        border-bottom-left-radius: 24rpx;
+        border-bottom-right-radius: 24rpx;
+      }
+    }
+
+    .empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: @select-contact-empty-bg;
+      border-radius: 24rpx;
+
+      &-img {
+        width: 200rpx;
+        height: 200rpx;
+        margin-top: 80rpx;
+        background: url(https://gw.alipayobjects.com/mdn/rms_a07f19/afts/img/A*ZN9XRokU8BIAAAAAAAAAAAAAARQnAQ)
+          no-repeat;
+      }
+
+      &-text {
+        margin: 24rpx 0 90rpx;
+        font-size: 30rpx;
+        color: @select-contact-empty-color;
+      }
+    }
+
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-text {
+        font-size: 28rpx;
+        color: @select-contact-loading-color;
+      }
+    }
+
+    .display-name {
+      display: inline-block;
+
+      &__light {
+        color: @select-contact-display-light-color;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}

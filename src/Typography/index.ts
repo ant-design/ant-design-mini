@@ -1,8 +1,8 @@
 import {
   Component,
-  triggerEventOnly,
-  triggerCatchEvent,
   getValueFromProps,
+  triggerCatchEvent,
+  triggerEventOnly,
 } from '../_util/simply';
 import { TypographyDefaultProps } from './props';
 
@@ -29,11 +29,28 @@ Component(
   { phonemodel: '' },
   null,
   {
+    /// #if ALIPAY
     onInit() {
       const { platform } = my.env;
       this.setData({
         phonemodel: platform,
       });
     },
+    /// #endif
+    /// #if WECHAT
+    attached() {
+      // @ts-ignore
+      const { platform } = wx.getDeviceInfo();
+      let p = '';
+      if (platform === 'android') {
+        p = 'Android';
+      } else {
+        p = 'iOS';
+      }
+      this.setData({
+        phonemodel: p,
+      });
+    },
+    /// #endif
   }
 );

@@ -1,4 +1,4 @@
-@import (reference) '../../style/themes/index.less';
+@import (reference) '../variable.less';
 @import '../../style/mixins/hairline.less';
 
 @pickerPrefix: ant-range-picker;
@@ -26,12 +26,12 @@
       justify-content: space-between;
       align-items: center;
       box-shadow: inset 0 1 * @rpx 6 * @rpx 0 fade(@COLOR_BLACK_CHANGE, 10);
-      color: @COLOR_TEXT_PRIMARY;
+      color: @range-picker-item-color;
       &-active {
-        .hairline-radius( @COLOR_BRAND1,16*@rpx);
-        color: @COLOR_BRAND1;
+        .hairline-radius(@range-picker-active-color,16*@rpx);
+        color: @range-picker-active-color;
         .@{pickerPrefix}-selector-item-icon {
-          color: @COLOR_BRAND1;
+          color: @range-picker-active-color;
         }
       }
       &-value {
@@ -39,15 +39,15 @@
       }
       &-placeholder {
         font-size: 28 * @rpx;
-        color: @COLOR_TEXT_WEAK;
+        color: @range-picker-placeholder-color;
       }
       &-icon {
-        color: @COLOR_TEXT_WEAK;
+        color: @range-picker-placeholder-color;
         font-size: 32 * @rpx;
       }
     }
     &-split {
-      color: @COLOR_TEXT_WEAK;
+      color: @range-picker-placeholder-color;
     }
   }
 }

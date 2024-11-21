@@ -1,4 +1,4 @@
-@import '../style/themes/index.less';
+@import (reference) './variable.less';
 
 @keyframes text-animate-right {
   33% {
@@ -69,7 +69,7 @@
         }
         &-right {
           height: 100%;
-          color: @COLOR_WHITE;
+          color: @swipe-action-color;
           &-text {
             height: 100%;
             display: flex;
@@ -86,7 +86,7 @@
           position: absolute;
           right: 0;
           top: 0;
-          color: @COLOR_WHITE;
+          color: @swipe-action-color;
           display: flex;
           flex-direction: row;
           justify-content: flex-end;

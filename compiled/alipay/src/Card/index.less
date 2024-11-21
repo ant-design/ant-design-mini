@@ -1,0 +1,63 @@
+@import (reference) './variable.less';
+
+@cardPrefix: ant-card;
+
+.@{cardPrefix} {
+  border-radius: 24 * @rpx;
+  background-color: @ant-card-bg;
+
+  &-header {
+    display: flex;
+    padding: 24 * @rpx;
+    justify-content: space-between;
+    &-title {
+      color: @ant-card-header-title-color;
+      line-height: 45 * @rpx;
+      font-size: 32 * @rpx;
+    }
+    &-right {
+      &-link {
+        display: flex;
+        align-items: center;
+        font-size: 28 * @rpx;
+        color: @ant-card-link-color;
+      }
+    }
+
+    &:empty {
+      margin-bottom: 0;
+    }
+
+    &-fold {
+      &-btn {
+        font-size: 26 * @rpx;
+        color: @ant-card-fold-btn-color;
+      }
+      &-icon {
+        font-size: 26 * @rpx;
+        margin-left: 8 * @rpx;
+        color: @ant-card-fold-btn-color;
+      }
+    }
+  }
+
+  .ant-card-divider {
+    margin: 0 24 * @rpx;
+    height: 1px;
+    &-with-line {
+    }
+  }
+
+  .ant-card-content {
+    padding: 24 * @rpx;
+    transition: all 0.2s ease-in-out;
+    will-change: max-height;
+
+    &-collapse {
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      overflow: hidden;
+    }
+  }
+}

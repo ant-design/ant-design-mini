@@ -2,53 +2,57 @@
   position: relative;
   display: inline-flex;
   flex-wrap: nowrap;
-  height: 28px;
+  height: 44rpx;
+  border-radius: 50vh;
+  border: 2rpx solid var(--stepper-border-color, #e5e5e5);
   overflow: hidden;
   box-sizing: border-box;
 }
 .ant-stepper .ant-stepper-button {
-  width: 28px;
-  height: 28px;
-  line-height: 28px;
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
   padding: 0;
   color: #1677ff;
-  background-color: #f5f5f5;
+  background-color: var(--stepper-background-color, #ffffff);
+}
+.ant-stepper .ant-stepper-button .ant-icon {
+  font-size: 24rpx;
 }
 .ant-stepper .ant-stepper-button-hover {
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: var(--stepper-hover-bg, rgba(0, 0, 0, 0.08));
 }
 .ant-stepper .ant-stepper-button-up {
   border-top-left-radius: 0;
-  border-top-right-radius: 2px;
+  border-top-right-radius: 4rpx;
   border-bottom-left-radius: 0;
-  border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 4rpx;
 }
 .ant-stepper .ant-stepper-button-down {
   border-top-right-radius: 0;
-  border-top-left-radius: 2px;
+  border-top-left-radius: 4rpx;
   border-bottom-right-radius: 0;
-  border-bottom-left-radius: 2px;
+  border-bottom-left-radius: 4rpx;
 }
 .ant-stepper .ant-stepper-button-disabled {
   color: #999999;
 }
 .ant-stepper-input {
-  width: 44px;
-  height: 28px;
-  margin-left: 2px;
-  margin-right: 2px;
+  width: 64rpx;
+  height: 44rpx;
+  margin: 0 2rpx;
   text-align: center;
   line-height: normal;
-  font-size: 15px;
-  color: #333333;
+  font-size: 30rpx;
+  color: var(--stepper-input-font-color, #333333);
   box-sizing: border-box;
-  background-color: #f5f5f5;
+  background-color: var(--stepper-background-color, #ffffff);
   caret-color: #1677ff;
 }
-.ant-stepper-input-disabled {
-  opacity: 0.4;
+.ant-stepper-input-wrap {
+  background-color: var(--stepper-border-color, #e5e5e5);
 }
 .ant-stepper-input-readonly {
-  line-height: 28px;
   padding: 0;
+  color: rgba(51, 51, 51, 0.4);
 }

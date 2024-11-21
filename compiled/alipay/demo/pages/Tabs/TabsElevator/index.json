@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Tabs",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+    "tabs": "../../../../src/Tabs/index",
+    "container": "../../../../src/Container/index"
+  }
+}

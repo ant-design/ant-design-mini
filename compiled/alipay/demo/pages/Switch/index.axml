@@ -1,20 +1,21 @@
+<view class="navigation-bar"></view>
 <view>
-  <container title="基础用法">
-    <switch></switch>
-  </container>
-  <container title="有默认值">
-    <switch
+  <ant-container title="基础用法">
+    <ant-switch></ant-switch>
+  </ant-container>
+  <ant-container title="有默认值">
+    <ant-switch
       defaultChecked="{{true}}"
       onChange="onChange"
-    ></switch>
-  </container>
-  <container title="文字和图标">
-    <switch
+    ></ant-switch>
+  </ant-container>
+  <ant-container title="文字和图标">
+    <ant-switch
       checkedText="开"
       uncheckedText="关"
       onChange="onChange"
-    ></switch>
-    <switch>
+    ></ant-switch>
+    <ant-switch>
       <ant-icon
         type="CheckOutline"
         slot="checkedText"
@@ -23,49 +24,49 @@
         type="CloseOutline"
         slot="uncheckedText"
       ></ant-icon>
-    </switch>
-  </container>
-  <container title="自定义颜色">
-    <switch
+    </ant-switch>
+  </ant-container>
+  <ant-container title="自定义颜色">
+    <ant-switch
       defaultChecked="{{true}}"
       color="#00b578"
-    ></switch>
-  </container>
-  <container title="禁用状态">
-    <switch
+    ></ant-switch>
+  </ant-container>
+  <ant-container title="禁用状态">
+    <ant-switch
       defaultChecked="{{true}}"
       disabled="{{true}}"
-    ></switch>
-    <switch disabled="{{true}}"></switch>
-  </container>
-  <container title="加载状态">
-    <switch loading></switch>
-  </container>
-  <container title="不同尺寸">
+    ></ant-switch>
+    <ant-switch disabled="{{true}}"></ant-switch>
+  </ant-container>
+  <ant-container title="加载状态">
+    <ant-switch loading></ant-switch>
+  </ant-container>
+  <ant-container title="不同尺寸">
     <view class="line">
       <view>medium：</view>
-      <switch size="medium"></switch>
+      <ant-switch size="medium"></ant-switch>
     </view>
     <view class="line">
       <view>small：</view>
-      <switch size="small"></switch>
+      <ant-switch size="small"></ant-switch>
     </view>
     <view class="line">
       <view>x-small：</view>
-      <switch size="x-small"></switch>
+      <ant-switch size="x-small"></ant-switch>
     </view>
-  </container>
-  <container title="受控模式">
-    <switch
+  </ant-container>
+  <ant-container title="受控模式">
+    <ant-switch
       checked="{{checked}}"
       onChange="handleChange"
       defaultChecked="{{true}}"
-    ></switch>
-    <button
+    ></ant-switch>
+    <ant-button
       style="margin-top: 10px"
       onTap="handleChangeByButton"
     >
       切换
-    </button>
-  </container>
+    </ant-button>
+  </ant-container>
 </view>

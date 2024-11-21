@@ -1,3 +1,7 @@
+<wxs
+  src="../../_util/isPropsEmpty.wxs"
+  module="u"
+></wxs>
 <form-item
   className="{{className}}"
   position="{{position}}"
@@ -16,7 +20,7 @@
     allowClear="{{allowClear}}"
     enableNative="{{enableNative}}"
     disabled="{{disabled}}"
-    placeholder="{{placeholder}}"
+    placeholder="{{u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder}}"
     placeholderClassName="{{placeholderClassName}}"
     placeholderStyle="{{placeholderStyle}}"
     maxLength="{{maxLength}}"

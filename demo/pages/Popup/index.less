@@ -1,3 +1,34 @@
 .list button {
   margin-bottom: 8px;
 }
+.customize-top-image-popup {
+  .ant-popup-content {
+    background: none;
+  }
+  .ant-popup-transform-bottom {
+    padding-bottom: 0;
+  }
+}
+.customize-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 140rpx 24rpx 0rpx 24rpx;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  &-image {
+    width: 666rpx;
+  }
+  &-image1 {
+    width: 702rpx;
+    margin-top: 100rpx;
+  }
+  &-text {
+    font-weight: 400;
+    font-size: 24rpx;
+    color: #999999;
+    text-align: center;
+    padding-top: 30rpx;
+  }
+}

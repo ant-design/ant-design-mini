@@ -19,7 +19,7 @@ export const wechatCustomMapping = {
     onFocus: 'bindfocus',
     onBlur: 'bindblur',
   },
-  'checkbox-group': {
+  'ant-checkbox-group': {
     onChange: 'bindchange',
   },
   'ant-button': {
@@ -39,6 +39,9 @@ export const wechatCustomMapping = {
   },
   'ant-popup': {
     onClose: 'bind:close',
+    onAfterShow: 'bind:aftershow',
+    onAfterClose: 'bind:afterclose',
+    onClickBack: 'bind:clickback',
   },
   'ant-picker': {
     onOk: 'bind:ok',
@@ -60,7 +63,7 @@ export const wechatCustomMapping = {
   'ant-guide-tour': {
     onCancel: 'bind:cancel',
   },
-  uploader: {
+  'ant-uploader': {
     onPreview: 'bind:preview',
   },
   'ant-range-picker': {
@@ -70,11 +73,15 @@ export const wechatCustomMapping = {
     onAction: 'bind:action',
     onClose: 'bind:close',
   },
+  'ant-toast': {
+    onClose: 'bind:close',
+  },
   'rare-words-keyboard': {
     onClose: 'bind:close',
     onError: 'bind:error',
   },
   'ant-rare-words-keyboard': {
+    onChange: 'bind:change',
     onClose: 'bind:close',
     onError: 'bind:error',
   },
@@ -83,6 +90,10 @@ export const wechatCustomMapping = {
     onSecondaryButtonTap: 'bind:secondarybuttontap',
     onCancelButtonTap: 'bind:cancelbuttontap',
     onClose: 'bind:close',
+  },
+  'ant-dialog': {
+    onClose: 'bind:close',
+    onButtonTap: 'bind:buttontap',
   },
   'number-keyboard': {
     onClose: 'bind:close',
@@ -101,5 +112,54 @@ export const wechatCustomMapping = {
     onSwipeEnd: 'bind:swipeend',
     onSwipeStart: 'bind:swipestart',
     onButtonTap: 'bind:buttontap',
+  },
+  'ant-popover': {
+    onVisibleChange: 'bind:visiblechange',
+    onTapAction: 'bind:tapaction',
+  },
+  'ant-popover-list': {
+    onVisibleChange: 'bind:visiblechange',
+    onTapItem: 'bind:tapitem',
+  },
+  'ant-feedback': {
+    onVisibleChange: 'bind:visiblechange',
+    onTapFeedItem: 'bind:tapfeeditem',
+  },
+  'ant-mask': {
+    onMaskTap: 'bind:masktap',
+  },
+  'ant-sticky': {
+    onStickyChange: 'bind:stickychange',
+    onGetHeaderHeight: 'bind:getheaderheight',
+  },
+  'ant-card': {
+    onOperateClick: 'bind:operateclick',
+    onFoldChange: 'bind:foldchange',
+    onTitleSticky: 'bind:titlesticky',
+  },
+  'ant-icon': {
+    catchTap: 'catch:tap',
+    onTap: 'bind:tap',
+  },
+  'ant-grid': {
+    onTap: 'bind:tap',
+    onFirstAppear: 'bind:firstappear',
+  },
+  'ant-countdown': {
+    onCountdownChange: 'bind:countdownchange',
+    onCountdownFinish: 'bind:countdownfinish',
+  },
+  'ant-voucher': {
+    onBtnTap: 'bind:btntap',
+    onVoucherTap: 'bind:vouchertap',
+  },
+  'ant-typography': {
+    onTap: 'bind:tap',
+    catchTap: 'catch:tap',
+    onDisabledTap: 'bind:disabledtap',
+  },
+  'ant-page-container': {
+    onActionTap: 'bind:actiontap',
+    onSecondaryActionTap: 'bind:secondaryactiontap',
   },
 };

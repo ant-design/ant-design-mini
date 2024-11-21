@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Countdown",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Countdown",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-countdown": "../../../src/Countdown/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

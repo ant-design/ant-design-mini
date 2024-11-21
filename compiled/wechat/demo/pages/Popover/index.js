@@ -24,4 +24,8 @@ Page({
             visible: !this.data.visible,
         });
     },
+    onTapAction() {
+        // @ts-ignore
+        wx.showToast({ title: '点击了行动点按钮' });
+    },
 });

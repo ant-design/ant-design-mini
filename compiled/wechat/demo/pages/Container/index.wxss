@@ -1,6 +1,5 @@
 page {
   padding: 12px;
-  color: #333333;
   box-sizing: border-box;
 }
 .content {
@@ -8,7 +7,7 @@ page {
   display: flex;
 }
 .content .box {
-  background-color: #eeeeee;
+  background-color: var(--color-grey-card);
   flex: 1;
   border-radius: 4px;
 }

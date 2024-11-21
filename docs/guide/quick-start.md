@@ -1,8 +1,9 @@
---- 
-toc: false
+---
+order: 1
+toc: true
 ---
 
-## 在支付宝小程序中使用
+# 在支付宝小程序中使用
 
 这里介绍如何在原生支付宝小程序中安装使用 Ant Design Mini 组件库。
 
@@ -35,7 +36,3 @@ $ npm i antd-mini --save
 ```xml
 <ant-button>我是一个按钮</ant-button>
 ```
-
-## 查看示例
-
-<code src='pages/Button/index'></code>

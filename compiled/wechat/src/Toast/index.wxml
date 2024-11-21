@@ -1,6 +1,6 @@
 <view
   wx:if="{{show}}"
-  class="ant-toast {{className || ''}} {{icon || image || type ? 'ant-toast-icon-wrapper' : ''}}"
+  class="ant-toast {{className || ''}} {{icon || image || type ? 'ant-toast-icon-wrapper' : 'ant-toast-text-' + textType + ''}}"
   style="{{style || ''}}"
 >
   <view
@@ -26,6 +26,11 @@
       type="CheckOutline"
       className="ant-toast-icon"
     ></am-icon>
+    <am-icon
+      wx:elif="{{type === 'alipay'}}"
+      type="AlipayCircleFill"
+      className="ant-toast-icon"
+    ></am-icon>
   </view>
   <am-icon
     wx:elif="{{icon}}"
@@ -43,10 +48,10 @@
     </view>
   </view>
 </view>
-<mask
+<ant-mask
   wx:if="{{show && showMask}}"
   className="ant-toast-mask"
   show="{{true}}"
   bind:masktap="handleClickMask"
   style="{{maskStyle}}"
-></mask>
+></ant-mask>

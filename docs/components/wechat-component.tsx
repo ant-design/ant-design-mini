@@ -1,13 +1,21 @@
 import React from 'react';
 import wechatConfig from '../../config/wechat.json';
 
-export default () => {
+const WechatComponent: React.FC = () => {
   return (
     <div>
       <ul>
         {wechatConfig.src
           .filter((o) => {
-            return !['_util', 'mixins', 'style', 'ImageIcon'].includes(o);
+            return ![
+              '_util',
+              'mixins',
+              'style',
+              'ImageIcon',
+              '_locale',
+              'Mask',
+              'Pagination',
+            ].includes(o);
           })
           .map((o) => {
             return (
@@ -20,3 +28,5 @@ export default () => {
     </div>
   );
 };
+
+export default WechatComponent;

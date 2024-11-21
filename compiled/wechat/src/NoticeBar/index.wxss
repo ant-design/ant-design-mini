@@ -1,46 +1,46 @@
 .ant-notice-bar {
   position: relative;
   display: flex;
-  height: 37.5px;
+  height: 75rpx;
   align-items: center;
   overflow: hidden;
-  padding: 8px 12px;
-  font-size: 15px;
-  color: #ff6010;
-  background-color: #fff9ed;
+  padding: 16rpx 24rpx;
+  font-size: 30rpx;
+  color: var(--notice-color, #ff6010);
+  background-color: var(--notice-background-color, #fff9ed);
   box-sizing: border-box;
 }
 .ant-notice-bar-error {
-  color: #ffffff;
-  background-color: #ff3141;
+  color: var(--notice-error-color, #ffffff);
+  background-color: var(--notice-error-background-color, #ff3141);
 }
 .ant-notice-bar-error-scroll-left,
 .ant-notice-bar-error-scroll-right {
-  background: #ff3141;
+  background: var(--notice-error-background-color, #ff3141);
 }
 .ant-notice-bar-primary {
-  color: #1677ff;
-  background-color: #d0e4ff;
+  color: var(--notice-primary-color, #1677ff);
+  background-color: var(--notice-primary-background-color, #d0e4ff);
 }
 .ant-notice-bar-primary-scroll-left,
 .ant-notice-bar-primary-scroll-right {
-  background: #d0e4ff;
+  background: var(--notice-primary-background-color, #d0e4ff);
 }
 .ant-notice-bar-info {
-  color: #ffffff;
-  background: #666666;
+  color: var(--notice-info-text-color, #ffffff);
+  background: var(--notice-info-background-color, #666666);
 }
 .ant-notice-bar-info-scroll-left,
 .ant-notice-bar-info-scroll-right {
-  background: #666666;
+  background: var(--notice-info-background-color, #666666);
 }
 .ant-notice-bar-icon {
-  margin-right: 8px;
-  font-size: 18px;
+  margin-right: 16rpx;
+  font-size: 36rpx;
 }
 .ant-notice-bar-icon-image-image {
-  width: 18px;
-  height: 18px;
+  width: 36rpx;
+  height: 36rpx;
 }
 .ant-notice-bar-content {
   position: relative;
@@ -61,7 +61,7 @@
   align-items: center;
 }
 .ant-notice-bar-operation-icon {
-  margin-left: 12px;
+  margin-left: 24rpx;
 }
 .ant-icon-size-x-small {
   font-size: 18px;

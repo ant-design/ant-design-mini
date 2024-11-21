@@ -2,6 +2,10 @@
   src="../../_util/arrow.wxs"
   module="arrowUtil"
 ></wxs>
+<wxs
+  src="../../_util/isPropsEmpty.wxs"
+  module="u"
+></wxs>
 <form-item
   className="{{className}}"
   position="{{position}}"
@@ -21,9 +25,9 @@
       max="{{max}}"
       format="{{format}}"
       precision="{{precision}}"
-      cancelText="{{cancelText}}"
-      okText="{{okText}}"
-      placeholder="{{placeholder}}"
+      cancelText="{{u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText}}"
+      okText="{{u.isPropsEmpty(okText) ? locale.global.okText : okText}}"
+      placeholder="{{u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder}}"
       animationType="{{animationType}}"
       maskClosable="{{maskClosable}}"
       maskStyle="{{maskStyle}}"

@@ -1,4 +1,7 @@
 /* size | 按钮内间距 */
+/* size | 大按钮内间距 */
+/* size | 中按钮内间距 */
+/* size | 小按钮内间距 */
 /* corner-radius| 按钮圆角 */
 /* font-size | 副标题字号 */
 /* color | 按钮边框宽度 */
@@ -9,20 +12,23 @@
 /* color |primary按钮背景色 */
 /* color |primary按钮边框色 */
 /* color |primary按钮文字色 */
-/* color |ghost按钮边框色 */
-/* color |ghost按钮文字色 */
-/* color |danger按钮背景色 */
-/* color |danger按钮边框色 */
-/* color |danger按钮文字色 */
-/* color |danger-ghost按钮边框色 */
+/* color |primary辅助按钮边框色 */
+/* color |primary辅助按钮边框色 */
+/* color |primary辅助按钮文字色 */
+/* color |default辅助按钮边框色 */
+/* color |default辅助按钮边框色 */
+/* color |default辅助按钮文字色 */
+/* color |primary danger按钮背景色 */
+/* color |primary danger按钮边框色 */
+/* color |primary danger按钮文字色 */
+/* color |default danger 按钮背景色 */
+/* color |default danger按钮边框色 */
+/* color |default danger按钮文字色 */
+/* color |text danger按钮文字色 */
 /* color |danger-ghost按钮文字色 */
-/* color |light按钮背景色 */
-/* color |light按钮边框色 */
-/* color |light按钮文字色 */
-/* size | 胶囊按钮圆角 */
-/* size | 胶囊按钮水平内间距 */
-/* size | 胶囊按钮垂直内间距 */
-/* font-size | 胶囊按钮大字号 */
-/* font-size | 胶囊按钮中字号 */
-/* font-size | 胶囊按钮小字号 */
+/* color |active按钮文字色 */
 /* 图标尺寸 */
+/* font-size | 默认按钮字号 */
+/* font-size | 大按钮字号 */
+/* font-size | 中按钮字号 */
+/* font-size | 小按钮字号 */

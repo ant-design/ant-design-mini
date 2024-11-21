@@ -1,59 +1,70 @@
 .ant-toast {
-  color: #fff;
+  color: var(--toast-default-color, #ffffff);
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   z-index: 999;
-  padding: 12px;
+  padding: 24rpx 32rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #000;
-  border-radius: 8px;
+  background: var(--toast-default-bg, rgba(0, 0, 0, 0.75));
+  border-radius: 24rpx;
 }
 .ant-toast-icon,
 .ant-toast-image,
 .ant-toast-normal {
-  margin-bottom: 8px;
+  margin-bottom: 24rpx;
 }
 .ant-toast-normal {
-  height: 40px;
+  height: 80rpx;
+}
+.ant-toast-text-long {
+  border-radius: 24rpx;
+}
+.ant-toast-text-short {
+  border-radius: 50vh;
 }
 .ant-toast-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 50px;
+  font-size: 100rpx;
+}
+.ant-toast-icon.ant-icon {
+  color: var(--toast-default-color, #ffffff);
 }
 .ant-toast-image,
 .ant-toast-icon {
-  width: 40px;
-  height: 40px;
+  width: 80rpx;
+  height: 80rpx;
   background-size: contain;
   background-repeat: no-repeat;
 }
 .ant-toast-text-body {
   display: flex;
-  max-width: 190px;
-  max-height: 42px;
+  max-width: 380rpx;
+  max-height: 84rpx;
   justify-content: center;
 }
 .ant-toast-text-box {
   min-width: 0;
-  max-height: 42px;
+  max-height: 84rpx;
 }
 .ant-toast-text-content {
-  font-size: 15px;
-  line-height: 21px;
+  font-size: 28rpx;
+  line-height: 40rpx;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .ant-toast-icon-wrapper {
-  width: 140px;
-  height: 140px;
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 32rpx;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -47,17 +47,30 @@
       text-align: left;
       position: relative;
       min-height: @icon-size;
-      padding-left: 80 * @rpx;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      .@{gridPrefix}-item-info { 
+        padding-left: 16 * @rpx;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+      }
       .@{gridPrefix}-item-img,
       .@{gridPrefix}-item-icon {
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .@{gridPrefix}-item-title {
         margin-top: 0;
+      }
+    }
+    &-vertical {
+      .@{gridPrefix}-item-description {
+        padding-top: 4 * @rpx;
       }
     }
     &-columns-scroll {
@@ -77,9 +90,9 @@
       }
     }
     &-title {
-      font-size: 26 * @rpx;
+      font-size: 30 * @rpx;
       color: @title-color;
-      line-height: 37 * @rpx;
+      line-height: 42 * @rpx;
       width: 100%;
       margin-top: 16 * @rpx;
       white-space: nowrap;
@@ -91,6 +104,7 @@
       color: @description-color;
       line-height: 33 * @rpx;
       width: 100%;
+      padding-top: 4 * @rpx;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

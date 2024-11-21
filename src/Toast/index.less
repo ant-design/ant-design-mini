@@ -3,28 +3,36 @@
 @toastPrefix: ant-toast;
 
 .@{toastPrefix} {
-  color: #fff;
+  color: @toast-default-color;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   z-index: 999;
-  padding: 24 * @rpx;
+  padding: 24 * @rpx 32 * @rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #000;
-  border-radius: 16 * @rpx;
+  background: @toast-default-bg;
+  border-radius: 24 * @rpx;
 
   &-icon,
   &-image,
   &-normal {
-    margin-bottom: 16 * @rpx;
+    margin-bottom: 24 * @rpx;
   }
 
   &-normal {
     height: 80 * @rpx;
+  }
+
+  &-text-long {
+    border-radius: 24 * @rpx;
+  }
+
+  &-text-short {
+    border-radius: 50vh;
   }
 
   &-icon {
@@ -32,6 +40,9 @@
     justify-content: center;
     align-items: center;
     font-size: 100 * @rpx;
+    &.ant-icon {
+      color: @toast-default-color;
+    }
   }
 
   &-image,
@@ -56,8 +67,8 @@
     }
 
     &-content {
-      font-size: 30 * @rpx;
-      line-height: 42 * @rpx;
+      font-size: 28 * @rpx;
+      line-height: 40 * @rpx;
       max-width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -65,8 +76,11 @@
   }
 
   &-icon-wrapper {
-    width: 280 * @rpx;
-    height: 280 * @rpx;
+    width: 240 * @rpx;
+    height: 240 * @rpx;
+    border-radius: 32 * @rpx;
+    padding: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;

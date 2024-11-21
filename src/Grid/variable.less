@@ -1,3 +1,4 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 @import (reference) '../style/mixins/hairline.less';
 
@@ -5,14 +6,14 @@
 
 @icon-size: 56 * @rpx;
 
-@title-color: @COLOR_TEXT_PRIMARY;
+@title-color: var(--ant-grid-title-color, @COLOR_TEXT_PRIMARY);
 
 @description-size: 24 * @rpx;
 
-@description-color: @COLOR_TEXT_ASSIST;
+@description-color: var(--ant-grid-description-color, @COLOR_TEXT_ASSIST);
 
 @vertical-space: 40 * @rpx;
 
 @columnsscroll-width: 130 * @rpx;
 
-@border-color: @COLOR_BORDER;
+@border-color: var(--ant-grid-border-color, @COLOR_BORDER);

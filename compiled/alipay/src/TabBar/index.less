@@ -1,14 +1,15 @@
 @import (reference) './variable.less';
 
 @tabsPrefix: ant-tab-bar;
-@tabSize: 48 * @rpx;
+@tabSize: 44 * @rpx;
+@tabLargeSize: 72 * @rpx;
 @textSize: 20 * @rpx;
 
 .@{tabsPrefix} {
   &-wrap {
     display: flex;
     align-items: center;
-    background-color: @COLOR_CARD;
+    background-color: @tabbar-bg;
   }
   &-item {
     flex: 1;
@@ -17,16 +18,17 @@
     align-items: center;
     justify-content: center;
     padding: 8 * @rpx 0;
-    color: @COLOR_TEXT_SECONDARY;
+    color: @tabbar-item-color;
     &-active {
-      color: @COLOR_BRAND1;
+      color: @tabbar-active-color;
     }
   }
 
   &-icon {
-    max-width: @tabSize;
-    max-height: @tabSize;
     font-size: @tabSize;
+  }
+  &-large-icon {
+    font-size: @tabLargeSize;
   }
 
   &-image {

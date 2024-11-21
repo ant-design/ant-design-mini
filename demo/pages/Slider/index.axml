@@ -1,8 +1,17 @@
+<view class="navigation-bar"/>
+
 <container title="基本使用">
   <ant-slider
     defaultValue="{{ 80 }}"
     onChange="onChange"
     onAfterChange="onAfterChange" />
+</container>
+
+<container title="禁用状态">
+  <ant-slider
+    defaultValue="{{ 80 }}"
+    disabled
+    onChange="onChange" />
 </container>
 
 <container title="无节点双滑块">
@@ -109,11 +118,4 @@
     </view>
     <!-- #endif -->
   </ant-slider>
-</container>
-
-<container title="禁用状态">
-  <ant-slider
-    defaultValue="{{ 80 }}"
-    disabled
-    onChange="onChange" />
 </container>

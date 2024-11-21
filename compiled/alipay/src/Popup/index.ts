@@ -1,16 +1,26 @@
+import { isOldSDKVersion } from '../_util/platform';
 import {
   Component,
-  triggerEventOnly,
   getValueFromProps,
+  triggerEventOnly,
 } from '../_util/simply';
 import { PopupDefaultProps } from './props';
-import { isOldSDKVersion } from '../_util/platform';
 
 const isOldVersion = isOldSDKVersion();
 
 Component(
   PopupDefaultProps,
   {
+    onClickCloseIcon() {
+      const { closing } = this.data;
+      if (closing) {
+        return;
+      }
+      triggerEventOnly(this, 'close');
+    },
+    onClickBack() {
+      triggerEventOnly(this, 'clickBack');
+    },
     onTapMask() {
       const { closing } = this.data;
       if (closing) {

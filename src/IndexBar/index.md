@@ -2,34 +2,121 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: 数据展示
   order: 8
 toc: 'content'
+supportPlatform: ['alipay']
 ---
 
 # IndexBar 索引
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+侧边索引组件。用于快速定位列表索引。
 
-侧边索引组件
+## 引入
 
-## 何时使用
+在 `index.json` 中引入组件
 
-用于快速定位列表索引。
+```json
+"usingComponents": {
+  "ant-index-bar": "antd-mini/es/IndexBar/index"
+}
+```
 
 ## 代码示例
 
 ### 基本使用
 
-<code src='pages/IndexBar/index'></code>
+```xml
+<view class="base">
+  <list header="基本使用"></list>
+  <view class="indexbar">
+    <index-bar items="{{items}}" />
+  </view>
+</view>
+```
+
+```css
+.base {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.indexbar {
+  width: calc(100% - 20px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+```
+
+```js
+Page({
+  data: {
+    items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((u) => {
+      return { label: u };
+    }),
+  },
+});
+```
 
 ### 结合列表使用
 
-<code src='pages/IndexBarScrollView/index'></code>
+```xml
+<view class="base">
+  <index-bar
+    className="indexbar"
+    items="{{items}}"
+    defaultCurrent="H"
+    onChange="onChange">
+    <view slot-scope="props">
+      <list header="{{props.value.label}}">
+        <list-item
+          a:for="{{4}}"
+          a:for-item="itemX">
+          {{props.value.label}}-{{itemX}}
+        </list-item>
+      </list>
+    </view>
+  </index-bar>
+</view>
+```
 
-### 控制选中状态
+```css
+.base {
+  width: 100%;
+  height: 100vh;
+}
+.indexbar {
+  position: fixed;
+  right: 10px;
+  top: 20vh;
+}
+```
 
-<code src='pages/IndexBarControl/index'></code>
+```js
+Page({
+  data: {
+    items: [],
+  },
+  onLoad() {
+    this.setData({
+      items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((u) => {
+        return { label: u };
+      }),
+    });
+  },
+});
+```
+
+### 受控模式
+
+> 参考下面 [Demo 代码](#demo-代码) 中的实现。
+
+### Demo 代码
+
+<code src='../../demo/pages/IndexBarControl/index'></code>
 
 ## API
 
@@ -52,3 +139,16 @@ toc: 'content'
 | -------------- | ------------------------ | ------- | ------ |
 | label          | 索引标识                 | string  | -      |
 | disablePreview | 禁用索引触发时的预览效果 | boolean | -      |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名                           | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注               |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
+| --index-bar-tip-background-color | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div> | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div> | 索引栏提示背景颜色 |
+| --index-bar-text-color           | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 索引栏文本颜色     |
+| --index-bar-assist-color         | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 索引栏辅助文本颜色 |
+| --index-bar-active-color         | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | 索引栏激活颜色     |

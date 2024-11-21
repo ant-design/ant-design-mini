@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Avatar",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-avatar": "../../../src/Avatar/index",
     "ant-list-item": "../../../src/List/ListItem/index",

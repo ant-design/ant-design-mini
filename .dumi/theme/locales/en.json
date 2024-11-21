@@ -1,0 +1,14 @@
+{
+  "app.not-found.back-home": "Back to home page",
+  "app.not-found.subTitle": "Sorry, the page you visited does not exist.",
+  "app.theme.switch.dark": "Dark theme",
+  "app.theme.switch.compact": "Compact theme",
+  "app.header.menu.more": "More",
+  "app.footer.last.updated": "Last updated: ",
+  "app.footer.actions.edit": "Improve this documentation",
+  "header.search.placeholder": "Input to search",
+  "app.theme.sidebar.alipay": "Alipay",
+  "app.theme.sidebar.wechat": "Wechat",
+  "app.previewer.collapse.label": "Sample Code",
+  "app.platform.support.warning": "This component does not support ${platform} platform"
+}

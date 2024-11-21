@@ -1,0 +1,76 @@
+@import (reference) './variable.less';
+@import (reference) '../style/mixins/hairline.less';
+
+@modalPrefix: ant-dialog;
+
+.@{modalPrefix} {
+  &-body {
+    width: 560 * @rpx;
+    background-color: @dialog-background-color;
+    padding: 48 * @rpx 44 * @rpx;
+    display: flex;
+    flex-direction: column;
+    border-radius: 48 * @rpx;
+    &-header {
+      width: calc(100% + @dialog-header-padding);
+      border-top-left-radius: 48 * @rpx;
+      border-top-right-radius: 48 * @rpx;
+      margin: -48 * @rpx -44 * @rpx 36 * @rpx -44 * @rpx;
+    }
+    &-title {
+      line-height: 56 * @rpx;
+      text-align: center;
+      color: @dialog-title-color;
+      padding-bottom: 32 * @rpx;
+
+      font-weight: 500;
+      font-size: 40 * @rpx;
+    }
+
+    &-content {
+      line-height: 42 * @rpx;
+      padding-bottom: 24 * @rpx;
+      font-size: 32 * @rpx;
+      color: @dialog-content-color;
+      text-align: center;
+    }
+    &-footer {
+      padding: 48 * @rpx 4 * @rpx 0 4 * @rpx;
+      &-vertical {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        gap: 24 * @rpx;
+        .ant-dialog-body-footer-button {
+          width: 100%;
+        }
+      }
+      &-horizontal {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 24 * @rpx;
+        flex-direction: row;
+        .ant-dialog-body-footer-button {
+          flex: 1;
+        }
+      }
+    }
+  }
+  &-close {
+    top: 72rpx;
+    position: relative;
+    left: 50%;
+    margin-left: -30 * @rpx;
+    z-index: 3;
+    width: 60 * @rpx;
+    height: 60 * @rpx;
+    font-size: 72 * @rpx;
+    color: @dialog-close-text-color;
+  }
+  .ant-popup-content.ant-popup-center {
+    min-height: 0;
+    padding: 0;
+  }
+}

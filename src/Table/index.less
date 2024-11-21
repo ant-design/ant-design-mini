@@ -1,0 +1,109 @@
+@import (reference) './variable.less';
+@import (reference) '../style/mixins/hairline.less';
+
+@tablePrefix: ant-table;
+@valueSize: 26 * @rpx;
+
+.@{tablePrefix} {
+  overflow: auto hidden;
+  -webkit-overflow-scrolling: touch;
+
+  &-scroll-height {
+    overflow: auto;
+  }
+
+  &-list {
+    &-item-full {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-item {
+      display: flex;
+      position: relative;
+      .hairline('bottom', @table-bottom-border-color);
+
+      &::after {
+        margin-left: 30 * @rpx;
+      }
+
+      &:last-child {
+        &::after {
+          border: 0;
+        }
+      }
+
+      &-columns {
+        justify-content: space-between;
+      }
+
+      &-sorter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 6 * @rpx;
+
+        &-icon {
+          width: 16 * @rpx;
+          height: 16 * @rpx;
+        }
+      }
+
+      &-value {
+        display: flex;
+        align-items: center;
+        font-size: @valueSize;
+        font-weight: 400;
+        color: @table-item-color;
+        background-color: @table-item-bg;
+        flex-grow: 1;
+        padding: 24 * @rpx;
+        min-height: 62 * @rpx;
+        height: 100%;
+        word-break: break-all;
+        text-align: left;
+        box-sizing: border-box;
+
+        &-align-right {
+          justify-content: flex-end;
+        }
+
+        &-fixed {
+          position: sticky;
+          left: 0;
+        }
+
+        &-shadow {
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: -1px;
+            display: block;
+            width: 30 * @rpx;
+            box-shadow: inset 5 * @rpx 0 8 * @rpx 0 @table-shadow-color;
+            transform: translateX(100%);
+            transition: box-shadow 0.3s;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+
+  &-empty {
+    padding-top: 50 * @rpx;
+    height: 300 * @rpx;
+    box-sizing: border-box;
+    background-color: @table-empty-bg;
+
+    &-image {
+      position: sticky;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 200 * @rpx;
+      height: 200 * @rpx;
+    }
+  }
+}

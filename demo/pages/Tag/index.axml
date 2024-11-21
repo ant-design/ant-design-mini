@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-container title="基础用法">
   <ant-tag>标签</ant-tag>
 </ant-container>

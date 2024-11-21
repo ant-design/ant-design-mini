@@ -1,6 +1,6 @@
 <view
   a:if="{{ show }}"
-  class="ant-toast {{ className || '' }} {{ icon || image || type ? 'ant-toast-icon-wrapper' : '' }}"
+  class="ant-toast {{ className || '' }} {{ icon || image || type ? 'ant-toast-icon-wrapper' : `ant-toast-text-${textType}` }}"
   style="{{ style || '' }}">
   <view
     a:if="{{ type }}"
@@ -19,6 +19,10 @@
     <am-icon
       a:elif="{{ type === 'success' }}"
       type="CheckOutline"
+      className="ant-toast-icon" />
+    <am-icon
+      a:elif="{{ type === 'alipay' }}"
+      type="AlipayCircleFill"
       className="ant-toast-icon" />
   </view>
   <am-icon
@@ -41,7 +45,7 @@
   </view>
 </view>
 
-<mask
+<ant-mask
   a:if="{{ show && showMask }}"
   className="ant-toast-mask"
   show="{{ true }}"

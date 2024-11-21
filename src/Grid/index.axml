@@ -31,29 +31,31 @@
         </slot>
         <!-- #endif -->
       </view>
-      <view class="ant-grid-item-title">
-        <!-- #if ALIPAY -->
-        <slot
-          name="title"
-          value="{{ item }}"
-          index="{{ index }}">
-        <!-- #endif -->
-          {{ item.title }}
-        <!-- #if ALIPAY -->
-        </slot>
-        <!-- #endif -->
-      </view>
-      <view class="ant-grid-item-description">
-        <!-- #if ALIPAY -->
-        <slot
-          name="description"
-          value="{{ item }}"
-          index="{{ index }}">
-        <!-- #endif -->
-          {{ item.description }}
-        <!-- #if ALIPAY -->
-        </slot>
-        <!-- #endif -->
+      <view class="ant-grid-item-info">
+        <view class="ant-grid-item-title">
+          <!-- #if ALIPAY -->
+          <slot
+            name="title"
+            value="{{ item }}"
+            index="{{ index }}">
+          <!-- #endif -->
+            {{ item.title }}
+          <!-- #if ALIPAY -->
+          </slot>
+          <!-- #endif -->
+        </view>
+        <view class="ant-grid-item-description">
+          <!-- #if ALIPAY -->
+          <slot
+            name="description"
+            value="{{ item }}"
+            index="{{ index }}">
+          <!-- #endif -->
+            {{ item.description }}
+          <!-- #if ALIPAY -->
+          </slot>
+          <!-- #endif -->
+        </view>
       </view>
     </view>
   </block>
@@ -90,29 +92,31 @@
           </slot>
           <!-- #endif -->
         </view>
-        <view class="ant-grid-item-title">
-          <!-- #if ALIPAY -->
-          <slot
-            name="title"
-            value="{{ item }}"
-            index="{{ index }}">
-          <!-- #endif -->
-            {{ item.title }}
-          <!-- #if ALIPAY -->
-          </slot>
-          <!-- #endif -->
-        </view>
-        <view class="ant-grid-item-description">
-          <!-- #if ALIPAY -->
-          <slot
-            name="description"
-            value="{{ item }}"
-            index="{{ index }}">
-          <!-- #endif -->
-            {{ item.description }}
-          <!-- #if ALIPAY -->
-          </slot>
-          <!-- #endif -->
+        <view class="ant-grid-item-info">
+          <view class="ant-grid-item-title">
+            <!-- #if ALIPAY -->
+            <slot
+              name="title"
+              value="{{ item }}"
+              index="{{ index }}">
+            <!-- #endif -->
+              {{ item.title }}
+            <!-- #if ALIPAY -->
+            </slot>
+            <!-- #endif -->
+          </view>
+          <view class="ant-grid-item-description">
+            <!-- #if ALIPAY -->
+            <slot
+              name="description"
+              value="{{ item }}"
+              index="{{ index }}">
+            <!-- #endif -->
+              {{ item.description }}
+            <!-- #if ALIPAY -->
+            </slot>
+            <!-- #endif -->
+          </view>
         </view>
       </view>
     </block>

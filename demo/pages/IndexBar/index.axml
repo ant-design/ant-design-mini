@@ -1,6 +1,0 @@
-<view class="base">
-  <list header="基本使用"></list>
-  <view class="indexbar">
-    <index-bar items="{{items}}" />
-  </view>
-</view>

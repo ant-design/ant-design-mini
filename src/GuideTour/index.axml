@@ -1,59 +1,73 @@
-<import-sjs
-  from="./index.sjs"
-  name="utils" />
+<import-sjs from="./index.sjs" name="utils" />
+<import-sjs from="../_util/isPropsEmpty.sjs" name="u" />
 
-<view
-  a:if="{{ visible }}"
-  class="ant-guide-tour {{ className || '' }}"
-  style="{{ style || '' }}">
-  <mask
-    show
-    className="{{ maskClassName }}"
-    style="z-index:9999;{{ maskStyle || '' }}" />
-  <ant-icon
-    type="CloseOutline"
-    className="ant-guide-tour-clear"
-    onTap="onCancel" />
+<view a:if="{{ visible }}" class="ant-guide-tour {{ className || '' }}" style="{{ style || '' }}">
+  <ant-mask show className="{{ maskClassName }}" style="z-index:9999;{{ maskStyle || '' }}" />
+  <ant-icon type="CloseOutline" className="ant-guide-tour-clear" onTap="onCancel" />
   <view class="ant-guide-tour-button">
     <ant-button
       a:if="{{ utils.checkShowJump(mixin.value, items) }}"
       inline
       size="small"
-      onTap="onCancel">
-      {{ jumpText }}
+      onTap="onCancel"
+    >
+      <!-- #if ALIPAY -->
+      <ant-auto-resize text="{{ u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}" ratio="{{ 4 }}" minFontSize="20" maxFontSize="30">
+      <!-- #endif -->
+        {{ u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}
+      <!-- #if ALIPAY -->
+      </ant-auto-resize>
+      <!-- #endif -->
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowPrev(mixin.value, items) }}"
       inline
       size="small"
       onTap="onPrev"
-      data-currentValue="{{ mixin.value }}">
-      {{ prevStepText }}
+      data-currentValue="{{ mixin.value }}"
+    >
+      <!-- #if ALIPAY -->
+      <ant-auto-resize text="{{ u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}" ratio="{{ 4 }}" minFontSize="20" maxFontSize="30">
+      <!-- #endif -->
+        {{ u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}
+      <!-- #if ALIPAY -->
+      </ant-auto-resize>
+      <!-- #endif -->
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowNext(mixin.value, items) }}"
       inline
       size="small"
       onTap="onNext"
-      data-currentValue="{{ mixin.value }}">
-      {{ nextStepText }}
+      data-currentValue="{{ mixin.value }}"
+    >
+      <!-- #if ALIPAY -->
+      <ant-auto-resize text="{{ u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}" ratio="{{4}}" minFontSize="20" maxFontSize="30">
+      <!-- #endif -->
+        {{ u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}
+      <!-- #if ALIPAY -->
+      </ant-auto-resize>
+      <!-- #endif -->
     </ant-button>
     <ant-button
       a:if="{{ utils.checkShowKnow(mixin.value, items) }}"
       inline
       size="small"
-      onTap="onCancel">
-      {{ gotItText }}
+      onTap="onCancel"
+    >
+      <!-- #if ALIPAY -->
+      <ant-auto-resize text="{{ u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}" ratio="{{ 4 }}" minFontSize="20" maxFontSize="30">
+      <!-- #endif -->
+        {{ u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}
+      <!-- #if ALIPAY -->
+      </ant-auto-resize>
+      <!-- #endif -->
     </ant-button>
   </view>
   <block a:if="{{ swiperable }}">
     <view class="ant-guide-tour-indicator">
-      <block
-        a:for="{{ items }}"
-        a:for-index="index"
-        a:for-item="item">
-        <view
-          class="ant-guide-tour-indicator-dot {{ index === mixin.value ? 'ant-guide-tour-indicator-dot-active' : '' }}" />
+      <block a:for="{{ items }}" a:for-index="index" a:for-item="item">
+        <view class="ant-guide-tour-indicator-dot {{ index === mixin.value ? 'ant-guide-tour-indicator-dot-active' : '' }}" />
       </block>
     </view>
     <swiper
@@ -61,37 +75,33 @@
       current="{{ mixin.value }}"
       adjust-height="none"
       style="height: 100vh"
-      onChange="onSwiperChange">
-      <block
-        a:for="{{ items }}"
-        a:for-index="index"
-        a:for-item="item">
+      onChange="onSwiperChange"
+    >
+      <block a:for="{{ items }}" a:for-index="index" a:for-item="item">
         <swiper-item>
           <view
             class="ant-guide-tour-item {{ item.className || '' }}"
-            style="top:{{ item.top }}px; left:{{ item.left }}px">
+            style="top:{{ item.top }}px; left:{{ item.left }}px"
+          >
             <!-- #if WECHAT -->
             <image
               wx:if="{{ item.imageUrl }}"
               class="ant-guide-tour-item-img"
               src="{{ item.imageUrl }}"
               style="{{ item.imageStyle }}"
-              mode="{{ item.imageMode }}" />
-            <slot
-              wx:else
-              name="step"
-              index="{{ mixin.current }}" />
+              mode="{{ item.imageMode }}"
+            />
+            <slot wx:else name="step" index="{{ mixin.current }}" />
             <!-- #endif -->
             <!-- #if ALIPAY -->
-            <slot
-              name="step"
-              index="{{ mixin.current }}">
+            <slot name="step" index="{{ mixin.current }}">
               <image
                 a:if="{{ item.imageUrl }}"
                 class="ant-guide-tour-item-img"
                 src="{{ item.imageUrl }}"
                 style="{{ item.imageStyle }}"
-                mode="{{ item.imageMode }}" />
+                mode="{{ item.imageMode }}"
+              />
             </slot>
             <!-- #endif -->
           </view>
@@ -100,36 +110,31 @@
     </swiper>
   </block>
   <block a:else>
-    <block
-      a:for="{{ items }}"
-      a:for-index="index"
-      a:for-item="item">
+    <block a:for="{{ items }}" a:for-index="index" a:for-item="item">
       <view
         a:if="{{ mixin.value === index }}"
         class="ant-guide-tour-item {{ item.className || '' }}"
-        style="top:{{ item.top }}px; left:{{ item.left }}px">
+        style="top:{{ item.top }}px; left:{{ item.left }}px"
+      >
         <!-- #if WECHAT -->
         <image
           wx:if="{{ item.imageUrl }}"
           class="ant-guide-tour-item-img"
           src="{{ item.imageUrl }}"
           style="{{ item.imageStyle }}"
-          mode="{{ item.imageMode }}" />
-        <slot
-          wx:else
-          name="step"
-          index="{{ index }}" />
+          mode="{{ item.imageMode }}"
+        />
+        <slot wx:else name="step" index="{{ index }}" />
         <!-- #endif -->
         <!-- #if ALIPAY -->
-        <slot
-          name="step"
-          index="{{ index }}">
+        <slot name="step" index="{{ index }}">
           <image
             a:if="{{ item.imageUrl }}"
             class="ant-guide-tour-item-img"
             src="{{ item.imageUrl }}"
             style="{{ item.imageStyle }}"
-            mode="{{ item.imageMode }}" />
+            mode="{{ item.imageMode }}"
+          />
         </slot>
         <!-- #endif -->
       </view>

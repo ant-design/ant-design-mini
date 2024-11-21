@@ -1,4 +1,23 @@
 .description {
   margin: 4px 0 8px 0;
-  color: #333333;
+  color: var(--color-text-primary);
+}
+.star {
+  color: #767676;
+}
+.star-active {
+  color: red !important;
+}
+.star-gradient {
+  background-image: linear-gradient(to right, #979797, #ffffff);
+  -webkit-background-clip: text;
+  color: transparent !important;
+}
+.star-active-gradient {
+  background-image: linear-gradient(to right, orange, yellow);
+  -webkit-background-clip: text;
+  color: transparent !important;
+}
+.character {
+  font-size: 40px;
 }

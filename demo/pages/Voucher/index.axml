@@ -1,0 +1,67 @@
+<view class="navigation-bar"/>
+
+<ant-container title="基础用法-按钮">
+  <voucher onTap="onTap" dataSource="{{dataSource}}" />
+</ant-container>
+
+<ant-container title="基础用法-禁用按钮">
+  <voucher onTap="onTap" dataSource="{{dataSource1}}" />
+</ant-container>
+
+<ant-container title="基础用法-图片">
+  <voucher dataSource="{{dataSource2}}" />
+</ant-container>
+
+<ant-container title="基础用法-small">
+  <voucher size="small" onTap="onTap" dataSource="{{dataSource3}}" />
+</ant-container>
+
+<ant-container title="基础用法-small-整体禁用-插槽">
+  <voucher size="small" dataSource="{{dataSource4}}" >
+    <view slot="voucher-action-area" class="slot-demo">
+      已过期
+    </view>
+  </voucher>
+</ant-container>
+
+<ant-container title="水平排列">
+  <voucher
+    onTap="onTap"
+    dataSource="{{[dataSource[0], dataSource1[0], dataSource2[0]]}}"
+  />
+  <view style="padding: 6px" />
+  <voucher
+    size="small"
+    onTap="onTap"
+    dataSource="{{[dataSource[0], dataSource1[0], dataSource2[0]]}}"
+  />
+</ant-container>
+
+<ant-container title="竖直排列">
+  <voucher
+    direction="vertical"
+    onTap="onTap"
+    dataSource="{{[dataSource[0], dataSource1[0], dataSource2[0]]}}"
+  />
+  <view style="padding: 6px" />
+  <voucher
+    size="small"
+    direction="vertical"
+    onTap="onTap"
+    onVoucherTap="onVoucherTap"
+    dataSource="{{[dataSource[0], dataSource1[0], dataSource2[0], dataSource2A[0]]}}"
+  />
+</ant-container>
+
+<ant-container title="多列（多列样式不区分small和large）">
+  <voucher
+    direction="multipleColumn"
+    size="small"
+    dataSource="{{[dataSource5[0], dataSource6[0], dataSource6[0], dataSource7[0]]}}"
+    onVoucherTap="onVoucherTap"
+  >
+    <view slot="voucher-action-area" class="multiple-column-slot-demo">
+      <ant-checkbox color="#ff3b30" />
+    </view>
+  </voucher>
+</ant-container>

@@ -3,7 +3,7 @@
   name="helper" />
 
 <view class="ant-imageIcon {{ className ? className : '' }}">
-  <icon
+  <ant-icon
     a:if="{{ helper.isIcon(image) }}"
     type="{{ image }}"
     className="{{ className ? className + '-icon' : '' }}"

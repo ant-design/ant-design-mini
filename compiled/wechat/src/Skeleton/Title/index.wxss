@@ -7,14 +7,14 @@
   }
 }
 .ant-skeleton-title {
-  height: 20px;
+  height: 40rpx;
   width: 45%;
-  margin-bottom: 20px;
-  border-radius: 4px;
-  background: #eeeeee;
+  margin-bottom: 40rpx;
+  border-radius: 8rpx;
+  background: var(--color-border, #e5e5e5);
 }
 .ant-skeleton-title-animate {
-  background: linear-gradient(90deg, #eeeeee 25%, rgba(204, 204, 204, 0.6) 37%, #eeeeee 63%);
+  background: linear-gradient(90deg, var(--skeleton-animation-25, #e5e5e5) 25%, var(--skeleton-animation-37, rgba(204, 204, 204, 0.6)) 37%, var(--skeleton-animation-63, #e5e5e5) 63%);
   background-size: 400% 100%;
   animation: ant-skeleton-loading 1.4s ease infinite;
 }

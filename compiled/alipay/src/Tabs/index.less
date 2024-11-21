@@ -12,7 +12,7 @@
     background-color: @tabs-inverse-color;
     box-sizing: border-box;
     &-underline {
-      border-bottom: @border-width-standard solid @COLOR_BORDER;
+      border-bottom: @border-width-standard solid @tabs-underline-border-color;
     }
     &-fade {
       position: absolute;
@@ -26,7 +26,7 @@
         left: 0;
         background: linear-gradient(
           90deg,
-          @COLOR_WHITE_CHANGE,
+          @tabs-subtitle-color,
           hsla(0, 0%, 100%, 0)
         );
       }
@@ -34,7 +34,7 @@
         right: 84 * @rpx;
         background: linear-gradient(
           270deg,
-          @COLOR_WHITE_CHANGE,
+          @tabs-subtitle-color,
           hsla(0, 0%, 100%, 0)
         );
       }
@@ -44,7 +44,7 @@
       display: flex;
       width: 72 * @rpx;
       height: 72 * @rpx;
-      color: @COLOR_BLACK_CHANGE;
+      color: @tabs-plus-color;
       align-self: center;
       align-items: center;
       justify-content: center;
@@ -143,12 +143,12 @@
         text-align: center;
         line-height: @line-height-base;
         border-radius: 10vh;
-        background-color: @COLOR_GREY_CARD;
+        background-color: @tabs-capsule-title-bg;
         border-bottom: 0 none;
       }
     }
     &-capsule&-active &-capsule-title {
-      color: @COLOR_WHITE;
+      color: @tabs-subtitle-color;
       background-color: @tabs-active-decorate-color;
     }
 
@@ -169,7 +169,7 @@
         line-height: @line-height-paragraph;
         color: @tabs-weaken-color;
         border-radius: 50vh;
-        background-color: @COLOR_GREY_CARD;
+        background-color: @tabs-capsule-title-bg;
         margin: 2 * @rpx 0;
       }
     }
@@ -177,7 +177,7 @@
       color: @tabs-active-color;
     }
     &-mixin&-active &-mixin-subtitle {
-      color: @COLOR_WHITE;
+      color: @tabs-subtitle-color;
       background-color: @tabs-active-decorate-color;
     }
     // 禁用态选项卡样式
@@ -189,8 +189,8 @@
   }
   &-content {
     overflow: hidden;
-    background-color: @COLOR_WHITE_CHANGE;
-    color: @COLOR_TEXT_PRIMARY;
+    background-color: @tabs-subtitle-color;
+    color: @tabs-basic-color;
   }
 }
 
@@ -208,7 +208,7 @@
       flex-direction: column;
       width: 100%;
       height: 100%;
-      background-color: @COLOR_GREY_CARD;
+      background-color: @tabs-capsule-title-bg;
       &::-webkit-scrollbar {
         display: none;
       }
@@ -222,16 +222,16 @@
       align-items: center;
       font-size: @font-size-content;
       line-height: 37 * @rpx;
-      color: @COLOR_TEXT_PRIMARY;
-      background-color: @COLOR_GREY_CARD;
+      color: @tabs-basic-color;
+      background-color: @tabs-capsule-title-bg;
       box-sizing: border-box;
       transition: background-color 100ms linear, color 300ms linear;
       &-wrap {
-        background-color: @COLOR_CARD;
+        background-color: @tabs-inverse-color;
       }
       &-active {
-        color: @COLOR_BRAND1;
-        background-color: @COLOR_CARD;
+        color: @tabs-active-color;
+        background-color: @tabs-inverse-color;
         &::after {
           position: absolute;
           content: '';
@@ -240,7 +240,7 @@
           left: 0;
           width: @border-width-thick;
           border-radius: @corner-radius-sm;
-          background-color: @COLOR_BRAND1;
+          background-color: @tabs-active-color;
         }
       }
       &-disabled {
@@ -252,7 +252,7 @@
         }
       }
       &-count {
-        color: @COLOR_TEXT_WEAK;
+        color: @tabs-count-color;
         margin-left: @size-1;
       }
       &-icon {
@@ -275,7 +275,7 @@
   &-content {
     overflow: hidden;
     flex: 1;
-    background-color: @COLOR_CARD;
-    color: @COLOR_TEXT_PRIMARY;
+    background-color: @tabs-inverse-color;
+    color: @tabs-basic-color;
   }
 }

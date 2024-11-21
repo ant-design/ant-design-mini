@@ -1,4 +1,4 @@
-@import (reference) '../style/themes/index.less';
+@import (reference) './variable.less';
 
 @keyframes number-input-cursor {
   0% {
@@ -13,7 +13,7 @@
 }
 
 .ant-number-keyboard {
-  color: @COLOR_TEXT_PRIMARY;
+  color: @number-key-board-text-color;
   width: 0;
   height: 0;
   position: relative;
@@ -28,7 +28,7 @@
     background-color: transparent;
   }
   &-kb {
-    background: @COLOR_BACKGROUND;
+    background: @number-key-board-background-color;
     max-height: 600px;
     min-width: 100vw;
     overflow: hidden;
@@ -60,32 +60,35 @@
       width: calc(100% - 96 * @rpx);
       padding: 0 48 * @rpx;
       font-size: 28 * @rpx;
-      background-color: @COLOR_CARD;
+      background-color: @number-key-board-iphonex-safe-background-color;
       display: flex;
       position: relative;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      border-bottom: @border-width-standard solid @COLOR_BACKGROUND;
-      color: @COLOR_TEXT_ASSIST;
+      border-bottom: @border-width-standard solid
+        @number-key-board-background-color;
+      color: @number-key-board-none-text-color;
     }
     &_number {
       flex: 1;
       height: calc(100vh / 14);
       text-align: center;
       font-size: 50 * @rpx;
-      color: @COLOR_TEXT_PRIMARY;
-      background: @COLOR_CARD;
-      border-right: @border-width-standard solid @COLOR_BACKGROUND;
-      border-bottom: @border-width-standard solid @COLOR_BACKGROUND;
+      color: @number-key-board-text-color;
+      background: @number-key-board-iphonex-safe-background-color;
+      border-right: @border-width-standard solid
+        @number-key-board-background-color;
+      border-bottom: @border-width-standard solid
+        @number-key-board-background-color;
       display: flex;
       justify-content: center;
       align-items: center;
       user-select: none;
       &:active {
-        background-color: #d3d3d3;
+        background-color: @number-key-board-active-background-color;
         opacity: 0.5;
-        color: @COLOR_TEXT_PRIMARY;
+        color: @number-key-board-text-color;
       }
     }
     &_disable {
@@ -100,14 +103,16 @@
       flex: 1;
     }
     &_transfer {
-      background-color: @COLOR_BRAND1;
-      color: white;
+      background-color: @number-key-board-transfer-bg;
+      color: @number-key-board-transfer-color;
       flex: 1;
       height: calc(100vh / 14);
       text-align: center;
       font-size: 34 * @rpx;
-      border-right: @border-width-standard solid @COLOR_BACKGROUND;
-      border-bottom: @border-width-standard solid @COLOR_BACKGROUND;
+      border-right: @border-width-standard solid
+        @number-key-board-background-color;
+      border-bottom: @border-width-standard solid
+        @number-key-board-background-color;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -139,13 +144,13 @@
     &_iphonex-safe {
       height: 48 * @rpx;
       width: 100%;
-      background-color: @COLOR_CARD;
+      background-color: @number-key-board-iphonex-safe-background-color;
     }
     &_flex {
       flex: 1;
     }
     &-e {
-      background-color: @COLOR_BORDER;
+      background-color: @number-key-board-border-color;
     }
   }
   &-down {

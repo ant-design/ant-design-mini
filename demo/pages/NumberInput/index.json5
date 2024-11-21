@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "NumberInput",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "NumberInput",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-number-input": "../../../src/NumberInput/index",
+    "container": "../../../src/Container/index"
+  }
+}

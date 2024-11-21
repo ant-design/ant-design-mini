@@ -5,11 +5,16 @@
 
   /// #if ALIPAY
   "defaultTitle": "CheckBox",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
     "ant-checkbox": "../../../src/Checkbox/index",
     "ant-container": "../../../src/Container/index",
-    "ant-button": "../../../src/Button/index"
+    "ant-button": "../../../src/Button/index",
+    "ant-checkbox-group": "../../../src/Checkbox/CheckboxGroup/index",
+    "ant-list": "../../../src/List/index",
+    "ant-list-item": "../../../src/List/ListItem/index"
   }
 }

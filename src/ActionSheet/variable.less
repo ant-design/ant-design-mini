@@ -1,5 +1,13 @@
 @import (reference) '../style/themes/index.less';
+@import (reference) '../style/variables.less';
 
-@actionsheet-danger-color: @COLOR_RED;
+@actionsheet-danger-color: var(--actionsheet-danger-color, @COLOR_RED);
 @actionsheet-icon-width: 48 * @rpx;
 @actionsheet-icon-height: 48 * @rpx;
+@actionsheet-title-color: var(--actionsheet-title-color, @COLOR_TEXT_ASSIST);
+@actionsheet-item-color: var(--actionsheet-item-color, @COLOR_TEXT_PRIMARY);
+@actionsheet-item-active-bg: var(--actionsheet-item-active-bg, @COLOR_BORDER);
+@activesheet-item-cancel-bg: var(
+  --activesheet-item-cancel-bg,
+  @COLOR_BACKGROUND
+);

@@ -1,3 +1,4 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 /* size | 按钮内间距 */
@@ -11,7 +12,7 @@
 @calendar-cell-space-size: 10 * @rpx;
 @calendar-cell-bottom-margin: 8 * @rpx;
 @calendar-cell-height: (25 + 25 + 45 + 7 + 8) * @rpx;
-@calendar-cell-disabled-opacity: @opacity-disabled;
+
 @calendar-cells-padding: 16 * @rpx;
 
 @calendar-sticky-title-z-index: 1000;
@@ -19,6 +20,24 @@
 
 @calendar-weekday-names-height: 88 * @rpx;
 @calendar-weekday-names-font-size: 28 * @rpx;
-@calendar-weekday-names-background-color: #f8f8f8;
 @calendar-weekday-names-bottom-margin: 8 * @rpx;
 @calendar-weekday-names-left-padding: @size-5;
+
+@calendar-cell-disabled-opacity: var(
+  --calendar-cell-disabled-opacity,
+  @opacity-disabled
+);
+@calendar-weekday-names-background-color: var(
+  --calendar-weekday-names-bg,
+  #f8f8f8
+);
+
+@calendar-default-color: var(--calendar-default-color, @COLOR_TEXT_PRIMARY);
+
+@calendar-selected-color: var(--calendar-selected-color, @COLOR_BRAND1_FADED_1);
+
+@calendar-assist-color: var(--calendar-assist-color, @COLOR_TEXT_ASSIST);
+
+@calendar-selected-end-color: var(--calendar-selected-end-color, @COLOR_WHITE);
+
+@calendar-selected-color: var(--calendar-selected-color, @COLOR_BRAND1);

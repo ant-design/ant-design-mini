@@ -1,10 +1,29 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
-@empty-font-size-common: 26 * @rpx;
-@empty-font-size-large: 40 * @rpx;
+// text 颜色
+@empty-text-color: var(--empty-text-color, @COLOR_TEXT_PRIMARY);
+// asisst-text 颜色
+@empty-asisst-text-color: var(--empty-asisst-text-color, @COLOR_TEXT_ASSIST);
+@empty-normal-width: 510 * @rpx;
+@empty-small-width: 416 * @rpx;
+@empty-normal-height: 282 * @rpx;
+@empty-small-height: 230 * @rpx;
 
-@empty-margin-small: 12 * @rpx;
-@empty-margin-large: 40 * @rpx;
-@empty-margin-middle: 24 * @rpx;
+@empty-font-size-common: 24 * @rpx;
+@empty-font-size-large: 36 * @rpx;
 
-@empty-image-url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ';
+@empty-margin-x-small: 12 * @rpx;
+@empty-margin-small: 24 * @rpx;
+@empty-margin-middle: 32 * @rpx;
+@empty-margin-large: 24 * @rpx;
+
+@empty-vertical-button-width: 368 * @rpx;
+
+@empty-vertical-button-gap: 32 * @rpx;
+@empty-horizontal-button-gap: 24 * @rpx;
+
+@empty-sub-line-height: 37 * @rpx;
+@empty-text-line-height: 50 * @rpx;
+
+@empty-image-url: 'https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*J9z7RqVm1soAAAAAAAAAAAAADkqGAQ/original';

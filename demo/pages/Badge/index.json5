@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "Badge",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

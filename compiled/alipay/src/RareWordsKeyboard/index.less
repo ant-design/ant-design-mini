@@ -1,4 +1,4 @@
-@import (reference) '../style/themes/index.less';
+@import (reference) './variable.less';
 
 @keyframes number-input-cursor {
   0% {
@@ -13,7 +13,7 @@
 }
 
 .ant-rare-words-keyboard {
-  color: @COLOR_TEXT_PRIMARY;
+  color: @rare-words-keyboard-color;
   width: 0;
   height: 0;
   position: relative;
@@ -26,7 +26,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: @rare-words-bg;
 
     &.hide {
       visibility: hidden;
@@ -34,7 +34,7 @@
   }
 
   &-kb {
-    background: @COLOR_BACKGROUND;
+    background: @rare-words-kb-bg;
     max-height: 1200 * @rpx;
     min-width: 100vw;
     position: fixed;
@@ -52,12 +52,12 @@
       height: calc(constant(safe-area-inset-bottom) - 20 * @rpx);
       height: calc(env(safe-area-inset-bottom) - 20 * @rpx);
       width: 100%;
-      background-color: @COLOR_BACKGROUND;
+      background-color: @rare-words-kb-bg;
     }
   }
 
   &_header {
-    background-color: @COLOR_BACKGROUND;
+    background-color: @rare-words-kb-bg;
   }
 
   &-input_value {
@@ -69,15 +69,15 @@
     line-height: 64 * @rpx;
     border-top-left-radius: 8 * @rpx;
     border-top-right-radius: 8 * @rpx;
-    background-color: @COLOR_BACKGROUND;
+    background-color: @rare-words-kb-bg;
     padding-left: 20 * @rpx;
     padding-right: 20 * @rpx;
-    border: 1 * @rpx solid #eee;
+    border: 1 * @rpx solid @rare-words-border-color;
     border-bottom: 0;
     letter-spacing: 2 * @rpx;
     box-sizing: border-box;
     font-size: 24 * @rpx;
-    color: #333;
+    color: @rare-words-keyboard-color;
 
     &.hide {
       display: none;
@@ -90,7 +90,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     padding: 20 * @rpx 24 * @rpx 20 * @rpx 8 * @rpx;
-    background: @COLOR_BACKGROUND;
+    background: @rare-words-kb-bg;
     overflow: hidden;
     font-family: 'rare-words-font';
 
@@ -115,7 +115,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        background: @COLOR_TEXT_WEAK_DEFAULT;
+        background: @rare-words-inner-bg;
         width: 100%;
         height: 2 * @rpx;
         transform: scaleY(0.5);
@@ -126,7 +126,7 @@
     &_item_tips {
       padding-left: 8 * @rpx;
       font-size: 28 * @rpx;
-      color: @COLOR_TEXT_SECONDARY_DEFAULT;
+      color: @rare-words-item-tips-color;
       line-height: 34 * @rpx;
 
       &.loading {
@@ -162,7 +162,7 @@
           position: absolute;
           left: -64 * @rpx;
           bottom: 0;
-          background: @COLOR_TEXT_WEAK_DEFAULT;
+          background: @rare-words-inner-bg;
           width: 100%;
           height: 2 * @rpx;
           transform: scaleY(0.5);
@@ -172,7 +172,7 @@
     }
 
     &_item {
-      color: @COLOR_TEXT_PRIMARY_DEFAULT;
+      color: @rare-words-inner-bg;
       width: 73 * @rpx;
       padding-left: 16 * @rpx;
       padding-right: 16 * @rpx;
@@ -189,7 +189,7 @@
           position: absolute;
           left: -20 * @rpx;
           bottom: 0;
-          background: @COLOR_TEXT_WEAK_DEFAULT;
+          background: @rare-words-inner-bg;
           width: 100%;
           height: 2 * @rpx;
           transform: scaleY(0.5);
@@ -201,14 +201,14 @@
         font-size: 42 * @rpx;
         line-height: 57 * @rpx;
         user-select: none;
-        color: @COLOR_TEXT_PRIMARY_DEFAULT;
+        color: @rare-words-keyboard-color;
 
         &:active {
-          color: @COLOR_BRAND1_DEFAULT;
+          color: @rare-words-active-color;
         }
 
         &:hover {
-          color: @COLOR_BRAND1_DEFAULT;
+          color: @rare-words-active-color;
         }
       }
     }
@@ -233,7 +233,7 @@
       justify-content: center;
       position: relative;
       margin-top: 4 * @rpx;
-      color: @COLOR_TEXT_PRIMARY_DEFAULT;
+      color: @rare-words-keyboard-color;
 
       &.sticky {
         position: sticky !important;
@@ -247,7 +247,11 @@
           display: block;
           width: 10 * @rpx;
           height: 100%;
-          background: linear-gradient(to right, transparent, #d8d8d8);
+          background: linear-gradient(
+            to right,
+            transparent,
+            @rare-words-keyboard-bg
+          );
           position: absolute;
           left: -32 * @rpx;
         }
@@ -269,7 +273,7 @@
   }
 
   &_pinyin {
-    background: @COLOR_BACKGROUND;
+    background: @rare-words-pinyin-color;
     padding-top: 16 * @rpx;
     padding-bottom: 16 * @rpx;
 
@@ -277,7 +281,7 @@
       display: flex;
       flex-flow: row nowrap;
       justify-content: center;
-      background: @COLOR_BACKGROUND;
+      background: @rare-words-pinyin-color;
       margin-bottom: 16 * @rpx;
 
       &:last-child {
@@ -292,17 +296,17 @@
       justify-content: center;
       height: 88 * @rpx;
       width: 63 * @rpx;
-      background: @COLOR_WHITE_DEFAULT;
+      background: @rare-words-pinyin-key-color;
       font-size: 36 * @rpx;
-      color: @COLOR_TEXT_PRIMARY_DEFAULT;
+      color: @rare-words-keyboard-color;
       box-sizing: border-box;
       border-radius: 8 * @rpx;
       margin-right: 12 * @rpx;
       user-select: none;
 
       &:active {
-        background: @COLOR_BRAND1_DEFAULT;
-        color: @COLOR_WHITE_DEFAULT;
+        background: @rare-words-active-color;
+        color: @rare-words-pinyin-key-color;
       }
 
       &:last-child {
@@ -316,7 +320,7 @@
   }
 
   &_error {
-    background: @COLOR_BACKGROUND;
+    background: @rare-words-pinyin-color;
     padding-top: 30 * @rpx;
     padding-bottom: 30 * @rpx;
 

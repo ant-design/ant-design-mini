@@ -1,9 +1,9 @@
 .ant-grid {
-  padding: 12px;
+  padding: 24rpx;
   box-sizing: border-box;
 }
 .ant-grid-columns-3 {
-  padding: 12px 0;
+  padding: 24rpx 0;
 }
 .ant-grid-default {
   display: flex;
@@ -27,7 +27,7 @@
 .ant-grid-item-line::after {
   content: '';
   position: absolute;
-  background-color: #eeeeee;
+  background-color: var(--ant-grid-border-color, #e5e5e5);
   display: block;
   top: 0;
   right: 0;
@@ -37,7 +37,7 @@
   transform: scaleX(0.5);
 }
 .ant-grid-item-vertical-space {
-  margin-bottom: 20px;
+  margin-bottom: 40rpx;
 }
 .ant-grid-item-columns-5 {
   width: 20%;
@@ -55,49 +55,61 @@
   justify-content: center;
   text-align: left;
   position: relative;
-  min-height: 28px;
-  padding-left: 40px;
+  min-height: 56rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+.ant-grid-item-horizontal .ant-grid-item-info {
+  padding-left: 16rpx;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
 }
 .ant-grid-item-horizontal .ant-grid-item-img,
 .ant-grid-item-horizontal .ant-grid-item-icon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .ant-grid-item-horizontal .ant-grid-item-title {
   margin-top: 0;
 }
+.ant-grid-item-vertical .ant-grid-item-description {
+  padding-top: 4rpx;
+}
 .ant-grid-item-columns-scroll {
-  width: 65px;
+  width: 130rpx;
 }
 .ant-grid-item-icon-circle {
   border-radius: 50%;
   overflow: hidden;
 }
 .ant-grid-item-icon-icon {
-  font-size: 28px;
+  font-size: 56rpx;
 }
 .ant-grid-item-icon-image {
-  width: 28px;
-  height: 28px;
+  width: 56rpx;
+  height: 56rpx;
 }
 .ant-grid-item-title {
-  font-size: 13px;
-  color: #333333;
-  line-height: 18.5px;
+  font-size: 30rpx;
+  color: var(--ant-grid-title-color, #333333);
+  line-height: 42rpx;
   width: 100%;
-  margin-top: 8px;
+  margin-top: 16rpx;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .ant-grid-item-description {
-  font-size: 12px;
-  color: #999999;
-  line-height: 16.5px;
+  font-size: 24rpx;
+  color: var(--ant-grid-description-color, #999999);
+  line-height: 33rpx;
   width: 100%;
+  padding-top: 4rpx;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

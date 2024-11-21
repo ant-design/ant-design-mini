@@ -1,0 +1,45 @@
+<view class="navigation-bar"/>
+
+<ant-container>
+  <ant-config-provider locale="{{locale}}">
+    <ant-list>
+      <ant-list-item>
+        City
+        <ant-picker
+          slot="extra"
+          onCancel="handleDismissPicker"
+          onVisibleChange="handleTriggerPicker"
+          onOk="handleOk"
+          defaultValue="{{ defaultValue }}"
+          title="pelese Select"
+          onChange="handleChange"
+          options="{{ list }}"
+        />
+      </ant-list-item>
+      <ant-list-item>
+        Date
+        <ant-range-picker
+          slot="extra"
+          defaultValue="{{ defaultDateRange }}"
+          onPickerChange="handlePickerRangeChange"
+          onVisibleChange="handleTriggerPicker"
+          onOk="handleRangeOk"
+        />
+      </ant-list-item>
+    </ant-list>
+  </ant-config-provider>
+</ant-container>
+<ant-container title="DarkMode">
+  <ant-config-provider theme='dark' locale="{{locale}}">
+    <ant-button type="primary" onTap="handleTap">
+      Dark
+    </ant-button>
+  </ant-config-provider>
+</ant-container>
+<ant-container title="Theme">
+  <ant-config-provider themeVars="{{themeVars}}" locale="{{locale}}">
+    <ant-button type="primary" onTap="handleTap">
+      Theme
+    </ant-button>
+  </ant-config-provider>
+</ant-container>

@@ -1,0 +1,104 @@
+<view class="navigation-bar"/>
+
+<ant-container title="高量引导反馈">
+  <view slot="headerRight">
+    <ant-feedback
+      type="popover"
+      visible="{{ visible1 }}"
+      popoverType="default"
+      placement="bottom-right"
+      onVisibleChange="onVisibleChange1"
+      className="feedback-demo">
+      <view class="feedback-demo-target">
+        <ant-icon style="font-size: 30px" type="MoreOutline" />
+      </view>
+      <view slot="popover-content" class="feedback-content">
+        <ant-list
+          slot="content"
+          className="popover"
+        >
+          <ant-list-item
+            onTap="handleTapItem"
+          >
+          <view class="feedback-content-selector">
+            内容反馈
+            <ant-selector options="{{ selectorOption }}" />
+            </view>
+          </ant-list-item>
+          <ant-list-item
+            onTap="handleTapItem"
+            arrow="right"
+          >
+            管理「 推荐卡片」
+          </ant-list-item>
+          <ant-list-item
+            onTap="handleTapItem"
+            arrow="right"
+          >
+            反馈与投诉
+          </ant-list-item>
+          <ant-list-item
+            arrow="right"
+            onTap="handleTapItem"
+          >
+            图片
+          </ant-list-item>
+        </ant-list>
+      </view>
+    </ant-feedback>
+  </view>
+  点击右上角的icon 展示反馈内容
+</ant-container>
+
+<ant-container title="点引导反馈">
+  点击下面的内容 展示点引导反馈
+  <view class="feedback-container-flex">
+    <ant-feedback
+      type="popover"
+      list="{{ feedList }}"
+      visible="{{ visible2 }}"
+      popoverType="circle"
+      title="点引导反馈"
+      onTapFeedItem="onTapFeedItem2"
+      placement="bottom"
+      onVisibleChange="onVisibleChange2"
+      className="feedback-demo2">
+      <image
+        mode="widthFix"
+        style="width: 345rpx;"
+        src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original"
+      />
+    </ant-feedback>
+    <ant-feedback
+      type="popover"
+      list="{{ feedList }}"
+      visible="{{ visible4 }}"
+      popoverType="circle"
+      title="点引导反馈"
+      onTapFeedItem="onTapFeedItem4"
+      placement="bottom"
+      onVisibleChange="onVisibleChange4"
+      className="feedback-demo4">
+      <image
+        mode="widthFix"
+        style="width: 345rpx;"
+        src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original"
+      />
+    </ant-feedback>
+  </view>
+</ant-container>
+
+<ant-container title="反馈卡片">
+  <ant-feedback
+    a:if="{{ visible3 }}"
+    list="{{ feedList }}"
+    type="card"
+    title="喜欢推荐的内容吗？"
+    onTapFeedItem="onTapFeedItem3"
+    className="feedback-demo"
+    onVisibleChange="onVisibleChange3">
+  </ant-feedback>
+  <ant-button data-filed="visible3" onTap="onShowFeedback" a:else size="small" inline>
+    点击 展示反馈卡片
+  </ant-button>
+</ant-container>

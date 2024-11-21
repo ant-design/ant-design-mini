@@ -1,5 +1,7 @@
 {
   "defaultTitle": "ActionSheet",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "ant-action-sheet": "../../../src/ActionSheet/index",

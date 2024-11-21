@@ -8,24 +8,14 @@ export const componentList = [
                 path: '/pages/Button/index',
             },
             {
-                name: 'ButtonInline',
-                nameZN: '按钮-Inline',
-                path: '/pages/ButtonInline/index',
-            },
-            {
-                name: 'ButtonIcon',
-                nameZN: '按钮-Icon',
-                path: '/pages/ButtonIcon/index',
-            },
-            {
-                name: 'ButtonCustom',
-                nameZN: '按钮-Custom',
-                path: '/pages/ButtonCustom/index',
-            },
-            {
                 name: 'Icon',
                 nameZN: '图标',
                 path: '/pages/Icon/index',
+            },
+            {
+                name: 'Sticky',
+                nameZN: '黏性吸附',
+                path: '/pages/Sticky/index',
             },
         ],
     },
@@ -43,45 +33,25 @@ export const componentList = [
                 path: '/pages/Tabs/index',
             },
             {
-                name: 'TabsControl',
-                nameZN: '标签页-控制',
-                path: '/pages/TabsControl/index',
-            },
-            {
                 name: 'TabsElevator',
                 nameZN: '标签页-电梯模式',
-                path: '/pages/TabsElevator/index',
-            },
-            {
-                name: 'TabsScroll',
-                nameZN: '标签页-可滚动',
-                path: '/pages/TabsScroll/index',
-            },
-            {
-                name: 'TabsSticky',
-                nameZN: '标签页-吸顶',
-                path: '/pages/TabsSticky/index',
-            },
-            {
-                name: 'TabsSwiper',
-                nameZN: '标签页-Swiper',
-                path: '/pages/TabsSwiper/index',
-            },
-            {
-                name: 'TabsVertical',
-                nameZN: '标签页-纵向',
-                path: '/pages/TabsVertical/index',
+                path: '/pages/Tabs/TabsElevator/index',
             },
             {
                 name: 'TabsVerticalElevator',
                 nameZN: '标签页-纵向电梯模式',
-                path: '/pages/TabsVerticalElevator/index',
+                path: '/pages/Tabs/TabsVerticalElevator/index',
             },
         ],
     },
     {
         type: '信息展示',
         list: [
+            {
+                name: 'Card',
+                nameZN: '基础卡片',
+                path: '/pages/Card/index',
+            },
             {
                 name: 'Avatar',
                 nameZN: '头像',
@@ -93,34 +63,9 @@ export const componentList = [
                 path: '/pages/Collapse/index',
             },
             {
-                name: 'CollapseAccordion',
-                nameZN: '折叠面板-手风琴',
-                path: '/pages/CollapseAccordion/index',
-            },
-            {
-                name: 'CollapseControl',
-                nameZN: '折叠面板-控制',
-                path: '/pages/CollapseControl/index',
-            },
-            {
-                name: 'CollapseWithCheckbox',
-                nameZN: '折叠面板-Checkbox',
-                path: '/pages/CollapseWithCheckbox/index',
-            },
-            {
-                name: 'CollapseCustom',
-                nameZN: '折叠面板-更多自定义',
-                path: '/pages/CollapseCustom/index',
-            },
-            {
                 name: 'Grid',
                 nameZN: '宫格',
                 path: '/pages/Grid/index',
-            },
-            {
-                name: 'Container',
-                nameZN: '容器',
-                path: '/pages/Container/index',
             },
             {
                 name: 'List',
@@ -138,11 +83,6 @@ export const componentList = [
                 path: '/pages/Steps/index',
             },
             {
-                name: 'StepsControl',
-                nameZN: '步骤条-控制',
-                path: '/pages/StepsControl/index',
-            },
-            {
                 name: 'GuideTour',
                 nameZN: '新手引导',
                 path: '/pages/GuideTour/index',
@@ -153,14 +93,9 @@ export const componentList = [
                 path: '/pages/Tag/index',
             },
             {
-                name: 'ProgressLine',
+                name: 'Progress',
                 nameZN: '进度条',
-                path: '/pages/ProgressLine/index',
-            },
-            {
-                name: 'ProgressCircle',
-                nameZN: '进度圈',
-                path: '/pages/ProgressCircle/index',
+                path: '/pages/Progress/index',
             },
             {
                 name: 'Divider',
@@ -178,16 +113,6 @@ export const componentList = [
                 path: '/pages/Checkbox/index',
             },
             {
-                name: 'CheckboxGroup',
-                nameZN: '复选框组',
-                path: '/pages/CheckboxGroup/index',
-            },
-            {
-                name: 'CheckboxCustomGroup',
-                nameZN: '自定义分组',
-                path: '/pages/CheckboxCustomGroup/index',
-            },
-            {
                 name: 'Checklist',
                 nameZN: '可勾选列表',
                 path: '/pages/Checklist/index',
@@ -196,71 +121,6 @@ export const componentList = [
                 name: 'Form',
                 nameZN: '表单',
                 path: '/pages/Form/index',
-            },
-            {
-                name: 'FormLayout',
-                nameZN: '表单-布局',
-                path: '/pages/FormLayout/index',
-            },
-            {
-                name: 'FormInitialValues',
-                nameZN: '表单-初始值',
-                path: '/pages/FormInitialValues/index',
-            },
-            {
-                name: 'FormInitialValuesAsync',
-                nameZN: '表单-初始值异步加载',
-                path: '/pages/FormInitialValuesAsync/index',
-            },
-            {
-                name: 'FormWatch',
-                nameZN: '表单-侦听',
-                path: '/pages/FormWatch/index',
-            },
-            {
-                name: 'FormValidate',
-                nameZN: '表单-校验',
-                path: '/pages/FormValidate/index',
-            },
-            {
-                name: 'FormRules',
-                nameZN: '表单-校验',
-                path: '/pages/FormRules/index',
-            },
-            {
-                name: 'FormDynamic',
-                nameZN: '表单-动态增减表单项',
-                path: '/pages/FormDynamic/index',
-            },
-            {
-                name: 'FormDependency',
-                nameZN: '表单-表单联动',
-                path: '/pages/FormDependency/index',
-            },
-            {
-                name: 'FormMultiple',
-                nameZN: '表单-多个表单',
-                path: '/pages/FormMultiple/index',
-            },
-            {
-                name: 'FormImageUploadRules',
-                nameZN: '表单-图片校验',
-                path: '/pages/FormImageUploadRules/index',
-            },
-            {
-                name: 'FormJSON',
-                nameZN: '表单-json生成',
-                path: '/pages/FormJSON/index',
-            },
-            {
-                name: 'FormCustomError',
-                nameZN: '表单-自定义表单项错误',
-                path: '/pages/FormCustomError/index',
-            },
-            {
-                name: 'FormCustomError',
-                nameZN: '表单-自定义表单项',
-                path: '/pages/FormCustom/index',
             },
             {
                 name: 'Input',
@@ -288,11 +148,6 @@ export const componentList = [
                 path: '/pages/Picker/index',
             },
             {
-                name: 'CascaderPicker',
-                nameZN: '级联选择器',
-                path: '/pages/CascaderPicker/index',
-            },
-            {
                 name: 'DatePicker',
                 nameZN: '时间选择器',
                 path: '/pages/DatePicker/index',
@@ -303,19 +158,9 @@ export const componentList = [
                 path: '/pages/Radio/index',
             },
             {
-                name: 'RadioGroup',
-                nameZN: '单选框组合',
-                path: '/pages/RadioGroup/index',
-            },
-            {
                 name: 'Selector',
                 nameZN: '选择组',
                 path: '/pages/Selector/index',
-            },
-            {
-                name: 'SelectorFilter',
-                nameZN: '选择组下拉筛选',
-                path: '/pages/SelectorFilter/index',
             },
             {
                 name: 'Slider',
@@ -338,19 +183,9 @@ export const componentList = [
                 path: '/pages/ImageUpload/index',
             },
             {
-                name: 'ImageUploadControl',
-                nameZN: '图片上传-控制',
-                path: '/pages/ImageUploadControl/index',
-            },
-            {
                 name: 'Rate',
                 nameZN: '星级',
                 path: '/pages/Rate/index',
-            },
-            {
-                name: 'RateCustom',
-                nameZN: '星级-自定义',
-                path: '/pages/RateCustom/index',
             },
             {
                 name: 'RareWordsKeyboard',
@@ -382,6 +217,16 @@ export const componentList = [
                 nameZN: '数字键盘-数字输入框',
                 path: '/pages/NumberKeyboardNumber/index',
             },
+            {
+                name: 'Postscript',
+                nameZN: '资金附言',
+                path: '/pages/Postscript/index',
+            },
+            {
+                name: 'NumberInput',
+                nameZN: '金额输入框',
+                path: '/pages/NumberInput/index',
+            },
         ],
     },
     {
@@ -391,11 +236,6 @@ export const componentList = [
                 name: 'ActionSheet',
                 nameZN: '动作面板',
                 path: '/pages/ActionSheet/index',
-            },
-            {
-                name: 'Empty',
-                nameZN: '空状态',
-                path: '/pages/Empty/index',
             },
             {
                 name: 'Loading',
@@ -408,9 +248,9 @@ export const componentList = [
                 path: '/pages/Skeleton/index',
             },
             {
-                name: 'Modal',
+                name: 'Dialog',
                 nameZN: '弹窗',
-                path: '/pages/Modal/index',
+                path: '/pages/Dialog/index',
             },
             {
                 name: 'Popover',
@@ -442,6 +282,11 @@ export const componentList = [
                 nameZN: '轻提示',
                 path: '/pages/Toast/index',
             },
+            {
+                name: 'Feedback',
+                nameZN: '信息反馈',
+                path: '/pages/Feedback/index',
+            },
         ],
     },
     {
@@ -460,8 +305,28 @@ export const componentList = [
         ],
     },
     {
+        type: '业务组件',
+        list: [
+            {
+                name: 'Countdown',
+                nameZN: '倒计时',
+                path: '/pages/Countdown/index',
+            },
+        ],
+    },
+    {
         type: '实验性',
         list: [
+            {
+                name: 'AutoResize',
+                nameZN: '文本自适应',
+                path: '/pages/AutoResize/index',
+            },
+            {
+                name: 'ConfigProvider',
+                nameZN: '全局容器',
+                path: '/pages/ConfigProvider/index',
+            },
             {
                 name: 'PageContainer',
                 nameZN: '页面容器',
@@ -471,6 +336,26 @@ export const componentList = [
                 name: 'Typography',
                 nameZN: '排版',
                 path: '/pages/Typography/index',
+            },
+            {
+                name: 'SafeArea',
+                nameZN: '安全区',
+                path: '/pages/SafeArea/index',
+            },
+        ],
+    },
+    {
+        type: '待废弃',
+        list: [
+            {
+                name: 'Container',
+                nameZN: '容器',
+                path: '/pages/Container/index',
+            },
+            {
+                name: 'Modal',
+                nameZN: '对话框',
+                path: '/pages/Modal/index',
             },
         ],
     },

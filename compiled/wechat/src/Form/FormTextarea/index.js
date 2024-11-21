@@ -9,11 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { Component, triggerEvent } from '../../_util/simply';
+import { effect } from '@preact/signals-core';
 import { resolveEventValue } from '../../_util/platform';
-import { FormTextareaDefaultProps } from './props';
+import { ComponentWithSignalStoreImpl, triggerEvent } from '../../_util/simply';
+import i18nController from '../../_util/store';
 import { createForm } from '../form';
-Component(FormTextareaDefaultProps, {
+import { FormTextareaDefaultProps } from './props';
+ComponentWithSignalStoreImpl({
+    store: function () { return i18nController; },
+    updateHook: effect,
+    mapState: {
+        locale: function (_a) {
+            var store = _a.store;
+            return store.currentLocale.value;
+        },
+    },
+}, FormTextareaDefaultProps, {
     handleRef: function (input) {
         this.input = input.detail;
     },

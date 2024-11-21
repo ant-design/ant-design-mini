@@ -6,7 +6,7 @@
     flex-direction: row;
     align-items: center;
     .ant-progress-outer {
-      background-color: @trail-color;
+      background-color: @progress-trail-color;
       border-radius: @corner-radius-circle;
       height: 16 * @rpx;
       overflow: hidden;
@@ -17,17 +17,17 @@
       transition: width 0.3s;
       height: 100%;
       position: relative;
-      background-color: @stroke-color;
+      background-color: @progress-stroke-color;
       &-success {
-        background-color: @COLOR_GREEN;
+        background-color: @progress-success-color;
       }
       &-exception {
-        background-color: @COLOR_RED;
+        background-color: @progress-exception-color;
       }
     }
     .ant-progress-indicator {
       margin-left: 16 * @rpx;
-      color: @COLOR_TEXT_ASSIST;
+      color: @progress-assist-color;
       font-size: 26 * @rpx;
       height: 37 * @rpx;
       display: flex;
@@ -35,10 +35,10 @@
     }
     .ant-progress-status-icon {
       &-success {
-        color: @COLOR_GREEN;
+        color: @progress-success-color;
       }
       &-exception {
-        color: @COLOR_RED;
+        color: @progress-exception-color;
       }
     }
   }
@@ -50,7 +50,7 @@
     }
     .ant-progress-indicator {
       font-size: 40 * @rpx;
-      color: @COLOR_TEXT_PRIMARY;
+      color: @progress-indicator-color;
       position: absolute;
       top: 50%;
       left: 50%;

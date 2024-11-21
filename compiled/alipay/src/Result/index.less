@@ -8,11 +8,17 @@
   text-align: center;
   line-height: normal;
   box-sizing: border-box;
-  .hairline('bottom');
+  // .hairline('bottom');
+
+  &-icon {
+    display: block;
+    font-size: 110 * @rpx;
+  }
 
   &-main {
-    padding: @size-8 @result-spacing-LR;
+    padding: 70 * @rpx 24 * @rpx;
     margin-bottom: @size-5;
+    line-height: 1.4;
     background-color: @result-main-background;
   }
 
@@ -27,35 +33,33 @@
     text-align: center;
     line-height: @result-img-size;
 
-    & + .@{resultPrefix}-title,
-    & + .@{resultPrefix}-message {
-      padding-top: @size-5;
-    }
-
     &-success {
-      color: @COLOR_BRAND1;
+      color: @result-success-color;
     }
 
     &-error {
-      color: @COLOR_TEXT_WARNING;
+      color: @result-error-color;
     }
 
     &-info {
-      color: @COLOR_BRAND1;
+      color: @result-success-color;
     }
 
     &-warning {
-      color: @COLOR_ORANGE_1;
+      color: @result-warning-color;
     }
 
     &-wait {
-      color: @COLOR_POMONAGREEN_1;
+      color: @result-wait-color;
     }
   }
 
   &-title {
+    padding-top: 40 * @rpx;
     font-size: @result-title-size;
     color: @result-title-color;
+
+    font-weight: 500;
 
     &:empty {
       display: none;
@@ -63,7 +67,7 @@
   }
 
   &-message {
-    padding-top: @size-2;
+    padding-top: 16 * @rpx;
     font-size: @result-desc-size;
     color: @result-desc-color;
 

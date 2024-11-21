@@ -1,7 +1,18 @@
-import { Component, triggerEvent } from '../_util/simply';
-import { InputDefaultProps } from './props';
+import { effect } from '@preact/signals-core';
 import mixinValue from '../mixins/value';
-Component(InputDefaultProps, {
+import { ComponentWithSignalStoreImpl, triggerEvent } from '../_util/simply';
+import i18nController from '../_util/store';
+import { InputDefaultProps } from './props';
+ComponentWithSignalStoreImpl({
+    store: function () { return i18nController; },
+    updateHook: effect,
+    mapState: {
+        locale: function (_a) {
+            var store = _a.store;
+            return store.currentLocale.value;
+        },
+    },
+}, InputDefaultProps, {
     onChange: function (e) {
         var value = e.detail.value;
         if (!this.isControlled()) {

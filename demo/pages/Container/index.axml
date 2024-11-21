@@ -1,5 +1,7 @@
+<view class="navigation-bar"/>
+
 <ant-container title="标题">
-  <view class="content" />
+  <view class="content">这里是卡片内容</view>
 </ant-container>
 <ant-container headerInBox="{{ false }}">
   <view slot="title">

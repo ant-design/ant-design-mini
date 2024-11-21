@@ -1,38 +1,21 @@
-<popover
+<view class="navigation-bar"></view>
+<ant-popover-list
   placement="bottom-right"
   visible="{{visible}}"
-  style="display: inline-block; margin: 20px"
+  list="{{list}}"
+  onTapItem="handleTapItem"
+  style="padding-top: 20px;margin: 0 20px;"
   onVisibleChange="handleVisibleChange"
-  color="#fff"
 >
-  <ant-button inline>点我</ant-button>
-  <list
-    slot="content"
-    className="popover"
-  >
-    <list-item
-      onTap="handleTapItem"
-      image="ScanningOutline"
-    >
-      扫一扫
-    </list-item>
-    <list-item
-      onTap="handleTapItem"
-      image="ReceivePaymentOutline"
-    >
-      付钱/收钱
-    </list-item>
-    <list-item
-      onTap="handleTapItem"
-      image="TransportQRcodeOutline"
-    >
-      乘车码
-    </list-item>
-    <list-item
-      onTap="handleTapItem"
-      image="{{url}}"
-    >
-      图片
-    </list-item>
-  </list>
-</popover>
+  <ant-button>点我</ant-button>
+</ant-popover-list>
+<ant-popover-list
+  visible="{{visible2}}"
+  list="{{list}}"
+  onTapItem="handleTapItem"
+  autoAdjustOverflow="{{true}}"
+  style="margin: 20px"
+  onVisibleChange="handleVisibleChange2"
+>
+  <ant-button style="margin-top: 500px;">气泡位置自适应</ant-button>
+</ant-popover-list>

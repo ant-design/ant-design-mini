@@ -1,5 +1,6 @@
+/* 给css变量的默认底色，用来兜底使用 */
 .custom {
-  border: 1px solid #eeeeee;
+  border: 1px solid #e5e5e5;
   padding: 4px;
   border-radius: 4px;
   margin-bottom: 12px;

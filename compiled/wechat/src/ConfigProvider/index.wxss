@@ -1,0 +1,7 @@
+.ant-container {
+  border-radius: 16rpx;
+  margin-bottom: 24rpx;
+}
+.ant-config-provider {
+  margin-top: 24px;
+}

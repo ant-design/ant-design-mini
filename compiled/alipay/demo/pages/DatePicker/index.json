@@ -1,5 +1,7 @@
 {
   "defaultTitle": "DatePicker",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-date-picker": "../../../src/DatePicker/index",
     "ant-range-picker": "../../../src/DatePicker/RangePicker/index",

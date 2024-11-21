@@ -6,21 +6,26 @@
   position: relative;
   display: inline-flex;
   flex-wrap: nowrap;
-  height: 56 * @rpx;
+  height: @stepper-content-height;
+  border-radius: @stepper-border-radius;
+  border: @stepper-handler-border-width solid @stepper-border-color;
   overflow: hidden;
   box-sizing: border-box;
 
   & &-button {
-    width: 56 * @rpx;
-    height: 56 * @rpx;
-    line-height: 56 * @rpx;
+    width: @stepper-content-height;
+    height: @stepper-content-height;
+    line-height: @stepper-content-height;
     padding: 0;
     color: @COLOR_BRAND1;
-    background-color: @COLOR_BACKGROUND;
+    background-color: @stepper-background-color;
+    .ant-icon {
+      font-size: @stepper-icon-size;
+    }
   }
 
   & &-button-hover {
-    background-color: fade(@COLOR_BLACK_CHANGE, 8%);
+    background-color: @stepper-hover-bg;
   }
 
   & &-button-up {
@@ -42,28 +47,27 @@
   }
 
   &-input {
-    width: 88 * @rpx;
-    height: 56 * @rpx;
-    margin-left: 4 * @rpx;
-    margin-right: 4 * @rpx;
+    width: @stepper-content-width;
+    height: @stepper-content-height;
+    margin: 0 2 * @rpx;
     text-align: center;
     line-height: normal;
-    font-size: 30 * @rpx;
-    color: @COLOR_TEXT_PRIMARY;
+    font-size: @stepper-font-size;
+    color: @stepper-input-font-color;
     box-sizing: border-box;
-    background-color: @COLOR_BACKGROUND;
+    background-color: @stepper-background-color;
 
     // 在微信会导致 input 显示不居中
     padding: 7 * @rpx 14 * @rpx;
     caret-color: @COLOR_BRAND1;
 
-    &-disabled {
-      opacity: 0.4;
+    &-wrap {
+      background-color: @stepper-border-color;
     }
   }
 
   &-input-readonly {
-    line-height: 56 * @rpx;
     padding: 0;
+    color: rgba(51, 51, 51, 0.4);
   }
 }

@@ -7,6 +7,9 @@
   z-index: 998;
   touch-action: none;
 }
+.ant-popup-top-image {
+  width: 100%;
+}
 .ant-popup-mask {
   width: 100%;
   height: 100%;
@@ -17,18 +20,60 @@
   animation-name: ant-popup-mask-close;
 }
 .ant-popup-content {
+  overflow: hidden;
   position: fixed;
-  background: #ffffff;
+  background: var(--popup-background, #ffffff);
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
-  color: #333333;
+  color: var(--popup-color, #333333);
+}
+.ant-popup-content-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.ant-popup-content-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 114rpx;
+  position: relative;
+}
+.ant-popup-content-header-title {
+  font-family: 500;
+  line-height: 50rpx;
+  font-size: 36rpx;
+  color: var(--popup-color, #333333);
+  text-align: center;
+}
+.ant-popup-content-header-icon {
+  width: 48rpx;
+  height: 48rpx;
+  font-size: 42rpx;
+  position: absolute;
+  top: 33rpx;
+  color: var(--popup-assit-color, #999999);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ant-popup-content-header-icon-back {
+  left: 24rpx;
+}
+.ant-popup-content-header-icon-close {
+  right: 24rpx;
 }
 .ant-popup-transform-top {
   top: 0;
   left: 0;
   right: 0;
   animation-name: ant-popup-transform-top;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 48rpx 48rpx;
 }
 .ant-popup-transform-top-close {
   animation-name: ant-popup-transform-top-close;
@@ -47,7 +92,7 @@
   right: 0;
   bottom: 0;
   animation-name: ant-popup-transform-bottom;
-  border-radius: 8px 8px 0 0;
+  border-radius: 48rpx 48rpx 0 0;
 }
 .ant-popup-transform-bottom-close {
   animation-name: ant-popup-transform-bottom-close;
@@ -66,7 +111,7 @@
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   animation-name: ant-popup-transform-center;
-  border-radius: 8px;
+  border-radius: 48rpx;
   background: none;
 }
 .ant-popup-transform-center-close {
@@ -77,7 +122,7 @@
   left: 0;
   right: 0;
   animation-name: ant-popup-position-top;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 48rpx 48rpx;
 }
 .ant-popup-position-top-close {
   animation-name: ant-popup-position-top-close;
@@ -96,7 +141,7 @@
   right: 0;
   bottom: 0;
   animation-name: ant-popup-position-bottom;
-  border-radius: 8px 8px 0 0;
+  border-radius: 48rpx 48rpx 0 0;
 }
 .ant-popup-position-bottom-close {
   animation-name: ant-popup-position-bottom-close;
@@ -115,7 +160,7 @@
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   animation-name: ant-popup-position-center;
-  border-radius: 8px;
+  border-radius: 48rpx;
   background: none;
 }
 .ant-popup-position-center-close {
@@ -302,6 +347,6 @@
     background-color: rgba(0, 0, 0, 0.55);
   }
   100% {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--popup-mask-close-bg, rgba(0, 0, 0, 0));
   }
 }

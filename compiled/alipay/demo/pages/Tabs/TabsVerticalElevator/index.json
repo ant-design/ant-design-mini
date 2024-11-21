@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "Tabs",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+    "ant-tabs": "../../../../src/Tabs/index"
+  }
+}

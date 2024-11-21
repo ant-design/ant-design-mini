@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "SafeArea",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "SafeArea",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "safe-area": "../../../src/SafeArea/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

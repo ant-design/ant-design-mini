@@ -1,0 +1,18 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Form",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Form",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "form-input": "../../../../src/Form/FormInput/index",
+    "form-checklist": "./checklist",
+    "form-location": "./location",
+    "ant-button": "../../../../src/Button/index"
+  }
+}

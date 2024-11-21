@@ -2,69 +2,69 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 1px 4px;
-  font-size: 11px;
-  line-height: 15px;
+  padding: 2rpx 8rpx;
+  font-size: 22rpx;
+  line-height: 30rpx;
   box-sizing: border-box;
-  border-radius: 2px;
-  color: #ffffff;
+  border-radius: 4rpx;
+  color: var(--tag-base-color, #ffffff);
 }
 .ant-tag-icon-container {
-  margin-right: 3px;
+  margin-right: 6rpx;
   display: flex;
   justify-content: center;
   align-self: center;
   align-items: center;
 }
 .ant-tag-icon-container .ant-icon {
-  font-size: 12px;
+  font-size: 24rpx;
 }
 .ant-tag-icon-container ant-icon {
-  font-size: 12px;
+  font-size: 24rpx;
 }
 .ant-tag-primary {
-  background-color: #1677ff;
+  background-color: var(--tag-primary-color, #1677ff);
 }
 .ant-tag-primary.ant-tag-fill-light {
-  color: #1677ff;
-  background-color: #e7f1ff;
+  color: var(--tag-primary-color, #1677ff);
+  background-color: var(--tag-primary-light-color, #e7f1ff);
 }
 .ant-tag-primary.ant-tag-outline {
-  color: #1677ff;
-  border-color: rgba(22, 119, 255, 0.3);
+  color: var(--tag-primary-color, #1677ff);
+  border-color: var(--tag-primary-color-faded, rgba(22, 119, 255, 0.3));
 }
 .ant-tag-warning {
-  background-color: #ff6430;
+  background-color: var(--tag-warning-color, #ff6430);
 }
 .ant-tag-warning.ant-tag-fill-light {
-  color: #ff6430;
-  background-color: #ffefdf;
+  color: var(--tag-warning-color, #ff6430);
+  background-color: var(--tag-warning-light-color, #ffefdf);
 }
 .ant-tag-warning.ant-tag-outline {
-  color: #ff6430;
-  border-color: rgba(255, 100, 48, 0.3);
+  color: var(--tag-warning-color, #ff6430);
+  border-color: var(--tag-warning-color-faded, rgba(255, 100, 48, 0.3));
 }
 .ant-tag-danger {
-  background-color: #ff3141;
+  background-color: var(--tag-danger-color, #ff3141);
 }
 .ant-tag-danger.ant-tag-fill-light {
-  color: #ff3141;
-  background-color: #ffece3;
+  color: var(--tag-danger-color, #ff3141);
+  background-color: var(--tag-danger-light-color, #ffece3);
 }
 .ant-tag-danger.ant-tag-outline {
-  color: #ff3141;
-  border-color: rgba(255, 49, 65, 0.3);
+  color: var(--tag-danger-color, #ff3141);
+  border-color: var(--tag-danger-color-faded, rgba(255, 49, 65, 0.3));
 }
 .ant-tag-success {
-  background-color: #22b35e;
+  background-color: var(--tag-success-color, #22b35e);
 }
 .ant-tag-success.ant-tag-fill-light {
-  color: #22b35e;
-  background-color: #d4fff1;
+  color: var(--tag-success-color, #22b35e);
+  background-color: var(--tag-success-light-color, #d4fff1);
 }
 .ant-tag-success.ant-tag-outline {
-  color: #22b35e;
-  border-color: rgba(34, 179, 94, 0.3);
+  color: var(--tag-success-color, #22b35e);
+  border-color: var(--tag-success-color-faded, rgba(34, 179, 94, 0.3));
 }
 .ant-tag-image {
   background-color: rgba(0, 0, 0, 0.5);
@@ -72,7 +72,7 @@
 .ant-tag-outline {
   border-width: 2rpx;
   border-style: solid;
-  background-color: #ffffff;
+  background-color: var(--tag-base-color, #ffffff);
 }
 .ant-tag-content {
   display: flex;

@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Skeleton",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "avatar": "../../../src/Avatar/index",
     "skeleton": "../../../src/Skeleton/index",

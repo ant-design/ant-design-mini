@@ -1,8 +1,16 @@
+<view class="navigation-bar"></view>
 <container title="基本使用">
   <ant-slider
     defaultValue="{{80}}"
     bind:change="onChange"
     bind:afterchange="onAfterChange"
+  ></ant-slider>
+</container>
+<container title="禁用状态">
+  <ant-slider
+    defaultValue="{{80}}"
+    disabled
+    bind:change="onChange"
   ></ant-slider>
 </container>
 <container title="无节点双滑块">
@@ -86,12 +94,5 @@
     activeDotStyle="background-color: red"
     bind:change="onChange"
     bind:afterchange="onAfterChange"
-  ></ant-slider>
-</container>
-<container title="禁用状态">
-  <ant-slider
-    defaultValue="{{80}}"
-    disabled
-    bind:change="onChange"
   ></ant-slider>
 </container>

@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <view class="t-swipe">
   <view class="t-swipe-item">
     <view class="t-swipe-item-title">删除按钮滑动到最大距离触发二次确认</view>

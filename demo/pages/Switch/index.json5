@@ -5,11 +5,14 @@
 
   /// #if ALIPAY
   "defaultTitle": "Switch",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
-    "switch": "../../../src/Switch/index",
-    "container": "../../../src/Container/index",
-    "ant-icon": "../../../src/Icon/index"
+    "ant-switch": "../../../src/Switch/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-button": "../../../src/Button/index"
   }
 }

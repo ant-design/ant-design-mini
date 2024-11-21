@@ -1,16 +1,29 @@
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { UploaderDefaultProps, File, LocalFile } from './props';
-import { chooseImage } from '../_util/jsapi/choose-image';
+import { effect } from '@preact/signals-core';
 import createValue from '../mixins/value';
+import { chooseImage } from '../_util/jsapi/choose-image';
+import {
+  ComponentWithSignalStoreImpl,
+  getValueFromProps,
+  triggerEvent,
+} from '../_util/simply';
+import i18nController from '../_util/store';
+import { File, LocalFile, UploaderDefaultProps } from './props';
 
-Component(
+ComponentWithSignalStoreImpl(
+  {
+    store: () => i18nController,
+    updateHook: effect,
+    mapState: {
+      locale: ({ store }) => store.currentLocale.value,
+    },
+  },
   UploaderDefaultProps,
   {
     async chooseImage() {
-      const [onBeforeUpload, onUpload] = getValueFromProps(this, [
-        'onBeforeUpload',
-        'onUpload',
-      ]);
+      const [onBeforeUpload, onUpload, onChooseImageError] = getValueFromProps(
+        this,
+        ['onBeforeUpload', 'onUpload', 'onChooseImageError']
+      );
       if (!onUpload) {
         throw new Error('need props onUpload');
       }
@@ -51,7 +64,7 @@ Component(
           })
           .filter((item) => !!item);
       } catch (err) {
-        triggerEvent(this, 'chooseImageError', err);
+        onChooseImageError(err);
         return;
       }
 

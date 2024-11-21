@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <container title="基础用法">
   <ant-input
     placeholder="请输入内容"
@@ -67,7 +68,7 @@
   <ant-input
     placeholder="请输入内容"
     onChange="onChange"
-    ref="handleRef"
+    ref="handleRefInput"
   ></ant-input>
   <view>
     <ant-button
@@ -77,4 +78,140 @@
       clear
     </ant-button>
   </view>
+</container>
+<container title="搜索框">
+  <view class="search-line">
+    <ant-input
+      placeholder="请输入内容"
+      onChange="onChange"
+      className="search-bar"
+      focusClassName="search-bar-focus"
+      confirmType="search"
+      allowClear
+      focus
+      onConfirm="onConfirm"
+    >
+      <ant-icon
+        slot="prefix"
+        type="SearchOutline"
+      ></ant-icon>
+      <ant-icon
+        slot="suffix"
+        type="AudioOutline"
+      ></ant-icon>
+    </ant-input>
+    <view class="cancel">取消</view>
+  </view>
+</container>
+<container title="Textarea基础用法">
+  <ant-textarea
+    placeholder="请输入内容"
+    autoHeight
+    onChange="onChange"
+  ></ant-textarea>
+</container>
+<container title="初始值">
+  <ant-textarea
+    placeholder="请输入内容"
+    defaultValue="这是antd mini小程序组件"
+    autoHeight
+    onChange="onChange"
+  ></ant-textarea>
+</container>
+<container title="带清除按钮">
+  <ant-textarea
+    placeholder="请输入内容"
+    autoHeight
+    allowClear
+  ></ant-textarea>
+</container>
+<container title="禁用状态">
+  <ant-textarea
+    placeholder="被禁用的输入框"
+    disabled
+  ></ant-textarea>
+</container>
+<container title="受控模式">
+  <ant-textarea
+    value="{{value}}"
+    placeholder="请输入内容"
+    allowClear
+    onChange="handleChange"
+  ></ant-textarea>
+  <ant-button
+    onTap="clear"
+    inline
+    size="small"
+  >
+    clear
+  </ant-button>
+</container>
+<container title="非受控模式通过ref修改input">
+  <ant-textarea
+    placeholder="请输入内容"
+    allowClear
+    onChange="onChange"
+    ref="handleRefTextArea"
+  ></ant-textarea>
+  <view>
+    <ant-button
+      inline
+      onTap="clearByTextAreaRef"
+    >
+      clear
+    </ant-button>
+  </view>
+</container>
+<container title="带有border">
+  <ant-input
+    className="custom"
+    placeholder="请输入内容"
+    onChange="onChange"
+  ></ant-input>
+  <ant-input
+    className="custom"
+    placeholder="请输入内容"
+    onChange="onChange"
+  >
+    <ant-icon
+      type="SearchOutline"
+      slot="prefix"
+    ></ant-icon>
+    <ant-icon
+      type="AudioOutline"
+      slot="suffix"
+    ></ant-icon>
+  </ant-input>
+  <ant-textarea
+    className="custom"
+    placeholder="请输入内容"
+    onChange="onChange"
+  ></ant-textarea>
+</container>
+<container title="自定义背景颜色">
+  <ant-input
+    className="custom-color"
+    placeholder="请输入内容"
+    onChange="onChange"
+  ></ant-input>
+  <ant-textarea
+    className="custom-color"
+    placeholder="请输入内容"
+    onChange="onChange"
+  ></ant-textarea>
+</container>
+<!--微信不支持  placeholderClassName-->
+<container title="自定义 placeholderClassName">
+  <ant-input
+    placeholderClassName="placeholder"
+    placeholder="请输入内容"
+    onChange="onChange"
+  ></ant-input>
+</container>
+<container title="自定义 placeholderStyle">
+  <ant-input
+    placeholderStyle="color: red;"
+    placeholder="请输入内容"
+    onChange="onChange"
+  ></ant-input>
 </container>

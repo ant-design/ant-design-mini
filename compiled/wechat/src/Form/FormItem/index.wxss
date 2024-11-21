@@ -1,12 +1,12 @@
 .ant-form-item {
-  background-color: #ffffff;
-  padding: 12px 12px 12px 16px;
+  background-color: var(--form-item-bg, #ffffff);
+  padding: 24rpx 24rpx 24rpx 32rpx;
   position: relative;
 }
 .ant-form-item::after {
   content: '';
   position: absolute;
-  background-color: #eeeeee;
+  background-color: #e5e5e5;
   display: block;
   top: auto;
   right: 0;
@@ -32,23 +32,23 @@
 }
 .ant-form-item-error-info {
   font-size: 13px;
-  color: #ff3141;
-  line-height: 18.5px;
+  color: var(--color-red, #ff3141);
+  line-height: 37rpx;
   text-align: left;
-  margin-top: 4px;
+  margin-top: 8rpx;
 }
 .ant-form-item-help-info {
   font-size: 13px;
-  color: #666666;
-  line-height: 18.5px;
+  color: var(--form-item-color, #666666);
+  line-height: 37rpx;
   text-align: left;
-  margin-top: 4px;
+  margin-top: 8rpx;
 }
 .ant-form-item-label {
   display: flex;
   align-items: center;
-  font-size: 17px;
-  line-height: 24px;
+  font-size: 34rpx;
+  line-height: 48rpx;
   overflow: visible;
   position: relative;
 }
@@ -58,22 +58,22 @@
   position: relative;
 }
 .ant-form-item-label-help-content {
-  font-size: 15px;
+  font-size: 30rpx;
   text-align: center;
   white-space: nowrap;
 }
 .ant-form-item-label-horizontal {
-  width: 85px;
-  margin-right: 12px;
-  color: #666666;
-  font-size: 17px;
-  line-height: 24px;
+  width: 170rpx;
+  margin-right: 24rpx;
+  color: var(--form-item-color, #666666);
+  font-size: 34rpx;
+  line-height: 48rpx;
 }
 .ant-form-item-label-vertical {
-  font-size: 17px;
-  line-height: 21px;
-  color: #666666;
-  margin-bottom: 4px;
+  font-size: 34rpx;
+  line-height: 42rpx;
+  color: var(--form-item-color, #666666);
+  margin-bottom: 8rpx;
 }
 .ant-form-item-field {
   flex: 1;
@@ -84,31 +84,31 @@
 .ant-form-item-extra {
   display: flex;
   align-items: center;
-  font-size: 16px;
-  color: #999999;
+  font-size: 32rpx;
+  color: var(--form-extra-color, #999999);
 }
 .ant-form-item-asterisk .ant-form-item-label-required .ant-form-item-label-text::before {
   content: '*';
   position: absolute;
-  left: -9px;
-  font-size: 15px;
-  color: #ff3b30;
+  left: -18rpx;
+  font-size: 30rpx;
+  color: var(--form-asterisk-color, #ff3b30);
 }
 .ant-form-item-text-required .ant-form-item-label-required .ant-form-item-label-text::after {
-  padding-left: 2px;
+  padding-left: 4rpx;
   content: '(必填)';
   display: block;
-  left: -9px;
-  font-size: 15px;
-  color: #cccccc;
+  left: -18rpx;
+  font-size: 30rpx;
+  color: var(--form-text-color, #cccccc);
 }
 .ant-form-item-text-optional .ant-form-item-label .ant-form-item-label-text::after {
-  padding-left: 2px;
+  padding-left: 4rpx;
   content: '(选填)';
   display: block;
-  left: -9px;
-  font-size: 15px;
-  color: #cccccc;
+  left: -18rpx;
+  font-size: 30rpx;
+  color: var(--form-text-color, #cccccc);
 }
 .ant-form-item-text-optional .ant-form-item-label-required .ant-form-item-label-text::after {
   content: none;

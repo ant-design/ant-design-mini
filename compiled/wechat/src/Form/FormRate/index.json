@@ -2,7 +2,7 @@
   "component": true,
   "usingComponents": {
     "form-item": "../FormItem/index",
-    "icon": "../../Icon/index",
+    "ant-icon": "../../Icon/index",
     "rate": "../../Rate/index"
   }
 }

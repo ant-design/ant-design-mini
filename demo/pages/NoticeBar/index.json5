@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "Notice",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

@@ -17,8 +17,8 @@
   &-line {
     display: flex;
     flex: 1;
-    border-bottom: 1px solid @COLOR_BORDER;
-    padding: 0 @collapse-title-padding @collapse-title-padding 0;
+    border-bottom: 1px solid @collapse-border-color;
+    padding: @collapse-title-padding;
   }
   &-title {
     position: relative;
@@ -27,7 +27,6 @@
     align-items: center;
     justify-content: space-between;
     line-height: 48 * @rpx;
-    padding: @collapse-title-padding 0 0 @collapse-title-padding;
     font-size: @collapse-title-size;
     color: @collapse-title-color;
     background-color: @collapse-title-background-color;
@@ -38,10 +37,10 @@
       flex: 1;
       max-width: 100%;
       font-size: 34 * @rpx;
-      color: @COLOR_TEXT_PRIMARY;
+      color: @collapse-title-color;
     }
     &-arrow {
-      color: @COLOR_TEXT_WEAK;
+      color: @collapse-title-icon-color;
     }
 
     &-icon {
@@ -61,7 +60,7 @@
     }
 
     &:active {
-      background-color: @COLOR_BORDER;
+      background-color: @collapse-border-color;
       transition: 0s;
     }
   }
@@ -78,19 +77,18 @@
       display: flex;
       flex: 1;
       font-size: 30 * @rpx;
-      color: @COLOR_TEXT_ASSIST;
+      color: @collapse-node-text-color;
       margin-right: 8 * @rpx;
     }
   }
 
   &-content {
-    color: @COLOR_TEXT_PRIMARY;
-    border-bottom: 1px solid @COLOR_BORDER;
-    padding: 24 * @rpx 24 * @rpx 24 * @rpx 0;
+    color: @collapse-title-color;
+    border-bottom: 1px solid @collapse-border-color;
     box-sizing: border-box;
+    padding: 24 * @rpx;
     &-container {
-      padding-left: 24 * @rpx;
-      background: @COLOR_WHITE_CHANGE;
+      background: @collapse-container-background-color;
     }
     &-wrap {
       will-change: height;

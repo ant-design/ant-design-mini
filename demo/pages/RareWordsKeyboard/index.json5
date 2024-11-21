@@ -5,14 +5,15 @@
 
   /// #if ALIPAY
   "defaultTitle": "RareWordsKeyboard",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
-    "rare-words-keyboard": "../../../src/RareWordsKeyboard/index",
-    "list": "../../../src/List/index",
-    "list-item": "../../../src/List/ListItem/index",
-    "icon": "../../../src/Icon/index",
+    "ant-rare-words-keyboard": "../../../src/RareWordsKeyboard/index",
+    "ant-list": "../../../src/List/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
     "ant-input": "../../../src/Input/index",
-    "container": "../../../src/Container/index"
+    "ant-container": "../../../src/Container/index"
   }
 }

@@ -1,15 +1,24 @@
-import {
-  Component,
-  triggerEvent,
-  triggerEventValues,
-  triggerEventOnly,
-  getValueFromProps,
-} from '../../_util/simply';
+import { effect } from '@preact/signals-core';
 import { resolveEventValue, resolveEventValues } from '../../_util/platform';
-import { FormCascaderPickerDefaultProps } from './props';
+import {
+  ComponentWithSignalStoreImpl,
+  getValueFromProps,
+  triggerEvent,
+  triggerEventOnly,
+  triggerEventValues,
+} from '../../_util/simply';
+import i18nController from '../../_util/store';
 import { createForm } from '../form';
+import { FormCascaderPickerDefaultProps } from './props';
 
-Component(
+ComponentWithSignalStoreImpl(
+  {
+    store: () => i18nController,
+    updateHook: effect,
+    mapState: {
+      locale: ({ store }) => store.currentLocale.value,
+    },
+  },
   FormCascaderPickerDefaultProps,
   {
     onOk(value, option, e) {

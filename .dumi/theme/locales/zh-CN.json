@@ -1,0 +1,14 @@
+{
+  "app.not-found.back-home": "返回首页",
+  "app.not-found.subTitle": "你访问的页面貌似不存在？",
+  "app.theme.switch": "切换主题",
+  "app.theme.switch.dark": "暗黑主题",
+  "app.theme.switch.compact": "紧凑主题",
+  "app.header.menu.more": "更多",
+  "app.footer.last.updated": "最后更新时间：",
+  "app.footer.actions.edit": "帮助改进此文档",
+  "app.theme.sidebar.alipay": "支付宝",
+  "app.theme.sidebar.wechat": "微信",
+  "app.previewer.collapse.label": "示例代码",
+  "app.platform.support.warning": "该组件不支持${platform}平台"
+}

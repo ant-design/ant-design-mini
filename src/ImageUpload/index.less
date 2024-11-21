@@ -5,7 +5,7 @@
 .@{imageUploadPrefix} {
   display: flex;
   flex-wrap: wrap;
-  background: @COLOR_CARD;
+  background: @image-upload-background-color;
 
   &-show {
     position: relative;
@@ -36,7 +36,7 @@
     width: 160 * @rpx;
     height: 160 * @rpx;
     margin: @image-upload-add-image-container-margin;
-    background-color: @COLOR_GREY_CARD;
+    background-color: @image-upload-wrapper-background;
     border-radius: @corner-radius-md;
   }
   &-add-image-icon {
@@ -48,7 +48,7 @@
     height: 160 * @rpx;
     margin: @image-upload-common-margin;
     border-radius: @corner-radius-md;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: @image-upload-cover-background;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,7 +62,7 @@
       }
 
       &-text {
-        color: @COLOR_WHITE;
+        color: @image-upload-text-color;
         font-size: 24 * @rpx;
         margin-top: 8 * @rpx;
       }
@@ -73,11 +73,11 @@
 
       &-icon {
         font-size: 48rpx;
-        color: @COLOR_WHITE;
+        color: @image-upload-text-color;
       }
 
       &-text {
-        color: @COLOR_WHITE;
+        color: @image-upload-text-color;
         font-size: 24rpx;
         margin-top: 8rpx;
       }

@@ -1,24 +1,24 @@
 .ant-skeleton-button {
-  width: 60px;
-  height: 24px;
-  border-radius: 4px;
-  background: #eeeeee;
+  width: 120rpx;
+  height: 48rpx;
+  border-radius: 8rpx;
+  background: var(--color-border, #e5e5e5);
   display: inline-block;
 }
 .ant-skeleton-button-animate {
-  background: linear-gradient(90deg, #eeeeee 25%, rgba(204, 204, 204, 0.6) 37%, #eeeeee 63%);
+  background: linear-gradient(90deg, var(--skeleton-animation-25, #e5e5e5) 25%, var(--skeleton-animation-37, rgba(204, 204, 204, 0.6)) 37%, var(--skeleton-animation-63, #e5e5e5) 63%);
   background-size: 400% 100%;
   animation: ant-skeleton-loading 1.4s ease infinite;
 }
 .ant-skeleton-button-large {
-  font-size: 18px;
-  padding: 12px 12px 12px 12px;
+  font-size: 36rpx;
+  padding: 24rpx 24rpx 24rpx 24rpx;
 }
 .ant-skeleton-button-medium {
-  font-size: 17px;
-  padding: 8px 12px 8px 12px;
+  font-size: 34rpx;
+  padding: 16rpx 24rpx 16rpx 24rpx;
 }
 .ant-skeleton-button-small {
-  font-size: 15px;
-  padding: 4px 12px 4px 12px;
+  font-size: 30rpx;
+  padding: 8rpx 24rpx 8rpx 24rpx;
 }

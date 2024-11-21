@@ -1,0 +1,21 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "ConfigProvider",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "ConfigProvider",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-button": "../../../src/Button/index",
+    "ant-list": "../../../src/List/index",
+    "ant-list-item": "../../../src/List/ListItem/index",
+    "ant-config-provider": "../../../src/ConfigProvider/index",
+    "ant-picker": "../../../src/Picker/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-range-picker": "../../../src/DatePicker/RangePicker/index"
+  }
+}

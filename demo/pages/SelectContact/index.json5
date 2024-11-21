@@ -1,0 +1,17 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "SelectContact",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "SelectContact",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-select-contact": "../../../src/SelectContact/index",
+    "ant-container": "../../../src/Container/index"
+  },
+  "allowsBounceVertical": "NO"
+}

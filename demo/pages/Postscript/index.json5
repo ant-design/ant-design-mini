@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Postscript",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Postscript",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-postscript": "../../../src/Postscript/index",
+    "container": "../../../src/Container/index"
+  }
+}

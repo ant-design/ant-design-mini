@@ -1,12 +1,12 @@
 .ant-skeleton-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 4px;
-  background: #eeeeee;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 8rpx;
+  background: var(--color-border, #e5e5e5);
   display: inline-block;
 }
 .ant-skeleton-avatar-animate {
-  background: linear-gradient(90deg, #eeeeee 25%, rgba(204, 204, 204, 0.6) 37%, #eeeeee 63%);
+  background: linear-gradient(90deg, var(--skeleton-animation-25, #e5e5e5) 25%, var(--skeleton-animation-37, rgba(204, 204, 204, 0.6)) 37%, var(--skeleton-animation-63, #e5e5e5) 63%);
   background-size: 400% 100%;
   animation: ant-skeleton-loading 1.4s ease infinite;
 }
@@ -14,18 +14,18 @@
   border-radius: 50%;
 }
 .ant-skeleton-avatar-x-small {
-  width: 40px;
-  height: 40px;
+  width: 36rpx;
+  height: 36rpx;
 }
 .ant-skeleton-avatar-small {
-  width: 44px;
-  height: 44px;
+  width: 60rpx;
+  height: 60rpx;
 }
 .ant-skeleton-avatar-medium {
-  width: 52px;
-  height: 52px;
+  width: 92rpx;
+  height: 92rpx;
 }
 .ant-skeleton-avatar-large {
-  width: 60px;
-  height: 60px;
+  width: 140rpx;
+  height: 140rpx;
 }

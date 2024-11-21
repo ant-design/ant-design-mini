@@ -1,0 +1,19 @@
+@import (reference) '../style/variables.less';
+@import (reference) '../style/themes/index.less';
+
+// dialog 背景色
+@dialog-background-color: var(--dialog-background-color, @COLOR_CARD);
+// dialog 圆角
+@dialog-radius: @corner-radius-lg;
+// 标题颜色
+@dialog-title-color: var(--dialog-title-color, @COLOR_TEXT_PRIMARY);
+// 内容大小
+@dialog-content-size: @font-size-subtitle;
+// 内容颜色
+@dialog-content-color: var(--dialog-content-color, @COLOR_TEXT_PRIMARY);
+// 关闭图标尺寸
+@dialog-close-icon-size: 36 * @rpx;
+
+@dialog-close-text-color: var(--dialog-close-text-color, @COLOR_TEXT_ASSIST);
+
+@dialog-header-padding: 44 * 2 * @rpx;

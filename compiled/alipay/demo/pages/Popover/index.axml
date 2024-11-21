@@ -1,6 +1,9 @@
-<container title="基础用法">
-  <popover
-    content="prompt"
+<view class="navigation-bar"></view>
+<ant-container title="基础用法">
+  <ant-popover
+    content="简单的tips"
+    placement="top-left"
+    showCloseIcon="{{true}}"
     style="display: inline-block"
   >
     <ant-button
@@ -9,52 +12,102 @@
     >
       点我
     </ant-button>
-  </popover>
-</container>
-<container title="基础用法-回调函数">
-  <popover
-    content="prompt"
+  </ant-popover>
+</ant-container>
+<ant-container title="基础用法-回调函数">
+  <ant-popover
+    content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
     placement="top"
+    showCloseIcon="{{true}}"
     onVisibleChange="onVisibleChange"
   >
     <ant-button>点我</ant-button>
-  </popover>
-</container>
-<container title="自定义颜色">
+  </ant-popover>
+</ant-container>
+<ant-container title="基础用法-图片和行动点按钮">
+  <ant-popover
+    content="这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案这里是一个提示文案很长的Tips，酌情使用文案。单一Tips最多可容纳2行文案…"
+    placement="top"
+    actionText="操作按钮"
+    onTapAction="onTapAction"
+    imageUrl="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*tLCBTqxataIAAAAAAAAAAAAADkqGAQ/original"
+    onVisibleChange="onVisibleChange"
+  >
+    <ant-button>点我</ant-button>
+  </ant-popover>
+</ant-container>
+<ant-container title="自定义">
   <view class="custom">
-    <popover
+    <ant-popover
       content="红色"
       color="red"
     >
       <!--display: inline-->
-      <text>点我红色</text>
-    </popover>
-    <popover
-      content="蓝色"
-      color="blue"
+      <ant-button
+        style="margin-right: 24rpx;"
+        inline
+        type="primary"
+      >自定义颜色</ant-button>
+    </ant-popover>
+    <ant-popover content="左侧插槽">
+      <!--display: inline-->
+      <ant-button
+        inline
+        style="margin-right: 24rpx;"
+      >左侧插槽</ant-button>
+      <ant-icon
+        slot="leftContent"
+        className="left-icon"
+        type="FaceRecognitionOutline"
+      ></ant-icon>
+    </ant-popover>
+    <ant-popover content="右侧插槽">
+      <!--display: inline-->
+      <ant-button
+        inline
+        style="margin-right: 24rpx;"
+      >右侧插槽</ant-button>
+      <ant-icon
+        slot="rightContent"
+        className="right-icon"
+        type="FaceRecognitionOutline"
+      ></ant-icon>
+    </ant-popover>
+    <ant-popover
+      className="ant-popover-white"
+      color="white"
+      content="白色背景"
     >
       <!--display: inline-->
-      <text>点我蓝色</text>
-    </popover>
+      <ant-button
+        inline
+        style="margin-right: 24rpx;"
+      >白色背景</ant-button>
+      <ant-icon
+        slot="rightContent"
+        className="right-icon"
+        type="FaceRecognitionOutline"
+      ></ant-icon>
+    </ant-popover>
   </view>
-</container>
-<container title="点击icon查看">
+</ant-container>
+<ant-container title="点击icon查看">
   查看说明
-  <popover
+  <ant-popover
     content="说明"
     style="display: inline-block"
   >
-    <icon type="QuestionCircleOutline"></icon>
-  </popover>
-</container>
-<container title="自定义位置">
+    <ant-icon type="QuestionCircleOutline"></ant-icon>
+  </ant-popover>
+</ant-container>
+<ant-container title="自定义位置">
   <view class="custom">
     <block
       a:for="{{placements}}"
       a:for-index="index"
       a:for-item="item"
     >
-      <popover placement="{{item}}">
+      <ant-popover placement="{{item}}">
         <ant-button
           size="small"
           inline
@@ -69,12 +122,12 @@
         >
           {{item}}
         </view>
-      </popover>
+      </ant-popover>
     </block>
   </view>
-</container>
-<container title="自定义mask">
-  <popover
+</ant-container>
+<ant-container title="自定义mask">
+  <ant-popover
     content="prompt"
     maskStyle="background: rgba(0, 0, 0, 0.6);"
     style="display: inline-block"
@@ -85,11 +138,11 @@
     >
       点我
     </ant-button>
-  </popover>
-</container>
-<container title="受控">
+  </ant-popover>
+</ant-container>
+<ant-container title="受控">
   <view>
-    <popover
+    <ant-popover
       content="prompt"
       placement="right"
       showMask="{{false}}"
@@ -98,7 +151,7 @@
     >
       <!--display: inline-->
       <text>点击按钮修改visible</text>
-    </popover>
+    </ant-popover>
   </view>
   <ant-button
     size="small"
@@ -108,4 +161,4 @@
   >
     change visible
   </ant-button>
-</container>
+</ant-container>

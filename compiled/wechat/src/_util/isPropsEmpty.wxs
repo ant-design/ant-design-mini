@@ -1,0 +1,6 @@
+function isPropsEmpty(propsValue) {
+  return [undefined, null].indexOf(propsValue) !== -1;
+}
+module.exports = {
+  isPropsEmpty: isPropsEmpty
+};

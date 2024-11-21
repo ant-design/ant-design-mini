@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ant-sticky": "../Sticky/index",
+    "ant-icon": "../Icon/index"
+  }
+}

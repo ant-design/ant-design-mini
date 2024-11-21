@@ -1,4 +1,4 @@
-@import (reference) '../style/themes/index.less';
+@import (reference) './variable.less';
 
 @tabsPrefix: ant-typography;
 
@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     width: fit-content;
-    color: @COLOR_TEXT_PRIMARY;
+    color: @typography-container-color;
     .@{tabsPrefix} {
       &-text {
         line-height: @default-line-height;

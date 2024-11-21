@@ -1,11 +1,28 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 // 字体大小
-@stepper-font-size: 30 * @rpx;
+@stepper-font-size: @sizeFont5;
 // 加减边框
 @stepper-handler-border-width: 2 * @rpx;
 @stepper-handler-border-radius: 4.4 * @rpx;
-@stepper-handler-border-color: @COLOR_GREY_2;
+@stepper-handler-border-color: var(
+  --stepper-handler-border-color,
+  @COLOR_GREY_2
+);
 // 加减点击背景
-@stepper-handler-tap-background-color: #ddd;
+@stepper-handler-tap-background-color: var(--stepper-handler-tap-bg, #ddd);
 @stepper-handler-size: 40 * @rpx;
+
+@stepper-border-color: var(--stepper-border-color, @COLOR_BORDER_GREYCARD);
+@stepper-border-radius: 50vh;
+@stepper-background-color: var(--stepper-background-color, @COLOR_WHITE);
+
+@stepper-hover-bg: var(--stepper-hover-bg, @COLOR_BLACK_FADED_8);
+
+@stepper-input-font-color: var(--stepper-input-font-color, @COLOR_TEXT_PRIMARY);
+
+@stepper-content-width: 64 * @rpx;
+@stepper-content-height: 44 * @rpx;
+
+@stepper-icon-size: @size-3;

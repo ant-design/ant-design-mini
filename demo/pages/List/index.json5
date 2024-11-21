@@ -5,12 +5,15 @@
 
   /// #if ALIPAY
   "defaultTitle": "List",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
     "ant-list": "../../../src/List/index",
     "ant-list-item": "../../../src/List/ListItem/index",
     "ant-icon": "../../../src/Icon/index",
+    "ant-button": "../../../src/Button/index",
     "ant-switch": "../../../src/Switch/index"
   }
 }

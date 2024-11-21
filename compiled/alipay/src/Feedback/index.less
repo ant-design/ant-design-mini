@@ -1,0 +1,123 @@
+@import (reference) './variable.less';
+
+@avatarPrefix: ant-feedback;
+
+.@{avatarPrefix} {
+  .ant-popover-inner {
+    max-width: 100%;
+    color: @feedback-text-color;
+    background: @feedback-content-background-color;
+  }
+  .ant-popover-arrow {
+    border-bottom-color: @feedback-content-background-color;
+  }
+  &-popoverType-default {
+    .ant-popover-content {
+      width: 568 * @rpx;
+    }
+  }
+  &-popoverType-circle {
+    .ant-popover-content {
+      width: max-content;
+      transform: translate(-50%, 60 * @rpx);
+      left: 50% !important;
+      top: 50% !important;
+      bottom: 50% !important;
+      right: 50% !important;
+    }
+  }
+  &-show {
+    z-index: 9;
+    position: relative;
+  }
+  &-mask {
+    z-index: 2;
+    background: @feedback-mask-color;
+  }
+  &-trigger {
+    position: relative;
+  }
+  &-guide {
+    position: absolute;
+    background: @feedback-background-color;
+    border-radius: 50vh;
+    width: 48 * @rpx;
+    height: 48 * @rpx;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-content {
+      background: @feedback-content-background-color;
+      border-radius: 50vh;
+      width: 24 * @rpx;
+      height: 24 * @rpx;
+    }
+  }
+  &-content {
+    background: @feedback-content-background-color;
+    border-radius: 24 * @rpx;
+    &-card {
+      display: flex;
+      flex-direction: column;
+      padding: 24 * @rpx;
+      background: @feedback-content-background-color;
+      .ant-feedback-content-list {
+        flex-direction: column;
+        gap: 16 * @rpx;
+      }
+      .ant-feedback-content-list-item {
+        background: @feedback-list-background-color;
+        border-radius: 50vh;
+        padding: 18 * @rpx 24 * @rpx;
+      }
+    }
+    &-popover {
+      padding: 24 * @rpx;
+      .ant-feedback-content-list {
+        flex-direction: column;
+        gap: 16 * @rpx;
+      }
+      .ant-feedback-content-list-item {
+        background: @feedback-list-background-color;
+        border-radius: 50vh;
+        padding: 18 * @rpx 24 * @rpx;
+      }
+    }
+    &-title {
+      font-weight: 500;
+      font-size: 28 * @rpx;
+      color: @feedback-list-text-color;
+      letter-spacing: 0;
+      padding-bottom: 20 * @rpx;
+      padding-top: 4 * @rpx;
+    }
+    &-list {
+      display: flex;
+      flex-direction: column;
+      &-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        .ant-icon,
+        &-image {
+          font-size: 36 * @rpx;
+          width: 36 * @rpx;
+          height: 36 * @rpx;
+          margin-right: 16 * @rpx;
+        }
+        &-text {
+          font-weight: 400;
+          font-size: 26 * @rpx;
+          color: @feedback-list-text-color;
+          line-height: 37 * @rpx;
+        }
+      }
+    }
+  }
+}

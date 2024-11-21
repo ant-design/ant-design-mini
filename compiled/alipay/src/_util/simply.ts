@@ -41,6 +41,134 @@ function mergeDefaultProps(defaultProps: Record<string, any> = {}) {
 
 type ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods> = unknown;
 
+// 增加store使用的版本
+interface IComponentOptions {
+  // TODO: 需要考虑没有启用 Component2 的情况
+  onInit?: () => void;
+  didUnmount?: () => void;
+}
+type ExtendedInstanceMethods = Partial<IComponentOptions> & Record<string, any>;
+export const ComponentWithSignalStoreImpl = <
+  S,
+  M extends Record<string, (o: { store: S }) => unknown>,
+  Props,
+  Methods = unknown,
+  Data = unknown,
+  Mixins = unknown,
+  InstanceMethods extends ExtendedInstanceMethods = ExtendedInstanceMethods
+>(
+  storeOptions: TStoreOptions<S, M>,
+  defaultProps: Props,
+  methods?: Methods &
+    ThisType<ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods>>,
+  data?: Data & any,
+  mixins?: Mixins & any,
+  instanceMethods?: InstanceMethods &
+    ThisType<
+      ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods> & {
+        $store: S;
+        props: Props;
+      }
+    >
+) => {
+  const storeBinder = new StoreBinder(storeOptions);
+
+  const defaultOnInit = function () {
+    storeBinder.init(this as unknown as TStoreInitOptions<S>);
+  };
+  const instanceMethodsCopy: ExtendedInstanceMethods = { ...instanceMethods };
+
+  // 确保 instanceMethods 存在
+  // 备份原有的 onInit 和 didUnmount 方法
+  const onInitBackup = instanceMethodsCopy.onInit || (() => {});
+  const onDidUnmountBackup = instanceMethodsCopy.didUnmount || (() => {});
+
+  instanceMethodsCopy.onInit = function () {
+    defaultOnInit.call(this);
+    if (onInitBackup) {
+      onInitBackup.call(this);
+    }
+  };
+
+  instanceMethodsCopy.didUnmount = function () {
+    if (onDidUnmountBackup) {
+      onDidUnmountBackup.call(this);
+    }
+    storeBinder.dispose();
+  };
+
+  // 这里确保 instanceMethodsCopy.onInit 被正确执行
+  if (!instanceMethodsCopy.onInit) {
+    instanceMethodsCopy.onInit = defaultOnInit;
+  }
+
+
+
+  Component({
+    props: removeNullProps(mergeDefaultProps(defaultProps)),
+    methods,
+    mixins: mixins || [],
+    data,
+    ...(instanceMethodsCopy || {}),
+  });
+};
+
+type TMapState<S> = Record<string, (o: { store: S }) => unknown>;
+
+// 这里类型直接抄了 PageWithAnyStore，但其实对于 antd-mini 的场景，store 和 updateHook 都可以写死而不需要使用时自定义
+export type TStoreOptions<S, M extends TMapState<S>> = {
+  /**
+   * store 的创建器，因为页面会有多实例，所以 store 必须每个页面实例单独创建一次
+   * 如果你非要多个实例共用一个 store，那你可以 const store = new Store(); store: => store;
+   */
+  store: () => S;
+  /**
+   * store 数据更新后的 listener，通过它来触发向页面数据的同步，返回值是一个 dispose 函数。
+   * 在 mobx 是 autorun、redux 是 subscribe、你要不在意性能，setInterval 也可以
+   */
+  updateHook: (fn: () => void) => () => void;
+  /**
+   * store 数据到页面 data 的映射关系
+   */
+  mapState: M;
+};
+
+export type TStoreInitOptions<S> = {
+  setData: (o: Record<string, unknown>, callback?: () => void) => void;
+  $store?: S;
+};
+
+export class StoreBinder<S, M extends TMapState<S>> {
+  private disposeStore?: () => void = undefined;
+  constructor(private storeOptions: TStoreOptions<S, M>) {}
+
+  /**
+   * 绑定和 store 的关系
+   */
+  init(theThis: TStoreInitOptions<S>) {
+    const store = this.storeOptions.store();
+    const disposes = Object.keys(this.storeOptions.mapState).map((key) => {
+      return this.storeOptions.updateHook(() => {
+        theThis.setData({
+          [key]: this.storeOptions.mapState[key]({ store }),
+        });
+      });
+    });
+    theThis.$store = store;
+
+    this.disposeStore = () => disposes.forEach((d) => d());
+  }
+
+  /**
+   * 释放和 store 的关系
+   */
+  dispose() {
+    if (this.disposeStore) {
+      this.disposeStore();
+    }
+  }
+}
+
 function ComponentImpl<
   Props,
   Methods = unknown,
@@ -145,4 +273,7 @@ export function getValueFromProps(instance: any, propName?: string | string[]) {
   return value;
 }
 
-export { ComponentImpl as Component };
+export {
+  ComponentWithSignalStoreImpl as ComponentWithSignalStore,
+  ComponentImpl as Component,
+};

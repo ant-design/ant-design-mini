@@ -7,6 +7,5 @@
     "ant-icon": "../../../src/Icon/index",
     "ant-input": "../../../src/Input/index"
   },
-  "titleBarColor": "#fffff",
   "transparentTitle": "always"
 }

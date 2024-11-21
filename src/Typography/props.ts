@@ -29,4 +29,7 @@ export const TypographyDefaultProps: ITypographyProps = {
   lineThrough: false,
   underline: false,
   ellipsisRow: null,
+  onTap: null,
+  catchTap: null,
+  onDisabledTap: null,
 };

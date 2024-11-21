@@ -1,0 +1,175 @@
+<view class="navigation-bar"/>
+
+<ant-dialog
+  content="人在天边月上明"
+  visible="{{ basicVisible }}"
+  onClose="handleClose"
+  closable="{{ false }}"
+  footer="{{ footer1 }}"
+  onButtonTap="onButtonTap"
+  primaryButtonText="我知道了"
+  />
+<ant-dialog
+  title="带标题的弹窗"
+  content="人在天边月上明"
+  onButtonTap="onButtonTap"
+  visible="{{ withTitleVisible }}"
+  onClose="handleClose"
+  footer="{{ footer1 }}"
+  />
+<ant-dialog
+  title="带头图"
+  headerImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Q5ekTJUJW8IAAAAAAAAAAAAADiWwAQ/original"
+  content="人在天边月上明"
+  onButtonTap="onButtonTap"
+  visible="{{ withImageVisible }}"
+  onClose="handleClose"
+  footer="{{ footer1 }}"
+  />
+<ant-dialog
+  title="确定删除吗？"
+  content="删除后无法恢复"
+  visible="{{ basicTwoVisible }}"
+  onClose="handleClose"
+  onButtonTap="onButtonTap"
+  footer="{{ footer2 }}"
+  />
+<ant-dialog
+  title="标题"
+  content="人在天边月上明"
+  visible="{{ basicThreeVisible }}"
+  onClose="handleClose"
+  onButtonTap="onButtonTap"
+  footer="{{ footer3 }}"
+  />
+<ant-dialog
+  title="签到成功!获得积分奖励"
+  content="积分可用于好礼兑换"
+  visible="{{ slotWeakVisible }}"
+  onClose="handleClose"
+  className="activity-dialog"
+  onButtonTap="onButtonTap"
+>
+  <image
+    slot="header"
+    mode="widthFix"
+    class="activity-dialog-header-image"
+    src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*HTNoQoZlIfAAAAAAAAAAAAAADiWwAQ/original" />
+  <image
+    slot="content-extra"
+    mode="widthFix"
+    class="activity-dialog-content-image"
+    src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*DNXISIKmwBUAAAAAAAAAAAAADiWwAQ/original" />
+  <view slot="footer" class="activity-dialog-footer">
+    <view class="activity-dialog-footer-button" onTap="onClickActivityModalButton">
+      开心收下
+    </view>
+    <view class="activity-dialog-footer-extra">
+      奖品可在我的奖品中查看
+    </view>
+  </view>
+</ant-dialog>
+
+<ant-dialog
+  title="恭喜获得出行红包"
+  content="出行打车小程序专用"
+  visible="{{ slotStrongVisible }}"
+  onClose="handleClose"
+  className="activity-dialog activity-dialog-strong"
+  onButtonTap="onButtonTap"
+>
+  <image
+    slot="dialog-top"
+    mode="widthFix"
+    class="activity-dialog-strong-header-image"
+    src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Sp52SL4mObQAAAAAAAAAAAAADiWwAQ/original" />
+  <image
+    slot="content-extra"
+    mode="widthFix"
+    class="activity-dialog-content-image"
+    src="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*Oju8Q4diuA0AAAAAAAAAAAAADiWwAQ/original" />
+  <view slot="footer" class="activity-dialog-footer">
+    <view class="activity-dialog-footer-button" onTap="onClickActivityModalButton">
+      去使用
+    </view>
+    <view class="activity-dialog-footer-extra">
+      奖品可在我的奖品中查看
+    </view>
+  </view>
+</ant-dialog>
+<!-- #if ALIPAY -->
+<ant-dialog
+  visible="{{ customBodyVisible }}"
+  closable="{{ false }}"
+  onClose="handleClose">
+  <view class="body">
+    <image
+      mode="scaleToFill"
+      src="https://mdn.alipayobjects.com/huamei_yujk1o/afts/img/A*xYjqRJiKsvoAAAAAAAAAAAAADuaJAQ/original"
+      class="bodyImg" />
+    <view class="bodyAction">
+      <ant-icon
+        type="CloseCircleOutline"
+        onTap="handleClose" />
+    </view>
+  </view>
+</ant-dialog>
+<!-- #endif -->
+
+<ant-container
+  title="基础用法"
+  className="list">
+  <ant-button
+    data-field="basicVisible"
+    onTap="handleOpen">
+    最简单的弹框
+  </ant-button>
+  <ant-button
+    data-field="withTitleVisible"
+    onTap="handleOpen">
+    带有标题
+  </ant-button>
+  <ant-button
+    data-field="withImageVisible"
+    onTap="handleOpen">
+    带头图
+  </ant-button>
+  <ant-button
+    data-field="basicTwoVisible"
+    onTap="handleOpen">
+    两个按钮 横排
+  </ant-button>
+  <ant-button
+    data-field="basicThreeVisible"
+    onTap="handleOpen">
+    三个按钮 竖排
+  </ant-button>
+</ant-container>
+<ant-container
+  title="局部插槽"
+  className="list">
+  <!-- #if ALIPAY -->
+  <ant-button
+    data-field="slotWeakVisible"
+    onTap="handleOpen">
+    弱活动氛围弹框
+  </ant-button>
+  <ant-button
+    data-field="slotStrongVisible"
+    onTap="handleOpen">
+    强活动氛围弹框
+  </ant-button>
+  <!-- #endif -->
+</ant-container>
+
+<ant-container
+  title="自定义"
+  className="list">
+  <!-- #if ALIPAY -->
+  <ant-button
+    data-field="customBodyVisible"
+    onTap="handleOpen">
+    完全自定义内容区
+  </ant-button>
+  <!-- #endif -->
+</ant-container>

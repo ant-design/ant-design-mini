@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Sticky",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+    "ant-sticky": "../../../src/Sticky/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

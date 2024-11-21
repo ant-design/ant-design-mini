@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 const localeText = {
     weekdayNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    title: 'YYYY/MM',
+    format: 'YYYY/MM',
     today: 'Today',
     start: 'Start',
     end: 'End',
@@ -125,7 +125,7 @@ Page({
         });
     },
     demo9HandleScrollIntoView() {
-        this.ref.scrollIntoView(nowDate);
+        this.ref.scrollIntoView(dayjs().add(1, 'M').toDate().getTime());
     },
     handleRef(ref) {
         this.ref = ref.detail;

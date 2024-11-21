@@ -1,23 +1,23 @@
 .ant-list-item {
   align-items: center;
-  background-color: #ffffff;
-  color: #333333;
+  background-color: var(--list-background-color, #ffffff);
+  color: var(--list-content-color, #333333);
   line-height: 1.4;
 }
 .ant-list-item-hover {
-  background-color: #eeeeee;
+  background-color: var(--list-item-border-color, #e5e5e5);
 }
 .ant-list-item-line {
   flex: 1;
   display: flex;
-  padding: 12px;
+  padding: 0 24rpx;
   align-items: center;
   position: relative;
 }
 .ant-list-item-line-divider::after {
   content: '';
   position: absolute;
-  background-color: #eeeeee;
+  background-color: #e5e5e5;
   display: block;
   top: auto;
   right: 0;
@@ -29,38 +29,56 @@
 .ant-list-item-line-disabled {
   opacity: 0.4;
 }
+.ant-list-item-image {
+  border-radius: 50vh;
+}
+.ant-list-item-image-large-icon {
+  font-size: 80rpx;
+}
+.ant-list-item-image-large-image {
+  width: 80rpx;
+  height: 80rpx;
+}
+.ant-list-item-image-normal-icon {
+  font-size: 56rpx;
+}
+.ant-list-item-image-normal-image {
+  width: 56rpx;
+  height: 56rpx;
+}
 .ant-list-item-image-container {
-  margin-right: 12px;
+  margin-right: 24rpx;
 }
 .ant-list-item-image-container:empty {
   display: none;
-}
-.ant-list-item-image-icon {
-  font-size: 26px;
-}
-.ant-list-item-image-image {
-  width: 26px;
-  height: 26px;
-  overflow: hidden;
 }
 .ant-list-item-content-container {
   display: flex;
   flex: 1;
   flex-direction: column;
+  padding: 24rpx 0;
+}
+.ant-list-item-content-container-small-text {
+  font-size: 24rpx;
+  line-height: 33rpx;
+}
+.ant-list-item-content-container-normal-text {
+  font-size: 28rpx;
+  line-height: 40rpx;
 }
 .ant-list-item-content-main {
-  font-size: 17px;
+  font-size: 32rpx;
+  line-height: 45rpx;
 }
 .ant-list-item-content-title-container {
-  font-size: 13px;
-  color: #999999;
+  color: var(--list-extra-brief-color, #999999);
 }
 .ant-list-item-content-brief-container {
-  font-size: 13px;
-  color: #999999;
+  color: var(--list-extra-brief-color, #999999);
 }
 .ant-list-item-extra {
-  font-size: 17px;
+  font-size: 32rpx;
+  line-height: 45rpx;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -74,22 +92,26 @@
 .ant-list-item-extra-brief {
   display: flex;
   flex-direction: row-reverse;
-  font-size: 15px;
-  color: #999999;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: var(--list-extra-brief-color, #999999);
 }
 .ant-list-item-arrow {
-  margin-left: 4px;
-  color: #cccccc;
+  margin-left: 8rpx;
+  color: var(--list-item-text-color, #cccccc);
   display: flex;
   align-items: center;
 }
 .ant-list-item-arrow .ant-icon {
-  font-size: 18px;
+  font-size: 36rpx;
+}
+.ant-list-item-arrow-large-margin {
+  margin-left: 24rpx;
 }
 .ant-list-item .line {
-  height: 0.5px;
-  background-color: #eeeeee;
-  width: calc(100% - 24 * 0.5px);
+  height: 1rpx;
+  background-color: var(--list-item-border-color, #e5e5e5);
+  width: calc(100% - 24 * 1rpx);
   position: absolute;
   right: 0;
 }

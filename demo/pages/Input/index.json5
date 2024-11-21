@@ -5,11 +5,15 @@
 
   /// #if ALIPAY
   "defaultTitle": "Input",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
     "ant-input": "../../../src/Input/index",
     "ant-button": "../../../src/Button/index",
-    "container": "../../../src/Container/index"
+    "container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-textarea": "../../../src/Input/Textarea/index",
   }
 }

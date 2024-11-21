@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "TabBar",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

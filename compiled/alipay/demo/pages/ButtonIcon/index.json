@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "Button",
-  "usingComponents": {
-    "ant-button": "../../../src/Button/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

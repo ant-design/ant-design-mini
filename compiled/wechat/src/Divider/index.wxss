@@ -3,19 +3,19 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  padding: 8px 0;
+  padding: 16rpx 0;
 }
 .ant-divider-horizontal-text {
-  font-size: 15px;
-  color: #333333;
-  margin: 0 16px;
+  font-size: 30rpx;
+  color: var(--divider-text-color, #333333);
+  margin: 0 32rpx;
 }
 .ant-divider-horizontal-left,
 .ant-divider-horizontal-right {
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 2rpx solid var(--divider-border-color, #e5e5e5);
 }
 .ant-divider-vertical {
-  margin: 0 8px;
-  height: 16px;
-  border-right: 1px solid #eeeeee;
+  margin: 0 16rpx;
+  height: 32rpx;
+  border-right: 2rpx solid var(--divider-border-color, #e5e5e5);
 }

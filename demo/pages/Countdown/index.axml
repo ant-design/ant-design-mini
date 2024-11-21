@@ -1,0 +1,48 @@
+<view class="navigation-bar"/>
+
+<ant-container title="基础用法">
+  <ant-countdown countdownEndTime="{{ countdownDay }}" countdownType="day" onCountdownChange="handleCountdownChange">
+    <text slot="prefix">剩余时间</text>
+    <text slot="suffix">就开始抢购啦</text>
+  </ant-countdown>
+
+  <ant-countdown className="marginTop" countdownEndTime="{{ countdownAutoDay }}" countdownType="day" onCountdownChange="handleCountdownChange">
+    <text slot="prefix">剩余时间</text>
+    <text slot="suffix">就开始抢购啦</text>
+  </ant-countdown>
+</ant-container>
+
+<ant-container title="基础用法-插槽形式">
+  <ant-countdown countdownEndTime="{{ countdownDay }}" countdownType="day">
+    <view slot-scope="module">
+      <view>还剩{{ module.day }}天，{{ module.hour }}:{{ module.min }}:{{ module.sec }}</view>
+    </view>
+  </ant-countdown>
+</ant-container>
+
+<ant-container title="终止时间戳">
+  <ant-countdown countdownEndTime="{{ countdownTen }}" onCountdownFinish="handleCountdownEnd"></ant-countdown>
+</ant-container>
+
+<ant-container title="倒计时时间">
+  <ant-countdown time="{{ 15 }}"></ant-countdown>
+</ant-container>
+
+<ant-container title="起止时间戳且起点和本地差别不大，以本地为准">
+  <ant-countdown countdownStartTime="{{ currentDelayed }}" countdownEndTime="{{ countdownTen }}"></ant-countdown>
+</ant-container>
+
+<ant-container title="起止时间戳但起点和本地差别大，按起终点差值算">
+  <ant-countdown countdownStartTime="{{ wrongCurrent }}" countdownEndTime="{{ countdownTen }}"></ant-countdown>
+</ant-container>
+
+<ant-container title="超长时间下正常倒计时与天维度的倒计时">
+  <ant-countdown countdownEndTime="{{ countdownDay }}"></ant-countdown>
+  <ant-countdown countdownEndTime="{{ countdownDay }}" countdownType="day" onCountdownChange="handleCountdownChange"></ant-countdown>
+</ant-container>
+
+<ant-container title="上来就是0">
+  <ant-countdown countdownEndTime="{{ countdownCurrent }}" onCountdownFinish="handleCountdownEnd"></ant-countdown>
+</ant-container>
+
+<view style="height: 140rpx"></view>

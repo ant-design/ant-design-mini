@@ -4,13 +4,18 @@ Page({
     basicVisible: false,
     animation: true,
     scrollVisible: false,
-    closeVisible: false,
+    customizeVisible: false,
+    topImageVisible: false,
+  },
+  onClickBack() {
+    this.showToast('点击了返回icon');
   },
   handlePopupClose() {
     this.setData({
       basicVisible: false,
       scrollVisible: false,
-      closeVisible: false,
+      customizeVisible: false,
+      topImageVisible: false,
     });
   },
   handleShowBasic(e) {
@@ -32,7 +37,20 @@ Page({
     this.setData({ animation: checked.detail });
     /// #endif
   },
-  handleShowClose() {
-    this.setData({ closeVisible: true });
+  handleShowCustomize() {
+    this.setData({ customizeVisible: true });
+  },
+  handleShowTopImage() {
+    this.setData({ topImageVisible: true });
+  },
+  showToast(content) {
+    /// #if ALIPAY
+    my.showToast({ content, duration: 1000 });
+    /// #endif
+
+    /// #if WECHAT
+    // @ts-ignore
+    wx.showToast({ content, duration: 1000 });
+    /// #endif
   },
 });

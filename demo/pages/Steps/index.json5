@@ -5,11 +5,14 @@
 
   /// #if ALIPAY
   "defaultTitle": "Steps",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
-    "steps": "../../../src/Steps/index",
-    "icon": "../../../src/Icon/index",
-    "container": "../../../src/Container/index"
+    "ant-steps": "../../../src/Steps/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-button": "../../../src/Button/index"
   }
 }

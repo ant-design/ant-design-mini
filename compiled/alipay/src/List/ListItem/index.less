@@ -6,16 +6,16 @@
 .@{listItemPrefix} {
   align-items: center;
   background-color: @list-background-color;
-  color: @COLOR_TEXT_PRIMARY;
+  color: @list-content-color;
   line-height: 1.4;
   &-hover {
-    background-color: @COLOR_BORDER;
+    background-color: @list-item-border-color;
   }
 
   &-line {
     flex: 1;
     display: flex;
-    padding: 24 * @rpx;
+    padding: 0 24 * @rpx;
     align-items: center;
     position: relative;
     &-divider {
@@ -27,19 +27,26 @@
   }
 
   &-image {
+    border-radius: 50vh;
+    &-large-icon {
+      font-size: @list-item-image-large-size;
+    }
+    &-large-image {
+      width: @list-item-image-large-size;
+      height: @list-item-image-large-size;
+    }
+    &-normal-icon {
+      font-size: @list-item-image-normal-size;
+    }
+    &-normal-image {
+      width: @list-item-image-normal-size;
+      height: @list-item-image-normal-size;
+    }
     &-container {
       margin-right: 24 * @rpx;
       &:empty {
         display: none;
       }
-    }
-    &-icon {
-      font-size: 52 * @rpx;
-    }
-    &-image {
-      width: 52 * @rpx;
-      height: 52 * @rpx;
-      overflow: hidden;
     }
   }
 
@@ -48,27 +55,36 @@
       display: flex;
       flex: 1;
       flex-direction: column;
+      padding: 24 * @rpx 0;
+      &-small-text {
+        font-size: 24 * @rpx;
+        line-height: 33 * @rpx;
+      }
+      &-normal-text {
+        font-size: 28 * @rpx;
+        line-height: 40 * @rpx;
+      }
     }
 
     &-main {
-      font-size: 34 * @rpx;
+      font-size: 32 * @rpx;
+      line-height: 45 * @rpx;
     }
     &-title {
       &-container {
-        font-size: 26 * @rpx;
-        color: @COLOR_TEXT_ASSIST;
+        color: @list-extra-brief-color;
       }
     }
     &-brief {
       &-container {
-        font-size: 26 * @rpx;
-        color: @COLOR_TEXT_ASSIST;
+        color: @list-extra-brief-color;
       }
     }
   }
 
   &-extra {
-    font-size: 34 * @rpx;
+    font-size: 32 * @rpx;
+    line-height: 45 * @rpx;
     display: flex;
     flex-direction: row-reverse;
     &:empty {
@@ -82,24 +98,28 @@
     &-brief {
       display: flex;
       flex-direction: row-reverse;
-      font-size: 30 * @rpx;
-      color: @COLOR_TEXT_ASSIST;
+      font-size: 28 * @rpx;
+      line-height: 40 * @rpx;
+      color: @list-extra-brief-color;
     }
   }
 
   &-arrow {
     margin-left: 8 * @rpx;
-    color: @COLOR_TEXT_WEAK;
+    color: @list-item-text-color;
     display: flex;
     align-items: center;
     .ant-icon {
       font-size: 36 * @rpx;
     }
+    &-large-margin {
+      margin-left: 24 * @rpx;
+    }
   }
 
   .line {
     height: 1 * @rpx;
-    background-color: @COLOR_BORDER;
+    background-color: @list-item-border-color;
     width: calc(100% - 24 * @rpx);
     position: absolute;
     right: 0;

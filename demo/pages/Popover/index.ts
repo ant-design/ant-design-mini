@@ -24,4 +24,13 @@ Page({
       visible: !this.data.visible,
     });
   },
+  onTapAction() {
+    /// #if ALIPAY
+    my.showToast({ content: '点击了行动点按钮' });
+    /// #endif
+    /// #if WECHAT
+    // @ts-ignore
+    wx.showToast({ title: '点击了行动点按钮' });
+    /// #endif
+  },
 });

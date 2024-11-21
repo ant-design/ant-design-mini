@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <container title="基础用法">
   <tab-bar items="{{ tabs }}" />
 </container>
@@ -7,7 +9,6 @@
     current="{{ current }}"
     onChange="handleChange" />
 </container>
-
 <container title="红点用法">
   <tab-bar items="{{ tabsBadge }}" />
 </container>

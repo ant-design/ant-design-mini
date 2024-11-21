@@ -1,0 +1,93 @@
+.previewer {
+  position: fixed;
+  top: calc((100% - 633px + 60px) / 2);
+  right: 24px;
+  width: 292px;
+  height: 633px;
+  z-index: 1;
+  margin-right: 20px;
+  border-radius: 40px;
+
+  &.hide {
+    right: -9999px;
+    opacity: 0;
+  }
+
+  &::before {
+    display: block;
+    content: '';
+    width: calc(100% + 24px);
+    height: calc(100% + 10px);
+    z-index: 1;
+    position: absolute;
+    top: -5px;
+    left: -12px;
+    pointer-events: none;
+  }
+  &::after {
+    display: block;
+    content: '';
+    width: 500px;
+    height: calc(200vh + 100px);
+    z-index: -1;
+    position: absolute;
+    top: -100vh;
+    left: -50px;
+    border-left: 1px solid rgba(5, 5, 5, 0.06);
+  }
+
+  &.theme-light {
+    &::before {
+      background: url(https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*vJX0SK7L5g0AAAAAAAAAAAAADtF8AQ/original)
+        no-repeat;
+      background-size: 100% 100%;
+    }
+    &::after {
+      background-color: #fff;
+    }
+  }
+  &.theme-dark {
+    &::before {
+      background: url(https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*EWiARK8lIdYAAAAAAAAAAAAADtF8AQ/original)
+        no-repeat;
+      background-size: 100% 100%;
+    }
+    &::after {
+      background-color: #141414;
+    }
+  }
+
+  iframe {
+    height: 100%;
+    border: none;
+    width: 100%;
+    border-radius: 40px;
+    position: relative;
+
+    &::after {
+      display: block;
+      content: '';
+      background-color: #000;
+      width: 500px;
+      height: calc(100vh + 100px);
+      z-index: 1;
+      position: absolute;
+      top: -100px;
+      left: -36px;
+      border-left: 1px solid rgba(149, 149, 149, 0.2);
+    }
+  }
+  &-loading {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(22, 119, 255, 0.8);
+    border-radius: 100%;
+    animation: sk-scaleout 1s infinite ease-in-out;
+  }
+}

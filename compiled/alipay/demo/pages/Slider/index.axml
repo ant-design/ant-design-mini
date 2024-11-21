@@ -1,8 +1,16 @@
+<view class="navigation-bar"></view>
 <container title="基本使用">
   <ant-slider
     defaultValue="{{80}}"
     onChange="onChange"
     onAfterChange="onAfterChange"
+  ></ant-slider>
+</container>
+<container title="禁用状态">
+  <ant-slider
+    defaultValue="{{80}}"
+    disabled
+    onChange="onChange"
   ></ant-slider>
 </container>
 <container title="无节点双滑块">
@@ -107,11 +115,4 @@
       slot-scope="props"
     >{{props.value}}°C</text>
   </ant-slider>
-</container>
-<container title="禁用状态">
-  <ant-slider
-    defaultValue="{{80}}"
-    disabled
-    onChange="onChange"
-  ></ant-slider>
 </container>

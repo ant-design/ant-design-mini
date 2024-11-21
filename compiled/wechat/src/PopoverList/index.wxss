@@ -1,0 +1,182 @@
+.ant-popover-list {
+  position: relative;
+}
+.ant-popover-list-children {
+  z-index: 999;
+}
+.ant-popover-list-mask {
+  z-index: 998;
+  background: none;
+}
+.ant-popover-list-content {
+  position: absolute;
+  max-width: calc(100vw - 48 * 1rpx);
+  z-index: 999;
+  border-radius: 24rpx;
+  background: var(--popover-list-content-bg, rgba(0, 0, 0, 0.93));
+  box-shadow: 0 4rpx 10rpx 0 var(--popover-list-content-bg, rgba(0, 0, 0, 0.93));
+  color: var(--popover-list-content-color, #333333);
+}
+.ant-popover-list-content-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 18rpx solid transparent;
+  border-right: 18rpx solid transparent;
+  border-bottom: 18rpx solid var(--popover-list-content-bg, rgba(0, 0, 0, 0.93));
+}
+.ant-popover-list-content .ant-popover-list-item::before {
+  background: var(--popover-list-item-bg, #e5e5e5);
+}
+.ant-popover-list-item {
+  padding: 26rpx 24rpx 26rpx 32rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  z-index: 1;
+}
+.ant-popover-list-item-0::before {
+  display: none;
+}
+.ant-popover-list-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 16rpx;
+  width: calc(200% - 192rpx);
+  height: 2rpx;
+  transform: scale(0.5);
+  background: var(--popover-list-content-color, #333333);
+  z-index: 2;
+}
+.ant-popover-list-item-left {
+  padding-right: 16rpx;
+  width: 48rpx;
+  height: 48rpx;
+  overflow: hidden;
+}
+.ant-popover-list-item-left .ant-icon {
+  font-size: 48rpx;
+  width: 48rpx;
+  height: 48rpx;
+  color: var(--popover-list-content-color, #333333);
+}
+.ant-popover-list-item-image {
+  width: 48rpx;
+  height: 48rpx;
+}
+.ant-popover-list-item-text {
+  font-weight: 400;
+  font-size: 30rpx;
+  letter-spacing: 0;
+  white-space: nowrap;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+.ant-popover-list-item-text-badge {
+  background: var(--popover-list-badge-color, #ff411c);
+  width: 20rpx;
+  border-radius: 50vh;
+  height: 20rpx;
+  margin-left: 8rpx;
+}
+.ant-popover-list-top {
+  transform: translate(-50%, -100%);
+}
+.ant-popover-list-top-arrow {
+  bottom: 2rpx;
+  transform: translate(-50%, 100%) rotate(180deg);
+  left: 50%;
+}
+.ant-popover-list-bottom {
+  transform: translate(-50%, 100%);
+}
+.ant-popover-list-bottom-arrow {
+  top: 2rpx;
+  transform: translate(-50%, -100%) rotate(0deg);
+  left: 50%;
+}
+.ant-popover-list-left {
+  transform: translate(-100%, -50%);
+}
+.ant-popover-list-left-arrow {
+  right: 2rpx;
+  transform: translate(75%, -50%) rotate(90deg);
+  top: 50%;
+}
+.ant-popover-list-right {
+  transform: translate(100%, -50%);
+}
+.ant-popover-list-right-arrow {
+  left: 2rpx;
+  transform: translate(-75%, -50%) rotate(-90deg);
+  top: 50%;
+}
+.ant-popover-list-top-left {
+  transform: translate(0, -100%);
+}
+.ant-popover-list-top-left-arrow {
+  bottom: 2rpx;
+  transform: translate(0, 100%) rotate(180deg);
+  left: 24rpx;
+}
+.ant-popover-list-top-right {
+  transform: translate(0, -100%);
+}
+.ant-popover-list-top-right-arrow {
+  bottom: 2rpx;
+  transform: translate(0, 100%) rotate(180deg);
+  right: 24rpx;
+}
+.ant-popover-list-bottom-left {
+  transform: translate(0, 100%);
+}
+.ant-popover-list-bottom-left-arrow {
+  top: 2rpx;
+  transform: translate(0, -100%) rotate(0deg);
+  left: 24rpx;
+}
+.ant-popover-list-bottom-right {
+  transform: translate(0, 100%);
+}
+.ant-popover-list-bottom-right-arrow {
+  top: 2rpx;
+  transform: translate(0, -100%) rotate(0deg);
+  right: 24rpx;
+}
+.ant-popover-list-left-top {
+  transform: translate(-100%, 0);
+}
+.ant-popover-list-left-top-arrow {
+  right: 2rpx;
+  transform: translate(75%, 0) rotate(90deg);
+  top: 24rpx;
+}
+.ant-popover-list-left-bottom {
+  transform: translate(-100%, 0);
+}
+.ant-popover-list-left-bottom-arrow {
+  right: 2rpx;
+  transform: translate(75%, 0) rotate(90deg);
+  bottom: 24rpx;
+}
+.ant-popover-list-right-top {
+  transform: translate(100%, 0);
+}
+.ant-popover-list-right-top-arrow {
+  left: 2rpx;
+  transform: translate(-75%, 0) rotate(-90deg);
+  top: 24rpx;
+}
+.ant-popover-list-right-bottom {
+  transform: translate(100%, 0);
+}
+.ant-popover-list-right-bottom-arrow {
+  left: 2rpx;
+  transform: translate(-75%, 0) rotate(-90deg);
+  bottom: 24rpx;
+}

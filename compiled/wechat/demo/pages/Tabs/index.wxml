@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <container title="基础用法">
   <tabs items="{{items}}"></tabs>
 </container>
@@ -40,11 +41,88 @@
     bind:change="handleChange"
   ></tabs>
 </container>
-<container title="content在外层自定义">
+<container title="content在外层自定义123">
   <tabs
     items="{{items}}"
     current="{{current}}"
     bind:change="handleChange"
   ></tabs>
   <view class="content">{{items[current].content}}</view>
+</container>
+<container title="受控模式">
+  <tabs
+    items="{{items3}}"
+    current="{{current}}"
+    bind:change="onChange"
+  >
+    <view class="content">{{items3[current].content}}</view>
+  </tabs>
+  <view class="container">current:{{current}}length:{{items3.length}}</view>
+  <view class="buttons">
+    <ant-button
+      inline
+      bind:tap="onPrevTap"
+    >上一个</ant-button>
+    <ant-button
+      inline
+      bind:tap="onNextTap"
+    >下一个</ant-button>
+    <ant-button
+      inline
+      bind:tap="onAddTap"
+    >添加</ant-button>
+    <ant-button
+      inline
+      bind:tap="onMinusTap"
+    >减少</ant-button>
+  </view>
+</container>
+<container title="选择后居中滚动">
+  <tabs
+    items="{{items3}}"
+    scrollMode="center"
+  ></tabs>
+</container>
+<container title="Swiper">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    bind:change="onChange"
+  >
+    <swiper
+      current="{{current}}"
+      autoplay="{{false}}"
+      vertical="{{false}}"
+      circular="{{false}}"
+      bind:change="onSwipeChange"
+    >
+      <block
+        wx:for="{{items}}"
+        wx:for-index="index"
+        wx:for-item="item"
+      >
+        <swiper-item>
+          <view class="content">{{item.content}}</view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </tabs>
+</container>
+<container title="纵向模式">
+  <tabs
+    items="{{items}}"
+    current="{{current}}"
+    bind:change="onChange"
+    className="tabs"
+    direction="vertical"
+  >
+    <scroll-view
+      scrollTop="{{scrollTop}}"
+      scrollY="{{true}}"
+      bind:scroll="onScroll"
+      scrollWithAnimation="{{true}}"
+      scrollAnimationDuration="{{300}}"
+      class="content"
+    >{{items[current].longContent}}</scroll-view>
+  </tabs>
 </container>

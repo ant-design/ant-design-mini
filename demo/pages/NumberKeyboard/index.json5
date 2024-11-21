@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "NumberKeyboard",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

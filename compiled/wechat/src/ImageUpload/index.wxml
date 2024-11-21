@@ -1,3 +1,7 @@
+<wxs
+  src="../_util/isPropsEmpty.wxs"
+  module="u"
+></wxs>
 <view
   class="ant-image-upload {{className || ''}}"
   style="{{style || ''}}"
@@ -24,17 +28,17 @@
           class="ant-image-upload-cover-loading"
         >
           <loading className="ant-image-upload-cover-loading-icon"></loading>
-          <view class="ant-image-upload-cover-loading-text">{{uploadingText}}</view>
+          <view class="ant-image-upload-cover-loading-text">{{u.isPropsEmpty(uploadingText) ? locale.imageUpload.uploadingText : uploadingText}}</view>
         </view>
         <view
           wx:if="{{item.status === 'error'}}"
           class="ant-image-upload-cover-error"
         >
-          <icon
+          <ant-icon
             className="ant-image-upload-cover-error-icon"
             type="CloseCircleOutline"
-          ></icon>
-          <view class="ant-image-upload-cover-error-text">{{uploadfailedText}}</view>
+          ></ant-icon>
+          <view class="ant-image-upload-cover-error-text">{{u.isPropsEmpty(uploadfailedText) ? locale.imageUpload.uploadfailedText : uploadfailedText}}</view>
         </view>
       </view>
       <image
@@ -51,10 +55,10 @@
       wx:if="{{showUploadButton}}"
       class="ant-image-upload-add-image-wrapper"
     >
-      <icon
+      <ant-icon
         type="AddOutline"
         className="ant-image-upload-add-image-icon"
-      ></icon>
+      ></ant-icon>
     </view>
   </view>
 </view>

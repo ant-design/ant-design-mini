@@ -1,0 +1,55 @@
+<view class="navigation-bar"/>
+
+<ant-container
+  title="基础用法"
+  className="list"
+>
+  <ant-table dataSource="{{dataSource}}" columns="{{columns}}" />
+</ant-container>
+
+<ant-container
+  title="局部滚动"
+  className="list"
+>
+  <ant-table dataSource="{{dataSource}}" columns="{{columns}}" scrollHeight="300rpx" />
+</ant-container>
+
+<!-- #if ALIPAY -->
+<ant-container
+  title="插槽"
+  className="list"
+>
+  <ant-table dataSource="{{dataSource}}" columns="{{columns}}">
+    <view slot="item" slot-scope="props">
+      <view a:if="{{props.item.dataIndex === 'name'}}">
+        {{props.item.value}}{{props.item.rowsData.key}}
+      </view>
+      <view a:elif="{{ props.item.dataIndex === 'age' }}">
+        <view>
+          <view>{{ props.item.value }}</view>
+          <view a:if="{{ props.item.rowsData.extra }}">{{ props.item.rowsData.extra }}</view>
+        </view>
+      </view>
+      <view a:else>
+        {{props.item.value}}
+      </view>
+    </view>
+  </ant-table>
+</ant-container>
+<!-- #endif -->
+
+<ant-container
+  title="插槽-无数据"
+  className="list"
+>
+  <ant-table dataSource="{{[]}}" columns="{{columns}}" className='empty-table-table'>
+    <image class="table-empty-img" src="https://mdn.alipayobjects.com/huamei_9iifqq/afts/img/A*AWeXQYuIODwAAAAAAAAAAAAADjWYAQ/original" />
+  </ant-table>
+</ant-container>
+
+<ant-container
+  title="设置一行铺满展示"
+  className="list"
+>
+  <ant-table dataSource="{{dataSource}}" columns="{{fullColumns}}" displayType="FULL" className='full-table-table' />
+</ant-container>

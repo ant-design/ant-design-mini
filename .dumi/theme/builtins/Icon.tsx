@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from 'antd';
 import copy from 'copy-to-clipboard';
+import { FormattedMessage } from 'dumi';
 import './Icon.less';
 
 const { Search } = Input;
@@ -199,7 +200,7 @@ function Icon() {
 
   return <>
     <div style={{ marginTop: 20 }}>
-      <Search placeholder="搜索图标" allowClear onInput={onInput} onSearch={onSearch} />
+      <Search placeholder="search Icons" allowClear onInput={onInput} onSearch={onSearch} />
     </div>
     <div className="list-icons">
       {

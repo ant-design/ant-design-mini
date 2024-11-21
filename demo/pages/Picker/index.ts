@@ -1,3 +1,5 @@
+import cityList from './city';
+
 Page({
   data: {
     pickerVisible: false,
@@ -65,9 +67,11 @@ Page({
         },
       ],
     ],
+    cityList,
+    cascaderValue: ['34', '330'],
+    cascaderVisible: false,
   },
-
-  handleDismissPicker(e) {
+  handleDismiss(e) {
     /// #if ALIPAY
     my.showToast({
       content: '取消操作，关闭 picker',
@@ -134,6 +138,51 @@ Page({
   handleOpenPicker() {
     this.setData({
       pickerVisible: true,
+    });
+  },
+
+  // 以下是级联选择的方法
+
+  handleCascaderPickerChange(cascaderValue, selectedOption, e) {
+    console.log('cityChange', cascaderValue, selectedOption, e);
+  },
+  handleCascaderOnOk(cascaderValue, selectedOption, e) {
+    console.log('cityOk', cascaderValue, selectedOption, e);
+  },
+  handleCascaderControlledOk(cascaderValue, selectedOption, e) {
+    /// #if ALIPAY
+    this.setData({ cascaderValue: cascaderValue });
+    /// #endif
+
+    /// #if WECHAT
+    this.setData({ cascaderValue: cascaderValue.detail[0] });
+    /// #endif
+    console.log('cityOk', cascaderValue, selectedOption, e);
+  },
+  handleCascaderChangeControlled() {
+    this.setData({ cascaderValue: ['31', '310'] });
+  },
+  handleCascaderClearControlled() {
+    this.setData({ cascaderValue: [] });
+  },
+  handleCascaderTriggerControlledPicker(visible, e) {
+    /// #if WECHAT
+    console.log('handleTriggerControlledPicker', visible);
+    this.setData({
+      cascaderVisible: visible.detail,
+    });
+    /// #endif
+
+    /// #if ALIPAY
+    console.log('handleTriggerControlledPicker', visible, e);
+    this.setData({
+      cascaderVisible: visible,
+    });
+    /// #endif
+  },
+  handleCascaderOpenPicker() {
+    this.setData({
+      cascaderVisible: true,
     });
   },
 });

@@ -2,22 +2,16 @@
 nav:
   path: /components
 group:
-  title: 信息展示
+  title: 数据展示
   order: 8
 toc: 'content'
 ---
 
 # SwipeAction 滑动组件
 
-<code src="../../docs/components/compatibility.tsx" inline="true"></code>
+列表的功能扩展。通过滑动操作来展示隐藏的功能菜单。
 
-列表的功能扩展。
-
-## 何时使用
-
-通过滑动操作来展示隐藏的功能菜单。
-
-## Tip
+## 注意事项
 
 1. 该组件的父级容器必须设置 width 和 height。
 2. 两侧滑动按钮的宽度总和需一致。
@@ -25,47 +19,104 @@ toc: 'content'
 4. 每一侧的滑动二次确认只会触发第一个，其他不会触发。
 5. 建议在基础库 2.0 的小程序中使用，1.0 版本（如钉钉小程序）中存在滑动体验缺陷（缺少 touchend 之后的滑动过渡效果）。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-swipe-action": "antd-mini/es/SwipeAction/index"
+#endif
+
+#if WECHAT
+  "ant-swipe-action": "antd-mini/SwipeAction/index"
+#endif
+}
+```
+
 ## 代码示例
 
 ### 基础用法
 
-<code src='pages/SwipeAction/index'></code>
+```xml
+<ant-swipe-action
+  rightButtons="{{[[
+      {
+        text: 'favor',
+        bgColor: '#CCCCCC',
+        color: '#fff',
+        width: 200,
+      },
+      {
+        text: 'rest',
+        bgColor: '#1677FF',
+        color: '#fff',
+        width: 170,
+      },
+      {
+        text: 'delete',
+        bgColor: '#FF2B00',
+        color: '#fff',
+        width: 140,
+      },
+    ]]}}"
+    elasticity="{{ true }}"
+    swiped="{{ swipeIndex === index }}"
+    onSwipeEnd="onSwipeEnd"
+    onSwipeStart="onSwipeStart"
+    onButtonTap="onButtonTap">
+  <view>右侧-三个按钮</view>
+</ant-swipe-action>
+```
 
 ### 按钮在左侧
 
-<code src='pages/SwipeActionLeft/index'></code>
+设置`leftButtons`属性
+<code src='../../demo/pages/SwipeActionLeft/index'></code>
 
 ### 改变按钮数量
 
-<code src='pages/SwipeActionNumber/index'></code>
+<code src='../../demo/pages/SwipeActionNumber/index'></code>
 
 ### 禁用滑动回弹
 
-<code src='pages/SwipeActionAnimation/index'></code>
+设置`elasticity`属性为`false`
+<code src='../../demo/pages/SwipeActionAnimation/index'></code>
 
 ### 设置按钮宽度
 
-<code src='pages/SwipeActionWidth/index'></code>
+设置 buttons 的`width`属性
+<code src='../../demo/pages/SwipeActionWidth/index'></code>
 
 ### 设置滑动速度
 
-<code src='pages/SwipeActionSpeed/index'></code>
+设置`damping`属性
+<code src='../../demo/pages/SwipeActionSpeed/index'></code>
 
 ### 按钮点击二次确认
 
-<code src='pages/SwipeActionTap/index'></code>
+设置 buttons 属性`confirmType`为`tap`
+
+<code src='../../demo/pages/SwipeActionTap/index'></code>
 
 ### 按钮滑出最大距离二次确认
 
-<code src='pages/SwipeActionMove/index'></code>
+设置 buttons 属性`confirmType`为`move`
+<code src='../../demo/pages/SwipeActionMove/index'></code>
 
 ### 左右两侧都有按钮
 
-<code src='pages/SwipeActionLeftRight/index'></code>
+可同时设置`leftButtons`和`rightButtons`
+<code src='../../demo/pages/SwipeActionLeftRight/index'></code>
 
 ### 自定义按钮
 
-<code src='pages/SwipeActionSlot/index'></code>
+<code src='../../demo/pages/SwipeActionSlot/index'></code>
+
+### Demo 代码
+
+<code src='../../demo/pages/SwipeAction/index'></code>
 
 ## API
 
@@ -93,3 +144,13 @@ toc: 'content'
 | width       | number                      | 150    | 按钮宽度                                                                            |
 | confirmType | `''` \| `'move'` \| `'tap'` | -      | 二次确认类型：不触发二次确认 \| 滑动超出最大距离触发二次确认 \| 点击触发二次确认    |
 | confirmText | string                      | -      | 二次确认的文案描述；若为空，则展示 text                                             |
+
+### 主题定制
+
+#### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
+
+| 变量名               | 浅色模式默认值                                                                                    | 深色模式默认值                                                                                    | 备注         |
+| -------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
+| --swipe-action-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 滑动操作颜色 |

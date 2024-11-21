@@ -1,0 +1,18 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Dialog",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Dialog",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-dialog": "../../../src/Dialog/index",
+    "ant-button": "../../../src/Button/index",
+    "ant-icon": "../../../src/Icon/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

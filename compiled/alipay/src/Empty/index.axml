@@ -2,22 +2,52 @@
   class="ant-empty {{className || ''}}"
   style="{{style || ''}}"
 >
-  <view class="ant-empty">
+  <view class="ant-empty-{{size}}">
     <view class="ant-empty-image">
       <slot name="image">
         <image
           class="ant-empty-image-element"
-          src="{{image || 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*0AaRRrYlVDkAAAAAAAAAAAAAARQnAQ'}}"
+          mode="{{imageMode}}"
+          src="{{image || 'https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*J9z7RqVm1soAAAAAAAAAAAAADkqGAQ/original'}}"
         ></image>
       </slot>
     </view>
     <view class="ant-empty-text">
       <view class="ant-empty-text-main">
-        <slot name="title">{{title}}</slot>
+        <ant-auto-resize
+          text="{{title}}"
+          minFontSize="24"
+          maxFontSize="40"
+        >
+          <slot name="title">{{title}}</slot>
+        </ant-auto-resize>
       </view>
       <view class="ant-empty-text-sub">
-        <slot name="message">{{message}}</slot>
+        <ant-auto-resize
+          text="{{message}}"
+          minFontSize="24"
+          maxFontSize="40"
+        >
+          <slot name="message">{{message}}</slot>
+        </ant-auto-resize>
       </view>
+    </view>
+    <view
+      a:if="{{buttonInfo.list.length > 0}}"
+      class="ant-empty-button ant-empty-button-layout-{{buttonInfo.layout}}"
+    >
+      <ant-button
+        type="{{item.type}}"
+        data-item="{{item}}"
+        onTap="onClickButton"
+        size="{{buttonInfo.layout === 'horizontal' ? 'small' : ''}}"
+        inline="{{buttonInfo.layout === 'horizontal'}}"
+        a:for="{{buttonInfo.list}}"
+        a:for-index="index"
+        a:for-item="item"
+      >
+        {{item.text}}
+      </ant-button>
     </view>
     <view class="ant-empty-extra">
       <slot name="extra"></slot>

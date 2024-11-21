@@ -1,0 +1,17 @@
+<view class="alphabet-container">
+  <view
+    a:for="{{alphabet}}"
+    class="alphabet-container-item {{item === touchKey ? 'alphabet-container-active' : ''}}"
+    catchTouchStart="onTouchStart"
+    catchTouchMove="onTouchMove"
+    catchTouchEnd="onTouchEnd"
+    data-item="{{item, index}}"
+    id="{{'mya' + index}}"
+  >
+    {{item}}
+    <view class="alphabet-container-item-tip" a:if="{{ item === touchKey }}">
+      {{item}}
+    </view>
+    <view class="alphabet-container-item-triangle" a:if="{{ item === touchKey }}" />
+  </view>
+</view>

@@ -4,39 +4,87 @@
 .ant-popover-children {
   z-index: 999;
 }
+.ant-popover-close {
+  margin-left: 24rpx;
+  width: 38rpx;
+  height: 38rpx;
+}
+.ant-popover-close .ant-popover-close-icon {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+.ant-popover-close .ant-popover-close-icon .ant-icon {
+  color: var(--popover-inner-color, #ffffff);
+}
+.ant-popover-image {
+  padding-right: 24rpx;
+  border-radius: 16rpx;
+}
+.ant-popover-action {
+  background: var(--popover-bg, #ffffff);
+  font-weight: 400;
+  font-size: 24rpx;
+  color: var(--popover-text-color, #000000);
+  padding: 10rpx 20rpx;
+  line-height: 33rpx;
+  border-radius: 50vh;
+  margin-left: 24rpx;
+}
 .ant-popover-mask {
   z-index: 998;
   background: none;
 }
 .ant-popover-content {
   position: absolute;
-  min-width: 32px;
-  max-width: calc(100vw - 48 * 0.5px);
+  min-width: 64rpx;
+  max-width: calc(100vw - 48 * 1rpx);
   z-index: 999;
 }
 .ant-popover-inner {
   position: relative;
-  border-radius: 8px;
+  border-radius: 24rpx;
   overflow: hidden;
-  font-size: 15px;
-  background-color: #404040;
-  color: #ffffff;
-  padding: 8px 12px;
+  font-size: 28rpx;
+  background-color: var(--popover-color-background, #404040);
+  color: var(--popover-inner-color, #ffffff);
+  padding: 20rpx;
   width: max-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.ant-popover-inner .ant-icon {
+  color: var(--popover-inner-color, #ffffff);
+}
+.ant-popover-inner-text {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* 这里是超出几行省略 */
+  overflow: hidden;
+  max-width: 420rpx;
+  line-height: 40rpx;
+}
+.ant-popover-inner .ant-popover-image-content-image {
+  width: 80rpx;
+  height: 80rpx;
 }
 .ant-popover-arrow {
   position: absolute;
   width: 0;
   height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 9px solid #404040;
+  border-left: 18rpx solid transparent;
+  border-right: 18rpx solid transparent;
+  border-bottom: 18rpx solid var(--popover-color-background, #404040);
 }
 .ant-popover-top {
   transform: translate(-50%, -100%);
 }
 .ant-popover-top-arrow {
-  bottom: 1px;
+  bottom: 2rpx;
   transform: translate(-50%, 100%) rotate(180deg);
   left: 50%;
 }
@@ -44,7 +92,7 @@
   transform: translate(-50%, 100%);
 }
 .ant-popover-bottom-arrow {
-  top: 1px;
+  top: 2rpx;
   transform: translate(-50%, -100%) rotate(0deg);
   left: 50%;
 }
@@ -52,7 +100,7 @@
   transform: translate(-100%, -50%);
 }
 .ant-popover-left-arrow {
-  right: 1px;
+  right: 2rpx;
   transform: translate(75%, -50%) rotate(90deg);
   top: 50%;
 }
@@ -60,7 +108,7 @@
   transform: translate(100%, -50%);
 }
 .ant-popover-right-arrow {
-  left: 1px;
+  left: 2rpx;
   transform: translate(-75%, -50%) rotate(-90deg);
   top: 50%;
 }
@@ -68,63 +116,63 @@
   transform: translate(0, -100%);
 }
 .ant-popover-top-left-arrow {
-  bottom: 1px;
+  bottom: 2rpx;
   transform: translate(0, 100%) rotate(180deg);
-  left: 12px;
+  left: 24rpx;
 }
 .ant-popover-top-right {
   transform: translate(0, -100%);
 }
 .ant-popover-top-right-arrow {
-  bottom: 1px;
+  bottom: 2rpx;
   transform: translate(0, 100%) rotate(180deg);
-  right: 12px;
+  right: 24rpx;
 }
 .ant-popover-bottom-left {
   transform: translate(0, 100%);
 }
 .ant-popover-bottom-left-arrow {
-  top: 1px;
+  top: 2rpx;
   transform: translate(0, -100%) rotate(0deg);
-  left: 12px;
+  left: 24rpx;
 }
 .ant-popover-bottom-right {
   transform: translate(0, 100%);
 }
 .ant-popover-bottom-right-arrow {
-  top: 1px;
+  top: 2rpx;
   transform: translate(0, -100%) rotate(0deg);
-  right: 12px;
+  right: 24rpx;
 }
 .ant-popover-left-top {
   transform: translate(-100%, 0);
 }
 .ant-popover-left-top-arrow {
-  right: 1px;
+  right: 2rpx;
   transform: translate(75%, 0) rotate(90deg);
-  top: 12px;
+  top: 24rpx;
 }
 .ant-popover-left-bottom {
   transform: translate(-100%, 0);
 }
 .ant-popover-left-bottom-arrow {
-  right: 1px;
+  right: 2rpx;
   transform: translate(75%, 0) rotate(90deg);
-  bottom: 12px;
+  bottom: 24rpx;
 }
 .ant-popover-right-top {
   transform: translate(100%, 0);
 }
 .ant-popover-right-top-arrow {
-  left: 1px;
+  left: 2rpx;
   transform: translate(-75%, 0) rotate(-90deg);
-  top: 12px;
+  top: 24rpx;
 }
 .ant-popover-right-bottom {
   transform: translate(100%, 0);
 }
 .ant-popover-right-bottom-arrow {
-  left: 1px;
+  left: 2rpx;
   transform: translate(-75%, 0) rotate(-90deg);
-  bottom: 12px;
+  bottom: 24rpx;
 }

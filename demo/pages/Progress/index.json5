@@ -1,0 +1,17 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "ProgressCircle",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "ProgressCircle",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-button": "../../../src/Button/index",
+    "progress": "../../../src/Progress/index",
+    "container": "../../../src/Container/index"
+  }
+}

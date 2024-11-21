@@ -1,0 +1,17 @@
+@import (reference) './variable.less';
+
+@stickyPrefix: ant-sticky;
+
+.@{stickyPrefix} {
+  position: sticky;
+  top: 0;
+
+  &-check {
+    position: fixed;
+    height: 2px;
+    background: @sticky-check-bg;
+    top: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+}

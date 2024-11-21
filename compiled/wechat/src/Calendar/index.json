@@ -1,3 +1,6 @@
 {
-  "component": true
+  "component": true,
+  "usingComponents": {
+    "ant-auto-resize": "../AutoResize/index"
+  }
 }

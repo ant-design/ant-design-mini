@@ -1,6 +1,9 @@
+<import-sjs from="../_util/isPropsEmpty.sjs" name="u" />
+
 <view
   class="ant-input {{ disabled ? 'ant-input-disabled' : '' }} {{ className ? className : '' }} {{ selfFocus ? (focusClassName ? focusClassName : '') : '' }}"
-  style="{{ style || '' }};{{ focusStyle || '' }}">
+  style="{{ style || '' }};{{ focusStyle || '' }}"
+>
   <view class="ant-input-prefix">
     <slot name="prefix">{{ prefix }}</slot>
   </view>
@@ -15,7 +18,7 @@
       type="{{ type }}"
       adjust-position="{{ adjustPosition }}"
       password="{{ password }}"
-      placeholder="{{ placeholder }}"
+      placeholder="{{ u.isPropsEmpty(placeholder) ? locale.input.placeholder : placeholder  }}"
       placeholder-class="ant-input-placeholder {{ placeholderClassName ? placeholderClassName : '' }}"
       placeholder-style="{{ placeholderStyle ? placeholderStyle : '' }}"
       maxlength="{{ maxLength }}"
@@ -31,7 +34,8 @@
       onInput="onChange"
       onConfirm="onConfirm"
       onFocus="onFocus"
-      onBlur="onBlur" />
+      onBlur="onBlur"
+    />
     <!-- #endif -->
     <!-- #if WECHAT -->
     <input
@@ -47,7 +51,7 @@
       hold-keyboard="{{ holdKeyboard }}"
       adjust-position="{{ adjustPosition }}"
       password="{{ password }}"
-      placeholder="{{ placeholder }}"
+      placeholder="{{ u.isPropsEmpty(placeholder) ? locale.input.placeholder : placeholder  }}"
       placeholder-class="ant-input-placeholder {{ placeholderClassName ? placeholderClassName : '' }}"
       placeholder-style="{{ placeholderStyle ? placeholderStyle : '' }}"
       maxlength="{{ maxLength }}"
@@ -63,15 +67,15 @@
       bindinput="onChange"
       bindconfirm="onConfirm"
       bindfocus="onFocus"
-      bindblur="onBlur" />
+      bindblur="onBlur"
+    />
     <!-- #endif -->
     <view
       a:if="{{ allowClear }}"
       class="ant-input-clear {{ state.value && state.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden' }}"
-      onTap="onClear">
-      <icon
-        className="ant-input-clear-icon"
-        type="CloseCircleFill" />
+      onTap="onClear"
+    >
+      <ant-icon className="ant-input-clear-icon" type="CloseCircleFill" />
     </view>
   </view>
   <view class="ant-input-suffix">

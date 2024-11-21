@@ -1,4 +1,9 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
-@stroke-color: @COLOR_BRAND1;
-@trail-color: @COLOR_GREY_CARD;
+@progress-stroke-color: var(--progress-stroke-color, @COLOR_BRAND1);
+@progress-trail-color: var(--progress-trail-color, @COLOR_GREY_CARD);
+@progress-success-color: var(--progress-success-color, @COLOR_GREEN);
+@progress-indicator-color: var(--progress-indicator-color, @COLOR_TEXT_PRIMARY);
+@progress-exception-color: var(--progress-exception-color, @COLOR_RED);
+@progress-assist-color: var(--progress-assist-color, @COLOR_TEXT_ASSIST);

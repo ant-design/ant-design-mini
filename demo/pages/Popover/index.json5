@@ -1,16 +1,18 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "PopoverBase",
+  "navigationBarTitleText": "Popover",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "PopoverBase",
+  "defaultTitle": "Popover",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
-    "popover": "../../../src/Popover/index",
-    "container": "../../../src/Container/index",
-    "icon": "../../../src/Icon/index",
+    "ant-popover": "../../../src/Popover/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index",
     "ant-button": "../../../src/Button/index"
   }
 }

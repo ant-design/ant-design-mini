@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-container title="基本使用">
   <ant-icon type="SmileOutline" />
   <ant-icon type="PayCircleOutline" />

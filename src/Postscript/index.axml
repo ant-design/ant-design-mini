@@ -1,0 +1,30 @@
+<view class="ant-postscript {{className}}" style="{{style}}">
+  <!-- 标题区 -->
+  <view class="ant-postscript-title" a:if="{{title}}">
+    {{title}}
+  </view>
+
+  <!-- 手动输入区 -->
+  <view class="ant-postscript-input">
+    <ant-input
+      value="{{content}}"
+      maxLength="{{maxLength}}"
+      allowClear
+      placeholder="{{placeholder}}"
+      placeholderClassName="ant-postscript-input-placeholder {{placeholderClassName}}"
+      onChange="handleInput"
+    />
+  </view>
+
+  <!-- 快捷输入区 -->
+  <scroll-view class="ant-postscript-quick" a:if="{{quickInputs && quickInputs.length}}" scroll-x>
+    <view
+      class="ant-postscript-quick-item"
+      a:for="{{quickInputs}}"
+      data-value="{{item}}"
+      onTap="handleQuickInput"
+    >
+      {{item}}
+    </view>
+  </scroll-view>
+</view>

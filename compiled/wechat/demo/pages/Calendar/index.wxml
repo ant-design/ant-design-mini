@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <collapse-container
   wx:if="{{demo1.visible}}"
   title="默认多选，范围 3 个月"
@@ -99,7 +100,7 @@
 >
   <view
     slot="content"
-    style="height: 1000rpx"
+    style="height: 1000rpx;overflow: scroll;"
   >
     <ant-calendar
       bind:ref="handleRef"
@@ -121,6 +122,6 @@
       style="margin-top: 8rpx"
       type="primary"
       bind:tap="demo9HandleScrollIntoView"
-    >滚动到指定日期</ant-button>
+    >滚动到下个月的今天</ant-button>
   </view>
 </collapse-container>

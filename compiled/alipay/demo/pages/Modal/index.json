@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Modal",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-modal": "../../../src/Modal/index",
     "ant-button": "../../../src/Button/index",

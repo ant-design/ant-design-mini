@@ -1,0 +1,16 @@
+export var PopoverDefaultProps = {
+    visible: null,
+    defaultVisible: false,
+    destroyOnClose: false,
+    contentClassName: '',
+    contentStyle: '',
+    showMask: true,
+    placement: 'top',
+    autoAdjustOverflow: true,
+    maskClassName: '',
+    maskStyle: '',
+    content: '',
+    list: [],
+    onVisibleChange: function () { },
+    onTapItem: function () { },
+};

@@ -1,50 +1,38 @@
-<view
-  class="ant-image-upload {{ className || '' }}"
-  style="{{ style || '' }}">
+<import-sjs from="../_util/isPropsEmpty.sjs" name="u" />
+
+<view class="ant-image-upload {{ className || '' }}" style="{{ style || '' }}">
   <!-- #if ALIPAY -->
   <slot fileList="{{ mixin.value }}">
-  <!-- #endif -->
-    <block
-      a:for="{{ mixin.value }}"
-      a:for-index="index"
-      a:for-item="item"
-      key="{{ item.uid }}">
+    <!-- #endif -->
+    <block a:for="{{ mixin.value }}" a:for-index="index" a:for-item="item" key="{{ item.uid }}">
       <view class="ant-image-upload-show">
-        <view
-          data-uid="{{ item.uid }}"
-          onTap="onRemove">
+        <view data-uid="{{ item.uid }}" onTap="onRemove">
           <!-- #if ALIPAY  -->
           <slot name="removeButton">
-          <!-- #endif -->
+            <!-- #endif -->
             <view class="ant-image-upload-close" />
-          <!-- #if ALIPAY  -->
+            <!-- #if ALIPAY  -->
           </slot>
           <!-- #endif -->
         </view>
         <!-- #if ALIPAY  -->
-        <slot
-          name="image"
-          value="{{ item }}">
-        <!-- #endif -->
+        <slot name="image" value="{{ item }}">
+          <!-- #endif -->
           <view
             a:if="{{ item.status === 'uploading' || item.status === 'error' }}"
-            class="ant-image-upload-cover">
-            <view
-              a:if="{{ item.status === 'uploading' }}"
-              class="ant-image-upload-cover-loading">
+            class="ant-image-upload-cover"
+          >
+            <view a:if="{{ item.status === 'uploading' }}" class="ant-image-upload-cover-loading">
               <loading className="ant-image-upload-cover-loading-icon" />
               <view class="ant-image-upload-cover-loading-text">
-                {{ uploadingText }}
+
+                {{ u.isPropsEmpty(uploadingText) ? locale.imageUpload.uploadingText :  uploadingText }}
               </view>
             </view>
-            <view
-              a:if="{{ item.status === 'error' }}"
-              class="ant-image-upload-cover-error">
-              <icon
-                className="ant-image-upload-cover-error-icon"
-                type="CloseCircleOutline" />
+            <view a:if="{{ item.status === 'error' }}" class="ant-image-upload-cover-error">
+              <ant-icon className="ant-image-upload-cover-error-icon" type="CloseCircleOutline" />
               <view class="ant-image-upload-cover-error-text">
-                {{ uploadfailedText }}
+                {{ u.isPropsEmpty(uploadfailedText) ? locale.imageUpload.uploadfailedText :  uploadfailedText }}
               </view>
             </view>
           </view>
@@ -54,8 +42,9 @@
             mode="{{ imageMode }}"
             src="{{ item.url || item.path }}"
             data-uid="{{ item.uid }}"
-            onTap="onPreview" />
-        <!-- #if ALIPAY  -->
+            onTap="onPreview"
+          />
+          <!-- #if ALIPAY  -->
         </slot>
         <!-- #endif -->
       </view>
@@ -63,19 +52,15 @@
     <view onTap="chooseImage">
       <!-- #if ALIPAY  -->
       <slot name="uploadButton">
-      <!-- #endif -->
-        <view
-          a:if="{{ showUploadButton }}"
-          class="ant-image-upload-add-image-wrapper">
-          <icon
-            type="AddOutline"
-            className="ant-image-upload-add-image-icon" />
+        <!-- #endif -->
+        <view a:if="{{ showUploadButton }}" class="ant-image-upload-add-image-wrapper">
+          <ant-icon type="AddOutline" className="ant-image-upload-add-image-icon" />
         </view>
-      <!-- #if ALIPAY  -->
+        <!-- #if ALIPAY  -->
       </slot>
       <!-- #endif -->
     </view>
-  <!-- #if ALIPAY  -->
+    <!-- #if ALIPAY  -->
   </slot>
   <!-- #endif -->
 </view>

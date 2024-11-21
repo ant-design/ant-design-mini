@@ -1,8 +1,19 @@
-import { Component, triggerEvent, triggerEventValues, triggerEventOnly, getValueFromProps, } from '../../_util/simply';
+import { effect } from '@preact/signals-core';
 import { resolveEventValue, resolveEventValues } from '../../_util/platform';
-import { FormCascaderPickerDefaultProps } from './props';
+import { ComponentWithSignalStoreImpl, getValueFromProps, triggerEvent, triggerEventOnly, triggerEventValues, } from '../../_util/simply';
+import i18nController from '../../_util/store';
 import { createForm } from '../form';
-Component(FormCascaderPickerDefaultProps, {
+import { FormCascaderPickerDefaultProps } from './props';
+ComponentWithSignalStoreImpl({
+    store: function () { return i18nController; },
+    updateHook: effect,
+    mapState: {
+        locale: function (_a) {
+            var store = _a.store;
+            return store.currentLocale.value;
+        },
+    },
+}, FormCascaderPickerDefaultProps, {
     onOk: function (value, option, e) {
         var v = resolveEventValues(value, option);
         this.emit('onChange', v[0]);

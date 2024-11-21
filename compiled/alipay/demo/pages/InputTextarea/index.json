@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Input",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-textarea": "../../../src/Input/Textarea/index",
     "ant-button": "../../../src/Button/index",

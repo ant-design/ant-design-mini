@@ -1,22 +1,30 @@
+import { effect } from '@preact/signals-core';
 import dayjs from 'dayjs';
 import equal from 'fast-deep-equal';
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import {
-  CalendarValue,
-  CellState,
-  defaultLocaleText,
-  CalendarDefaultProps,
-} from './props';
-import {
-  getMonthListFromRange,
-  getSelectionModeFromValue,
-  renderCells,
-  getScrollIntoViewId,
-} from './utils';
 import mixinValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import {
+  ComponentWithSignalStoreImpl,
+  getValueFromProps,
+  triggerEvent,
+} from '../_util/simply';
+import i18nController from '../_util/store';
+import { CalendarDefaultProps, CalendarValue, CellState } from './props';
+import {
+  getMonthListFromRange,
+  getScrollIntoViewId,
+  getSelectionModeFromValue,
+  renderCells,
+} from './utils';
 
-Component(
+ComponentWithSignalStoreImpl(
+  {
+    store: () => i18nController,
+    updateHook: effect,
+    mapState: {
+      locale: ({ store }) => store.currentLocale.value,
+    },
+  },
   CalendarDefaultProps,
   {
     getInstance() {
@@ -116,21 +124,15 @@ Component(
       }
     },
     updateData() {
-      const [
-        monthRange,
-        plocaleText,
-        pweekStartsOn,
-        onFormatter,
-        onMonthFormatter,
-      ] = getValueFromProps(this, [
-        'monthRange',
-        'localeText',
-        'weekStartsOn',
-        'onFormatter',
-        'onMonthFormatter',
-      ]);
-      const localeText = Object.assign({}, defaultLocaleText, plocaleText);
-      const markItems = [...localeText.weekdayNames];
+      const [monthRange, pweekStartsOn, onFormatter, onMonthFormatter] =
+        getValueFromProps(this, [
+          'monthRange',
+          'weekStartsOn',
+          'onFormatter',
+          'onMonthFormatter',
+        ]);
+      const localeText = Object.assign({}, this.data.locale?.calendar);
+      const markItems = [...(localeText.weekdayNames ?? [])];
       const weekStartsOn = pweekStartsOn;
       if (weekStartsOn === 'Sunday') {
         const item = markItems.pop();
@@ -192,7 +194,7 @@ Component(
           });
         }
         let month = {
-          title: p.format(localeText.title),
+          title: p.format(localeText.format),
           className: '',
           cells,
         };

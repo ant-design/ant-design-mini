@@ -1,3 +1,4 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 // loading 尺寸
@@ -8,8 +9,9 @@
 // 辅助文字尺寸
 @loading-text-size: @font-size-weak;
 // 辅助文字颜色
-@loading-text-color: @color-ironblack-1;
-// 深色颜色
-@loading-icon-dark-color: #999;
+@loading-text-color: var(--loading-text-color, @color-ironblack-1);
 // 浅色颜色
-@loading-icon-light-color: rgba(255, 255, 255, 0.6);
+@loading-icon-light-color: var(
+  --loading-icon-light-color,
+  rgba(255, 255, 255, 0.6)
+);

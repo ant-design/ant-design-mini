@@ -1,8 +1,9 @@
 ---
-toc: false
+order: 9
+toc: true
 ---
 
-## 贡献指南
+# 贡献指南
 
 ### 1. 克隆代码
 
@@ -40,6 +41,10 @@ $ npm i
 ```
 
 安装好依赖后，点击微信开发者工具中的菜单栏：“工具 --> 构建 npm”。构建完成后，项目就可以正常运行了。
+
+> 如果发现不能正常运行，可能是微信开发工具构建 npm ，将依赖打包成功一个文件，导致微信中引用依赖找不到而报错。
+
+> 如：`import duration from 'dayjs/plugin/duration'`，构建 npm 之后，`dayjs/plugin`目录 在 `miniprogram_npm` 中丢失。需要将 `dayjs/plugin` 目录手动拷贝到 `miniprogram_npm` 中，可解决。
 
 #### 在支付宝小程序开发者工具中运行
 

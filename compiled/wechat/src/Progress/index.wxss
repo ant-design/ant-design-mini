@@ -4,9 +4,9 @@
   align-items: center;
 }
 .ant-progress-line .ant-progress-outer {
-  background-color: #f5f5f5;
+  background-color: var(--progress-trail-color, #f5f5f5);
   border-radius: 50vh;
-  height: 8px;
+  height: 16rpx;
   overflow: hidden;
   flex: 1;
 }
@@ -15,27 +15,27 @@
   transition: width 0.3s;
   height: 100%;
   position: relative;
-  background-color: #1677ff;
+  background-color: var(--progress-stroke-color, #1677ff);
 }
 .ant-progress-line .ant-progress-inner-success {
-  background-color: #22b35e;
+  background-color: var(--progress-success-color, #22b35e);
 }
 .ant-progress-line .ant-progress-inner-exception {
-  background-color: #ff3141;
+  background-color: var(--progress-exception-color, #ff3141);
 }
 .ant-progress-line .ant-progress-indicator {
-  margin-left: 8px;
-  color: #999999;
-  font-size: 13px;
-  height: 18.5px;
+  margin-left: 16rpx;
+  color: var(--progress-assist-color, #999999);
+  font-size: 26rpx;
+  height: 37rpx;
   display: flex;
   align-items: center;
 }
 .ant-progress-line .ant-progress-status-icon-success {
-  color: #22b35e;
+  color: var(--progress-success-color, #22b35e);
 }
 .ant-progress-line .ant-progress-status-icon-exception {
-  color: #ff3141;
+  color: var(--progress-exception-color, #ff3141);
 }
 .ant-progress-circle {
   position: relative;
@@ -45,8 +45,8 @@
   height: 100%;
 }
 .ant-progress-circle .ant-progress-indicator {
-  font-size: 20px;
-  color: #333333;
+  font-size: 40rpx;
+  color: var(--progress-indicator-color, #333333);
   position: absolute;
   top: 50%;
   left: 50%;

@@ -34,11 +34,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { Component, triggerEvent, triggerEventOnly, triggerEventValues, getValueFromProps, } from '../_util/simply';
-import { PickerDefaultProps } from './props';
-import { getMatchedItemByValue, getMatchedItemByIndex, getStrictMatchedItemByValue, } from './utils';
+import { effect } from '@preact/signals-core';
 import mixinValue from '../mixins/value';
-Component(PickerDefaultProps, {
+import { ComponentWithSignalStoreImpl, getValueFromProps, triggerEvent, triggerEventOnly, triggerEventValues, } from '../_util/simply';
+import i18nController from '../_util/store';
+import { PickerDefaultProps } from './props';
+import { getMatchedItemByIndex, getMatchedItemByValue, getStrictMatchedItemByValue, } from './utils';
+ComponentWithSignalStoreImpl({
+    store: function () { return i18nController; },
+    updateHook: effect,
+    mapState: {
+        locale: function (_a) {
+            var store = _a.store;
+            return store.currentLocale.value;
+        },
+    },
+}, PickerDefaultProps, {
     // visible受控判断
     isVisibleControlled: function () {
         return getValueFromProps(this, 'visible') !== null;
@@ -199,6 +210,10 @@ Component(PickerDefaultProps, {
     columns: [],
     visible: false,
     selectedIndex: [],
+    locale: {
+        locale: '23123',
+        global: {},
+    },
 }, [
     mixinValue({
         transformValue: function (value) {

@@ -5,11 +5,14 @@
 
   /// #if ALIPAY
   "defaultTitle": "Selector",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
     "ant-selector": "../../../src/Selector/index",
     "ant-button": "../../../src/Button/index",
-    "ant-container": "../../../src/Container/index"
+    "ant-container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index"
   }
 }

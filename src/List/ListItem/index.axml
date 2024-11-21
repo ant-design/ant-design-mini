@@ -26,7 +26,8 @@
       <image-icon
         wx:if="{{ image }}"
         image="{{ image }}"
-        className="ant-list-item-image" />
+        className="{{ brief ? 'ant-list-item-image ant-list-item-image-large' : 'ant-list-item-image ant-list-item-image-normal' }}"
+        />
       <block wx:else>
         <slot name="image" />
       </block>
@@ -36,12 +37,12 @@
         <image-icon
           a:if="{{ image }}"
           image="{{ image }}"
-          className="ant-list-item-image" />
+          className="{{ brief ? 'ant-list-item-image ant-list-item-image-large' : 'ant-list-item-image ant-list-item-image-normal' }}" />
       </slot>
       <!-- #endif -->
     </view>
     <view class="ant-list-item-content-container">
-      <view class="ant-list-item-content-title-container">
+      <view class="ant-list-item-content-title-container {{ title && brief ? 'ant-list-item-content-container-small-text' : 'ant-list-item-content-container-normal-text' }}">
         <!-- #if WECHAT -->
         <view
           wx:if="{{ title }}"
@@ -65,7 +66,7 @@
       <view class="ant-list-item-content-main">
         <slot />
       </view>
-      <view class="ant-list-item-content-brief-container">
+      <view class="ant-list-item-content-brief-container {{ title && brief ? 'ant-list-item-content-container-small-text' : 'ant-list-item-content-container-normal-text' }}">
         <!-- #if WECHAT -->
         <view
           wx:if="{{ brief }}"
@@ -113,8 +114,8 @@
         <!-- #endif -->
       </view>
     </view>
-    <view class="ant-list-item-arrow">
-      <icon
+    <view class="ant-list-item-arrow {{ extraBrief && extra ? 'ant-list-item-arrow-large-margin' : '' }}">
+      <ant-icon
         a:if="{{ arrowUtil.getArrow(arrow) }}"
         type="{{ arrowUtil.getArrow(arrow) }}" />
     </view>

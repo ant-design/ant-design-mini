@@ -1,5 +1,7 @@
 {
   "defaultTitle": "NumberKeyboard",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-number-keyboard": "../../../src/NumberKeyboard/index",
     "ant-list": "../../../src/List/index",

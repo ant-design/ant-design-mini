@@ -1,0 +1,119 @@
+<view class="navigation-bar"/>
+
+<container title="基础使用 (有/无动效)">
+  <view class="line">
+    <progress type="circle" percent="{{ percent1 }}" />
+    <progress type="circle" percent="{{ percent1 }}" animation="{{ false }}" />
+  </view>
+  <progress percent="{{ percent1 }}" style="margin-top: 40rpx;"/>
+  <progress percent="{{ percent1 }}" animation="{{ false }}" style="margin-top: 40rpx;"/>
+  <view class="buttonwrapper">
+    <ant-button
+      inline
+      style="margin-right: 16rpx"
+      onTap="handleReduce">
+      Reduce
+    </ant-button>
+    <ant-button
+      inline
+      onTap="handleIncrease">
+      Increase
+    </ant-button>
+  </view>
+</container>
+
+<container title="自定义宽度">
+  <view class="line">
+    <progress
+      type="circle"
+      percent="{{ percent2 }}"
+      strokeWidth="{{ 12 }}" />
+    <progress
+      type="circle"
+      percent="{{ percent2 }}"
+      strokeWidth="{{ 2 }}" />
+  </view>
+  <progress
+    percent="{{ percent2 }}"
+    strokeWidth="15"
+    style="margin-top: 40rpx;" />
+</container>
+
+<container title="语义化进度条">
+  <progress
+    status="success"
+    percent="100" />
+  <progress
+    status="exception"
+    percent="50" />
+</container>
+
+<container title="自定义颜色">
+  <view class="line">
+    <progress
+      type="circle"
+      percent="{{ percent3 }}"
+      strokeColor="#00B578" />
+    <progress
+      type="circle"
+      percent="{{ percent3 }}"
+      strokeColor="#FF8F1F" />
+  </view>
+
+  <progress
+    percent="{{ percent3 }}"
+    trailColor="#FFCF9F"
+    style="margin-top: 40rpx;" />
+  <progress
+    percent="{{ percent3 }}"
+    strokeColor="#FFCF9F"
+    style="margin-top: 40rpx;" />
+  <progress
+    percent="{{ percent3 }}"
+    style="margin-top: 40rpx;" />
+</container>
+
+<container title="各种自定义">
+  <view class="line">
+    <progress
+      type="circle"
+      percent="{{ percent5 }}">
+      <view slot="indicator">{{ percent5 }}GB</view>
+    </progress>
+    <progress
+      type="circle"
+      percent="{{ percent5 }}">
+      <view slot="indicator">{{ percent5 }}步</view>
+    </progress>
+  </view>
+
+   <view class="line">
+    <progress
+      type="circle"
+      percent="{{ percent5 }}"
+      width="{{ 80 }}" />
+    <progress
+      type="circle"
+      percent="{{ percent5 }}"
+      width="{{ 100 }}" />
+    <progress
+      type="circle"
+      percent="{{ percent5 }}"
+      width="{{ 120 }}" />
+  </view>
+
+  <progress
+    percent="{{ percent5 }}"
+    style="width: 100%;margin-top: 40rpx;" />
+  <progress
+    percent="{{ percent5 }}"
+    style="width: 70%;margin-top: 40rpx;" />
+  <progress
+    percent="{{ percent5 }}"
+    style="width: 50%;margin-top: 40rpx;" />
+
+  <progress percent="{{ percent2 }}" style="margin-top: 40rpx;">
+    <text slot="indicator">{{ (percent2 / 100) * 200 }}步</text>
+  </progress>
+</container>
+

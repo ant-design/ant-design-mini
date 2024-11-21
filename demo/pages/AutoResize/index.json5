@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "AutoResize",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "AutoResize",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-auto-resize": "../../../src/AutoResize/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

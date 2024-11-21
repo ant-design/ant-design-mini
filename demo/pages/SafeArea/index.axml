@@ -1,0 +1,14 @@
+<view class="navigation-bar"/>
+
+<ant-container
+  title="基础用法"
+  className="list"
+>
+  <safe-area position="top" />
+
+  <block a:for="{{arr}}">
+    <view>内容_{{index}}</view>
+  </block>
+
+  <safe-area position="bottom" />
+</ant-container>

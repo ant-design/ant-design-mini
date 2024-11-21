@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "Form",
-  "usingComponents": {
-    "form-input": "../../../src/Form/FormInput/index",
-    "form-checklist": "./checklist",
-    "form-location": "./location",
-    "ant-button": "../../../src/Button/index"
-  }
-}

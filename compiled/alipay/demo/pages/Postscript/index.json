@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Postscript",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+    "ant-postscript": "../../../src/Postscript/index",
+    "container": "../../../src/Container/index"
+  }
+}

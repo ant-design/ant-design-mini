@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <ant-list header="基础使用">
   <ant-list-item bind:tap="onTap">默认键盘</ant-list-item>
   <ant-number-keyboard
@@ -27,5 +28,68 @@
     random="{{true}}"
     visible="{{visible4}}"
     bind:close="onTap4"
+  ></ant-number-keyboard>
+</ant-list>
+<ant-list
+  header="数字输入框示例"
+  className="number-input"
+>
+  <ant-list-item>
+    <view
+      class="number-content {{value8 ? '' : 'number-placeholder'}}"
+      catch:tap="onNumberFocus"
+    >
+      <!--display: inline-->
+      <text wx:if="{{value8}}">{{value8}}</text>
+      <!--display: inline-->
+      <text
+        wx:else
+        class="number-content-tip"
+      >0.00</text>
+      <view
+        wx:if="{{visible8}}"
+        class="number-light"
+        style="{{value8 ? 'position: static;' : 'position: absolute;'}}"
+      ></view>
+    </view>
+  </ant-list-item>
+  <ant-number-keyboard
+    visible="{{visible8}}"
+    point="{{false}}"
+    closeable="{{true}}"
+    value="{{value8}}"
+    bind:change="onChange8"
+    bind:close="onClose8"
+  ></ant-number-keyboard>
+</ant-list>
+<ant-list
+  header="数字键盘示例：验证码"
+  className="verify-code"
+>
+  <ant-list-item>
+    <view
+      class="number-code"
+      catch:tap="onCodeFocus9"
+    >
+      <block
+        wx:for="{{4}}"
+        wx:for-index="index"
+        wx:for-item="item"
+      >
+        <view class="number-code-view {{visible9 && value9.length === index ? 'number-code-border' : ''}}">{{value9[index] || ''}}<view
+            wx:if="{{visible9 && value9.length === index}}"
+            class="number-code-tip"
+          ></view>
+        </view>
+      </block>
+    </view>
+  </ant-list-item>
+  <ant-number-keyboard
+    visible="{{visible9}}"
+    point="{{false}}"
+    closeable="{{true}}"
+    value="{{value9}}"
+    bind:change="onChange9"
+    bind:close="onClose9"
   ></ant-number-keyboard>
 </ant-list>

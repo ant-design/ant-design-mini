@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <ant-guide-tour
   items="{{[list[0]]}}"
   visible="{{baseVisible}}"
@@ -29,10 +30,6 @@
   visible="{{slotVisible}}"
   onCancel="closeTour"
   onChange="onChange"
-  jumpText="跳过"
-  gotItText="知道了"
-  prevStepText="上一步"
-  nextStepText="下一步"
 >
   <view
     class="step-box"

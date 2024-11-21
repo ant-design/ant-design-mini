@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <view class="t-swipe">
   <view class="t-swipe-item">
     <view class="t-swipe-item-title">删除按钮点击二次确认</view>

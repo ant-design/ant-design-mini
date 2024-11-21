@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Stepper",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "stepper": "../../../src/Stepper/index",
     "container": "../../../src/Container/index",

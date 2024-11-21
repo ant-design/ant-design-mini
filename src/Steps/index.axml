@@ -10,7 +10,7 @@
     a:for-index="index"
     a:for-item="item">
     <view
-      class="ant-steps-item ant-steps-item-{{ direction }} {{ index < current ? 'ant-steps-item-finish' : '' }} {{ index === current ? 'ant-steps-item-active' : '' }} {{ index > current ? 'ant-steps-item-non-active' : '' }}">
+      class="ant-steps-item ant-steps-item-{{ direction }} {{ index < current ? 'ant-steps-item-finish' : '' }} {{ index === current ? 'ant-steps-item-active' : '' }} {{ index > current || (status === 'error' &&  index === current) ? 'ant-steps-item-non-active' : '' }}">
       <view
         class="ant-steps-item-indicator ant-steps-item-indicator-{{ direction }}">
         <view

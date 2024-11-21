@@ -1,31 +1,31 @@
 @keyframes text-animate-right {
   33% {
-    margin-left: -5px;
+    margin-left: -10rpx;
   }
   66% {
-    margin-left: 5px;
+    margin-left: 10rpx;
   }
   100% {
-    margin-left: 0px;
+    margin-left: 0rpx;
   }
 }
 @keyframes text-animate-midd {
   0% {
-    margin-left: 22px;
+    margin-left: 44rpx;
   }
   100% {
-    margin-left: 0px;
+    margin-left: 0rpx;
   }
 }
 @keyframes text-animate-left {
   33% {
-    margin-left: 5px;
+    margin-left: 10rpx;
   }
   66% {
-    margin-left: -5px;
+    margin-left: -10rpx;
   }
   100% {
-    margin-left: 0px;
+    margin-left: 0rpx;
   }
 }
 .text-move-right {
@@ -71,7 +71,7 @@
 }
 .ant-swipe-action-movable-content-right {
   height: 100%;
-  color: #ffffff;
+  color: var(--swipe-action-color, #ffffff);
 }
 .ant-swipe-action-movable-content-right-text {
   height: 100%;
@@ -88,7 +88,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  color: #ffffff;
+  color: var(--swipe-action-color, #ffffff);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

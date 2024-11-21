@@ -1,5 +1,58 @@
-<ant-collapse
-  defaultCurrent="{{[0]}}"
-  items="{{items}}"
-  onChange="onChange"
-></ant-collapse>
+<view class="navigation-bar"></view>
+<ant-container
+  title="基本使用"
+  class="container"
+>
+  <ant-collapse
+    items="{{items1}}"
+    onChange="onChange"
+  ></ant-collapse>
+</ant-container>
+<ant-container
+  title="手风琴效果"
+  class="container"
+>
+  <ant-collapse
+    accordion
+    items="{{items1}}"
+  ></ant-collapse>
+</ant-container>
+<ant-container
+  title="列表项控制"
+  class="container"
+>
+  <ant-button
+    onTap="addItems"
+    inline
+  >
+    添加items
+  </ant-button>
+  <ant-collapse items="{{items2}}"></ant-collapse>
+</ant-container>
+<ant-container
+  title="带 Checkbox"
+  class="container"
+>
+  <ant-collapse items="{{items3}}">
+    <view
+      class="title"
+      slot="title"
+      slot-scope="item"
+    >
+      <view class="collapse-item">
+        <ant-checkbox
+          data-index="{{item.index}}"
+          onChange="onCheckboxChange"
+        ></ant-checkbox>
+        {{item.value.title}}
+      </view>
+    </view>
+    <view
+      class="content"
+      slot="content"
+      slot-scope="item"
+    >
+      {{item.value.content}}
+    </view>
+  </ant-collapse>
+</ant-container>

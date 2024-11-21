@@ -2,6 +2,10 @@
   from="../../_util/arrow.sjs"
   name="arrowUtil"
 ></import-sjs>
+<import-sjs
+  from="../../_util/isPropsEmpty.sjs"
+  name="u"
+></import-sjs>
 <form-item
   className="{{className}}"
   position="{{position}}"
@@ -17,9 +21,9 @@
 >
   <view>
     <ant-picker
-      cancelText="{{cancelText}}"
-      okText="{{okText}}"
-      placeholder="{{placeholder}}"
+      cancelText="{{u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText}}"
+      okText="{{u.isPropsEmpty(okText) ? locale.global.okText : okText}}"
+      placeholder="{{u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder}}"
       maskClosable="{{maskClosable}}"
       maskStyle="{{maskStyle}}"
       popClassName="{{popClassName}}"

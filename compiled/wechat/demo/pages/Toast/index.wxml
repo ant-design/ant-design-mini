@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <ant-container title="基础使用">
   <ant-button
     className="button"
@@ -51,6 +52,12 @@
     data-index="6"
     bind:tap="handleShowToast"
   >加载态</ant-button>
+  <ant-button
+    className="button"
+    inline="{{true}}"
+    data-index="10"
+    bind:tap="handleShowToast"
+  >支付宝</ant-button>
 </ant-container>
 <ant-container title="延迟关闭">
   <ant-button
@@ -66,8 +73,9 @@
   visible="{{toast1Show}}"
   duration="{{0}}"
   showMask="{{true}}"
+  textType="short"
   maskCloseable="{{true}}"
-  onClose="handleCloseToast"
+  bind:close="handleCloseToast"
   data-index="1"
 ></ant-toast>
 <ant-toast
@@ -75,9 +83,10 @@
   visible="{{toast4Show}}"
   data-index="4"
   duration="{{0}}"
+  textType="long"
   showMask="{{true}}"
   maskCloseable="{{true}}"
-  onClose="handleCloseToast"
+  bind:close="handleCloseToast"
 ></ant-toast>
 <ant-toast
   content="欢迎使用新版本"
@@ -86,7 +95,7 @@
   duration="{{0}}"
   showMask="{{true}}"
   maskCloseable="{{true}}"
-  onClose="handleCloseToast"
+  bind:close="handleCloseToast"
   data-index="2"
   className="toastWrapper"
 ></ant-toast>
@@ -97,7 +106,7 @@
   duration="{{0}}"
   showMask="{{true}}"
   maskCloseable="{{true}}"
-  onClose="handleCloseToast"
+  bind:close="handleCloseToast"
   data-index="5"
 ></ant-toast>
 <ant-toast
@@ -105,7 +114,7 @@
   visible="{{toast3Show}}"
   duration="{{3000}}"
   data-index="3"
-  onClose="handleCloseToast"
+  bind:close="handleCloseToast"
   showMask="{{true}}"
   maskCloseable="{{true}}"
 ></ant-toast>
@@ -114,7 +123,7 @@
   visible="{{toast6Show}}"
   data-index="6"
   type="loading"
-  onClose="handleCloseToast"
+  bind:close="handleCloseToast"
   showMask="{{true}}"
   duration="{{0}}"
   maskCloseable="{{true}}"
@@ -124,7 +133,7 @@
   visible="{{toast7Show}}"
   data-index="7"
   type="success"
-  onClose="handleCloseToast"
+  bind:close="handleCloseToast"
   showMask="{{true}}"
   duration="{{0}}"
   maskCloseable="{{true}}"
@@ -134,7 +143,7 @@
   visible="{{toast8Show}}"
   data-index="8"
   type="error"
-  onClose="handleCloseToast"
+  bind:close="handleCloseToast"
   showMask="{{true}}"
   duration="{{0}}"
   maskCloseable="{{true}}"
@@ -144,7 +153,17 @@
   visible="{{toast9Show}}"
   data-index="9"
   type="warning"
-  onClose="handleCloseToast"
+  bind:close="handleCloseToast"
+  showMask="{{true}}"
+  duration="{{0}}"
+  maskCloseable="{{true}}"
+></ant-toast>
+<ant-toast
+  content="支付宝"
+  visible="{{toast10Show}}"
+  data-index="10"
+  type="alipay"
+  bind:close="handleCloseToast"
   showMask="{{true}}"
   duration="{{0}}"
   maskCloseable="{{true}}"

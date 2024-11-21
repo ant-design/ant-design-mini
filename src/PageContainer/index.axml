@@ -8,13 +8,17 @@
     class="ant-page-container-loading-wrap"
   >
     <view class="ant-page-container-loading">
+      <!-- #if ALIPAY -->
       <slot name="loading">
+      <!-- #endif -->
         <ant-loading
           type="{{loadingType}}"
           size="{{loadingSize}}"
           color="{{loadingColor}}"
         />
+      <!-- #if ALIPAY -->
       </slot>
+      <!-- #endif -->
     </view>
   </view>
 
@@ -23,6 +27,7 @@
     <ant-empty
       image="{{image}}"
       title="{{title}}"
+      imageMode="heightFix"
       message="{{message}}"
     >
       <view slot="extra">

@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-container title="简单布局-单选">
   <ant-checklist
     defaultValue="{{ [1] }}"

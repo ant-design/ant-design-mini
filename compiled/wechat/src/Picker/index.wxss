@@ -1,23 +1,23 @@
 .ant-picker {
   display: inline-flex;
   align-items: center;
-  color: #333333;
+  color: var(--picker-item-color, #333333);
 }
 .ant-picker-disabled {
-  color: #cccccc;
+  color: var(--picker-placeholder-color, #cccccc);
 }
 .ant-picker-header {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 12px 12px;
+  padding: 30rpx 24rpx 24rpx;
   box-sizing: border-box;
 }
 .ant-picker-header::after {
   content: '';
   position: absolute;
-  background-color: #eeeeee;
+  background-color: #e5e5e5;
   display: block;
   top: auto;
   right: 0;
@@ -31,8 +31,8 @@
   align-items: center;
   height: 100%;
   white-space: nowrap;
-  font-size: 15px;
-  color: #1677ff;
+  font-size: 30rpx;
+  color: var(--picker-header-action-color, #1677ff);
   box-sizing: border-box;
 }
 .ant-picker-header-title {
@@ -42,28 +42,28 @@
   -webkit-line-clamp: 1;
   box-orient: vertical;
   white-space: normal;
-  color: #333333;
-  width: 259px;
+  color: var(--picker-item-color, #333333);
+  width: 518rpx;
 }
 .ant-picker-picker-view {
   width: 100%;
-  height: 230px;
+  height: 460rpx;
 }
 .ant-picker-picker-view-column {
   text-align: center;
 }
 .ant-picker-content {
-  background: #ffffff;
+  background: var(--picker-content-background-color, #ffffff);
 }
 .ant-picker-content .a-picker-view-picker-item {
-  color: #333333;
+  color: var(--picker-item-color, #333333);
 }
 .ant-picker-content .a-picker-view-picker-indicator::before,
 .ant-picker-content .a-picker-view-picker-indicator::after {
-  border-color: #eeeeee;
+  border-color: var(--picker-header-color, #e5e5e5);
 }
 .ant-picker-content .a-picker-view-picker-mask {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+  background-image: linear-gradient(to bottom, var(--picker-mask-bg-faded-95, rgba(255, 255, 255, 0.95)), var(--picker-mask-bg-faded-60, rgba(255, 255, 255, 0.6))), linear-gradient(to top, var(--picker-mask-bg-faded-95, rgba(255, 255, 255, 0.95)), var(--picker-mask-bg-faded-60, rgba(255, 255, 255, 0.6)));
   will-change: transform;
 }
 .ant-picker-value-placeholder:not(:nth-child(1)),
@@ -71,5 +71,5 @@
   display: none;
 }
 .ant-picker-value-placeholder {
-  color: #cccccc;
+  color: var(--picker-placeholder-color, #cccccc);
 }

@@ -1,0 +1,14 @@
+<view class="navigation-bar"/>
+
+<ant-container title="基础用法">
+  <ant-select-contact
+    height="1000rpx"
+    onSelect="onSelect"
+    recommendContactsList="{{recommendContactsList}}"
+    allContactsList="{{allContactsList}}"
+    onDeleteRecommendUserError="onDeleteRecommendUserError"
+    onDeleteRecommendUser="onDeleteRecommendUser"
+  >
+    <view slot="contactListEmpty">列表为空</view>
+  </ant-select-contact>
+</ant-container>

@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Table",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Table",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-table": "../../../src/Table/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

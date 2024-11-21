@@ -8,8 +8,47 @@
   width: 180px;
 }
 .border {
-  border-color: #1677ff;
+  border-color: var(--color-border);
 }
 button {
   margin-top: 8px;
+}
+.search-line {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+.search-bar {
+  padding: 4px 0 4px 0;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.4s;
+  flex: 1;
+}
+.search-bar-focus {
+  border-color: var(--color-brand1);
+}
+.cancel {
+  color: var(--color-text-primary);
+  margin-left: 8px;
+}
+.custom {
+  border: 1px solid var(--color-border-greycard);
+  padding: 4px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.placeholder {
+  color: var(--color-text-primary);
+  opacity: 0.7;
+  font-size: 16px;
+}
+.custom-color {
+  margin-bottom: 12px;
+}
+.custom-color input,
+.custom-color textarea {
+  padding: 4px;
+  background: var(--color-background);
+  border-radius: 4px;
 }

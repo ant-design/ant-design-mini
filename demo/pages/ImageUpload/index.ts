@@ -42,6 +42,20 @@ Page({
         status: 'done',
       },
     ],
+    fileList: [
+      {
+        url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*znK_ToIL8rQAAAAAAAAAAAAAARQnAQ',
+        status: 'done',
+      },
+      {
+        url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*kStORbDQxwMAAAAAAAAAAAAAARQnAQ',
+        status: 'pending',
+      },
+      {
+        url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*K4Z-RLHuliYAAAAAAAAAAAAAARQnAQ',
+        status: 'error',
+      },
+    ],
     /// #if WECHAT
     onRemove,
     onUpload(file) {
@@ -88,4 +102,30 @@ Page({
     return localFileList;
   },
   /// #endif
+
+  handleControlledChange(fileList) {
+    /// #if WECHAT
+    this.setData({
+      fileList: fileList.detail,
+    });
+    /// #endif
+    /// #if ALIPAY
+    this.setData({
+      fileList,
+    });
+    /// #endif
+  },
+
+  handleUploaderRef(ref) {
+    console.log('handleUploaderRef', ref);
+    /// #if WECHAT
+    this.handleUploaderRef = ref.detail;
+    /// #endif
+    /// #if ALIPAY
+    this.handleUploaderRef = ref;
+    /// #endif
+  },
+  upload() {
+    this.handleUploaderRef.chooseImage();
+  },
 });

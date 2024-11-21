@@ -5,11 +5,14 @@
 
   /// #if ALIPAY
   "defaultTitle": "Radio",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
-    "radio": "../../../src/Radio/index",
-    "container": "../../../src/Container/index",
-    "icon": "../../../src/Icon/index"
+    "ant-radio": "../../../src/Radio/index",
+    "ant-radio-group": "../../../src/Radio/RadioGroup/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index"
   }
 }

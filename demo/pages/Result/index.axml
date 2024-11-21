@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <container title="成功状态">
   <result
     title="操作成功"
@@ -33,19 +35,25 @@
     type="error" />
 </container>
 <!-- #if ALIPAY -->
-<container title="自定义">
+<container title="自定义-按钮">
   <result
     image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
     <view slot="title">标题插槽</view>
     <view slot="message">描述插槽</view>
-    <view slot="extra">
-      <button inline>辅助操作</button>
-      <button
-        type="primary"
-        inline
-        style="margin-left: 12px">
-        主要操作
-      </button>
+    <view slot="extra" style="padding-top: 48rpx;">
+      <button type="primary">主要操作</button>
+      <button aide> 辅助操作 </button>
+    </view>
+  </result>
+</container>
+
+<container title="自定义-模块">
+  <result
+    image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
+    <view slot="title">标题插槽</view>
+    <view slot="message">描述插槽</view>
+    <view slot="extra" class="extra">
+      其他模块
     </view>
   </result>
 </container>

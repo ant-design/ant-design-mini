@@ -1,0 +1,41 @@
+<view class="navigation-bar"></view>
+<tabs
+  items="{{items}}"
+  current="{{current}}"
+  onChange="onChange"
+  className="tabs"
+>
+  <scroll-view
+    id="scroll-view"
+    onScroll="onScroll"
+    onTouchStart="onTouchStart"
+    scrollTop="{{scrollTop}}"
+    scrollY="{{true}}"
+    scrollWithAnimation="{{true}}"
+    scrollAnimationDuration="{{300}}"
+    class="content"
+  >
+    <block
+      a:for="{{items}}"
+      a:for-index="index"
+      a:for-item="item"
+    >
+      <view class="item">
+        <view
+          class="title"
+          id="tab-item-{{index}}"
+        >
+          {{item.title}}
+        </view>
+        {{item.content}}
+      </view>
+    </block>
+  </scroll-view>
+  <view
+    onTap="onTap"
+    slot="title"
+    slot-scope="item"
+  >
+    {{item.value.title}}
+  </view>
+</tabs>

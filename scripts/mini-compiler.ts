@@ -1,19 +1,18 @@
+import ifdef from '@diamondyuan/gulp-ifdef';
+import * as ofs from 'fs';
+import * as fs from 'fs/promises';
 import gulp from 'gulp';
 import changed from 'gulp-changed';
 import debug from 'gulp-debug';
-import * as through2 from 'through2';
-import rename from 'gulp-rename';
-import * as tsxml from './tsxml/index';
-import path from 'path';
-import { transformTsxJS } from './tsxjs';
-import ts from 'gulp-typescript';
 import less from 'gulp-less';
-import ifdef from '@diamondyuan/gulp-ifdef';
+import rename from 'gulp-rename';
+import ts from 'gulp-typescript';
 import json5 from 'json5';
-import { resolve } from 'path';
-import * as fs from 'fs/promises';
-import * as ofs from 'fs';
+import path, { resolve } from 'path';
+import * as through2 from 'through2';
 import axmlParser, { wechatCustomMapping } from './axml';
+import { transformTsxJS } from './tsxjs';
+import * as tsxml from './tsxml/index';
 
 interface MiniProgramSourceCompileOption {
   source: string;
@@ -419,94 +418,6 @@ export async function compileAntdMini(watch: boolean) {
     dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
     watch,
     assets: ['md', 'acss', 'js', 'sjs', 'json'],
-    buildOption: {
-      ...alipayBuildOption,
-      compileTs: true,
-    },
-  });
-}
-
-export async function compileAntdMiniBackup(watch: boolean) {
-  if (!watch) {
-    await Promise.all(
-      [
-        'compiledBackup/alipay/demo/pages',
-        'compiledBackup/alipay/src',
-        'compiledBackup/wechat/demo',
-        'compiledBackup/wechat/src',
-      ].map((dir) => {
-        return fs.rm(resolve(__dirname, '..', dir), {
-          recursive: true,
-          force: true,
-        });
-      })
-    );
-  }
-  const wechatBuildOption = {
-    compileTs: true,
-    compileLess: true,
-    platform: tsxml.wechat,
-    styleExt: '.wxss',
-    xmlExt: '.wxml',
-    xmlScriptExt: '.wxs',
-    defVar: {
-      WECHAT: true,
-      ALIPAY: false,
-    },
-    xmlScriptOption: {
-      forceCommonjs: true,
-    },
-  };
-
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
-    source: resolve(__dirname, '..', 'srcBackup'),
-    dest: resolve(__dirname, '..', 'compiledBackup', 'wechat', 'src'),
-    watch,
-    allowList,
-    assets: ['md', 'js', 'json'],
-    buildOption: wechatBuildOption,
-  });
-
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.demo.json'),
-    source: resolve(__dirname, '..', 'demoBackup'),
-    dest: resolve(__dirname, '..', 'compiledBackup', 'wechat', 'demo'),
-    watch,
-    allowList: demoAllowList,
-    assets: ['md', 'js', 'json'],
-    buildOption: wechatBuildOption,
-  });
-
-  const alipayBuildOption = {
-    defVar: {
-      WECHAT: false,
-      ALIPAY: true,
-    },
-    compileTs: false,
-    compileLess: false,
-    platform: tsxml.alipay,
-    xmlExt: '.axml',
-    styleExt: '.acss',
-    xmlScriptExt: '.sjs',
-    xmlScriptOption: {},
-  };
-
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
-    source: resolve(__dirname, '..', 'srcBackup'),
-    dest: resolve(__dirname, '..', 'compiledBackup', 'alipay', 'src'),
-    watch,
-    assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
-    buildOption: alipayBuildOption,
-  });
-
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
-    source: resolve(__dirname, '..', 'demoBackup'),
-    dest: resolve(__dirname, '..', 'compiledBackup', 'alipay', 'demo'),
-    watch,
-    assets: ['md', 'acss', 'js', 'axml', 'sjs', 'json'],
     buildOption: {
       ...alipayBuildOption,
       compileTs: true,

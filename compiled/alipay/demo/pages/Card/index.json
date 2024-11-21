@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "Card",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+    "ant-container": "../../../src/Container/index",
+    "ant-card": "../../../src/Card/index"
+  }
+}

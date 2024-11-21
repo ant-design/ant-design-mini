@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import styles from './ResourceCard.less';
+import { FC } from 'react';
+import './ResourceCard.less'
 
 type Props = {
   image?: string;
@@ -10,11 +10,11 @@ type Props = {
 
 const ResourceCard: FC<Props> = (props) => {
   return (
-    <a className={styles.card} href={props.link} target="_blank">
+    <a className={'card'} href={props.link} target="_blank">
       {props.image && <img src={props.image} alt={props.title} />}
-      <div className={styles.content}>
-        <div className={styles.title}>{props.title}</div>
-        <div className={styles.description}>{props.description}</div>
+      <div className={'content'}>
+        <div className={'title'}>{props.title}</div>
+        <div className={'description'}>{props.description}</div>
       </div>
     </a>
   );

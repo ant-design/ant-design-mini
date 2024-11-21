@@ -34,11 +34,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { PopoverDefaultProps } from './props';
 import mixinValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
+import { Component, getValueFromProps, triggerEvent, triggerEventOnly, } from '../_util/simply';
+import { PopoverDefaultProps } from './props';
 import { getPopoverStyle } from './utils';
 Component(PopoverDefaultProps, {
     getInstance: function () {
@@ -90,6 +90,10 @@ Component(PopoverDefaultProps, {
             this.update(value);
         }
         triggerEvent(this, 'visibleChange', value, e);
+    },
+    onTapAction: function () {
+        this.onVisibleChange();
+        triggerEventOnly(this, 'tapAction');
     },
 }, {
     adjustedPlacement: '',

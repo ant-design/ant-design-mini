@@ -1,0 +1,205 @@
+@import (reference) './variable.less';
+@import '../style/mixins/hairline.less';
+
+@popoverPrefix: ant-popover-list;
+
+.@{popoverPrefix} {
+  position: relative;
+
+  &-children {
+    z-index: 999;
+  }
+
+  &-mask {
+    z-index: 998;
+    background: none;
+  }
+  &-content {
+    position: absolute;
+    // min-width: 64 * @rpx;
+    max-width: calc(100vw - 48 * @rpx);
+    z-index: 999;
+    border-radius: 24 * @rpx;
+    background: @popover-content-bg;
+    box-shadow: 0 4 * @rpx 10 * @rpx 0 @popover-content-bg;
+    color: @popover-content-color;
+    &-arrow {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 18 * @rpx solid transparent;
+      border-right: 18 * @rpx solid transparent;
+      border-bottom: 18 * @rpx solid @popover-content-bg;
+    }
+    .ant-popover-list-item::before {
+      background: @popover-list-item-bg;
+    }
+  }
+  &-item {
+    padding: 26 * @rpx 24 * @rpx 26 * @rpx 32 * @rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    z-index: 1;
+    &-0 {
+      &::before {
+        display: none;
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 16 * @rpx;
+      width: calc(200% - @popover-content-width);
+      height: 2 * @rpx;
+      transform: scale(0.5);
+      background: @popover-content-color;
+      z-index: 2;
+    }
+    &-left {
+      padding-right: 16 * @rpx;
+      width: 48 * @rpx;
+      height: 48 * @rpx;
+      overflow: hidden;
+      .ant-icon {
+        font-size: 48 * @rpx;
+        width: 48 * @rpx;
+        height: 48 * @rpx;
+        color: @popover-content-color;
+      }
+    }
+    &-image {
+      width: 48 * @rpx;
+      height: 48 * @rpx;
+    }
+    &-text {
+      font-weight: 400;
+      font-size: 30 * @rpx;
+      letter-spacing: 0;
+      white-space: nowrap;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      &-badge {
+        background: @popover-badge-color;
+        width: 20 * @rpx;
+        border-radius: 50vh;
+        height: 20 * @rpx;
+        margin-left: 8 * @rpx;
+      }
+    }
+  }
+
+  &-top {
+    transform: translate(-50%, -100%);
+    &-arrow {
+      bottom: 2 * @rpx;
+      transform: translate(-50%, 100%) rotate(180deg);
+      left: 50%;
+    }
+  }
+
+  &-bottom {
+    transform: translate(-50%, 100%);
+    &-arrow {
+      top: 2 * @rpx;
+      transform: translate(-50%, -100%) rotate(0deg);
+      left: 50%;
+    }
+  }
+
+  &-left {
+    transform: translate(-100%, -50%);
+    &-arrow {
+      right: 2 * @rpx;
+      transform: translate(75%, -50%) rotate(90deg);
+      top: 50%;
+    }
+  }
+
+  &-right {
+    transform: translate(100%, -50%);
+    &-arrow {
+      left: 2 * @rpx;
+      transform: translate(-75%, -50%) rotate(-90deg);
+      top: 50%;
+    }
+  }
+
+  &-top-left {
+    transform: translate(0, -100%);
+    &-arrow {
+      bottom: 2 * @rpx;
+      transform: translate(0, 100%) rotate(180deg);
+      left: 24 * @rpx;
+    }
+  }
+
+  &-top-right {
+    transform: translate(0, -100%);
+    &-arrow {
+      bottom: 2 * @rpx;
+      transform: translate(0, 100%) rotate(180deg);
+      right: 24 * @rpx;
+    }
+  }
+
+  &-bottom-left {
+    transform: translate(0, 100%);
+    &-arrow {
+      top: 2 * @rpx;
+      transform: translate(0, -100%) rotate(0deg);
+      left: 24 * @rpx;
+    }
+  }
+
+  &-bottom-right {
+    transform: translate(0, 100%);
+    &-arrow {
+      top: 2 * @rpx;
+      transform: translate(0, -100%) rotate(0deg);
+      right: 24 * @rpx;
+    }
+  }
+
+  &-left-top {
+    transform: translate(-100%, 0);
+    &-arrow {
+      right: 2 * @rpx;
+      transform: translate(75%, 0) rotate(90deg);
+      top: 24 * @rpx;
+    }
+  }
+
+  &-left-bottom {
+    transform: translate(-100%, 0);
+    &-arrow {
+      right: 2 * @rpx;
+      transform: translate(75%, 0) rotate(90deg);
+      bottom: 24 * @rpx;
+    }
+  }
+
+  &-right-top {
+    transform: translate(100%, 0);
+    &-arrow {
+      left: 2 * @rpx;
+      transform: translate(-75%, 0) rotate(-90deg);
+      top: 24 * @rpx;
+    }
+  }
+
+  &-right-bottom {
+    transform: translate(100%, 0);
+    &-arrow {
+      left: 2 * @rpx;
+      transform: translate(-75%, 0) rotate(-90deg);
+      bottom: 24 * @rpx;
+    }
+  }
+}

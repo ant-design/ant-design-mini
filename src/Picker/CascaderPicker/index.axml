@@ -10,7 +10,7 @@
   disabled="{{ disabled }}"
   title="{{ title }}"
   placeholder="{{ placeholder }}"
-  okText="{{ okText }}"
+  okText="{{  okText }}"
   cancelText="{{ cancelText }}"
   maskStyle="{{ maskStyle }}"
   maskClassName="{{ maskClassName }}"
@@ -21,17 +21,10 @@
   onOk="onOk"
   formattedValueText="{{ formattedValueText }}"
   onVisibleChange="onVisibleChange"
-  maskClosable="{{ maskClosable }}">
-  <slot
-    name="content"
-    slot="content" />
-  <slot
-    name="title"
-    slot="title" />
-  <slot
-    name="prefix"
-    slot="prefix" />
-  <slot
-    name="suffix"
-    slot="suffix" />
+  maskClosable="{{ maskClosable }}"
+>
+  <slot name="content" slot="content" />
+  <slot name="title" slot="title" />
+  <slot name="prefix" slot="prefix" />
+  <slot name="suffix" slot="suffix" />
 </ant-picker>

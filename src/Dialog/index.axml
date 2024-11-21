@@ -1,0 +1,104 @@
+<import-sjs
+  from="./index.sjs"
+  name="utils" />
+
+<ant-popup
+  className="ant-dialog {{ className || '' }}"
+  style="{{ style || '' }}"
+  maskClassName="{{ maskClassName }}"
+  maskStyle="{{ maskStyle }}"
+  visible="{{ visible }}"
+  duration="{{ duration }}"
+  position="center"
+  animation="{{ animation }}"
+  zIndex="{{ zIndex }}"
+  destroyOnClose="{{ destroyOnClose }}"
+  onClose="onMaskClose">
+  <slot name="dialog-top" />
+  <!-- #if ALIPAY -->
+  <slot>
+  <!-- #endif -->
+    <view
+      class="ant-dialog-body {{ bodyClassName || '' }}"
+      style="{{ bodyStyle || '' }}">
+      <slot name="header" />
+      <image a:if="{{ headerImage }}" class="ant-dialog-body-header" mode="widthFix" src="{{ headerImage }}" />
+      <!-- #if WECHAT -->
+      <view
+        wx:if="{{ title }}"
+        class="ant-dialog-body-title">
+        {{ title }}
+      </view>
+      <slot
+        wx:else
+        name="title" />
+      <!-- #endif -->
+      <!-- #if ALIPAY -->
+      <slot name="title">
+        <view
+          a:if="{{ title }}"
+          class="ant-dialog-body-title">
+          {{ title }}
+        </view>
+      </slot>
+      <!-- #endif -->
+
+      <!-- #if WECHAT -->
+      <view
+        wx:if="{{ content }}"
+        class="ant-dialog-body-content">
+        {{ content }}
+      </view>
+      <slot
+        wx:else
+        name="content" />
+      <!-- #endif -->
+      <!-- #if ALIPAY -->
+      <slot name="content">
+        <view
+          a:if="{{ content }}"
+          class="ant-dialog-body-content">
+          {{ content }}
+        </view>
+      </slot>
+      <slot name="content-extra" />
+      <!-- #endif -->
+      <!-- #if ALIPAY -->
+      <slot name="footer">
+      <!-- #endif -->
+        <view class="ant-dialog-body-footer ant-dialog-body-footer-{{ footer.layout || 'vertical' }}">
+          <view
+            a:for="{{ footer.buttons }}"
+            data-item="{{ item }}"
+            onTap="onButtonTap"
+            class="ant-dialog-body-footer-button"
+            style="flex: 1;"
+          >
+            <ant-button
+              disabled="{{ item.disabled }}"
+              danger="{{ item.danger }}"
+              icon="{{ item.icon }}"
+              size="{{ item.size }}"
+              style="{{ item.style }}"
+              activeClassName="{{ item.activeClassName }}"
+              className="{{ item.className }}"
+              type="{{ item.type || 'primary' }}"
+            >
+              {{ item.text }}
+            </ant-button>
+          </view>
+        </view>
+      <!-- #if ALIPAY -->
+      </slot>
+      <!-- #endif -->
+    </view>
+  <!-- #if ALIPAY -->
+  </slot>
+  <!-- #endif -->
+
+  <ant-icon
+    a:if="{{ closable }}"
+    type="CloseCircleOutline"
+    onTap="onClose"
+    className="ant-dialog-close" />
+</ant-popup>

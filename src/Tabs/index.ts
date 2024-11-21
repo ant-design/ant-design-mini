@@ -1,7 +1,7 @@
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { TabsDefaultProps } from './props';
 import createValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { TabsDefaultProps } from './props';
 
 Component(
   TabsDefaultProps,
@@ -164,7 +164,7 @@ Component(
     },
     /// #endif
     /// #if WECHAT
-    ready() {
+    attached() {
       this.updateScroll();
       this.getBoundingClientRect('.ant-tabs-bar-item').then((res) => {
         const direction = getValueFromProps(this, 'direction');

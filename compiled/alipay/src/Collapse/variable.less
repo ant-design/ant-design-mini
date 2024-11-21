@@ -1,3 +1,4 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 // 每一项的高度
@@ -5,12 +6,31 @@
 // 左右边距
 @collapse-title-padding: @h-spacing-large;
 // 背景色
-@collapse-title-background-color: @COLOR_CARD;
+@collapse-title-background-color: var(
+  --collapse-title-background-color,
+  @COLOR_CARD
+);
 // 字体颜色
-@collapse-title-color: @COLOR_TEXT_PRIMARY;
+@collapse-title-color: var(--collapse-title-color, @COLOR_TEXT_PRIMARY);
 // 字体大小
 @collapse-title-size: @font-size-list;
 // 箭头大小
 @collapse-title-icon-size: 36 * @rpx;
+// 箭头颜色
+@collapse-title-icon-color: var(--collapse-title-icon-color, @COLOR_TEXT_WEAK);
 // 内容背景色
-@collapse-content-background-color: @COLOR_CARD;
+@collapse-content-background-color: var(
+  --collapse-content-background-color,
+  @COLOR_CARD
+);
+
+// border色
+@collapse-border-color: var(--collapse-border-color, @COLOR_BORDER);
+// node字体颜色
+@collapse-node-text-color: var(--collapse-node-text-color, @COLOR_TEXT_ASSIST);
+
+// container背景颜色
+@collapse-container-background-color: var(
+  --collapse-container-background-color,
+  @COLOR_WHITE_CHANGE
+);

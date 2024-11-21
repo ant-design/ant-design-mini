@@ -1,0 +1,25 @@
+<view class="ant-countdown {{className}}">
+  <text class="ant-countdown-time-prefix ant-countdown-time">
+    <slot name="prefix"></slot>
+  </text>
+  <block wx:if="{{countdownType === 'day' && showDay}}">
+    <text class="ant-countdown-time-num">
+      <text class="ant-countdown-time">{{countdownDay}}</text>
+    </text>
+    <text class="ant-countdown-time-day ant-countdown-time">天</text>
+  </block>
+  <text class="ant-countdown-time-num">
+    <text class="ant-countdown-time">{{countdownHour}}</text>
+  </text>
+  <text class="ant-countdown-time-colon">：</text>
+  <text class="ant-countdown-time-num">
+    <text class="ant-countdown-time">{{countdownMin}}</text>
+  </text>
+  <text class="ant-countdown-time-colon">：</text>
+  <text class="ant-countdown-time-num">
+    <text class="ant-countdown-time">{{countdownSec}}</text>
+  </text>
+  <text class="ant-countdown-time-suffix ant-countdown-time">
+    <slot name="suffix"></slot>
+  </text>
+</view>

@@ -1,4 +1,5 @@
-<ant-page
+<view class="navigation-bar"></view>
+<ant-page-container
   loading="{{loading}}"
   status="{{status}}"
   title="{{title}}"
@@ -112,4 +113,4 @@
     slot="loading"
     color="#999"
   ></ant-loading>
-</ant-page>
+</ant-page-container>

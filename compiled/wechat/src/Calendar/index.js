@@ -54,14 +54,25 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
+import { effect } from '@preact/signals-core';
 import dayjs from 'dayjs';
 import equal from 'fast-deep-equal';
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { defaultLocaleText, CalendarDefaultProps, } from './props';
-import { getMonthListFromRange, getSelectionModeFromValue, renderCells, getScrollIntoViewId, } from './utils';
 import mixinValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
-Component(CalendarDefaultProps, {
+import { ComponentWithSignalStoreImpl, getValueFromProps, triggerEvent, } from '../_util/simply';
+import i18nController from '../_util/store';
+import { CalendarDefaultProps } from './props';
+import { getMonthListFromRange, getScrollIntoViewId, getSelectionModeFromValue, renderCells, } from './utils';
+ComponentWithSignalStoreImpl({
+    store: function () { return i18nController; },
+    updateHook: effect,
+    mapState: {
+        locale: function (_a) {
+            var store = _a.store;
+            return store.currentLocale.value;
+        },
+    },
+}, CalendarDefaultProps, {
     getInstance: function () {
         if (this.$id) {
             return my;
@@ -167,15 +178,15 @@ Component(CalendarDefaultProps, {
         }
     },
     updateData: function () {
-        var _a = getValueFromProps(this, [
+        var _a, _b;
+        var _c = getValueFromProps(this, [
             'monthRange',
-            'localeText',
             'weekStartsOn',
             'onFormatter',
             'onMonthFormatter',
-        ]), monthRange = _a[0], plocaleText = _a[1], pweekStartsOn = _a[2], onFormatter = _a[3], onMonthFormatter = _a[4];
-        var localeText = Object.assign({}, defaultLocaleText, plocaleText);
-        var markItems = __spreadArray([], localeText.weekdayNames, true);
+        ]), monthRange = _c[0], pweekStartsOn = _c[1], onFormatter = _c[2], onMonthFormatter = _c[3];
+        var localeText = Object.assign({}, (_a = this.data.locale) === null || _a === void 0 ? void 0 : _a.calendar);
+        var markItems = __spreadArray([], ((_b = localeText.weekdayNames) !== null && _b !== void 0 ? _b : []), true);
         var weekStartsOn = pweekStartsOn;
         if (weekStartsOn === 'Sunday') {
             var item = markItems.pop();
@@ -220,7 +231,7 @@ Component(CalendarDefaultProps, {
                 });
             }
             var month = {
-                title: p.format(localeText.title),
+                title: p.format(localeText.format),
                 className: '',
                 cells: cells,
             };

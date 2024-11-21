@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "ant-button": "../Button/index",
+    "ant-auto-resize": "../AutoResize/index"
+  }
 }

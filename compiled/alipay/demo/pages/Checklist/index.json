@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Checklist",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-checklist": "../../../src/Checklist/index",
     "ant-icon": "../../../src/Icon/index",

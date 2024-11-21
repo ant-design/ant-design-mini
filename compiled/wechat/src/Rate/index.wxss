@@ -1,6 +1,6 @@
 .ant-rate {
   display: inline-flex;
-  font-size: 24px;
+  font-size: 48rpx;
   user-select: none;
 }
 .ant-rate-container {
@@ -8,17 +8,23 @@
 }
 .ant-rate-star {
   position: relative;
-  margin-right: 4px;
+  margin-right: 8rpx;
   line-height: 1;
 }
 .ant-rate-star:last-child {
   margin-right: 0;
 }
 .ant-rate-star-icon {
-  color: #eee;
+  color: var(--rate-icon-color, #e5e5e5);
+}
+.ant-rate-star-icon .ant-icon {
+  color: var(--rate-icon-color, #e5e5e5);
 }
 .ant-rate-star-icon-active {
-  color: #ff9f18;
+  color: var(--rate-active-icon, #ff9f18);
+}
+.ant-rate-star-icon-active .ant-icon {
+  color: var(--rate-active-icon, #ff9f18);
 }
 .ant-rate-star-icon-half-active {
   position: absolute;

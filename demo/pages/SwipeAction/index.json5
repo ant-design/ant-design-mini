@@ -5,12 +5,15 @@
 
   /// #if ALIPAY
   "defaultTitle": "Swipe-Action",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "pullRefresh": "NO",
   "showProgress": "NO",
   "allowsBounceVertical": "NO",
   "usingComponents": {
-    "ant-swipe-action": "../../../src/SwipeAction/index"
+    "ant-swipe-action": "../../../src/SwipeAction/index",
+    "ant-icon": "../../../src/Icon/index"
   }
 }

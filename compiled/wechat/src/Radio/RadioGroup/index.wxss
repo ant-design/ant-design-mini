@@ -20,10 +20,10 @@
 .ant-radio-group-footer {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 16rpx 24rpx;
   line-height: 1.4;
-  font-size: 15px;
-  color: #999999;
+  font-size: 30rpx;
+  color: var(--radio-header-color, #999999);
 }
 .ant-radio-group-body {
   position: relative;

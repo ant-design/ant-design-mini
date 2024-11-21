@@ -6,9 +6,9 @@
 .@{pickerPrefix} {
   display: inline-flex;
   align-items: center;
-  color: @COLOR_TEXT_PRIMARY;
+  color: @picker-item-color;
   &-disabled {
-    color: @COLOR_TEXT_WEAK;
+    color: @picker-placeholder-color;
   }
   &-header {
     position: relative;
@@ -43,24 +43,28 @@
 
 
   &-content {
-    background: @COLOR_CARD;
+    background: @picker-content-background-color;
 
     .a-picker-view-picker-item {
-      color: @COLOR_TEXT_PRIMARY;
+      color: @picker-item-color;
     }
     .a-picker-view-picker-indicator {
       &::before,
       &::after {
-        border-color: @COLOR_BORDER;
+        border-color: @picker-header-color;
       }
     }
     .a-picker-view-picker-mask {
       background-image: linear-gradient(
           to bottom,
-          fade(@COLOR_CARD, 95),
-          fade(@COLOR_CARD, 60)
+          @picker-mask-bg-faded-95,
+          @picker-mask-bg-faded-60
         ),
-        linear-gradient(to top, fade(@COLOR_CARD, 95), fade(@COLOR_CARD, 60));
+        linear-gradient(
+          to top,
+          @picker-mask-bg-faded-95,
+          @picker-mask-bg-faded-60
+        );
       will-change: transform;
     }
   }

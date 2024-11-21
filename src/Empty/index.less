@@ -4,20 +4,56 @@
 
 .@{emptyPrefix} {
   text-align: center;
-  margin-top: @empty-margin-large;
+  &-normal {
+    .ant-empty-image-element {
+      width: @empty-normal-width;
+      height: @empty-normal-height;
+    }
+    .ant-empty-text {
+      &-main {
+        color: @empty-text-color;
+        font-size: @sizeFont8;
+        margin-top: @empty-margin-large;
+      }
+      &-sub {
+        margin-top: 12 * @rpx;
+        color: @empty-asisst-text-color;
+      }
+    }
+    .ant-empty-button {
+      padding-top: 80 * @rpx;
+    }
+  }
+
+  &-small {
+    .ant-empty-image-element {
+      width: @empty-small-width;
+      height: @empty-small-height;
+    }
+    .ant-empty-text {
+      &-main {
+        color: @empty-asisst-text-color;
+        font-size: @sizeFont6;
+        margin-top: @empty-margin-large;
+      }
+      &-sub {
+        color: @COLOR_TEXT_WEAK;
+        margin-top: 8 * @rpx;
+      }
+    }
+    .ant-empty-button {
+      padding-top: @empty-margin-middle;
+    }
+  }
 
   &-image {
     display: flex;
     justify-content: center;
-
-    &-element {
-      width: 200 * @rpx;
-      height: 170 * @rpx;
-    }
   }
 
   &-text {
     margin-top: @v-spacing-large;
+    line-height: @empty-text-line-height;
 
     &-main {
       color: @COLOR_TEXT_PRIMARY;
@@ -25,13 +61,32 @@
     }
 
     &-sub {
-      color: @COLOR_TEXT_ASSIST;
       font-size: @empty-font-size-common;
-      margin-top: @v-spacing-standard;
+      margin-top: @empty-margin-middle;
+      line-height: @empty-sub-line-height;
+    }
+  }
+
+  &-button {
+    &-layout-horizontal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: @empty-horizontal-button-gap;
+    }
+    &-layout-vertical {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: @empty-vertical-button-gap;
+      .ant-button {
+        min-width: @empty-vertical-button-width;
+      }
     }
   }
 
   &-extra {
-    padding-top: 20px;
+    padding-top: @empty-margin-middle;
   }
 }

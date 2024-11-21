@@ -1,7 +1,13 @@
+@import (reference) '../style/variables.less';
 @import (reference) '../style/themes/index.less';
 
 // 字体颜色
-@container-header-color: @COLOR_TEXT_PRIMARY;
+@container-header-color: var(--container-header-color, @COLOR_TEXT_PRIMARY);
+// 字体颜色
+@container-header-right-color: var(
+  --container-color-text-assist,
+  @COLOR_TEXT_ASSIST
+);
 // 字体大小
 @container-header-size: 32 * @rpx;
 // 边距
@@ -9,4 +15,4 @@
 // 圆角
 @container-radius: @corner-radius-lg;
 // 背景
-@container-background-color: @COLOR_CARD;
+@container-background-color: var(--container-background-color, @COLOR_CARD);

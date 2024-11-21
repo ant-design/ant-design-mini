@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: var(--selector-background-color, #ffffff);
   line-height: 1.4;
 }
 .ant-selector-disabled .ant-selector-content {
@@ -14,7 +14,7 @@
 .ant-selector-content {
   display: flex;
   flex: 0 33.3333%;
-  padding: calc(12px / 2);
+  padding: calc(24rpx / 2);
   box-sizing: border-box;
 }
 .ant-selector-content-item2 {
@@ -26,9 +26,9 @@
   justify-content: flex-start;
 }
 .ant-selector-content .ant-tap-modal-mask {
-  width: calc(100% - 24 * 0.5px);
-  height: calc(100% - 24 * 0.5px);
-  margin: 6px 0 0 6px;
+  width: calc(100% - 24 * 1rpx);
+  height: calc(100% - 24 * 1rpx);
+  margin: 12rpx 0 0 12rpx;
 }
 .ant-selector-item {
   position: relative;
@@ -37,27 +37,27 @@
   flex-direction: column;
   justify-content: flex-start;
   overflow: hidden;
-  padding: calc(12px / 2) calc(12px / 4);
+  padding: calc(24rpx / 2) calc(24rpx / 4);
   text-align: center;
-  background-color: #f5f5f5;
-  border-radius: 4px;
+  background-color: var(--selector-item-background, #f5f5f5);
+  border-radius: 8rpx;
 }
 .ant-selector-item-active {
-  background-color: #e7f1ff;
+  background-color: var(--selector-item-active-background, #e7f1ff);
 }
 .ant-selector-item-active .ant-selector-item-text {
-  color: #1677ff;
+  color: var(--selector-item-color, #1677ff);
 }
 .ant-selector-item-disabled {
   opacity: 0.6;
 }
 .ant-selector-item-text {
-  font-size: 15px;
-  color: #333333;
+  font-size: 30rpx;
+  color: var(--selector-item-color, #1677ff);
 }
 .ant-selector-item-subtext {
-  font-size: 13px;
-  color: #999999;
+  font-size: 26rpx;
+  color: var(--selector-item-sub-color, #999999);
 }
 .ant-selector-item-badge-active {
   position: absolute;
