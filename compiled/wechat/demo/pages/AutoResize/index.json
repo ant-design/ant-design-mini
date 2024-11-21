@@ -1,7 +1,5 @@
 {
   "navigationBarTitleText": "AutoResize",
-  "titleBarColor": "#ffffff",
-  "transparentTitle": "auto",
   "usingComponents": {
     "ant-auto-resize": "../../../src/AutoResize/index",
     "ant-container": "../../../src/Container/index"

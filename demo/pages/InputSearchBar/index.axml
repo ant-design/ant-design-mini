@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <view class="container">
   <ant-input
     placeholder="请输入内容"

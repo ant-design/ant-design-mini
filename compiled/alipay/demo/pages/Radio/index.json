@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Radio",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-radio": "../../../src/Radio/index",
     "ant-radio-group": "../../../src/Radio/RadioGroup/index",

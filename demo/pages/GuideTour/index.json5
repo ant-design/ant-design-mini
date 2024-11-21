@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "GuideTour",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

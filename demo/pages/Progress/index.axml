@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <container title="基础使用 (有/无动效)">
   <view class="line">
     <progress type="circle" percent="{{ percent1 }}" />

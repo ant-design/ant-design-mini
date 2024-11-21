@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Steps",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-steps": "../../../src/Steps/index",
     "ant-icon": "../../../src/Icon/index",

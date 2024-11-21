@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <view style="padding-bottom: 100rpx;">
   <ant-list
     header="基础用法"

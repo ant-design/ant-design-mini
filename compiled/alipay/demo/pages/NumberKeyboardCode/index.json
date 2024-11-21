@@ -1,5 +1,7 @@
 {
   "defaultTitle": "NumberKeyboard",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "number-keyboard": "../../../src/NumberKeyboard/index",
     "list-item": "../../../src/List/ListItem/index",

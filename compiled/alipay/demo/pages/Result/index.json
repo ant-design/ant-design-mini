@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Result",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "result": "../../../src/Result/index",
     "button": "../../../src/Button/index",

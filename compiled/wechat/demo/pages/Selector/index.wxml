@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <ant-container title="单选">
   <ant-selector options="{{items1}}"></ant-selector>
 </ant-container>

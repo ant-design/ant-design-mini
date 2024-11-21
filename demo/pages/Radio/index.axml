@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-container title="Radio 用法">
   <view>
     <ant-radio onChange="onChange">基础用法</ant-radio>

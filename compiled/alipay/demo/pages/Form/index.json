@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Form Demo",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-list": "../../../src/List/index",
     "ant-list-item": "../../../src/List/ListItem/index"

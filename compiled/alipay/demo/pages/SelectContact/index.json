@@ -1,5 +1,7 @@
 {
   "defaultTitle": "SelectContact",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-select-contact": "../../../src/SelectContact/index",
     "ant-container": "../../../src/Container/index"

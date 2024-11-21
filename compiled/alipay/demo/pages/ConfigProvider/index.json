@@ -1,5 +1,7 @@
 {
   "defaultTitle": "ConfigProvider",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "ant-list": "../../../src/List/index",

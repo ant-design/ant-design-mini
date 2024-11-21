@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-container>
   <ant-config-provider locale="{{locale}}">
     <ant-list>

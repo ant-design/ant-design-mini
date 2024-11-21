@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <form-input
   label="用户名"
   name="account"

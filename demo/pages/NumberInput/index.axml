@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <container title="基础用法">
   <ant-number-input
     title="输入金额"

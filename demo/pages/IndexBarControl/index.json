@@ -1,5 +1,7 @@
 {
   "defaultTitle": "IndexBar",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "pullRefresh": "NO",
   "showProgress": "NO",
   "allowsBounceVertical": "NO",

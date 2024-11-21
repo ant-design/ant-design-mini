@@ -2,6 +2,7 @@
   src="./index.wxs"
   module="utils"
 ></wxs>
+<view class="navigation-bar"></view>
 <ant-container title="Checkbox 用法">
   <view>
     <ant-checkbox bind:change="onChange">基础使用</ant-checkbox>

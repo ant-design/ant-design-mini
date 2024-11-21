@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <!-- #if WECHAT -->
 <text>
   由于微信小程序不支持 slot-scope="item", 所以暂时不支持自定义 Error

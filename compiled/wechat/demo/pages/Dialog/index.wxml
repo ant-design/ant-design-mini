@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <ant-dialog
   content="人在天边月上明"
   visible="{{basicVisible}}"

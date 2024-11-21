@@ -1,3 +1,4 @@
+<view class="navigation-bar"/>
 
 <ant-container title="基础选择器">
   <ant-list header="基础用法">

@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Picker",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "ant-picker": "../../../src/Picker/index",

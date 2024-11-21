@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "Swipe-Action",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "pullRefresh": "NO",

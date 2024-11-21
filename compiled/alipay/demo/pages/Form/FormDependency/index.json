@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Form",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "form-input": "../../../../src/Form/FormInput/index",
     "form-switch": "../../../../src/Form/FormSwitch/index",

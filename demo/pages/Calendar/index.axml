@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <collapse-container
   a:if="{{ demo1.visible }}"
   title="默认多选，范围 3 个月">

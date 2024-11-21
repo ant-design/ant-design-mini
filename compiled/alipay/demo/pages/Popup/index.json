@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Popup",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-popup": "../../../src/Popup/index",
     "container": "../../../src/Container/index",

@@ -2,6 +2,8 @@
   from="./index.sjs"
   name="utils" />
 
+<view class="navigation-bar"/>
+
 <ant-container title="Checkbox 用法">
   <view>
     <ant-checkbox onChange="onChange">基础使用</ant-checkbox>

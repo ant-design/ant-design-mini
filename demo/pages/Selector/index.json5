@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "Selector",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

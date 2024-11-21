@@ -2,6 +2,7 @@
   src="./slice.wxs"
   module="utils"
 ></wxs>
+<view class="navigation-bar"></view>
 <view class="t-swipe">
   <view class="t-swipe-item">
     <view class="t-swipe-item-title">基础用法</view>

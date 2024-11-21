@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Switch",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-switch": "../../../src/Switch/index",
     "ant-container": "../../../src/Container/index",

@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-container title="基本用法">
   <ant-container title="中文">
     <ant-auto-resize text="页面遇到一些小问题" minFontSize="24" maxFontSize="60">

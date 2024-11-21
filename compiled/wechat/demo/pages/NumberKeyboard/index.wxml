@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <ant-list header="基础使用">
   <ant-list-item bind:tap="onTap">默认键盘</ant-list-item>
   <ant-number-keyboard

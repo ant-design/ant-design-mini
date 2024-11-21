@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "Radio",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

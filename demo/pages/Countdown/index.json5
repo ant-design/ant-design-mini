@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "Countdown",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

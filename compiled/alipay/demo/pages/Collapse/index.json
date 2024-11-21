@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Collapse",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-collapse": "../../../src/Collapse/index",
     "ant-container": "../../../src/Container/index",

@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <tabs
   items="{{ items }}"
   current="{{ current }}"

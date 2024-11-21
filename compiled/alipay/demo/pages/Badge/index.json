@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Badge",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-badge": "../../../src/Badge/index",
     "ant-container": "../../../src/Container/index",

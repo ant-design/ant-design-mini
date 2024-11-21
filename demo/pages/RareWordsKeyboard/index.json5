@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "RareWordsKeyboard",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

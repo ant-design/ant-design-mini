@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <view class="base">
   <ant-index-bar
     className="indexbar"

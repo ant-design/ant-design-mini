@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <ant-container title="基础用法">
   <ant-sticky>
     <view>我会吸顶</view>

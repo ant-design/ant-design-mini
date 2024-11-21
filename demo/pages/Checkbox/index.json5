@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "CheckBox",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-popup
   visible="{{ basicVisible }}"
   showClose="{{ true }}"

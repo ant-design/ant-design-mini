@@ -5,6 +5,8 @@
 
   /// #if ALIPAY
   "defaultTitle": "SelectContact",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

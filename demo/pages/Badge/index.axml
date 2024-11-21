@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-container title="基本用法">
   <view class="badge-list">
     <ant-badge

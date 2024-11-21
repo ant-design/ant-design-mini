@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Popover",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-popover": "../../../src/Popover/index",
     "ant-container": "../../../src/Container/index",

@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-list>
   <ant-list-item arrow="right" data-src="FormBasic" onTap="gotoPage">基本使用</ant-list-item>
   <ant-list-item arrow="right" data-src="FormLayout" onTap="gotoPage">布局</ant-list-item>

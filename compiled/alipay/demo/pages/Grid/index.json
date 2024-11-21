@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Grid",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-container": "../../../src/Container/index",
     "ant-grid": "../../../src/Grid/index",

@@ -1,7 +1,8 @@
 {
   "defaultTitle": "",
-  "titleBarColor": "#ffffff",
   "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  "titleBarColor": "#ffffff",
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "ant-page-container": "../../../src/PageContainer/index",

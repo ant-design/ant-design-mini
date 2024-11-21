@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-container title="标题">
   <view class="content">这里是卡片内容</view>
 </ant-container>

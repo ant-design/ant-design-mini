@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Rate",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-rate": "../../../src/Rate/index",
     "ant-stepper": "../../../src/Stepper/index",

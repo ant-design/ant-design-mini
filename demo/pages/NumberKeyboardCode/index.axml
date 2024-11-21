@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <list header="数字键盘示例：验证码">
   <list-item>
     <view

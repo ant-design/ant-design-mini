@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <ant-container title="横向步骤条">
   <ant-steps items="{{items}}"></ant-steps>
 </ant-container>

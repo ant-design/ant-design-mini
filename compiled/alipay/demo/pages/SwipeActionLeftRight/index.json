@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Swipe-Action",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "pullRefresh": "NO",
   "showProgress": "NO",
   "allowsBounceVertical": "NO",

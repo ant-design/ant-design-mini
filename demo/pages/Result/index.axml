@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <container title="成功状态">
   <result
     title="操作成功"

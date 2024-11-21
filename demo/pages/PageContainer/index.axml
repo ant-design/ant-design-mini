@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <ant-page-container
   loading="{{loading}}"
   status="{{status}}"

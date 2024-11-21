@@ -1,5 +1,7 @@
 {
   "defaultTitle": "ImageUpload",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-uploader": "../../../src/ImageUpload/index",
     "ant-button": "../../../src/Button/index",

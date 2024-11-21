@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Dialog",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-dialog": "../../../src/Dialog/index",
     "ant-button": "../../../src/Button/index",

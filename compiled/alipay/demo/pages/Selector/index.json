@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Selector",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-selector": "../../../src/Selector/index",
     "ant-button": "../../../src/Button/index",

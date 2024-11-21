@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <ant-container title="基本用法">
   <ant-uploader
     bind:change="onChange"

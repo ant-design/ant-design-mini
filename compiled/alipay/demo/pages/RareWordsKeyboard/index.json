@@ -1,5 +1,7 @@
 {
   "defaultTitle": "RareWordsKeyboard",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-rare-words-keyboard": "../../../src/RareWordsKeyboard/index",
     "ant-list": "../../../src/List/index",

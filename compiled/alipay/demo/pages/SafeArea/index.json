@@ -1,5 +1,7 @@
 {
   "defaultTitle": "SafeArea",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "safe-area": "../../../src/SafeArea/index",
     "ant-container": "../../../src/Container/index"

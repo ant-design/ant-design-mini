@@ -3,3 +3,8 @@
 page {
   background-color: var(--color-background);
 }
+
+.navigation-bar {
+  height: 88px;
+  background-color: var(--color-card);
+}

@@ -1,3 +1,4 @@
+<view class="navigation-bar"></view>
 <ant-list header="基础使用">
   <ant-container title="姓名">
     <ant-input

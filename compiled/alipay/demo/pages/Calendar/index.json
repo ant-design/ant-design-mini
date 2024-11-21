@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Calendar",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-icon": "../../../src/Icon/index",
     "collapse-container": "./collapse-container/collapse-container",

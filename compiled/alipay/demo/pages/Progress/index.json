@@ -1,5 +1,7 @@
 {
   "defaultTitle": "ProgressCircle",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
     "progress": "../../../src/Progress/index",

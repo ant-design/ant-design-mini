@@ -1,5 +1,7 @@
 {
   "defaultTitle": "Voucher",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   "usingComponents": {
     "voucher": "../../../src/Voucher/index",
     "ant-checkbox": "../../../src/Checkbox/index",
