@@ -11,7 +11,6 @@ describe('Calendar', () => {
     const {
       className,
       style,
-      localeText,
       selectionMode,
       weekStartsOn,
       changedScrollIntoView,
