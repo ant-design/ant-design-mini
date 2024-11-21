@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Feedback引导
+  title: Feedback
   order: 12
 toc: 'content'
 ---
@@ -131,14 +131,14 @@ Page({
 | footer                       | Custom Button Area                                      | slot         | -      |
 | maskClosable                 | Click whether the layer triggers the onClose.                          | boolean      | true   |
 | maskClassName                | Class name of the layer                                        | string       | -      |
-| maskStyle                    | Mask Style                                        | string       | -      |
+| maskStyle                    | The style of the layer                                        | string       | -      |
 | style                        | Style                                              | string       | -      |
 | title                        | Title                                              | string\|slot | -      |
 | visible                      | Whether to display                                          | boolean      | false  |
 | #if ALIPAY onCancelButtonTap | Cancel button click event                                  | ()=>void     | -      |
-| #if ALIPAY onClose           | Click the close button in the upper right corner of the mask or emphasis mode to trigger the callback  | ()=>void     | -      |
+| #if ALIPAY onClose           | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
 | #if ALIPAY onButtonTap       | Behavior button click event                                  | ()=>void     | -      |
-| #if WECHAT bind:close        | Click the close button in the upper right corner of the mask or emphasis mode to trigger the callback  | ()=>void     | -      |
+| #if WECHAT bind:close        | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
 | #if WECHAT bind:buttontap    | Behavior button click event                                  | ()=>void     | -      |
 
 ### Theme customization

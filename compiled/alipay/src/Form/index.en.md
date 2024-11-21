@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 数据录入
+  title: Information Entry
   order: 12
 toc: 'content'
 ---
@@ -137,7 +137,7 @@ Properties Included in All Form Components
 | getFieldValue            | Get the value of a form item                                                       | (name: string) => any                                                                  |
 | getFieldsValue           | Gets the value for a set of field names. If no nameList is passed, all fields pairs are returned.           | (nameList?: string[]) => Record<string, any>                                           |
 | getFieldValidatorStatus  | Get form check status                                                     | (name: string) => [ValidatorStatus](#validatorstatus)                                  |
-| getFieldsValidatorStatus | Get a set of form validation statuses. If no nameList is passed, all fields pairs are returned.             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
+| getFieldsValidatorStatus | Get a set of form validation states. If no nameList is passed, all fields pairs are returned.             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
 | reset                    | Reset form to initial value                                                     | () => void                                                                             |
 | isFieldTouched           | Determine whether a form item has been modified                                               | () => boolean                                                                          |
 | onValueChange            | Listen for the value modification of the specified form item, view[Detailed Description](#onvaluechangeonvalueschange) | (name: string, (changedValue: any, allValues: Record<string, any>) => void) => void    |
@@ -219,7 +219,7 @@ Example:
 
 ### onValueChange and onValuesChange
 
-`setFieldValue` and `setFieldsValue` Will not trigger `onValueChange` and `onValuesChange`。`onValueChange` and `onValuesChange` It is only triggered by user action. If in `setFieldValue` or `setFieldsValue` then want to trigger `onValueChange` or `onValuesChange`you need to call these methods manually.
+`setFieldValue` and `setFieldsValue` Will not trigger `onValueChange` and `onValuesChange`。`onValueChange` and `onValuesChange` It is only triggered when a user action is taken. If in `setFieldValue` or `setFieldsValue` then want to trigger `onValueChange` or `onValuesChange`you need to call these methods manually.
 
 **Example**：
 

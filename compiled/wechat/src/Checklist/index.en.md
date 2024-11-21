@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 数据录入
+  title: Information Entry
   order: 10
 toc: 'content'
 ---
@@ -29,7 +29,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 

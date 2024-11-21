@@ -9,7 +9,7 @@ toc: 'content'
 
 # GuideTour
 
-Masked with the boot component of the custom card. Applies to an introduction to key features on the page.
+Layer and custom card boot components. Applies to an introduction to key features on the page.
 
 ## Introduction
 
@@ -130,7 +130,7 @@ Page({
 | defaultCurrent         | Default Current Step     | `number`                            | 0        |
 | items                  | Step Information         | [`GuideTourItem`](#guidetourttem)[] | -        |
 | maskClassName          | Class name of the layer       | `string`                            | -        |
-| maskStyle              | Mask Style       | `string`                            | -        |
+| maskStyle              | The style of the layer       | `string`                            | -        |
 | style                  | Style             | `string`                            | -        |
 | swiperable             | Whether sliding mode is on | `boolean`                           | `false`  |
 | visible                | Whether to display         | `boolean`                           | `false`  |
@@ -147,7 +147,7 @@ Page({
 
 | Parameters       | Description                       | Type     | Default Value |
 | ---------- | -------------------------- | -------- | ------ |
-| left       | Distance from left, unit `px`    | `number` | -      |
+| left       | Distance from left, in units `px`    | `number` | -      |
 | imageMode  | Image mode, same as image mode | `string` | -      |
 | imageStyle | Picture Inline Style               | `string` | -      |
 | imageUrl   | Picture Address                   | `string` | -      |

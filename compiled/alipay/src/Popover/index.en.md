@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Feedback引导
+  title: Feedback
   order: 12
 toc: 'content'
 ---
@@ -154,7 +154,7 @@ Page({
 | defaultVisible                | Display by default                                                                                                                                                        | boolean                                                                                             | false  |
 | destroyOnClose                | Whether to unload content when invisible                                                                                                                                                | boolean                                                                                             | false  |
 | maskClassName                 | Class name of the layer                                                                                                                                                          | string                                                                                              | -      |
-| maskStyle                     | Mask Style                                                                                                                                                          | string                                                                                              | -      |
+| maskStyle                     | The style of the layer                                                                                                                                                          | string                                                                                              | -      |
 | placement                     | Bubble box position, optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` or `right-bottom` | string                                                                                              | top    |
 | showMask                      | Whether to show the layer, if true, click the blank to close the Popover.                                                                                                                    | boolean                                                                                             | true   |
 | style                         | Style                                                                                                                                                                | string                                                                                              | -      |

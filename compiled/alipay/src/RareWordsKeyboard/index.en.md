@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 数据录入
+  title: Information Entry
   order: 10
 toc: 'content'
 ---
@@ -28,7 +28,7 @@ The problem of rare characters has always been a difficult point in the society.
 | ---------------------- | ------------------------------------- | ------------------------- | ------ |
 | visible                | Whether visible                              | boolean                   | false  |
 | type                   | Keyboard type, currently only supported `pinyin`(Pinyin) | string                    | pinyin |
-| showMask               | Whether to show background mask                      | boolean                   | true   |
+| showMask               | Whether to show background layer                      | boolean                   | true   |
 | safeArea               | Whether to keep safe distance                      | boolean                   | true   |
 | #if ALIPAY onClose     | Callback triggered when keyboard is closed                  | `() => void`              | -      |
 | #if ALIPAY onChange    | Callback triggered when input completes                  | `(value: string) => void` | -      |

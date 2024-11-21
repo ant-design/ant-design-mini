@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 数据录入
+  title: Information Entry
   order: 10
 toc: 'content'
 ---
@@ -53,7 +53,7 @@ Page({
 });
 ```
 
-### Disable mode
+### Disable Mode
 
 > Incoming `disabled` property, disable the collocated gray switch button.
 
