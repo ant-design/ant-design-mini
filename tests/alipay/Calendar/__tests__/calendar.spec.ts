@@ -19,7 +19,6 @@ describe('Calendar', () => {
     expect({
       className,
       style,
-      localeText,
       selectionMode,
       weekStartsOn,
       changedScrollIntoView,

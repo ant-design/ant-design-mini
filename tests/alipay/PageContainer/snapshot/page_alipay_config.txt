@@ -1,8 +1,14 @@
  {
   "props": {
+    "actionText": "",
+    "image": "",
+    "loading": false,
     "loadingColor": "#ccc",
     "loadingSize": "medium",
     "loadingType": "spin",
+    "message": "",
     "safeArea": "both",
+    "secondaryActionText": "",
+    "title": "",
   },
 }
