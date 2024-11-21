@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Feedback引导
+  title: Feedback
   order: 12
 toc: 'content'
 ---
@@ -106,7 +106,7 @@ Page({
 
 ### Option Status
 
-> [actions](#actionsheetitem) Each of the items provided `icon` `danger` `description` `disabled` Used to set the option state.
+> [actions](#actionsheetitem) Each of the provided `icon` `danger` `description` `disabled` Used to set the option state.
 
 ```xml
 <ant-action-sheet

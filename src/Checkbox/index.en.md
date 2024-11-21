@@ -2,14 +2,14 @@
 nav:
   path: /components
 group:
-  title: 数据录入
+  title: Information Entry
   order: 10
 toc: 'content'
 ---
 
 # Checkbox
 
-Make multiple selections in a set of options. When used alone, it can represent a switch between two states, and `switch` Similar. The difference is that switching `switch` will directly trigger a state change, while `checkbox` Generally used for status markers and needs to be coordinated with the submit operation.
+Multiple selection in a set of options. When used alone, it can represent a switch between two states, and `switch` Similar. The difference is that switching `switch` will directly trigger a state change, while `checkbox` Generally used for status markers and needs to be coordinated with the submit operation.
 
 ## Introduction
 
@@ -28,7 +28,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 

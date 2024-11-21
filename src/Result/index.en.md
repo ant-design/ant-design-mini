@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Feedback引导
+  title: Feedback
   order: 12
 toc: 'content'
 ---

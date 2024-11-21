@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Feedback引导
+  title: Feedback
   order: 14
 toc: 'content'
 ---
@@ -86,7 +86,7 @@ Page({
 | maskCloseable         | Click whether the mask is closed                                                  | boolean     | false  |
 | icon                  | Icon, supports all types of Icon components                                     | string      | -      |
 | image                 | Picture Link                                                          | string      | -      |
-| maskStyle             | Masked Style                                                          | string      | -      |
+| maskStyle             | Mat Style                                                          | string      | -      |
 | showMask              | Whether to show the layer                                                      | boolean     | false  |
 | style                 | Style                                                              | string      | -      |
 | type                  | Built-in icon type, optional `success` `error` `warning` `loading` `alipay` | string      | -      |

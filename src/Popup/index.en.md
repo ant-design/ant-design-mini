@@ -2,14 +2,14 @@
 nav:
   path: /components
 group:
-  title: Feedback引导
+  title: Feedback
   order: 12
 toc: 'content'
 ---
 
 # Popup
 
-Slide or pop-up a custom content area from the screen. It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
+Slides or pops up a custom content area from the screen. It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
 
 ## Introduction
 
@@ -137,9 +137,9 @@ Page({
 | className                     | Class Name                                                                                                                                                              | string     | -           |
 | destroyOnClose                | Unload content when invisible                                                                                                                                                  | boolean    | false       |
 | duration                      | Transition animation duration, in milliseconds                                                                                                                                            | number     | 300         |
-| height                        | The height, in position, is `top` or `bottom` When used, the unit is px. Optional, when not transmitted, it is highly adaptive according to the content area.                                                                        | number     | -           |
+| height                        | height, in position `top` or `bottom` When used, the unit is px. Optional, when not transmitted, it is highly adaptive according to the content area.                                                                        | number     | -           |
 | maskClassName                 | Class name of the layer                                                                                                                                                        | string     | -           |
-| maskStyle                     | Mask Style                                                                                                                                                        | string     | -           |
+| maskStyle                     | The style of the layer                                                                                                                                                        | string     | -           |
 | position                      | Pop-up window layout, optional`top` `bottom` `left` `right`                                                                                                                       | string     | `bottom`    |
 | showMask                      | Whether to show the layer                                                                                                                                                      | boolean    | true        |
 | style                         | Style                                                                                                                                                              | string     | -           |
@@ -195,7 +195,7 @@ If scrolling is required in the pop-up window, use the scroll-view component and
 
 ### How to solve the abnormal display of picker-view inside Popup?
 
-By default, Popup is `display:none` Hidden, and picker-view cannot be placed in `display:none` in the components. There are two solutions:
+Popup is passed by default. `display:none` Hidden, and picker-view cannot be placed in `display:none` in the components. There are two solutions:
 
 1. Add attribute on picker-view `a:if="{{popupVisible}}"`, the picker-view is displayed when the Popup is displayed.
 2. Set on Popup `destroyOnClose="{{true}}"`to unload content when the Popup is not visible.

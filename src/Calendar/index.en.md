@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 数据展示
+  title: Information Display
   order: 8
 toc: 'content'
 ---
@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -207,7 +207,7 @@ The following are the properties and descriptions of the Calendar component:
 | weekStartsOn            | The week column displays the day of the week as the first day. The default is `Sunday`  | `Sunday` \| `Monday`                                        | `Sunday`    |
 | onFormatter             | Use to set custom data for cells                     | (cell: CellState, currentValue: CalendarValue) => CellState | None          |
 | onMonthFormatter        | Custom data for setting the month                       | (month: any) => CellState                                   | None          |
-| localeText              | International Copywriting                                     | Partial`<LocaleText>`                                       | None          |
+| localeText              | International copywriting                                     | Partial`<LocaleText>`                                       | None          |
 | changedScrollIntoView   | Whether to scroll the view after the selected value is changed                       | boolean                                                     | None          |
 | showSelectableDatesOnly | Show only dates in the selectable range                       | boolean                                                     | false       |
 | #if ALIPAY onChange     | Date Change Callback                                   | (date: CalendarValue) => void                               | None          |

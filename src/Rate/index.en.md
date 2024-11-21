@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: Feedback引导
+  title: Feedback
   order: 12
 toc: 'content'
 ---
@@ -30,7 +30,7 @@ In `index.json` Introducing Components in
 
 ### Basic use
 
-> `count` property specifies the total number of stars, `allowHalf` Attribute allows half a star, `allowClear` Property allows to clear after clicking again.
+> `count` property specifies the total number of stars, `allowHalf` Stats allow half a star, `allowClear` Property allows to clear after clicking again.
 
 ```xml
 <ant-rate
@@ -63,7 +63,7 @@ Page({
 
 ### Controlled Mode
 
-> `value` property and `change` event, cooperation can achieve a controlled mode. Here's the example through `ant-stepper` Component change `value` Status,`ant-rate` Components `value` States can also change together.
+> `value` property and `change` Events, cooperation can achieve a controlled mode. Here's the example through `ant-stepper` Component change `value` Status,`ant-rate` Components `value` States can also change together.
 
 ```xml
 <ant-rate

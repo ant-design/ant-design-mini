@@ -2,13 +2,13 @@
 nav:
   path: /components
 group:
-  title: Feedback引导
+  title: Feedback
 toc: 'content'
 ---
 
 # Loading
 
-Used to prompt that a part or page is loading.
+Used to prompt that a local or page is loading.
 
 ## Introduction
 
