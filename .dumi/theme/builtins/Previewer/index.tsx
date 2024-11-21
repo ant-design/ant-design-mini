@@ -133,6 +133,27 @@ const Previewer: React.FC<IProps> = (props) => {
             ),
           },
         ]}
+        onChange={(openList) => {
+          const setMsgToSim = window.setMsgToSim;
+          if (openList.length === 0) {
+            console.log('关闭');
+            setMsgToSim &&
+              setMsgToSim(`
+                my.navigateBack();
+            `);
+            return;
+          }
+          setMsgToSim &&
+            setMsgToSim(`
+              const currentPage = getCurrentPages()[0].route
+              if(currentPage !== '${page}') {
+                my.navigateTo({
+                  url: '/${page}'
+                });
+              }
+            `);
+          console.log('开启', page);
+        }}
       />
     </ConfigProvider>
   );

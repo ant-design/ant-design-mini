@@ -150,6 +150,15 @@ const Previewer: React.FC<IProps> = () => {
     redirect();
   }
 
+  function setMsgToPreviewer(miniCode) {
+    const previeweriframe = previewerRef.current;
+    if (!previeweriframe || !miniCode) return;
+    previeweriframe?.contentWindow?.postMessage({
+      type: 'evaluateJavaScriptInWorkerCode',
+      data: miniCode,
+    });
+  }
+
   useEffect(() => {
     if (theme.length > 0) {
       sendThemeToPreviewer();
@@ -167,6 +176,7 @@ const Previewer: React.FC<IProps> = () => {
     if (!previeweriframe) return;
     previeweriframe.onload = () => {
       sendThemeToPreviewer();
+      window.setMsgToSim = setMsgToPreviewer;
     };
   }, [previewerRef.current]);
 
