@@ -79,7 +79,13 @@ export const ComponentSampleImages = {
       imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/xg_qTpEbs-0AAAAAAAAAAAAADoEQAQFr/fmt.avif'
     },
     'number-keyboard': {
-      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/WWt_RaFWQhAAAAAAAAAAAAAADoEQAQFr/fmt.webp'
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/juu8RYs5f-cAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'number-input': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/v0WTRLe0iB4AAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'postscript': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/NqO6Q6TjnzkAAAAAAAAAAAAADoEQAQFr/fmt.avif'
     },
     'picker': {
       imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/sXfxRJXfhJIAAAAAAAAAAAAADoEQAQFr/fmt.avif'
@@ -237,7 +243,13 @@ export const ComponentSampleImages = {
       imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/HyVQTLyBv58AAAAAAAAAAAAADoEQAQFr/fmt.avif'
     },
     'number-keyboard': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/juu8RYs5f-cAAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'number-input': {
       imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/v0WTRLe0iB4AAAAAAAAAAAAADoEQAQFr/fmt.avif'
+    },
+    'postscript': {
+      imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/NqO6Q6TjnzkAAAAAAAAAAAAADoEQAQFr/fmt.avif'
     },
     'picker': {
       imageUrl: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/bo9xQYHeDQQAAAAAAAAAAAAADoEQAQFr/fmt.avif'
