@@ -97,7 +97,7 @@
   flex: 1;
 }
 .ant-number-keyboard-kb_transfer {
-  background-color: var(--number-key-board-transfer-color, #ffffff);
+  background-color: var(--number-key-board-transfer-bg, #1677ff);
   color: var(--number-key-board-transfer-color, #ffffff);
   flex: 1;
   height: calc(100vh / 14);
