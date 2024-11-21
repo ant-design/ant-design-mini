@@ -312,7 +312,6 @@ page {
   --notice-primary-background-color: #d0e4ff;
   --notice-info-text-color: #ffffff;
   --notice-info-background-color: #808080;
-  --notice-info-icon-color: #333;
   --page-container-background-color: #121212;
   --typography-container-color: #c5cad1;
   --pagination-area-background-color: #f5f5f5;
