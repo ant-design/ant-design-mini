@@ -225,6 +225,13 @@ Component(
     onSwipeStart() {
       this.setData({ currentSelectedDeleteUID: null });
     },
+    handleSearch() {
+      console.log(this.data.searchable, '有点奇怪');
+      this.setData({ searchable: true });
+    },
+    handleCancelSearch() {
+      this.setData({ searchable: false });
+    },
   },
   {
     /** 推荐联系人 */
@@ -284,6 +291,8 @@ Component(
     sessionId: '',
     /** 全局删除推荐好友标识 */
     deleteRecommendUserFlag: false,
+    /** 是否正在搜索 */
+    searchable: false
   },
   [],
   {
