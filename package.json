@@ -18,7 +18,6 @@
     "check-compiled": "tsx ./scripts/check-compiled.ts",
     "cov": "vitest run --coverage && tsx ./scripts/patch-coverage.ts"
   },
-  "type": "module",
   "gitHooks": {
     "pre-commit": "lint-staged",
     "commit-msg": "node scripts/verifyCommitMsg.js"
