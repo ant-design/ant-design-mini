@@ -14,66 +14,6 @@ import duration from 'dayjs/plugin/duration';
 import { Component, getValueFromProps, triggerEvent, triggerEventOnly, } from '../_util/simply';
 import { CountdownDefaultProps } from './props';
 dayjs.extend(duration);
-function countdown(startTimestamp, endTimestamp, callback) {
-    // if (isNaN(startTimestamp) || isNaN(endTimestamp)) {
-    //   return;
-    // }
-    var currentTime = Date.now(); // 当前时间戳
-    if (currentTime - Math.round(startTimestamp) < 10000 &&
-        Math.round(startTimestamp) - currentTime < 10000) {
-        // 如果服务端下发的startTime时间戳和本机的时间戳相差10s以内，以本地时间戳为准
-        var getRemainingTime_1 = function () {
-            // 本地时间戳与服务端时间戳差距在10s以内都属于正常的，可以直接用本地时间。
-            var remainingTime;
-            var newCurrentTime = +new Date();
-            // 判断是否到达结束时间
-            if (newCurrentTime >= endTimestamp) {
-                remainingTime = 0;
-            }
-            else {
-                remainingTime = endTimestamp - newCurrentTime;
-            }
-            return remainingTime;
-        };
-        var updateCountdown_1 = function () {
-            var remainingTime = getRemainingTime_1();
-            // 调用setData方法更新UI
-            callback(remainingTime);
-            if (remainingTime > 0) {
-                // 若还有剩余时间，延迟1秒后递归调用自身
-                setTimeout(updateCountdown_1, 1000);
-            }
-        };
-        // 预先调一次
-        var remainingTime = getRemainingTime_1();
-        callback(remainingTime);
-        if (remainingTime === 0) {
-            // 如果第一次就是0，可以直接停了
-            return;
-        }
-        // 初始化倒计时
-        updateCountdown_1();
-    }
-    else {
-        // 否则以服务端时间为准，直接算出当前剩余时间，按秒循环即可
-        var remainingTime_1 = endTimestamp - startTimestamp;
-        var totalCount_1 = Math.round(remainingTime_1 / 1000);
-        var count_1 = 0;
-        // 立刻调一次
-        callback(remainingTime_1 - count_1 * 1000);
-        // 每秒调一次，循环count次
-        var intervalId_1 = setInterval(function () {
-            if (count_1 >= totalCount_1) {
-                clearInterval(intervalId_1);
-            }
-            else {
-                count_1++;
-                // console.log('111111', remainingTime, count, remainingTime - count * 1000)
-                callback(remainingTime_1 - count_1 * 1000);
-            }
-        }, 1000);
-    }
-}
 Component(CountdownDefaultProps, {
     init: function () {
         var _this = this;
@@ -96,7 +36,7 @@ Component(CountdownDefaultProps, {
         this.setData({
             showDay: autoShowDay ? this.data.countdownDay !== '0' : true,
         });
-        countdown(finalStartTime, finalEndTime, function (remainTime) {
+        this.countdown(finalStartTime, finalEndTime, function (remainTime) {
             if (remainTime < 1) {
                 // 小于1s了，说明倒计时该结束了
                 triggerEventOnly(_this, 'countdownFinish');
@@ -130,6 +70,67 @@ Component(CountdownDefaultProps, {
                 sec: sec,
             });
         });
+    },
+    countdown: function (startTimestamp, endTimestamp, callback) {
+        var _this = this;
+        // if (isNaN(startTimestamp) || isNaN(endTimestamp)) {
+        //   return;
+        // }
+        var currentTime = Date.now(); // 当前时间戳
+        if (currentTime - Math.round(startTimestamp) < 10000 &&
+            Math.round(startTimestamp) - currentTime < 10000) {
+            // 如果服务端下发的startTime时间戳和本机的时间戳相差10s以内，以本地时间戳为准
+            var getRemainingTime_1 = function () {
+                // 本地时间戳与服务端时间戳差距在10s以内都属于正常的，可以直接用本地时间。
+                var remainingTime;
+                var newCurrentTime = +new Date();
+                // 判断是否到达结束时间
+                if (newCurrentTime >= endTimestamp) {
+                    remainingTime = 0;
+                }
+                else {
+                    remainingTime = endTimestamp - newCurrentTime;
+                }
+                return remainingTime;
+            };
+            var updateCountdown_1 = function () {
+                var remainingTime = getRemainingTime_1();
+                // 调用setData方法更新UI
+                callback(remainingTime);
+                if (remainingTime > 0) {
+                    // 若还有剩余时间，延迟1秒后递归调用自身
+                    _this.timer = setTimeout(updateCountdown_1, 1000);
+                }
+            };
+            // 预先调一次
+            var remainingTime = getRemainingTime_1();
+            callback(remainingTime);
+            if (remainingTime === 0) {
+                // 如果第一次就是0，可以直接停了
+                return;
+            }
+            // 初始化倒计时
+            updateCountdown_1();
+        }
+        else {
+            // 否则以服务端时间为准，直接算出当前剩余时间，按秒循环即可
+            var remainingTime_1 = endTimestamp - startTimestamp;
+            var totalCount_1 = Math.round(remainingTime_1 / 1000);
+            var count_1 = 0;
+            // 立刻调一次
+            callback(remainingTime_1 - count_1 * 1000);
+            // 每秒调一次，循环count次
+            this.intervalId = setInterval(function () {
+                if (count_1 >= totalCount_1) {
+                    clearInterval(_this.intervalId);
+                }
+                else {
+                    count_1++;
+                    // console.log('111111', remainingTime, count, remainingTime - count * 1000)
+                    callback(remainingTime_1 - count_1 * 1000);
+                }
+            }, 1000);
+        }
     },
 }, {
     countdownDay: null,

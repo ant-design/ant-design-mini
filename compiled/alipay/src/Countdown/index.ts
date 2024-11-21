@@ -10,78 +10,6 @@ import { CountdownDefaultProps } from './props';
 
 dayjs.extend(duration);
 
-function countdown(
-  startTimestamp: number,
-  endTimestamp: number,
-  callback: (remainingTime: number) => void
-) {
-  // if (isNaN(startTimestamp) || isNaN(endTimestamp)) {
-  //   return;
-  // }
-  const currentTime = Date.now(); // 当前时间戳
-  if (
-    currentTime - Math.round(startTimestamp) < 10000 &&
-    Math.round(startTimestamp) - currentTime < 10000
-  ) {
-    // 如果服务端下发的startTime时间戳和本机的时间戳相差10s以内，以本地时间戳为准
-    const getRemainingTime = (): number => {
-      // 本地时间戳与服务端时间戳差距在10s以内都属于正常的，可以直接用本地时间。
-      let remainingTime;
-      const newCurrentTime = +new Date();
-
-      // 判断是否到达结束时间
-      if (newCurrentTime >= endTimestamp) {
-        remainingTime = 0;
-      } else {
-        remainingTime = endTimestamp - newCurrentTime;
-      }
-      return remainingTime;
-    };
-
-    const updateCountdown = () => {
-      const remainingTime = getRemainingTime();
-
-      // 调用setData方法更新UI
-      callback(remainingTime);
-      if (remainingTime > 0) {
-        // 若还有剩余时间，延迟1秒后递归调用自身
-        setTimeout(updateCountdown, 1000);
-      }
-    };
-
-    // 预先调一次
-    const remainingTime = getRemainingTime();
-    callback(remainingTime);
-
-    if (remainingTime === 0) {
-      // 如果第一次就是0，可以直接停了
-      return;
-    }
-
-    // 初始化倒计时
-    updateCountdown();
-  } else {
-    // 否则以服务端时间为准，直接算出当前剩余时间，按秒循环即可
-    const remainingTime = endTimestamp - startTimestamp;
-    const totalCount = Math.round(remainingTime / 1000);
-    let count = 0;
-
-    // 立刻调一次
-    callback(remainingTime - count * 1000);
-
-    // 每秒调一次，循环count次
-    const intervalId = setInterval(() => {
-      if (count >= totalCount) {
-        clearInterval(intervalId);
-      } else {
-        count++;
-        // console.log('111111', remainingTime, count, remainingTime - count * 1000)
-        callback(remainingTime - count * 1000);
-      }
-    }, 1000);
-  }
-}
-
 Component(
   CountdownDefaultProps,
   {
@@ -119,7 +47,7 @@ Component(
         showDay: autoShowDay ? this.data.countdownDay !== '0' : true,
       });
 
-      countdown(finalStartTime, finalEndTime, (remainTime) => {
+      this.countdown(finalStartTime, finalEndTime, (remainTime) => {
         if (remainTime < 1) {
           // 小于1s了，说明倒计时该结束了
           triggerEventOnly(this, 'countdownFinish');
@@ -159,6 +87,77 @@ Component(
         });
       });
     },
+    countdown(
+      startTimestamp: number,
+      endTimestamp: number,
+      callback: (remainingTime: number) => void
+    ) {
+      // if (isNaN(startTimestamp) || isNaN(endTimestamp)) {
+      //   return;
+      // }
+      const currentTime = Date.now(); // 当前时间戳
+      if (
+        currentTime - Math.round(startTimestamp) < 10000 &&
+        Math.round(startTimestamp) - currentTime < 10000
+      ) {
+        // 如果服务端下发的startTime时间戳和本机的时间戳相差10s以内，以本地时间戳为准
+        const getRemainingTime = (): number => {
+          // 本地时间戳与服务端时间戳差距在10s以内都属于正常的，可以直接用本地时间。
+          let remainingTime;
+          const newCurrentTime = +new Date();
+
+          // 判断是否到达结束时间
+          if (newCurrentTime >= endTimestamp) {
+            remainingTime = 0;
+          } else {
+            remainingTime = endTimestamp - newCurrentTime;
+          }
+          return remainingTime;
+        };
+
+        const updateCountdown = () => {
+          const remainingTime = getRemainingTime();
+
+          // 调用setData方法更新UI
+          callback(remainingTime);
+          if (remainingTime > 0) {
+            // 若还有剩余时间，延迟1秒后递归调用自身
+            this.timer = setTimeout(updateCountdown, 1000);
+          }
+        };
+
+        // 预先调一次
+        const remainingTime = getRemainingTime();
+        callback(remainingTime);
+
+        if (remainingTime === 0) {
+          // 如果第一次就是0，可以直接停了
+          return;
+        }
+
+        // 初始化倒计时
+        updateCountdown();
+      } else {
+        // 否则以服务端时间为准，直接算出当前剩余时间，按秒循环即可
+        const remainingTime = endTimestamp - startTimestamp;
+        const totalCount = Math.round(remainingTime / 1000);
+        let count = 0;
+
+        // 立刻调一次
+        callback(remainingTime - count * 1000);
+
+        // 每秒调一次，循环count次
+        this.intervalId = setInterval(() => {
+          if (count >= totalCount) {
+            clearInterval(this.intervalId);
+          } else {
+            count++;
+            // console.log('111111', remainingTime, count, remainingTime - count * 1000)
+            callback(remainingTime - count * 1000);
+          }
+        }, 1000);
+      }
+    },
   },
   {
     countdownDay: null, // 注意这些倒计时相关的都应该是字符串
@@ -179,6 +178,10 @@ Component(
           showDay: autoShowDay ? this.data.countdownDay !== '0' : true,
         });
       }
+    },
+    didUnmount() {
+      clearInterval(this.intervalId);
+      clearTimeout(this.timer);
     },
   }
 );
