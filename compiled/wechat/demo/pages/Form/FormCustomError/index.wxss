@@ -1,13 +1,12 @@
-/* 给css变量的默认底色，用来兜底使用 */
 .errors {
-  background: #FFF3F4;
+  background: #fff3f4;
   border: 1px solid rgba(255, 49, 65, 0.2);
   border-radius: 8px;
-  color: #FF3141;
+  color: #ff3141;
   margin-top: 8px;
   padding: 8px;
 }
 .buttons {
-  background: #ffffff;
+  background: var(--color-card);
   padding: 12px;
 }
