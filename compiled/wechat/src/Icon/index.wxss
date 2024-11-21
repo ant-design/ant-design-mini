@@ -7,7 +7,6 @@
   font-family: antdmini-icon !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  color: var(--icon-color, #333333);
   font-size: 32rpx;
 }
 .ant-icon-MinusOutline:before {

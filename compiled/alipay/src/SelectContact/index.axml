@@ -9,13 +9,14 @@
   <!--搜索栏-->
   <view class="search-line">
     <input
-      placeholder="请输入内容"
+      placeholder="请输入"
       onChange="onChange"
-      className="search-bar"
-      focusClassName="search-bar-focus"
-      confirmType="search"
-      allowClear
+      class-name="search-bar"
+      focus-class-name="search-bar-focus"
+      confirm-type="search"
+      allow-clear
       focus
+      onFocus="handleSearch"
       onConfirm="onConfirm"
     >
       <ant-icon
@@ -23,7 +24,11 @@
         type="SearchOutline"
       ></ant-icon>
     </input>
-    <view class="cancel">取消</view>
+    <view
+      a:if="{{searchable}}"
+      onTap="handleCancelSearch"
+      class="cancel"
+    >取消</view>
   </view>
   <view class="scc-blank"></view>
   <!--展示推荐联系人 && 全部联系人-->
@@ -44,10 +49,10 @@
     <block a:else>
       <scroll-view
         a:if="{{!contactListEmpty}}"
-        scrollY
+        scroll-y
         class="contact-scroll"
-        trapScroll="{{false}}"
-        scrollIntoView="{{toView}}"
+        trap-scroll="{{false}}"
+        scroll-into-view="{{toView}}"
       >
         <list>
           <block
@@ -72,16 +77,16 @@
                 right="{{right}}"
                 swiped="{{item.userId === currentSelectedDeleteUID}}"
                 key="{{item.userId}}"
-                callbackData="{{item}}"
-                outOfBounds="{{false}}"
-                inertiaWidth="{{0}}"
+                callback-data="{{item}}"
+                out-of-bounds="{{false}}"
+                inertia-width="{{0}}"
                 onSwipeEnd="onSwipeEnd"
                 onSwipeStart="onSwipeStart"
                 onRightItemEvent="onRightItemEvent"
               >
                 <list-item
                   image="{{item.avatar || 'https://gw.alipayobjects.com/zos/bmw-prod/84a917f8-0279-49c9-82e5-4effc58c4c85.svg'}}"
-                  upperSubtitle="{{item.loginId}}"
+                  upper-subtitle="{{item.loginId}}"
                   arrow="{{true}}"
                   data-item="{{item}}"
                   data-personSource="{{list.personSource}}"
@@ -116,7 +121,7 @@
               >
                 <list-item
                   image="{{item.avatar || 'https://gw.alipayobjects.com/zos/bmw-prod/84a917f8-0279-49c9-82e5-4effc58c4c85.svg'}}"
-                  upperSubtitle="{{item.loginId}}"
+                  upper-subtitle="{{item.loginId}}"
                   arrow="{{true}}"
                   data-item="{{item}}"
                   data-personSource="{{list.personSource}}"
@@ -151,13 +156,13 @@
     hidden="{{!showSearch}}"
   >
     <scroll-view
-      scrollY
+      scroll-y
       class="normal {{searchStatus !== 'normal' ? 'hidden' : ''}}"
     >
       <list>
         <list-item
           image="{{item.avatar || 'https://gw.alipayobjects.com/zos/bmw-prod/84a917f8-0279-49c9-82e5-4effc58c4c85.svg'}}"
-          upperSubtitle="{{item.loginId}}"
+          upper-subtitle="{{item.loginId}}"
           arrow="{{true}}"
           data-item="{{item}}"
           data-personSource="search"
@@ -189,7 +194,7 @@
       <view class="loading-text">搜索中</view>
       <loading
         type="mini"
-        miniSize="10rpx"
+        mini-size="10rpx"
       ></loading>
     </view>
     <view

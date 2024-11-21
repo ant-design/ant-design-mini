@@ -1,6 +1,5 @@
-/* 给css变量的默认底色，用来兜底使用 */
 .input {
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-border);
   padding: 4px;
   min-height: 25px;
   border-radius: 4px;
@@ -8,7 +7,7 @@
   align-items: center;
 }
 .choose {
-  color: #cccccc;
+  color: var(--color-text-weak);
 }
 .input-items {
   flex: 1;
@@ -18,5 +17,5 @@
   text-align: center;
   padding: 0 8px 0 8px;
   margin-right: 8px;
-  background-color: #f5f5f5;
+  background-color: var(--color-grey-card);
 }

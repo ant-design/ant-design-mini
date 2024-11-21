@@ -114,7 +114,6 @@ page {
   --actionsheet-item-color: #333333;
   --actionsheet-item-active-bg: #eeeeee;
   --activesheet-item-cancel-bg: #f5f5f5;
-  --icon-color: #333333;
   --tabbar-bg: #ffffff;
   --tabbar-item-color: #666666;
   --tabbar-active-color: #1677ff;
