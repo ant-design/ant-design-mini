@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 数据展示
+  title: Information Display
   order: 8
 toc: 'content'
 supportPlatform: ['alipay']

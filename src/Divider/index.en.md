@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 数据展示
+  title: Information Display
 toc: 'content'
 ---
 

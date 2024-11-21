@@ -157,7 +157,7 @@ Page({
 />
 ```
 
-### Center scroll after selection
+### Center Scroll After Selection
 
 ```xml
 <tabs items="{{ items }}" scrollMode="center" />
@@ -279,7 +279,7 @@ Page({
 | ----- | ---- | ------ | ------ |
 | title | Title | string | -      |
 
-In addition to item can have `title`, you can also add custom attributes, such `content`, `badge` and so on, these properties can be used. `slot-scope` Visit:
+In addition to item can have `title`, you can also add custom properties, such. `content`, `badge` and so on, these properties can be used. `slot-scope` Visit:
 
 ```js
 Page({

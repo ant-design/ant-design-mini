@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -87,7 +87,7 @@ Page({
 #endif
 >
   <view a:if="{{ current < items.length - 1 }}">Next step</view>
-  <view a:else>Complete</view>
+  <view a:else>Finish</view>
 </ant-button>
 <ant-button
   a:if="{{ current > 0 }}"
@@ -179,7 +179,7 @@ Component provides the following CSS variables, which can be used to customize s
 
 | Variable name                | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks               |
 | --------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
-| --steps-non-active-bg | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div> | <div style="width: 150px; height: 30px; background-color: #444444; color: #ffffff;">#444444</div> | No active step background color |
+| --steps-non-active-bg | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div> | <div style="width: 150px; height: 30px; background-color: #444444; color: #ffffff;">#444444</div> | Inactive Step Background Color |
 | --steps-title-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Step Title Color       |
 | --steps-desc-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Step Description Color       |
 | --steps-default-bg    | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Default Step Background Color   |

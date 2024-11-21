@@ -2,7 +2,7 @@
 nav:
   path: /components
 group:
-  title: 数据录入
+  title: Information Entry
   order: 10
 toc: 'content'
 ---
@@ -30,7 +30,7 @@ In `index.json` Introducing Components in
 
 ### Basic use
 
-> [options](#selectoritem) property is an object that contains `text`(main copy), `subText`(Deputy Copywriter), `value`(option value), `disabled`(disabled or not).
+> [options](#selectoritem) property is an object that contains `text`(main copy), `subText`(Deputy copywriter), `value`(option value), `disabled`(disabled or not).
 
 ```xml
   <ant-selector defaultValue="2" options="{{ options }}" />
@@ -195,7 +195,7 @@ Page({
 | Property     | Description         | Type             | Default Value |
 | -------- | ------------ | ---------------- | ------ |
 | disabled | Disable     | boolean          | -      |
-| subText  | Deputy Copywriter       | string           | -      |
+| subText  | Deputy copywriter       | string           | -      |
 | text     | Copy         | string           | -      |
 | value    | Current item value | string \| number | -      |
 
