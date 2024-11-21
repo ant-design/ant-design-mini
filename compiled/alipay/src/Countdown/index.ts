@@ -171,6 +171,10 @@ Component(
     onInit() {
       this.init();
     },
+    didUnmount() {
+      clearInterval(this.intervalId);
+      clearTimeout(this.timer);
+    },
     didUpdate(prevProps) {
       const autoShowDay = getValueFromProps(this, 'autoShowDay');
       if (prevProps.autoShowDay !== autoShowDay) {
@@ -178,10 +182,6 @@ Component(
           showDay: autoShowDay ? this.data.countdownDay !== '0' : true,
         });
       }
-    },
-    didUnmount() {
-      clearInterval(this.intervalId);
-      clearTimeout(this.timer);
     },
   }
 );

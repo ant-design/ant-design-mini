@@ -142,6 +142,10 @@ Component(CountdownDefaultProps, {
     attached: function () {
         this.init();
     },
+    detached: function () {
+        clearInterval(this.intervalId);
+        clearTimeout(this.timer);
+    },
     observers: {
         '**': function (data) {
             var prevData = this._prevData || this.data;
