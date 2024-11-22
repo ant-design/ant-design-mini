@@ -87,7 +87,7 @@ export interface IContactUserInfo {
   personSource: TPersonSource;
 }
 
-export interface ISelectContacProps extends IBaseProps {
+export interface ISelectContactProps extends IBaseProps {
   /** 自定义 class */
   className: string;
 
@@ -122,7 +122,7 @@ export interface ISelectContacProps extends IBaseProps {
   onSearchUser: (keyword: string) => void;
 }
 
-export const SelectContactDefaultProps: Partial<ISelectContacProps> = {
+export const SelectContactDefaultProps: Partial<ISelectContactProps> = {
   className: '',
   height: '100%',
   /** 其他扩展参数 */

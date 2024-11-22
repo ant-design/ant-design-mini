@@ -1,4 +1,4 @@
-interface Props {
+export interface IStickyProps {
   className: string;
   headerHeight: number;
   sticky: boolean;
@@ -9,7 +9,7 @@ interface Props {
   onGetHeaderHeight: (height: number) => void;
 }
 
-export const StickyProps: Props = {
+export const StickyProps: IStickyProps = {
   className: '',
   headerHeight: undefined, // 从外部传入的 tab header 高度，默认为 undefined
   sticky: true, // 是否需要粘性，某些场景可能需要一会儿吸顶一会儿不吸
