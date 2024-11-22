@@ -34,7 +34,7 @@ export interface Footer {
    */
   layout: 'vertical' | 'horizontal';
 }
-export interface IModalProps extends IBaseProps {
+export interface IDialogProps extends IBaseProps {
   /**
    * @description Modal body类名
    */
@@ -108,7 +108,7 @@ export interface IModalProps extends IBaseProps {
   onButtonTap?: (buttonItem) => void;
 }
 
-export const ModalDefaultProps: Partial<IModalProps> = {
+export const ModalDefaultProps: Partial<IDialogProps> = {
   visible: false,
   maskClosable: true,
   closable: true,
@@ -117,7 +117,7 @@ export const ModalDefaultProps: Partial<IModalProps> = {
   zIndex: 998,
 };
 
-export const ModalFunctionalProps: Partial<IModalProps> = {
+export const ModalFunctionalProps: Partial<IDialogProps> = {
   bodyClassName: '',
   bodyStyle: '',
   maskClassName: '',
