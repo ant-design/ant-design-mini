@@ -15,7 +15,7 @@
                 </view>
               </view>
               <view a:else class="ant-table-list-item-rows ant-table-list-item-value  {{itemIndex==0?'ant-table-list-item-value-first':''}} {{ val.textAlignRight ? 'ant-table-list-item-value-align-right' : '' }}">
-                <slot item="{{val}}" name="item">
+                <slot item="{{val}}" index="{{itemIndex}}" row="{{item}}" rowIndex="{{index}}" name="item">
                   {{val.value}}
                 </slot>
               </view>

@@ -77,9 +77,11 @@ Component({
         return {
           type: 'rows',
           key: `rows_${i}`,
-          value: columns.map((val) => ({
+          index: i,
+          value: columns.map((val, idx) => ({
             ...val,
             key: val.key,
+            index: idx,
             dataIndex: val.dataIndex,
             value: v[val.dataIndex],
             textAlignRight: v.textAlignRight || val.textAlignRight,

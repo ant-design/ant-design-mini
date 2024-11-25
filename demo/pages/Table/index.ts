@@ -1,4 +1,13 @@
-const nameArr = ['小明', '小何', '小花', '小美', '小白', '小黑', '小帅', '阿伟'];
+const nameArr = [
+  '小明',
+  '小何',
+  '小花',
+  '小美',
+  '小白',
+  '小黑',
+  '小帅',
+  '阿伟',
+];
 const sexArr = ['男', '女'];
 const ageArr = ['40', '18', '32', '20', '33', '48', '28', '38'];
 const favoriteArr = ['羽毛球', '乒乓球', '篮球', '桌球'];
@@ -18,8 +27,16 @@ Page({
       extra: '测试',
       favorite: favoriteArr[getRandomNumber(favoriteArr.length)],
       address: addressArr[getRandomNumber(addressArr.length)],
+      order: i,
     })),
     columns: [
+      {
+        title: '序号',
+        dataIndex: 'order',
+        key: 'order',
+        width: 150,
+        fixed: true,
+      },
       {
         title: '姓名',
         dataIndex: 'name',

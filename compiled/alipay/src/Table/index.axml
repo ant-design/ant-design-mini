@@ -57,6 +57,9 @@
                 <slot
                   name="item"
                   item="{{val}}"
+                  index="{{itemIndex}}"
+                  row="{{item}}"
+                  rowIndex="{{index}}"
                 >
                   {{val.value}}
                 </slot>
