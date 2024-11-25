@@ -30,7 +30,10 @@
       slot="item"
       slot-scope="props"
     >
-      <view a:if="{{props.item.dataIndex === 'name'}}">
+      <view a:if="{{props.item.dataIndex === 'order'}}">
+      {{columns.length - props.row.index}}
+      </view>
+      <view a:elif="{{props.item.dataIndex === 'name'}}">
         {{props.item.value}}{{props.item.rowsData.key}}
       </view>
       <view a:elif="{{props.item.dataIndex === 'age'}}">
