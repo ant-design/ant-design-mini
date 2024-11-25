@@ -23,7 +23,7 @@
     title="标题"
     className="card-title-radius {{titleSticky ? 'card-demo-sticky' : ''}}"
     headSticky="{{true}}"
-    stickyTop="{{0}}"
+    stickyTop="{{100}}"
     stickyTransparentTitle="{{false}}"
     bind:titlesticky="handleTitleSticky"
   >

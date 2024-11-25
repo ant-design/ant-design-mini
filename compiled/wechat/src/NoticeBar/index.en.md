@@ -9,11 +9,7 @@ toc: content
 
 # NoticeBar
 
-Shows a set of message notifications.
-
-## When to use
-
-For the notification of information in the current page, it is a more eye-catching way of notification in the page.
+Shows a set of message notifications. Usually used for the notification of information in the current page, is a more eye-catching in-page notification.
 
 ## Introduction
 
