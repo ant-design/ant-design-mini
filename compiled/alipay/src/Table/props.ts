@@ -1,4 +1,4 @@
-interface Props {
+export interface ITableProps {
   dataSource: []; // 数据源
   columns: []; // 表格列的配置描述
   scrollHeight?: string; // 可滚动高度
@@ -11,7 +11,7 @@ export interface RenderRuleProps {
   sorterStatus?: 'normal' | 'forward' | 'reverse';
 }
 
-export const TableDefaultProps: Props = {
+export const TableDefaultProps: ITableProps = {
   dataSource: [],
   columns: [],
   displayType: 'DEFAULT',

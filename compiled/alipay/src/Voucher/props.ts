@@ -14,7 +14,7 @@ interface Item {
   disabled?: boolean;
 }
 
-interface Props {
+export interface IVoucherProps {
   className?: string;
   direction?: 'horizontal' | 'vertical' | 'multipleColumn';
   size?: 'large' | 'small';
@@ -27,7 +27,7 @@ interface Props {
   onTap?: (item, event) => void;
 }
 
-export const componentsProps: Props = {
+export const componentsProps: IVoucherProps = {
   className: '',
   size: 'large',
   direction: 'horizontal',

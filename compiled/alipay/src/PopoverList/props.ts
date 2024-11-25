@@ -30,7 +30,7 @@ export interface PopoverListItem {
  * @description 气泡，内部配合 PopoverItem 使用。
  */
 
-export interface IPopoverProps extends IBaseProps {
+export interface IPopoverListProps extends IBaseProps {
   /**
    * @description 是否可见
    * @default false
@@ -109,7 +109,7 @@ export interface IPopoverProps extends IBaseProps {
   list: PopoverListItem[];
 }
 
-export const PopoverDefaultProps: Partial<IPopoverProps> = {
+export const PopoverDefaultProps: Partial<IPopoverListProps> = {
   visible: null,
   defaultVisible: false,
   destroyOnClose: false,
