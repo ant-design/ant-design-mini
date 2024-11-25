@@ -1,27 +1,27 @@
 <view class="navigation-bar"></view>
 <ant-container title="基础用法">
-  <ant-sticky>
+  <ant-sticky transparentTitle>
     <view>
       我会吸顶
     </view>
   </ant-sticky>
 </ant-container>
 <ant-container title="指定吸顶高度">
-  <ant-sticky top="100px">
+  <ant-sticky top="200px">
     <view>
-      我会吸顶在距离顶部 100px 的地方
+      我会吸顶在距离顶部 200px 的地方
     </view>
   </ant-sticky>
 </ant-container>
 <view style="height: 200px;"></view>
 <ant-container title="感知是否吸顶">
   <ant-sticky
-    top="180px"
+    top="300px"
     check
     onStickyChange="handleStickyChange"
   >
     <view>
-      <view>我会吸顶在距离顶部 180px 的地方</view>
+      <view>我会吸顶在距离顶部 300px 的地方</view>
       <view>是否吸上了 {{stickyStatus}}</view>
     </view>
   </ant-sticky>

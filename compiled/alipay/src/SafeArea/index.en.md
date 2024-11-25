@@ -8,9 +8,6 @@ toc: 'content'
 ---
 
 # SafeArea
-
-## When to use
-
 When the web page is displayed in full screen, the top and bottom of the screen can be adapted by means of a safe zone, such as a bang screen.
 
 ## Introduction

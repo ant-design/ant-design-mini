@@ -9,8 +9,6 @@ toc: 'content'
 
 # Dialog
 
-## When to use
-
 When the application needs to alert or remind the current operation behavior of the user, the dialog box may be used. The user needs to operate on the dialog box before ending.
 
 ## Introduction

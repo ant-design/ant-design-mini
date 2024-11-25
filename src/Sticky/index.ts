@@ -66,7 +66,6 @@ Component(
         'sticky',
         'headerHeight',
       ]);
-      this.initHeaderHeight(headerHeight);
       if (sticky !== nextProps.sticky) {
         // 考虑到这个还是有点性能开销，用个属性控制
         if (nextProps.check && !this.stickyIO) {
@@ -113,7 +112,6 @@ Component(
             'sticky',
             'headerHeight',
           ]);
-          this.initHeaderHeight(headerHeight);
           if (sticky !== data.sticky) {
             // 考虑到这个还是有点性能开销，用个属性控制
             if (data.check && !this.stickyIO) {
