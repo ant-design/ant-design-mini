@@ -7,3 +7,4 @@ dist/**
 docs-dist/**
 node_modules
 compiled/
+compiled-delete/
