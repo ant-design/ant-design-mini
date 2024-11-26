@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "Input",
-  "usingComponents": {
-    "ant-textarea": "../../../src/Input/Textarea/index",
-    "ant-button": "../../../src/Button/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

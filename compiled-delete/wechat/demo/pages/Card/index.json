@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "Card",
-  "usingComponents": {
-    "ant-container": "../../../src/Container/index",
-    "ant-card": "../../../src/Card/index"
-  }
-}

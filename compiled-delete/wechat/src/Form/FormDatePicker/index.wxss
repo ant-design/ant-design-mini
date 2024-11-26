@@ -1,5 +1,0 @@
-.ant-form-date-picker-arrow {
-  margin-left: 8rpx;
-  color: var(--form-text-color, #cccccc);
-  font-size: 36rpx;
-}

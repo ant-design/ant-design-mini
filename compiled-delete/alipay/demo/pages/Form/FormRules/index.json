@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "Form",
-  "transparentTitle": "auto",
-  "titlePenetrate": "YES",
-  "usingComponents": {
-    "ant-form-input": "../../../../src/Form/FormInput/index",
-    "ant-button": "../../../../src/Button/index"
-  }
-}

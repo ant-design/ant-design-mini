@@ -1,9 +1,0 @@
-<view class="ant-autoresize-fontsize-container {{className}}">
-  <view
-    class="ant-autoresize-slot"
-    style="{{wrapAndEllipsisStyle}}"
-  >
-    <!--默认插槽，子组件在这里渲染-->
-    <slot></slot>
-  </view>
-</view>

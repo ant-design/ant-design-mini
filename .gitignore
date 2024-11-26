@@ -45,3 +45,6 @@ knowledge.json
 server
 .dumi/tmp
 .dumi/tmp-production
+
+# compiled
+/compiled

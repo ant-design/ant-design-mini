@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "Loading",
-  "usingComponents": {
-    "ant-loading": "../../../src/Loading/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}
