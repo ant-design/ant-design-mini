@@ -81,6 +81,7 @@ jobs:
       - name: Install dependencies & Build
         run: |
           npm i
+          npm run build
 
       - name: Publish version
         run: |
