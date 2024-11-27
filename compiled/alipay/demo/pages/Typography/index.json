@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "Typography",
-  "transparentTitle": "auto",
-  "titlePenetrate": "YES",
-  "usingComponents": {
-    "ant-typography": "../../../src/Typography/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

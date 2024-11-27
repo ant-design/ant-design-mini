@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "Form Demo",
-  "usingComponents": {
-    "ant-list": "../../../src/List/index",
-    "ant-list-item": "../../../src/List/ListItem/index"
-  }
-}

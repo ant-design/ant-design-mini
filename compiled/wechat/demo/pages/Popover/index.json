@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "Popover",
-  "usingComponents": {
-    "ant-popover": "../../../src/Popover/index",
-    "ant-container": "../../../src/Container/index",
-    "ant-icon": "../../../src/Icon/index",
-    "ant-button": "../../../src/Button/index"
-  }
-}

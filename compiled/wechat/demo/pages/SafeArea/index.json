@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "SafeArea",
-  "usingComponents": {
-    "safe-area": "../../../src/SafeArea/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

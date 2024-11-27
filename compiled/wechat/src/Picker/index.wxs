@@ -1,9 +1,0 @@
-function getPickerViewLabel(item) {
-  if (typeof item === 'object' && typeof item.label === 'string') {
-    return item.label || '';
-  }
-  return item;
-}
-module.exports = {
-  getPickerViewLabel: getPickerViewLabel
-};

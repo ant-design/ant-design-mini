@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "TabBar",
-  "transparentTitle": "auto",
-  "titlePenetrate": "YES",
-  "usingComponents": {
-    "container": "../../../src/Container/index",
-    "tab-bar": "../../../src/TabBar/index"
-  }
-}
