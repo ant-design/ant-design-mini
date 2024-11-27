@@ -387,6 +387,14 @@ export async function compileAntdMini(watch: boolean) {
     assets: ['md', 'js', 'json'],
     buildOption: wechatBuildOption,
   });
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
+    source: resolve(__dirname, '..', 'config', 'wechat'),
+    dest: resolve(__dirname, '..', 'compiled', 'wechat'),
+    watch,
+    assets: ['wxss', 'json', 'js'],
+    buildOption: wechatBuildOption,
+  });
 
   const alipayBuildOption = {
     platformId: 'ALIPAY',
@@ -422,5 +430,13 @@ export async function compileAntdMini(watch: boolean) {
       ...alipayBuildOption,
       compileTs: true,
     },
+  });
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'config', 'alipay'),
+    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
+    watch,
+    assets: ['less', 'js', 'json'],
+    buildOption: alipayBuildOption,
   });
 }

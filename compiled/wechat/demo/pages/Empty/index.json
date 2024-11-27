@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "Empty",
-  "usingComponents": {
-    "ant-empty": "../../../src/Empty/index",
-    "ant-container": "../../../src/Container/index",
-    "ant-button": "../../../src/Button/index"
-  }
-}

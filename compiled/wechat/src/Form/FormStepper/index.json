@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "form-item": "../FormItem/index",
-    "stepper": "../../Stepper/index"
-  }
-}

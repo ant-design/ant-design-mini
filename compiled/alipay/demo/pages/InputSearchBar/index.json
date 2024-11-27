@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "Input",
-  "transparentTitle": "auto",
-  "titlePenetrate": "YES",
-  "usingComponents": {
-    "ant-input": "../../../src/Input/index",
-    "ant-icon": "../../../src/Icon/index"
-  }
-}
