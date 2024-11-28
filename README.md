@@ -1,12 +1,12 @@
-<center>
-  <img src="  https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*xfx9Q4kg62MAAAAAAAAAAAAADtF8AQ/original" alt="logo" width="200" height="auto" />
+<div align="center">
+  <img src="https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*xfx9Q4kg62MAAAAAAAAAAAAADtF8AQ/original" alt="logo" width="200" height="auto" />
 
   <h1>
     Ant Design Mini
   </h1>
-</center>
+</div>
 
-<center>
+<div align="center">
   <p>
     Explore the Ultimate Experience of Mobile Mini Programs.
   </p>
@@ -33,7 +33,7 @@
     <span> · </span>
     <a href="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/gtL6Qrn45EwAAAAAAAAAAAAADoEQAQFr/original">服务群2</a>
   </h4>
-</center>
+</div>
 
 ```bash
 $ npm install antd-mini
