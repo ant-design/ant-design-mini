@@ -77,10 +77,10 @@ $ npm run dev:doc
 
 ```xml
 <view>
-  <!-- #if ALIPAY -->
+  <!-- #comments if ALIPAY -->
   <text a:if="{{a}}">a</text>
   <text a:if="{{a && b}}">a & b</text>
-  <!-- #endif -->
+  <!-- #comments endif -->
   <text a:if="{{a}}">a</text>
   <text a:else>!a</text>
   <text class="{{a ? '1' : '2'}}"></text>
