@@ -1,21 +1,61 @@
-<img src="https://gw.alipayobjects.com/zos/bmw-prod/0350261f-bac2-443d-9580-d25f3365a26e.svg" alt="logo" width="100%" />
+<div align="center">
+  <img src="https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*xfx9Q4kg62MAAAAAAAAAAAAADtF8AQ/original" alt="logo" width="200" height="auto" />
 
-![npm (tag)](https://img.shields.io/npm/v/antd-mini)
-&nbsp;
-![npm](https://img.shields.io/npm/dw/antd-mini)
-&nbsp;
-![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mini)
+  <h1>
+    Ant Design Mini
+  </h1>
+</div>
+
+<div align="center">
+  <p>
+    Explore the Ultimate Experience of Mobile Mini Programs.
+  </p>
+
+  ![npm (tag)](https://img.shields.io/npm/v/antd-mini)
+  &nbsp;
+  ![npm](https://img.shields.io/npm/dw/antd-mini)
+  &nbsp;
+  ![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mini)
+  &nbsp;
+  [![GitHub Release Date](https://img.shields.io/github/release-date/ant-design/ant-design-mini)](https://github.com/ant-design/ant-design-mini/releases) 
+  &nbsp;
+  [![Commit Activity](https://img.shields.io/github/commit-activity/m/ant-design/ant-design-mini/master)](https://github.com/ant-design/ant-design-mini/graphs/contributors) 
+  &nbsp;
+  [![Issues help wanted](https://img.shields.io/github/issues-raw/ant-design/ant-design-mini/help%20wanted?label=help%20wanted)](https://github.com/ant-design/ant-design-mini/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+
+  <h4>
+    <a href="https://mini.ant.design/index-en" target="_blank">English Doc</a>
+    <span> · </span>
+    <a href="https://mini.ant.design/" target="_blank">中文文档</a>
+    <span> · </span>
+    <a href="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/TpsVRagXjI8AAAAAAAAAAAAADoEQAQFr/original" target="_blank">服务群1</a>
+    <span> · </span>
+    <a href="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/gtL6Qrn45EwAAAAAAAAAAAAADoEQAQFr/original" target="_blank">服务群2</a>
+  </h4>
+</div>
 
 ```bash
-$ npm i antd-mini -S
+$ npm install antd-mini
+# or
+$ yarn add antd-mini
+# or
+$ pnpm add antd-mini
+# or
+$ bun add antd-mini
 ```
 
-antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。你可以扫描下方的支付宝二维码体验，或者访问[官网](https://mini.ant.design/)以获取更多信息。
+<div>
 
-<img src="https://mdn.alipayobjects.com/huamei_jlgevq/afts/img/A*2ZAZR7NQQJ4AAAAAAAAAAAAADtSSAQ/original" alt="logo" width="220" />
+  Ant Design Mini is a UI component library for Alipay mini programs that is also compatible with WeChat mini programs, it follows the Ant Design specifications. You can try it out by scanning the <a href="https://mdn.alipayobjects.com/huamei_jlgevq/afts/img/A*2ZAZR7NQQJ4AAAAAAAAAAAAADtSSAQ/original" target="_blank">Alipay QR code</a> or visit the <a href="https://mini.ant.design/" target="_blank">official website</a> for more information.
 
-如果你发现了 bug 或者是希望 antd-mini 增加一些特性，可以[提交 issue](https://github.com/ant-design/ant-design-mini/issues)。也欢迎参与共建，这里有一份[贡献指南](/docs/guide/contribute.md)。
+  - **Rich Component Library, Easy to Choose and Use**: A Wide Range of Practical Components to Meet Your Needs, with Flexible Customization and Expansion.
+  - **Customizable Themes, International Languages**: Ant Design Mini Offers More Theme Styles and Seamless Switching of Component Text in Multiple Languages.
+  - **Design Language and Development Framework**: Comprehensive Ecosystem for Rapid Application Development.
+  - **Multi Platform Support**: Ant Design Mini supports use in both Alipay and WeChat mini programs, as well as running on uni-app. For more information, please refer to the <a href="https://mini.ant.design/guide/using-wechat" target="_blank">adaptation guide for WeChat</a> and <a href="https://mini.ant.design/guide/using-uni-app" target="_blank">adaptation guide for uni-app</a>.
 
-如果你想深入参与讨论，可以加入我们的社区钉钉群：62730003177
+  Thanks to all the <a href="https://github.com/ant-design/ant-design-mini/graphs/contributors" target="_blank">contributors of Ant Design Mini</a>.
 
-<img src="https://mdn.alipayobjects.com/huamei_trbi3h/afts/img/A*UMWdT5yaPqsAAAAAAAAAAAAADpDJAQ/original" width="220" alt="dingding" />
+</div>
+
+
+

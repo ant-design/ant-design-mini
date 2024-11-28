@@ -8,6 +8,6 @@ const chalk = require('chalk');
 if (!REG.test(commitMsg) && !MergeCommitREG.test(commitMsg)) {
   console.error(`${chalk.bgRed.white(' ERROR ')}`, chalk.red('invalid commit message:'), commitMsg);
   console.error('Proper commit message format is required for automated changelog generation.');
-  console.error(chalk.green('Please see xxx for more'));
+  console.error(chalk.green('Please see https://opendocs.alipay.com/cloud/08jm0h for more'));
   process.exit(1);
 }

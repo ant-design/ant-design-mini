@@ -61,8 +61,8 @@ toc: 'content'
         width: 140,
       },
     ]]}}"
-    elasticity="{{ true }}"
-    swiped="{{ swipeIndex === index }}"
+    elasticity="{{true}}"
+    swiped="{{swipeIndex === index}}"
     onSwipeEnd="onSwipeEnd"
     onSwipeStart="onSwipeStart"
     onButtonTap="onButtonTap">

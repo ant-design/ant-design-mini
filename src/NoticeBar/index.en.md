@@ -49,8 +49,8 @@ In `index.json` Introducing Components in
 ```xml
 <ant-notice
   type="default"
-  enableMarquee="{{ true }}"
-  loop="{{ true }}"
+  enableMarquee="{{true}}"
+  loop="{{true}}"
   onTap="handleTapLink"
   mode="link">
   Turn on circular scrolling when text overflows. Not enough text to continue adding text to make up.

@@ -35,7 +35,7 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-switch
-  defaultChecked="{{ true }}"
+  defaultChecked="{{true}}"
 #if ALIPAY
   onChange="onChange"
 #endif
@@ -58,7 +58,7 @@ Page({
 > Incoming `disabled` property, disable the collocated gray switch button.
 
 ```xml
-<ant-switch defaultChecked="{{ true }}" disabled="{{ true }}" />
+<ant-switch defaultChecked="{{true}}" disabled="{{true}}" />
 ```
 
 ### Custom Style
@@ -78,7 +78,7 @@ Page({
 </ant-switch>
 #endif
 
-<ant-switch defaultChecked="{{ true }}" color="#00b578" />
+<ant-switch defaultChecked="{{true}}" color="#00b578" />
 
 <ant-switch size="medium" />
 
@@ -95,8 +95,8 @@ Page({
 
 ```xml
 <ant-switch
-  checked="{{ checked }}"
-  defaultChecked="{{ true }}"
+  checked="{{checked}}"
+  defaultChecked="{{true}}"
 #if ALIPAY
   onChange="handleChange"
 #endif

@@ -33,10 +33,10 @@ In `index.json` Introducing Components in
 ```xml
 <ant-toast
   content="toast content"
-  visible="{{ toastShow }}"
-  duration="{{ 0 }}"
-  showMask="{{ true }}"
-  maskCloseable="{{ true }}"
+  visible="{{toastShow}}"
+  duration="{{0}}"
+  showMask="{{true}}"
+  maskCloseable="{{true}}"
 #if ALIPAY
   onClose="handleCloseToast"
 #endif
@@ -64,12 +64,12 @@ Page({
 > Incoming `type` property, you can use the built-in icon, optional `success`、`error`、`warning`、`loading`. Support `icon` property specifies [ant-icon](/components/icon) type, also supports `image` Property to customize the image.
 
 ```xml
-<ant-toast content="success" type="success" visible="{{ true }}" />
-<ant-toast content="error" type="error" visible="{{ true }}" />
-<ant-toast content="warning" type="warning" visible="{{ true }}" />
-<ant-toast content="loading" type="loading" visible="{{ true }}" />
-<ant-toast content="icon" icon="LikeOutline" visible="{{ true }}" />
-<ant-toast content="custom image" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{ true }}" />
+<ant-toast content="success" type="success" visible="{{true}}" />
+<ant-toast content="error" type="error" visible="{{true}}" />
+<ant-toast content="warning" type="warning" visible="{{true}}" />
+<ant-toast content="loading" type="loading" visible="{{true}}" />
+<ant-toast content="icon" icon="LikeOutline" visible="{{true}}" />
+<ant-toast content="custom image" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{true}}" />
 ```
 
 ## Demo Code

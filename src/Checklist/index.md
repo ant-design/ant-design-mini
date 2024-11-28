@@ -35,9 +35,9 @@ toc: 'content'
 
 ```xml
 <ant-checklist
-  defaultValue="{{ [1] }}"
-  options="{{ options }}"
-  data-options="{{ options }}"
+  defaultValue="{{[1]}}"
+  options="{{options}}"
+  data-options="{{options}}"
   onChange="onChange" />
 ```
 
@@ -71,8 +71,8 @@ Page({
 
 ```xml
 <ant-checklist
-  value="{{ value }}"
-  options="{{ options }}"
+  value="{{value}}"
+  options="{{options}}"
   multiple
   onChange="onChangeControlled" />
 ```
@@ -113,8 +113,8 @@ Page({
 
 ```xml
 <ant-checklist
-  defaultValue="{{ [2] }}"
-  options="{{ options }}"
+  defaultValue="{{[2]}}"
+  options="{{options}}"
   multiple
   onChange="onChange">
   <view slot="icon">
@@ -126,7 +126,7 @@ Page({
   <view
     slot="content"
     slot-scope="props">
-    title: {{ props.item.title }}
+    title: {{props.item.title}}
   </view>
 </ant-checklist>
 ```

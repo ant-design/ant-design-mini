@@ -12,16 +12,16 @@ const frameList = {
       href: 'https://ant.design/',
     },
     {
-      title: 'Ant Design Mobile',
-      subTitle: 'Ant Design 移动端 UI 组件库',
-      logo: 'https://gw.alipayobjects.com/mdn/rms/afts/img/A*ANrfQaxlbVcAAAAAAAAAAABkARQnAQ',
-      href: 'https://antd-mobile.alipay.com/'
-    },
-    {
       title: 'AntV',
       subTitle: '全新一代数据可视化解决方案',
       logo: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/j-PwR5GHEWYAAAAAAAAAAAAADoEQAQFr/original',
       href: 'https://antv.antgroup.com/'
+    },
+    {
+      title: 'Ant Design Mobile',
+      subTitle: 'Ant Design 移动端 UI 组件库',
+      logo: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/6gdISLFqBBAAAAAAAAAAAAAADoEQAQFr/original',
+      href: 'https://mobile.ant.design/'
     },
     {
       title: 'Kitchen',
@@ -38,16 +38,16 @@ const frameList = {
       href: 'https://ant.design/',
     },
     {
-      title: 'Ant Design Mobile',
-      subTitle: 'Mobile UI Component Library',
-      logo: 'https://gw.alipayobjects.com/mdn/rms/afts/img/A*ANrfQaxlbVcAAAAAAAAAAABkARQnAQ',
-      href: 'https://antd-mobile.alipay.com/'
-    },
-    {
       title: 'AntV',
       subTitle: 'Data Visualization Solution',
       logo: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/j-PwR5GHEWYAAAAAAAAAAAAADoEQAQFr/original',
       href: 'https://antv.antgroup.com/'
+    },
+    {
+      title: 'Ant Design Mobile',
+      subTitle: 'Mobile UI Component Library',
+      logo: 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/6gdISLFqBBAAAAAAAAAAAAAADoEQAQFr/original',
+      href: 'https://mobile.ant.design/'
     },
     {
       title: 'Kitchen',
