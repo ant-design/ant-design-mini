@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "list": "../../List/index",
-    "list-item": "../../List/ListItem/index",
-    "radio": "../index"
-  }
-}

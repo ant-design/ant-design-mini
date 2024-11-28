@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "AutoResize",
-  "usingComponents": {
-    "ant-auto-resize": "../../../src/AutoResize/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "Switch",
-  "usingComponents": {
-    "ant-switch": "../../../src/Switch/index",
-    "ant-container": "../../../src/Container/index",
-    "ant-icon": "../../../src/Icon/index",
-    "ant-button": "../../../src/Button/index"
-  }
-}

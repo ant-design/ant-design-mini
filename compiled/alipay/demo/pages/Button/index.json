@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "Button",
-  "transparentTitle": "auto",
-  "titlePenetrate": "YES",
-  "usingComponents": {
-    "ant-button": "../../../src/Button/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}
