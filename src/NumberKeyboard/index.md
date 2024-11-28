@@ -37,37 +37,37 @@ toc: 'content'
 #### 默认键盘
 
 ```xml
-<ant-number-keyboard visible="{{ visible }}" />
+<ant-number-keyboard visible="{{visible}}" />
 ```
 
 #### 没有小数点
 
 ```xml
-<ant-number-keyboard point="{{ false }}" visible="{{ visible }}" />
+<ant-number-keyboard point="{{false}}" visible="{{visible}}" />
 ```
 
 #### 带确认按钮
 
 ```xml
-<ant-number-keyboard confirmText="confirm" visible="{{ visible }}" />
+<ant-number-keyboard confirmText="confirm" visible="{{visible}}" />
 ```
 
 #### 带关闭箭头
 
 ```xml
-<ant-number-keyboard closeable="{{ true }}" visible="{{ visible }}" />
+<ant-number-keyboard closeable="{{true}}" visible="{{visible}}" />
 ```
 
 #### 乱序键盘
 
 ```xml
-<ant-number-keyboard random="{{ true }}" visible="{{ visible }}" />
+<ant-number-keyboard random="{{true}}" visible="{{visible}}" />
 ```
 
 #### 自定义按钮
 
 ```xml
-<ant-number-keyboard visible="{{ visible }}" >
+<ant-number-keyboard visible="{{visible}}" >
   <view
       slot="header"
       class="number-keyboard-header"
@@ -76,7 +76,7 @@ toc: 'content'
     </view>
 </ant-number-keyboard>
 
-<ant-number-keyboard visible="{{ visible }}" >
+<ant-number-keyboard visible="{{visible}}" >
   <view
     slot="confirm"
     class="number-keyboard-confirm"

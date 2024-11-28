@@ -32,8 +32,8 @@ toc: 'content'
 
 ```xml
 <ant-popover-list
-  visible="{{ visible }}"
-  list="{{ list }}"
+  visible="{{visible}}"
+  list="{{list}}"
   placement="bottom-right"
 #if ALIPAY
   onTapItem="handleTapItem"
@@ -87,9 +87,9 @@ Page({
 
 ```xml
 <ant-popover-list
-  visible="{{ true }}"
-  list="{{ list }}"
-  autoAdjustOverflow="{{ true }}"
+  visible="{{true}}"
+  list="{{list}}"
+  autoAdjustOverflow="{{true}}"
 >
   <ant-button inline style="margin-top: 500px;">气泡位置自适应</ant-button>
 </ant-popover-list>

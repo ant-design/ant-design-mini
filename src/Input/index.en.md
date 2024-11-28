@@ -36,7 +36,7 @@ In `index.json` Introducing Components in
 <ant-input placeholder="input here" />
 <ant-input placeholder="input here" defaultValue="initial value" />
 <ant-input placeholder="input here, with clear button" allowClear />
-<ant-input placeholder="disabled input" disabled="{{ true }}" />
+<ant-input placeholder="disabled input" disabled="{{true}}" />
 ```
 
 ### With Prefix and Suffix
@@ -51,7 +51,7 @@ In `index.json` Introducing Components in
 ### Controlled Mode
 
 ```xml
-<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear />
+<ant-input controlled="{{true}}" value="{{value}}" placeholder="input here" allowClear />
 ```
 
 ### Enter Amount
@@ -118,7 +118,7 @@ In `index.json` Introducing Components in
 #### Controlled Mode
 
 ```xml
- <ant-textarea value="{{ value }}" placeholder="input here" allowClear />
+ <ant-textarea value="{{value}}" placeholder="input here" allowClear />
 ```
 
 ### Custom

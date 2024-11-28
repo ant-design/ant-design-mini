@@ -47,7 +47,7 @@ toc: 'content'
  <ant-divider
   text="custom styles"
   textStyle="color:#1677ff; fontWeight:600"
-  lineHeight="{{ 2 }}"
+  lineHeight="{{2}}"
   lineType="dashed"
   lineColor="#1677ff"
 />

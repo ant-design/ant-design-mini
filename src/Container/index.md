@@ -39,7 +39,7 @@ toc: 'content'
 ### 自定义标题
 
 ```xml
-<ant-container headerInBox="{{ false }}">
+<ant-container headerInBox="{{false}}">
   <view slot="title">
     <view class="icon">
       <ant-icon

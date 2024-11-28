@@ -33,9 +33,9 @@ In `index.json` Introducing Components in
 ```xml
 <ant-dialog
   content="人In天边月上明"
-  visible="{{ visible }}"
-  closable="{{ false }}"
-  footer="{{ footer }}"
+  visible="{{visible}}"
+  closable="{{false}}"
+  footer="{{footer}}"
   primaryButtonText="我知道了"
 #if ALIPAY
   onButtonTap="onButtonTap"
@@ -82,8 +82,8 @@ Page({
 <ant-dialog
   title="确定删除吗？"
   content="删除后无法恢复"
-  visible="{{ true }}"
-  footer="{{ horizontalFooter }}"
+  visible="{{true}}"
+  footer="{{horizontalFooter}}"
 />
 ```
 

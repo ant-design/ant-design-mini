@@ -108,7 +108,7 @@ Page({
 ```xml
 <ant-uploader
   ref="handleUploaderRef"
-  fileList="{{ fileList }}"
+  fileList="{{fileList}}"
 #if ALIPAY
   onChange="handleControlledChange"
   onUpload="onUpload"

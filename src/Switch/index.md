@@ -35,7 +35,7 @@ Switch 开关选择器，比起原生 Switch，它实现了在 iOS 和 Android �
 
 ```xml
 <ant-switch
-  defaultChecked="{{ true }}"
+  defaultChecked="{{true}}"
 #if ALIPAY
   onChange="onChange"
 #endif
@@ -58,7 +58,7 @@ Page({
 > 传入 `disabled` 属性，禁用并置灰开关按钮。
 
 ```xml
-<ant-switch defaultChecked="{{ true }}" disabled="{{ true }}" />
+<ant-switch defaultChecked="{{true}}" disabled="{{true}}" />
 ```
 
 ### 自定义样式
@@ -78,7 +78,7 @@ Page({
 </ant-switch>
 #endif
 
-<ant-switch defaultChecked="{{ true }}" color="#00b578" />
+<ant-switch defaultChecked="{{true}}" color="#00b578" />
 
 <ant-switch size="medium" />
 
@@ -95,8 +95,8 @@ Page({
 
 ```xml
 <ant-switch
-  checked="{{ checked }}"
-  defaultChecked="{{ true }}"
+  checked="{{checked}}"
+  defaultChecked="{{true}}"
 #if ALIPAY
   onChange="handleChange"
 #endif

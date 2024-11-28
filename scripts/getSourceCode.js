@@ -65,7 +65,7 @@ module.exports = async function getSourceCode({ page, theme, platform }) {
 
     let componentBase = '$1antd-mini';
     if (platform === 'alipay') {
-      componentBase = theme === 'dark' ? '$1antd-mini/less' : '$1antd-mini/es';
+      componentBase = '$1antd-mini/es';
     }
 
     json[path.join(page, '../', item).replace('.less', '.acss')] =

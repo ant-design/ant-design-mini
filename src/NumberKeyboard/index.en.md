@@ -37,37 +37,37 @@ In `index.json` Introducing Components in
 #### Default Keyboard
 
 ```xml
-<ant-number-keyboard visible="{{ visible }}" />
+<ant-number-keyboard visible="{{visible}}" />
 ```
 
 #### No decimal point
 
 ```xml
-<ant-number-keyboard point="{{ false }}" visible="{{ visible }}" />
+<ant-number-keyboard point="{{false}}" visible="{{visible}}" />
 ```
 
 #### With confirmation button
 
 ```xml
-<ant-number-keyboard confirmText="confirm" visible="{{ visible }}" />
+<ant-number-keyboard confirmText="confirm" visible="{{visible}}" />
 ```
 
 #### With closed arrow
 
 ```xml
-<ant-number-keyboard closeable="{{ true }}" visible="{{ visible }}" />
+<ant-number-keyboard closeable="{{true}}" visible="{{visible}}" />
 ```
 
 #### scrambled keyboard
 
 ```xml
-<ant-number-keyboard random="{{ true }}" visible="{{ visible }}" />
+<ant-number-keyboard random="{{true}}" visible="{{visible}}" />
 ```
 
 #### Custom Button
 
 ```xml
-<ant-number-keyboard visible="{{ visible }}" >
+<ant-number-keyboard visible="{{visible}}" >
   <view
       slot="header"
       class="number-keyboard-header"
@@ -76,7 +76,7 @@ In `index.json` Introducing Components in
     </view>
 </ant-number-keyboard>
 
-<ant-number-keyboard visible="{{ visible }}" >
+<ant-number-keyboard visible="{{visible}}" >
   <view
     slot="confirm"
     class="number-keyboard-confirm"

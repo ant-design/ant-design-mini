@@ -36,13 +36,13 @@ toc: 'content'
 
 ```xml
 <ant-popup
-  visible="{{ visible }}"
+  visible="{{visible}}"
   position="bottom"
   title="title"
-  height="{{ 250 }}"
-  width="{{ 250 }}"
-  showClose="{{ true }}"
-  showBack="{{ true }}"
+  height="{{250}}"
+  width="{{250}}"
+  showClose="{{true}}"
+  showBack="{{true}}"
 #if ALIPAY
   onClickBack="onClickBack"
   onClose="handlePopupClose"
@@ -85,12 +85,12 @@ Page({
 
 ```xml
 <ant-popup
-  visible="{{ true }}"
-  height="{{ 450 }}"
+  visible="{{true}}"
+  height="{{450}}"
   className="customize-top-image-popup"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
-  showClose="{{ false }}">
+  showClose="{{false}}">
   <view class="customize-content">
     Ea consectetur ipsum consequat exercitation laboris excepteur pariatur
     excepteur labore dolor cillum tempor esse. Ad adipisicing nostrud fugiat eu
@@ -106,9 +106,9 @@ Page({
 
 ```xml
 <ant-popup
-  visible="{{ true }}"
+  visible="{{true}}"
   position="bottom"
-  showClose="{{ true }}"
+  showClose="{{true}}"
 >
   <scroll-view
     scroll-y
@@ -182,7 +182,7 @@ Page({
 如果弹窗内需要滚动，请使用 scroll-view 组件，并添加以下属性：
 
 ```html
-<popup height="{{ 250 }}" visible="{{ visible }}">
+<popup height="{{250}}" visible="{{visible}}">
   <scroll-view
     scroll-y
     disable-lower-scroll="out-of-bounds"

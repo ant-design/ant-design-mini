@@ -39,7 +39,7 @@ In `index.json` Introducing Components in
 ### Custom Title
 
 ```xml
-<ant-container headerInBox="{{ false }}">
+<ant-container headerInBox="{{false}}">
   <view slot="title">
     <view class="icon">
       <ant-icon

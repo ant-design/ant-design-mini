@@ -34,7 +34,7 @@ In `index.json` Introducing Components in
 <popover
   content="simple tips"
   placement="top-left"
-  showCloseIcon="{{ true }}"
+  showCloseIcon="{{true}}"
   style="display: inline-block">
   <ant-button
     size="small"
@@ -105,8 +105,8 @@ Optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-r
   <popover
     content="prompt"
     placement="right"
-    showMask="{{ false }}"
-    visible="{{ visible }}"
+    showMask="{{false}}"
+    visible="{{visible}}"
     style="display: inline-block">
     <text>Click the button to modify the visible</text>
   </popover>

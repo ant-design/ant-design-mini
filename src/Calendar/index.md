@@ -316,7 +316,7 @@ Page({
 wxml 文件：
 
 ```xml
-<calendar onFormatter="{{ handleFormat }}" />
+<calendar onFormatter="{{handleFormat}}" />
 ```
 
 ts 文件：
