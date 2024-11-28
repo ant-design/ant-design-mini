@@ -33,7 +33,7 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-slider
-  defaultValue="{{ 80 }}"
+  defaultValue="{{80}}"
 #if ALIPAY
   onChange="onChange"
   onAfterChange="onAfterChange"
@@ -65,7 +65,7 @@ Page({
 ### Disable state
 
 ```xml
-  <ant-slider defaultValue="{{ 80 }}" disabled />
+  <ant-slider defaultValue="{{80}}" disabled />
 ```
 
 ### Dual Slider Mode
@@ -73,7 +73,7 @@ Page({
 > Incoming `range` property, the dual slider mode is supported,`value` The status value type will also become an array.
 
 ```xml
-<ant-slider defaultValue="{{ [20, 60] }}" range />
+<ant-slider defaultValue="{{[20, 60]}}" range />
 ```
 
 ### Nodes and scales
@@ -81,7 +81,7 @@ Page({
 > Incoming `showTicks` property display scale, passing in `showNumber` Shows the data on the scale.
 
 ```xml
-<ant-slider defaultValue="{{ 80 }}" step="{{ 20 }}" showTicks showNumber />
+<ant-slider defaultValue="{{80}}" step="{{20}}" showTicks showNumber />
 ```
 
 ### Hover Tip
@@ -89,10 +89,10 @@ Page({
 > Incoming `showTooltip` Property, you can display a hovering prompt when dragging.
 
 ```xml
-<ant-slider defaultValue="{{ 80 }}" showTooltip />
+<ant-slider defaultValue="{{80}}" showTooltip />
 #if ALIPAY
 <!-- 支持使用作用域插槽自定义 -->
-<ant-slider defaultValue="{{ 80 }}" showTooltip>
+<ant-slider defaultValue="{{80}}" showTooltip>
   <view slot="tooltip" slot-scope="prop">Slot Customization:{{prop.value}}</view>
 </ant-slider>
 #endif
@@ -104,9 +104,9 @@ Page({
 
 ```xml
 <ant-slider
-  min="{{ 0 }}"
-  max="{{ 100 }}"
-  value="{{ value }}"
+  min="{{0}}"
+  max="{{100}}"
+  value="{{value}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
@@ -115,9 +115,9 @@ Page({
 #endif
 />
 <ant-stepper
-  min="{{ 0 }}"
-  max="{{ 100 }}"
-  value="{{ value }}"
+  min="{{0}}"
+  max="{{100}}"
+  value="{{value}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
@@ -154,8 +154,8 @@ Page({
 
 ```xml
 <ant-slider
-  defaultValue="{{ 80 }}"
-  step="{{ 20 }}"
+  defaultValue="{{80}}"
+  step="{{20}}"
   showTooltip
   showTicks
   showNumber
@@ -169,12 +169,12 @@ Page({
   <text
     slot="tick"
     slot-scope="props"
-    >{{ props.value }}°C</text
+    >{{props.value}}°C</text
   >
   <text
     slot="tooltip"
     slot-scope="props"
-    >{{ props.value }}°C</text
+    >{{props.value}}°C</text
   >
 
   <view slot="slider">

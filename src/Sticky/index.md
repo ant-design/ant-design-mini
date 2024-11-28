@@ -66,7 +66,7 @@ Sticky 组件实现依赖了 `position: sticky` 特性，该特性受父元素�
 >
   <view>
     <view>我会吸顶在距离顶部 180px 的地方</view>
-    <view>是否吸上了 {{ stickyStatus }}</view>
+    <view>是否吸上了 {{stickyStatus}}</view>
   </view>
 </ant-sticky>
 ```

@@ -316,7 +316,7 @@ In the WeChat applet, we can also set it through the function in data. At this t
 wxml file:
 
 ```xml
-<calendar onFormatter="{{ handleFormat }}" />
+<calendar onFormatter="{{handleFormat}}" />
 ```
 
 ts file:

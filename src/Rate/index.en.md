@@ -34,8 +34,8 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-rate
-  defaultValue="{{ 3.5 }}"
-  count="{{ 5 }}"
+  defaultValue="{{3.5}}"
+  count="{{5}}"
   allowHalf
   allowClear
 #if ALIPAY
@@ -58,7 +58,7 @@ Page({
 ### Read Only
 
 ```xml
-<ant-rate defaultValue="{{ 3 }}" readonly />
+<ant-rate defaultValue="{{3}}" readonly />
 ```
 
 ### Controlled Mode
@@ -67,7 +67,7 @@ Page({
 
 ```xml
 <ant-rate
-  value="{{ value }}"
+  value="{{value}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
@@ -76,9 +76,9 @@ Page({
 #endif
 />
 <ant-stepper
-  value="{{ value }}"
-  min="{{ 0 }}"
-  max="{{ 5 }}"
+  value="{{value}}"
+  min="{{0}}"
+  max="{{5}}"
 #if ALIPAY
   onChange="handleChange"
 #endif

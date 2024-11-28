@@ -36,9 +36,9 @@ toc: 'content'
 
 ```xml
 <ant-date-picker
-  min="{{ min }}"
-  max="{{ max }}"
-  defaultValue="{{ defaultDate }}"
+  min="{{min}}"
+  max="{{max}}"
+  defaultValue="{{defaultDate}}"
   placeholder="请选择"
 #if ALIPAY
   onPickerChange="handlePickerChange"
@@ -92,7 +92,7 @@ Page({
 > `disabled` 属性用来控制禁用状态。
 
 ```xml
-<ant-date-picker defaultValue="{{ defaultDate }}" disabled />
+<ant-date-picker defaultValue="{{defaultDate}}" disabled />
 ```
 
 ### 自定义选择面板中每列的渲染
@@ -100,7 +100,7 @@ Page({
 > 传入函数 `onFormatLabel` ，返回值则是选择面板中每列想要渲染的数据
 
 ```xml
-<ant-date-picker onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
+<ant-date-picker onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}" />
 ```
 
 ```js
@@ -124,8 +124,8 @@ Page({
 
 ```xml
  <ant-date-picker
-  visible="{{ pickerVisible }}"
-  value="{{ pickerValue }}"
+  visible="{{pickerVisible}}"
+  value="{{pickerValue}}"
 #if ALIPAY
   onVisibleChange="handleTriggerControlledPicker"
   onOk="handleControlledOk"
@@ -184,7 +184,7 @@ Page({
 ```xml
 <ant-range-picker
   placeholder="请选择"
-  defaultValue="{{ defaultDateRange }}"
+  defaultValue="{{defaultDateRange}}"
 #if ALIPAY
   onPickerChange="handlePickerRangeChange"
   onVisibleChange="handleTriggerPicker"

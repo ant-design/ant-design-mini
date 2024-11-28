@@ -33,7 +33,7 @@ In `index.json` Introducing Components in
 > [options](#selectoritem) property is an object that contains `text`(main copy), `subText`(Deputy copywriter), `value`(option value), `disabled`(disabled or not).
 
 ```xml
-  <ant-selector defaultValue="2" options="{{ options }}" />
+  <ant-selector defaultValue="2" options="{{options}}" />
 ```
 
 ### multiple choice
@@ -41,7 +41,7 @@ In `index.json` Introducing Components in
 > Incoming `multiple` Properties can support multiple selection.
 
 ```xml
-  <ant-selector defaultValue="{{ ['1', '2'] }}" options="{{ options }}" multiple />
+  <ant-selector defaultValue="{{['1', '2']}}" options="{{options}}" multiple />
 ```
 
 ### Limit the number of selections
@@ -50,10 +50,10 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-selector
-  options="{{ options }}"
+  options="{{options}}"
   multiple
-  maxSelectedCount="{{ 4 }}"
-  minSelectedCount="{{ 2 }}"
+  maxSelectedCount="{{4}}"
+  minSelectedCount="{{2}}"
 #if ALIPAY
   onSelectMax="onSelectMax"
   onSelectMin="onSelectMin"
@@ -100,15 +100,15 @@ Page({
 > To achieve that emptying is not allowed, use `minSelectedCount` Property Set Minimum Limit Number of Digits `1` , can.
 
 ```xml
-<ant-selector defaultValue="1" options="{{ options }}" minSelectedCount="{{ 1 }}" />
+<ant-selector defaultValue="1" options="{{options}}" minSelectedCount="{{1}}" />
 ```
 
 ### Controlled Mode
 
 ```xml
 <ant-selector
-  value="{{ value }}"
-  options="{{ items }}"
+  value="{{value}}"
+  options="{{items}}"
 #if ALIPAY
   onChange="handleChange"
 #endif

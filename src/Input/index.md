@@ -36,7 +36,7 @@ toc: content
 <ant-input placeholder="input here" />
 <ant-input placeholder="input here" defaultValue="initial value" />
 <ant-input placeholder="input here, with clear button" allowClear />
-<ant-input placeholder="disabled input" disabled="{{ true }}" />
+<ant-input placeholder="disabled input" disabled="{{true}}" />
 ```
 
 ### 带前缀后缀
@@ -51,7 +51,7 @@ toc: content
 ### 受控模式
 
 ```xml
-<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear />
+<ant-input controlled="{{true}}" value="{{value}}" placeholder="input here" allowClear />
 ```
 
 ### 输入金额
@@ -118,7 +118,7 @@ toc: content
 #### 受控模式
 
 ```xml
- <ant-textarea value="{{ value }}" placeholder="input here" allowClear />
+ <ant-textarea value="{{value}}" placeholder="input here" allowClear />
 ```
 
 ### 自定义

@@ -45,20 +45,20 @@ toc: 'content'
 ### 基本使用
 
 ```xml
-<skeleton animate="{{ true }}" />
+<skeleton animate="{{true}}" />
 ```
 
 ### 带头像
 
 ```xml
-<skeleton avatar="{{ true }}" />
+<skeleton avatar="{{true}}" />
 ```
 
 ### 自定义组合
 
 ```xml
 <skeleton-avatar />
-<skeleton-paragraph rows="{{ 1 }}" />
+<skeleton-paragraph rows="{{1}}" />
 <skeleton-input />
 <skeleton-input />
 <skeleton-input />
@@ -69,10 +69,10 @@ toc: 'content'
 
 ```xml
 <skeleton
-  loading="{{ showLoading }}"
-  title="{{ false }}"
-  avatar="{{ true }}"
-  paragraph="{{ paragraph }}">
+  loading="{{showLoading}}"
+  title="{{false}}"
+  avatar="{{true}}"
+  paragraph="{{paragraph}}">
   <view class="container">
     <avatar
       src="https://images.unsplash.com/photo-1546967191-fdfb13ed6b1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" />

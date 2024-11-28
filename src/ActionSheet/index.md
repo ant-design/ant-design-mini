@@ -35,8 +35,8 @@ toc: 'content'
 ```xml
 <ant-action-sheet
   title="choose your operation"
-  visible="{{ visible }}"
-  actions="{{ actions }}"
+  visible="{{visible}}"
+  actions="{{actions}}"
 #if ALIPAY
   onAction="handleAction"
   onClose="handleClose"
@@ -48,7 +48,7 @@ toc: 'content'
 />
 
 <ant-button
-  inline="{{ true }}"
+  inline="{{true}}"
   size="large"
 #if ALIPAY
   onTap="handleOpen"
@@ -111,7 +111,7 @@ Page({
 ```xml
 <ant-action-sheet
   title="请选择你要进行的操作"
-  actions="{{ actions }}"
+  actions="{{actions}}"
 />
 ```
 

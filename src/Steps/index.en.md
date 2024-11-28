@@ -34,8 +34,8 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-steps
-  items="{{ items }}"
-  current="{{ 1 }}"
+  items="{{items}}"
+  current="{{1}}"
   status="error"
 />
 ```
@@ -65,7 +65,7 @@ Page({
 
 ```xml
 <ant-steps
-  items="{{ items }}"
+  items="{{items}}"
   direction="vertical"
 />
 ```
@@ -74,8 +74,8 @@ Page({
 
 ```xml
 <ant-steps
-  items="{{ items }}"
-  current="{{ current }}"
+  items="{{items}}"
+  current="{{current}}"
 />
 <ant-button
   type="primary"
@@ -86,11 +86,11 @@ Page({
   bind:tap="onNextTap"
 #endif
 >
-  <view a:if="{{ current < items.length - 1 }}">Next step</view>
+  <view a:if="{{current < items.length - 1}}">Next step</view>
   <view a:else>Finish</view>
 </ant-button>
 <ant-button
-  a:if="{{ current > 0 }}"
+  a:if="{{current > 0}}"
 #if ALIPAY
   onTap="onPrevTap"
 #endif

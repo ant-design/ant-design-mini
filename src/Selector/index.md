@@ -33,7 +33,7 @@ toc: 'content'
 > [options](#selectoritem) 属性是一个对象，包含 `text`（主文案）、 `subText`（副文案） 、 `value`（选项值）、 `disabled`（是否禁用）。
 
 ```xml
-  <ant-selector defaultValue="2" options="{{ options }}" />
+  <ant-selector defaultValue="2" options="{{options}}" />
 ```
 
 ### 多选
@@ -41,7 +41,7 @@ toc: 'content'
 > 传入 `multiple` 属性可以支持多选。
 
 ```xml
-  <ant-selector defaultValue="{{ ['1', '2'] }}" options="{{ options }}" multiple />
+  <ant-selector defaultValue="{{['1', '2']}}" options="{{options}}" multiple />
 ```
 
 ### 限制选择个数
@@ -50,10 +50,10 @@ toc: 'content'
 
 ```xml
 <ant-selector
-  options="{{ options }}"
+  options="{{options}}"
   multiple
-  maxSelectedCount="{{ 4 }}"
-  minSelectedCount="{{ 2 }}"
+  maxSelectedCount="{{4}}"
+  minSelectedCount="{{2}}"
 #if ALIPAY
   onSelectMax="onSelectMax"
   onSelectMin="onSelectMin"
@@ -100,15 +100,15 @@ Page({
 > 想要实现不允许清空，使用 `minSelectedCount` 属性设置最小限制个数位 `1` ，即可。
 
 ```xml
-<ant-selector defaultValue="1" options="{{ options }}" minSelectedCount="{{ 1 }}" />
+<ant-selector defaultValue="1" options="{{options}}" minSelectedCount="{{1}}" />
 ```
 
 ### 受控模式
 
 ```xml
 <ant-selector
-  value="{{ value }}"
-  options="{{ items }}"
+  value="{{value}}"
+  options="{{items}}"
 #if ALIPAY
   onChange="handleChange"
 #endif

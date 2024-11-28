@@ -36,9 +36,9 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-date-picker
-  min="{{ min }}"
-  max="{{ max }}"
-  defaultValue="{{ defaultDate }}"
+  min="{{min}}"
+  max="{{max}}"
+  defaultValue="{{defaultDate}}"
   placeholder="Please select"
 #if ALIPAY
   onPickerChange="handlePickerChange"
@@ -92,7 +92,7 @@ Page({
 > `disabled` Property is used to control the disabled state.
 
 ```xml
-<ant-date-picker defaultValue="{{ defaultDate }}" disabled />
+<ant-date-picker defaultValue="{{defaultDate}}" disabled />
 ```
 
 ### Customize the rendering of each column in the selection panel
@@ -100,7 +100,7 @@ Page({
 > Incoming Function `onFormatLabel` , the return value is the data you want to render for each column in the selection panel.
 
 ```xml
-<ant-date-picker onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
+<ant-date-picker onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}" />
 ```
 
 ```js
@@ -124,8 +124,8 @@ Page({
 
 ```xml
  <ant-date-picker
-  visible="{{ pickerVisible }}"
-  value="{{ pickerValue }}"
+  visible="{{pickerVisible}}"
+  value="{{pickerValue}}"
 #if ALIPAY
   onVisibleChange="handleTriggerControlledPicker"
   onOk="handleControlledOk"
@@ -184,7 +184,7 @@ Page({
 ```xml
 <ant-range-picker
   placeholder="Please select"
-  defaultValue="{{ defaultDateRange }}"
+  defaultValue="{{defaultDateRange}}"
 #if ALIPAY
   onPickerChange="handlePickerRangeChange"
   onVisibleChange="handleTriggerPicker"

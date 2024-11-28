@@ -34,7 +34,7 @@ toc: 'content'
 <popover
   content="simple tips"
   placement="top-left"
-  showCloseIcon="{{ true }}"
+  showCloseIcon="{{true}}"
   style="display: inline-block">
   <ant-button
     size="small"
@@ -105,8 +105,8 @@ toc: 'content'
   <popover
     content="prompt"
     placement="right"
-    showMask="{{ false }}"
-    visible="{{ visible }}"
+    showMask="{{false}}"
+    visible="{{visible}}"
     style="display: inline-block">
     <text>点击按钮修改visible</text>
   </popover>
