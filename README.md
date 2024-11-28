@@ -47,9 +47,9 @@ $ bun add antd-mini
 
 Ant Design Mini is a UI component library for Alipay mini programs that is also compatible with WeChat mini programs, it follows the Ant Design specifications. You can try it out by scanning the [Alipay QR code](https://mdn.alipayobjects.com/huamei_jlgevq/afts/img/A*2ZAZR7NQQJ4AAAAAAAAAAAAADtSSAQ/original) or visit the [official website](https://mini.ant.design/) for more information.
 
-- **Rich Component Library, Easy to Choose and Use**: A Wide Range of Practical Components to Meet Your Needs, with Flexible Customization and Expansion
-- **Customizable Themes, International Languages**: Ant Design Mini Offers More Theme Styles and Seamless Switching of Component Text in Multiple Languages
-- **Design Language and Development Framework**: Comprehensive Ecosystem for Rapid Application Development
+- **Rich Component Library, Easy to Choose and Use**: A Wide Range of Practical Components to Meet Your Needs, with Flexible Customization and Expansion.
+- **Customizable Themes, International Languages**: Ant Design Mini Offers More Theme Styles and Seamless Switching of Component Text in Multiple Languages.
+- **Design Language and Development Framework**: Comprehensive Ecosystem for Rapid Application Development.
 - **Multi Platform Support**: Ant Design Mini supports use in both Alipay and WeChat mini programs, as well as running on uni-app. For more information, please refer to the [adaptation guide for WeChat](https://mini.ant.design/guide/using-wechat) and [adaptation guide for uni-app](https://mini.ant.design/guide/using-uni-app).
 
 Thanks to all the [contributors of Ant Design Mini](https://github.com/ant-design/ant-design-mini/graphs/contributors).
