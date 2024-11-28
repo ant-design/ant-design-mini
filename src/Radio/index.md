@@ -60,7 +60,7 @@ Page({
 
 ```xml
 <ant-radio
-  checked="{{ checked }}"
+  checked="{{checked}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
@@ -96,8 +96,8 @@ Page({
 
 ```xml
 <ant-radio-group
-  value="{{ value }}"
-  options="{{ options }}"
+  value="{{value}}"
+  options="{{options}}"
 #if ALIPAY
   onChange="handleRadioGroupChange"
 #endif

@@ -33,9 +33,9 @@ toc: 'content'
 > 进度条默认为蓝色条形，`percent` 属性来设置当前进度。使用 `type`属性来设置形状，目前支持条形和环形两种形式。
 
 ```xml
-<ant-progress percent="{{ 50 }}" />
-<ant-progress type="line" percent="{{ 50 }}" />
-<ant-progress type="circle" percent="{{ 50 }}" />
+<ant-progress percent="{{50}}" />
+<ant-progress type="line" percent="{{50}}" />
+<ant-progress type="circle" percent="{{50}}" />
 ```
 
 ### 语义化进度条
@@ -52,10 +52,10 @@ toc: 'content'
 > `strokeWidth` 可以设置进度条的粗细，`strokeColor` 可以设置进度条的颜色，`trailColor` 可以设置轨道颜色，`style` 可以高度定制样式。
 
 ```xml
-<ant-progress percent="{{ 50 }}" strokeWidth="{{12}}" />
-<ant-progress percent="{{ 50 }}" strokeColor="#00B578" />
-<ant-progress percent="{{ 50 }}" trailColor="#FFCF9F" />
-<ant-progress percent="{{ 50 }}" style="width: 70%" />
+<ant-progress percent="{{50}}" strokeWidth="{{12}}" />
+<ant-progress percent="{{50}}" strokeColor="#00B578" />
+<ant-progress percent="{{50}}" trailColor="#FFCF9F" />
+<ant-progress percent="{{50}}" style="width: 70%" />
 ```
 
 ### Demo 代码

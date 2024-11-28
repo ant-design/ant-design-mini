@@ -32,7 +32,7 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-feedback
-  visible="{{ visible }}"
+  visible="{{visible}}"
   type="popover"
   popoverType="default"
   placement="bottom-right"
@@ -73,8 +73,8 @@ Page({
 ```xml
 <ant-feedback
   type="popover"
-  list="{{ feedList }}"
-  visible="{{ visible }}"
+  list="{{feedList}}"
+  visible="{{visible}}"
   popoverType="circle"
   title="点引导反馈"
   placement="bottom"
@@ -124,8 +124,8 @@ Page({
 
 ```xml
 <ant-feedback
-  a:if="{{ visible }}"
-  list="{{ feedList }}"
+  a:if="{{visible}}"
+  list="{{feedList}}"
   type="card"
   title="喜欢推荐的内容吗？"
 #if ALIPAY

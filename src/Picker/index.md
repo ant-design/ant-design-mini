@@ -40,8 +40,8 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
   placeholder="请选择"
   title="请选择"
   emptyText="暂无数据"
-  defaultValue="{{ defaultValue }}"
-  options="{{ list }}"
+  defaultValue="{{defaultValue}}"
+  options="{{list}}"
 #if ALIPAY
   onCancel="handleDismiss"
   onVisibleChange="handleTriggerPicker"
@@ -117,7 +117,7 @@ Page({
 ```xml
 <ant-picker
   defaultValue="{{['Tues', 'pm']}}"
-  options="{{ columns }}"
+  options="{{columns}}"
 #if ALIPAY
   onFormat="formatTime"
 #endif
@@ -185,8 +185,8 @@ Page({
 
 ```xml
  <ant-picker
-  value="{{ value }}"
-  options="{{ list }}"
+  value="{{value}}"
+  options="{{list}}"
 #if ALIPAY
   onOk="handleControlledOk"
 #endif
@@ -235,7 +235,7 @@ Page({
 
 ```xml
 <ant-cascader-picker
-  options="{{ cityList }}"
+  options="{{cityList}}"
 />
 ```
 

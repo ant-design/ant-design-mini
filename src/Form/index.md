@@ -16,17 +16,54 @@ Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 
 
 ## 引入
 
+> 以输入框为例
+
 在 `index.json` 中引入组件
 
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-form": "antd-mini/es/Form/index"
+  "form-input": "antd-mini/es/Form/FormInput/index"
 #endif
 #if WECHAT
-  "ant-form": "antd-mini/Form/index"
+  "form-input": "antd-mini/Form/FormInput/index"
 #endif
 }
+```
+
+逻辑层将输入框组件 ref 注册到 Form 中
+```xml
+<form-input
+  label="用户名"
+  name="account"
+  placeholder="请输入用户名"
+  tooltip="用户名说明"
+  allowClear
+  ref="handleRef" 
+/>
+```
+
+```js
+#if ALIPAY
+import { Form } from 'antd-mini/es/Form/form';
+#endif
+#if WECHAT
+import { Form } from 'antd-mini/Form/form';
+#endif
+
+Page({
+  handleRef(ref) {
+#if ALIPAY
+    this.form.addItem(ref);
+#endif
+#if WECHAT
+    if (!this.formRefList) {
+      this.formRefList = [];
+    }
+    this.formRefList.push(ref.detail);
+#endif
+  },
+});
 ```
 
 ## 代码示例

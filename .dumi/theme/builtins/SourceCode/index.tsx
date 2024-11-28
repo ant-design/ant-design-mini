@@ -25,6 +25,11 @@ const MARKUP_REGEX = {
   wechat: /[\n]*?#if ALIPAY[\s\S]*?#endif[\n]*?/g, // 微信平台时，需要去掉支付宝标记的内容
 };
 
+const COMMENTS_MARKUP_REGEX = {
+  if: /#comments\s+if/g,
+  endif: /#comments\s+endif/g,
+};
+
 /**
  * define DSL which can be highlighted as similar language
  */
@@ -55,8 +60,12 @@ const SourceCode: FC<ISourceCodeProps> = (props) => {
 
     // 去掉所有的 #if ALIPAY, #endif 等标记
     result = result.replace(MARKUP_REGEX.all, '');
+
+    // 如果comments if 或 comments endif 需要处理一下
+    result = result.replace(COMMENTS_MARKUP_REGEX.if, '#if');
+    result = result.replace(COMMENTS_MARKUP_REGEX.endif, '#endif');
     return result;
-  }, [pChildren, platform, MARKUP_REGEX]);
+  }, [pChildren, platform, MARKUP_REGEX, COMMENTS_MARKUP_REGEX]);
 
   const timer = useRef<number>();
   const [isCopied, setIsCopied] = useState(false);

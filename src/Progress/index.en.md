@@ -33,9 +33,9 @@ In `index.json` Introducing Components in
 > The progress bar defaults to a blue bar,`percent` Property to set the current progress. Use `type`Property to set the shape, currently supports bar and ring two forms.
 
 ```xml
-<ant-progress percent="{{ 50 }}" />
-<ant-progress type="line" percent="{{ 50 }}" />
-<ant-progress type="circle" percent="{{ 50 }}" />
+<ant-progress percent="{{50}}" />
+<ant-progress type="line" percent="{{50}}" />
+<ant-progress type="circle" percent="{{50}}" />
 ```
 
 ### Semantic progress bar
@@ -52,10 +52,10 @@ In `index.json` Introducing Components in
 > `strokeWidth` You can set the thickness of the progress bar,`strokeColor` You can set the color of the progress bar,`trailColor` You can set the track color,`style` The style can be highly customized.
 
 ```xml
-<ant-progress percent="{{ 50 }}" strokeWidth="{{12}}" />
-<ant-progress percent="{{ 50 }}" strokeColor="#00B578" />
-<ant-progress percent="{{ 50 }}" trailColor="#FFCF9F" />
-<ant-progress percent="{{ 50 }}" style="width: 70%" />
+<ant-progress percent="{{50}}" strokeWidth="{{12}}" />
+<ant-progress percent="{{50}}" strokeColor="#00B578" />
+<ant-progress percent="{{50}}" trailColor="#FFCF9F" />
+<ant-progress percent="{{50}}" style="width: 70%" />
 ```
 
 ### Demo Code

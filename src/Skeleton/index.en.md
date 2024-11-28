@@ -45,20 +45,20 @@ In `index.json` Introducing Components in
 ### Basic use
 
 ```xml
-<skeleton animate="{{ true }}" />
+<skeleton animate="{{true}}" />
 ```
 
 ### With avatar
 
 ```xml
-<skeleton avatar="{{ true }}" />
+<skeleton avatar="{{true}}" />
 ```
 
 ### Custom Combinations
 
 ```xml
 <skeleton-avatar />
-<skeleton-paragraph rows="{{ 1 }}" />
+<skeleton-paragraph rows="{{1}}" />
 <skeleton-input />
 <skeleton-input />
 <skeleton-input />
@@ -69,10 +69,10 @@ In `index.json` Introducing Components in
 
 ```xml
 <skeleton
-  loading="{{ showLoading }}"
-  title="{{ false }}"
-  avatar="{{ true }}"
-  paragraph="{{ paragraph }}">
+  loading="{{showLoading}}"
+  title="{{false}}"
+  avatar="{{true}}"
+  paragraph="{{paragraph}}">
   <view class="container">
     <avatar
       src="https://images.unsplash.com/photo-1546967191-fdfb13ed6b1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" />

@@ -32,8 +32,8 @@ toc: 'content'
 
 ```xml
 <ant-guide-tour
-  items="{{ items }}"
-  visible="{{ visible }}"
+  items="{{items}}"
+  visible="{{visible}}"
 #if ALIPAY
   onCancel="closeTour"
   onChange="onChange"
@@ -73,9 +73,9 @@ Page({
 ```xml
 
 <ant-guide-tour
-  items="{{ items }}"
-  current="{{ current }}"
-  visible="{{ visible }}"
+  items="{{items}}"
+  current="{{current}}"
+  visible="{{visible}}"
 #if ALIPAY
   onCancel="closeTour"
   onChange="onChangeControlled"

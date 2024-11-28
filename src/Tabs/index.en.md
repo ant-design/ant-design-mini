@@ -34,7 +34,7 @@ In `index.json` Introducing Components in
 ### Basic use
 
 ```xml
-<tabs items="{{ items }}" />
+<tabs items="{{items}}" />
 ```
 
 ```js
@@ -66,9 +66,9 @@ Page({
 ### With content
 
 ```xml
-<tabs items="{{ items }}">
+<tabs items="{{items}}">
   <view class="content" slot-scope="item">
-    {{ item.value.content }}
+    {{item.value.content}}
   </view>
 </tabs>
 ```
@@ -76,26 +76,26 @@ Page({
 ### Capsule
 
 ```xml
-<tabs type="capsule" items="{{ items }}" defaultCurrent="{{ 1 }}"></tabs>
+<tabs type="capsule" items="{{items}}" defaultCurrent="{{1}}"></tabs>
 ```
 
 ### With subtitle
 
 ```xml
-<tabs type="mixin" items="{{ items }}"></tabs>
+<tabs type="mixin" items="{{items}}"></tabs>
 ```
 
 ### With logo
 
 ```xml
-<tabs items="{{ items }}">
+<tabs items="{{items}}">
  <view
     slot="title"
     slot-scope="item">
-    <view a:if="{{ item.value.badge }}">
-      <badge>{{ item.value.title }}</badge>
+    <view a:if="{{item.value.badge}}">
+      <badge>{{item.value.title}}</badge>
     </view>
-    <view a:else>{{ item.value.title }}</view>
+    <view a:else>{{item.value.title}}</view>
   </view>
 </tabs>
 ```
@@ -103,7 +103,7 @@ Page({
 ### Disable state
 
 ```xml
-<tabs items="{{ items }}" />
+<tabs items="{{items}}" />
 ```
 
 ```js
@@ -135,7 +135,7 @@ Page({
 ### plus button
 
 ```xml
-<tabs items="{{ items }}">
+<tabs items="{{items}}">
   <view slot="plus">
     <icon type="AddOutline" onTap="onPlus" />
   </view>
@@ -146,8 +146,8 @@ Page({
 
 ```xml
 <tabs
-  items="{{ items }}"
-  current="{{ current }}"
+  items="{{items}}"
+  current="{{current}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
@@ -160,15 +160,15 @@ Page({
 ### Center Scroll After Selection
 
 ```xml
-<tabs items="{{ items }}" scrollMode="center" />
+<tabs items="{{items}}" scrollMode="center" />
 ```
 
 ### Swiper
 
 ```xml
 <ant-tabs
-  items="{{ items }}"
-  current="{{ current }}"
+  items="{{items}}"
+  current="{{current}}"
 #if ALIPAY
   onChange="onChange"
 #endif
@@ -177,10 +177,10 @@ Page({
 #endif
 >
     <swiper
-      current="{{ current }}"
-      autoplay="{{ false }}"
-      vertical="{{ false }}"
-      circular="{{ false }}"
+      current="{{current}}"
+      autoplay="{{false}}"
+      vertical="{{false}}"
+      circular="{{false}}"
 #if ALIPAY
       onChange="onSwipeChange"
 #endif
@@ -188,9 +188,9 @@ Page({
       bind:change="onSwipeChange"
 #endif
     >
-      <block a:for="{{ items }}" a:for-index="index" a:for-item="item" a:key="{{ index }}">
+      <block a:for="{{items}}" a:for-index="index" a:for-item="item" a:key="{{index}}">
         <swiper-item>
-          <view class="content">{{ item.content }}</view>
+          <view class="content">{{item.content}}</view>
         </swiper-item>
       </block>
     </swiper>
@@ -211,7 +211,7 @@ Page({
 - Toggling the tab content scrolls to the very top.
 
 ```xml
- <tabs items="{{ items }}" current="{{ current }}" onChange="onChange" className="sticky-tabs" />
+ <tabs items="{{items}}" current="{{current}}" onChange="onChange" className="sticky-tabs" />
 ```
 
 ```css
@@ -226,21 +226,21 @@ Page({
 
 ```xml
  <tabs
-    items="{{ items }}"
-    current="{{ current }}"
+    items="{{items}}"
+    current="{{current}}"
     onChange="onChange"
     className="tabs"
     direction="vertical"
   >
     <scroll-view
-      scroll-top="{{ scrollTop }}"
-      scroll-y="{{ true }}"
+      scroll-top="{{scrollTop}}"
+      scroll-y="{{true}}"
       onScroll="onScroll"
-      scroll-with-animation="{{ true }}"
-      scroll-animation-duration="{{ 300 }}"
+      scroll-with-animation="{{true}}"
+      scroll-animation-duration="{{300}}"
       class="content"
     >
-      {{ items[current].content }}
+      {{items[current].content}}
     </scroll-view>
   </tabs>
 ```
@@ -305,7 +305,7 @@ Page({
 ```html
 <tabs items="{{items}}">
   <view slot="title" slot-scope="tab">
-    {{ tab.index }}：{{ tab.value.title }}，{{ tab.value.content }}
+    {{tab.index}}：{{tab.value.title}}，{{tab.value.content}}
   </view>
 </tabs>
 ```
@@ -356,7 +356,7 @@ can be used `slot` From the definition.
     bind:tap="onTap"
 #endif
   >
-    {{ tab.value.title }}
+    {{tab.value.title}}
   </view>
 </tabs>
 ```
