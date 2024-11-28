@@ -13,6 +13,7 @@ import * as through2 from 'through2';
 import axmlParser, { wechatCustomMapping } from './axml';
 import { transformTsxJS } from './tsxjs';
 import * as tsxml from './tsxml/index';
+import createConfigJson from './create-config';
 
 interface MiniProgramSourceCompileOption {
   source: string;
@@ -40,13 +41,6 @@ interface MiniProgramSourceCompileOption {
 export type FilePrecess = (old: string) => Promise<string> | string;
 
 export type TransFormFactory = (handler) => any;
-
-const wechatConfig = JSON.parse(
-  ofs.readFileSync(resolve(__dirname, '..', 'config/wechat.json'), 'utf-8')
-);
-
-const allowList = wechatConfig.src;
-const demoAllowList = wechatConfig.pages;
 
 const include = function (list: string[], source: string) {
   return through2.obj(function (file, enc, callback) {
@@ -351,6 +345,15 @@ export async function compileAntdMini(watch: boolean) {
       })
     );
   }
+  
+  await createConfigJson();
+  const wechatConfig = JSON.parse(
+    ofs.readFileSync(resolve(__dirname, '..', 'config/wechat.json'), 'utf-8')
+  );
+  
+  const allowList = wechatConfig.src;
+
+
   const wechatBuildOption = {
     platformId: 'WECHAT',
     compileTs: true,
@@ -383,7 +386,6 @@ export async function compileAntdMini(watch: boolean) {
     source: resolve(__dirname, '..', 'demo'),
     dest: resolve(__dirname, '..', 'compiled', 'wechat', 'demo'),
     watch,
-    allowList: demoAllowList,
     assets: ['md', 'js', 'json'],
     buildOption: wechatBuildOption,
   });

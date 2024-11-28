@@ -1,9 +1,11 @@
 const { fork, spawn } = require('child_process');
 const { minidev } = require('minidev');
 const chalk = require('chalk');
+const createConfigJson = require('./create-config');
 
 (async () => {
   const path = require('path');
+  await createConfigJson();
 
   const { devServer } = await minidev.dev({
     project: path.join(__dirname, '../'),
