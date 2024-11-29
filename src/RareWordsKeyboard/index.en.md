@@ -16,7 +16,7 @@ The problem of rare characters has always been a difficult point in the society.
 1. Developers can decide for themselves when to evoke a rare word keyboard.
 2. After entering a rare word, the input of the rare word will be returned through the callback parameter, and the keyboard will be closed.
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -28,7 +28,7 @@ The problem of rare characters has always been a difficult point in the society.
 | ---------------------- | ------------------------------------- | ------------------------- | ------ |
 | visible                | Whether visible                              | boolean                   | false  |
 | type                   | Keyboard type, currently only supported `pinyin`(Pinyin) | string                    | pinyin |
-| showMask               | Whether to show background layer                      | boolean                   | true   |
+| showMask               | Whether to show background mask                      | boolean                   | true   |
 | safeArea               | Whether to keep safe distance                      | boolean                   | true   |
 | #if ALIPAY onClose     | Callback triggered when keyboard is closed                  | `() => void`              | -      |
 | #if ALIPAY onChange    | Callback triggered when input completes                  | `(value: string) => void` | -      |

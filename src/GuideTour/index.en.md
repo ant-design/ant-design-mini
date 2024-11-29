@@ -9,7 +9,7 @@ toc: 'content'
 
 # GuideTour
 
-Layer and custom card boot components. Applies to an introduction to key features on the page.
+Mask the boot component with a custom card. Applies to the introduction of key features on the page.
 
 ## Introduction
 
@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 

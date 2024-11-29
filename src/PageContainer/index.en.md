@@ -21,7 +21,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -96,7 +96,7 @@ Page({
 | loadingSize          | Load Style Size,`small`、`medium`、`large`、`x-large`     | string           | `medium` |
 | loadingColor         | Load Style Color                                            | string           | '#ccc'   |
 | status               | Page exception status,`failed`、`busy`、`disconnected`、`empty` | string \| slot   | -        |
-| image                | Page Exception State Custom Image                                  | string           | -        |
+| image                | Page Exception Status Custom Image                                  | string           | -        |
 | title                | Page Exception Status Custom Title                                  | string           | -        |
 | message              | Page Exception Status Custom Description                                  | string           | -        |
 | actionText           | Page Exception Status Button Copy                                    | string           | -        |

@@ -16,20 +16,57 @@ The Form form contains data entry, validation, and corresponding styles. The For
 
 ## Introduction
 
+> Take the input box as an example
+
 In `index.json` Introducing Components in
 
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-form": "antd-mini/es/Form/index"
+  "form-input": "antd-mini/es/Form/FormInput/index"
 #endif
 #if WECHAT
-  "ant-form": "antd-mini/Form/index"
+  "form-input": "antd-mini/Form/FormInput/index"
 #endif
 }
 ```
 
-## Code example
+The logic layer registers the input box component ref into the Form
+```xml
+<form-input
+  label="用户名"
+  name="account"
+  placeholder="请输入用户名"
+  tooltip="用户名Description"
+  allowClear
+  ref="handleRef" 
+/>
+```
+
+```js
+#if ALIPAY
+import { Form } from 'antd-mini/es/Form/form';
+#endif
+#if WECHAT
+import { Form } from 'antd-mini/Form/form';
+#endif
+
+Page({
+  handleRef(ref) {
+#if ALIPAY
+    this.form.addItem(ref);
+#endif
+#if WECHAT
+    if (!this.formRefList) {
+      this.formRefList = [];
+    }
+    this.formRefList.push(ref.detail);
+#endif
+  },
+});
+```
+
+## Code Sample
 
 ### Basic use
 
@@ -91,7 +128,7 @@ Use `validateStatus: success` and `footer slot` Customize the error style.
 
 ### Custom Form Item
 
-by using [FormItem](#formitem)、[createForm](#createform) Customizable form items. In the example `form-checklist`、`form-location` For custom form item components.
+by using [FormItem](#formitem)、[createForm](#createform) Customizable form items. In the example `form-checklist`、`form-location` Is a custom form item component.
 
 <code src='../../demo/pages/Form/FormCustom/index'></code>
 
@@ -137,7 +174,7 @@ Properties Included in All Form Components
 | getFieldValue            | Get the value of a form item                                                       | (name: string) => any                                                                  |
 | getFieldsValue           | Gets the value for a set of field names. If no nameList is passed, all fields pairs are returned.           | (nameList?: string[]) => Record<string, any>                                           |
 | getFieldValidatorStatus  | Get form check status                                                     | (name: string) => [ValidatorStatus](#validatorstatus)                                  |
-| getFieldsValidatorStatus | Get a set of form validation states. If no nameList is passed, all fields pairs are returned.             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
+| getFieldsValidatorStatus | Get a set of form validation statuses. If no nameList is passed, all fields pairs are returned.             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
 | reset                    | Reset form to initial value                                                     | () => void                                                                             |
 | isFieldTouched           | Determine whether a form item has been modified                                               | () => boolean                                                                          |
 | onValueChange            | Listen for the value modification of the specified form item, view[Detailed Description](#onvaluechangeonvalueschange) | (name: string, (changedValue: any, allValues: Record<string, any>) => void) => void    |
@@ -219,7 +256,7 @@ Example:
 
 ### onValueChange and onValuesChange
 
-`setFieldValue` and `setFieldsValue` Will not trigger `onValueChange` and `onValuesChange`。`onValueChange` and `onValuesChange` It is only triggered when a user action is taken. If in `setFieldValue` or `setFieldsValue` then want to trigger `onValueChange` or `onValuesChange`you need to call these methods manually.
+`setFieldValue` and `setFieldsValue` Will not trigger `onValueChange` and `onValuesChange`。`onValueChange` and `onValuesChange` It is only triggered by user action. If in `setFieldValue` or `setFieldsValue` then want to trigger `onValueChange` or `onValuesChange`you need to call these methods manually.
 
 **Example**：
 
