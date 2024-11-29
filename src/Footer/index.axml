@@ -1,0 +1,15 @@
+
+<view class="ant-footer">
+  <ant-divider className="ant-footer-label">
+    <text slot="text" class="ant-footer-label-text">没有更多了</text>
+  </ant-divider>
+  <view class="ant-footer-links" a:if="{{links}}">
+    <view class="ant-footer-links-item" a:for="{{links}}">
+      <view>{{item.text}}</view>
+      <ant-divider direction="vertical" a:if="{{index !== links.length - 1}}" />
+    </view>
+
+  </view>
+  <view class="ant-footer-content">@ 2004-2020 Alipay.com All rights reserved</view>
+  <!-- <view class="ant-footer-chips"></view> -->
+</view>

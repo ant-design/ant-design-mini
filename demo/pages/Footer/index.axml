@@ -1,0 +1,7 @@
+<view class="navigation-bar"/>
+
+<ant-container title="基础样式">
+  <ant-footer
+    links="{{links}}"
+  />
+</ant-container>

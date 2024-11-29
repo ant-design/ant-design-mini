@@ -1,0 +1,42 @@
+@import (reference) './variable.less';
+
+.ant-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-label {
+    width: 100%;
+    &-text {
+      margin: 0 24 * @rpx;
+      font-size: 28 * @rpx;
+      line-height: 40 * @rpx;
+      color: #cccccc;
+    }
+    .ant-divider-horizontal-left,
+    .ant-divider-horizontal-right {
+      flex: 1 !important;
+      border-color: #eeeeee;
+    }
+  }
+
+  &-links {
+    display: flex;
+    align-items: center;
+    &-item {
+      display: flex;
+      align-items: center;
+      font-size: 26 * @rpx;
+      line-height: 37 * @rpx;
+      color: #1679ff;
+      .ant-divider-vertical {
+        height: 24 * @rpx;
+      }
+    }
+  }
+
+  &-content {
+    font-size: 26 * @rpx;
+    line-height: 37 * @rpx;
+    color: #cccccc;
+  }
+}
