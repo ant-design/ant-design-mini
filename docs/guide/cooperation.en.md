@@ -24,7 +24,7 @@ When submitting bug feedback, please provide relevant information as complete as
 Here are some considerations when submitting:
 
 - Provide device information, client version, component library version and specific components;
-- Explain what you expect the component to behave and what actually happens;
+- Explain the behavior of the components you expect and the behavior that actually occurs;
 - Describe in detail the steps to reproduce the problem;
 - If feasible, provide examples or demos that can reproduce the problem to speed up problem positioning.
 
