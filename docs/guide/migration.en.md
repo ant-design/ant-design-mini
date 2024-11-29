@@ -20,26 +20,28 @@ For visual upgrade of components, we modified the styles of some components in v
 
 ## Upgrade Description
 
-| Component Name       | Upgrade Description                                                                                                            |
-| -------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Button         | 🛠New `aide` Properties;                                                                                                |
-| Calendar       | 🛠Remove `localeText` attributes; original `title` property is defined `format` attribute substitution;                                                 |
-| Empty          | 🛠New `buttonInfo` property,`onClickButton` the incident;                                                                    |
-| Popover        | 🛠New `showCloseIcon` property,`imageUrl` property,`actionText` property,`onTapAction` the incident;                               |
-| Popup          | 🛠New `backgroundImage` property,`showClose` property,`showBack` property,`onClickBackIcon` events,`onClickCloseIcon` the incident; |
-| Toast          | 🛠New `textType` attributes; original `type` Property Added `alipay` type;                                                      |
-| Card           | 🆕New Components                                                                                                         |
-| Dialog         | 🆕New Components                                                                                                         |
-| SafeArea       | 🆕New Components                                                                                                         |
-| AutoResize     | 🆕New Components                                                                                                         |
-| ConfigProvider | 🆕New Components                                                                                                         |
-| Countdown      | 🆕New Components                                                                                                         |
-| Table          | 🆕New Components                                                                                                         |
-| Feedback       | 🆕New Components                                                                                                         |
-| PopoverList    | 🆕New Components                                                                                                         |
-| SelectContact  | 🆕New Components                                                                                                         |
-| Sticky         | 🆕New Components                                                                                                         |
-| Voucher        | 🆕New Components                                                                                                         |
+| Component Name       | Upgrade Description                                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| Button         | 🛠New `aide` Properties;                                                                                    |
+| Calendar       | 🛠Remove `localeText` attributes; original `title` property is defined `format` attribute substitution;                                     |
+| Empty          | 🛠New `buttonInfo` 、`imageMode` Properties;`onClickButton` the incident;                                          |
+| Popover        | 🛠New `showCloseIcon` 、`imageUrl` 、`actionText` Properties;`onTapAction` the incident;                           |
+| Popup          | 🛠New `backgroundImage` 、`showClose` 、`showBack` Properties;`onClickBackIcon` 、`onClickCloseIcon` the incident; |
+| Toast          | 🛠New `textType` attributes; original `type` Property Added `alipay` type;                                          |
+| Card           | 🆕New Components                                                                                             |
+| Dialog         | 🆕New Components                                                                                             |
+| SafeArea       | 🆕New Components                                                                                             |
+| AutoResize     | 🆕New Components                                                                                             |
+| ConfigProvider | 🆕New Components                                                                                             |
+| Countdown      | 🆕New Components                                                                                             |
+| Table          | 🆕New Components                                                                                             |
+| Feedback       | 🆕New Components                                                                                             |
+| PopoverList    | 🆕New Components                                                                                             |
+| SelectContact  | 🆕New Components                                                                                             |
+| Sticky         | 🆕New Components                                                                                             |
+| Voucher        | 🆕New Components                                                                                             |
+| NumberInput    | 🆕New Components                                                                                             |
+| Postscript     | 🆕New Components                                                                                             |
 
 <style>
     th:nth-of-type(1){
