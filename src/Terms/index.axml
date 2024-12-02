@@ -1,4 +1,105 @@
+<import-sjs name="util" from="./index.sjs" />
 
-<view>
-  TODO create-component
+<view
+  class="mui-operation-footer-container-wrap c-operation-footer-container-wrap {{fixedFooter ? 'mui-operation-footer-container-wrap-fixed c-operation-footer-container-wrap-fixed' : ''}} {{className}}"
+>
+  <slot name="button-top"></slot>
+  <view
+    data-aspm="ca40722"
+    data-aspm-desc="OperationButton按钮底部区域"
+    data-aspm-param="{{spmExtParams}}"
+    data-aspm-expo
+  >
+    <view class="page-safe-bottom">
+      <slot name="button-group-top">
+        <view
+          class="protocol"
+          a:if="{{protocols.length || confirmation}}"
+        >
+          <block a:if="{{showProtocolCheck}}">
+            <ant-checkbox
+              checked="{{checked}}"
+              onChange="onProtocolChange"
+            />
+            <text
+              a:if="{{protocolPrefix || confirmation}}"
+              onTap="handleTapProtocolPrefix"
+              class="mui-operation-footer-protocol-text"
+              data-aspm-click="ca40722.da22124"
+              data-aspm-desc="OperationButton按钮底部区域-协议前缀文本"
+              data-aspm-param="{{spmExtParams}}"
+              data-aspm-expo>{{confirmation || protocolPrefix}}
+            </text>
+          </block>
+
+          <text
+            a:if="{{!showProtocolCheck && (confirmation || protocolPrefix)}}"
+            class="mui-operation-footer-protocol-text"
+            data-aspm-click="ca40722.da22124"
+            data-aspm-desc="OperationButton按钮底部区域-协议前缀文本"
+            data-aspm-param=""
+            data-aspm-expo
+          >
+            {{confirmation || protocolPrefix}}
+          </text>
+
+          <text
+            class="protocol-item"
+            a:for="{{protocols}}"
+            onTap="onProtocolTap"
+            data-item="{{item}}"
+            data-index="{{index}}"
+            data-aspm-click="ca40722.da22127_{{index}}"
+            data-aspm-desc="OperationButton按钮底部区域-协议名称_N"
+            data-aspm-param="{{spmExtParams}}"
+            data-aspm-expo>
+            {{item.name}}
+          </text>
+        </view>
+      </slot>
+
+      <view
+        class="mui-operation-footer-btn c-operation-footer-btn {{flex ? 'mui-operation-footer-btn-flex c-operation-footer-btn-flex' : ''}}"
+        a:if="{{util.getFooterConfig(footer).length}}"
+      >
+        <slot name="prefix"></slot>
+        <view
+          a:for="{{util.getFooterConfig(footer)}}"
+          class="mui-operation-footer-btn-item c-operation-footer-btn-item {{flex ? 'mui-operation-footer-btn-item-flex c-operation-footer-btn-item-flex' : ''}}"
+          data-item="{{item}}"
+          data-index="{{index}}"
+        >
+          <slot name="button-left" index="{{index}}" item="{{item}}"></slot>
+          <ant-button
+            index="{{index}}"
+            item="{{item}}"
+            onTap="onActionTap"
+            onDisabledTap="onDisabledTap"
+            type="{{item.type || 'primary'}}"
+            style="{{item.style || ''}}"
+            inline="{{item.inline}}"
+            size="{{item.size}}"
+            loading="{{item.loading}}"
+            disabled="{{item.disabled}}"
+            icon="{{item.icon}}"
+            activeClassName="{{item.activeClassName}}"
+            className="{{util.getFooterConfig(footer).length === 1 ? 'mui-operation-footer-btn-single' : ''}} {{item.className}}"
+            traceParams="{{
+              clickSpm: item.spm ? item.spm : `ca40722.da22129_${index}`,
+              params: spmExtParams
+            }}"
+          >
+            <slot name="button-prefix" slot="prefix" index="{{index}}" item="{{item}}"></slot>
+            <slot name="button-content" index="{{index}}" item="{{item}}">{{item.text}}{{ countdownArr[index] ? `(${countdownArr[index]}s)` : '' }}</slot>
+            <slot name="button-suffix" slot="suffix" index="{{index}}" item="{{item}}"></slot>
+          </ant-button>
+          <slot name="button-right" index="{{index}}" item="{{item}}"></slot>
+        </view>
+        <slot name="suffix"></slot>
+      </view>
+      <slot name="button-group-bottom"></slot>
+      <!--默认插槽，内容区域-->
+      <slot/>
+    </view>
+  </view>
 </view>

@@ -1,43 +1,141 @@
-import {
-  Component,
-  triggerEventOnly,
-  getValueFromProps,
-} from "../_util/simply";
-import { DefaultProps } from "./props";
-import { isOldSDKVersion } from "../_util/platform";
-
-const isOldVersion = isOldSDKVersion();
+import isEqual from 'lodash.isequal';
+import { Component } from '../_util/simply';
+import { DefaultProps } from './props';
 
 Component(
   DefaultProps,
   {
-    onTapMask() {},
+    dealAllCountdown(val) {
+      // 如果时间表的没有变，直接返回
+      const newCountdownRecord = val.map((item) => item.countdown);
+      if (isEqual(this.countdownTimeRecord, newCountdownRecord)) return;
+      this.setData({
+        countdownArr: new Array(val.length),
+      });
+      newCountdownRecord.forEach((item, index) => {
+        if (item && item !== this.countdownTimeRecord[index]) {
+          this.dealCountdown(item, index);
+        }
+      });
+      this.countdownTimeRecord = newCountdownRecord; // 缓存每一项的倒计时时间，用来对比每一项的倒计时是否变化，决定要不要重置倒计时
+    },
+    dealCountdown(timeNum, index) {
+      // 每一项倒计时的处理方法，注意这种行为是存在性能浪费的（可能会有多个定时器同时在跑），
+      // 只是因为预判操作按钮不可能太多所以为了简单才这样做，如果数量过多是需要考虑同一个一个定时器算多个倒计时的。
+      if (this.countdownTimerArr[index]) {
+        clearTimeout(this.countdownTimerArr[index] as number);
+      }
+      const countdownArr = [...this.data.countdownArr];
+      this.setData({
+        countdownArr: countdownArr.splice(index, 1, timeNum),
+      });
+      const countdownTimer = (time) => {
+        this.setData({
+          countdownArr: countdownArr.splice(index, 1, time),
+        });
+        this.timer = setTimeout(() => {
+          if (time - 1 > 0) {
+            countdownTimer(time - 1);
+          } else {
+            this.setData({
+              countdownArr: countdownArr.splice(index, 1, 0),
+            });
+            const item = this.props.footer[index] || this.props.footer;
+            this.props.onCountdownEnd(item, index);
+            // 倒计时结束时，自动触发一次按钮对应的点击事件
+            if (item && !item.noAutoExecute) {
+              this.onActionTap({
+                currentTarget: {
+                  dataset: { item, index },
+                },
+              });
+            }
+          }
+        }, 1000);
+      };
+
+      countdownTimer(timeNum);
+    },
+
+    // 协议选框
+    onProtocolChange(checked) {
+      this.setData({
+        checked,
+      });
+      this.props.onProtocolChange(checked);
+    },
+
+    handleTapProtocolPrefix() {
+      const { checked } = this.data;
+      this.setData({
+        checked: !checked,
+      });
+
+      this.props.onProtocolChange(!checked);
+    },
+
+    // 点击协议
+    onProtocolTap(event) {
+      const { onProtocolTap } = this.props;
+      const { item, index } = event.currentTarget.dataset;
+
+      onProtocolTap(item, index, event);
+    },
+
+    onActionTap(event) {
+      const { onActionTap } = this.props;
+      const { item, index } = event.currentTarget.dataset;
+
+      onActionTap(item, index, event);
+    },
+    onDisabledTap(event) {
+      const { onDisabledTap } = this.props;
+      const { item, index } = event.currentTarget.dataset;
+      onDisabledTap(item, index, event);
+    },
   },
   {
-    closing: false,
-    isOldVersion,
+    checked: false,
+    countdownArr: [],
   },
   undefined,
   {
     /// #if ALIPAY
+    onInit() {
+      this.countdownTimeRecord = []; // 缓存记录需要倒计时的项和时间，变化时用于判断要不要重置倒计时
+      this.countdownTimerArr = []; // 记录倒计时timerId，方便销毁组件时销毁
+      const { footer } = this.props;
+      if (
+        Array.isArray(footer) &&
+        footer.length &&
+        footer.some((item) => item.countdown)
+      ) {
+        // 数组形式
+        this.dealAllCountdown(footer);
+      } else if (footer && footer.countdown) {
+        // 对象形式
+        this.dealAllCountdown([footer]);
+      }
+    },
     async deriveDataFromProps(nextProps) {
-      const [visible] = getValueFromProps(this, ["visible"]);
-
-      if (nextProps.visible !== visible) {
-        this.setData({ closing: true });
+      const { footer } = nextProps;
+      if (!isEqual(this.props.footer, footer)) {
+        if (
+          Array.isArray(footer) &&
+          footer.length &&
+          footer.some((item) => item.countdown)
+        ) {
+          // 数组形式
+          this.dealAllCountdown(footer);
+        } else if (footer.countdown) {
+          // 对象形式
+          this.dealAllCountdown([footer]);
+        }
       }
     },
     /// #endif
     /// #if WECHAT
-    observers: {
-      visible: function (nextProps) {
-        const { visible } = nextProps;
-        if (!visible && !this.data.closing) {
-          this.setData({ closing: true });
-        }
-        triggerEventOnly(this, visible ? "afterShow" : "afterClose");
-      },
-    },
+
     /// #endif
   }
 );
