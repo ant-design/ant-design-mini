@@ -31,7 +31,6 @@ export const componentList = [
         nameZN: '标签页-纵向电梯模式',
         path: '/pages/Tabs/TabsVerticalElevator/index',
       },
-      { name: 'Footer', nameZN: '页脚', path: '/pages/Footer/index' },
     ],
   },
   {

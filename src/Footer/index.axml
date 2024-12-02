@@ -42,9 +42,13 @@
   </view>
 
   <view a:if="{{content}}" class="ant-footer-content">
+    <!-- #if ALIPAY -->
     <slot name="content">
+    <!-- #endif -->
       <text>{{content}}</text>
+    <!-- #if ALIPAY -->
     </slot>
+    <!-- #endif -->
   </view>
 
   <view class="ant-footer-chips" a:if="{{chips}}">

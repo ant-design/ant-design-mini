@@ -36,9 +36,11 @@ Page({
   handleLinkTap(item) {
     if (item.disabled) return;
     /// #if ALIPAY
+    if (item.disabled) return;
     my.showToast({ content: item.key });
     /// #endif
     /// #if WECHAT
+    if (item.detail.disabled) return;
     // @ts-ignore
     wx.showToast({
       title: item.detail.key,
@@ -46,11 +48,12 @@ Page({
     /// #endif
   },
   handleChipTap(item) {
-    if (item.disabled) return;
     /// #if ALIPAY
+    if (item.disabled) return;
     my.showToast({ content: item.key });
     /// #endif
     /// #if WECHAT
+    if (item.detail.disabled) return;
     // @ts-ignore
     wx.showToast({
       title: item.detail.key,

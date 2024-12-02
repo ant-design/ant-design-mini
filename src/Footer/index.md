@@ -52,11 +52,14 @@ toc: 'content'
 ```xml
 <ant-footer content="@ 2004-2020 Alipay.com All rights reserved" />
 
+#if ALIPAY
+<!-- 支持插槽自定义 label。 -->
 <ant-footer content="placeholder">
   <view slot="content">
     © 蚂蚁科技集团股份有限公司
   </view>
 </ant-footer>
+#endif
 ```
 
 ### 带链接页脚
@@ -82,11 +85,12 @@ Page({
     ],
   },
   handleLinkTap(item) {
-    if (item.disabled) return;
 #if ALIPAY
+    if (item.disabled) return;
     my.showToast({ content: item.key });
 #endif
 #if WECHAT
+    if (item.detail.disabled) return;
     wx.showToast({
       title: item.detail.key,
     });
@@ -119,11 +123,12 @@ Page({
     ],
   },
   handleChipTap(item) {
-    if (item.disabled) return;
 #if ALIPAY
+    if (item.disabled) return;
     my.showToast({ content: item.key });
 #endif
 #if WECHAT
+    if (item.detail.disabled) return;
     wx.showToast({
       title: item.detail.key,
     });
