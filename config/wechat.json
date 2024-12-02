@@ -85,7 +85,8 @@
     "pages/AutoResize",
     "pages/Countdown",
     "pages/Typography",
-    "pages/PageContainer"
+    "pages/PageContainer",
+    "pages/Terms"
   ],
   "src": [
     "_locale",
@@ -147,6 +148,7 @@
     "AutoResize",
     "Countdown",
     "Typography",
-    "PageContainer"
+    "PageContainer",
+    "Terms"
   ]
 }
