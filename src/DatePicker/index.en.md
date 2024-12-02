@@ -218,7 +218,7 @@ Page({
 });
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/DatePicker/index'></code>
 

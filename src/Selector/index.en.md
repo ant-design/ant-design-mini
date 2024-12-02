@@ -164,7 +164,7 @@ Page({
 
 > Reference below [Demo Code](#demo-代码) implementation in.
 
-## Demo Code
+### Demo Code
 
 <code src="../../demo/pages/Selector/index"></code>
 

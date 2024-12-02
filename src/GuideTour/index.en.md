@@ -117,7 +117,7 @@ Page({
 
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/GuideTour/index'></code>
 

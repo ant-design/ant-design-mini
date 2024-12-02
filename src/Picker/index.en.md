@@ -272,7 +272,7 @@ Page({
 });
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Picker/index'></code>
 

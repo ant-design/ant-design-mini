@@ -188,7 +188,7 @@ Page({
 </ant-slider>
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Slider/index'></code>
 

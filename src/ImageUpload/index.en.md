@@ -182,7 +182,7 @@ Page({
 });
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/ImageUpload/index'></code>
 

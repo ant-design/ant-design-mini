@@ -213,7 +213,7 @@ Page({
 });
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Checkbox/index'></code>
 

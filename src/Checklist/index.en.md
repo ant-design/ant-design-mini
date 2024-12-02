@@ -131,7 +131,7 @@ Page({
 </ant-checklist>
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Checklist/index'></code>
 

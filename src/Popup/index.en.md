@@ -124,7 +124,7 @@ Page({
 </ant-popup>
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Popup/index'></code>
 

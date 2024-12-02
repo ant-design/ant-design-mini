@@ -142,7 +142,7 @@ Page({
 });
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Switch/index'></code>
 

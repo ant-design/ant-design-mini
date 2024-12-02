@@ -133,7 +133,7 @@ Page({
 });
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Radio/index'></code>
 
