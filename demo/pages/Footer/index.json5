@@ -10,6 +10,7 @@
   /// #endif
 
   "usingComponents": {
+    "ant-icon": "../../../src/Icon/index",
     "ant-footer": "../../../src/Footer/index",
     "ant-container": "../../../src/Container/index"
   }

@@ -1,12 +1,76 @@
 Page({
   data: {
-    links: [
+    links1: [
       {
-        text: '底部链接',
-      },
-      {
-        text: '底部链接',
+        key: 'alipay',
+        text: '支付宝',
       },
     ],
+    links2: [
+      {
+        key: 'alicloud',
+        text: '阿里云',
+      },
+      {
+        key: 'alipay',
+        text: '支付宝',
+      },
+    ],
+    chips: [
+      {
+        key: 'jiebei',
+        text: '蚂蚁借呗',
+      },
+      {
+        key: 'beiyongjin',
+        text: '备用金',
+      },
+      {
+        key: 'huabei',
+        text: '花呗收钱',
+      },
+    ],
+    chipsDisabled: [
+      {
+        key: 'jiebei',
+        text: '蚂蚁借呗',
+        disabled: true,
+      },
+      {
+        key: 'beiyongjin',
+        text: '备用金',
+        disabled: true,
+      },
+      {
+        key: 'huabei',
+        text: '花呗收钱',
+        disabled: true,
+      },
+    ],
+  },
+
+  handleLinkTap(item) {
+    if (item.disabled) return;
+    /// #if ALIPAY
+    my.showToast({ content: item.key });
+    /// #endif
+    /// #if WECHAT
+    // @ts-ignore
+    wx.showToast({
+      title: item.key,
+    });
+    /// #endif
+  },
+  handleChipTap(item) {
+    if (item.disabled) return;
+    /// #if ALIPAY
+    my.showToast({ content: item.key });
+    /// #endif
+    /// #if WECHAT
+    // @ts-ignore
+    wx.showToast({
+      title: item.key,
+    });
+    /// #endif
   },
 });

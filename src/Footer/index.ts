@@ -1,37 +1,19 @@
-import {
-  Component,
-  getValueFromProps,
-  triggerEventOnly,
-} from '../_util/simply';
+import { Component, triggerEvent } from '../_util/simply';
 import { DefaultProps } from './props';
 
 Component(
   DefaultProps,
   {
-    onTapMask() {},
+    onTapLink(e) {
+      const { item } = e.currentTarget.dataset;
+      triggerEvent(this, 'linkTap', item, e);
+    },
+    onTapChip(e) {
+      const { item } = e.currentTarget.dataset;
+      triggerEvent(this, 'chipTap', item, e);
+    },
   },
   {},
   undefined,
-  {
-    /// #if ALIPAY
-    async deriveDataFromProps(nextProps) {
-      const [visible] = getValueFromProps(this, ['visible']);
-
-      if (nextProps.visible !== visible) {
-        this.setData({ closing: true });
-      }
-    },
-    /// #endif
-    /// #if WECHAT
-    observers: {
-      visible: function (nextProps) {
-        const { visible } = nextProps;
-        if (!visible && !this.data.closing) {
-          this.setData({ closing: true });
-        }
-        triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
-      },
-    },
-    /// #endif
-  }
+  {}
 );

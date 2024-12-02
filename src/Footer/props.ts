@@ -19,7 +19,7 @@ export interface IProps extends IBaseProps {
    */
   content?: string;
   /**
-   * @description 链接内容
+   * @description 链接
    * @default undefined
    */
   links?: Array<ActionItem>;
@@ -29,9 +29,18 @@ export interface IProps extends IBaseProps {
    */
   chips?: Array<ActionItem>;
   /**
-   * @description 点击行动点后的回调
+   * @description 没有label的分割线
+   * @default false
    */
-  onActionTap?: (actionItem?: ActionItem) => void;
+  noLabelDivider?: boolean;
+  /**
+   * @description 链接点击后的回调
+   */
+  onLinkTap?: (actionItem?: ActionItem) => void;
+  /**
+   * @description 底部标签点击后的回调
+   */
+  onChipTap?: (actionItem?: ActionItem) => void;
 }
 
 export const DefaultProps: Partial<IProps> = {
@@ -39,5 +48,7 @@ export const DefaultProps: Partial<IProps> = {
   content: null,
   links: null,
   chips: null,
-  onActionTap() {},
+  noLabelDivider: false,
+  onLinkTap() {},
+  onChipTap() {},
 };
