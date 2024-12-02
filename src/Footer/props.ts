@@ -42,6 +42,7 @@ export interface IProps extends IBaseProps {
 }
 
 export const DefaultProps: Partial<IProps> = {
+  className: null,
   label: null,
   content: null,
   links: null,

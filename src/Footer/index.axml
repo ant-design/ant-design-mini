@@ -1,5 +1,5 @@
 
-<view class="ant-footer">
+<view class="ant-footer {{className}}">
   <ant-divider a:if="{{label && !noLabelDivider }}" className="ant-footer-label">
     <text slot="text" class="ant-footer-label-text">
       <!-- #if ALIPAY -->
