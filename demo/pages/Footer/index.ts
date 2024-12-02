@@ -28,22 +28,6 @@ Page({
       {
         key: 'huabei',
         text: '花呗收钱',
-      },
-    ],
-    chipsDisabled: [
-      {
-        key: 'jiebei',
-        text: '蚂蚁借呗',
-        disabled: true,
-      },
-      {
-        key: 'beiyongjin',
-        text: '备用金',
-        disabled: true,
-      },
-      {
-        key: 'huabei',
-        text: '花呗收钱',
         disabled: true,
       },
     ],

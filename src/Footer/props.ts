@@ -1,5 +1,3 @@
-// TODO create-component
-
 import { IBaseProps } from '../_util/base';
 
 export type ActionItem = {

@@ -272,7 +272,7 @@ Page({
 });
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Picker/index'></code>
 
