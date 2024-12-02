@@ -82,6 +82,7 @@
     "demo/pages/AutoResize/index",
     "demo/pages/Countdown/index",
     "demo/pages/Typography/index",
-    "demo/pages/PageContainer/index"
+    "demo/pages/PageContainer/index",
+    "demo/pages/Terms/index"
   ]
 }
