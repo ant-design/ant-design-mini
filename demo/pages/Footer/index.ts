@@ -41,7 +41,7 @@ Page({
     /// #if WECHAT
     // @ts-ignore
     wx.showToast({
-      title: item.key,
+      title: item.detail.key,
     });
     /// #endif
   },
@@ -53,7 +53,7 @@ Page({
     /// #if WECHAT
     // @ts-ignore
     wx.showToast({
-      title: item.key,
+      title: item.detail.key,
     });
     /// #endif
   },

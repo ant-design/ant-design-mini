@@ -25,7 +25,6 @@
     </ant-footer>
   </ant-container>
 
-
   <ant-container title="带链接的页脚">
     <ant-footer
       links="{{links1}}"
@@ -43,8 +42,6 @@
       onChipTap="handleChipTap"
     />
   </ant-container>
-
-
 
   <ant-container title="组合使用">
     <ant-footer

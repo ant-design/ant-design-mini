@@ -88,7 +88,7 @@ Page({
 #endif
 #if WECHAT
     wx.showToast({
-      title: item.key,
+      title: item.detail.key,
     });
 #endif
   },
@@ -125,7 +125,7 @@ Page({
 #endif
 #if WECHAT
     wx.showToast({
-      title: item.key,
+      title: item.detail.key,
     });
 #endif
   },
