@@ -113,7 +113,7 @@ Page({
 
 > 参考下面 [Demo 代码](#demo-代码) 中的实现。
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Rate/index'></code>
 

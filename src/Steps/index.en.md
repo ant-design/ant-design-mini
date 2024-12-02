@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -87,7 +87,7 @@ Page({
 #endif
 >
   <view a:if="{{current < items.length - 1}}">Next step</view>
-  <view a:else>Finish</view>
+  <view a:else>Complete</view>
 </ant-button>
 <ant-button
   a:if="{{current > 0}}"

@@ -162,4 +162,8 @@ export const wechatCustomMapping = {
     onActionTap: 'bind:actiontap',
     onSecondaryActionTap: 'bind:secondaryactiontap',
   },
+  'ant-footer': {
+    onLinkTap: 'bind:linktap',
+    onChipTap: 'bind:chiptap',
+  },
 };

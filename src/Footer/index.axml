@@ -1,0 +1,68 @@
+
+<view class="ant-footer {{className}}">
+  <ant-divider a:if="{{label && !noLabelDivider }}" className="ant-footer-label">
+    <text slot="text" class="ant-footer-label-text">
+      <!-- #if ALIPAY -->
+      <slot name="label">
+      <!-- #endif -->
+        {{label}}
+      <!-- #if ALIPAY -->
+      </slot>
+      <!-- #endif -->
+    </text>
+  </ant-divider>
+
+  <text a:if="{{label && noLabelDivider }}" slot="text" class="ant-footer-label-text">
+    <!-- #if ALIPAY -->
+    <slot name="label">
+    <!-- #endif -->
+      {{label}}
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
+  </text>
+
+  <view class="ant-footer-links" a:if="{{links}}">
+    <view
+      class="ant-footer-links-item"
+      a:for="{{links}}"
+      key="{{item.key}}"
+      data-item="{{item}}"
+      onTap="onTapLink"
+    >
+      <view
+        hover-start-time="20"
+        hover-stay-time="50"
+        hover-class="hover"
+      >
+        {{item.text}}
+      </view>
+      <ant-divider direction="vertical" a:if="{{index !== links.length - 1}}" />
+    </view>
+  </view>
+
+  <view a:if="{{content}}" class="ant-footer-content">
+    <!-- #if ALIPAY -->
+    <slot name="content">
+    <!-- #endif -->
+      <text>{{content}}</text>
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
+  </view>
+
+  <view class="ant-footer-chips" a:if="{{chips}}">
+    <view
+      class="ant-footer-chips-item {{index === 0 ? 'first' : ''}} {{item.disabled ? 'disabled' : ''}}"
+      a:for="{{chips}}"
+      key="{{item.key}}"
+      hover-start-time="20"
+      hover-stay-time="50"
+      hover-class="hover"
+      data-item="{{item}}"
+      onTap="onTapChip"
+    >
+      <view>{{item.text}}</view>
+    </view>
+  </view>
+</view>

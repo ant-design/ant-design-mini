@@ -26,11 +26,11 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
-> `count` property specifies the total number of stars, `allowHalf` Stats allow half a star, `allowClear` Property allows to clear after clicking again.
+> `count` property specifies the total number of stars, `allowHalf` Attribute allows half a star, `allowClear` Property allows to clear after clicking again.
 
 ```xml
 <ant-rate
@@ -113,7 +113,7 @@ Page({
 
 > Reference below [Demo Code](#demo-代码) implementation in.
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Rate/index'></code>
 

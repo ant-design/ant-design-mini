@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -68,7 +68,7 @@ Page({
 });
 ```
 
-### Point guidance feedback
+### Point Guide Feedback
 
 ```xml
 <ant-feedback
@@ -213,7 +213,7 @@ Page({
 | Property  | Description                                     | Type   | Default Value |
 | ----- | ---------------------------------------- | ------ | ------ |
 | icon  | Icons for feedback items                             | string | -      |
-| text  | Copywriting of the feedback item                             | string | -      |
+| text  | Copy of the feedback item                             | string | -      |
 | image | The image and the icon of the feedback item are mutually exclusive, and the icon is displayed first. | string | -      |
 | id    | Unique identification of the feedback item                         | string | -      |
 

@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -72,7 +72,7 @@ Page({
 <ant-toast content="custom image" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{true}}" />
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Toast/index'></code>
 
@@ -83,11 +83,11 @@ Page({
 | className             | Component root node class name                                                    | string      | -      |
 | content               | Text content                                                          | string      | -      |
 | duration              | Duration, does not automatically close when 0                                     | number      | 2000   |
-| maskCloseable         | Click whether the mask is closed                                                  | boolean     | false  |
+| maskCloseable         | Click whether the layer is closed                                                  | boolean     | false  |
 | icon                  | Icon, supports all types of Icon components                                     | string      | -      |
 | image                 | Picture Link                                                          | string      | -      |
 | maskStyle             | Mat Style                                                          | string      | -      |
-| showMask              | Whether to show the layer                                                      | boolean     | false  |
+| showMask              | Show Mask                                                      | boolean     | false  |
 | style                 | Style                                                              | string      | -      |
 | type                  | Built-in icon type, optional `success` `error` `warning` `loading` `alipay` | string      | -      |
 | textType              | Text type, optional `short` `long`the short type has a larger fillet               | string      | `long` |
@@ -104,4 +104,4 @@ Component provides the following CSS variables, which can be used to customize s
 | Variable name                | Light Mode Default                                                                                                    | Dark Mode Default                                                                                                    | Remarks               |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------ |
 | --toast-default-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.75); color: #ffffff;">rgba(0, 0, 0, 0.75)</div> | Toast Default Background Color |
-| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                  | Toast default text color |
+| --toast-default-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                  | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div>                  | Toast Default Text Color |

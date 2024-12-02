@@ -8,7 +8,7 @@ toc: 'content'
 
 # Loading
 
-Used to prompt that a local or page is loading.
+Used to prompt that a part or page is loading.
 
 ## Introduction
 
@@ -25,7 +25,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
