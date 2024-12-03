@@ -29,7 +29,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -53,7 +53,7 @@ Page({
 });
 ```
 
-### Disable Mode
+### Disable mode
 
 > Incoming `disabled` property, disable the collocated gray switch button.
 
@@ -142,7 +142,7 @@ Page({
 });
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Switch/index'></code>
 

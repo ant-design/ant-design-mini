@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -97,6 +97,6 @@ Component provides the following CSS variables, which can be used to customize s
 
 | Name   | Description       |
 | ------ | ---------- |
-| -      | Default Slot   |
+| -      | Default slot   |
 | prefix | Countdown Head |
 | suffix | Countdown Tail |

@@ -2,36 +2,25 @@ export const componentList = [
   {
     type: '通用',
     list: [
-      {
-        name: 'Button',
-        nameZN: '按钮',
-        path: '/pages/Button/index',
-      },
-      {
-        name: 'Icon',
-        nameZN: '图标',
-        path: '/pages/Icon/index',
-      },
-      {
-        name: 'Sticky',
-        nameZN: '黏性吸附',
-        path: '/pages/Sticky/index',
-      },
+      { name: 'Button', nameZN: '按钮', path: '/pages/Button/index' },
+      { name: 'Icon', nameZN: '图标', path: '/pages/Icon/index' },
+      { name: 'Sticky', nameZN: '黏性吸附', path: '/pages/Sticky/index' },
     ],
   },
   {
     type: '导航',
     list: [
       {
+        name: 'Footer页脚',
+        nameZN: 'Footer页脚',
+        path: '/pages/Footer/index',
+      },
+      {
         name: 'TabBar',
         nameZN: 'TabBar底部标签栏',
         path: '/pages/TabBar/index',
       },
-      {
-        name: 'Tabs',
-        nameZN: '标签页',
-        path: '/pages/Tabs/index',
-      },
+      { name: 'Tabs', nameZN: '标签页', path: '/pages/Tabs/index' },
       {
         name: 'TabsElevator',
         nameZN: '标签页-电梯模式',
@@ -47,100 +36,40 @@ export const componentList = [
   {
     type: '信息展示',
     list: [
-      {
-        name: 'Card',
-        nameZN: '基础卡片',
-        path: '/pages/Card/index',
-      },
-      {
-        name: 'Avatar',
-        nameZN: '头像',
-        path: '/pages/Avatar/index',
-      },
-      /// #if ALIPAY
+      { name: 'Card', nameZN: '基础卡片', path: '/pages/Card/index' },
+      { name: 'Avatar', nameZN: '头像', path: '/pages/Avatar/index' },
       {
         name: 'IndexBarControl',
         nameZN: '索引-控制',
         path: '/pages/IndexBarControl/index',
       },
-      /// #endif
-      {
-        name: 'Collapse',
-        nameZN: '折叠面板',
-        path: '/pages/Collapse/index',
-      },
-      {
-        name: 'Grid',
-        nameZN: '宫格',
-        path: '/pages/Grid/index',
-      },
-      {
-        name: 'List',
-        nameZN: '列表',
-        path: '/pages/List/index',
-      },
+      { name: 'Collapse', nameZN: '折叠面板', path: '/pages/Collapse/index' },
+      { name: 'Grid', nameZN: '宫格', path: '/pages/Grid/index' },
+      { name: 'List', nameZN: '列表', path: '/pages/List/index' },
       {
         name: 'SwipeAction',
         nameZN: '滑动操作',
         path: '/pages/SwipeAction/index',
       },
-      {
-        name: 'Steps',
-        nameZN: '步骤条',
-        path: '/pages/Steps/index',
-      },
-      {
-        name: 'GuideTour',
-        nameZN: '新手引导',
-        path: '/pages/GuideTour/index',
-      },
-      {
-        name: 'Tag',
-        nameZN: ' 标签',
-        path: '/pages/Tag/index',
-      },
-      {
-        name: 'Progress',
-        nameZN: '进度条',
-        path: '/pages/Progress/index',
-      },
-      {
-        name: 'Divider',
-        nameZN: '分割线',
-        path: '/pages/Divider/index',
-      },
-      /// #if ALIPAY
-      {
-        name: 'Table',
-        nameZN: '表格',
-        path: '/pages/Table/index',
-      },
-      /// #endif
+      { name: 'Steps', nameZN: '步骤条', path: '/pages/Steps/index' },
+      { name: 'GuideTour', nameZN: '新手引导', path: '/pages/GuideTour/index' },
+      { name: 'Tag', nameZN: ' 标签', path: '/pages/Tag/index' },
+      { name: 'Progress', nameZN: '进度条', path: '/pages/Progress/index' },
+      { name: 'Divider', nameZN: '分割线', path: '/pages/Divider/index' },
+      { name: 'Table', nameZN: '表格', path: '/pages/Table/index' },
     ],
   },
   {
     type: '信息录入',
     list: [
-      {
-        name: 'Checkbox',
-        nameZN: '复选框',
-        path: '/pages/Checkbox/index',
-      },
+      { name: 'Checkbox', nameZN: '复选框', path: '/pages/Checkbox/index' },
       {
         name: 'Checklist',
         nameZN: '可勾选列表',
         path: '/pages/Checklist/index',
       },
-      {
-        name: 'Form',
-        nameZN: '表单',
-        path: '/pages/Form/index',
-      },
-      {
-        name: 'Input',
-        nameZN: '输入框',
-        path: '/pages/Input/index',
-      },
+      { name: 'Form', nameZN: '表单', path: '/pages/Form/index' },
+      { name: 'Input', nameZN: '输入框', path: '/pages/Input/index' },
       {
         name: 'InputCustom',
         nameZN: '输入框-自定义',
@@ -156,61 +85,29 @@ export const componentList = [
         nameZN: '输入框-搜索框',
         path: '/pages/InputSearchBar/index',
       },
-      {
-        name: 'Picker',
-        nameZN: '选择器',
-        path: '/pages/Picker/index',
-      },
+      { name: 'Picker', nameZN: '选择器', path: '/pages/Picker/index' },
       {
         name: 'DatePicker',
         nameZN: '时间选择器',
         path: '/pages/DatePicker/index',
       },
-      {
-        name: 'Radio',
-        nameZN: '单选框',
-        path: '/pages/Radio/index',
-      },
-      {
-        name: 'Selector',
-        nameZN: '选择组',
-        path: '/pages/Selector/index',
-      },
-      {
-        name: 'Slider',
-        nameZN: '滑动输入条',
-        path: '/pages/Slider/index',
-      },
-      {
-        name: 'Stepper',
-        nameZN: '步进器',
-        path: '/pages/Stepper/index',
-      },
-      {
-        name: 'Switch',
-        nameZN: '开关',
-        path: '/pages/Switch/index',
-      },
+      { name: 'Radio', nameZN: '单选框', path: '/pages/Radio/index' },
+      { name: 'Selector', nameZN: '选择组', path: '/pages/Selector/index' },
+      { name: 'Slider', nameZN: '滑动输入条', path: '/pages/Slider/index' },
+      { name: 'Stepper', nameZN: '步进器', path: '/pages/Stepper/index' },
+      { name: 'Switch', nameZN: '开关', path: '/pages/Switch/index' },
       {
         name: 'ImageUpload',
         nameZN: '图片上传',
         path: '/pages/ImageUpload/index',
       },
-      {
-        name: 'Rate',
-        nameZN: '星级',
-        path: '/pages/Rate/index',
-      },
+      { name: 'Rate', nameZN: '星级', path: '/pages/Rate/index' },
       {
         name: 'RareWordsKeyboard',
         nameZN: '生僻字输入键盘',
         path: '/pages/RareWordsKeyboard/index',
       },
-      {
-        name: 'Calendar',
-        nameZN: '日历',
-        path: '/pages/Calendar/index',
-      },
+      { name: 'Calendar', nameZN: '日历', path: '/pages/Calendar/index' },
       {
         name: 'NumberKeyboard',
         nameZN: '数字键盘-基本使用',
@@ -251,93 +148,39 @@ export const componentList = [
         nameZN: '动作面板',
         path: '/pages/ActionSheet/index',
       },
-      {
-        name: 'Loading',
-        nameZN: '加载中',
-        path: '/pages/Loading/index',
-      },
-      {
-        name: 'Skeleton',
-        nameZN: '骨架屏',
-        path: '/pages/Skeleton/index',
-      },
-      {
-        name: 'Dialog',
-        nameZN: '弹窗',
-        path: '/pages/Dialog/index',
-      },
-      {
-        name: 'Popover',
-        nameZN: '气泡卡片',
-        path: '/pages/Popover/index',
-      },
+      { name: 'Loading', nameZN: '加载中', path: '/pages/Loading/index' },
+      { name: 'Skeleton', nameZN: '骨架屏', path: '/pages/Skeleton/index' },
+      { name: 'Dialog', nameZN: '弹窗', path: '/pages/Dialog/index' },
+      { name: 'Popover', nameZN: '气泡卡片', path: '/pages/Popover/index' },
       {
         name: 'PopoverList',
         nameZN: '气泡菜单',
         path: '/pages/PopoverList/index',
       },
-      {
-        name: 'Popup',
-        nameZN: '弹出层',
-        path: '/pages/Popup/index',
-      },
-      {
-        name: 'Result',
-        nameZN: '操作结果',
-        path: '/pages/Result/index',
-      },
-      {
-        name: 'Empty',
-        nameZN: '空状态',
-        path: '/pages/Empty/index',
-      },
-      {
-        name: 'Toast',
-        nameZN: '轻提示',
-        path: '/pages/Toast/index',
-      },
-      {
-        name: 'Feedback',
-        nameZN: '信息反馈',
-        path: '/pages/Feedback/index',
-      },
+      { name: 'Popup', nameZN: '弹出层', path: '/pages/Popup/index' },
+      { name: 'Result', nameZN: '操作结果', path: '/pages/Result/index' },
+      { name: 'Empty', nameZN: '空状态', path: '/pages/Empty/index' },
+      { name: 'Toast', nameZN: '轻提示', path: '/pages/Toast/index' },
+      { name: 'Feedback', nameZN: '信息反馈', path: '/pages/Feedback/index' },
     ],
   },
   {
     type: '引导提示',
     list: [
-      {
-        name: 'Badge',
-        nameZN: '徽标',
-        path: '/pages/Badge/index',
-      },
-      {
-        name: 'NoticeBar',
-        nameZN: '通告栏',
-        path: '/pages/NoticeBar/index',
-      },
+      { name: 'Badge', nameZN: '徽标', path: '/pages/Badge/index' },
+      { name: 'NoticeBar', nameZN: '通告栏', path: '/pages/NoticeBar/index' },
     ],
   },
   {
     type: '业务组件',
     list: [
-      {
-        name: 'Countdown',
-        nameZN: '倒计时',
-        path: '/pages/Countdown/index',
-      },
-      /// #if ALIPAY
-      {
-        name: 'Voucher',
-        nameZN: '优惠券',
-        path: '/pages/Voucher/index',
-      },
+      { name: 'Countdown', nameZN: '倒计时', path: '/pages/Countdown/index' },
+      { name: 'Voucher', nameZN: '优惠券', path: '/pages/Voucher/index' },
       {
         name: 'SelectContact',
         nameZN: '选人组件',
         path: '/pages/SelectContact/index',
       },
-      /// #endif
     ],
   },
   {
@@ -358,31 +201,15 @@ export const componentList = [
         nameZN: '页面容器',
         path: '/pages/PageContainer/index',
       },
-      {
-        name: 'Typography',
-        nameZN: '排版',
-        path: '/pages/Typography/index',
-      },
-      {
-        name: 'SafeArea',
-        nameZN: '安全区',
-        path: '/pages/SafeArea/index',
-      },
+      { name: 'Typography', nameZN: '排版', path: '/pages/Typography/index' },
+      { name: 'SafeArea', nameZN: '安全区', path: '/pages/SafeArea/index' },
     ],
   },
   {
     type: '待废弃',
     list: [
-      {
-        name: 'Container',
-        nameZN: '容器',
-        path: '/pages/Container/index',
-      },
-      {
-        name: 'Modal',
-        nameZN: '对话框',
-        path: '/pages/Modal/index',
-      },
+      { name: 'Container', nameZN: '容器', path: '/pages/Container/index' },
+      { name: 'Modal', nameZN: '对话框', path: '/pages/Modal/index' },
     ],
   },
 ];

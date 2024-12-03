@@ -31,7 +31,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Theme customization
 
@@ -66,7 +66,7 @@ Antd-Mini provides ConfigProvider components for global configuration of interna
 - Turkish (Turkey) | tr-TR
 - Vietnamese | vi-VN
 
-### Code example
+### Code Sample
 
 <code src='../../demo/pages/ConfigProvider/index'></code>
 

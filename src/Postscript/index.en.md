@@ -12,7 +12,7 @@ supportPlatform: ['alipay']
 
 Use when additional notes need to be added below the form or content.
 
-## Code example
+## Code Sample
 
 ### Basic Usage
 
@@ -29,7 +29,7 @@ Use when additional notes need to be added below the form or content.
 | title                | Title             | string                  | -                 |
 | maxLength            | Maximum input length     | number                  | Infinity          |
 | quickInputs          | Quick Input Options     | string[]                | []                |
-| placeholder          | Placeholder text       | string                  | "Bring a message to TA ~' |
+| placeholder          | Placeholder text       | string                  | "Bring a word to TA ~' |
 | placeholderClassName | Placeholder class name       | string                  | -                 |
 | combineSymbol        | Quick Input Connection Symbol | string                  | -                 |
 | onChange             | Callback when content changes | (value: string) => void | -                 |
@@ -38,7 +38,7 @@ Use when additional notes need to be added below the form or content.
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                          | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks         |
 | ------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |

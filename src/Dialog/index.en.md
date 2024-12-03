@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -123,13 +123,13 @@ Page({
 | cancelButtonStyle            | Cancel Button Style                                      | string       | -      |
 | cancelButtonText             | Cancel Button Text                                      | string       | -      |
 | className                    | Class Name                                              | string       | -      |
-| closable                     | Whether to display the close button in the upper right corner. Effective only when type is focus | boolean      | -      |
+| closable                     | Whether to display the close button in the upper right corner. Only valid when type is focus | boolean      | -      |
 | content                      | Content                                              | string\|slot | -      |
 | destroyOnClose               | Whether to unload content when invisible                              | boolean      | false  |
 | footer                       | Custom Button Area                                      | slot         | -      |
 | maskClosable                 | Click whether the layer triggers the onClose.                          | boolean      | true   |
 | maskClassName                | Class name of the layer                                        | string       | -      |
-| maskStyle                    | The style of the layer                                        | string       | -      |
+| maskStyle                    | Mask Style                                        | string       | -      |
 | style                        | Style                                              | string       | -      |
 | title                        | Title                                              | string\|slot | -      |
 | visible                      | Whether to display                                          | boolean      | false  |
@@ -143,7 +143,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                    | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                   |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |

@@ -9,7 +9,7 @@ toc: 'content'
 
 # Popup
 
-Slides or pops up a custom content area from the screen. It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
+Slide or pop-up a custom content area from the screen. It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
 
 ## Introduction
 
@@ -26,13 +26,13 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 > - `ant-popup` Components must pass `visible` Property controls the show/hide state.`position` Specifies the direction of occurrence, optional `top` `bottom` `left` `right`. The contents of the pop-up window are filled in the form of slots.
 > - `close` The event will be triggered when the icon is closed by clicking the upper right corner or when the layer is closed by clicking the layer.
-> - `clickBack` event is triggered when the top left back button is clicked.
+> - `clickBack` event is triggered when the back button in the upper left corner is clicked.
 
 ```xml
 <ant-popup
@@ -124,7 +124,7 @@ Page({
 </ant-popup>
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Popup/index'></code>
 
@@ -147,7 +147,7 @@ Page({
 | width                         | The width, in position, is `left` or `right` unit px                                                                                                            | number     | -           |
 | zIndex                        | Pop-up Level                                                                                                                                                          | number     | 998         |
 | backgroundImage               | Background map of the pop-up box                                                                                                                                                      | string     | -           |
-| showClose                     | Show icon with bullet box closed                                                                                                                                               | boolean    | false       |
+| showClose                     | Show the icon with the bullet box closed.                                                                                                                                               | boolean    | false       |
 | showBack                      | Show the icon returned by the bullet box                                                                                                                                               | boolean    | false       |
 | #if ALIPAY onClose            | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
 | #if ALIPAY onClickBack        | Click the back button to trigger the callback                                                                                                                                            | () => void | -           |
@@ -175,7 +175,7 @@ Component provides the following CSS variables, which can be used to customize s
 
 ### After Popup is opened, what if the page behind the layer can scroll?
 
-Preventing page scrolling after the layer is currently not effective in IDE and emulator, please debug on real machine.
+Preventing page scrolling after the mask does not currently take effect in IDE and emulator, please debug on real machine.
 
 ### Popup internal elements need to support scrolling how to deal?
 
@@ -195,7 +195,7 @@ If scrolling is required in the pop-up window, use the scroll-view component and
 
 ### How to solve the abnormal display of picker-view inside Popup?
 
-Popup is passed by default. `display:none` Hidden, and picker-view cannot be placed in `display:none` in the components. There are two solutions:
+By default, Popup is `display:none` Hidden, and picker-view cannot be placed in `display:none` in the components. There are two solutions:
 
 1. Add attribute on picker-view `a:if="{{popupVisible}}"`, the picker-view is displayed when the Popup is displayed.
 2. Set on Popup `destroyOnClose="{{true}}"`to unload content when the Popup is not visible.
