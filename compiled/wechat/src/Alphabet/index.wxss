@@ -1,0 +1,47 @@
+.alphabet-container {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 28rpx;
+  min-height: 48px;
+  padding-left: 12rpx;
+  text-align: center;
+  transform: translate(0, -50%);
+}
+.alphabet-container-item {
+  position: relative;
+  display: flex;
+  width: 14px;
+  height: 14px;
+  font-size: 10px;
+  line-height: 14rpx;
+  color: #999;
+  text-align: center;
+  border-radius: 14rpx;
+  align-items: center;
+  justify-content: center;
+}
+.alphabet-container-item-tip {
+  position: absolute;
+  left: -180rpx;
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 56rpx;
+  line-height: 100rpx;
+  color: white;
+  text-align: center;
+  background: #cccccc;
+  border-radius: 100rpx;
+}
+.alphabet-container-item-triangle {
+  position: absolute;
+  left: -94.66rpx;
+  width: 0;
+  height: 0;
+  border: 35.35rpx solid transparent;
+  border-left: 35.35rpx solid #cccccc;
+}
+.alphabet-container-active {
+  color: white;
+  background: #1677ff;
+}

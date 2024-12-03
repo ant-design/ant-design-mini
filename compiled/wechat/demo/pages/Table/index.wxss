@@ -1,0 +1,16 @@
+.full-table-table .mui-table-list-item-value-first {
+  border-bottom: 2rpx solid #1677ff !important;
+}
+.full-table-table .g-hairline--top::after {
+  border: none;
+}
+.full-table-table .mui-table-list-item-rows {
+  border-bottom: 2rpx solid #D3D3D3;
+}
+.table-empty-img {
+  position: sticky;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 200rpx;
+  height: 200rpx;
+}

@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "Footer",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+    "ant-icon": "../../../src/Icon/index",
+    "ant-footer": "../../../src/Footer/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

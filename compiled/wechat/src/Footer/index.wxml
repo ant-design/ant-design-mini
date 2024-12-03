@@ -1,0 +1,65 @@
+<view class="ant-footer {{className}}">
+  <ant-divider
+    wx:if="{{label && !noLabelDivider}}"
+    className="ant-footer-label"
+  >
+    <text
+      slot="text"
+      class="ant-footer-label-text"
+    >{{label}}</text>
+  </ant-divider>
+  <text
+    wx:if="{{label && noLabelDivider}}"
+    slot="text"
+    class="ant-footer-label-text"
+  >{{label}}</text>
+  <view
+    wx:if="{{links}}"
+    class="ant-footer-links"
+  >
+    <view
+      class="ant-footer-links-item"
+      data-item="{{item}}"
+      bind:tap="onTapLink"
+      wx:for="{{links}}"
+      wx:for-index="index"
+      wx:for-item="item"
+      wx:key="key"
+    >
+      <view
+        hoverStartTime="20"
+        hoverStayTime="50"
+        hoverClass="hover"
+      >{{item.text}}</view>
+      <ant-divider
+        wx:if="{{index !== links.length - 1}}"
+        direction="vertical"
+      ></ant-divider>
+    </view>
+  </view>
+  <view
+    wx:if="{{content}}"
+    class="ant-footer-content"
+  >
+    <text>{{content}}</text>
+  </view>
+  <view
+    wx:if="{{chips}}"
+    class="ant-footer-chips"
+  >
+    <view
+      class="ant-footer-chips-item {{index === 0 ? 'first' : ''}} {{item.disabled ? 'disabled' : ''}}"
+      hoverStartTime="20"
+      hoverStayTime="50"
+      hoverClass="hover"
+      data-item="{{item}}"
+      bind:tap="onTapChip"
+      wx:for="{{chips}}"
+      wx:for-index="index"
+      wx:for-item="item"
+      wx:key="key"
+    >
+      <view>{{item.text}}</view>
+    </view>
+  </view>
+</view>
