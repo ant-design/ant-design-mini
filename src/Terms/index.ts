@@ -23,7 +23,7 @@ Component(
       if (this.countdownTimerArr[index]) {
         clearTimeout(this.countdownTimerArr[index] as number);
       }
-      const countdownArr = [...this.data.countdownArr];
+      const countdownArr = this.data.countdownArr;
       countdownArr[index] = timeNum;
       this.setData({
         countdownArr,

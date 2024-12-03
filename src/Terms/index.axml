@@ -90,7 +90,8 @@
           className="{{buttons.length === 1 ? 'ant-terms-btn-single' : ''}} {{item.className}}"
         >
           <slot name="button-prefix" slot="prefix" index="{{index}}" item="{{item}}"></slot>
-          <slot name="button-content" index="{{index}}" item="{{item}}">{{item.text}}{{ countdownArr[index] ? '（' + countdownArr[index] + 's）' : '' }}</slot>
+          <slot name="button-content" index="{{index}}" item="{{item}}">{{item.text}}</slot>
+          {{ countdownArr[index] ? '（' + countdownArr[index] + 's）' : '' }}
           <slot name="button-suffix" slot="suffix" index="{{index}}" item="{{item}}"></slot>
         </ant-button>
         <slot name="button-right" index="{{index}}" item="{{item}}"></slot>

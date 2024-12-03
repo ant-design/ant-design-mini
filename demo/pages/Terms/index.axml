@@ -5,7 +5,7 @@
     termPrefix="请阅读并同意"
     terms="{{terms}}"
     buttons="{{buttons1}}"
-    onButtonTap="handleButton1Tap"
+    onButtonTap="handleButtonTap"
     onTermTap="handleTermTap"
   />
 </ant-container>
@@ -31,7 +31,7 @@
     termPrefix="当前正在读"
     terms="{{terms}}"
     buttons="{{buttons3}}"
-    onButtonTap="handleButton3Tap"
+    onButtonTap="handleButtonTap"
     onTermTap="handleTermTap"
     onCountdownFinish="handleCountdownFinish"
   />

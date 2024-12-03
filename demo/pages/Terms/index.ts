@@ -33,7 +33,7 @@ Page({
     ],
     checkboxTipsVisible: false,
   },
-  handleButton1Tap(item, index, checked, event) {
+  handleButtonTap(item, index, checked, event) {
     console.log(item, index, checked, event);
     my.showToast({ content: `点击了第 ${index + 1} 个按钮` });
   },
@@ -58,5 +58,12 @@ Page({
   },
   handleCountdownFinish(item, index) {
     console.log('handleCountdownFinish', item, index);
+    this.setData({
+      buttons3: this.data.buttons3.map((button, idx) =>
+        idx === index
+          ? { ...button, text: '同意协议 + 行动点描述', disabled: false }
+          : button
+      ),
+    });
   },
 });
