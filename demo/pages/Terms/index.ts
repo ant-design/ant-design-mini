@@ -17,6 +17,14 @@ Page({
         type: 'primary',
       },
     ],
+    buttons3: [
+      {
+        text: '请阅读全部协议',
+        disabled: true,
+        type: 'primary',
+        countdownTime: 5,
+      },
+    ],
     terms: [
       {
         name: '《用户协议》',
@@ -47,5 +55,8 @@ Page({
     if (checked) {
       this.setData({ checkboxTipsVisible: false });
     }
+  },
+  handleCountdownFinish(item, index) {
+    console.log('handleCountdownFinish', item, index);
   },
 });

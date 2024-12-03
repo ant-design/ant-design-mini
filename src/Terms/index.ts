@@ -7,7 +7,7 @@ Component(
   {
     dealAllCountdown(val) {
       // 如果时间表的没有变，直接返回
-      const newCountdownRecord = val.map((item) => item.countdown);
+      const newCountdownRecord = val.map((item) => item.countdownTime);
       if (isEqual(this.countdownTimeRecord, newCountdownRecord)) return;
       this.setData({
         countdownArr: new Array(val.length),
@@ -20,36 +20,29 @@ Component(
       this.countdownTimeRecord = newCountdownRecord; // 缓存每一项的倒计时时间，用来对比每一项的倒计时是否变化，决定要不要重置倒计时
     },
     dealCountdown(timeNum, index) {
-      // 每一项倒计时的处理方法，注意这种行为是存在性能浪费的（可能会有多个定时器同时在跑），
-      // 只是因为预判操作按钮不可能太多所以为了简单才这样做，如果数量过多是需要考虑同一个一个定时器算多个倒计时的。
       if (this.countdownTimerArr[index]) {
         clearTimeout(this.countdownTimerArr[index] as number);
       }
       const countdownArr = [...this.data.countdownArr];
+      countdownArr[index] = timeNum;
       this.setData({
-        countdownArr: countdownArr.splice(index, 1, timeNum),
+        countdownArr,
       });
       const countdownTimer = (time) => {
+        countdownArr[index] = time;
         this.setData({
-          countdownArr: countdownArr.splice(index, 1, time),
+          countdownArr,
         });
         this.timer = setTimeout(() => {
           if (time - 1 > 0) {
             countdownTimer(time - 1);
           } else {
+            countdownArr[index] = 0;
             this.setData({
-              countdownArr: countdownArr.splice(index, 1, 0),
+              countdownArr,
             });
             const item = this.props.buttons[index];
             triggerEventValues(this, 'countdownFinish', [item, index]);
-            // 倒计时结束时，自动触发一次按钮对应的点击事件
-            if (item && !item.noAutoExecute) {
-              this.onActionTap({
-                currentTarget: {
-                  dataset: { item, index },
-                },
-              });
-            }
           }
         }, 1000);
       };
@@ -97,7 +90,7 @@ Component(
       if (
         Array.isArray(buttons) &&
         buttons.length &&
-        buttons.some((item) => item.countdown)
+        buttons.some((item) => item.countdownTime)
       ) {
         // 数组形式
         this.dealAllCountdown(buttons);
@@ -109,7 +102,7 @@ Component(
         if (
           Array.isArray(buttons) &&
           buttons.length &&
-          buttons.some((item) => item.countdown)
+          buttons.some((item) => item.countdownTime)
         ) {
           // 数组形式
           this.dealAllCountdown(buttons);

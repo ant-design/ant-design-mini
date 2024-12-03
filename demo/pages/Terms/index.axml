@@ -24,3 +24,15 @@
     onTermPrefixTap="handleTermPrefixTap"
   />
 </ant-container>
+
+<ant-container title="强制阅读型">
+  <ant-terms
+    type="read"
+    termPrefix="当前正在读"
+    terms="{{terms}}"
+    buttons="{{buttons3}}"
+    onButtonTap="handleButton3Tap"
+    onTermTap="handleTermTap"
+    onCountdownFinish="handleCountdownFinish"
+  />
+</ant-container>
