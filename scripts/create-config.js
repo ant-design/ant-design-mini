@@ -41,7 +41,7 @@ async function createConfig() {
   /** 生成config/wechat/app.json */
   writeFileSync(path.resolve(__dirname, '..', 'config', 'wechat', 'app.json'), JSON.stringify({
     "darkmode": true,
-    pages: demoPageFiles.map(fileName => `demo/pages/${fileName}/index`),
+    pages: ['demo/pages/index/index', ...demoPageFiles.filter(item => item !== 'index').map(fileName => `demo/pages/${fileName}/index`)],
   }, null, 2), 'utf8');
 
   /** 生成config/alipay/app.json */
@@ -58,7 +58,7 @@ async function createConfig() {
     },
     "lazyCodeLoading": "requiredComponents",
     "debug": true,
-    pages: demoPageFiles.map(fileName => `pages/${fileName}/index`),
+    pages: ['pages/index/index', ...demoPageFiles.filter(item => item !== 'index').map(fileName => `pages/${fileName}/index`)],
   }, null, 2), 'utf8');
 }
 module.exports = createConfig;
