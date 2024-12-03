@@ -79,7 +79,8 @@ Component(
 
     onButtonTap(event) {
       const { item, index } = event.currentTarget.dataset;
-      triggerEventValues(this, 'buttonTap', [item, index], event);
+      const { checked } = this.data;
+      triggerEventValues(this, 'buttonTap', [item, index, checked], event);
     },
   },
   {

@@ -23,10 +23,14 @@ Page({
         key: 'user',
       },
     ],
+    checkboxTipsVisible: false,
   },
-  handleButtonTap(item, index, event) {
-    console.log(item, index, event);
+  handleButton1Tap(item, index, checked, event) {
+    console.log(item, index, checked, event);
     my.showToast({ content: `点击了第 ${index + 1} 个按钮` });
+  },
+  handleButton2Tap(item, index, checked) {
+    this.setData({ checkboxTipsVisible: !checked });
   },
   handleTermTap(item, index, event) {
     console.log(item, index, event);
@@ -34,8 +38,14 @@ Page({
   },
   handleCheckChange(checked) {
     console.log('handleCheckChange', checked);
+    if (checked) {
+      this.setData({ checkboxTipsVisible: false });
+    }
   },
   handleTermPrefixTap(checked) {
     console.log('handleTermPrefixTap', checked);
+    if (checked) {
+      this.setData({ checkboxTipsVisible: false });
+    }
   },
 });

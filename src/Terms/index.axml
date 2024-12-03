@@ -14,10 +14,19 @@
         a:if="{{terms.length}}"
       >
         <block a:if="{{type === 'check'}}">
-          <ant-checkbox
-            checked="{{checked}}"
-            onChange="onCheckChange"
-          />
+          <ant-popover
+            className="ant-terms-checkbox-tips"
+            placement="top-left"
+            autoAdjustOverflow="{{false}}"
+            visible="{{checkboxTipsVisible}}"
+            content="{{checkboxTipsText}}"
+            style="display: inline-block"
+          >
+            <ant-checkbox
+              checked="{{checked}}"
+              onChange="onCheckChange"
+            />
+          </ant-popover>
           <text
             a:if="{{termPrefix}}"
             onTap="onTermPrefixTap"

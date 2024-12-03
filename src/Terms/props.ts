@@ -52,34 +52,39 @@ export interface IProps extends IBaseProps {
    */
   termSuffix?: string;
   /**
-   * @description 勾选框文案引导
+   * @description 勾选框引导文案
    * @default ""
    */
-  checkboxTips?: string;
+  checkboxTipsText?: string;
+  /**
+   * @description 勾选框引导显示状态
+   * @default false
+   */
+  checkboxTipsVisible?: boolean;
   /**
    * @description 行动点按钮点击回调
    */
-  onButtonTap?: (b: Button, index, event) => void;
+  onButtonTap?: (b?: Button, index?: number, checked?: boolean, event?) => void;
   /**
    * @description 协议点击回调
    */
-  onTermTap?: (t: Term, index, event) => void;
+  onTermTap?: (t?: Term, index?: number, event?) => void;
   /**
    * @description 勾选回调
    */
-  onCheckChange?: (c: boolean) => void;
+  onCheckChange?: (c?: boolean) => void;
   /**
    * @description 协议前缀点击回调
    */
-  onTermPrefixTap?: (c: boolean) => void;
+  onTermPrefixTap?: (c?: boolean) => void;
   /**
    * @description 倒计时结束回调
    */
-  onCountdownFinish?: (b: Button, index, event) => void;
+  onCountdownFinish?: (b?: Button, index?: number, event?) => void;
   /**
    * @description 协议阅读切换
    */
-  onReadChange?: (t: Term) => void;
+  onReadChange?: (t?: Term) => void;
   /**
    * @description 协议阅读触底时回调
    */
@@ -95,7 +100,8 @@ export const DefaultProps: IProps = {
   buttonsDirection: 'vertical',
   termPrefix: '',
   termSuffix: '',
-  checkboxTips: '',
+  checkboxTipsText: '',
+  checkboxTipsVisible: false,
   onButtonTap: () => {},
   onTermTap: () => {},
   onCheckChange: () => {},
