@@ -45,12 +45,17 @@ export interface IProps extends IBaseProps {
    * @description 协议前缀
    * @default ""
    */
-  protocolPrefix?: string;
+  termPrefix?: string;
   /**
    * @description 协议后缀
    * @default ""
    */
-  protocolSuffix?: string;
+  termSuffix?: string;
+  /**
+   * @description 勾选框文案引导
+   * @default ""
+   */
+  checkboxTips?: string;
   /**
    * @description 行动点按钮点击回调
    */
@@ -62,7 +67,15 @@ export interface IProps extends IBaseProps {
   /**
    * @description 勾选回调
    */
-  onCheckChange?: (c: boolean, index, event) => void;
+  onCheckChange?: (c: boolean) => void;
+  /**
+   * @description 协议前缀点击回调
+   */
+  onTermPrefixTap?: (c: boolean) => void;
+  /**
+   * @description 倒计时结束回调
+   */
+  onCountdownFinish?: (b: Button, index, event) => void;
   /**
    * @description 协议阅读切换
    */
@@ -71,10 +84,6 @@ export interface IProps extends IBaseProps {
    * @description 协议阅读触底时回调
    */
   onScrollToLower?: () => void;
-  /**
-   * @description 倒计时结束回调
-   */
-  onCountdownFinish?: (b: Button, index, event) => void;
 }
 
 export const DefaultProps: IProps = {
@@ -84,12 +93,14 @@ export const DefaultProps: IProps = {
   buttons: null,
   buttonsFixed: false,
   buttonsDirection: 'vertical',
-  protocolPrefix: '',
-  protocolSuffix: '',
+  termPrefix: '',
+  termSuffix: '',
+  checkboxTips: '',
   onButtonTap: () => {},
   onTermTap: () => {},
   onCheckChange: () => {},
+  onTermPrefixTap: () => {},
+  onCountdownFinish: () => {},
   onReadChange: () => {},
   onScrollToLower: () => {},
-  onCountdownFinish: () => {},
 };

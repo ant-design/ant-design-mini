@@ -2,35 +2,40 @@ Page({
   data: {
     buttons1: [
       {
-        text: '查看详情',
+        text: '同意协议 + 行动点描述',
         type: 'primary',
+      },
+      {
+        text: '取消',
+        aide: true,
+        type: 'default',
       },
     ],
     buttons2: [
       {
-        text: '查看详情',
+        text: '行动点描述',
         type: 'primary',
-        icon: 'AppOutline',
       },
+    ],
+    terms: [
       {
-        text: '次级按钮',
-        type: 'secondary',
-      },
-      {
-        text: '返回',
-        type: 'default',
-      },
-      {
-        text: '禁用',
-        type: 'default',
-        disabled: true,
+        name: '《用户协议》',
+        key: 'user',
       },
     ],
   },
-  handleTap(item, index, event) {
-    my.alert({ content: `点击了第 ${index} 个按钮` });
+  handleButtonTap(item, index, event) {
+    console.log(item, index, event);
+    my.showToast({ content: `点击了第 ${index + 1} 个按钮` });
   },
-  handleDisabledTap(item, index, event) {
-    my.alert({ content: `点击了第 ${index} 个按钮` });
+  handleTermTap(item, index, event) {
+    console.log(item, index, event);
+    my.showToast({ content: `点击了第 ${index + 1} 个协议` });
+  },
+  handleCheckChange(checked) {
+    console.log('handleCheckChange', checked);
+  },
+  handleTermPrefixTap(checked) {
+    console.log('handleTermPrefixTap', checked);
   },
 });

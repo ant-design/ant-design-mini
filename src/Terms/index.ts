@@ -1,5 +1,5 @@
 import isEqual from 'lodash.isequal';
-import { Component } from '../_util/simply';
+import { Component, triggerEvent, triggerEventValues } from '../_util/simply';
 import { DefaultProps } from './props';
 
 Component(
@@ -41,7 +41,7 @@ Component(
               countdownArr: countdownArr.splice(index, 1, 0),
             });
             const item = this.props.buttons[index];
-            this.props.onCountdownEnd(item, index);
+            triggerEventValues(this, 'countdownFinish', [item, index]);
             // 倒计时结束时，自动触发一次按钮对应的点击事件
             if (item && !item.noAutoExecute) {
               this.onActionTap({
@@ -57,36 +57,29 @@ Component(
       countdownTimer(timeNum);
     },
 
-    // 协议选框
-    onProtocolChange(checked) {
+    onCheckChange(checked) {
       this.setData({
         checked,
       });
-      this.props.onProtocolChange(checked);
+      triggerEvent(this, 'checkChange', checked);
     },
 
-    handleTapProtocolPrefix() {
+    onTermPrefixTap() {
       const { checked } = this.data;
       this.setData({
         checked: !checked,
       });
-
-      this.props.onProtocolChange(!checked);
+      triggerEvent(this, 'termPrefixTap', !checked);
     },
 
-    // 点击协议
-    onProtocolTap(event) {
-      const { onProtocolTap } = this.props;
+    onTermTap(event) {
       const { item, index } = event.currentTarget.dataset;
-
-      onProtocolTap(item, index, event);
+      triggerEventValues(this, 'termTap', [item, index], event);
     },
 
-    onActionTap(event) {
-      const { onActionTap } = this.props;
+    onButtonTap(event) {
       const { item, index } = event.currentTarget.dataset;
-
-      onActionTap(item, index, event);
+      triggerEventValues(this, 'buttonTap', [item, index], event);
     },
   },
   {

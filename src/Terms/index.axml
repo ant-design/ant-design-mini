@@ -7,90 +7,89 @@
   "
 >
   <slot name="button-top"></slot>
-  <view>
-    <view class="page-safe-bottom">
-      <slot name="button-group-top">
-        <view
-          class="protocol"
-          a:if="{{terms.length}}"
-        >
-          <block a:if="{{type === 'check'}}">
-            <ant-checkbox
-              checked="{{checked}}"
-              onChange="onProtocolChange"
-            />
-            <text
-              a:if="{{protocolPrefix}}"
-              onTap="handleTapProtocolPrefix"
-              class="ant-terms-protocol-text"
-            >
-              {{ protocolPrefix}}
-            </text>
-          </block>
-
-          <text
-            a:if="{{protocolPrefix}}"
-            class="ant-terms-protocol-text"
-          >
-            {{protocolPrefix}}
-          </text>
-
-          <text
-            class="protocol-item"
-            a:for="{{terms}}"
-            onTap="onProtocolTap"
-            data-item="{{item}}"
-            data-index="{{index}}"
-          >
-            {{item.name}}
-          </text>
-
-          <text
-            a:if="{{protocolSuffix}}"
-            class="ant-terms-protocol-text"
-          >
-            {{protocolSuffix}}
-          </text>
-        </view>
-      </slot>
-
+  <view class="page-safe-bottom">
+    <slot name="button-group-top">
       <view
-        class="ant-terms-btn c-operation-buttons-btn {{buttonsDirection==='horizontal' ? 'ant-terms-btn-flex c-operation-buttons-btn-flex' : ''}}"
-        a:if="{{buttons.length}}"
+        class="protocol"
+        a:if="{{terms.length}}"
       >
-        <slot name="prefix"></slot>
-        <view
-          a:for="{{buttons}}"
-          class="ant-terms-btn-item c-operation-buttons-btn-item {{buttonsDirection==='horizontal' ? 'ant-terms-btn-item-flex c-operation-buttons-btn-item-flex' : ''}}"
+        <block a:if="{{type === 'check'}}">
+          <ant-checkbox
+            checked="{{checked}}"
+            onChange="onCheckChange"
+          />
+          <text
+            a:if="{{termPrefix}}"
+            onTap="onTermPrefixTap"
+            class="ant-terms-protocol-text"
+          >
+            {{termPrefix}}
+          </text>
+        </block>
+
+        <text
+          a:if="{{type !== 'check' && termPrefix}}"
+          class="ant-terms-protocol-text"
+        >
+          {{termPrefix}}
+        </text>
+
+        <text
+          class="protocol-item"
+          a:for="{{terms}}"
+          onTap="onTermTap"
           data-item="{{item}}"
           data-index="{{index}}"
         >
-          <slot name="button-left" index="{{index}}" item="{{item}}"></slot>
-          <ant-button
-            index="{{index}}"
-            item="{{item}}"
-            onTap="onActionTap"
-            type="{{item.type || 'primary'}}"
-            style="{{item.style || ''}}"
-            inline="{{item.inline}}"
-            size="{{item.size}}"
-            loading="{{item.loading}}"
-            disabled="{{item.disabled}}"
-            icon="{{item.icon}}"
-            activeClassName="{{item.activeClassName}}"
-            className="{{buttons.length === 1 ? 'ant-terms-btn-single' : ''}} {{item.className}}"
-          >
-            <slot name="button-prefix" slot="prefix" index="{{index}}" item="{{item}}"></slot>
-            <slot name="button-content" index="{{index}}" item="{{item}}">{{item.text}}{{ countdownArr[index] ? `(${countdownArr[index]}s)` : '' }}</slot>
-            <slot name="button-suffix" slot="suffix" index="{{index}}" item="{{item}}"></slot>
-          </ant-button>
-          <slot name="button-right" index="{{index}}" item="{{item}}"></slot>
-        </view>
-        <slot name="suffix"></slot>
+          {{item.name}}
+        </text>
+
+        <text
+          a:if="{{termSuffix}}"
+          class="ant-terms-protocol-text"
+        >
+          {{termSuffix}}
+        </text>
       </view>
-      <slot name="button-group-bottom"></slot>
-      <!--默认插槽，内容区域-->
-      <slot/>
+    </slot>
+
+    <view
+      class="ant-terms-btn c-operation-buttons-btn {{buttonsDirection==='horizontal' ? 'ant-terms-btn-flex c-operation-buttons-btn-flex' : ''}}"
+      a:if="{{buttons.length}}"
+    >
+      <slot name="prefix"></slot>
+      <view
+        a:for="{{buttons}}"
+        class="ant-terms-btn-item c-operation-buttons-btn-item {{buttonsDirection==='horizontal' ? 'ant-terms-btn-item-flex c-operation-buttons-btn-item-flex' : ''}}"
+        data-item="{{item}}"
+        data-index="{{index}}"
+      >
+        <slot name="button-left" index="{{index}}" item="{{item}}"></slot>
+        <ant-button
+          data-index="{{index}}"
+          data-item="{{item}}"
+          onTap="onButtonTap"
+          type="{{item.type || 'primary'}}"
+          style="{{item.style || ''}}"
+          inline="{{item.inline}}"
+          size="{{item.size}}"
+          aide="{{item.aide}}"
+          loading="{{item.loading}}"
+          disabled="{{item.disabled}}"
+          icon="{{item.icon}}"
+          activeClassName="{{item.activeClassName}}"
+          className="{{buttons.length === 1 ? 'ant-terms-btn-single' : ''}} {{item.className}}"
+        >
+          <slot name="button-prefix" slot="prefix" index="{{index}}" item="{{item}}"></slot>
+          <slot name="button-content" index="{{index}}" item="{{item}}">{{item.text}}{{ countdownArr[index] ? `(${countdownArr[index]}s)` : '' }}</slot>
+          <slot name="button-suffix" slot="suffix" index="{{index}}" item="{{item}}"></slot>
+        </ant-button>
+        <slot name="button-right" index="{{index}}" item="{{item}}"></slot>
+      </view>
+      <slot name="suffix"></slot>
     </view>
+    <slot name="button-group-bottom"></slot>
+    <!--默认插槽，内容区域-->
+    <slot/>
   </view>
 </view>
