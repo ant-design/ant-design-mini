@@ -1,10 +1,12 @@
 Page({
   data: {
-    footer1: {
-      text: '查看详情',
-      type: 'primary',
-    },
-    footer2: [
+    buttons1: [
+      {
+        text: '查看详情',
+        type: 'primary',
+      },
+    ],
+    buttons2: [
       {
         text: '查看详情',
         type: 'primary',

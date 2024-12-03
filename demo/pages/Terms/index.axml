@@ -1,6 +1,6 @@
 <view class="navigation-bar"/>
 
 <ant-container title="基础样式">
-  <ant-terms buttons="{{footer1}}" onButtonTap="handleTap" />
-  <ant-terms buttons="{{footer2}}" onButtonTap="handleTap" />
+  <ant-terms buttons="{{buttons1}}" onButtonTap="handleTap" />
+  <ant-terms buttons="{{buttons2}}" onButtonTap="handleTap" />
 </ant-container>

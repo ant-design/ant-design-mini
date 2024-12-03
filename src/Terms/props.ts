@@ -1,54 +1,95 @@
+import { IButtonProps } from '../Button/props';
 import { IBaseProps } from '../_util/base';
 
-export interface IFooterConfig {
+export interface Button extends IButtonProps {
+  key?: string; // 唯一标识
   text: string; // 按钮文案
-  actionUrl?: string; // 跳转地址
-
-  /**
-   * Ant Design Mini 按钮配置
-   * https://mini.ant.design/components/button
-   */
-  type?: string;
-  size?: string;
-  disabled?: boolean;
-  fill?: boolean;
-  icon?: string;
+  countdownTime?: number; // 计时秒数，单位为秒
 }
 
-interface IProtocol {
-  name: string;
-  url: string;
+interface Term {
+  key?: string; // 唯一标识
+  name?: string; //协议名称
+  [propName: string]: unknown; // 允许其他任意属性
 }
+
+type Type = '' | 'check' | 'read';
 
 export interface IProps extends IBaseProps {
-  protocols?: IProtocol[]; // 要展示的协议，包括
-  confirmation?: string; // 确认按钮前的告知项
-  protocolPrefix?: string; // 阅读并统一协议的文案前缀
-  showProtocolCheck?: boolean; // 是否展示勾选框，有的协议只需要看就行不需要用户授权就不用勾选框
-  footer: IFooterConfig[];
-  flex?: boolean; // 是否flex布局
-  fixedFooter?: boolean; // 是否吸底
-  spmExtParams?: object;
-  onActionTap?: (item, index, event) => void;
-  onDisabledTap?: (item, index, event) => void;
-  onProtocolTap?: (item, index, event) => void;
-  onProtocolChange?: (checked) => void;
-  onFooterFirstAppear?: () => void;
-  onButtonGroupFirstAppear?: () => void;
-  onButtonFirstAppear?: (item, index) => void;
-  onCountdownEnd?: (item, index) => void; // 按钮的倒计时结束
+  /**
+   * @description 协议展示类型
+   * @default ""
+   */
+  type?: Type;
+  /**
+   * @description 协议列表
+   * @default -
+   */
+  terms?: Term[];
+  /**
+   * @description 按钮列表
+   * @default -
+   */
+  buttons?: Button[];
+  /**
+   * @description 按钮区是否吸底
+   * @default false
+   */
+  buttonsFixed?: boolean;
+  /**
+   * @description 分割线方向，默认纵向
+   * @default "vertical"
+   */
+  buttonsDirection?: 'horizontal' | 'vertical';
+  /**
+   * @description 协议前缀
+   * @default ""
+   */
+  protocolPrefix?: string;
+  /**
+   * @description 协议后缀
+   * @default ""
+   */
+  protocolSuffix?: string;
+  /**
+   * @description 行动点按钮点击回调
+   */
+  onButtonTap?: (b: Button, index, event) => void;
+  /**
+   * @description 协议点击回调
+   */
+  onTermTap?: (t: Term, index, event) => void;
+  /**
+   * @description 勾选回调
+   */
+  onCheckChange?: (c: boolean, index, event) => void;
+  /**
+   * @description 协议阅读切换
+   */
+  onReadChange?: (t: Term) => void;
+  /**
+   * @description 协议阅读触底时回调
+   */
+  onScrollToLower?: () => void;
+  /**
+   * @description 倒计时结束回调
+   */
+  onCountdownFinish?: (b: Button, index, event) => void;
 }
 
 export const DefaultProps: IProps = {
   className: '',
-  protocolPrefix: '我已阅读并同意',
-  confirmation: '',
-  protocols: [],
-  showProtocolCheck: true,
-  footer: [],
-  spmExtParams: {},
-  onActionTap: () => {},
-  onDisabledTap: () => {},
-  onProtocolChange: () => {},
-  onCountdownEnd: () => {},
+  type: '',
+  terms: null,
+  buttons: null,
+  buttonsFixed: false,
+  buttonsDirection: 'vertical',
+  protocolPrefix: '',
+  protocolSuffix: '',
+  onButtonTap: () => {},
+  onTermTap: () => {},
+  onCheckChange: () => {},
+  onReadChange: () => {},
+  onScrollToLower: () => {},
+  onCountdownFinish: () => {},
 };
