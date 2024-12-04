@@ -54,7 +54,6 @@ toc: 'content'
 | onTermTap         | 协议点击回调       | `(t: Term) => void`          | `-`          |
 | onCheckChange     | 勾选回调           | `(c: boolean) => void`       | `-`          |
 | onReadChange      | 协议阅读切换       | `(t: Term) => void`          | `-`          |
-| onScrollToLower   | 协议阅读触底时回调 | `() => void`                 | `-`          |
 | onCountdownFinish | 倒计时结束回调     | `(b: Button) => void`        | `-`          |
 
 ### Button

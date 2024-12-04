@@ -85,10 +85,6 @@ export interface IProps extends IBaseProps {
    * @description 协议阅读切换
    */
   onReadChange?: (index?: number) => void;
-  /**
-   * @description 协议阅读触底时回调
-   */
-  onScrollToLower?: () => void;
 }
 
 export const DefaultProps: IProps = {
@@ -108,5 +104,4 @@ export const DefaultProps: IProps = {
   onTermPrefixTap: () => {},
   onCountdownFinish: () => {},
   onReadChange: () => {},
-  onScrollToLower: () => {},
 };
