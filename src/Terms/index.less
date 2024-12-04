@@ -1,84 +1,103 @@
 @import (reference) './variable.less';
 
 .ant-terms {
-  padding: 24rpx;
+  box-sizing: border-box;
+  padding-top: 24rpx;
 
-  // 按钮区域
-  &-container-wrap {
-    box-sizing: border-box;
-    padding: 24rpx 24rpx 0 24rpx;
+  .ant-terms-btn-single {
+    height: 98rpx;
+    padding: 0;
+    justify-content: center;
+  }
 
-    .ant-terms-btn-single {
-      height: 98rpx;
-      padding: 0;
-      justify-content: center;
-    }
+  &-fixed {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    position: fixed;
+    border-top: 1rpx solid #eee;
+  }
 
-    &-fixed {
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #fff;
-      position: fixed;
-      border-top: 1rpx solid #eee;
-    }
-
-    .protocol {
-      text-align: left;
-      padding-bottom: 24rpx;
-      line-height: 37rpx;
-      .ant-terms-protocol-text {
-        vertical-align: middle;
-        color: #999;
-        font-size: 26rpx;
-        line-height: 37rpx;
-        padding-left: 16rpx;
-      }
-      .ant-terms-checkbox-tips {
-        .ant-popover-content {
-          left: -24rpx !important;
-        }
-      }
-      .ant-checkbox-item {
-        margin-right: 0;
-        vertical-align: middle;
-        .ant-checkbox-item-content {
-          padding-left: 0;
-          font-size: 0;
-        }
-        &-wrap {
-          width: 36rpx;
-          height: 36rpx;
-          flex: 0 0 36rpx;
-        }
-      }
-    }
-
-    .protocol-item {
+  .ant-terms-protocol {
+    margin: 0 24rpx;
+    text-align: left;
+    padding-bottom: 24rpx;
+    line-height: 37rpx;
+    &-item {
       vertical-align: middle;
       font-family: PingFangSC-Regular;
       font-size: 26rpx;
       line-height: 37rpx;
       color: #1677ff;
     }
-  }
-
-  &-btn-item {
-    margin-bottom: 24rpx;
-    &:last-of-type {
-      margin-bottom: 0;
+    &-text {
+      vertical-align: middle;
+      color: #999;
+      font-size: 26rpx;
+      line-height: 37rpx;
+      padding-left: 16rpx;
+    }
+    .ant-terms-checkbox-tips {
+      .ant-popover-content {
+        left: -24rpx !important;
+      }
+    }
+    .ant-checkbox-item {
+      margin-right: 0;
+      vertical-align: middle;
+      .ant-checkbox-item-content {
+        padding-left: 0;
+        font-size: 0;
+      }
+      &-wrap {
+        width: 36rpx;
+        height: 36rpx;
+        flex: 0 0 36rpx;
+      }
     }
   }
 
-  &-btn-flex {
+  .ant-terms-read-protocol {
     display: flex;
-    .ant-terms-btn-item {
-      margin-bottom: 0;
-      flex: 1;
-      margin-right: 24rpx;
+    align-items: center;
+    justify-content: center;
+    height: 60rpx;
+    border-radius: 8rpx;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin: 0 8rpx 24rpx 8rpx;
+    &-item {
+      color: #333;
+      font-size: 22rpx;
+      line-height: 30rpx;
+    }
+    &-text {
+      color: #999;
+      font-size: 22rpx;
+      line-height: 30rpx;
+    }
+  }
 
+  &-btn {
+    margin: 0 24rpx;
+    &-item {
+      margin-bottom: 24rpx;
       &:last-of-type {
-        margin-right: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    &-flex {
+      display: flex;
+      .ant-terms-btn-item {
+        margin-bottom: 0;
+        flex: 1;
+        margin-right: 24rpx;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
       }
     }
   }

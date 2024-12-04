@@ -1,17 +1,17 @@
 
 <view
   class="
-    ant-terms-container-wrap
-    {{buttonsFixed ? 'ant-terms-container-wrap-fixed' : ''}}
+    ant-terms
+    {{buttonsFixed ? 'ant-terms-fixed' : ''}}
     {{className}}
   "
 >
   <slot name="button-top"></slot>
-  <view class="page-safe-bottom">
+  <view>
     <slot name="button-group-top">
       <view
-        class="protocol"
-        a:if="{{terms.length}}"
+        class="ant-terms-protocol"
+        a:if="{{terms.length && type !== 'read'}}"
       >
         <block a:if="{{type === 'check'}}">
           <ant-popover
@@ -44,7 +44,7 @@
         </text>
 
         <text
-          class="protocol-item"
+          class="ant-terms-protocol-item"
           a:for="{{terms}}"
           onTap="onTermTap"
           data-item="{{item}}"
@@ -60,16 +60,60 @@
           {{termSuffix}}
         </text>
       </view>
+
+      <swiper
+        a:if="{{terms.length && type === 'read'}}"
+        className="ant-terms-read-protocol-swiper"
+        current="{{readCurrent}}"
+        autoplay="{{false}}"
+        vertical="{{false}}"
+        circular="{{false}}"
+        previous-margin="40px"
+        next-margin="40px"
+        onChange="onReadChange"
+      >
+        <block a:for="{{terms}}">
+          <swiper-item className="ant-terms-read-protocol-swiper-item">
+            <view
+              class="ant-terms-read-protocol"
+              onTap="onReadSwiperTap"
+              data-item="{{item}}"
+              data-index="{{index}}"
+            >
+              <text
+                a:if="{{termPrefix}}"
+                class="ant-terms-read-protocol-text"
+              >
+                {{termPrefix}}
+              </text>
+              <text
+                class="ant-terms-read-protocol-item"
+                onTap="onTermTap"
+                data-item="{{item}}"
+                data-index="{{index}}"
+              >
+                {{item.name}}
+              </text>
+              <text
+                a:if="{{termSuffix}}"
+                class="ant-terms-read-protocol-text"
+              >
+                {{termSuffix}}
+              </text>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
     </slot>
 
     <view
-      class="ant-terms-btn c-operation-buttons-btn {{buttonsDirection==='horizontal' ? 'ant-terms-btn-flex c-operation-buttons-btn-flex' : ''}}"
+      class="ant-terms-btn {{buttonsDirection==='horizontal' ? 'ant-terms-btn-flex' : ''}}"
       a:if="{{buttons.length}}"
     >
       <slot name="prefix"></slot>
       <view
         a:for="{{buttons}}"
-        class="ant-terms-btn-item c-operation-buttons-btn-item {{buttonsDirection==='horizontal' ? 'ant-terms-btn-item-flex c-operation-buttons-btn-item-flex' : ''}}"
+        class="ant-terms-btn-item {{buttonsDirection==='horizontal' ? 'ant-terms-btn-item-flex' : ''}}"
         data-item="{{item}}"
         data-index="{{index}}"
       >
@@ -101,5 +145,6 @@
     <slot name="button-group-bottom"></slot>
     <!--默认插槽，内容区域-->
     <slot/>
+    <ant-safe-area position="bottom" />
   </view>
 </view>

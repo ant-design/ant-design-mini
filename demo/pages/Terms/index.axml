@@ -29,10 +29,11 @@
   <ant-terms
     type="read"
     termPrefix="当前正在读"
-    terms="{{terms}}"
+    terms="{{terms3}}"
     buttons="{{buttons3}}"
     onButtonTap="handleButtonTap"
     onTermTap="handleTermTap"
     onCountdownFinish="handleCountdownFinish"
+    onReadChange="handleReadChange"
   />
 </ant-container>

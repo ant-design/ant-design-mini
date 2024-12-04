@@ -84,7 +84,7 @@ export interface IProps extends IBaseProps {
   /**
    * @description 协议阅读切换
    */
-  onReadChange?: (t?: Term) => void;
+  onReadChange?: (index?: number) => void;
   /**
    * @description 协议阅读触底时回调
    */

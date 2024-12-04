@@ -22,13 +22,27 @@ Page({
         text: '请阅读全部协议',
         disabled: true,
         type: 'primary',
-        countdownTime: 5,
+        countdownTime: 30,
       },
     ],
     terms: [
       {
         name: '《用户协议》',
         key: 'user',
+      },
+    ],
+    terms3: [
+      {
+        name: '《用户协议》',
+        key: 'user',
+      },
+      {
+        name: '《隐私协议》',
+        key: 'private',
+      },
+      {
+        name: '《网络协议》',
+        key: 'internet',
       },
     ],
     checkboxTipsVisible: false,
@@ -65,5 +79,8 @@ Page({
           : button
       ),
     });
+  },
+  handleReadChange(index) {
+    console.log('handleReadChange', index);
   },
 });

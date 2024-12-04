@@ -75,8 +75,20 @@ Component(
       const { checked } = this.data;
       triggerEventValues(this, 'buttonTap', [item, index, checked], event);
     },
+
+    onReadSwiperTap(event) {
+      const { index } = event.currentTarget.dataset;
+      this.onReadChange({ detail: { current: index } });
+    },
+
+    onReadChange(event) {
+      const { current } = event.detail;
+      this.setData({ readCurrent: current });
+      triggerEvent(this, 'readChange', current, event);
+    },
   },
   {
+    readCurrent: 0,
     checked: false,
     countdownArr: [],
   },
