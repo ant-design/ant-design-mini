@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import { useMatchedRoute } from 'dumi';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import wechatConfig from '../../../../config/wechat.json';
 import useSiteToken from '../../hooks/useSiteToken';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
@@ -21,7 +20,7 @@ function buildUrl(
 
   const page = searchParams.get('page');
   const { platform: supportPlatform, disablePlatformSwitch } =
-    getSupportPlatform(options.platform, page);
+    getSupportPlatform(options.platform);
   searchParams.set('platform', supportPlatform);
   searchParams.set('theme', options.theme);
 
@@ -44,10 +43,8 @@ function buildUrl(
 
 const DefaultPlatform = 'alipay';
 
-function getSupportPlatform(platform: string, page: string | null) {
-  const supportWechat = wechatConfig.pages
-    .map((o) => `${o}/index`)
-    .some((i) => i === page);
+function getSupportPlatform(platform: string) {
+  const supportWechat = true
   if (!supportWechat && platform === 'wechat') {
     return {
       platform: DefaultPlatform,
