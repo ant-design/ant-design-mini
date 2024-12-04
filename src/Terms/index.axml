@@ -61,49 +61,71 @@
         </text>
       </view>
 
-      <swiper
-        a:if="{{terms.length && type === 'read'}}"
-        className="ant-terms-read-protocol-swiper"
-        current="{{readCurrent}}"
-        autoplay="{{false}}"
-        vertical="{{false}}"
-        circular="{{false}}"
-        previous-margin="40px"
-        next-margin="40px"
-        onChange="onReadChange"
-      >
-        <block a:for="{{terms}}">
-          <swiper-item className="ant-terms-read-protocol-swiper-item">
-            <view
-              class="ant-terms-read-protocol"
-              onTap="onReadSwiperTap"
-              data-item="{{item}}"
-              data-index="{{index}}"
-            >
-              <text
-                a:if="{{termPrefix}}"
-                class="ant-terms-read-protocol-text"
-              >
-                {{termPrefix}}
-              </text>
-              <text
-                class="ant-terms-read-protocol-item"
-                onTap="onTermTap"
+      <block a:if="{{terms.length && type === 'read'}}">
+        <swiper
+          className="ant-terms-read-content-swiper"
+          current="{{readCurrent}}"
+          autoplay="{{false}}"
+          vertical="{{false}}"
+          circular="{{false}}"
+          onChange="onReadChange"
+        >
+          <block a:for="{{terms}}">
+            <swiper-item className="ant-terms-read-content-swiper-item">
+              <slot name="read-content-item" item="{{item}}" index="{{index}}"></slot>
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class="ant-terms-read-shadow">
+          <view class="ant-terms-read-shadow-total">
+            <slot name="read-total">共{{terms.length}}份</slot>
+          </view>
+        </view>
+        <swiper
+          className="ant-terms-read-protocol-swiper"
+          current="{{readCurrent}}"
+          autoplay="{{false}}"
+          vertical="{{false}}"
+          circular="{{false}}"
+          previous-margin="35px"
+          next-margin="35px"
+          onChange="onReadChange"
+        >
+          <block a:for="{{terms}}">
+            <swiper-item className="ant-terms-read-protocol-swiper-item">
+              <view
+                class="ant-terms-read-protocol"
+                onTap="onReadSwiperTap"
                 data-item="{{item}}"
                 data-index="{{index}}"
               >
-                {{item.name}}
-              </text>
-              <text
-                a:if="{{termSuffix}}"
-                class="ant-terms-read-protocol-text"
-              >
-                {{termSuffix}}
-              </text>
-            </view>
-          </swiper-item>
-        </block>
-      </swiper>
+                <slot name="read-term-item" item="{{item}}" index="{{index}}">
+                  <text
+                    a:if="{{termPrefix}}"
+                    class="ant-terms-read-protocol-text"
+                  >
+                    {{termPrefix}}
+                  </text>
+                  <text
+                    class="ant-terms-read-protocol-item"
+                    onTap="onTermTap"
+                    data-item="{{item}}"
+                    data-index="{{index}}"
+                  >
+                    {{item.name}}
+                  </text>
+                  <text
+                    a:if="{{termSuffix}}"
+                    class="ant-terms-read-protocol-text"
+                  >
+                    {{termSuffix}}
+                  </text>
+                </slot>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </block>
     </slot>
 
     <view

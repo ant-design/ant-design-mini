@@ -35,5 +35,16 @@
     onTermTap="handleTermTap"
     onCountdownFinish="handleCountdownFinish"
     onReadChange="handleReadChange"
-  />
+  >
+    <view slot="read-content-item" slot-scope="prop">
+      <image
+        src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/966PR7FNh8cAAAAAAAAAAAAADoEQAQFr/original"
+        mode="widthFix"
+        style="width: 100%;"
+      />
+    </view>
+    <view slot="read-total">
+      共{{terms3.length}}份协议
+    </view>
+  </ant-terms>
 </ant-container>
