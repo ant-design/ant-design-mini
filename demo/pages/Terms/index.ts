@@ -54,13 +54,11 @@ Page({
     my.showToast({ content: `点击了第 ${index + 1} 个按钮` });
     /// #endif
     /// #if WECHAT
-    console.log(item.detail);
     // @ts-ignore
     wx.showToast({ title: `点击了第 ${item.detail[1] + 1} 个按钮` });
     /// #endif
   },
   handleButton2Tap(item, index, checked) {
-    console.log(123123,item);
     /// #if ALIPAY
     this.setData({ checkboxTipsVisible: !checked });
     /// #endif
@@ -74,7 +72,6 @@ Page({
     my.showToast({ content: `点击了第 ${index + 1} 个协议` });
     /// #endif
     /// #if WECHAT
-    console.log(item.detail);
     // @ts-ignore
     wx.showToast({ title: `点击了第 ${item.detail[1] + 1} 个协议` });
     /// #endif
