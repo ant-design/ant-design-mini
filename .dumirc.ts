@@ -57,6 +57,10 @@ export default defineConfig({
           link: '/components/overview',
         },
         {
+          title: 'Copilot系列组件',
+          link: '/copilot/copilot-overview',
+        },
+        {
           title: '资源',
           link: '/resources',
         },
@@ -77,6 +81,10 @@ export default defineConfig({
         {
           title: 'Components',
           link: '/components/overview-en',
+        },
+        {
+          title: 'Copilot Components',
+          link: '/copilot/copilot-overview-en',
         },
         {
           title: 'Resources',
