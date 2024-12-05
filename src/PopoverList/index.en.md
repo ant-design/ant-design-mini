@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -83,7 +83,7 @@ Page({
 
 ### bubble position adaptive
 
-> `autoAdjustOverflow` Property to automatically adjust the position of the bubble when it is blocked
+> `autoAdjustOverflow` Property to automatically adjust the position of the bubble when it is occluded
 
 ```xml
 <ant-popover-list
@@ -95,7 +95,7 @@ Page({
 </ant-popover-list>
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/PopoverList/index'></code>
 

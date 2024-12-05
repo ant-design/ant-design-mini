@@ -72,7 +72,7 @@ Page({
 <ant-toast content="custom image" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{true}}" />
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Toast/index'></code>
 

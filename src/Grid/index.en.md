@@ -9,7 +9,7 @@ toc: 'content'
 
 # Grid
 
-The palace is used for navigation of multiple sub-functions in the business and has a higher screen effect than the form of a list.
+The palace grid is used for navigation of multiple sub-functions in the business and has a higher screen effect than the form of a list.
 
 ## Introduction
 
@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -176,7 +176,7 @@ Page({
 | Parameters        | Description                                                  | Type   | Default Value |
 | ----------- | ----------------------------------------------------- | ------ | ------ |
 | description | Description                                                  | string | -      |
-| icon        | icons, support images and [Icon](./Icon)                       | string | -      |
+| icon        | icons, supporting images and [Icon](./Icon)                       | string | -      |
 | iconStyle   | Icon style type, with priority higher than grid, optional `normal` `circle` | string | -      |
 | title       | Title                                                  | string | -      |
 

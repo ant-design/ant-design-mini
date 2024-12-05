@@ -25,7 +25,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Top Safety Area
 ```xml
@@ -56,10 +56,10 @@ In `index.json` Introducing Components in
 | Property | Description | Type | Default Value |
 |-----|-----|-----|--------|
 | className | Container className | string | - |
-| position | Location of safety zone, optional`top`、`bottom` | string | - |
+| position | Location of the security zone, optional`top`、`bottom` | string | - |
 
 ## Slot
 
 | Name        | Description                 |
 | ----------- | -------------------- |
-| Default Slot    | Contents contained in the security zone |
+| Default slot    | Contents contained in the security zone |

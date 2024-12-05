@@ -39,7 +39,7 @@ In `index.json` Introducing Components in
 | cancelButtonStyle                  | Cancel Button Style                                      | string       | -         |
 | cancelButtonText                   | Cancel Button Text                                      | string       | -         |
 | className                          | Class Name                                              | string       | -         |
-| closable                           | Whether to display the close button in the upper right corner. Effective only when type is focus | boolean      | -         |
+| closable                           | Whether to display the close button in the upper right corner. Only valid when type is focus | boolean      | -         |
 | content                            | Content                                              | string\|slot | -         |
 | destroyOnClose                     | Whether to unload content when invisible                              | boolean      | false     |
 | footer                             | Custom Button Area                                      | slot         | -         |
@@ -55,10 +55,10 @@ In `index.json` Introducing Components in
 | type                               | type, optional `default`(default),`focus`(emphasis mode)     | string       | `default` |
 | visible                            | Whether to display                                          | boolean      | false     |
 | #if ALIPAY onCancelButtonTap       | Cancel button click event                                  | ()=>void     | -         |
-| #if ALIPAY onClose                 | Click the close button in the upper right corner of the mask or emphasis mode to trigger the callback  | ()=>void     | -         |
+| #if ALIPAY onClose                 | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -         |
 | #if ALIPAY onPrimaryButtonTap      | Main button click event                                    | ()=>void     | -         |
 | #if ALIPAY onSecondaryButtonTap    | Secondary button click event                                  | ()=>void     | -         |
 | #if WECHAT bind:cancelbuttontap    | Cancel button click event                                  | ()=>void     | -         |
-| #if WECHAT bind:close              | Click the close button in the upper right corner of the mask or emphasis mode to trigger the callback  | ()=>void     | -         |
+| #if WECHAT bind:close              | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -         |
 | #if WECHAT bind:primarybuttontap   | Main button click event                                    | ()=>void     | -         |
 | #if WECHAT bind:secondarybuttontap | Secondary button click event                                  | ()=>void     | -         |

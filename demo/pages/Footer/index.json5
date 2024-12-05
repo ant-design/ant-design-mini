@@ -1,0 +1,17 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Footer",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Footer",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-icon": "../../../src/Icon/index",
+    "ant-footer": "../../../src/Footer/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}
