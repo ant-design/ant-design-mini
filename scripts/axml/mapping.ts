@@ -5,6 +5,14 @@ export const wechatCustomMapping = {
     onTouchEnd: 'bind:touchend',
     onAnimationEnd: 'bindanimationend',
   },
+  'scroll-view': {
+    onTouchStart: 'binddragstart',
+    onTouchMove: 'binddragging',
+    onTouchEnd: 'binddragend',
+    onScroll: 'bindscroll',
+    onScrollToUpper: 'bindscrolltoupper',
+    onScrollToLower: 'bindscrolltolower',
+  },
   input: {
     onInput: 'bindinput',
     onConfirm: 'bindconfirm',

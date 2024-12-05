@@ -38,6 +38,7 @@
     onReadChange="handleReadChange"
   >
     <scroll-view
+      enhanced
       slot="read-content"
       style="height:300px;"
       id="scroll-view"

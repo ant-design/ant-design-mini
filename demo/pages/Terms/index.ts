@@ -144,6 +144,7 @@ Page({
     this.scrollViewRect = await this.getBoundingClientRect('#scroll-view');
   },
   onTouchStart() {
+    console.log('onTouchStart');
     this.tap = false;
   },
   onScroll(e) {
