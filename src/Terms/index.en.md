@@ -2,18 +2,18 @@
 nav:
   path: /components
 group:
-  title: 业务组件
+  title: Bizness Components
   order: 15
 toc: 'content'
 ---
 
-# Terms 协议
+# Terms
 
-用于产品开通、签署协议等场景
+Used in scenarios such as product activation and agreement signing
 
-## 引入
+## Introduction
 
-在 `index.json` 中引入组件
+In `index.json` Introducing Components in
 
 ```json
 "usingComponents": {
@@ -26,9 +26,9 @@ toc: 'content'
 }
 ```
 
-## 代码示例
+## Code Sample
 
-### 基本使用
+### Basic use
 
 ```xml
 <ant-terms
@@ -76,7 +76,7 @@ Page({
 });
 ```
 
-### 勾选型
+### Hook selection
 
 ```xml
 <ant-terms
@@ -159,12 +159,12 @@ Page({
 });
 ```
 
-### 强制阅读
+### Mandatory Reading
 
 ```xml
 <ant-terms
   type="read"
-  termPrefix="当前正在读"
+  termPrefix="当前正In读"
   terms="{{terms}}"
   buttons="{{buttons}}"
   readCurrent="{{readCurrent}}"
@@ -225,7 +225,7 @@ Page({
     />
   </scroll-view>
   <view slot="read-total">
-    共{{terms3.length}}份协议
+    Total {{terms3.length}} agreements
   </view>
 </ant-terms>
 
@@ -344,50 +344,50 @@ Page({
 });
 ```
 
-### Demo 代码
+### Demo Code
 
 <code src='../../demo/pages/Terms/index'></code>
 
 ## API
 
-| 属性                            | 说明                 | 类型                                                              | 默认值       |
+| Property                            | Description                 | Type                                                              | Default Value       |
 | ------------------------------- | -------------------- | ----------------------------------------------------------------- | ------------ |
-| type                            | 协议展示类型         | `""` \| `"check"` \| `"read"`                                     | `""`         |
-| terms                           | 协议列表             | [Term](#term)`[]`                                                 | `-`          |
-| buttons                         | 按钮列表             | [Button](#button)`[]`                                             | `-`          |
-| buttonsFixed                    | 按钮区是否吸底       | `boolean`                                                         | `false`      |
-| buttonsDirection                | 分割线方向，默认纵向 | `"horizontal"` \| `"vertical"`                                    | `"vertical"` |
-| termPrefix                      | 协议前缀             | `string`                                                          | `""`         |
-| termSuffix                      | 协议后缀             | `string`                                                          | `""`         |
-| checkboxTipsText                | 勾选框引导文案       | `string`                                                          | `""`         |
-| checkboxTipsVisible             | 勾选框引导显示状态   | `boolean`                                                         | `false`      |
-| readCurrent                     | 阅读的当前序号       | `number`                                                          | `-`          |
-| defaultReadCurrent              | 默认阅读的当前序号   | `number`                                                          | `-`          |
-| #if ALIPAY onButtonTap          | 行动点按钮点击回调   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
-| #if ALIPAY onTermTap            | 协议点击回调         | `(t?: Term, index?: number, event?) => void`                      | `-`          |
-| #if ALIPAY onCheckChange        | 勾选回调             | `(c?: boolean) => void`                                           | `-`          |
-| #if ALIPAY onTermPrefixTap      | 协议前缀点击回调     | `(c?: boolean) => void`                                           | `-`          |
-| #if ALIPAY onCountdownFinish    | 倒计时结束回调       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
-| #if ALIPAY onReadChange         | 协议阅读切换         | `(index?: number) => void`                                        | `-`          |
-| #if WECHAT bind:buttontap       | 行动点按钮点击回调   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
-| #if WECHAT bind:termtap         | 协议点击回调         | `(t?: Term, index?: number, event?) => void`                      | `-`          |
-| #if WECHAT bind:checkchange     | 勾选回调             | `(c?: boolean) => void`                                           | `-`          |
-| #if WECHAT bind:termprefixtap   | 协议前缀点击回调     | `(c?: boolean) => void`                                           | `-`          |
-| #if WECHAT bind:countdownfinish | 倒计时结束回调       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
-| #if WECHAT bind:readchange      | 协议阅读切换         | `(index?: number) => void`                                        | `-`          |
+| type                            | Protocol Presentation Type         | `""` \| `"check"` \| `"read"`                                     | `""`         |
+| terms                           | Protocol List             | [Term](#term)`[]`                                                 | `-`          |
+| buttons                         | Button List             | [Button](#button)`[]`                                             | `-`          |
+| buttonsFixed                    | Whether the button area sucks the bottom       | `boolean`                                                         | `false`      |
+| buttonsDirection                | Split line direction, default portrait | `"horizontal"` \| `"vertical"`                                    | `"vertical"` |
+| termPrefix                      | Protocol Prefix             | `string`                                                          | `""`         |
+| termSuffix                      | Protocol Suffix             | `string`                                                          | `""`         |
+| checkboxTipsText                | Check the box to guide the copy       | `string`                                                          | `""`         |
+| checkboxTipsVisible             | Check box to guide display status   | `boolean`                                                         | `false`      |
+| readCurrent                     | Current sequence number read       | `number`                                                          | `-`          |
+| defaultReadCurrent              | Current sequence number of default reading   | `number`                                                          | `-`          |
+| #if ALIPAY onButtonTap          | Action Point Button Click Callback   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
+| #if ALIPAY onTermTap            | Protocol Click Callback         | `(t?: Term, index?: number, event?) => void`                      | `-`          |
+| #if ALIPAY onCheckChange        | Check callback             | `(c?: boolean) => void`                                           | `-`          |
+| #if ALIPAY onTermPrefixTap      | Protocol Prefix Click Callback     | `(c?: boolean) => void`                                           | `-`          |
+| #if ALIPAY onCountdownFinish    | Countdown End Callback       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
+| #if ALIPAY onReadChange         | Protocol reading switch         | `(index?: number) => void`                                        | `-`          |
+| #if WECHAT bind:buttontap       | Action Point Button Click Callback   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
+| #if WECHAT bind:termtap         | Protocol Click Callback         | `(t?: Term, index?: number, event?) => void`                      | `-`          |
+| #if WECHAT bind:checkchange     | Check callback             | `(c?: boolean) => void`                                           | `-`          |
+| #if WECHAT bind:termprefixtap   | Protocol Prefix Click Callback     | `(c?: boolean) => void`                                           | `-`          |
+| #if WECHAT bind:countdownfinish | Countdown End Callback       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
+| #if WECHAT bind:readchange      | Protocol reading switch         | `(index?: number) => void`                                        | `-`          |
 
 ### Term
 
-| 属性 | 说明     | 类型     | 默认值 |
+| Property | Description     | Type     | Default Value |
 | ---- | -------- | -------- | ------ |
-| key  | 唯一标识 | `string` | `-`    |
-| name | 协议名称 | `string` | `-`    |
+| key  | Unique identification | `string` | `-`    |
+| name | Agreement Name | `string` | `-`    |
 
 ### Button
 
-| 属性                                                  | 说明               | 类型     | 默认值 |
+| Property                                                  | Description               | Type     | Default Value |
 | ----------------------------------------------------- | ------------------ | -------- | ------ |
-| key                                                   | 唯一标识           | `string` | `-`    |
-| text                                                  | 按钮文案           | `string` | `-`    |
-| countdownTime                                         | 计时秒数，单位为秒 | `number` | `-`    |
-| 透传 [ant-button](/components/button#button) 所有属性 |
+| key                                                   | Unique identification           | `string` | `-`    |
+| text                                                  | Button Copy           | `string` | `-`    |
+| countdownTime                                         | Number of seconds, in seconds | `number` | `-`    |
+| Transparent transmission [ant-button](/components/button#button) All Properties |
