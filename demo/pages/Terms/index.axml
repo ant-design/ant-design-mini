@@ -52,24 +52,24 @@
       onScrollToLower="onScrollToLower"
     >
       <image
+        class="term-content"
         id="term-content-0"
         src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/966PR7FNh8cAAAAAAAAAAAAADoEQAQFr/original"
         mode="widthFix"
-        style="display: block;width: 100%;border-bottom: 1px solid #eee;"
         onLoad="onImageLoad"
       />
       <image
+        class="term-content"
         id="term-content-1"
         src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/966PR7FNh8cAAAAAAAAAAAAADoEQAQFr/original"
         mode="widthFix"
-        style="display: block;width: 100%;border-bottom: 1px solid #eee;"
         onLoad="onImageLoad"
       />
       <image
+        class="term-content"
         id="term-content-2"
         src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/966PR7FNh8cAAAAAAAAAAAAADoEQAQFr/original"
         mode="widthFix"
-        style="display: block;width: 100%;"
         onLoad="onImageLoad"
       />
     </scroll-view>

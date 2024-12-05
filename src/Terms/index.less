@@ -2,10 +2,10 @@
 
 .ant-terms {
   box-sizing: border-box;
-  padding-top: 20rpx;
+  padding-top: 20 * @rpx;
 
   .ant-terms-btn-single {
-    height: 98rpx;
+    height: 98 * @rpx;
     padding: 0;
     justify-content: center;
   }
@@ -14,37 +14,37 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #fff;
+    background-color: @terms-fixed-background-color;
     position: fixed;
-    border-top: 1rpx solid #eee;
+    border-top: 1 * @rpx solid @terms-fixed-border-color;
   }
 
   .ant-terms-protocol {
-    margin: 0 24rpx;
+    margin: 0 24 * @rpx;
     text-align: left;
-    padding-bottom: 24rpx;
-    line-height: 37rpx;
+    padding-bottom: 24 * @rpx;
+    line-height: 37 * @rpx;
     &-item {
       vertical-align: middle;
       font-family: PingFangSC-Regular;
-      font-size: 26rpx;
-      line-height: 37rpx;
-      color: #1677ff;
+      font-size: 26 * @rpx;
+      line-height: 37 * @rpx;
+      color: @terms-protocol-item-color;
     }
     &-text {
       vertical-align: middle;
-      color: #999;
-      font-size: 26rpx;
-      line-height: 37rpx;
+      color: @terms-protocol-text-color;
+      font-size: 26 * @rpx;
+      line-height: 37 * @rpx;
     }
     .ant-terms-checkbox-tips {
       .ant-popover-content {
-        left: -20rpx !important;
+        left: -20 * @rpx !important;
       }
     }
     .ant-checkbox-item {
-      margin-left: 4rpx;
-      margin-right: 8rpx;
+      margin-left: 4 * @rpx;
+      margin-right: 8 * @rpx;
       vertical-align: middle;
 
       /// #if WECHAT
@@ -55,67 +55,63 @@
         font-size: 0;
       }
       &-wrap {
-        width: 32rpx;
-        height: 32rpx;
-        flex: 0 0 32rpx;
+        width: 32 * @rpx;
+        height: 32 * @rpx;
+        flex: 0 0 32 * @rpx;
       }
     }
   }
   /// #if WECHAT
   swiper {
-    height: 106rpx;
+    height: 106 * @rpx;
   }
   /// #endif
   .ant-terms-read {
     &-shadow {
       width: 100%;
-      height: 115rpx;
-      margin-top: -115rpx;
-      background-image: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0) 12%,
-        #ffffff 86%
-      );
+      height: 115 * @rpx;
+      margin-top: -115 * @rpx;
+      background-image: @terms-read-shadow-background;
       position: relative;
       &-total {
         position: absolute;
-        right: 48rpx;
+        right: 48 * @rpx;
         bottom: 0;
-        font-size: 22rpx;
-        line-height: 30rpx;
+        font-size: 22 * @rpx;
+        line-height: 30 * @rpx;
         font-weight: 500;
-        color: #333333;
+        color: @terms-read-protocol-item-color;
       }
     }
     &-protocol {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 58rpx;
-      border-radius: 8rpx;
+      height: 58 * @rpx;
+      border-radius: 8 * @rpx;
       box-sizing: border-box;
-      margin: 24rpx 8rpx 24rpx 8rpx;
-      border: 1rpx solid #eeeeee;
-      box-shadow: 0 0 10rpx 0 rgba(0, 0, 0, 0.1);
+      margin: 24 * @rpx 8 * @rpx 24 * @rpx 8 * @rpx;
+      border: 1 * @rpx solid @terms-read-protocol-border;
+      box-shadow: 0 0 10 * @rpx 0 @terms-read-protocol-box-shadow-color;
 
       &-item {
-        color: #333;
-        font-size: 22rpx;
-        line-height: 30rpx;
+        color: @terms-read-protocol-item-color;
+        font-size: 22 * @rpx;
+        line-height: 30 * @rpx;
         font-weight: 500;
       }
       &-text {
-        color: #999;
-        font-size: 22rpx;
-        line-height: 30rpx;
+        color: @terms-read-protocol-text-color;
+        font-size: 22 * @rpx;
+        line-height: 30 * @rpx;
       }
     }
   }
 
   &-btn {
-    margin: 0 24rpx;
+    margin: 0 24 * @rpx;
     &-item {
-      margin-bottom: 24rpx;
+      margin-bottom: 24 * @rpx;
       &:last-of-type {
         margin-bottom: 0;
       }
@@ -126,7 +122,7 @@
       .ant-terms-btn-item {
         margin-bottom: 0;
         flex: 1;
-        margin-right: 24rpx;
+        margin-right: 24 * @rpx;
 
         &:last-of-type {
           margin-right: 0;
