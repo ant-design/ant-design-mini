@@ -62,20 +62,7 @@
       </view>
 
       <block a:if="{{terms.length && type === 'read'}}">
-        <swiper
-          className="ant-terms-read-content-swiper"
-          current="{{readCurrent}}"
-          autoplay="{{false}}"
-          vertical="{{false}}"
-          circular="{{false}}"
-          onChange="onReadChange"
-        >
-          <block a:for="{{terms}}">
-            <swiper-item className="ant-terms-read-content-swiper-item">
-              <slot name="read-content-item" item="{{item}}" index="{{index}}"></slot>
-            </swiper-item>
-          </block>
-        </swiper>
+        <slot name="read-content"></slot>
         <view class="ant-terms-read-shadow">
           <view class="ant-terms-read-shadow-total">
             <slot name="read-total">共{{terms.length}}份</slot>
@@ -83,7 +70,7 @@
         </view>
         <swiper
           className="ant-terms-read-protocol-swiper"
-          current="{{readCurrent}}"
+          current="{{mixin.value}}"
           autoplay="{{false}}"
           vertical="{{false}}"
           circular="{{false}}"

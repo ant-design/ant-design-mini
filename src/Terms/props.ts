@@ -62,6 +62,14 @@ export interface IProps extends IBaseProps {
    */
   checkboxTipsVisible?: boolean;
   /**
+   * @description 阅读的当前序号
+   */
+  readCurrent?: number;
+  /**
+   * @description 默认阅读的当前序号
+   */
+  defaultReadCurrent?: number;
+  /**
    * @description 行动点按钮点击回调
    */
   onButtonTap?: (b?: Button, index?: number, checked?: boolean, event?) => void;
@@ -98,6 +106,8 @@ export const DefaultProps: IProps = {
   termSuffix: '',
   checkboxTipsText: '',
   checkboxTipsVisible: false,
+  readCurrent: null,
+  defaultReadCurrent: 0,
   onButtonTap: () => {},
   onTermTap: () => {},
   onCheckChange: () => {},

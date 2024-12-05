@@ -162,4 +162,12 @@ export const wechatCustomMapping = {
     onActionTap: 'bind:actiontap',
     onSecondaryActionTap: 'bind:secondaryactiontap',
   },
+  'ant-terms': {
+    onButtonTap: 'bind:buttontap',
+    onTermTap: 'bind:termtap',
+    onCheckChange: 'bind:checkchange',
+    onTermPrefixTap: 'bind:termprefixtap',
+    onCountdownFinish: 'bind:countdownfinish',
+    onReadChange: 'bind:readchange',
+  },
 };

@@ -1,4 +1,5 @@
 import isEqual from 'lodash.isequal';
+import createValue from '../mixins/value';
 import { Component, triggerEvent, triggerEventValues } from '../_util/simply';
 import { DefaultProps } from './props';
 
@@ -83,16 +84,20 @@ Component(
 
     onReadChange(event) {
       const { current } = event.detail;
-      this.setData({ readCurrent: current });
+      this.update(current);
       triggerEvent(this, 'readChange', current, event);
     },
   },
   {
-    readCurrent: 0,
     checked: false,
     countdownArr: [],
   },
-  undefined,
+  [
+    createValue({
+      valueKey: 'readCurrent',
+      defaultValueKey: 'defaultReadCurrent',
+    }),
+  ],
   {
     /// #if ALIPAY
     onInit() {

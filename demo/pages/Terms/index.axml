@@ -31,18 +31,47 @@
     termPrefix="当前正在读"
     terms="{{terms3}}"
     buttons="{{buttons3}}"
+    readCurrent="{{readCurrent}}"
     onButtonTap="handleButtonTap"
     onTermTap="handleTermTap"
     onCountdownFinish="handleCountdownFinish"
     onReadChange="handleReadChange"
   >
-    <view slot="read-content-item" slot-scope="prop">
+    <scroll-view
+      slot="read-content"
+      style="height:300px;"
+      id="scroll-view"
+      scrollTop="{{scrollTop}}"
+      scrollY="{{true}}"
+      scrollWithAnimation="{{true}}"
+      scrollAnimationDuration="{{300}}"
+      lowerThreshold="{{100}}"
+      onScroll="onScroll"
+      onTouchStart="onTouchStart"
+      onScrollToLower="onScrollToLower"
+    >
       <image
+        id="term-content-0"
         src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/966PR7FNh8cAAAAAAAAAAAAADoEQAQFr/original"
         mode="widthFix"
-        style="width: 100%;"
+        style="display: block;width: 100%;border-bottom: 1px solid #eee;"
+        onLoad="onImageLoad"
       />
-    </view>
+      <image
+        id="term-content-1"
+        src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/966PR7FNh8cAAAAAAAAAAAAADoEQAQFr/original"
+        mode="widthFix"
+        style="display: block;width: 100%;border-bottom: 1px solid #eee;"
+        onLoad="onImageLoad"
+      />
+      <image
+        id="term-content-2"
+        src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/966PR7FNh8cAAAAAAAAAAAAADoEQAQFr/original"
+        mode="widthFix"
+        style="display: block;width: 100%;"
+        onLoad="onImageLoad"
+      />
+    </scroll-view>
     <view slot="read-total">
       共{{terms3.length}}份协议
     </view>

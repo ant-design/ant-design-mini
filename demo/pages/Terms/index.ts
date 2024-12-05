@@ -46,17 +46,30 @@ Page({
       },
     ],
     checkboxTipsVisible: false,
+    readCurrent: 1,
   },
   handleButtonTap(item, index, checked, event) {
     console.log(item, index, checked, event);
+    /// #if ALIPAY
     my.showToast({ content: `点击了第 ${index + 1} 个按钮` });
+    /// #endif
+    /// #if WECHAT
+    // @ts-ignore
+    wx.showToast({ title: `点击了第 ${index + 1} 个按钮` });
+    /// #endif
   },
   handleButton2Tap(item, index, checked) {
     this.setData({ checkboxTipsVisible: !checked });
   },
   handleTermTap(item, index, event) {
     console.log(item, index, event);
+    /// #if ALIPAY
     my.showToast({ content: `点击了第 ${index + 1} 个协议` });
+    /// #endif
+    /// #if WECHAT
+    // @ts-ignore
+    wx.showToast({ title: `点击了第 ${index + 1} 个协议` });
+    /// #endif
   },
   handleCheckChange(checked) {
     console.log('handleCheckChange', checked);
@@ -80,7 +93,77 @@ Page({
       ),
     });
   },
-  handleReadChange(index) {
-    console.log('handleReadChange', index);
+  handleReadChange(current) {
+    console.log('handleReadChange', current);
+    /// #if WECHAT
+    current = current.detail;
+    /// #endif
+    this.tap = true;
+    this.setData({
+      scrollTop:
+        this.itemRectList[current].top -
+        this.scrollViewRect.top +
+        Math.random(),
+    });
+  },
+  async onReady() {
+    await this.updateRect();
+  },
+  async onImageLoad() {
+    await this.updateRect();
+  },
+  async updateRect() {
+    this.itemRectList = await Promise.all(
+      this.data.terms3.map((item, index) =>
+        this.getBoundingClientRect(`#term-content-${index}`)
+      )
+    );
+    this.scrollViewRect = await this.getBoundingClientRect('#scroll-view');
+  },
+  onTouchStart() {
+    this.tap = false;
+  },
+  onScroll(e) {
+    if (this.tap) {
+      return;
+    }
+    this.scrollTop = e.detail.scrollTop;
+    const scrollTop = this.scrollTop + this.itemRectList[0].top;
+    for (let i = 0; i < this.itemRectList.length; i++) {
+      const item = this.itemRectList[i];
+      if (
+        scrollTop > item.top &&
+        (!this.itemRectList[i + 1] ||
+          scrollTop < this.itemRectList[i + 1].top) &&
+        i !== this.data.readCurrent
+      ) {
+        this.setData({
+          readCurrent: i,
+        });
+        return;
+      }
+    }
+  },
+  onScrollToLower() {
+    console.log('触底');
+  },
+  getBoundingClientRect(id) {
+    if (typeof my === 'undefined') {
+      return this.getInstanceBoundingClientRect(this, id);
+    }
+    return this.getInstanceBoundingClientRect(my, id);
+  },
+  getInstanceBoundingClientRect(instance, selector) {
+    return new Promise((resolve) => {
+      instance
+        .createSelectorQuery()
+        .select(selector)
+        .boundingClientRect()
+        .exec((ret) => {
+          if (ret && ret[0]) {
+            resolve(ret[0]);
+          }
+        });
+    });
   },
 });
