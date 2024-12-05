@@ -46,6 +46,10 @@
       margin-left: 4rpx;
       margin-right: 8rpx;
       vertical-align: middle;
+
+      /// #if WECHAT
+      height: unset;
+      /// #endif
       .ant-checkbox-item-content {
         padding-left: 0;
         font-size: 0;
@@ -57,7 +61,11 @@
       }
     }
   }
-
+  /// #if WECHAT
+  swiper {
+    height: 106rpx;
+  }
+  /// #endif
   .ant-terms-read {
     &-shadow {
       width: 100%;

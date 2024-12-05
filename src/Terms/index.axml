@@ -1,14 +1,12 @@
 
 <view
-  class="
-    ant-terms
-    {{buttonsFixed ? 'ant-terms-fixed' : ''}}
-    {{className}}
-  "
+  class="ant-terms {{buttonsFixed ? 'ant-terms-fixed' : ''}} {{className}}"
 >
   <slot name="button-top"></slot>
   <view>
+    <!-- #if ALIPAY -->
     <slot name="button-group-top">
+    <!-- #endif -->
       <view
         class="ant-terms-protocol"
         a:if="{{terms.length && type !== 'read'}}"
@@ -20,6 +18,7 @@
             autoAdjustOverflow="{{false}}"
             visible="{{checkboxTipsVisible}}"
             content="{{checkboxTipsText}}"
+            showMask="{{false}}"
             style="display: inline-block"
           >
             <ant-checkbox
@@ -65,7 +64,13 @@
         <slot name="read-content"></slot>
         <view class="ant-terms-read-shadow">
           <view class="ant-terms-read-shadow-total">
-            <slot name="read-total">共{{terms.length}}份</slot>
+            <!-- #if ALIPAY -->
+            <slot name="read-total">
+            <!-- #endif -->
+              共{{terms.length}}份
+            <!-- #if ALIPAY -->
+            </slot>
+            <!-- #endif -->
           </view>
         </view>
         <swiper
@@ -86,7 +91,9 @@
                 data-item="{{item}}"
                 data-index="{{index}}"
               >
+                <!-- #if ALIPAY -->
                 <slot name="read-term-item" item="{{item}}" index="{{index}}">
+                <!-- #endif -->
                   <text
                     a:if="{{termPrefix}}"
                     class="ant-terms-read-protocol-text"
@@ -107,13 +114,17 @@
                   >
                     {{termSuffix}}
                   </text>
+                <!-- #if ALIPAY -->
                 </slot>
+                <!-- #endif -->
               </view>
             </swiper-item>
           </block>
         </swiper>
       </block>
+    <!-- #if ALIPAY -->
     </slot>
+    <!-- #endif -->
 
     <view
       class="ant-terms-btn {{buttonsDirection==='horizontal' ? 'ant-terms-btn-flex' : ''}}"
@@ -143,7 +154,13 @@
           className="{{buttons.length === 1 ? 'ant-terms-btn-single' : ''}} {{item.className}}"
         >
           <slot name="button-prefix" slot="prefix" index="{{index}}" item="{{item}}"></slot>
-          <slot name="button-content" index="{{index}}" item="{{item}}">{{item.text}}</slot>
+          <!-- #if ALIPAY -->
+          <slot name="button-content" index="{{index}}" item="{{item}}">
+          <!-- #endif -->
+            {{item.text}}
+          <!-- #if ALIPAY -->
+          </slot>
+          <!-- #endif -->
           {{ countdownArr[index] ? '（' + countdownArr[index] + 's）' : '' }}
           <slot name="button-suffix" slot="suffix" index="{{index}}" item="{{item}}"></slot>
         </ant-button>

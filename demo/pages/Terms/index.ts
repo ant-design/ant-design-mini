@@ -49,39 +49,65 @@ Page({
     readCurrent: 1,
   },
   handleButtonTap(item, index, checked, event) {
-    console.log(item, index, checked, event);
     /// #if ALIPAY
+    console.log(item, index, checked, event);
     my.showToast({ content: `点击了第 ${index + 1} 个按钮` });
     /// #endif
     /// #if WECHAT
+    console.log(item.detail);
     // @ts-ignore
-    wx.showToast({ title: `点击了第 ${index + 1} 个按钮` });
+    wx.showToast({ title: `点击了第 ${item.detail[1] + 1} 个按钮` });
     /// #endif
   },
   handleButton2Tap(item, index, checked) {
+    console.log(123123,item);
+    /// #if ALIPAY
     this.setData({ checkboxTipsVisible: !checked });
+    /// #endif
+    /// #if WECHAT
+    this.setData({ checkboxTipsVisible: !item.detail[2] });
+    /// #endif
   },
   handleTermTap(item, index, event) {
-    console.log(item, index, event);
     /// #if ALIPAY
+    console.log(item, index, event);
     my.showToast({ content: `点击了第 ${index + 1} 个协议` });
     /// #endif
     /// #if WECHAT
+    console.log(item.detail);
     // @ts-ignore
-    wx.showToast({ title: `点击了第 ${index + 1} 个协议` });
+    wx.showToast({ title: `点击了第 ${item.detail[1] + 1} 个协议` });
     /// #endif
   },
   handleCheckChange(checked) {
     console.log('handleCheckChange', checked);
+    /// #if ALIPAY
+    this.setData({ checkboxTipsVisible: !checked });
     if (checked) {
       this.setData({ checkboxTipsVisible: false });
     }
+    /// #endif
+    /// #if WECHAT
+    this.setData({ checkboxTipsVisible: !checked.detail });
+    if (checked.detail) {
+      this.setData({ checkboxTipsVisible: false });
+    }
+    /// #endif
   },
   handleTermPrefixTap(checked) {
     console.log('handleTermPrefixTap', checked);
+    /// #if ALIPAY
+    this.setData({ checkboxTipsVisible: !checked });
     if (checked) {
       this.setData({ checkboxTipsVisible: false });
     }
+    /// #endif
+    /// #if WECHAT
+    this.setData({ checkboxTipsVisible: !checked.detail });
+    if (checked.detail) {
+      this.setData({ checkboxTipsVisible: false });
+    }
+    /// #endif
   },
   handleCountdownFinish(item, index) {
     console.log('handleCountdownFinish', item, index);

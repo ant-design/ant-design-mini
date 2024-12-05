@@ -51,7 +51,14 @@ Component(
       countdownTimer(timeNum);
     },
 
-    onCheckChange(checked) {
+    onCheckChange(value) {
+      let checked;
+      /// #if ALIPAY
+      checked = value;
+      /// #endif
+      /// #if WECHAT
+      checked = value.detail;
+      /// #endif
       this.setData({
         checked,
       });
