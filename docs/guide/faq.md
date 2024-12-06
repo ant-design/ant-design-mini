@@ -7,7 +7,7 @@ toc: true
 
 ### 3.x 能否和 2.x, 1.x, 0.x 一起使用
 
-因为 2.x, 1.x 升级到 3.x 没有迁移成本，所以你可以直接从 2.x, 1.x 升级到 3.x，参考下[升级指南](http://localhost:8000/guide/migration)。
+因为 2.x, 1.x 升级到 3.x 没有迁移成本，所以你可以直接从 2.x, 1.x 升级到 3.x，参考下[升级指南](https://mini.ant.design/guide/migration)。
 
 对于 0.x, 你可以使用 npm 别名来安装。
 
