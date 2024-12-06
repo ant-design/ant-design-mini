@@ -344,6 +344,10 @@ Page({
 });
 ```
 
+### 固定底部
+
+<code src='../../demo/pages/Terms/Fixed/index'></code>
+
 ### Demo 代码
 
 <code src='../../demo/pages/Terms/index'></code>

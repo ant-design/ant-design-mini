@@ -182,6 +182,7 @@ export const componentList = [
         path: '/pages/SelectContact/index',
       },
       { name: 'Terms', nameZN: '协议', path: '/pages/Terms/index' },
+      { name: 'TermsFixed', nameZN: '固定底部协议', path: '/pages/Terms/Fixed/index' },
     ],
   },
   {

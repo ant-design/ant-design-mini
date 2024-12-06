@@ -346,7 +346,7 @@ Page({
 
 ### Demo Code
 
-<code src='../../demo/pages/Terms/index'></code>
+<code src='../../demo/pages/Terms/Basic/index'></code>
 
 ## API
 
