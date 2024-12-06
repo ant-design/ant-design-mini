@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ant-button": "../Button/index",
+    "ant-checkbox": "../Checkbox/index",
+    "ant-popover": "../Popover/index",
+    "ant-safe-area": "../SafeArea/index"
+  }
+}
