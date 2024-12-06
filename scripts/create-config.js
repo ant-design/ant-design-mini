@@ -38,6 +38,15 @@ async function createConfig() {
 
   // 获取demo文件列表
   const demoPageFiles = await fs.readdir(path.resolve(__dirname, '..', 'demo', 'pages'));
+  // 二级页面
+  await Promise.all(demoPageFiles.map(async fileName => {
+    const innerFiles = await fs.readdir(path.resolve(__dirname, '..', 'demo', 'pages', fileName));
+    innerFiles.forEach(innerFile => {
+      if (existsSync(path.resolve(__dirname, '..', 'demo', 'pages', fileName, innerFile, 'index.axml'))) {
+        demoPageFiles.push(`${fileName}/${innerFile}`);
+      }
+    })
+  }))
   /** 生成config/wechat/app.json */
   writeFileSync(path.resolve(__dirname, '..', 'config', 'wechat', 'app.json'), JSON.stringify({
     "darkmode": true,
