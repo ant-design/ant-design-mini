@@ -344,9 +344,13 @@ Page({
 });
 ```
 
+### Fixed bottom
+
+<code src='../../demo/pages/Terms/Fixed/index'></code>
+
 ### Demo Code
 
-<code src='../../demo/pages/Terms/Basic/index'></code>
+<code src='../../demo/pages/Terms/index'></code>
 
 ## API
 
