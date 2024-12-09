@@ -5,6 +5,14 @@ export const wechatCustomMapping = {
     onTouchEnd: 'bind:touchend',
     onAnimationEnd: 'bindanimationend',
   },
+  'scroll-view': {
+    onTouchStart: 'binddragstart',
+    onTouchMove: 'binddragging',
+    onTouchEnd: 'binddragend',
+    onScroll: 'bindscroll',
+    onScrollToUpper: 'bindscrolltoupper',
+    onScrollToLower: 'bindscrolltolower',
+  },
   input: {
     onInput: 'bindinput',
     onConfirm: 'bindconfirm',
@@ -165,5 +173,13 @@ export const wechatCustomMapping = {
   'ant-footer': {
     onLinkTap: 'bind:linktap',
     onChipTap: 'bind:chiptap',
+  },
+  'ant-terms': {
+    onButtonTap: 'bind:buttontap',
+    onTermTap: 'bind:termtap',
+    onCheckChange: 'bind:checkchange',
+    onTermPrefixTap: 'bind:termprefixtap',
+    onCountdownFinish: 'bind:countdownfinish',
+    onReadChange: 'bind:readchange',
   },
 };

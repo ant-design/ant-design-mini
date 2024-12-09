@@ -104,6 +104,7 @@ toc: 'content'
 | icon                        | 按钮左侧图标                                                    | string                                                                        | -         |
 | loading                     | 是否加载中，加载中时不可点击                                    | boolean                                                                       | -         |
 | size                        | 按钮大小。仅在 `inline` 下生效，可选 `small`、`medium`、`large` | string                                                                        | `medium`  |
+| aide                        | 按钮是否是辅助按钮 只有 default 和 primary 按钮才消费该参数     | boolean                                                                       | false     |
 | subText                     | 辅助文字，显示在第二行。`inline` 下不生效                       | string                                                                        | -         |
 | #if ALIPAY catchTap         | 点击按钮，触发此回调，非冒泡                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onTap            | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
