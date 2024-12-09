@@ -224,6 +224,14 @@ export const ComponentSampleImages = {
       imageUrl:
         'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/3vOAT6qo9TYAAAAAAAAAAAAADoEQAQFr/fmt.avif',
     },
+    'footer': {
+      imageUrl:
+        'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/R2QNQaLHwgYAAAAAAAAAAAAADoEQAQFr/fmt.avif',
+    },
+    'filter': {
+      imageUrl:
+        'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/shxqQ6NxAhUAAAAAAAAAAAAADoEQAQFr/fmt.avif',
+    },
   },
   dark: {
     'default': {
@@ -453,6 +461,14 @@ export const ComponentSampleImages = {
     'terms': {
       imageUrl:
         'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/gikRRYAcJqMAAAAAAAAAAAAADoEQAQFr/fmt.avif',
+    },
+    'footer': {
+      imageUrl:
+        'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/E9TpQKSm_CYAAAAAAAAAAAAADoEQAQFr/fmt.avif',
+    },
+    'filter': {
+      imageUrl:
+        'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/ClLST5Dd2VIAAAAAAAAAAAAADoEQAQFr/fmt.avif',
     },
   },
 };
