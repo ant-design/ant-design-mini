@@ -103,7 +103,7 @@ Page({
   bindblur="handleBlur"
   bindfocus="handleFocus"
   bindconfirm="handleConfirm"
-  binddisabledTap="handleDisabledTap"
+  binddisabledtap="handleDisabledTap"
 #endif
 />
 ```

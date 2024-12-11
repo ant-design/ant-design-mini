@@ -60,7 +60,7 @@ toc: 'content'
 #endif
 #if WECHAT
   bindselectmax="onSelectMax"
-  bindselectMin="onSelectMin"
+  bindselectmin="onSelectMin"
 #endif
 />
 ```

@@ -36,7 +36,7 @@ toc: 'content'
   onOperateClick="handleLinkClick"
 #endif
 #if WECHAT
-  bindoperateClick="handleLinkClick"
+  bindoperateclick="handleLinkClick"
 #endif
   title="title"
   operateText="operate"
@@ -71,7 +71,7 @@ toc: 'content'
   onTitleSticky="handleTitleSticky"
 #endif
 #if WECHAT
-  bindtitleSticky="handleLinkClick"
+  bindtitlesticky="handleLinkClick"
 #endif
 >
   <view style="height: 400px">

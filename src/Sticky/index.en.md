@@ -61,7 +61,7 @@ In `index.json` Introducing Components in
   onStickyChange="handleStickyChange"
 #endif
 #if WECHAT
-  bindstickyChange="handleStickyChange"
+  bindstickychange="handleStickyChange"
 #endif
 >
   <view>

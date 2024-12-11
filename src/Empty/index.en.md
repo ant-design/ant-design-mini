@@ -59,7 +59,7 @@ In `index.json` Introducing Components in
   onClickButton="onClickButton"
 #endif
 #if WECHAT
-  bindclickButton="onClickButton"
+  bindclickbutton="onClickButton"
 #endif
 />
 ```
@@ -126,7 +126,7 @@ Page({
 | size                        | Empty status size, optional `normal` `small` | string                                            | `normal` |
 | buttonInfo                  | Custom Button                        | [ButtonInfo](#buttoninfo)                         | `normal` |
 | #if ALIPAY onClickButton    | Click button callback                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
-| #if WECHAT bindclickButton | Click button callback                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
+| #if WECHAT bindclickbutton | Click button callback                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
 
 ### ButtonInfo
 

@@ -61,7 +61,7 @@ Sticky 组件实现依赖了 `position: sticky` 特性，该特性受父元素�
   onStickyChange="handleStickyChange"
 #endif
 #if WECHAT
-  bindstickyChange="handleStickyChange"
+  bindstickychange="handleStickyChange"
 #endif
 >
   <view>
