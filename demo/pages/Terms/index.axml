@@ -1,0 +1,80 @@
+<view class="navigation-bar"/>
+
+<ant-container title="基础用法">
+  <ant-terms
+    termPrefix="请阅读并同意"
+    terms="{{terms}}"
+    buttons="{{buttons1}}"
+    onButtonTap="handleButtonTap"
+    onTermTap="handleTermTap"
+  />
+</ant-container>
+
+<ant-container title="勾选型">
+  <ant-terms
+    type="check"
+    termPrefix="我已阅读并同意"
+    terms="{{terms}}"
+    buttons="{{buttons2}}"
+    checkboxTipsText="请阅读后勾选服务协议"
+    checkboxTipsVisible="{{checkboxTipsVisible}}"
+    onButtonTap="handleButton2Tap"
+    onTermTap="handleTermTap"
+    onCheckChange="handleCheckChange"
+    onTermPrefixTap="handleTermPrefixTap"
+  />
+</ant-container>
+
+<ant-container title="强制阅读型">
+  <ant-terms
+    type="read"
+    termPrefix="当前正在读"
+    terms="{{terms3}}"
+    buttons="{{buttons3}}"
+    readCurrent="{{readCurrent}}"
+    onButtonTap="handleButtonTap"
+    onTermTap="handleTermTap"
+    onCountdownFinish="handleCountdownFinish"
+    onReadChange="handleReadChange"
+  >
+    <scroll-view
+      enhanced
+      slot="read-content"
+      style="height:300px;"
+      id="scroll-view"
+      scrollTop="{{scrollTop}}"
+      scrollY="{{true}}"
+      scrollWithAnimation="{{true}}"
+      scrollAnimationDuration="{{300}}"
+      lowerThreshold="{{100}}"
+      onScroll="onScroll"
+      onTouchStart="onTouchStart"
+      onScrollToLower="onScrollToLower"
+    >
+      <image
+        class="term-content"
+        id="term-content-0"
+        src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/966PR7FNh8cAAAAAAAAAAAAADoEQAQFr/original"
+        mode="widthFix"
+        onLoad="onImageLoad"
+      />
+      <image
+        class="term-content"
+        id="term-content-1"
+        src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/966PR7FNh8cAAAAAAAAAAAAADoEQAQFr/original"
+        mode="widthFix"
+        onLoad="onImageLoad"
+      />
+      <image
+        class="term-content"
+        id="term-content-2"
+        src="https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/966PR7FNh8cAAAAAAAAAAAAADoEQAQFr/original"
+        mode="widthFix"
+        onLoad="onImageLoad"
+      />
+    </scroll-view>
+    <view slot="read-total">
+      共{{terms3.length}}份协议
+    </view>
+  </ant-terms>
+</ant-container>

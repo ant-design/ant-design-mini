@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "TermsFixed",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Terms",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-terms": "../../../../src/Terms/index",
+    "ant-container": "../../../../src/Container/index"
+  }
+}

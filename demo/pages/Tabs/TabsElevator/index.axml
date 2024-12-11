@@ -13,6 +13,7 @@
   </view>
 
   <scroll-view
+    enhanced
     id="scroll-view"
     onScroll="onScroll"
     onTouchStart="onTouchStart"
