@@ -41,7 +41,13 @@ In `index.json` Introducing Components in
 <ant-button type="default">Secondary button</ant-button>
 <ant-button type="text">Text Button</ant-button>
 <ant-button title="副标题" type="primary">With auxiliary copy button</ant-button>
-<ant-button disabled type="primary" onTap="handleTap" onDisabledTap="handleDisabledTap"> Disable </ant-button>
+#if ALIPAY
+<ant-button disabled type="primary" onTap="handleTap" onDisabledTap="handleDisabledTap"> 
+Disable </ant-button>
+#endif
+#if WECHAT
+<ant-button disabled type="primary" bindtap="handleTap" bindisabledtap="handleDisabledTap"> 
+#endif
 <ant-button type="primary" loading>Loading Status</ant-button>
 <ant-button type="primary" danger>Danger</ant-button>
 ```
