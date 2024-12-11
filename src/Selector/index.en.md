@@ -59,8 +59,8 @@ In `index.json` Introducing Components in
   onSelectMin="onSelectMin"
 #endif
 #if WECHAT
-  bind:selectmax="onSelectMax"
-  bind:selectMin="onSelectMin"
+  bindselectmax="onSelectMax"
+  bindselectMin="onSelectMin"
 #endif
 />
 ```
@@ -113,7 +113,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-button
@@ -122,7 +122,7 @@ Page({
   onTap="handleChangeValue"
 #endif
 #if WECHAT
-  bind:tap="handleChangeValue"
+  bindtap="handleChangeValue"
 #endif
 >
   Change the selected value to option three
@@ -186,9 +186,9 @@ Page({
 | #if ALIPAY onChange       | The selected value changes, triggering a callback                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if ALIPAY onSelectMax    | Maximum Trigger Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
 | #if ALIPAY onSelectMin    | Trigger Minimum Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
-| #if WECHAT bind:change    | The selected value changes, triggering a callback                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:selectmax | Maximum Trigger Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
-| #if WECHAT bind:selectmin | Trigger Minimum Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
+| #if WECHAT bindchange    | The selected value changes, triggering a callback                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindselectmax | Maximum Trigger Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
+| #if WECHAT bindselectmin | Trigger Minimum Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
 
 ### SelectorItem
 

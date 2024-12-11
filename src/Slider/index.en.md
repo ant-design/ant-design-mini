@@ -39,8 +39,8 @@ In `index.json` Introducing Components in
   onAfterChange="onAfterChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
-  bind:afterchange="onAfterChange"
+  bindchange="onChange"
+  bindafterchange="onAfterChange"
 #endif
 />
 ```
@@ -111,7 +111,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-stepper
@@ -122,7 +122,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -217,8 +217,8 @@ Page({
 | value                       | Current Value                                             | number \| [number, number]                        | -      |
 | #if ALIPAY onChange         | Triggers when the slider value changes                                | (value: number &verbar; [number, number]) => void | -      |
 | #if ALIPAY onAfterChange    | Consistent with the touchend trigger timing, the current value is passed in as a parameter.     | (value: number &verbar; [number, number]) => void | -      |
-| #if WECHAT bind:change      | Triggers when the slider value changes                                | (value: number &verbar; [number, number]) => void | -      |
-| #if WECHAT bind:afterchange | Consistent with the touchend trigger timing, the current value is passed in as a parameter.     | (value: number &verbar; [number, number]) => void | -      |
+| #if WECHAT bindchange      | Triggers when the slider value changes                                | (value: number &verbar; [number, number]) => void | -      |
+| #if WECHAT bindafterchange | Consistent with the touchend trigger timing, the current value is passed in as a parameter.     | (value: number &verbar; [number, number]) => void | -      |
 
 ### Theme customization
 

@@ -48,8 +48,8 @@ In `index.json` Introducing Components in
   onClose="handlePopupClose"
 #endif
 #if WECHAT
-  bind:clickback="onClickBack"
-  bind:close="handlePopupClose"
+  bindclickback="onClickBack"
+  bindclose="handlePopupClose"
 #endif
 >
   <view style="padding: 12px">
@@ -153,10 +153,10 @@ Page({
 | #if ALIPAY onClickBack        | Click the back button to trigger the callback                                                                                                                                            | () => void | -           |
 | #if ALIPAY onAfterShow        | Trigger after full display                                                                                                                                                    | () => void | -           |
 | #if ALIPAY onAfterClose       | Trigger after full shutdown                                                                                                                                                    | () => void | -           |
-| #if WECHAT bind:close         | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
-| #if WECHAT bind:clickbackicon | Click the back button to trigger the callback                                                                                                                                            | () => void | -           |
-| #if WECHAT bind:aftershow     | Trigger after full display                                                                                                                                                    | () => void | -           |
-| #if WECHAT bind:afterclose    | Trigger after full shutdown                                                                                                                                                    | () => void | -           |
+| #if WECHAT bindclose         | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
+| #if WECHAT bindclickbackicon | Click the back button to trigger the callback                                                                                                                                            | () => void | -           |
+| #if WECHAT bindaftershow     | Trigger after full display                                                                                                                                                    | () => void | -           |
+| #if WECHAT bindafterclose    | Trigger after full shutdown                                                                                                                                                    | () => void | -           |
 
 ### Theme customization
 

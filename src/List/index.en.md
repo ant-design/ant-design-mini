@@ -79,7 +79,7 @@ In `index.json` Introducing Components in
     onTap="handleTap"
 #endif
 #if WECHAT
-    bind:tap="handleTap"
+    bindtap="handleTap"
 #endif
      brief="Total assets"
     extra="Detail infos"
@@ -95,7 +95,7 @@ In `index.json` Introducing Components in
     catchTap="handleTap"
 #endif
 #if WECHAT
-    bind:catchTap="handleTap"
+    bindcatchTap="handleTap"
 #endif
     data-info="config"
   >
@@ -137,8 +137,8 @@ In `index.json` Introducing Components in
 | title                    | Header Information                                                 | string \| slot     | -      |
 | #if ALIPAY catchTap      | Callback triggered when clicked                                         | (e: Event) => void |
 | #if ALIPAY onTap         | Callback triggered when clicked                                         | (e: Event) => void |
-| #if WECHAT bind:catchTap | Callback triggered when clicked                                         | (e: Event) => void |
-| #if WECHAT bind:tap      | Callback triggered when clicked                                         | (e: Event) => void |
+| #if WECHAT bindcatchTap | Callback triggered when clicked                                         | (e: Event) => void |
+| #if WECHAT bindtap      | Callback triggered when clicked                                         | (e: Event) => void |
 
 ### Theme customization
 

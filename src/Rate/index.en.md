@@ -42,7 +42,7 @@ In `index.json` Introducing Components in
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -72,7 +72,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-stepper
@@ -83,7 +83,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -134,7 +134,7 @@ Page({
 | style                    | Style                   | `string`                 | -                          |
 | value                    | Star rating (controlled)           | `number`                 | -                          |
 | #if ALIPAY onChange      | scoring callback function           | `(rate: number) => void` | -                          |
-| #if WECHAT bind:change   | scoring callback function           | `(rate: number) => void` | -                          |
+| #if WECHAT bindchange   | scoring callback function           | `(rate: number) => void` | -                          |
 
 ### Theme customization
 

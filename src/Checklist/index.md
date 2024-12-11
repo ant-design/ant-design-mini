@@ -148,7 +148,7 @@ Page({
 | style                  | 样式                                                 | string                                                                                                                                                                                                           | -      |
 | value                  | 选中数据                                             | string \| number \| (string \| number)[]                                                                                                                                                                         | -      |
 | #if ALIPAY onChange    | 选中项发生变化时，触发回调                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:change | 选中项发生变化时，触发回调                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bindchange | 选中项发生变化时，触发回调                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### ChecklistItem
 

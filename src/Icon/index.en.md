@@ -61,7 +61,7 @@ Search and view the icon, click the icon to copy.
 | #if ALIPAY catchTap  | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
 | #if ALIPAY onTap     | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
 | #if WECHAT catch:tap | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
-| #if WECHAT bind:tap  | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
+| #if WECHAT bindtap  | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
 
 ### Theme customization
 

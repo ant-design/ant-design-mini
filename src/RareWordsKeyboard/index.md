@@ -33,9 +33,9 @@ toc: 'content'
 | #if ALIPAY onClose     | 关闭键盘时触发的回调                  | `() => void`              | -      |
 | #if ALIPAY onChange    | 输入完成时触发的回调                  | `(value: string) => void` | -      |
 | #if ALIPAY onError     | 打开键盘出错时触发的回调              | `(err: Error) => void`    | -      |
-| #if WECHAT bind:close  | 关闭键盘时触发的回调                  | `() => void`              | -      |
-| #if WECHAT bind:change | 输入完成时触发的回调                  | `(value: string) => void` | -      |
-| #if WECHAT bind:error  | 打开键盘出错时触发的回调              | `(err: Error) => void`    | -      |
+| #if WECHAT bindclose  | 关闭键盘时触发的回调                  | `() => void`              | -      |
+| #if WECHAT bindchange | 输入完成时触发的回调                  | `(value: string) => void` | -      |
+| #if WECHAT binderror  | 打开键盘出错时触发的回调              | `(err: Error) => void`    | -      |
 
 ### 主题定制
 

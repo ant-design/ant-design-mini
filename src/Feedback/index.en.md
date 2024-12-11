@@ -40,7 +40,7 @@ In `index.json` Introducing Components in
   onVisibleChange="onVisibleChange"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
+  bindvisiblechange="onVisibleChange"
 #endif
 >
   <view class="feedback-demo-target">
@@ -83,8 +83,8 @@ Page({
   onTapFeedItem="onTapFeedItem"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
-  bind:tapfeeditem="onTapFeedItem"
+  bindvisiblechange="onVisibleChange"
+  bindtapfeeditem="onTapFeedItem"
 #endif
 >
   <image mode="widthFix" style="width: 345rpx;" src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original" />
@@ -133,8 +133,8 @@ Page({
   onTapFeedItem="onTapFeedItem"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
-  bind:tapfeeditem="onTapFeedItem"
+  bindvisiblechange="onVisibleChange"
+  bindtapfeeditem="onTapFeedItem"
 #endif
 />
 <ant-button
@@ -145,7 +145,7 @@ Page({
   onTap="onShowFeedback"
 #endif
 #if WECHAT
-  bind:tap="onShowFeedback"
+  bindtap="onShowFeedback"
 #endif
 >
   Click to show feedback card
@@ -205,8 +205,8 @@ Page({
 | autoAdjustOverflow            | Whether bubble position is adaptive                                                                                                                                                  | boolean                              | true         |
 | #if ALIPAY onVisibleChange    | Hook showing state change                                                                                                                                                  | (visible: boolean) => void           | -            |
 | #if ALIPAY onTapFeedItem      | Feedback Item Click Callback                                                                                                                                                      | (item: any) => void                  | -            |
-| #if WECHAT bind:visiblechange | Hook showing state change                                                                                                                                                  | (visible: boolean) => void           | -            |
-| #if WECHAT bind:tapfeeditem   | Feedback Item Click Callback                                                                                                                                                      | ([FeedItem](#feeditem): any) => void | -            |
+| #if WECHAT bindvisiblechange | Hook showing state change                                                                                                                                                  | (visible: boolean) => void           | -            |
+| #if WECHAT bindtapfeeditem   | Feedback Item Click Callback                                                                                                                                                      | ([FeedItem](#feeditem): any) => void | -            |
 
 ### FeedItem
 

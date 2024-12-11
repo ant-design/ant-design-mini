@@ -40,8 +40,8 @@ In `index.json` Introducing Components in
   onVisibleChange="handleVisibleChange"
 #endif
 #if WECHAT
-  bind:tapitem="handleTapItem"
-  bind:visiblechange="handleVisibleChange"
+  bindtapitem="handleTapItem"
+  bindvisiblechange="handleVisibleChange"
 #endif
   >
   <ant-button inline>Point me</ant-button>
@@ -119,8 +119,8 @@ Page({
 | visible                       | Whether to display                                                                                                                                                            | boolean                                                                                                                      | -      |
 | #if ALIPAY onVisibleChange    | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
 | #if ALIPAY onTapItem          | Callback at the time of visible change                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:visiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
-| #if WECHAT bind:tapitem       | Callback at the time of visible change                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindvisiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
+| #if WECHAT bindtapitem       | Callback at the time of visible change                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 
 ### PopoverListItem
 

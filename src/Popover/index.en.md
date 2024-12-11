@@ -57,8 +57,8 @@ In `index.json` Introducing Components in
   onTapAction="onTapAction"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
-  bind:tapaction="onTapAction"
+  bindvisiblechange="onVisibleChange"
+  bindtapaction="onTapAction"
 #endif
   >
   <ant-button>Point me</ant-button>
@@ -119,7 +119,7 @@ Optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-r
   onTap="handleVisibleChange"
 #endif
 #if WECHAT
-  bind:tap="handleVisibleChange"
+  bindtap="handleVisibleChange"
 #endif
 >
   Change visible
@@ -161,8 +161,8 @@ Page({
 | visible                       | Whether to display                                                                                                                                                            | boolean                                                                                             | -      |
 | #if ALIPAY onVisibleChange    | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if ALIPAY onTapAction        | Operation button click callback                                                                                                                                                    | () => void                                                                                          | -      |
-| #if WECHAT bind:visiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:tapaction     | Operation button click callback                                                                                                                                                    | () => void                                                                                          | -      |
+| #if WECHAT bindvisiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindtapaction     | Operation button click callback                                                                                                                                                    | () => void                                                                                          | -      |
 
 ### Theme customization
 

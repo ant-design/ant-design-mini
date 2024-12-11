@@ -152,7 +152,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -173,7 +173,7 @@ Page({
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 >
     <swiper
@@ -185,7 +185,7 @@ Page({
       onChange="onSwipeChange"
 #endif
 #if WECHAT
-      bind:change="onSwipeChange"
+      bindchange="onSwipeChange"
 #endif
     >
       <block a:for="{{items}}" a:for-index="index" a:for-item="item" a:key="{{index}}">
@@ -271,7 +271,7 @@ Page({
 | title                  | 自定义 `Items` 标题；<br /> `slot-scope` 包括 `value`(对应 `Item`) `index`(对应 `Item` 的索引) | slot                                                                                         | -          |
 | type                   | 类型，`basic`(基础)，`capsule`(胶囊)，`mixin`(混合)                                            | string                                                                                       | `basic`    |
 | #if ALIPAY onChange    | 面板切换时候，触发回调                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
-| #if WECHAT bind:change | 面板切换时候，触发回调                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
+| #if WECHAT bindchange | 面板切换时候，触发回调                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 
 ### Item
 
@@ -342,7 +342,7 @@ Page({
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 >
   <view
@@ -353,7 +353,7 @@ Page({
     onTap="onTap"
 #endif
 #if WECHAT
-    bind:tap="onTap"
+    bindtap="onTap"
 #endif
   >
     {{tab.value.title}}

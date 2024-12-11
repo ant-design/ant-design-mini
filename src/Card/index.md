@@ -36,7 +36,7 @@ toc: 'content'
   onOperateClick="handleLinkClick"
 #endif
 #if WECHAT
-  bind:operateClick="handleLinkClick"
+  bindoperateClick="handleLinkClick"
 #endif
   title="title"
   operateText="operate"
@@ -71,7 +71,7 @@ toc: 'content'
   onTitleSticky="handleTitleSticky"
 #endif
 #if WECHAT
-  bind:titleSticky="handleLinkClick"
+  bindtitleSticky="handleLinkClick"
 #endif
 >
   <view style="height: 400px">
@@ -130,9 +130,9 @@ toc: 'content'
 | #if ALIPAY onOperateClick    | 默认标题栏右侧操作按钮点击回调                                      | () => void                  | -      |
 | #if ALIPAY onFoldChange      | 默认标题栏右侧折叠展开按钮点击回调                                  | () => void                  | -      |
 | #if ALIPAY onTitleSticky     | title 区域是否吸顶变化时的回调                                      | (status) => void            | -      |
-| #if WECHAT bind:operateclick | 默认标题栏右侧操作按钮点击回调                                      | () => void                  | -      |
-| #if WECHAT bind:foldchange   | 默认标题栏右侧折叠展开按钮点击回调                                  | () => void                  | -      |
-| #if WECHAT bind:titlesticky  | title 区域是否吸顶变化时的回调                                      | (status) => void            | -      |
+| #if WECHAT bindoperateclick | 默认标题栏右侧操作按钮点击回调                                      | () => void                  | -      |
+| #if WECHAT bindfoldchange   | 默认标题栏右侧折叠展开按钮点击回调                                  | () => void                  | -      |
+| #if WECHAT bindtitlesticky  | title 区域是否吸顶变化时的回调                                      | (status) => void            | -      |
 
 ### ICardConfig
 

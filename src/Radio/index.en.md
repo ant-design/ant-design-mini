@@ -41,7 +41,7 @@ In `index.json` Introducing Components in
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 >
   Basic Usage
@@ -65,7 +65,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 >
   Controlled Mode
@@ -102,7 +102,7 @@ Page({
   onChange="handleRadioGroupChange"
 #endif
 #if WECHAT
-  bind:change="handleRadioGroupChange"
+  bindchange="handleRadioGroupChange"
 #endif
 />
 
@@ -149,7 +149,7 @@ Page({
 | style                  | Style             | string                                                                                                | -      |
 | value                  | value carried  | string                                                                                                | -      |
 | #if ALIPAY onChange    | Callback when state changes | `(checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -      |
-| #if WECHAT bind:change | Callback when state changes | `(checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -      |
+| #if WECHAT bindchange | Callback when state changes | `(checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -      |
 
 ### RadioGroup
 
@@ -165,7 +165,7 @@ Page({
 | style                  | Style               | string                                                                                             | -          |
 | value                  | Selected Value           | string                                                                                             | -          |
 | #if ALIPAY onChange    | Callback when state changes   | `(value: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -          |
-| #if WECHAT bind:change | Callback when state changes   | `(value: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -          |
+| #if WECHAT bindchange | Callback when state changes   | `(value: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -          |
 
 ### Theme customization
 

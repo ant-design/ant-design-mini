@@ -79,7 +79,7 @@ toc: 'content'
     onTap="handleTap"
 #endif
 #if WECHAT
-    bind:tap="handleTap"
+    bindtap="handleTap"
 #endif
      brief="Total assets"
     extra="Detail infos"
@@ -95,7 +95,7 @@ toc: 'content'
     catchTap="handleTap"
 #endif
 #if WECHAT
-    bind:catchTap="handleTap"
+    bindcatchTap="handleTap"
 #endif
     data-info="config"
   >
@@ -137,8 +137,8 @@ toc: 'content'
 | title                    | 标题信息                                                 | string \| slot     | -      |
 | #if ALIPAY catchTap      | 点击时触发的回调                                         | (e: Event) => void |
 | #if ALIPAY onTap         | 点击时触发的回调                                         | (e: Event) => void |
-| #if WECHAT bind:catchTap | 点击时触发的回调                                         | (e: Event) => void |
-| #if WECHAT bind:tap      | 点击时触发的回调                                         | (e: Event) => void |
+| #if WECHAT bindcatchTap | 点击时触发的回调                                         | (e: Event) => void |
+| #if WECHAT bindtap      | 点击时触发的回调                                         | (e: Event) => void |
 
 ### 主题定制
 

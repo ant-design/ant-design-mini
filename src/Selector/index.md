@@ -59,8 +59,8 @@ toc: 'content'
   onSelectMin="onSelectMin"
 #endif
 #if WECHAT
-  bind:selectmax="onSelectMax"
-  bind:selectMin="onSelectMin"
+  bindselectmax="onSelectMax"
+  bindselectMin="onSelectMin"
 #endif
 />
 ```
@@ -113,7 +113,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-button
@@ -122,7 +122,7 @@ Page({
   onTap="handleChangeValue"
 #endif
 #if WECHAT
-  bind:tap="handleChangeValue"
+  bindtap="handleChangeValue"
 #endif
 >
   改变选中值为选项三
@@ -186,9 +186,9 @@ Page({
 | #if ALIPAY onChange       | 选中值发生变化，触发回调                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if ALIPAY onSelectMax    | 触发最大限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
 | #if ALIPAY onSelectMin    | 触发最小限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
-| #if WECHAT bind:change    | 选中值发生变化，触发回调                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:selectmax | 触发最大限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
-| #if WECHAT bind:selectmin | 触发最小限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
+| #if WECHAT bindchange    | 选中值发生变化，触发回调                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindselectmax | 触发最大限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
+| #if WECHAT bindselectmin | 触发最小限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
 
 ### SelectorItem
 

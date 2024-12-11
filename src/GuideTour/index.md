@@ -39,8 +39,8 @@ toc: 'content'
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:cancel="closeTour"
-  bind:change="onChange"
+  bindcancel="closeTour"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -81,8 +81,8 @@ Page({
   onChange="onChangeControlled"
 #endif
 #if WECHAT
-  bind:cancel="closeTour"
-  bind:change="onChangeControlled"
+  bindcancel="closeTour"
+  bindchange="onChangeControlled"
 #endif
 />
 
@@ -140,8 +140,8 @@ Page({
 | gotItText              | 知道了按钮的文案 | `string`                            | '知道了' |
 | #if ALIPAY onCancel    | 关闭回调         | `() => void`                        | -        |
 | #if ALIPAY onChange    | 步骤改变回调     | `(index: number) => void`           | -        |
-| #if WECHAT bind:cancel | 关闭回调         | `() => void`                        | -        |
-| #if WECHAT bind:change | 步骤改变回调     | `(index: number) => void`           | -        |
+| #if WECHAT bindcancel | 关闭回调         | `() => void`                        | -        |
+| #if WECHAT bindchange | 步骤改变回调     | `(index: number) => void`           | -        |
 
 ### GuideTourItem
 

@@ -42,8 +42,8 @@ toc: content
 | #if ALIPAY onTap            | Click the button to trigger this callback                                                | (e: Event) => void             | -        |
 | #if ALIPAY catchTap         | Click the button to trigger this callback, non-bubbling                                        | (e: Event) => void             | -        |
 | #if ALIPAY onDisabledTap    | In the disabled state, click the button to trigger this callback                                    | (e: Event) => void             | -        |
-| #if WECHAT bind:tap         | Click the button to trigger this callback                                                | (e: Event) => void             | -        |
-| #if WECHAT bind:disabledtap | In the disabled state, click the button to trigger this callback                                    | (e: Event) => void             | -        |
+| #if WECHAT bindtap         | Click the button to trigger this callback                                                | (e: Event) => void             | -        |
+| #if WECHAT binddisabledtap | In the disabled state, click the button to trigger this callback                                    | (e: Event) => void             | -        |
 
 ### Theme customization
 

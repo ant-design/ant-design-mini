@@ -49,10 +49,10 @@ In `index.json` Introducing Components in
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:cancel="handleDismiss"
-  bind:visiblechange="handleTriggerPicker"
-  bind:ok="handleOk"
-  bind:change="handleChange"
+  bindcancel="handleDismiss"
+  bindvisiblechange="handleTriggerPicker"
+  bindok="handleOk"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -123,7 +123,7 @@ Page({
 #endif
 #if WECHAT
   onFormat="{{formatTime}}"
-  bind:ok="handleOk"
+  bindok="handleOk"
 #endif
 />
 ```
@@ -191,7 +191,7 @@ Page({
   onOk="handleControlledOk"
 #endif
 #if WECHAT
-  bind:ok="handleControlledOk"
+  bindok="handleControlledOk"
 #endif
 />
 <ant-button onTap="handleChangeControlled">Select Shenzhen</ant-button>
@@ -311,10 +311,10 @@ Page({
 | #if ALIPAY onCancel           | Click the cancel button/layer to trigger the callback                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                              | -           |
 | #if ALIPAY onChange           | The selected item changes, triggering a callback                                                                                                                                                    | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
 | #if ALIPAY onVisibleChange    | Pop-up display/hide status change trigger                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
-| #if WECHAT bind:ok            | Click the OK button to trigger the callback                                                                                                                                                      | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
-| #if WECHAT bind:cancel        | Click the cancel button/layer to trigger the callback                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                              | -           |
-| #if WECHAT bind:change        | The selected item changes, triggering a callback                                                                                                                                                    | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
-| #if WECHAT bind:visiblechange | Pop-up display/hide status change trigger                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
+| #if WECHAT bindok            | Click the OK button to trigger the callback                                                                                                                                                      | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
+| #if WECHAT bindcancel        | Click the cancel button/layer to trigger the callback                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                              | -           |
+| #if WECHAT bindchange        | The selected item changes, triggering a callback                                                                                                                                                    | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
+| #if WECHAT bindvisiblechange | Pop-up display/hide status change trigger                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
 
 ### CascaderPicker
 
@@ -349,10 +349,10 @@ Page({
 | #if ALIPAY onCancel           | Click the cancel button/layer to trigger the callback                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                        | -            |
 | #if ALIPAY onChange           | The selected item changes, triggering a callback                                                                                                                                                    | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | #if ALIPAY onVisibleChange    | Pop-up display/hide status change trigger                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
-| #if WECHAT bind:ok            | Click the OK button to trigger the callback                                                                                                                                                      | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:cancel        | Click the cancel button/layer to trigger the callback                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                        | -            |
-| #if WECHAT bind:change        | The selected item changes, triggering a callback                                                                                                                                                    | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:visibleChange | Pop-up display/hide status change trigger                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
+| #if WECHAT bindok            | Click the OK button to trigger the callback                                                                                                                                                      | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindcancel        | Click the cancel button/layer to trigger the callback                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                        | -            |
+| #if WECHAT bindchange        | The selected item changes, triggering a callback                                                                                                                                                    | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindvisibleChange | Pop-up display/hide status change trigger                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
 
 ### PickerColumnItem
 

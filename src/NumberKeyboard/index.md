@@ -119,9 +119,9 @@ toc: 'content'
 | #if ALIPAY onChange     | 数字变化时的回调 | (val: string) => void | -      |
 | #if ALIPAY onClose      | 隐藏键盘时的回调 | () => void            | -      |
 | #if ALIPAY onConfirm    | 点击确认时的回调 | () => void            | -      |
-| #if WECHAT bind:change  | 数字变化时的回调 | (val: string) => void | -      |
-| #if WECHAT bind:close   | 隐藏键盘时的回调 | () => void            | -      |
-| #if WECHAT bind:confirm | 点击确认时的回调 | () => void            | -      |
+| #if WECHAT bindchange  | 数字变化时的回调 | (val: string) => void | -      |
+| #if WECHAT bindclose   | 隐藏键盘时的回调 | () => void            | -      |
+| #if WECHAT bindconfirm | 点击确认时的回调 | () => void            | -      |
 
 ### 主题定制
 

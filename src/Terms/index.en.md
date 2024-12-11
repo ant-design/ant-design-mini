@@ -40,8 +40,8 @@ In `index.json` Introducing Components in
   onTermTap="handleTermTap"
 #endif
 #if WECHAT
-  bind:buttontap="handleButtonTap"
-  bind:termtap="handleTermTap"
+  bindbuttontap="handleButtonTap"
+  bindtermtap="handleTermTap"
 #endif
 />
 ```
@@ -93,10 +93,10 @@ Page({
   onTermPrefixTap="handleTermPrefixTap"
 #endif
 #if WECHAT
-  bind:buttontap="handleButtonTap"
-  bind:termtap="handleTermTap"
-  bind:checkchange="handleCheckChange"
-  bind:termprefixtap="handleTermPrefixTap"
+  bindbuttontap="handleButtonTap"
+  bindtermtap="handleTermTap"
+  bindcheckchange="handleCheckChange"
+  bindtermprefixtap="handleTermPrefixTap"
 #endif
 />
 ```
@@ -175,10 +175,10 @@ Page({
   onReadChange="handleReadChange"
 #endif
 #if WECHAT
-  bind:buttontap="handleButtonTap"
-  bind:termtap="handleTermTap"
-  bind:countdownfinish="handleCountdownFinish"
-  bind:readchange="handleReadChange"
+  bindbuttontap="handleButtonTap"
+  bindtermtap="handleTermTap"
+  bindcountdownfinish="handleCountdownFinish"
+  bindreadchange="handleReadChange"
 #endif
 >
   <scroll-view
@@ -373,12 +373,12 @@ Page({
 | #if ALIPAY onTermPrefixTap      | Protocol Prefix Click Callback     | `(c?: boolean) => void`                                           | `-`          |
 | #if ALIPAY onCountdownFinish    | Countdown End Callback       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
 | #if ALIPAY onReadChange         | Protocol reading switch         | `(index?: number) => void`                                        | `-`          |
-| #if WECHAT bind:buttontap       | Action Point Button Click Callback   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
-| #if WECHAT bind:termtap         | Protocol Click Callback         | `(t?: Term, index?: number, event?) => void`                      | `-`          |
-| #if WECHAT bind:checkchange     | Check callback             | `(c?: boolean) => void`                                           | `-`          |
-| #if WECHAT bind:termprefixtap   | Protocol Prefix Click Callback     | `(c?: boolean) => void`                                           | `-`          |
-| #if WECHAT bind:countdownfinish | Countdown End Callback       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
-| #if WECHAT bind:readchange      | Protocol reading switch         | `(index?: number) => void`                                        | `-`          |
+| #if WECHAT bindbuttontap       | Action Point Button Click Callback   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
+| #if WECHAT bindtermtap         | Protocol Click Callback         | `(t?: Term, index?: number, event?) => void`                      | `-`          |
+| #if WECHAT bindcheckchange     | Check callback             | `(c?: boolean) => void`                                           | `-`          |
+| #if WECHAT bindtermprefixtap   | Protocol Prefix Click Callback     | `(c?: boolean) => void`                                           | `-`          |
+| #if WECHAT bindcountdownfinish | Countdown End Callback       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
+| #if WECHAT bindreadchange      | Protocol reading switch         | `(index?: number) => void`                                        | `-`          |
 
 ### Term
 

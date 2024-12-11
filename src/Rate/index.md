@@ -42,7 +42,7 @@ toc: 'content'
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -72,7 +72,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-stepper
@@ -83,7 +83,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -134,7 +134,7 @@ Page({
 | style                    | 样式                   | `string`                 | -                          |
 | value                    | 星级（受控）           | `number`                 | -                          |
 | #if ALIPAY onChange      | 打分回调函数           | `(rate: number) => void` | -                          |
-| #if WECHAT bind:change   | 打分回调函数           | `(rate: number) => void` | -                          |
+| #if WECHAT bindchange   | 打分回调函数           | `(rate: number) => void` | -                          |
 
 ### 主题定制
 
