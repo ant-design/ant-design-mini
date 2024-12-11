@@ -126,7 +126,7 @@ Page({
 | size                        | 空状态尺寸，可选 `normal` `small` | string                                            | `normal` |
 | buttonInfo                  | 自定义按钮                        | [ButtonInfo](#buttoninfo)                         | `normal` |
 | #if ALIPAY onClickButton    | 点击按钮回调                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
-| #if WECHAT bindClickButton | 点击按钮回调                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
+| #if WECHAT bindclickButton | 点击按钮回调                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
 
 ### ButtonInfo
 
