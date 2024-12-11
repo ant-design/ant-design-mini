@@ -39,7 +39,7 @@ Note that the case of the component path must be the same as that of the actual 
 On the page, you can use the button components provided by the antd-mini as follows:
 
 ```diff
-+   <ant-button type="primary" bind:tap="handleTap">主要按钮</ant-button>
++   <ant-button type="primary" bindtap="handleTap">主要按钮</ant-button>
 ```
 
 At the same time, don't forget `.js` Add a method to the file that handles the click event:
