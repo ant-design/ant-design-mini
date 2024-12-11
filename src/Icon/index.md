@@ -60,7 +60,7 @@ toc: 'content'
 | type                 | 图标的类型               | string             | -      |
 | #if ALIPAY catchTap  | 点击图标时触发的回调函数 | (e: Event) => void | -      |
 | #if ALIPAY onTap     | 点击图标时触发的回调函数 | (e: Event) => void | -      |
-| #if WECHAT catch:tap | 点击图标时触发的回调函数 | (e: Event) => void | -      |
+| #if WECHAT catchtap | 点击图标时触发的回调函数 | (e: Event) => void | -      |
 | #if WECHAT bindtap  | 点击图标时触发的回调函数 | (e: Event) => void | -      |
 
 ### 主题定制

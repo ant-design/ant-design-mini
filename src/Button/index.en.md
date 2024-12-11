@@ -109,7 +109,7 @@ The following table describes the API properties for the Button component:
 | #if ALIPAY catchTap         | Click the button to trigger this callback, non-bubbling                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onTap            | Click the button to trigger this callback                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onDisabledTap    | Click Departure Callback when disabled (not supported by WeChat)                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| #if WECHAT catch:tap        | Click the button to trigger this callback, non-bubbling                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if WECHAT catchtap        | Click the button to trigger this callback, non-bubbling                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if WECHAT bindtap         | Click the button to trigger this callback                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if WECHAT binddisabledtap | Click Departure Callback when disabled (not supported by WeChat)                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 
