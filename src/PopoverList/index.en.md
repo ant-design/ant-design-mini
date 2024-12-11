@@ -43,7 +43,7 @@ In `index.json` Introducing Components in
   bindtapitem="handleTapItem"
   bindvisiblechange="handleVisibleChange"
 #endif
-  >
+>
   <ant-button inline>Point me</ant-button>
 </ant-popover-list>
 ```
