@@ -1,0 +1,49 @@
+<import-sjs from="./index.sjs" name="utils" />
+
+<!-- #if ALIPAY -->
+<button
+  form-type="{{ formType }}"
+  hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"
+  scope="{{ scope }}"
+  onTap="{{ onTap ? 'onTap' : '' }}"
+  onGetAuthorize="onGetAuthorize"
+  onFollowLifestyle="onFollowLifestyle"
+  onError="onError"
+  onGetUserInfo="onGetUserInfo"
+  onGetPhoneNumber="onGetPhoneNumber"
+  catchTap="{{ catchTap ? 'catchTap' : '' }}"
+  public-id="{{ publicId }}"
+  open-type="{{ openType }}"
+  class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : ( aide && ['default', 'primary'].indexOf(type) > -1 ? '-aide' : '' )) }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
+  style="{{ style }}"
+>
+  <!-- #endif -->
+  <!-- #if WECHAT -->
+  <button
+    form-type="{{ formType }}"
+    hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"
+    scope="{{ scope }}"
+    bindgetuserinfo="onGetUserInfo"
+    bindcontact="onContact"
+    bindgetphonenumber="onGetPhoneNumber"
+    bindgetrealtimephonenumber="onGetRealTimePhoneNumber"
+    binderror="onError"
+    bindlaunchapp="onLaunchApp"
+    bindopensetting="onOpenSetting"
+    bindagreeprivacyauthorization="onAgreePrivacyAuthorization"
+    bindchooseavatar="onChooseAvatar"
+    public-id="{{ publicId }}"
+    open-type="{{ openType }}"
+    class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : '') }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
+    style="{{ style }}"
+  >
+    <!-- #endif -->
+    <view class="ant-button-wrap">
+      <ant-icon a:if="{{ !!icon }}" type="{{ icon }}" />
+      <view class="ant-button-content-text {{ icon ? 'ant-button-content-text-margin' : '' }}">
+        <slot />
+        <view a:if="{{ !inline && subText }}" class="ant-button-content-subtext">
+          {{ subText }}
+        </view>
+      </view>
+      </button>

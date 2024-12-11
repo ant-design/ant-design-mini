@@ -1,0 +1,14 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "",
+  /// #endif
+
+  "usingComponents": {
+   
+  },
+  "transparentTitle": "always"
+}
