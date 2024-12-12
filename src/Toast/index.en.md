@@ -41,7 +41,7 @@ In `index.json` Introducing Components in
   onClose="handleCloseToast"
 #endif
 #if WECHAT
-  bind:close="handleCloseToast"
+  bindclose="handleCloseToast"
 #endif
 />
 ```
@@ -93,7 +93,7 @@ Page({
 | textType              | Text type, optional `short` `long`the short type has a larger fillet               | string      | `long` |
 | visible               | Whether to hide                                                          | boolean     | false  |
 | #if ALIPAY onClose    | Callback after Toast is closed                                                | (e) => void | -      |
-| #if WECHAT bind:close | Callback after Toast is closed                                                | (e) => void | -      |
+| #if WECHAT bindclose | Callback after Toast is closed                                                | (e) => void | -      |
 
 ### Theme customization
 

@@ -39,7 +39,7 @@ npm i antd-mini --save
 在页面上，您可如下使用 antd-mini 提供的按钮组件：
 
 ```diff
-+   <ant-button type="primary" bind:tap="handleTap">主要按钮</ant-button>
++   <ant-button type="primary" bindtap="handleTap">主要按钮</ant-button>
 ```
 
 同时，不要忘记在对应页面的 `.js` 文件中添加处理点击事件的方法：

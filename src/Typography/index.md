@@ -42,8 +42,8 @@ toc: content
 | #if ALIPAY onTap            | 点击按钮，触发此回调                                                | (e: Event) => void             | -        |
 | #if ALIPAY catchTap         | 点击按钮，触发此回调，非冒泡                                        | (e: Event) => void             | -        |
 | #if ALIPAY onDisabledTap    | 禁用状态下，点击按钮，触发此回调                                    | (e: Event) => void             | -        |
-| #if WECHAT bind:tap         | 点击按钮，触发此回调                                                | (e: Event) => void             | -        |
-| #if WECHAT bind:disabledtap | 禁用状态下，点击按钮，触发此回调                                    | (e: Event) => void             | -        |
+| #if WECHAT bindtap         | 点击按钮，触发此回调                                                | (e: Event) => void             | -        |
+| #if WECHAT binddisabledtap | 禁用状态下，点击按钮，触发此回调                                    | (e: Event) => void             | -        |
 
 ### 主题定制
 

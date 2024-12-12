@@ -41,7 +41,7 @@ toc: 'content'
   onClose="handleCloseToast"
 #endif
 #if WECHAT
-  bind:close="handleCloseToast"
+  bindclose="handleCloseToast"
 #endif
 />
 ```
@@ -93,7 +93,7 @@ Page({
 | textType              | 文字类型，可选 `short` `long`，short 类型的圆角更大               | string      | `long` |
 | visible               | 是否隐藏                                                          | boolean     | false  |
 | #if ALIPAY onClose    | Toast 关闭后的回调                                                | (e) => void | -      |
-| #if WECHAT bind:close | Toast 关闭后的回调                                                | (e) => void | -      |
+| #if WECHAT bindclose | Toast 关闭后的回调                                                | (e) => void | -      |
 
 ### 主题定制
 

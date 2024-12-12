@@ -35,7 +35,7 @@ toc: 'content'
 <ant-tab-bar items="{{tabs}}" current="{{current}}" onChange="handleChange" />
 #endif
 #if WECHAT
-<ant-tab-bar items="{{tabs}}" current="{{current}}" bind:change="handleChange" />
+<ant-tab-bar items="{{tabs}}" current="{{current}}" bindchange="handleChange" />
 #endif
 ```
 
@@ -85,7 +85,7 @@ Page({
 | style           | 样式                                                    | string                  | -      |
 | text            | 选项卡底部文字作用域插槽，接收 item、index、active 参数 | slot                    | -      |
 | #if ALIPAY onChange    | Tab 切换时触发回调 | `(index: number) => void` | -      |
-| #if WECHAT bind:change  | Tab 切换时触发回调 | `(index: number) => void` | -     |
+| #if WECHAT bindchange  | Tab 切换时触发回调 | `(index: number) => void` | -     |
 
 ### TabItem
 

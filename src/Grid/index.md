@@ -168,8 +168,8 @@ Page({
 | title                       | 标题插槽，接收 value、index                            | slot                                  | -          |
 | #if ALIPAY onTap            | 点击每个元素触发                                       | (item: [GridItem](#griditem)) => void |            |
 | #if ALIPAY onFirstAppear    | 当前元素首次可见面积达到 50% 时触发                    | (item: [GridItem](#griditem)) => void |            |
-| #if WECHAT bind:tap         | 点击每个元素触发                                       | (item: [GridItem](#griditem)) => void | -          |
-| #if WECHAT bind:firstappear | 当前元素首次可见面积达到 50% 时触发                    | (item: [GridItem](#griditem)) => void | -          |
+| #if WECHAT bindtap         | 点击每个元素触发                                       | (item: [GridItem](#griditem)) => void | -          |
+| #if WECHAT bindfirstappear | 当前元素首次可见面积达到 50% 时触发                    | (item: [GridItem](#griditem)) => void | -          |
 
 #### GridItem
 

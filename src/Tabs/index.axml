@@ -28,7 +28,7 @@
     <scroll-view
       class="ant-tabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{ $id ? '-' + $id : '' }}"
-      bind:scroll="onScroll"
+      bindscroll="onScroll"
       scroll-left="{{ scrollLeft }}"
       scroll-x="{{ true }}"
       scroll-with-animation="{{ true }}"
@@ -141,7 +141,7 @@
     <scroll-view
       class="ant-vtabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{ $id ? '-' + $id : '' }}"
-      bind:scroll="onScroll"
+      bindscroll="onScroll"
       scroll-top="{{ scrollTop }}"
       scroll-y="{{ true }}"
       scroll-with-animation="{{ true }}"

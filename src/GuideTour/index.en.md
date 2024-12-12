@@ -39,8 +39,8 @@ In `index.json` Introducing Components in
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:cancel="closeTour"
-  bind:change="onChange"
+  bindcancel="closeTour"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -81,8 +81,8 @@ Page({
   onChange="onChangeControlled"
 #endif
 #if WECHAT
-  bind:cancel="closeTour"
-  bind:change="onChangeControlled"
+  bindcancel="closeTour"
+  bindchange="onChangeControlled"
 #endif
 />
 
@@ -140,8 +140,8 @@ Page({
 | gotItText              | Know the copy of the button | `string`                            | "I know' |
 | #if ALIPAY onCancel    | Close Callback         | `() => void`                        | -        |
 | #if ALIPAY onChange    | Step Change Callback     | `(index: number) => void`           | -        |
-| #if WECHAT bind:cancel | Close Callback         | `() => void`                        | -        |
-| #if WECHAT bind:change | Step Change Callback     | `(index: number) => void`           | -        |
+| #if WECHAT bindcancel | Close Callback         | `() => void`                        | -        |
+| #if WECHAT bindchange | Step Change Callback     | `(index: number) => void`           | -        |
 
 ### GuideTourItem
 

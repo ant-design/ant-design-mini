@@ -57,8 +57,8 @@ toc: 'content'
   onTapAction="onTapAction"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
-  bind:tapaction="onTapAction"
+  bindvisiblechange="onVisibleChange"
+  bindtapaction="onTapAction"
 #endif
   >
   <ant-button>点我</ant-button>
@@ -119,7 +119,7 @@ toc: 'content'
   onTap="handleVisibleChange"
 #endif
 #if WECHAT
-  bind:tap="handleVisibleChange"
+  bindtap="handleVisibleChange"
 #endif
 >
   更改visible
@@ -161,8 +161,8 @@ Page({
 | visible                       | 是否显示                                                                                                                                                            | boolean                                                                                             | -      |
 | #if ALIPAY onVisibleChange    | visible 变更时的回调                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if ALIPAY onTapAction        | 操作按钮点击回调                                                                                                                                                    | () => void                                                                                          | -      |
-| #if WECHAT bind:visiblechange | visible 变更时的回调                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:tapaction     | 操作按钮点击回调                                                                                                                                                    | () => void                                                                                          | -      |
+| #if WECHAT bindvisiblechange | visible 变更时的回调                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindtapaction     | 操作按钮点击回调                                                                                                                                                    | () => void                                                                                          | -      |
 
 ### 主题定制
 

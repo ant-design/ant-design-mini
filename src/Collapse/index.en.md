@@ -40,7 +40,7 @@ In `index.json` Introducing Components in
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -79,7 +79,7 @@ Page({
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -93,7 +93,7 @@ Page({
   onTap="addItems"
 #endif
 #if WECHAT
-  bind:tap="addItems"
+  bindtap="addItems"
 #endif
 >
   Add items
@@ -188,7 +188,7 @@ Page({
 | style                  | Style                               | string                                                                                           | -      |
 | title                  | Header slot, receiving value, index        | slot                                                                                             | -      |
 | #if ALIPAY onChange    | Toggle Panel Callback                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:change | Toggle Panel Callback                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bindchange | Toggle Panel Callback                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### CollapseItem
 

@@ -47,10 +47,10 @@ In `index.json` Introducing Components in
   onOk="handleOk"
 #endif
 #if WECHAT
-  bind:pickerchange="handlePickerChange"
-  bind:visiblechange="handleTriggerPicker"
-  bind:cancel="handleDismiss"
-  bind:ok="handleOk"
+  bindpickerchange="handlePickerChange"
+  bindvisiblechange="handleTriggerPicker"
+  bindcancel="handleDismiss"
+  bindok="handleOk"
 #endif
 />
 ```
@@ -131,8 +131,8 @@ Page({
   onOk="handleControlledOk"
 #endif
 #if WECHAT
-  bind:visiblechange="handleTriggerControlledPicker"
-  bind:ok="handleControlledOk"
+  bindvisiblechange="handleTriggerControlledPicker"
+  bindok="handleControlledOk"
 #endif
   />
 ```
@@ -191,9 +191,9 @@ Page({
   onOk="handleRangeOk"
 #endif
 #if WECHAT
-  bind:pickerchange="handlePickerRangeChange"
-  bind:visiblechange="handleTriggerPicker"
-  bind:ok="handleRangeOk"
+  bindpickerchange="handlePickerRangeChange"
+  bindvisiblechange="handleTriggerPicker"
+  bindok="handleRangeOk"
 #endif
 />
 ```
@@ -261,11 +261,11 @@ Page({
 | #if ALIPAY onPickerChange        | The selected item changes, triggering a callback                                                                                                                                                             | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | Add year, month, day, hour, minute and second units | (type: `year` \| `month` \| `day` \| `hour` \| `minute` \| `second`, value: number) => string                                                                                        | -                                                                                                              |
 | #if ALIPAY onVisibleChange       | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void            | -            |
-| #if WECHAT bind:ok               | Click the OK button to trigger the callback                                                                                                                                                               | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:cancel           | Click the cancel button/layer to trigger the callback                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                              | -            |
-| #if WECHAT bind:pickerchange     | The selected item changes, triggering a callback                                                                                                                                                             | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindok               | Click the OK button to trigger the callback                                                                                                                                                               | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindcancel           | Click the cancel button/layer to trigger the callback                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                              | -            |
+| #if WECHAT bindpickerchange     | The selected item changes, triggering a callback                                                                                                                                                             | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | Add year, month, day, hour, minute and second units | (type: `year` \| `month` \| `day` \| `hour` \| `minute` \| `second`, value: number) => string                                                                                        | -                                                                                                              |
-| #if WECHAT bind:visiblechange    | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void            | -            |
+| #if WECHAT bindvisiblechange    | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void            | -            |
 
 ### RangePicker
 
@@ -306,10 +306,10 @@ Page({
 | #if ALIPAY onCancel           | Click the cancel button/layer to trigger the callback                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
 | #if ALIPAY onPickerChange     | The selected item changes, triggering a callback                                                                                                                                                             | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | #if ALIPAY onVisibleChange    | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                    | -            |
-| #if WECHAT bind:ok            | Click the OK button to trigger the callback                                                                                                                                                               | (date: [Date, Date], dateStr: [string, string], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void       | -            |
-| #if WECHAT bind:cancel        | Click the cancel button/layer to trigger the callback                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
-| #if WECHAT bind:pickerchange  | The selected item changes, triggering a callback                                                                                                                                                             | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:visiblechange | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                    | -            |
+| #if WECHAT bindok            | Click the OK button to trigger the callback                                                                                                                                                               | (date: [Date, Date], dateStr: [string, string], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void       | -            |
+| #if WECHAT bindcancel        | Click the cancel button/layer to trigger the callback                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
+| #if WECHAT bindpickerchange  | The selected item changes, triggering a callback                                                                                                                                                             | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindvisiblechange | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                    | -            |
 
 ## How to obtain `YYYY-MM-DD` Time in format
 
@@ -321,7 +321,7 @@ The time returned by the DatePicker component is in the format `Date` type, if y
   onOk="handleOk"
 #endif
 #if WECHAT
-  bind:ok="handleOk"
+  bindok="handleOk"
 #endif
 />
 ```

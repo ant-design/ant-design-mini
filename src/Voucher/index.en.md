@@ -37,7 +37,7 @@ In `index.json` Introducing Components in
   onTap="onTap"
 #endif
 #if WECHAT
-  bind:tap="onTap"
+  bindtap="onTap"
 #endif
   dataSource="{{dataSource}}"
 />
@@ -153,8 +153,8 @@ Page({
 | -------------------------- | -------------------- | --------------------- |
 | #if ALIPAY onBtnTap        | Click the button to trigger this callback | `(item, event)=>void` |
 | #if ALIPAY onVoucherTap    | Click the card to trigger this callback | `(item, event)=>void` |
-| #if WECHAT bind:btntap     | Click the button to trigger this callback | `(item, event)=>void` |
-| #if WECHAT bind:vouchertap | Click the card to trigger this callback | `(item, event)=>void` |
+| #if WECHAT bindbtntap     | Click the button to trigger this callback | `(item, event)=>void` |
+| #if WECHAT bindvouchertap | Click the card to trigger this callback | `(item, event)=>void` |
 
 ## Slot
 

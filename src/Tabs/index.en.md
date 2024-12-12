@@ -152,7 +152,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -173,7 +173,7 @@ Page({
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 >
     <swiper
@@ -185,7 +185,7 @@ Page({
       onChange="onSwipeChange"
 #endif
 #if WECHAT
-      bind:change="onSwipeChange"
+      bindchange="onSwipeChange"
 #endif
     >
       <block a:for="{{items}}" a:for-index="index" a:for-item="item" a:key="{{index}}">
@@ -271,7 +271,7 @@ Page({
 | title                  | Custom `Items` Title;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of) | slot                                                                                         | -          |
 | type                   | Type,`basic`(basis),`capsule`(capsule),`mixin`(Mixed)                                            | string                                                                                       | `basic`    |
 | #if ALIPAY onChange    | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
-| #if WECHAT bind:change | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
+| #if WECHAT bindchange | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 
 ### Item
 
@@ -342,7 +342,7 @@ can be used `slot` From the definition.
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 >
   <view
@@ -353,7 +353,7 @@ can be used `slot` From the definition.
     onTap="onTap"
 #endif
 #if WECHAT
-    bind:tap="onTap"
+    bindtap="onTap"
 #endif
   >
     {{tab.value.title}}

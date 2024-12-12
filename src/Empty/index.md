@@ -59,7 +59,7 @@ toc: 'content'
   onClickButton="onClickButton"
 #endif
 #if WECHAT
-  bind:clickButton="onClickButton"
+  bindclickbutton="onClickButton"
 #endif
 />
 ```
@@ -126,7 +126,7 @@ Page({
 | size                        | 空状态尺寸，可选 `normal` `small` | string                                            | `normal` |
 | buttonInfo                  | 自定义按钮                        | [ButtonInfo](#buttoninfo)                         | `normal` |
 | #if ALIPAY onClickButton    | 点击按钮回调                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
-| #if WECHAT bind:ClickButton | 点击按钮回调                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
+| #if WECHAT bindclickbutton | 点击按钮回调                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
 
 ### ButtonInfo
 

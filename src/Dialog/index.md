@@ -42,8 +42,8 @@ toc: 'content'
   onClose="handleClose"
 #endif
 #if WECHAT
-  bind:buttontap="onButtonTap"
-  bind:close="handleClose"
+  bindbuttontap="onButtonTap"
+  bindclose="handleClose"
 #endif
   />
 ```
@@ -136,8 +136,8 @@ Page({
 | #if ALIPAY onCancelButtonTap | 取消按钮点击事件                                  | ()=>void     | -      |
 | #if ALIPAY onClose           | 点击蒙层或强调模式下点击右上角关闭按钮，触发回调  | ()=>void     | -      |
 | #if ALIPAY onButtonTap       | 行为按钮点击事件                                  | ()=>void     | -      |
-| #if WECHAT bind:close        | 点击蒙层或强调模式下点击右上角关闭按钮，触发回调  | ()=>void     | -      |
-| #if WECHAT bind:buttontap    | 行为按钮点击事件                                  | ()=>void     | -      |
+| #if WECHAT bindclose        | 点击蒙层或强调模式下点击右上角关闭按钮，触发回调  | ()=>void     | -      |
+| #if WECHAT bindbuttontap    | 行为按钮点击事件                                  | ()=>void     | -      |
 
 ### 主题定制
 

@@ -40,8 +40,8 @@ toc: 'content'
   onTermTap="handleTermTap"
 #endif
 #if WECHAT
-  bind:buttontap="handleButtonTap"
-  bind:termtap="handleTermTap"
+  bindbuttontap="handleButtonTap"
+  bindtermtap="handleTermTap"
 #endif
 />
 ```
@@ -93,10 +93,10 @@ Page({
   onTermPrefixTap="handleTermPrefixTap"
 #endif
 #if WECHAT
-  bind:buttontap="handleButtonTap"
-  bind:termtap="handleTermTap"
-  bind:checkchange="handleCheckChange"
-  bind:termprefixtap="handleTermPrefixTap"
+  bindbuttontap="handleButtonTap"
+  bindtermtap="handleTermTap"
+  bindcheckchange="handleCheckChange"
+  bindtermprefixtap="handleTermPrefixTap"
 #endif
 />
 ```
@@ -175,10 +175,10 @@ Page({
   onReadChange="handleReadChange"
 #endif
 #if WECHAT
-  bind:buttontap="handleButtonTap"
-  bind:termtap="handleTermTap"
-  bind:countdownfinish="handleCountdownFinish"
-  bind:readchange="handleReadChange"
+  bindbuttontap="handleButtonTap"
+  bindtermtap="handleTermTap"
+  bindcountdownfinish="handleCountdownFinish"
+  bindreadchange="handleReadChange"
 #endif
 >
   <scroll-view
@@ -373,12 +373,12 @@ Page({
 | #if ALIPAY onTermPrefixTap      | 协议前缀点击回调     | `(c?: boolean) => void`                                           | `-`          |
 | #if ALIPAY onCountdownFinish    | 倒计时结束回调       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
 | #if ALIPAY onReadChange         | 协议阅读切换         | `(index?: number) => void`                                        | `-`          |
-| #if WECHAT bind:buttontap       | 行动点按钮点击回调   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
-| #if WECHAT bind:termtap         | 协议点击回调         | `(t?: Term, index?: number, event?) => void`                      | `-`          |
-| #if WECHAT bind:checkchange     | 勾选回调             | `(c?: boolean) => void`                                           | `-`          |
-| #if WECHAT bind:termprefixtap   | 协议前缀点击回调     | `(c?: boolean) => void`                                           | `-`          |
-| #if WECHAT bind:countdownfinish | 倒计时结束回调       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
-| #if WECHAT bind:readchange      | 协议阅读切换         | `(index?: number) => void`                                        | `-`          |
+| #if WECHAT bindbuttontap       | 行动点按钮点击回调   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
+| #if WECHAT bindtermtap         | 协议点击回调         | `(t?: Term, index?: number, event?) => void`                      | `-`          |
+| #if WECHAT bindcheckchange     | 勾选回调             | `(c?: boolean) => void`                                           | `-`          |
+| #if WECHAT bindtermprefixtap   | 协议前缀点击回调     | `(c?: boolean) => void`                                           | `-`          |
+| #if WECHAT bindcountdownfinish | 倒计时结束回调       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
+| #if WECHAT bindreadchange      | 协议阅读切换         | `(index?: number) => void`                                        | `-`          |
 
 ### Term
 

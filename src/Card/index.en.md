@@ -36,7 +36,7 @@ In `index.json` Introducing Components in
   onOperateClick="handleLinkClick"
 #endif
 #if WECHAT
-  bind:operateClick="handleLinkClick"
+  bindoperateclick="handleLinkClick"
 #endif
   title="title"
   operateText="operate"
@@ -71,7 +71,7 @@ In `index.json` Introducing Components in
   onTitleSticky="handleTitleSticky"
 #endif
 #if WECHAT
-  bind:titleSticky="handleLinkClick"
+  bindtitlesticky="handleLinkClick"
 #endif
 >
   <view style="height: 400px">
@@ -130,9 +130,9 @@ In `index.json` Introducing Components in
 | #if ALIPAY onOperateClick    | Default title bar right operation button click callback                                      | () => void                  | -      |
 | #if ALIPAY onFoldChange      | Default title bar right collapse expand button click callback                                  | () => void                  | -      |
 | #if ALIPAY onTitleSticky     | Whether the title area is the callback when the ceiling changes.                                      | (status) => void            | -      |
-| #if WECHAT bind:operateclick | Default title bar right operation button click callback                                      | () => void                  | -      |
-| #if WECHAT bind:foldchange   | Default title bar right collapse expand button click callback                                  | () => void                  | -      |
-| #if WECHAT bind:titlesticky  | Whether the title area is the callback when the ceiling changes.                                      | (status) => void            | -      |
+| #if WECHAT bindoperateclick | Default title bar right operation button click callback                                      | () => void                  | -      |
+| #if WECHAT bindfoldchange   | Default title bar right collapse expand button click callback                                  | () => void                  | -      |
+| #if WECHAT bindtitlesticky  | Whether the title area is the callback when the ceiling changes.                                      | (status) => void            | -      |
 
 ### ICardConfig
 

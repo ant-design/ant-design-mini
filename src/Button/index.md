@@ -32,18 +32,24 @@ toc: 'content'
 
 ```xml
 #if ALIPAY
-<ant-button type="primary">支付宝</ant-button>
+<ant-button type="primary">Alipay</ant-button>
 #endif
 #if WECHAT
-<ant-button type="primary">微信</ant-button>
+<ant-button type="primary">WeChat</ant-button>
 #endif
-<ant-button type="primary">主要按钮</ant-button>
-<ant-button type="default">次要按钮</ant-button>
-<ant-button type="text">文本按钮</ant-button>
-<ant-button title="副标题" type="primary">带辅助文案按钮</ant-button>
-<ant-button disabled type="primary" onTap="handleTap" onDisabledTap="handleDisabledTap"> 禁用 </ant-button>
-<ant-button type="primary" loading>加载状态</ant-button>
-<ant-button type="primary" danger>危险</ant-button>
+<ant-button type="primary">Main button</ant-button>
+<ant-button type="default">Secondary button</ant-button>
+<ant-button type="text">Text Button</ant-button>
+<ant-button title="副标题" type="primary">With auxiliary copy button</ant-button>
+#if ALIPAY
+<ant-button disabled type="primary" onTap="handleTap" onDisabledTap="handleDisabledTap"> 
+Disable </ant-button>
+#endif
+#if WECHAT
+<ant-button disabled type="primary" bindtap="handleTap" bindisabledtap="handleDisabledTap"> 
+#endif
+<ant-button type="primary" loading>Loading Status</ant-button>
+<ant-button type="primary" danger>Danger</ant-button>
 ```
 
 ### 行内按钮
@@ -109,9 +115,9 @@ toc: 'content'
 | #if ALIPAY catchTap         | 点击按钮，触发此回调，非冒泡                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onTap            | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onDisabledTap    | 禁用时点击出发回调（微信不支持）                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| #if WECHAT catch:tap        | 点击按钮，触发此回调，非冒泡                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| #if WECHAT bind:tap         | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| #if WECHAT bind:disabledtap | 禁用时点击出发回调（微信不支持）                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if WECHAT catchtap        | 点击按钮，触发此回调，非冒泡                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if WECHAT bindtap         | 点击按钮，触发此回调                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if WECHAT binddisabledtap | 禁用时点击出发回调（微信不支持）                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 
 ### 主题定制
 

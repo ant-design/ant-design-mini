@@ -148,7 +148,7 @@ Page({
 | style                  | Style                                                 | string                                                                                                                                                                                                           | -      |
 | value                  | Selected data                                             | string \| number \| (string \| number)[]                                                                                                                                                                         | -      |
 | #if ALIPAY onChange    | Trigger a callback when the selected item changes                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:change | Trigger a callback when the selected item changes                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bindchange | Trigger a callback when the selected item changes                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### ChecklistItem
 

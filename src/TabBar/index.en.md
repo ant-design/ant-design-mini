@@ -35,7 +35,7 @@ In `index.json` Introducing Components in
 <ant-tab-bar items="{{tabs}}" current="{{current}}" onChange="handleChange" />
 #endif
 #if WECHAT
-<ant-tab-bar items="{{tabs}}" current="{{current}}" bind:change="handleChange" />
+<ant-tab-bar items="{{tabs}}" current="{{current}}" bindchange="handleChange" />
 #endif
 ```
 
@@ -85,7 +85,7 @@ Page({
 | style           | Style                                                    | string                  | -      |
 | text            | Tab bottom text scope slot, receiving item, index, active parameters | slot                    | -      |
 | #if ALIPAY onChange    | Trigger callback on Tab switch | `(index: number) => void` | -      |
-| #if WECHAT bind:change  | Trigger callback on Tab switch | `(index: number) => void` | -     |
+| #if WECHAT bindchange  | Trigger callback on Tab switch | `(index: number) => void` | -     |
 
 ### TabItem
 

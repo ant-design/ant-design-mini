@@ -178,10 +178,10 @@ toc: content
 | #if ALIPAY onFocus      | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
 | #if ALIPAY onBlur       | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
 | #if ALIPAY onChange     | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:confirm | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:focus   | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:blur    | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:change  | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bindconfirm | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
+| #if WECHAT bindfocus   | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bindblur    | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bindchange  | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
 
 ### Input 属性
 
@@ -262,7 +262,7 @@ toc: content
   onTap="clear"
 #endif
 #if WECHAT
-  bind:tap="clear"
+  bindtap="clear"
 #endif
 >clear</button>
 ```
