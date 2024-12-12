@@ -39,8 +39,8 @@ toc: 'content'
   onAfterChange="onAfterChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
-  bind:afterchange="onAfterChange"
+  bindchange="onChange"
+  bindafterchange="onAfterChange"
 #endif
 />
 ```
@@ -111,7 +111,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-stepper
@@ -122,7 +122,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -217,8 +217,8 @@ Page({
 | value                       | 当前值                                             | number \| [number, number]                        | -      |
 | #if ALIPAY onChange         | slider 值改变时触发                                | (value: number &verbar; [number, number]) => void | -      |
 | #if ALIPAY onAfterChange    | 与 touchend 触发时机一致，把当前值作为参数传入     | (value: number &verbar; [number, number]) => void | -      |
-| #if WECHAT bind:change      | slider 值改变时触发                                | (value: number &verbar; [number, number]) => void | -      |
-| #if WECHAT bind:afterchange | 与 touchend 触发时机一致，把当前值作为参数传入     | (value: number &verbar; [number, number]) => void | -      |
+| #if WECHAT bindchange      | slider 值改变时触发                                | (value: number &verbar; [number, number]) => void | -      |
+| #if WECHAT bindafterchange | 与 touchend 触发时机一致，把当前值作为参数传入     | (value: number &verbar; [number, number]) => void | -      |
 
 ### 主题定制
 

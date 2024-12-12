@@ -83,7 +83,7 @@ Page({
   onTap="onNextTap"
 #endif
 #if WECHAT
-  bind:tap="onNextTap"
+  bindtap="onNextTap"
 #endif
 >
   <view a:if="{{current < items.length - 1}}">下一步</view>
@@ -95,7 +95,7 @@ Page({
   onTap="onPrevTap"
 #endif
 #if WECHAT
-  bind:tap="onPrevTap"
+  bindtap="onPrevTap"
 #endif
   >
   上一步

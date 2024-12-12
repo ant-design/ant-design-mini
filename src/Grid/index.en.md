@@ -168,8 +168,8 @@ Page({
 | title                       | Header slot, receiving value, index                            | slot                                  | -          |
 | #if ALIPAY onTap            | Click on each element to trigger                                       | (item: [GridItem](#griditem)) => void |            |
 | #if ALIPAY onFirstAppear    | Triggered when the first visible area of the current element reaches 50%                    | (item: [GridItem](#griditem)) => void |            |
-| #if WECHAT bind:tap         | Click on each element to trigger                                       | (item: [GridItem](#griditem)) => void | -          |
-| #if WECHAT bind:firstappear | Triggered when the first visible area of the current element reaches 50%                    | (item: [GridItem](#griditem)) => void | -          |
+| #if WECHAT bindtap         | Click on each element to trigger                                       | (item: [GridItem](#griditem)) => void | -          |
+| #if WECHAT bindfirstappear | Triggered when the first visible area of the current element reaches 50%                    | (item: [GridItem](#griditem)) => void | -          |
 
 #### GridItem
 

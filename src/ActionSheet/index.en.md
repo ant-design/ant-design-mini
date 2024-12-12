@@ -42,8 +42,8 @@ In `index.json` Introducing Components in
   onClose="handleClose"
 #endif
 #if WECHAT
-  bind:action="handleAction"
-  bind:close="handleClose"
+  bindaction="handleAction"
+  bindclose="handleClose"
 #endif
 />
 
@@ -54,7 +54,7 @@ In `index.json` Introducing Components in
   onTap="handleOpen"
 #endif
 #if WECHAT
-  bind:tap="handleOpen"
+  bindtap="handleOpen"
 #endif
 >
   Open Panel
@@ -172,8 +172,8 @@ Page({
 | zIndex                 | Pop-up Level                           | number                                                                                                                                      | 998    |
 | #if ALIPAY onClose     | Trigger on shutdown                         | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                           | -      |
 | #if ALIPAY onAction    | Triggered when option is clicked, not triggered when disabled | (item: [ActionSheetItem](#actionsheetitem), index: number, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:close  | Trigger on shutdown                         | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                           | -      |
-| #if WECHAT bind:action | Triggered when option is clicked, not triggered when disabled | (item: [ActionSheetItem](#actionsheetitem), index: number, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindclose  | Trigger on shutdown                         | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                           | -      |
+| #if WECHAT bindaction | Triggered when option is clicked, not triggered when disabled | (item: [ActionSheetItem](#actionsheetitem), index: number, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 
 ### ActionSheetItem
 

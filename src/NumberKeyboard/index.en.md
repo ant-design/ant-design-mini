@@ -119,9 +119,9 @@ In `index.json` Introducing Components in
 | #if ALIPAY onChange     | Callback when number changes | (val: string) => void | -      |
 | #if ALIPAY onClose      | Callback when hiding keyboard | () => void            | -      |
 | #if ALIPAY onConfirm    | Callback when clicking confirmation | () => void            | -      |
-| #if WECHAT bind:change  | Callback when number changes | (val: string) => void | -      |
-| #if WECHAT bind:close   | Callback when hiding keyboard | () => void            | -      |
-| #if WECHAT bind:confirm | Callback when clicking confirmation | () => void            | -      |
+| #if WECHAT bindchange  | Callback when number changes | (val: string) => void | -      |
+| #if WECHAT bindclose   | Callback when hiding keyboard | () => void            | -      |
+| #if WECHAT bindconfirm | Callback when clicking confirmation | () => void            | -      |
 
 ### Theme customization
 

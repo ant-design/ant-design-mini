@@ -39,7 +39,7 @@ In `index.json` Introducing Components in
 <ant-checkbox checked="{{checked}}" onChange="handleCheckedChange">Basic usage</ant-checkbox>
 #endif
 #if WECHAT
-<ant-checkbox checked="{{checked}}" bind:change="handleCheckedChange">Basic usage</ant-checkbox>
+<ant-checkbox checked="{{checked}}" bindchange="handleCheckedChange">Basic usage</ant-checkbox>
 #endif
 ```
 
@@ -77,7 +77,7 @@ Page({
 <ant-checkbox-group
   value="{{value}}"
   options="{{options}}"
-  bind:change="handleValueChange"
+  bindchange="handleValueChange"
 />
 #endif
 ```
@@ -153,7 +153,7 @@ Page({
         <ant-checkbox
           data-value="{{item.value}}"
           checked="{{utils.indexOf(customValue, item.value) > -1}}"
-          bind:change="handleCustomChange"
+          bindchange="handleCustomChange"
         >{{item.title}}</ant-checkbox>
       </ant-list-item>
     </block>
@@ -230,7 +230,7 @@ Page({
 | disabled               | Disable                | boolean                                                                                             | false  |
 | style                  | Style                    | string                                                                                              | -      |
 | #if ALIPAY onChange    | Trigger callback when selection status changes  | (checked: boolean, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:change | Trigger callback when selection status changes  | (checked: boolean, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindchange | Trigger callback when selection status changes  | (checked: boolean, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 
 #### CheckboxGroup
 
@@ -246,7 +246,7 @@ Page({
 | style                  | Style                                                         | string                                                                                               | -          |
 | value                  | The value of the CheckboxGroup to determine whether the child element is checked.                       | `string[]`                                                                                           | -          |
 | #if ALIPAY onChange    | Check to trigger this function when status changes                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
-| #if WECHAT bind:change | Check to trigger this function when status changes                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
+| #if WECHAT bindchange | Check to trigger this function when status changes                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 
 ### Theme customization
 

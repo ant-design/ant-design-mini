@@ -39,8 +39,8 @@ toc: content
   onCountdownFinish="handleCountdownEnd"
 #endif
 #if WECHAT
-  bind:countdownchange="handleCountdownChange"
-  bind:countdownfinish="handleCountdownEnd"
+  bindcountdownchange="handleCountdownChange"
+  bindcountdownfinish="handleCountdownEnd"
 #endif
 >
   <text slot="prefix">剩余时间</text>
@@ -78,8 +78,8 @@ Page({
 | countdownType                   | 超长倒计时需要展示天数               | `string`            | -          |
 | #if ALIPAY onCountdownChange    | 倒计时变化时的回调                   | `Function`          | -          |
 | #if ALIPAY onCountdownFinish    | 倒计时结束回调                       | `Function`          | -          |
-| #if WECHAT bind:countdownchange | 倒计时变化时的回调                   | `Function`          | -          |
-| #if WECHAT bind:countdownfinish | 倒计时结束回调                       | `Function`          | -          |
+| #if WECHAT bindcountdownchange | 倒计时变化时的回调                   | `Function`          | -          |
+| #if WECHAT bindcountdownfinish | 倒计时结束回调                       | `Function`          | -          |
 
 ### 主题定制
 

@@ -40,7 +40,7 @@ In `index.json` Introducing Components in
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -101,7 +101,7 @@ Page({
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-button
@@ -109,7 +109,7 @@ Page({
   onTap="handleChangeByButton"
 #endif
 #if WECHAT
-  bind:tap="handleChangeByButton"
+  bindtap="handleChangeByButton"
 #endif
 >
   Switch
@@ -161,7 +161,7 @@ Page({
 | size                   | Component size, optional value is `medium`、`small`、`x-small` | string                                                                                              | `medium` |
 | style                  | Style                                            | string                                                                                              | -        |
 | #if ALIPAY onChange    | Callback triggered when Switch is clicked                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
-| #if WECHAT bind:change | Callback triggered when Switch is clicked                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
+| #if WECHAT bindchange | Callback triggered when Switch is clicked                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
 
 ### Theme customization
 

@@ -42,8 +42,8 @@ toc: 'content'
   onClose="handleClose"
 #endif
 #if WECHAT
-  bind:action="handleAction"
-  bind:close="handleClose"
+  bindaction="handleAction"
+  bindclose="handleClose"
 #endif
 />
 
@@ -54,7 +54,7 @@ toc: 'content'
   onTap="handleOpen"
 #endif
 #if WECHAT
-  bind:tap="handleOpen"
+  bindtap="handleOpen"
 #endif
 >
   打开面板
@@ -172,8 +172,8 @@ Page({
 | zIndex                 | 弹窗层级                           | number                                                                                                                                      | 998    |
 | #if ALIPAY onClose     | 关闭时触发                         | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                           | -      |
 | #if ALIPAY onAction    | 点击选项时触发，禁用状态下不会触发 | (item: [ActionSheetItem](#actionsheetitem), index: number, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:close  | 关闭时触发                         | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                           | -      |
-| #if WECHAT bind:action | 点击选项时触发，禁用状态下不会触发 | (item: [ActionSheetItem](#actionsheetitem), index: number, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindclose  | 关闭时触发                         | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                           | -      |
+| #if WECHAT bindaction | 点击选项时触发，禁用状态下不会触发 | (item: [ActionSheetItem](#actionsheetitem), index: number, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 
 ### ActionSheetItem
 

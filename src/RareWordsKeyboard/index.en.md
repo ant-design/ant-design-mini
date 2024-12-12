@@ -33,9 +33,9 @@ The problem of rare characters has always been a difficult point in the society.
 | #if ALIPAY onClose     | Callback triggered when keyboard is closed                  | `() => void`              | -      |
 | #if ALIPAY onChange    | Callback triggered when input completes                  | `(value: string) => void` | -      |
 | #if ALIPAY onError     | Open the callback that is triggered when the keyboard goes wrong              | `(err: Error) => void`    | -      |
-| #if WECHAT bind:close  | Callback triggered when keyboard is closed                  | `() => void`              | -      |
-| #if WECHAT bind:change | Callback triggered when input completes                  | `(value: string) => void` | -      |
-| #if WECHAT bind:error  | Open the callback that is triggered when the keyboard goes wrong              | `(err: Error) => void`    | -      |
+| #if WECHAT bindclose  | Callback triggered when keyboard is closed                  | `() => void`              | -      |
+| #if WECHAT bindchange | Callback triggered when input completes                  | `(value: string) => void` | -      |
+| #if WECHAT binderror  | Open the callback that is triggered when the keyboard goes wrong              | `(err: Error) => void`    | -      |
 
 ### Theme customization
 

@@ -8,7 +8,7 @@
   /// #endif
 
   "usingComponents": {
-   
+    "copilot-button": "../../../src/Copilotbutton/index"
   },
   "transparentTitle": "always"
 }

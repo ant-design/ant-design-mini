@@ -45,8 +45,8 @@ In `index.json` Introducing Components in
 #if WECHAT
   onBeforeUpload="{{onBeforeUpload}}"
   onUpload="{{onUpload}}"
-  bind:change="onChange"
-  bind:preview="onPreview"
+  bindchange="onChange"
+  bindpreview="onPreview"
 #endif
 />
 ```
@@ -114,7 +114,7 @@ Page({
   onUpload="onUpload"
 #endif
 #if WECHAT
-  bind:change="handleControlledChange"
+  bindchange="handleControlledChange"
   onUpload="{{onUpload}}"
 #endif
 />
@@ -205,8 +205,8 @@ Page({
 | onRemove                | Click the callback when removing files. Do not remove if the return value is false. Support to return a Promise object, Promise object resolve(false) or reject does not remove                                                                 | (file: [File](#file)) => boolean \| Promise\<boolean\>                                      | -                   |
 | #if ALIPAY onChange     | Triggered when the list of uploaded files changes                                                                                                                                                               | (fileList: [File](#file)[]) => void                                                         | -                   |
 | #if ALIPAY onPreview    | Triggered when an image is clicked                                                                                                                                                                           | (file: [File](#file)[]) => void                                                             | -                   |
-| #if WECHAT bind:change  | Triggered when the list of uploaded files changes                                                                                                                                                               | (fileList: [File](#file)[]) => void                                                         | -                   |
-| #if WECHAT bind:preview | Triggered when an image is clicked                                                                                                                                                                           | (file: [File](#file)[]) => void                                                             | -                   |
+| #if WECHAT bindchange  | Triggered when the list of uploaded files changes                                                                                                                                                               | (fileList: [File](#file)[]) => void                                                         | -                   |
+| #if WECHAT bindpreview | Triggered when an image is clicked                                                                                                                                                                           | (file: [File](#file)[]) => void                                                             | -                   |
 
 ### File
 

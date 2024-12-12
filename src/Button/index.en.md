@@ -41,7 +41,13 @@ In `index.json` Introducing Components in
 <ant-button type="default">Secondary button</ant-button>
 <ant-button type="text">Text Button</ant-button>
 <ant-button title="副标题" type="primary">With auxiliary copy button</ant-button>
-<ant-button disabled type="primary" onTap="handleTap" onDisabledTap="handleDisabledTap"> Disable </ant-button>
+#if ALIPAY
+<ant-button disabled type="primary" onTap="handleTap" onDisabledTap="handleDisabledTap"> 
+Disable </ant-button>
+#endif
+#if WECHAT
+<ant-button disabled type="primary" bindtap="handleTap" bindisabledtap="handleDisabledTap"> 
+#endif
 <ant-button type="primary" loading>Loading Status</ant-button>
 <ant-button type="primary" danger>Danger</ant-button>
 ```
@@ -109,9 +115,9 @@ The following table describes the API properties for the Button component:
 | #if ALIPAY catchTap         | Click the button to trigger this callback, non-bubbling                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onTap            | Click the button to trigger this callback                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onDisabledTap    | Click Departure Callback when disabled (not supported by WeChat)                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| #if WECHAT catch:tap        | Click the button to trigger this callback, non-bubbling                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| #if WECHAT bind:tap         | Click the button to trigger this callback                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
-| #if WECHAT bind:disabledtap | Click Departure Callback when disabled (not supported by WeChat)                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if WECHAT catchtap        | Click the button to trigger this callback, non-bubbling                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if WECHAT bindtap         | Click the button to trigger this callback                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
+| #if WECHAT binddisabledtap | Click Departure Callback when disabled (not supported by WeChat)                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 
 ### Theme customization
 

@@ -42,8 +42,8 @@ In `index.json` Introducing Components in
   onClose="handleClose"
 #endif
 #if WECHAT
-  bind:buttontap="onButtonTap"
-  bind:close="handleClose"
+  bindbuttontap="onButtonTap"
+  bindclose="handleClose"
 #endif
   />
 ```
@@ -136,8 +136,8 @@ Page({
 | #if ALIPAY onCancelButtonTap | Cancel button click event                                  | ()=>void     | -      |
 | #if ALIPAY onClose           | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
 | #if ALIPAY onButtonTap       | Behavior button click event                                  | ()=>void     | -      |
-| #if WECHAT bind:close        | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
-| #if WECHAT bind:buttontap    | Behavior button click event                                  | ()=>void     | -      |
+| #if WECHAT bindclose        | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
+| #if WECHAT bindbuttontap    | Behavior button click event                                  | ()=>void     | -      |
 
 ### Theme customization
 

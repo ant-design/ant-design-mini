@@ -11,7 +11,7 @@
 <label
   class="ant-radio-item {{ className || '' }}"
   style="{{ style }}"
-  bind:tap="handleTap">
+  bindtap="handleTap">
 <!-- #endif -->
   <view class="ant-radio-item-container">
     <view class="ant-radio-item-wrap">

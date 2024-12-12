@@ -37,7 +37,7 @@ supportPlatform: ['alipay']
   onTap="onTap"
 #endif
 #if WECHAT
-  bind:tap="onTap"
+  bindtap="onTap"
 #endif
   dataSource="{{dataSource}}"
 />
@@ -153,8 +153,8 @@ Page({
 | -------------------------- | -------------------- | --------------------- |
 | #if ALIPAY onBtnTap        | 点击按钮，触发此回调 | `(item, event)=>void` |
 | #if ALIPAY onVoucherTap    | 点击卡片，触发此回调 | `(item, event)=>void` |
-| #if WECHAT bind:btntap     | 点击按钮，触发此回调 | `(item, event)=>void` |
-| #if WECHAT bind:vouchertap | 点击卡片，触发此回调 | `(item, event)=>void` |
+| #if WECHAT bindbtntap     | 点击按钮，触发此回调 | `(item, event)=>void` |
+| #if WECHAT bindvouchertap | 点击卡片，触发此回调 | `(item, event)=>void` |
 
 ## 插槽
 

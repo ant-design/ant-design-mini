@@ -48,8 +48,8 @@ toc: 'content'
   onClose="handlePopupClose"
 #endif
 #if WECHAT
-  bind:clickback="onClickBack"
-  bind:close="handlePopupClose"
+  bindclickback="onClickBack"
+  bindclose="handlePopupClose"
 #endif
 >
   <view style="padding: 12px">
@@ -153,10 +153,10 @@ Page({
 | #if ALIPAY onClickBack        | 点击返回按钮，触发回调                                                                                                                                            | () => void | -           |
 | #if ALIPAY onAfterShow        | 完全展示后触发                                                                                                                                                    | () => void | -           |
 | #if ALIPAY onAfterClose       | 完全关闭后触发                                                                                                                                                    | () => void | -           |
-| #if WECHAT bind:close         | 点击蒙层关闭，触发回调                                                                                                                                            | () => void | -           |
-| #if WECHAT bind:clickbackicon | 点击返回按钮，触发回调                                                                                                                                            | () => void | -           |
-| #if WECHAT bind:aftershow     | 完全展示后触发                                                                                                                                                    | () => void | -           |
-| #if WECHAT bind:afterclose    | 完全关闭后触发                                                                                                                                                    | () => void | -           |
+| #if WECHAT bindclose         | 点击蒙层关闭，触发回调                                                                                                                                            | () => void | -           |
+| #if WECHAT bindclickbackicon | 点击返回按钮，触发回调                                                                                                                                            | () => void | -           |
+| #if WECHAT bindaftershow     | 完全展示后触发                                                                                                                                                    | () => void | -           |
+| #if WECHAT bindafterclose    | 完全关闭后触发                                                                                                                                                    | () => void | -           |
 
 ### 主题定制
 

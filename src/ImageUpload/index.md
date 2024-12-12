@@ -45,8 +45,8 @@ toc: 'content'
 #if WECHAT
   onBeforeUpload="{{onBeforeUpload}}"
   onUpload="{{onUpload}}"
-  bind:change="onChange"
-  bind:preview="onPreview"
+  bindchange="onChange"
+  bindpreview="onPreview"
 #endif
 />
 ```
@@ -114,7 +114,7 @@ Page({
   onUpload="onUpload"
 #endif
 #if WECHAT
-  bind:change="handleControlledChange"
+  bindchange="handleControlledChange"
   onUpload="{{onUpload}}"
 #endif
 />
@@ -205,8 +205,8 @@ Page({
 | onRemove                | 点击移除文件时的回调。返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除                                                                 | (file: [File](#file)) => boolean \| Promise\<boolean\>                                      | -                   |
 | #if ALIPAY onChange     | 已上传的文件列表变化时触发                                                                                                                                                               | (fileList: [File](#file)[]) => void                                                         | -                   |
 | #if ALIPAY onPreview    | 点击图片时触发                                                                                                                                                                           | (file: [File](#file)[]) => void                                                             | -                   |
-| #if WECHAT bind:change  | 已上传的文件列表变化时触发                                                                                                                                                               | (fileList: [File](#file)[]) => void                                                         | -                   |
-| #if WECHAT bind:preview | 点击图片时触发                                                                                                                                                                           | (file: [File](#file)[]) => void                                                             | -                   |
+| #if WECHAT bindchange  | 已上传的文件列表变化时触发                                                                                                                                                               | (fileList: [File](#file)[]) => void                                                         | -                   |
+| #if WECHAT bindpreview | 点击图片时触发                                                                                                                                                                           | (file: [File](#file)[]) => void                                                             | -                   |
 
 ### File
 
