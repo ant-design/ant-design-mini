@@ -412,7 +412,7 @@ export async function compileAntdMini(watch: boolean) {
     xmlScriptExt: '.sjs',
     xmlScriptOption: {},
   };
-
+  // alipay常规组件编译
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
     source: resolve(__dirname, '..', 'src'),
@@ -421,7 +421,16 @@ export async function compileAntdMini(watch: boolean) {
     assets: ['md', 'acss', 'js', 'sjs', 'json'],
     buildOption: alipayBuildOption,
   });
-
+  // alipay Copilot组件编译
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
+    source: resolve(__dirname, '..', 'copilot'),
+    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
+    watch,
+    assets: ['md', 'acss', 'js', 'sjs', 'json'],
+    buildOption: alipayBuildOption,
+  });
+  // alipay 常规组件demo文件编译
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
     source: resolve(__dirname, '..', 'demo'),
@@ -433,6 +442,19 @@ export async function compileAntdMini(watch: boolean) {
       compileTs: true,
     },
   });
+  // alipay copilot组件demo文件编译
+  miniCompiler({
+    tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
+    source: resolve(__dirname, '..', 'copilot-demo'),
+    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
+    watch,
+    assets: ['md', 'acss', 'js', 'sjs', 'json'],
+    buildOption: {
+      ...alipayBuildOption,
+      compileTs: true,
+    },
+  });
+  // alipay配置文件编译
   miniCompiler({
     tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
     source: resolve(__dirname, '..', 'config', 'alipay'),

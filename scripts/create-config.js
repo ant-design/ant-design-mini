@@ -16,13 +16,11 @@ async function createConfig() {
       });
     })
   );
-  /** 生成config/wechat.json **/
-  // 获取全量文件夹列表
-  const files =
-    (await fs.readdir(path.resolve(__dirname, '..', 'src')))
+  const getComponents = async (componentType = 'src') => {
+    return (await fs.readdir(path.resolve(__dirname, '..', componentType)))
       .filter((file) => {
         if (file[0] === '.') return false;
-        const mdFilePath = path.resolve(__dirname, '..', 'src', file, 'index.md');
+        const mdFilePath = path.resolve(__dirname, '..', componentType, file, 'index.md');
         // 如果没有markdown文件，进入白名单
         if (!existsSync(mdFilePath)) return true;
         const markdownContent = readFileSync(mdFilePath, { encoding: 'utf-8' });
@@ -31,6 +29,10 @@ async function createConfig() {
         if (match && match[0] && !match[0].includes('wechat')) return false;
         return true;
       });
+  }
+  /** 生成config/wechat.json **/
+  // 获取全量文件夹列表
+  const files = [...getComponents('src'), ...getComponents('copilot-src')]
 
   writeFileSync(path.resolve(__dirname, '..', 'config', 'wechat.json'), JSON.stringify({
     src: files,

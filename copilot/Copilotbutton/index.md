@@ -84,7 +84,7 @@ toc: 'content'
 
 ### Demo 代码
 
-<code src='../../copilot-demo/pages/Button/index'></code>
+<code src='../../copilot-demo/pages/Copilotbutton/index'></code>
 
 ## API
 
