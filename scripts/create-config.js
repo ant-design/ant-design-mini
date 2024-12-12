@@ -38,19 +38,47 @@ async function createConfig() {
 
   // 获取demo文件列表
   const demoPageFiles = await fs.readdir(path.resolve(__dirname, '..', 'demo', 'pages'));
-  // 二级页面
+
+  const wechatAppJsonList = [];
+  // 遍历页面
   await Promise.all(demoPageFiles.map(async fileName => {
+    // 读取json文件里的依赖组件，判断是否支持微信
+    let jsonContent = '';
+    let isSupportWechat = true;
+    // json文件可能是json5，也可能是json文件后缀
+    const jsonFilePath = path.resolve(__dirname, '..', 'demo', 'pages', fileName, 'index.json');
+    const json5FilePath = path.resolve(__dirname, '..', 'demo', 'pages', fileName, 'index.json5')
+    if (existsSync(jsonFilePath)) {
+      jsonContent = await fs.readFile(jsonFilePath, 'utf-8');
+    } else if (existsSync(json5FilePath)) {
+      jsonContent = await fs.readFile(json5FilePath, 'utf-8');
+    }
+
+    if (jsonContent) {
+      // 正则匹配文件里的../../../src/xxx/，获取xxx组件名
+      const dependCompList = jsonContent.match(/\.\.\/\.\.\/\.\.\/src\/([a-zA-Z]+)\//g);
+      // 如果依赖的组件都能找到
+      if (!dependCompList.some(comp => !files.map(file => `../../../src/${file}/`).find(fileWithPrefix => fileWithPrefix === comp))) {
+        wechatAppJsonList.push(fileName);
+      } else {
+        isSupportWechat = false;
+      }
+    } else {
+      wechatAppJsonList.push(fileName);
+    }
+    // 二级页面
     const innerFiles = await fs.readdir(path.resolve(__dirname, '..', 'demo', 'pages', fileName));
     innerFiles.forEach(innerFile => {
       if (existsSync(path.resolve(__dirname, '..', 'demo', 'pages', fileName, innerFile, 'index.axml'))) {
         demoPageFiles.push(`${fileName}/${innerFile}`);
+        if (isSupportWechat) wechatAppJsonList.push(`${fileName}/${innerFile}`);
       }
     })
   }))
   /** 生成config/wechat/app.json */
   writeFileSync(path.resolve(__dirname, '..', 'config', 'wechat', 'app.json'), JSON.stringify({
     "darkmode": true,
-    pages: ['demo/pages/index/index', ...demoPageFiles.filter(item => item !== 'index').map(fileName => `demo/pages/${fileName}/index`)],
+    pages: ['demo/pages/index/index', ...wechatAppJsonList.filter(item => item !== 'index').map(fileName => `demo/pages/${fileName}/index`)],
   }, null, 2), 'utf8');
 
   /** 生成config/alipay/app.json */
