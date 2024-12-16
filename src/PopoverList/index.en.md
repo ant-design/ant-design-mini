@@ -26,24 +26,24 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 ```xml
 <ant-popover-list
-  visible="{{ visible }}"
-  list="{{ list }}"
+  visible="{{visible}}"
+  list="{{list}}"
   placement="bottom-right"
 #if ALIPAY
   onTapItem="handleTapItem"
   onVisibleChange="handleVisibleChange"
 #endif
 #if WECHAT
-  bind:tapitem="handleTapItem"
-  bind:visiblechange="handleVisibleChange"
+  bindtapitem="handleTapItem"
+  bindvisiblechange="handleVisibleChange"
 #endif
-  >
+>
   <ant-button inline>Point me</ant-button>
 </ant-popover-list>
 ```
@@ -83,19 +83,19 @@ Page({
 
 ### bubble position adaptive
 
-> `autoAdjustOverflow` Property to automatically adjust the position of the bubble when it is blocked
+> `autoAdjustOverflow` Property to automatically adjust the position of the bubble when it is occluded
 
 ```xml
 <ant-popover-list
-  visible="{{ true }}"
-  list="{{ list }}"
-  autoAdjustOverflow="{{ true }}"
+  visible="{{true}}"
+  list="{{list}}"
+  autoAdjustOverflow="{{true}}"
 >
   <ant-button inline style="margin-top: 500px;">bubble position adaptive</ant-button>
 </ant-popover-list>
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/PopoverList/index'></code>
 
@@ -119,8 +119,8 @@ Page({
 | visible                       | Whether to display                                                                                                                                                            | boolean                                                                                                                      | -      |
 | #if ALIPAY onVisibleChange    | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
 | #if ALIPAY onTapItem          | Callback at the time of visible change                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:visiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
-| #if WECHAT bind:tapitem       | Callback at the time of visible change                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindvisiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
+| #if WECHAT bindtapitem       | Callback at the time of visible change                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 
 ### PopoverListItem
 

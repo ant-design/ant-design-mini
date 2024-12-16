@@ -26,14 +26,14 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 > [options](#selectoritem) property is an object that contains `text`(main copy), `subText`(Deputy copywriter), `value`(option value), `disabled`(disabled or not).
 
 ```xml
-  <ant-selector defaultValue="2" options="{{ options }}" />
+  <ant-selector defaultValue="2" options="{{options}}" />
 ```
 
 ### multiple choice
@@ -41,7 +41,7 @@ In `index.json` Introducing Components in
 > Incoming `multiple` Properties can support multiple selection.
 
 ```xml
-  <ant-selector defaultValue="{{ ['1', '2'] }}" options="{{ options }}" multiple />
+  <ant-selector defaultValue="{{['1', '2']}}" options="{{options}}" multiple />
 ```
 
 ### Limit the number of selections
@@ -50,17 +50,17 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-selector
-  options="{{ options }}"
+  options="{{options}}"
   multiple
-  maxSelectedCount="{{ 4 }}"
-  minSelectedCount="{{ 2 }}"
+  maxSelectedCount="{{4}}"
+  minSelectedCount="{{2}}"
 #if ALIPAY
   onSelectMax="onSelectMax"
   onSelectMin="onSelectMin"
 #endif
 #if WECHAT
-  bind:selectmax="onSelectMax"
-  bind:selectMin="onSelectMin"
+  bindselectmax="onSelectMax"
+  bindselectmin="onSelectMin"
 #endif
 />
 ```
@@ -100,20 +100,20 @@ Page({
 > To achieve that emptying is not allowed, use `minSelectedCount` Property Set Minimum Limit Number of Digits `1` , can.
 
 ```xml
-<ant-selector defaultValue="1" options="{{ options }}" minSelectedCount="{{ 1 }}" />
+<ant-selector defaultValue="1" options="{{options}}" minSelectedCount="{{1}}" />
 ```
 
 ### Controlled Mode
 
 ```xml
 <ant-selector
-  value="{{ value }}"
-  options="{{ items }}"
+  value="{{value}}"
+  options="{{items}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-button
@@ -122,7 +122,7 @@ Page({
   onTap="handleChangeValue"
 #endif
 #if WECHAT
-  bind:tap="handleChangeValue"
+  bindtap="handleChangeValue"
 #endif
 >
   Change the selected value to option three
@@ -164,7 +164,7 @@ Page({
 
 > Reference below [Demo Code](#demo-代码) implementation in.
 
-## Demo Code
+### Demo Code
 
 <code src="../../demo/pages/Selector/index"></code>
 
@@ -186,16 +186,16 @@ Page({
 | #if ALIPAY onChange       | The selected value changes, triggering a callback                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if ALIPAY onSelectMax    | Maximum Trigger Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
 | #if ALIPAY onSelectMin    | Trigger Minimum Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
-| #if WECHAT bind:change    | The selected value changes, triggering a callback                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:selectmax | Maximum Trigger Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
-| #if WECHAT bind:selectmin | Trigger Minimum Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
+| #if WECHAT bindchange    | The selected value changes, triggering a callback                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindselectmax | Maximum Trigger Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
+| #if WECHAT bindselectmin | Trigger Minimum Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
 
 ### SelectorItem
 
 | Property     | Description         | Type             | Default Value |
 | -------- | ------------ | ---------------- | ------ |
 | disabled | Disable     | boolean          | -      |
-| subText  | Deputy copywriter       | string           | -      |
+| subText  | Deputy Copywriter       | string           | -      |
 | text     | Copy         | string           | -      |
 | value    | Current item value | string \| number | -      |
 
@@ -208,7 +208,7 @@ Component provides the following CSS variables, which can be used to customize s
 | Variable name                            | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                 |
 | --------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
 | --selector-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Selector Background Color       |
-| --selector-item-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Selector item background color     |
+| --selector-item-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Selector Item Background Color     |
 | --selector-item-active-background | <div style="width: 150px; height: 30px; background-color: #e7f1ff; color: #333333;">#e7f1ff</div> | <div style="width: 150px; height: 30px; background-color: #0d2543; color: #ffffff;">#0d2543</div> | Selector Activate Item Background Color |
 | --selector-item-color             | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Selector item color         |
 | --selector-item-sub-color         | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Selector item sub-color       |

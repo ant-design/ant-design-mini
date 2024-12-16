@@ -5,17 +5,18 @@ toc: true
 
 # FAQ
 
-### 2. Can x be used with 1.x, 0.x
+### 3. Can x be used with 2.x, 1.x, 0.x
 
-因为 1.x 升级到 2.x 没有迁移成本，所以你可以直接从 1.x 升级到 2.x
-对于 0.x, 你可以使用 npm 别名来安装。
+Because there is no migration cost to upgrade from 2.x, 1.x to 3.x, you can do it directly from 2.x, 1.x. upgrade to 3.x, under reference[Upgrade Guide](http://localhost:8000/guide/migration)。
+
+For 0.x, you can use the npm alias to install.
 
 In `package.json` This is defined in the file:
 
 ```json
 {
   "dependencies": {
-    "antd-mini": "^2.25.0",
+    "antd-mini": "^3.0.0",
     "antd-mini-v0": "npm:antd-mini@^0.0.26"
   }
 }
@@ -37,7 +38,7 @@ Use:
 ```
 
 ```html
-<button>这是2.x antd-mini</button>
+<button>这是3.x antd-mini</button>
 <antd-mini-v0>这是0.x antd-mini</antd-mini-v0>
 ```
 

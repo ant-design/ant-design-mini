@@ -9,7 +9,7 @@ toc: 'content'
 
 # Grid
 
-The palace is used for navigation of multiple sub-functions in the business and has a higher screen effect than the form of a list.
+The palace grid is used for navigation of multiple sub-functions in the business and has a higher screen effect than the form of a list.
 
 ## Introduction
 
@@ -26,15 +26,15 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 ```xml
 <ant-grid
-  items="{{ items }}"
-  iconSize="{{ 36 }}"
-  columns="{{ 3 }}"
+  items="{{items}}"
+  iconSize="{{36}}"
+  columns="{{3}}"
 />
 ```
 
@@ -63,9 +63,9 @@ Page({
 
 ```xml
 <ant-grid
-  items="{{ items3withDesc }}"
-  iconSize="{{ 36 }}"
-  columns="{{ 3 }}" />
+  items="{{items3withDesc}}"
+  iconSize="{{36}}"
+  columns="{{3}}" />
 ```
 
 ```js
@@ -96,8 +96,8 @@ Page({
 
 ```xml
 <ant-grid
-  items="{{ items }}"
-  columns="{{ 3 }}"
+  items="{{items}}"
+  columns="{{3}}"
   gridItemLayout="horizontal"
 />
 ```
@@ -107,23 +107,23 @@ Page({
 ```xml
 #if ALIPAY
 <ant-grid
-  items="{{ items }}"
-  columns="{{ 5 }}">
+  items="{{items}}"
+  columns="{{5}}">
   <view
     slot="icon"
     slot-scope="props">
     <ant-badge
-      a:if="{{ props.value.tag }}"
+      a:if="{{props.value.tag}}"
       offsetX="-10px"
       type="text"
-      text="{{ props.value.tag }}">
+      text="{{props.value.tag}}">
       <image
-        src="{{ props.value.icon }}"
+        src="{{props.value.icon}}"
         style="width: 44px; height: 44px" />
     </ant-badge>
     <image
       a:else
-      src="{{ props.value.icon }}"
+      src="{{props.value.icon}}"
       style="width: 44px; height: 44px" />
   </view>
   <view
@@ -168,15 +168,15 @@ Page({
 | title                       | Header slot, receiving value, index                            | slot                                  | -          |
 | #if ALIPAY onTap            | Click on each element to trigger                                       | (item: [GridItem](#griditem)) => void |            |
 | #if ALIPAY onFirstAppear    | Triggered when the first visible area of the current element reaches 50%                    | (item: [GridItem](#griditem)) => void |            |
-| #if WECHAT bind:tap         | Click on each element to trigger                                       | (item: [GridItem](#griditem)) => void | -          |
-| #if WECHAT bind:firstappear | Triggered when the first visible area of the current element reaches 50%                    | (item: [GridItem](#griditem)) => void | -          |
+| #if WECHAT bindtap         | Click on each element to trigger                                       | (item: [GridItem](#griditem)) => void | -          |
+| #if WECHAT bindfirstappear | Triggered when the first visible area of the current element reaches 50%                    | (item: [GridItem](#griditem)) => void | -          |
 
 #### GridItem
 
 | Parameters        | Description                                                  | Type   | Default Value |
 | ----------- | ----------------------------------------------------- | ------ | ------ |
 | description | Description                                                  | string | -      |
-| icon        | icons, support images and [Icon](./Icon)                       | string | -      |
+| icon        | icons, supporting images and [Icon](./Icon)                       | string | -      |
 | iconStyle   | Icon style type, with priority higher than grid, optional `normal` `circle` | string | -      |
 | title       | Title                                                  | string | -      |
 

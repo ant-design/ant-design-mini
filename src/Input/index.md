@@ -36,7 +36,7 @@ toc: content
 <ant-input placeholder="input here" />
 <ant-input placeholder="input here" defaultValue="initial value" />
 <ant-input placeholder="input here, with clear button" allowClear />
-<ant-input placeholder="disabled input" disabled="{{ true }}" />
+<ant-input placeholder="disabled input" disabled="{{true}}" />
 ```
 
 ### 带前缀后缀
@@ -51,7 +51,7 @@ toc: content
 ### 受控模式
 
 ```xml
-<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear />
+<ant-input controlled="{{true}}" value="{{value}}" placeholder="input here" allowClear />
 ```
 
 ### 输入金额
@@ -118,7 +118,7 @@ toc: content
 #### 受控模式
 
 ```xml
- <ant-textarea value="{{ value }}" placeholder="input here" allowClear />
+ <ant-textarea value="{{value}}" placeholder="input here" allowClear />
 ```
 
 ### 自定义
@@ -178,10 +178,10 @@ toc: content
 | #if ALIPAY onFocus      | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
 | #if ALIPAY onBlur       | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
 | #if ALIPAY onChange     | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:confirm | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:focus   | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:blur    | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:change  | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bindconfirm | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
+| #if WECHAT bindfocus   | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bindblur    | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bindchange  | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
 
 ### Input 属性
 
@@ -262,7 +262,7 @@ toc: content
   onTap="clear"
 #endif
 #if WECHAT
-  bind:tap="clear"
+  bindtap="clear"
 #endif
 >clear</button>
 ```

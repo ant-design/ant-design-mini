@@ -9,7 +9,7 @@ toc: 'content'
 
 # Popup
 
-Slides or pops up a custom content area from the screen. It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
+Slide or pop-up a custom content area from the screen. It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
 
 ## Introduction
 
@@ -26,30 +26,30 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 > - `ant-popup` Components must pass `visible` Property controls the show/hide state.`position` Specifies the direction of occurrence, optional `top` `bottom` `left` `right`. The contents of the pop-up window are filled in the form of slots.
 > - `close` The event will be triggered when the icon is closed by clicking the upper right corner or when the layer is closed by clicking the layer.
-> - `clickBack` event is triggered when the top left back button is clicked.
+> - `clickBack` event is triggered when the back button in the upper left corner is clicked.
 
 ```xml
 <ant-popup
-  visible="{{ visible }}"
+  visible="{{visible}}"
   position="bottom"
   title="title"
-  height="{{ 250 }}"
-  width="{{ 250 }}"
-  showClose="{{ true }}"
-  showBack="{{ true }}"
+  height="{{250}}"
+  width="{{250}}"
+  showClose="{{true}}"
+  showBack="{{true}}"
 #if ALIPAY
   onClickBack="onClickBack"
   onClose="handlePopupClose"
 #endif
 #if WECHAT
-  bind:clickback="onClickBack"
-  bind:close="handlePopupClose"
+  bindclickback="onClickBack"
+  bindclose="handlePopupClose"
 #endif
 >
   <view style="padding: 12px">
@@ -85,12 +85,12 @@ Page({
 
 ```xml
 <ant-popup
-  visible="{{ true }}"
-  height="{{ 450 }}"
+  visible="{{true}}"
+  height="{{450}}"
   className="customize-top-image-popup"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
-  showClose="{{ false }}">
+  showClose="{{false}}">
   <view class="customize-content">
     Ea consectetur ipsum consequat exercitation laboris excepteur pariatur
     excepteur labore dolor cillum tempor esse. Ad adipisicing nostrud fugiat eu
@@ -106,9 +106,9 @@ Page({
 
 ```xml
 <ant-popup
-  visible="{{ true }}"
+  visible="{{true}}"
   position="bottom"
-  showClose="{{ true }}"
+  showClose="{{true}}"
 >
   <scroll-view
     scroll-y
@@ -124,7 +124,7 @@ Page({
 </ant-popup>
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Popup/index'></code>
 
@@ -147,16 +147,16 @@ Page({
 | width                         | The width, in position, is `left` or `right` unit px                                                                                                            | number     | -           |
 | zIndex                        | Pop-up Level                                                                                                                                                          | number     | 998         |
 | backgroundImage               | Background map of the pop-up box                                                                                                                                                      | string     | -           |
-| showClose                     | Show icon with bullet box closed                                                                                                                                               | boolean    | false       |
+| showClose                     | Show the icon with the bullet box closed.                                                                                                                                               | boolean    | false       |
 | showBack                      | Show the icon returned by the bullet box                                                                                                                                               | boolean    | false       |
 | #if ALIPAY onClose            | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
 | #if ALIPAY onClickBack        | Click the back button to trigger the callback                                                                                                                                            | () => void | -           |
 | #if ALIPAY onAfterShow        | Trigger after full display                                                                                                                                                    | () => void | -           |
 | #if ALIPAY onAfterClose       | Trigger after full shutdown                                                                                                                                                    | () => void | -           |
-| #if WECHAT bind:close         | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
-| #if WECHAT bind:clickbackicon | Click the back button to trigger the callback                                                                                                                                            | () => void | -           |
-| #if WECHAT bind:aftershow     | Trigger after full display                                                                                                                                                    | () => void | -           |
-| #if WECHAT bind:afterclose    | Trigger after full shutdown                                                                                                                                                    | () => void | -           |
+| #if WECHAT bindclose         | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
+| #if WECHAT bindclickbackicon | Click the back button to trigger the callback                                                                                                                                            | () => void | -           |
+| #if WECHAT bindaftershow     | Trigger after full display                                                                                                                                                    | () => void | -           |
+| #if WECHAT bindafterclose    | Trigger after full shutdown                                                                                                                                                    | () => void | -           |
 
 ### Theme customization
 
@@ -175,14 +175,14 @@ Component provides the following CSS variables, which can be used to customize s
 
 ### After Popup is opened, what if the page behind the layer can scroll?
 
-Preventing page scrolling after the layer is currently not effective in IDE and emulator, please debug on real machine.
+Preventing page scrolling after the mask does not currently take effect in IDE and emulator, please debug on real machine.
 
 ### Popup internal elements need to support scrolling how to deal?
 
 If scrolling is required in the pop-up window, use the scroll-view component and add the following attributes:
 
 ```html
-<popup height="{{ 250 }}" visible="{{ visible }}">
+<popup height="{{250}}" visible="{{visible}}">
   <scroll-view
     scroll-y
     disable-lower-scroll="out-of-bounds"
@@ -195,7 +195,7 @@ If scrolling is required in the pop-up window, use the scroll-view component and
 
 ### How to solve the abnormal display of picker-view inside Popup?
 
-Popup is passed by default. `display:none` Hidden, and picker-view cannot be placed in `display:none` in the components. There are two solutions:
+By default, Popup is `display:none` Hidden, and picker-view cannot be placed in `display:none` in the components. There are two solutions:
 
 1. Add attribute on picker-view `a:if="{{popupVisible}}"`, the picker-view is displayed when the Popup is displayed.
 2. Set on Popup `destroyOnClose="{{true}}"`to unload content when the Popup is not visible.

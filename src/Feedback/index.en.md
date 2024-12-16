@@ -26,13 +26,13 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 ```xml
 <ant-feedback
-  visible="{{ visible }}"
+  visible="{{visible}}"
   type="popover"
   popoverType="default"
   placement="bottom-right"
@@ -40,7 +40,7 @@ In `index.json` Introducing Components in
   onVisibleChange="onVisibleChange"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
+  bindvisiblechange="onVisibleChange"
 #endif
 >
   <view class="feedback-demo-target">
@@ -68,13 +68,13 @@ Page({
 });
 ```
 
-### Point guidance feedback
+### Point Guide Feedback
 
 ```xml
 <ant-feedback
   type="popover"
-  list="{{ feedList }}"
-  visible="{{ visible }}"
+  list="{{feedList}}"
+  visible="{{visible}}"
   popoverType="circle"
   title="点引导反馈"
   placement="bottom"
@@ -83,8 +83,8 @@ Page({
   onTapFeedItem="onTapFeedItem"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
-  bind:tapfeeditem="onTapFeedItem"
+  bindvisiblechange="onVisibleChange"
+  bindtapfeeditem="onTapFeedItem"
 #endif
 >
   <image mode="widthFix" style="width: 345rpx;" src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original" />
@@ -124,8 +124,8 @@ Page({
 
 ```xml
 <ant-feedback
-  a:if="{{ visible }}"
-  list="{{ feedList }}"
+  a:if="{{visible}}"
+  list="{{feedList}}"
   type="card"
   title="喜欢推荐的内容吗？"
 #if ALIPAY
@@ -133,8 +133,8 @@ Page({
   onTapFeedItem="onTapFeedItem"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
-  bind:tapfeeditem="onTapFeedItem"
+  bindvisiblechange="onVisibleChange"
+  bindtapfeeditem="onTapFeedItem"
 #endif
 />
 <ant-button
@@ -145,7 +145,7 @@ Page({
   onTap="onShowFeedback"
 #endif
 #if WECHAT
-  bind:tap="onShowFeedback"
+  bindtap="onShowFeedback"
 #endif
 >
   Click to show feedback card
@@ -205,15 +205,15 @@ Page({
 | autoAdjustOverflow            | Whether bubble position is adaptive                                                                                                                                                  | boolean                              | true         |
 | #if ALIPAY onVisibleChange    | Hook showing state change                                                                                                                                                  | (visible: boolean) => void           | -            |
 | #if ALIPAY onTapFeedItem      | Feedback Item Click Callback                                                                                                                                                      | (item: any) => void                  | -            |
-| #if WECHAT bind:visiblechange | Hook showing state change                                                                                                                                                  | (visible: boolean) => void           | -            |
-| #if WECHAT bind:tapfeeditem   | Feedback Item Click Callback                                                                                                                                                      | ([FeedItem](#feeditem): any) => void | -            |
+| #if WECHAT bindvisiblechange | Hook showing state change                                                                                                                                                  | (visible: boolean) => void           | -            |
+| #if WECHAT bindtapfeeditem   | Feedback Item Click Callback                                                                                                                                                      | ([FeedItem](#feeditem): any) => void | -            |
 
 ### FeedItem
 
 | Property  | Description                                     | Type   | Default Value |
 | ----- | ---------------------------------------- | ------ | ------ |
 | icon  | Icons for feedback items                             | string | -      |
-| text  | Copywriting of the feedback item                             | string | -      |
+| text  | Copy of the feedback item                             | string | -      |
 | image | The image and the icon of the feedback item are mutually exclusive, and the icon is displayed first. | string | -      |
 | id    | Unique identification of the feedback item                         | string | -      |
 

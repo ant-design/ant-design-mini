@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -59,7 +59,7 @@ In `index.json` Introducing Components in
   onClickButton="onClickButton"
 #endif
 #if WECHAT
-  bind:clickButton="onClickButton"
+  bindclickbutton="onClickButton"
 #endif
 />
 ```
@@ -120,13 +120,13 @@ Page({
 | --------------------------- | --------------------------------- | ------------------------------------------------- | -------- |
 | className                   | Root node class name                        | string                                            | -        |
 | title                       | Title Copy                          | string \| slot                                    | -        |
-| image                       | Picture, string can be passed in as picture address    | string \| slot                                    |
+| image                       | Picture. You can pass in a string as the picture address.    | string \| slot                                    |
 | message                     | Description Copy                          | string \| slot                                    | -        |
 | style                       | Style                              | string                                            | -        |
 | size                        | Empty status size, optional `normal` `small` | string                                            | `normal` |
 | buttonInfo                  | Custom Button                        | [ButtonInfo](#buttoninfo)                         | `normal` |
 | #if ALIPAY onClickButton    | Click button callback                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
-| #if WECHAT bind:ClickButton | Click button callback                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
+| #if WECHAT bindclickbutton | Click button callback                      | (item: [ButtonInfoItem](#buttoninfoitem)) => void | -        |
 
 ### ButtonInfo
 

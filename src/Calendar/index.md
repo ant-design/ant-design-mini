@@ -123,7 +123,7 @@ function demoFormatter(cell, value) {
   onChange="demo9HandleChange"
 #endif
 #if WECHAT
-  bind:change="demo9HandleChange"
+  bindchange="demo9HandleChange"
 #endif
 ></ant-calendar>
 <ant-button
@@ -132,7 +132,7 @@ function demoFormatter(cell, value) {
   onTap="demo9HandlePreviousDay"
 #endif
 #if WECHAT
-  bind:tap="demo9HandlePreviousDay"
+  bindtap="demo9HandlePreviousDay"
 #endif
 >
   上一天
@@ -143,7 +143,7 @@ function demoFormatter(cell, value) {
   onTap="demo9HandleNextDay"
 #endif
 #if WECHAT
-  bind:tap="demo9HandleNextDay"
+  bindtap="demo9HandleNextDay"
 #endif
 >
   下一天
@@ -154,7 +154,7 @@ function demoFormatter(cell, value) {
   onTap="demo9HandleScrollIntoView"
 #endif
 #if WECHAT
-  bind:tap="demo9HandleScrollIntoView"
+  bindtap="demo9HandleScrollIntoView"
 #endif
 >
   滚动到指定日期
@@ -211,7 +211,7 @@ Page({
 | changedScrollIntoView   | 选中值改变后是否滚动视图                       | boolean                                                     | 无          |
 | showSelectableDatesOnly | 只展示在可选范围内的日期                       | boolean                                                     | false       |
 | #if ALIPAY onChange     | 日期变化回调                                   | (date: CalendarValue) => void                               | 无          |
-| #if WECHAT bind:change  | 日期变化回调                                   | (date: CalendarValue) => void                               | 无          |
+| #if WECHAT bindchange  | 日期变化回调                                   | (date: CalendarValue) => void                               | 无          |
 
 ### 类型
 
@@ -316,7 +316,7 @@ Page({
 wxml 文件：
 
 ```xml
-<calendar onFormatter="{{ handleFormat }}" />
+<calendar onFormatter="{{handleFormat}}" />
 ```
 
 ts 文件：

@@ -32,7 +32,7 @@ Search and view the icon, click the icon to copy.
 
 <Icon></Icon>
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -58,16 +58,16 @@ Search and view the icon, click the icon to copy.
 | className            | Class Name                     | string             | -      |
 | style                | Style                     | string             | -      |
 | type                 | Types of icons               | string             | -      |
-| #if ALIPAY catchTap  | Callback function triggered when icon is clicked | (e: Event) => void | -      |
-| #if ALIPAY onTap     | Callback function triggered when icon is clicked | (e: Event) => void | -      |
-| #if WECHAT catch:tap | Callback function triggered when icon is clicked | (e: Event) => void | -      |
-| #if WECHAT bind:tap  | Callback function triggered when icon is clicked | (e: Event) => void | -      |
+| #if ALIPAY catchTap  | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
+| #if ALIPAY onTap     | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
+| #if WECHAT catchtap | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
+| #if WECHAT bindtap  | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name       | Default Value                                                                                           | Dark Mode Default                                                                                   | Remarks     |
 | ------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------- |

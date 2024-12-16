@@ -8,7 +8,7 @@ toc: 'content'
 ---
 
 # Sticky
-Used in cases where it is necessary to adsorb in some places during rolling.
+Used in the case of the need for adsorption in some places in the rolling.
 
 ## Precautions
 
@@ -29,7 +29,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic Usage
 
@@ -61,12 +61,12 @@ In `index.json` Introducing Components in
   onStickyChange="handleStickyChange"
 #endif
 #if WECHAT
-  bind:stickyChange="handleStickyChange"
+  bindstickychange="handleStickyChange"
 #endif
 >
   <view>
-    <view>I will ceiling at 180px from the top</view>
-    <view>Whether it has sucked {{stickyStatus}}</view>
+    <view>I'll be ceiling 180px away from the top</view>
+    <view>Whether you have sucked {{stickyStatus}}</view>
   </view>
 </ant-sticky>
 ```
@@ -107,8 +107,8 @@ Page({
 | transparentTitle                | bool     | false          | Whether it is a transparent head, the transparent head will automatically calculate the titleBar height, and the default adsorption is under the titlebar |
 | #if ALIPAY onStickyChange       | Function | (status) => {} | Whether it is in the ceiling state, note that the check function needs to be turned on to have this callback.                  |
 | #if ALIPAY onGetHeaderHeight    | Function | (height) => {} | Calculate the height of the head to complete                                                     |
-| #if WECHAT bind:stickychange    | Function | (status) => {} | Whether it is in the ceiling state, note that the check function needs to be turned on to have this callback.                  |
-| #if WECHAT bind:getheaderheight | Function | (height) => {} | Calculate the height of the head to complete                                                     |
+| #if WECHAT bindstickychange    | Function | (status) => {} | Whether it is in the ceiling state, note that the check function needs to be turned on to have this callback.                  |
+| #if WECHAT bindgetheaderheight | Function | (height) => {} | Calculate the height of the head to complete                                                     |
 
 ## Slot
 
@@ -122,7 +122,7 @@ It should be noted that the automatic calculation of head height in the transpar
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name            | Default Value                                                                                                                      | Dark Mode Default                                                                                                               | Remarks           |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------- |

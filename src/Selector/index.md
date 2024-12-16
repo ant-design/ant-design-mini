@@ -33,7 +33,7 @@ toc: 'content'
 > [options](#selectoritem) 属性是一个对象，包含 `text`（主文案）、 `subText`（副文案） 、 `value`（选项值）、 `disabled`（是否禁用）。
 
 ```xml
-  <ant-selector defaultValue="2" options="{{ options }}" />
+  <ant-selector defaultValue="2" options="{{options}}" />
 ```
 
 ### 多选
@@ -41,7 +41,7 @@ toc: 'content'
 > 传入 `multiple` 属性可以支持多选。
 
 ```xml
-  <ant-selector defaultValue="{{ ['1', '2'] }}" options="{{ options }}" multiple />
+  <ant-selector defaultValue="{{['1', '2']}}" options="{{options}}" multiple />
 ```
 
 ### 限制选择个数
@@ -50,17 +50,17 @@ toc: 'content'
 
 ```xml
 <ant-selector
-  options="{{ options }}"
+  options="{{options}}"
   multiple
-  maxSelectedCount="{{ 4 }}"
-  minSelectedCount="{{ 2 }}"
+  maxSelectedCount="{{4}}"
+  minSelectedCount="{{2}}"
 #if ALIPAY
   onSelectMax="onSelectMax"
   onSelectMin="onSelectMin"
 #endif
 #if WECHAT
-  bind:selectmax="onSelectMax"
-  bind:selectMin="onSelectMin"
+  bindselectmax="onSelectMax"
+  bindselectmin="onSelectMin"
 #endif
 />
 ```
@@ -100,20 +100,20 @@ Page({
 > 想要实现不允许清空，使用 `minSelectedCount` 属性设置最小限制个数位 `1` ，即可。
 
 ```xml
-<ant-selector defaultValue="1" options="{{ options }}" minSelectedCount="{{ 1 }}" />
+<ant-selector defaultValue="1" options="{{options}}" minSelectedCount="{{1}}" />
 ```
 
 ### 受控模式
 
 ```xml
 <ant-selector
-  value="{{ value }}"
-  options="{{ items }}"
+  value="{{value}}"
+  options="{{items}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-button
@@ -122,7 +122,7 @@ Page({
   onTap="handleChangeValue"
 #endif
 #if WECHAT
-  bind:tap="handleChangeValue"
+  bindtap="handleChangeValue"
 #endif
 >
   改变选中值为选项三
@@ -164,7 +164,7 @@ Page({
 
 > 参考下面 [Demo 代码](#demo-代码) 中的实现。
 
-## Demo 代码
+### Demo 代码
 
 <code src="../../demo/pages/Selector/index"></code>
 
@@ -186,9 +186,9 @@ Page({
 | #if ALIPAY onChange       | 选中值发生变化，触发回调                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if ALIPAY onSelectMax    | 触发最大限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
 | #if ALIPAY onSelectMin    | 触发最小限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
-| #if WECHAT bind:change    | 选中值发生变化，触发回调                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:selectmax | 触发最大限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
-| #if WECHAT bind:selectmin | 触发最小限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
+| #if WECHAT bindchange    | 选中值发生变化，触发回调                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindselectmax | 触发最大限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
+| #if WECHAT bindselectmin | 触发最小限制                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
 
 ### SelectorItem
 

@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -123,7 +123,7 @@ function demoFormatter(cell, value) {
   onChange="demo9HandleChange"
 #endif
 #if WECHAT
-  bind:change="demo9HandleChange"
+  bindchange="demo9HandleChange"
 #endif
 ></ant-calendar>
 <ant-button
@@ -132,7 +132,7 @@ function demoFormatter(cell, value) {
   onTap="demo9HandlePreviousDay"
 #endif
 #if WECHAT
-  bind:tap="demo9HandlePreviousDay"
+  bindtap="demo9HandlePreviousDay"
 #endif
 >
   Last day
@@ -143,7 +143,7 @@ function demoFormatter(cell, value) {
   onTap="demo9HandleNextDay"
 #endif
 #if WECHAT
-  bind:tap="demo9HandleNextDay"
+  bindtap="demo9HandleNextDay"
 #endif
 >
   Next day
@@ -154,7 +154,7 @@ function demoFormatter(cell, value) {
   onTap="demo9HandleScrollIntoView"
 #endif
 #if WECHAT
-  bind:tap="demo9HandleScrollIntoView"
+  bindtap="demo9HandleScrollIntoView"
 #endif
 >
   Scroll to specified date
@@ -211,7 +211,7 @@ The following are the properties and descriptions of the Calendar component:
 | changedScrollIntoView   | Whether to scroll the view after the selected value is changed                       | boolean                                                     | None          |
 | showSelectableDatesOnly | Show only dates in the selectable range                       | boolean                                                     | false       |
 | #if ALIPAY onChange     | Date Change Callback                                   | (date: CalendarValue) => void                               | None          |
-| #if WECHAT bind:change  | Date Change Callback                                   | (date: CalendarValue) => void                               | None          |
+| #if WECHAT bindchange  | Date Change Callback                                   | (date: CalendarValue) => void                               | None          |
 
 ### Type
 
@@ -252,7 +252,7 @@ interface CellState {
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                           | Default Value                                                                                                                            | Dark Mode Default                                                                                                                    | Remarks                 |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
@@ -316,7 +316,7 @@ In the WeChat applet, we can also set it through the function in data. At this t
 wxml file:
 
 ```xml
-<calendar onFormatter="{{ handleFormat }}" />
+<calendar onFormatter="{{handleFormat}}" />
 ```
 
 ts file:

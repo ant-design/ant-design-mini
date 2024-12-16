@@ -32,18 +32,18 @@ toc: 'content'
 
 ```xml
 <ant-popover-list
-  visible="{{ visible }}"
-  list="{{ list }}"
+  visible="{{visible}}"
+  list="{{list}}"
   placement="bottom-right"
 #if ALIPAY
   onTapItem="handleTapItem"
   onVisibleChange="handleVisibleChange"
 #endif
 #if WECHAT
-  bind:tapitem="handleTapItem"
-  bind:visiblechange="handleVisibleChange"
+  bindtapitem="handleTapItem"
+  bindvisiblechange="handleVisibleChange"
 #endif
-  >
+>
   <ant-button inline>点我</ant-button>
 </ant-popover-list>
 ```
@@ -87,15 +87,15 @@ Page({
 
 ```xml
 <ant-popover-list
-  visible="{{ true }}"
-  list="{{ list }}"
-  autoAdjustOverflow="{{ true }}"
+  visible="{{true}}"
+  list="{{list}}"
+  autoAdjustOverflow="{{true}}"
 >
   <ant-button inline style="margin-top: 500px;">气泡位置自适应</ant-button>
 </ant-popover-list>
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/PopoverList/index'></code>
 
@@ -119,8 +119,8 @@ Page({
 | visible                       | 是否显示                                                                                                                                                            | boolean                                                                                                                      | -      |
 | #if ALIPAY onVisibleChange    | visible 变更时的回调                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
 | #if ALIPAY onTapItem          | visible 变更时的回调                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:visiblechange | visible 变更时的回调                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
-| #if WECHAT bind:tapitem       | visible 变更时的回调                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindvisiblechange | visible 变更时的回调                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
+| #if WECHAT bindtapitem       | visible 变更时的回调                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 
 ### PopoverListItem
 

@@ -45,3 +45,9 @@ knowledge.json
 server
 .dumi/tmp
 .dumi/tmp-production
+
+# compiled
+/compiled
+config/wechat.json
+config/wechat/app.json
+config/alipay/app.json

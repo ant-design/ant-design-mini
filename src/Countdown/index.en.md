@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -39,8 +39,8 @@ In `index.json` Introducing Components in
   onCountdownFinish="handleCountdownEnd"
 #endif
 #if WECHAT
-  bind:countdownchange="handleCountdownChange"
-  bind:countdownfinish="handleCountdownEnd"
+  bindcountdownchange="handleCountdownChange"
+  bindcountdownfinish="handleCountdownEnd"
 #endif
 >
   <text slot="prefix">Remaining Time</text>
@@ -78,8 +78,8 @@ Page({
 | countdownType                   | Extra-long countdown requires display days               | `string`            | -          |
 | #if ALIPAY onCountdownChange    | Callback when the countdown changes                   | `Function`          | -          |
 | #if ALIPAY onCountdownFinish    | Countdown End Callback                       | `Function`          | -          |
-| #if WECHAT bind:countdownchange | Callback when the countdown changes                   | `Function`          | -          |
-| #if WECHAT bind:countdownfinish | Countdown End Callback                       | `Function`          | -          |
+| #if WECHAT bindcountdownchange | Callback when the countdown changes                   | `Function`          | -          |
+| #if WECHAT bindcountdownfinish | Countdown End Callback                       | `Function`          | -          |
 
 ### Theme customization
 
@@ -97,6 +97,6 @@ Component provides the following CSS variables, which can be used to customize s
 
 | Name   | Description       |
 | ------ | ---------- |
-| -      | Default Slot   |
+| -      | Default slot   |
 | prefix | Countdown Head |
 | suffix | Countdown Tail |

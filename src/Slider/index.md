@@ -33,14 +33,14 @@ toc: 'content'
 
 ```xml
 <ant-slider
-  defaultValue="{{ 80 }}"
+  defaultValue="{{80}}"
 #if ALIPAY
   onChange="onChange"
   onAfterChange="onAfterChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
-  bind:afterchange="onAfterChange"
+  bindchange="onChange"
+  bindafterchange="onAfterChange"
 #endif
 />
 ```
@@ -65,7 +65,7 @@ Page({
 ### 禁用状态
 
 ```xml
-  <ant-slider defaultValue="{{ 80 }}" disabled />
+  <ant-slider defaultValue="{{80}}" disabled />
 ```
 
 ### 双滑块模式
@@ -73,7 +73,7 @@ Page({
 > 传入 `range` 属性之后，将支持双滑块模式，`value` 状态值类型也将变成数组。
 
 ```xml
-<ant-slider defaultValue="{{ [20, 60] }}" range />
+<ant-slider defaultValue="{{[20, 60]}}" range />
 ```
 
 ### 节点和刻度
@@ -81,7 +81,7 @@ Page({
 > 传入 `showTicks` 属性显示刻度，传入 `showNumber` 展示刻度上的数据。
 
 ```xml
-<ant-slider defaultValue="{{ 80 }}" step="{{ 20 }}" showTicks showNumber />
+<ant-slider defaultValue="{{80}}" step="{{20}}" showTicks showNumber />
 ```
 
 ### 悬浮提示
@@ -89,10 +89,10 @@ Page({
 > 传入 `showTooltip` 属性，可以在拖动时显示悬浮提示。
 
 ```xml
-<ant-slider defaultValue="{{ 80 }}" showTooltip />
+<ant-slider defaultValue="{{80}}" showTooltip />
 #if ALIPAY
 <!-- 支持使用作用域插槽自定义 -->
-<ant-slider defaultValue="{{ 80 }}" showTooltip>
+<ant-slider defaultValue="{{80}}" showTooltip>
   <view slot="tooltip" slot-scope="prop">插槽自定义:{{prop.value}}</view>
 </ant-slider>
 #endif
@@ -104,25 +104,25 @@ Page({
 
 ```xml
 <ant-slider
-  min="{{ 0 }}"
-  max="{{ 100 }}"
-  value="{{ value }}"
+  min="{{0}}"
+  max="{{100}}"
+  value="{{value}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-stepper
-  min="{{ 0 }}"
-  max="{{ 100 }}"
-  value="{{ value }}"
+  min="{{0}}"
+  max="{{100}}"
+  value="{{value}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -154,8 +154,8 @@ Page({
 
 ```xml
 <ant-slider
-  defaultValue="{{ 80 }}"
-  step="{{ 20 }}"
+  defaultValue="{{80}}"
+  step="{{20}}"
   showTooltip
   showTicks
   showNumber
@@ -169,12 +169,12 @@ Page({
   <text
     slot="tick"
     slot-scope="props"
-    >{{ props.value }}°C</text
+    >{{props.value}}°C</text
   >
   <text
     slot="tooltip"
     slot-scope="props"
-    >{{ props.value }}°C</text
+    >{{props.value}}°C</text
   >
 
   <view slot="slider">
@@ -188,7 +188,7 @@ Page({
 </ant-slider>
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Slider/index'></code>
 
@@ -217,8 +217,8 @@ Page({
 | value                       | 当前值                                             | number \| [number, number]                        | -      |
 | #if ALIPAY onChange         | slider 值改变时触发                                | (value: number &verbar; [number, number]) => void | -      |
 | #if ALIPAY onAfterChange    | 与 touchend 触发时机一致，把当前值作为参数传入     | (value: number &verbar; [number, number]) => void | -      |
-| #if WECHAT bind:change      | slider 值改变时触发                                | (value: number &verbar; [number, number]) => void | -      |
-| #if WECHAT bind:afterchange | 与 touchend 触发时机一致，把当前值作为参数传入     | (value: number &verbar; [number, number]) => void | -      |
+| #if WECHAT bindchange      | slider 值改变时触发                                | (value: number &verbar; [number, number]) => void | -      |
+| #if WECHAT bindafterchange | 与 touchend 触发时机一致，把当前值作为参数传入     | (value: number &verbar; [number, number]) => void | -      |
 
 ### 主题定制
 

@@ -42,7 +42,11 @@ $ npm i
 
 After installing the dependency, click the menu bar in WeChat Developer Tool: "Tools --> Build npm". After the build is complete, the project is ready to run normally.
 
-#### Run in the Alipay applet developer tool
+> If it is found that it cannot run normally, it may be that WeChat development tools build npm and package the dependency into a file, resulting in an error due to the failure to find the reference dependency in WeChat.
+
+> Such:`import duration from 'dayjs/plugin/duration'`After building npm,`dayjs/plugin`directory in `miniprogram_npm` lost in. need to be `dayjs/plugin` Manually copy directories `miniprogram_npm` In, can be solved.
+
+#### Run in the Alipay applet developer tool.
 
 Directly use the Alipay applet developer tool to open the root directory of the project to run.
 
@@ -73,10 +77,10 @@ Source code:
 
 ```xml
 <view>
-  <!-- #if ALIPAY -->
+  <!-- #comments if ALIPAY -->
   <text a:if="{{a}}">a</text>
   <text a:if="{{a && b}}">a & b</text>
-  <!-- #endif -->
+  <!-- #comments endif -->
   <text a:if="{{a}}">a</text>
   <text a:else>!a</text>
   <text class="{{a ? '1' : '2'}}"></text>

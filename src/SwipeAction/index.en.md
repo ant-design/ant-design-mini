@@ -35,7 +35,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic Usage
 
@@ -61,12 +61,12 @@ In `index.json` Introducing Components in
         width: 140,
       },
     ]]}}"
-    elasticity="{{ true }}"
-    swiped="{{ swipeIndex === index }}"
+    elasticity="{{true}}"
+    swiped="{{swipeIndex === index}}"
     onSwipeEnd="onSwipeEnd"
     onSwipeStart="onSwipeStart"
     onButtonTap="onButtonTap">
-  <view>Right-three buttons</view>
+  <view>Right side-three buttons</view>
 </ant-swipe-action>
 ```
 

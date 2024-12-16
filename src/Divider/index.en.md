@@ -25,7 +25,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -47,7 +47,7 @@ In `index.json` Introducing Components in
  <ant-divider
   text="custom styles"
   textStyle="color:#1677ff; fontWeight:600"
-  lineHeight="{{ 2 }}"
+  lineHeight="{{2}}"
   lineType="dashed"
   lineColor="#1677ff"
 />
@@ -78,7 +78,7 @@ In `index.json` Introducing Components in
 | lineType      | Split line type, optional `solid` `dashed` `dotted`                       | string         | -            |
 | lineWidth     | Split line width, only if `direction` For `vertical` Effective at the time, in units `px`   | number         | -            |
 | style         | Style                                                             | string         | -            |
-| textClassName | Split line text class name                                                   | string         | -            |
+| textClassName | Split Line Text Class Name                                                   | string         | -            |
 | textPosition  | Split line text position, optional `left` `center` `right`                     | string         | `center`     |
 | textStyle     | Split Line Text Style                                                   | string         | -            |
 | text          | Split Line Text                                                       | string \| slot | -            |

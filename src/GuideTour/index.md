@@ -32,15 +32,15 @@ toc: 'content'
 
 ```xml
 <ant-guide-tour
-  items="{{ items }}"
-  visible="{{ visible }}"
+  items="{{items}}"
+  visible="{{visible}}"
 #if ALIPAY
   onCancel="closeTour"
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:cancel="closeTour"
-  bind:change="onChange"
+  bindcancel="closeTour"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -73,16 +73,16 @@ Page({
 ```xml
 
 <ant-guide-tour
-  items="{{ items }}"
-  current="{{ current }}"
-  visible="{{ visible }}"
+  items="{{items}}"
+  current="{{current}}"
+  visible="{{visible}}"
 #if ALIPAY
   onCancel="closeTour"
   onChange="onChangeControlled"
 #endif
 #if WECHAT
-  bind:cancel="closeTour"
-  bind:change="onChangeControlled"
+  bindcancel="closeTour"
+  bindchange="onChangeControlled"
 #endif
 />
 
@@ -117,7 +117,7 @@ Page({
 
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/GuideTour/index'></code>
 
@@ -140,8 +140,8 @@ Page({
 | gotItText              | 知道了按钮的文案 | `string`                            | '知道了' |
 | #if ALIPAY onCancel    | 关闭回调         | `() => void`                        | -        |
 | #if ALIPAY onChange    | 步骤改变回调     | `(index: number) => void`           | -        |
-| #if WECHAT bind:cancel | 关闭回调         | `() => void`                        | -        |
-| #if WECHAT bind:change | 步骤改变回调     | `(index: number) => void`           | -        |
+| #if WECHAT bindcancel | 关闭回调         | `() => void`                        | -        |
+| #if WECHAT bindchange | 步骤改变回调     | `(index: number) => void`           | -        |
 
 ### GuideTourItem
 

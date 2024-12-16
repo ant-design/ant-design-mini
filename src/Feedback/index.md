@@ -32,7 +32,7 @@ toc: content
 
 ```xml
 <ant-feedback
-  visible="{{ visible }}"
+  visible="{{visible}}"
   type="popover"
   popoverType="default"
   placement="bottom-right"
@@ -40,7 +40,7 @@ toc: content
   onVisibleChange="onVisibleChange"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
+  bindvisiblechange="onVisibleChange"
 #endif
 >
   <view class="feedback-demo-target">
@@ -73,8 +73,8 @@ Page({
 ```xml
 <ant-feedback
   type="popover"
-  list="{{ feedList }}"
-  visible="{{ visible }}"
+  list="{{feedList}}"
+  visible="{{visible}}"
   popoverType="circle"
   title="点引导反馈"
   placement="bottom"
@@ -83,8 +83,8 @@ Page({
   onTapFeedItem="onTapFeedItem"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
-  bind:tapfeeditem="onTapFeedItem"
+  bindvisiblechange="onVisibleChange"
+  bindtapfeeditem="onTapFeedItem"
 #endif
 >
   <image mode="widthFix" style="width: 345rpx;" src="https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*yhbvR5XObugAAAAAAAAAAAAADkqGAQ/original" />
@@ -124,8 +124,8 @@ Page({
 
 ```xml
 <ant-feedback
-  a:if="{{ visible }}"
-  list="{{ feedList }}"
+  a:if="{{visible}}"
+  list="{{feedList}}"
   type="card"
   title="喜欢推荐的内容吗？"
 #if ALIPAY
@@ -133,8 +133,8 @@ Page({
   onTapFeedItem="onTapFeedItem"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
-  bind:tapfeeditem="onTapFeedItem"
+  bindvisiblechange="onVisibleChange"
+  bindtapfeeditem="onTapFeedItem"
 #endif
 />
 <ant-button
@@ -145,7 +145,7 @@ Page({
   onTap="onShowFeedback"
 #endif
 #if WECHAT
-  bind:tap="onShowFeedback"
+  bindtap="onShowFeedback"
 #endif
 >
   点击 展示反馈卡片
@@ -205,8 +205,8 @@ Page({
 | autoAdjustOverflow            | 气泡位置是否自适应                                                                                                                                                  | boolean                              | true         |
 | #if ALIPAY onVisibleChange    | 展示状态改变的勾子                                                                                                                                                  | (visible: boolean) => void           | -            |
 | #if ALIPAY onTapFeedItem      | 反馈项点击回调                                                                                                                                                      | (item: any) => void                  | -            |
-| #if WECHAT bind:visiblechange | 展示状态改变的勾子                                                                                                                                                  | (visible: boolean) => void           | -            |
-| #if WECHAT bind:tapfeeditem   | 反馈项点击回调                                                                                                                                                      | ([FeedItem](#feeditem): any) => void | -            |
+| #if WECHAT bindvisiblechange | 展示状态改变的勾子                                                                                                                                                  | (visible: boolean) => void           | -            |
+| #if WECHAT bindtapfeeditem   | 反馈项点击回调                                                                                                                                                      | ([FeedItem](#feeditem): any) => void | -            |
 
 ### FeedItem
 

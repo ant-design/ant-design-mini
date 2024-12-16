@@ -58,7 +58,7 @@ toc: 'content'
 | #if ALIPAY onClose                 | 点击蒙层或强调模式下点击右上角关闭按钮，触发回调  | ()=>void     | -         |
 | #if ALIPAY onPrimaryButtonTap      | 主按钮点击事件                                    | ()=>void     | -         |
 | #if ALIPAY onSecondaryButtonTap    | 辅助按钮点击事件                                  | ()=>void     | -         |
-| #if WECHAT bind:cancelbuttontap    | 取消按钮点击事件                                  | ()=>void     | -         |
-| #if WECHAT bind:close              | 点击蒙层或强调模式下点击右上角关闭按钮，触发回调  | ()=>void     | -         |
-| #if WECHAT bind:primarybuttontap   | 主按钮点击事件                                    | ()=>void     | -         |
-| #if WECHAT bind:secondarybuttontap | 辅助按钮点击事件                                  | ()=>void     | -         |
+| #if WECHAT bindcancelbuttontap    | 取消按钮点击事件                                  | ()=>void     | -         |
+| #if WECHAT bindclose              | 点击蒙层或强调模式下点击右上角关闭按钮，触发回调  | ()=>void     | -         |
+| #if WECHAT bindprimarybuttontap   | 主按钮点击事件                                    | ()=>void     | -         |
+| #if WECHAT bindsecondarybuttontap | 辅助按钮点击事件                                  | ()=>void     | -         |

@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "ActionSheet",
-  "usingComponents": {
-    "ant-button": "../../../src/Button/index",
-    "ant-action-sheet": "../../../src/ActionSheet/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

@@ -26,23 +26,23 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
-> `count` property specifies the total number of stars, `allowHalf` Stats allow half a star, `allowClear` Property allows to clear after clicking again.
+> `count` property specifies the total number of stars, `allowHalf` Attribute allows half a star, `allowClear` Property allows to clear after clicking again.
 
 ```xml
 <ant-rate
-  defaultValue="{{ 3.5 }}"
-  count="{{ 5 }}"
+  defaultValue="{{3.5}}"
+  count="{{5}}"
   allowHalf
   allowClear
 #if ALIPAY
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -58,7 +58,7 @@ Page({
 ### Read Only
 
 ```xml
-<ant-rate defaultValue="{{ 3 }}" readonly />
+<ant-rate defaultValue="{{3}}" readonly />
 ```
 
 ### Controlled Mode
@@ -67,23 +67,23 @@ Page({
 
 ```xml
 <ant-rate
-  value="{{ value }}"
+  value="{{value}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-stepper
-  value="{{ value }}"
-  min="{{ 0 }}"
-  max="{{ 5 }}"
+  value="{{value}}"
+  min="{{0}}"
+  max="{{5}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -113,7 +113,7 @@ Page({
 
 > Reference below [Demo Code](#demo-代码) implementation in.
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Rate/index'></code>
 
@@ -134,7 +134,7 @@ Page({
 | style                    | Style                   | `string`                 | -                          |
 | value                    | Star rating (controlled)           | `number`                 | -                          |
 | #if ALIPAY onChange      | scoring callback function           | `(rate: number) => void` | -                          |
-| #if WECHAT bind:change   | scoring callback function           | `(rate: number) => void` | -                          |
+| #if WECHAT bindchange   | scoring callback function           | `(rate: number) => void` | -                          |
 
 ### Theme customization
 

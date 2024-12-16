@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -49,8 +49,8 @@ In `index.json` Introducing Components in
 ```xml
 <ant-notice
   type="default"
-  enableMarquee="{{ true }}"
-  loop="{{ true }}"
+  enableMarquee="{{true}}"
+  loop="{{true}}"
   onTap="handleTapLink"
   mode="link">
   Turn on circular scrolling when text overflows. Not enough text to continue adding text to make up.
@@ -61,7 +61,7 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-notice type="primary" icon="GlobalOutline" mode="link">
-  Customize the left icon
+  Customize Left Icon
 </ant-notice>
 
 <ant-notice type="primary" mode="link"
@@ -90,7 +90,7 @@ In `index.json` Introducing Components in
 | extra         | Customize right content                                                                                 | slot         | -       |
 | icon          | The icon on the left supports all built-in iconType and custom links, as well as custom slots (WeChat version requires slotIcon settings) | string       | -       |
 | loop          | Whether to cycle scrolling,`enableMarquee` Valid when true                                                   | boolean      | false   |
-| mode          | the type of announcement,`link` Indicates connection, the whole line can be dotted;`closeable` Indicates that clicking x can be closed; If you do not fill in, there is no icon on the right.   | string       | -       |
+| mode          | the type of announcement,`link` Indicates connection, the whole line can be clicked;`closeable` Indicates that clicking x can be closed; If you do not fill in, there is no icon on the right.   | string       | -       |
 | style         | Style                                                                                           | string       | -       |
 | title         | Title                                                                                           | string\|slot | -       |
 | type          | type, optional `default`, `error`, `primary`, `info`                                               | string       | default |

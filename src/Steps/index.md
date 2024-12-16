@@ -34,8 +34,8 @@ toc: 'content'
 
 ```xml
 <ant-steps
-  items="{{ items }}"
-  current="{{ 1 }}"
+  items="{{items}}"
+  current="{{1}}"
   status="error"
 />
 ```
@@ -65,7 +65,7 @@ Page({
 
 ```xml
 <ant-steps
-  items="{{ items }}"
+  items="{{items}}"
   direction="vertical"
 />
 ```
@@ -74,8 +74,8 @@ Page({
 
 ```xml
 <ant-steps
-  items="{{ items }}"
-  current="{{ current }}"
+  items="{{items}}"
+  current="{{current}}"
 />
 <ant-button
   type="primary"
@@ -83,19 +83,19 @@ Page({
   onTap="onNextTap"
 #endif
 #if WECHAT
-  bind:tap="onNextTap"
+  bindtap="onNextTap"
 #endif
 >
-  <view a:if="{{ current < items.length - 1 }}">下一步</view>
+  <view a:if="{{current < items.length - 1}}">下一步</view>
   <view a:else>完成</view>
 </ant-button>
 <ant-button
-  a:if="{{ current > 0 }}"
+  a:if="{{current > 0}}"
 #if ALIPAY
   onTap="onPrevTap"
 #endif
 #if WECHAT
-  bind:tap="onPrevTap"
+  bindtap="onPrevTap"
 #endif
   >
   上一步

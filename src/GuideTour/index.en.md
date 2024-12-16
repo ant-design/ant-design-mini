@@ -9,7 +9,7 @@ toc: 'content'
 
 # GuideTour
 
-Layer and custom card boot components. Applies to an introduction to key features on the page.
+Mask the boot component with a custom card. Applies to the introduction of key features on the page.
 
 ## Introduction
 
@@ -26,21 +26,21 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 ```xml
 <ant-guide-tour
-  items="{{ items }}"
-  visible="{{ visible }}"
+  items="{{items}}"
+  visible="{{visible}}"
 #if ALIPAY
   onCancel="closeTour"
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:cancel="closeTour"
-  bind:change="onChange"
+  bindcancel="closeTour"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -73,16 +73,16 @@ Page({
 ```xml
 
 <ant-guide-tour
-  items="{{ items }}"
-  current="{{ current }}"
-  visible="{{ visible }}"
+  items="{{items}}"
+  current="{{current}}"
+  visible="{{visible}}"
 #if ALIPAY
   onCancel="closeTour"
   onChange="onChangeControlled"
 #endif
 #if WECHAT
-  bind:cancel="closeTour"
-  bind:change="onChangeControlled"
+  bindcancel="closeTour"
+  bindchange="onChangeControlled"
 #endif
 />
 
@@ -117,7 +117,7 @@ Page({
 
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/GuideTour/index'></code>
 
@@ -140,8 +140,8 @@ Page({
 | gotItText              | Know the copy of the button | `string`                            | "I know' |
 | #if ALIPAY onCancel    | Close Callback         | `() => void`                        | -        |
 | #if ALIPAY onChange    | Step Change Callback     | `(index: number) => void`           | -        |
-| #if WECHAT bind:cancel | Close Callback         | `() => void`                        | -        |
-| #if WECHAT bind:change | Step Change Callback     | `(index: number) => void`           | -        |
+| #if WECHAT bindcancel | Close Callback         | `() => void`                        | -        |
+| #if WECHAT bindchange | Step Change Callback     | `(index: number) => void`           | -        |
 
 ### GuideTourItem
 

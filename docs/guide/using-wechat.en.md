@@ -3,9 +3,7 @@ order: 2
 toc: true
 ---
 
-# Use in WeChat applet (beta)
-
-Starting from Ant Design Mini v2.12, we have modified the engineering implementation of some components to adapt to WeChat applets. At present, this set of capabilities is in the beta testing stage, and the related API and component list may change.
+# Used in WeChat applet
 
 The following takes Button (button component) as an example to explain how to use antd-mini in WeChat applets.
 
@@ -41,7 +39,7 @@ Note that the case of the component path must be the same as that of the actual 
 On the page, you can use the button components provided by the antd-mini as follows:
 
 ```diff
-+   <ant-button type="primary" bind:tap="handleTap">主要按钮</ant-button>
++   <ant-button type="primary" bindtap="handleTap">主要按钮</ant-button>
 ```
 
 At the same time, don't forget `.js` Add a method to the file that handles the click event:
@@ -60,7 +58,7 @@ Page({
 
 The following is a list of components that have been adapted to WeChat applets in the antd-mini. You can use these components directly in the project.
 
-<!-- <code src="../components/wechat-component.tsx" inline="true"></code> -->
+<code src="../components/wechat-component.tsx" inline="true"></code>
 
 ## Reference Documentation
 

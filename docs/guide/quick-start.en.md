@@ -34,9 +34,5 @@ Details can refer[Upgrade to v2](./migration-v2.md)。
 ### 4. Use in the AXML file.
 
 ```xml
-<ant-button>我是一个按钮</ant-button>
+<ant-button>I am a button.</ant-button>
 ```
-
-## View example
-
-<!-- <code src='pages/Button/index'></code> -->

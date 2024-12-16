@@ -29,18 +29,18 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 ```xml
 <ant-switch
-  defaultChecked="{{ true }}"
+  defaultChecked="{{true}}"
 #if ALIPAY
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -53,12 +53,12 @@ Page({
 });
 ```
 
-### Disable Mode
+### Disable mode
 
 > Incoming `disabled` property, disable the collocated gray switch button.
 
 ```xml
-<ant-switch defaultChecked="{{ true }}" disabled="{{ true }}" />
+<ant-switch defaultChecked="{{true}}" disabled="{{true}}" />
 ```
 
 ### Custom Style
@@ -78,7 +78,7 @@ Page({
 </ant-switch>
 #endif
 
-<ant-switch defaultChecked="{{ true }}" color="#00b578" />
+<ant-switch defaultChecked="{{true}}" color="#00b578" />
 
 <ant-switch size="medium" />
 
@@ -95,13 +95,13 @@ Page({
 
 ```xml
 <ant-switch
-  checked="{{ checked }}"
-  defaultChecked="{{ true }}"
+  checked="{{checked}}"
+  defaultChecked="{{true}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-button
@@ -109,7 +109,7 @@ Page({
   onTap="handleChangeByButton"
 #endif
 #if WECHAT
-  bind:tap="handleChangeByButton"
+  bindtap="handleChangeByButton"
 #endif
 >
   Switch
@@ -142,7 +142,7 @@ Page({
 });
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Switch/index'></code>
 
@@ -161,7 +161,7 @@ Page({
 | size                   | Component size, optional value is `medium`、`small`、`x-small` | string                                                                                              | `medium` |
 | style                  | Style                                            | string                                                                                              | -        |
 | #if ALIPAY onChange    | Callback triggered when Switch is clicked                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
-| #if WECHAT bind:change | Callback triggered when Switch is clicked                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
+| #if WECHAT bindchange | Callback triggered when Switch is clicked                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
 
 ### Theme customization
 

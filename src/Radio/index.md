@@ -41,7 +41,7 @@ toc: 'content'
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 >
   基础用法
@@ -60,12 +60,12 @@ Page({
 
 ```xml
 <ant-radio
-  checked="{{ checked }}"
+  checked="{{checked}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 >
   受控模式
@@ -96,13 +96,13 @@ Page({
 
 ```xml
 <ant-radio-group
-  value="{{ value }}"
-  options="{{ options }}"
+  value="{{value}}"
+  options="{{options}}"
 #if ALIPAY
   onChange="handleRadioGroupChange"
 #endif
 #if WECHAT
-  bind:change="handleRadioGroupChange"
+  bindchange="handleRadioGroupChange"
 #endif
 />
 
@@ -133,7 +133,7 @@ Page({
 });
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Radio/index'></code>
 
@@ -149,7 +149,7 @@ Page({
 | style                  | 样式             | string                                                                                                | -      |
 | value                  | 携带的 value 值  | string                                                                                                | -      |
 | #if ALIPAY onChange    | 状态改变时的回调 | `(checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -      |
-| #if WECHAT bind:change | 状态改变时的回调 | `(checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -      |
+| #if WECHAT bindchange | 状态改变时的回调 | `(checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -      |
 
 ### RadioGroup
 
@@ -165,7 +165,7 @@ Page({
 | style                  | 样式               | string                                                                                             | -          |
 | value                  | 选中的值           | string                                                                                             | -          |
 | #if ALIPAY onChange    | 状态改变时的回调   | `(value: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -          |
-| #if WECHAT bind:change | 状态改变时的回调   | `(value: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -          |
+| #if WECHAT bindchange | 状态改变时的回调   | `(value: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void` | -          |
 
 ### 主题定制
 

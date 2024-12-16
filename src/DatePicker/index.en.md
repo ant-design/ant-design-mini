@@ -28,7 +28,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -36,9 +36,9 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-date-picker
-  min="{{ min }}"
-  max="{{ max }}"
-  defaultValue="{{ defaultDate }}"
+  min="{{min}}"
+  max="{{max}}"
+  defaultValue="{{defaultDate}}"
   placeholder="Please select"
 #if ALIPAY
   onPickerChange="handlePickerChange"
@@ -47,10 +47,10 @@ In `index.json` Introducing Components in
   onOk="handleOk"
 #endif
 #if WECHAT
-  bind:pickerchange="handlePickerChange"
-  bind:visiblechange="handleTriggerPicker"
-  bind:cancel="handleDismiss"
-  bind:ok="handleOk"
+  bindpickerchange="handlePickerChange"
+  bindvisiblechange="handleTriggerPicker"
+  bindcancel="handleDismiss"
+  bindok="handleOk"
 #endif
 />
 ```
@@ -92,7 +92,7 @@ Page({
 > `disabled` Property is used to control the disabled state.
 
 ```xml
-<ant-date-picker defaultValue="{{ defaultDate }}" disabled />
+<ant-date-picker defaultValue="{{defaultDate}}" disabled />
 ```
 
 ### Customize the rendering of each column in the selection panel
@@ -100,7 +100,7 @@ Page({
 > Incoming Function `onFormatLabel` , the return value is the data you want to render for each column in the selection panel.
 
 ```xml
-<ant-date-picker onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
+<ant-date-picker onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}" />
 ```
 
 ```js
@@ -124,15 +124,15 @@ Page({
 
 ```xml
  <ant-date-picker
-  visible="{{ pickerVisible }}"
-  value="{{ pickerValue }}"
+  visible="{{pickerVisible}}"
+  value="{{pickerValue}}"
 #if ALIPAY
   onVisibleChange="handleTriggerControlledPicker"
   onOk="handleControlledOk"
 #endif
 #if WECHAT
-  bind:visiblechange="handleTriggerControlledPicker"
-  bind:ok="handleControlledOk"
+  bindvisiblechange="handleTriggerControlledPicker"
+  bindok="handleControlledOk"
 #endif
   />
 ```
@@ -184,16 +184,16 @@ Page({
 ```xml
 <ant-range-picker
   placeholder="Please select"
-  defaultValue="{{ defaultDateRange }}"
+  defaultValue="{{defaultDateRange}}"
 #if ALIPAY
   onPickerChange="handlePickerRangeChange"
   onVisibleChange="handleTriggerPicker"
   onOk="handleRangeOk"
 #endif
 #if WECHAT
-  bind:pickerchange="handlePickerRangeChange"
-  bind:visiblechange="handleTriggerPicker"
-  bind:ok="handleRangeOk"
+  bindpickerchange="handlePickerRangeChange"
+  bindvisiblechange="handleTriggerPicker"
+  bindok="handleRangeOk"
 #endif
 />
 ```
@@ -218,7 +218,7 @@ Page({
 });
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/DatePicker/index'></code>
 
@@ -251,7 +251,7 @@ Page({
 | style                            | Style                                                                                                                                                                                 | string                                                                                                         | -            |
 | suffix                           | Suffix                                                                                                                                                                                 | slot                                                                                                           | -            |
 | title                            | Pop-up Title                                                                                                                                                                           | string \| slot                                                                                                 | -            |
-| value                            | Selected time                                                                                                                                                                           | Date                                                                                                           | -            |
+| value                            | selected time                                                                                                                                                                           | Date                                                                                                           | -            |
 | visible                          | Whether to display                                                                                                                                                                             | boolean                                                                                                        | false        |
 | defaultVisible                   | Display by default                                                                                                                                                                         | boolean                                                                                                        | false        |
 | onFormat                         | Text display format of the selected value                                                                                                                                                                 | (date: Date, dateStr: string) => string                                                                        | -            |
@@ -261,11 +261,11 @@ Page({
 | #if ALIPAY onPickerChange        | The selected item changes, triggering a callback                                                                                                                                                             | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | Add year, month, day, hour, minute and second units | (type: `year` \| `month` \| `day` \| `hour` \| `minute` \| `second`, value: number) => string                                                                                        | -                                                                                                              |
 | #if ALIPAY onVisibleChange       | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void            | -            |
-| #if WECHAT bind:ok               | Click the OK button to trigger the callback                                                                                                                                                               | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:cancel           | Click the cancel button/layer to trigger the callback                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                              | -            |
-| #if WECHAT bind:pickerchange     | The selected item changes, triggering a callback                                                                                                                                                             | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindok               | Click the OK button to trigger the callback                                                                                                                                                               | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindcancel           | Click the cancel button/layer to trigger the callback                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                              | -            |
+| #if WECHAT bindpickerchange     | The selected item changes, triggering a callback                                                                                                                                                             | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | Add year, month, day, hour, minute and second units | (type: `year` \| `month` \| `day` \| `hour` \| `minute` \| `second`, value: number) => string                                                                                        | -                                                                                                              |
-| #if WECHAT bind:visiblechange    | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void            | -            |
+| #if WECHAT bindvisiblechange    | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void            | -            |
 
 ### RangePicker
 
@@ -292,7 +292,7 @@ Page({
 | popStyle                      | Pop-up Style                                                                                                                                                                           | string                                                                                                                                 | -            |
 | precision                     | Select precision, optional `year` `month` `day` `hour` `minute`                                                                                                                                  | string                                                                                                                                 | `day`        |
 | splitCharacter                | Display Connector                                                                                                                                                                           | string                                                                                                                                 | -            |
-| startPlaceholder              | Start Time Prompt Copy                                                                                                                                                                     | string                                                                                                                                 | "Not selected"     |
+| startPlaceholder              | Start Time Prompt Copywriter                                                                                                                                                                     | string                                                                                                                                 | "Not selected"     |
 | prefix                        | Prefix                                                                                                                                                                                 | slot                                                                                                                                   | -            |
 | style                         | Style                                                                                                                                                                                 | string                                                                                                                                 | -            |
 | suffix                        | Suffix                                                                                                                                                                                 | slot                                                                                                                                   | -            |
@@ -306,14 +306,14 @@ Page({
 | #if ALIPAY onCancel           | Click the cancel button/layer to trigger the callback                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
 | #if ALIPAY onPickerChange     | The selected item changes, triggering a callback                                                                                                                                                             | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | #if ALIPAY onVisibleChange    | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                    | -            |
-| #if WECHAT bind:ok            | Click the OK button to trigger the callback                                                                                                                                                               | (date: [Date, Date], dateStr: [string, string], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void       | -            |
-| #if WECHAT bind:cancel        | Click the cancel button/layer to trigger the callback                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
-| #if WECHAT bind:pickerchange  | The selected item changes, triggering a callback                                                                                                                                                             | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:visiblechange | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                    | -            |
+| #if WECHAT bindok            | Click the OK button to trigger the callback                                                                                                                                                               | (date: [Date, Date], dateStr: [string, string], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void       | -            |
+| #if WECHAT bindcancel        | Click the cancel button/layer to trigger the callback                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
+| #if WECHAT bindpickerchange  | The selected item changes, triggering a callback                                                                                                                                                             | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindvisiblechange | Pop-up display/hide status change trigger                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                    | -            |
 
 ## How to obtain `YYYY-MM-DD` Time in format
 
-The time returned by the DatePicker component is in the format `Date` type, if you need to convert `YYYY-MM-DD` format, you can use [dayjs](https://day.js.org/docs/zh-CN/display/format) make the conversion.
+The time returned by the DatePicker component is in the format `Date` type, if you need to convert `YYYY-MM-DD` format, you can use [dayjs](https://day.js.org/docs/zh-CN/display/format) Make the conversion.
 
 ```xml
 <date-picker
@@ -321,7 +321,7 @@ The time returned by the DatePicker component is in the format `Date` type, if y
   onOk="handleOk"
 #endif
 #if WECHAT
-  bind:ok="handleOk"
+  bindok="handleOk"
 #endif
 />
 ```
@@ -344,7 +344,7 @@ Component provides the following CSS variables, which can be used to customize s
 | Variable name                            | Default Value                                                                                                                  | Dark Mode Default                                                                                                          | Remarks                       |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | --range-picker-shadow-color       | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div>                       | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div>                       | Range Selector Shadow Color         |
-| --range-picker-item-color         | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                       | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                       | Range selector item color           |
+| --range-picker-item-color         | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                       | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                       | Range Selector Item Color           |
 | --range-picker-active-color       | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>                       | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>                       | Range Selector Activity Color       |
 | --range-picker-placeholder-color  | <div style="width: 150px; height: 30px; background-color: #cccccc; color: #333333;">#cccccc</div>                       | <div style="width: 150px; height: 30px; background-color: #474747; color: #ffffff;">#474747</div>                       | Range selector placeholder color       |
 | --range-picker-shadow-color-faded | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.9); color: #ffffff;">rgba(0, 0, 0, 0.9)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.9); color: #ffffff;">rgba(0, 0, 0, 0.9)</div> | Range Selector Shadow Color (Faded) |

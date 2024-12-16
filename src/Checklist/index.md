@@ -35,9 +35,9 @@ toc: 'content'
 
 ```xml
 <ant-checklist
-  defaultValue="{{ [1] }}"
-  options="{{ options }}"
-  data-options="{{ options }}"
+  defaultValue="{{[1]}}"
+  options="{{options}}"
+  data-options="{{options}}"
   onChange="onChange" />
 ```
 
@@ -71,8 +71,8 @@ Page({
 
 ```xml
 <ant-checklist
-  value="{{ value }}"
-  options="{{ options }}"
+  value="{{value}}"
+  options="{{options}}"
   multiple
   onChange="onChangeControlled" />
 ```
@@ -113,8 +113,8 @@ Page({
 
 ```xml
 <ant-checklist
-  defaultValue="{{ [2] }}"
-  options="{{ options }}"
+  defaultValue="{{[2]}}"
+  options="{{options}}"
   multiple
   onChange="onChange">
   <view slot="icon">
@@ -126,12 +126,12 @@ Page({
   <view
     slot="content"
     slot-scope="props">
-    title: {{ props.item.title }}
+    title: {{props.item.title}}
   </view>
 </ant-checklist>
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Checklist/index'></code>
 
@@ -148,7 +148,7 @@ Page({
 | style                  | 样式                                                 | string                                                                                                                                                                                                           | -      |
 | value                  | 选中数据                                             | string \| number \| (string \| number)[]                                                                                                                                                                         | -      |
 | #if ALIPAY onChange    | 选中项发生变化时，触发回调                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:change | 选中项发生变化时，触发回调                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bindchange | 选中项发生变化时，触发回调                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### ChecklistItem
 

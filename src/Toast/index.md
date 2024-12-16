@@ -33,15 +33,15 @@ toc: 'content'
 ```xml
 <ant-toast
   content="toast content"
-  visible="{{ toastShow }}"
-  duration="{{ 0 }}"
-  showMask="{{ true }}"
-  maskCloseable="{{ true }}"
+  visible="{{toastShow}}"
+  duration="{{0}}"
+  showMask="{{true}}"
+  maskCloseable="{{true}}"
 #if ALIPAY
   onClose="handleCloseToast"
 #endif
 #if WECHAT
-  bind:close="handleCloseToast"
+  bindclose="handleCloseToast"
 #endif
 />
 ```
@@ -64,15 +64,15 @@ Page({
 > 传入 `type` 属性，可以使用内置图标，可选 `success`、`error`、`warning`、`loading`。支持 `icon` 属性指定 [ant-icon](/components/icon) 类型，还支持 `image` 属性自定义图片。
 
 ```xml
-<ant-toast content="success" type="success" visible="{{ true }}" />
-<ant-toast content="error" type="error" visible="{{ true }}" />
-<ant-toast content="warning" type="warning" visible="{{ true }}" />
-<ant-toast content="loading" type="loading" visible="{{ true }}" />
-<ant-toast content="icon" icon="LikeOutline" visible="{{ true }}" />
-<ant-toast content="custom image" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{ true }}" />
+<ant-toast content="success" type="success" visible="{{true}}" />
+<ant-toast content="error" type="error" visible="{{true}}" />
+<ant-toast content="warning" type="warning" visible="{{true}}" />
+<ant-toast content="loading" type="loading" visible="{{true}}" />
+<ant-toast content="icon" icon="LikeOutline" visible="{{true}}" />
+<ant-toast content="custom image" image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ" visible="{{true}}" />
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Toast/index'></code>
 
@@ -93,7 +93,7 @@ Page({
 | textType              | 文字类型，可选 `short` `long`，short 类型的圆角更大               | string      | `long` |
 | visible               | 是否隐藏                                                          | boolean     | false  |
 | #if ALIPAY onClose    | Toast 关闭后的回调                                                | (e) => void | -      |
-| #if WECHAT bind:close | Toast 关闭后的回调                                                | (e) => void | -      |
+| #if WECHAT bindclose | Toast 关闭后的回调                                                | (e) => void | -      |
 
 ### 主题定制
 

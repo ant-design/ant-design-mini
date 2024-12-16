@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -35,26 +35,26 @@ In `index.json` Introducing Components in
 ```xml
 <ant-action-sheet
   title="choose your operation"
-  visible="{{ visible }}"
-  actions="{{ actions }}"
+  visible="{{visible}}"
+  actions="{{actions}}"
 #if ALIPAY
   onAction="handleAction"
   onClose="handleClose"
 #endif
 #if WECHAT
-  bind:action="handleAction"
-  bind:close="handleClose"
+  bindaction="handleAction"
+  bindclose="handleClose"
 #endif
 />
 
 <ant-button
-  inline="{{ true }}"
+  inline="{{true}}"
   size="large"
 #if ALIPAY
   onTap="handleOpen"
 #endif
 #if WECHAT
-  bind:tap="handleOpen"
+  bindtap="handleOpen"
 #endif
 >
   Open Panel
@@ -111,7 +111,7 @@ Page({
 ```xml
 <ant-action-sheet
   title="请选择你要进行的操作"
-  actions="{{ actions }}"
+  actions="{{actions}}"
 />
 ```
 
@@ -172,8 +172,8 @@ Page({
 | zIndex                 | Pop-up Level                           | number                                                                                                                                      | 998    |
 | #if ALIPAY onClose     | Trigger on shutdown                         | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                           | -      |
 | #if ALIPAY onAction    | Triggered when option is clicked, not triggered when disabled | (item: [ActionSheetItem](#actionsheetitem), index: number, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:close  | Trigger on shutdown                         | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                           | -      |
-| #if WECHAT bind:action | Triggered when option is clicked, not triggered when disabled | (item: [ActionSheetItem](#actionsheetitem), index: number, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindclose  | Trigger on shutdown                         | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                           | -      |
+| #if WECHAT bindaction | Triggered when option is clicked, not triggered when disabled | (item: [ActionSheetItem](#actionsheetitem), index: number, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 
 ### ActionSheetItem
 
@@ -189,7 +189,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                       | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks           |
 | ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |

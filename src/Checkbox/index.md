@@ -39,7 +39,7 @@ toc: 'content'
 <ant-checkbox checked="{{checked}}" onChange="handleCheckedChange">Basic usage</ant-checkbox>
 #endif
 #if WECHAT
-<ant-checkbox checked="{{checked}}" bind:change="handleCheckedChange">Basic usage</ant-checkbox>
+<ant-checkbox checked="{{checked}}" bindchange="handleCheckedChange">Basic usage</ant-checkbox>
 #endif
 ```
 
@@ -77,7 +77,7 @@ Page({
 <ant-checkbox-group
   value="{{value}}"
   options="{{options}}"
-  bind:change="handleValueChange"
+  bindchange="handleValueChange"
 />
 #endif
 ```
@@ -153,7 +153,7 @@ Page({
         <ant-checkbox
           data-value="{{item.value}}"
           checked="{{utils.indexOf(customValue, item.value) > -1}}"
-          bind:change="handleCustomChange"
+          bindchange="handleCustomChange"
         >{{item.title}}</ant-checkbox>
       </ant-list-item>
     </block>
@@ -213,7 +213,7 @@ Page({
 });
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Checkbox/index'></code>
 
@@ -230,7 +230,7 @@ Page({
 | disabled               | 是否禁用                | boolean                                                                                             | false  |
 | style                  | 样式                    | string                                                                                              | -      |
 | #if ALIPAY onChange    | 选中状态改变时触发回调  | (checked: boolean, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:change | 选中状态改变时触发回调  | (checked: boolean, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindchange | 选中状态改变时触发回调  | (checked: boolean, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 
 #### CheckboxGroup
 
@@ -246,7 +246,7 @@ Page({
 | style                  | 样式                                                         | string                                                                                               | -          |
 | value                  | CheckboxGroup 的值，决定子元素是否勾选                       | `string[]`                                                                                           | -          |
 | #if ALIPAY onChange    | 勾选状态变化时触发此函数                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
-| #if WECHAT bind:change | 勾选状态变化时触发此函数                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
+| #if WECHAT bindchange | 勾选状态变化时触发此函数                                     | (value: `string[]`, event: `Event`(https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 
 ### 主题定制
 

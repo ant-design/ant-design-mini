@@ -40,8 +40,8 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
   placeholder="请选择"
   title="请选择"
   emptyText="暂无数据"
-  defaultValue="{{ defaultValue }}"
-  options="{{ list }}"
+  defaultValue="{{defaultValue}}"
+  options="{{list}}"
 #if ALIPAY
   onCancel="handleDismiss"
   onVisibleChange="handleTriggerPicker"
@@ -49,10 +49,10 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:cancel="handleDismiss"
-  bind:visiblechange="handleTriggerPicker"
-  bind:ok="handleOk"
-  bind:change="handleChange"
+  bindcancel="handleDismiss"
+  bindvisiblechange="handleTriggerPicker"
+  bindok="handleOk"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -117,13 +117,13 @@ Page({
 ```xml
 <ant-picker
   defaultValue="{{['Tues', 'pm']}}"
-  options="{{ columns }}"
+  options="{{columns}}"
 #if ALIPAY
   onFormat="formatTime"
 #endif
 #if WECHAT
   onFormat="{{formatTime}}"
-  bind:ok="handleOk"
+  bindok="handleOk"
 #endif
 />
 ```
@@ -185,13 +185,13 @@ Page({
 
 ```xml
  <ant-picker
-  value="{{ value }}"
-  options="{{ list }}"
+  value="{{value}}"
+  options="{{list}}"
 #if ALIPAY
   onOk="handleControlledOk"
 #endif
 #if WECHAT
-  bind:ok="handleControlledOk"
+  bindok="handleControlledOk"
 #endif
 />
 <ant-button onTap="handleChangeControlled">选择深圳</ant-button>
@@ -235,7 +235,7 @@ Page({
 
 ```xml
 <ant-cascader-picker
-  options="{{ cityList }}"
+  options="{{cityList}}"
 />
 ```
 
@@ -272,7 +272,7 @@ Page({
 });
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Picker/index'></code>
 
@@ -311,10 +311,10 @@ Page({
 | #if ALIPAY onCancel           | 点击取消按钮/蒙层，触发回调                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                              | -           |
 | #if ALIPAY onChange           | 选中项发生变化，触发回调                                                                                                                                                    | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
 | #if ALIPAY onVisibleChange    | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
-| #if WECHAT bind:ok            | 点击确定按钮，触发回调                                                                                                                                                      | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
-| #if WECHAT bind:cancel        | 点击取消按钮/蒙层，触发回调                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                              | -           |
-| #if WECHAT bind:change        | 选中项发生变化，触发回调                                                                                                                                                    | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
-| #if WECHAT bind:visiblechange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
+| #if WECHAT bindok            | 点击确定按钮，触发回调                                                                                                                                                      | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
+| #if WECHAT bindcancel        | 点击取消按钮/蒙层，触发回调                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                              | -           |
+| #if WECHAT bindchange        | 选中项发生变化，触发回调                                                                                                                                                    | (value: [PickerColumnItem](#pickercolumnitem), column: [PickerColumnItem](#pickercolumnitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -           |
+| #if WECHAT bindvisiblechange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                            | -           |
 
 ### CascaderPicker
 
@@ -349,10 +349,10 @@ Page({
 | #if ALIPAY onCancel           | 点击取消按钮/蒙层，触发回调                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                        | -            |
 | #if ALIPAY onChange           | 选中项发生变化，触发回调                                                                                                                                                    | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | #if ALIPAY onVisibleChange    | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
-| #if WECHAT bind:ok            | 点击确定按钮，触发回调                                                                                                                                                      | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:cancel        | 点击取消按钮/蒙层，触发回调                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                        | -            |
-| #if WECHAT bind:change        | 选中项发生变化，触发回调                                                                                                                                                    | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:visibleChange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
+| #if WECHAT bindok            | 点击确定按钮，触发回调                                                                                                                                                      | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindcancel        | 点击取消按钮/蒙层，触发回调                                                                                                                                                 | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                        | -            |
+| #if WECHAT bindchange        | 选中项发生变化，触发回调                                                                                                                                                    | (value: string[], selectedOptions: [CascaderOption](#cascaderoption)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindvisibleChange | 弹出框显示/隐藏状态变化触发                                                                                                                                                 | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
 
 ### PickerColumnItem
 

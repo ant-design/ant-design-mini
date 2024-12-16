@@ -35,12 +35,12 @@ Switch 开关选择器，比起原生 Switch，它实现了在 iOS 和 Android �
 
 ```xml
 <ant-switch
-  defaultChecked="{{ true }}"
+  defaultChecked="{{true}}"
 #if ALIPAY
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -58,7 +58,7 @@ Page({
 > 传入 `disabled` 属性，禁用并置灰开关按钮。
 
 ```xml
-<ant-switch defaultChecked="{{ true }}" disabled="{{ true }}" />
+<ant-switch defaultChecked="{{true}}" disabled="{{true}}" />
 ```
 
 ### 自定义样式
@@ -78,7 +78,7 @@ Page({
 </ant-switch>
 #endif
 
-<ant-switch defaultChecked="{{ true }}" color="#00b578" />
+<ant-switch defaultChecked="{{true}}" color="#00b578" />
 
 <ant-switch size="medium" />
 
@@ -95,13 +95,13 @@ Page({
 
 ```xml
 <ant-switch
-  checked="{{ checked }}"
-  defaultChecked="{{ true }}"
+  checked="{{checked}}"
+  defaultChecked="{{true}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-button
@@ -109,7 +109,7 @@ Page({
   onTap="handleChangeByButton"
 #endif
 #if WECHAT
-  bind:tap="handleChangeByButton"
+  bindtap="handleChangeByButton"
 #endif
 >
   切换
@@ -142,7 +142,7 @@ Page({
 });
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Switch/index'></code>
 
@@ -161,7 +161,7 @@ Page({
 | size                   | 组件尺寸，可选值为 `medium`、`small`、`x-small` | string                                                                                              | `medium` |
 | style                  | 样式                                            | string                                                                                              | -        |
 | #if ALIPAY onChange    | 点击 Switch 时触发的回调                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
-| #if WECHAT bind:change | 点击 Switch 时触发的回调                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
+| #if WECHAT bindchange | 点击 Switch 时触发的回调                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
 
 ### 主题定制
 

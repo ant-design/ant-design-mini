@@ -34,15 +34,15 @@ toc: 'content'
 
 ```xml
 <ant-rate
-  defaultValue="{{ 3.5 }}"
-  count="{{ 5 }}"
+  defaultValue="{{3.5}}"
+  count="{{5}}"
   allowHalf
   allowClear
 #if ALIPAY
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -58,7 +58,7 @@ Page({
 ### 只读
 
 ```xml
-<ant-rate defaultValue="{{ 3 }}" readonly />
+<ant-rate defaultValue="{{3}}" readonly />
 ```
 
 ### 受控模式
@@ -67,23 +67,23 @@ Page({
 
 ```xml
 <ant-rate
-  value="{{ value }}"
+  value="{{value}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 <ant-stepper
-  value="{{ value }}"
-  min="{{ 0 }}"
-  max="{{ 5 }}"
+  value="{{value}}"
+  min="{{0}}"
+  max="{{5}}"
 #if ALIPAY
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -113,7 +113,7 @@ Page({
 
 > 参考下面 [Demo 代码](#demo-代码) 中的实现。
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Rate/index'></code>
 
@@ -134,7 +134,7 @@ Page({
 | style                    | 样式                   | `string`                 | -                          |
 | value                    | 星级（受控）           | `number`                 | -                          |
 | #if ALIPAY onChange      | 打分回调函数           | `(rate: number) => void` | -                          |
-| #if WECHAT bind:change   | 打分回调函数           | `(rate: number) => void` | -                          |
+| #if WECHAT bindchange   | 打分回调函数           | `(rate: number) => void` | -                          |
 
 ### 主题定制
 

@@ -32,9 +32,9 @@ toc: 'content'
 
 ```xml
 <ant-grid
-  items="{{ items }}"
-  iconSize="{{ 36 }}"
-  columns="{{ 3 }}"
+  items="{{items}}"
+  iconSize="{{36}}"
+  columns="{{3}}"
 />
 ```
 
@@ -63,9 +63,9 @@ Page({
 
 ```xml
 <ant-grid
-  items="{{ items3withDesc }}"
-  iconSize="{{ 36 }}"
-  columns="{{ 3 }}" />
+  items="{{items3withDesc}}"
+  iconSize="{{36}}"
+  columns="{{3}}" />
 ```
 
 ```js
@@ -96,8 +96,8 @@ Page({
 
 ```xml
 <ant-grid
-  items="{{ items }}"
-  columns="{{ 3 }}"
+  items="{{items}}"
+  columns="{{3}}"
   gridItemLayout="horizontal"
 />
 ```
@@ -107,34 +107,34 @@ Page({
 ```xml
 #if ALIPAY
 <ant-grid
-  items="{{ items }}"
-  columns="{{ 5 }}">
+  items="{{items}}"
+  columns="{{5}}">
   <view
     slot="icon"
     slot-scope="props">
     <ant-badge
-      a:if="{{ props.value.tag }}"
+      a:if="{{props.value.tag}}"
       offsetX="-10px"
       type="text"
-      text="{{ props.value.tag }}">
+      text="{{props.value.tag}}">
       <image
-        src="{{ props.value.icon }}"
+        src="{{props.value.icon}}"
         style="width: 44px; height: 44px" />
     </ant-badge>
     <image
       a:else
-      src="{{ props.value.icon }}"
+      src="{{props.value.icon}}"
       style="width: 44px; height: 44px" />
   </view>
   <view
     slot="title"
     slot-scope="props">
-    第{{ props.index + 1 }}项
+    第{{props.index + 1}}项
   </view>
   <view
     slot="description"
     slot-scope="props">
-    描述{{ props.index + 1 }}
+    描述{{props.index + 1}}
   </view>
 </ant-grid>
 
@@ -168,8 +168,8 @@ Page({
 | title                       | 标题插槽，接收 value、index                            | slot                                  | -          |
 | #if ALIPAY onTap            | 点击每个元素触发                                       | (item: [GridItem](#griditem)) => void |            |
 | #if ALIPAY onFirstAppear    | 当前元素首次可见面积达到 50% 时触发                    | (item: [GridItem](#griditem)) => void |            |
-| #if WECHAT bind:tap         | 点击每个元素触发                                       | (item: [GridItem](#griditem)) => void | -          |
-| #if WECHAT bind:firstappear | 当前元素首次可见面积达到 50% 时触发                    | (item: [GridItem](#griditem)) => void | -          |
+| #if WECHAT bindtap         | 点击每个元素触发                                       | (item: [GridItem](#griditem)) => void | -          |
+| #if WECHAT bindfirstappear | 当前元素首次可见面积达到 50% 时触发                    | (item: [GridItem](#griditem)) => void | -          |
 
 #### GridItem
 

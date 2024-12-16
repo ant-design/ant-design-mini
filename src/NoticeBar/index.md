@@ -49,8 +49,8 @@ toc: content
 ```xml
 <ant-notice
   type="default"
-  enableMarquee="{{ true }}"
-  loop="{{ true }}"
+  enableMarquee="{{true}}"
+  loop="{{true}}"
   onTap="handleTapLink"
   mode="link">
   文本溢出时，开启循环滚动。文字不够继续添加文字凑数。

@@ -1,10 +1,12 @@
 {
   /// #if WECHAT
-  navigationBarTitleText: "Loading",
+  "navigationBarTitleText": "Loading",
   /// #endif
 
   /// #if ALIPAY
-  defaultTitle: "Loading",
+  "defaultTitle": "Loading",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   usingComponents: {

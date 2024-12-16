@@ -42,7 +42,7 @@ toc: 'content'
   onChange="handleChange"
 #endif
 #if WECHAT
-  bind:change="handleChange"
+  bindchange="handleChange"
 #endif
 />
 ```
@@ -99,11 +99,11 @@ Page({
   onDisabledTap="handleDisabledTap"
 #endif
 #if WECHAT
-  bind:change="handleChange"
-  bind:blur="handleBlur"
-  bind:focus="handleFocus"
-  bind:confirm="handleConfirm"
-  bind:disabledTap="handleDisabledTap"
+  bindchange="handleChange"
+  bindblur="handleBlur"
+  bindfocus="handleFocus"
+  bindconfirm="handleConfirm"
+  binddisabledtap="handleDisabledTap"
 #endif
 />
 ```
@@ -135,11 +135,11 @@ Page({
 | #if ALIPAY onConfirm        | 点击键盘完成时触发此回调                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | #if ALIPAY onFocus          | 输入框聚焦时，触发此回调                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 | #if ALIPAY onDisabledTap    | 禁用时点击出发回调                                                                  | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:blur        | 输入框失去焦点时，触发此回调                                                        | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:change      | 数据变化后，触发此回调                                                              | ( value: number                                                                   | null, [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void        |
-| #if WECHAT bind:confirm     | 点击键盘完成时触发此回调                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:focus       | 输入框聚焦时，触发此回调                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:disabledtap | 禁用时点击出发回调                                                                  | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bindblur        | 输入框失去焦点时，触发此回调                                                        | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bindchange      | 数据变化后，触发此回调                                                              | ( value: number                                                                   | null, [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void        |
+| #if WECHAT bindconfirm     | 点击键盘完成时触发此回调                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bindfocus       | 输入框聚焦时，触发此回调                                                            | (value: number                                                                    | null, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT binddisabledtap | 禁用时点击出发回调                                                                  | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### 主题定制
 

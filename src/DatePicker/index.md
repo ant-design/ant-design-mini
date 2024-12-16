@@ -36,9 +36,9 @@ toc: 'content'
 
 ```xml
 <ant-date-picker
-  min="{{ min }}"
-  max="{{ max }}"
-  defaultValue="{{ defaultDate }}"
+  min="{{min}}"
+  max="{{max}}"
+  defaultValue="{{defaultDate}}"
   placeholder="请选择"
 #if ALIPAY
   onPickerChange="handlePickerChange"
@@ -47,10 +47,10 @@ toc: 'content'
   onOk="handleOk"
 #endif
 #if WECHAT
-  bind:pickerchange="handlePickerChange"
-  bind:visiblechange="handleTriggerPicker"
-  bind:cancel="handleDismiss"
-  bind:ok="handleOk"
+  bindpickerchange="handlePickerChange"
+  bindvisiblechange="handleTriggerPicker"
+  bindcancel="handleDismiss"
+  bindok="handleOk"
 #endif
 />
 ```
@@ -92,7 +92,7 @@ Page({
 > `disabled` 属性用来控制禁用状态。
 
 ```xml
-<ant-date-picker defaultValue="{{ defaultDate }}" disabled />
+<ant-date-picker defaultValue="{{defaultDate}}" disabled />
 ```
 
 ### 自定义选择面板中每列的渲染
@@ -100,7 +100,7 @@ Page({
 > 传入函数 `onFormatLabel` ，返回值则是选择面板中每列想要渲染的数据
 
 ```xml
-<ant-date-picker onFormatLabel="{{ handleFormatLabel ? handleFormatLabel : 'handleFormatLabel' }}" />
+<ant-date-picker onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}" />
 ```
 
 ```js
@@ -124,15 +124,15 @@ Page({
 
 ```xml
  <ant-date-picker
-  visible="{{ pickerVisible }}"
-  value="{{ pickerValue }}"
+  visible="{{pickerVisible}}"
+  value="{{pickerValue}}"
 #if ALIPAY
   onVisibleChange="handleTriggerControlledPicker"
   onOk="handleControlledOk"
 #endif
 #if WECHAT
-  bind:visiblechange="handleTriggerControlledPicker"
-  bind:ok="handleControlledOk"
+  bindvisiblechange="handleTriggerControlledPicker"
+  bindok="handleControlledOk"
 #endif
   />
 ```
@@ -184,16 +184,16 @@ Page({
 ```xml
 <ant-range-picker
   placeholder="请选择"
-  defaultValue="{{ defaultDateRange }}"
+  defaultValue="{{defaultDateRange}}"
 #if ALIPAY
   onPickerChange="handlePickerRangeChange"
   onVisibleChange="handleTriggerPicker"
   onOk="handleRangeOk"
 #endif
 #if WECHAT
-  bind:pickerchange="handlePickerRangeChange"
-  bind:visiblechange="handleTriggerPicker"
-  bind:ok="handleRangeOk"
+  bindpickerchange="handlePickerRangeChange"
+  bindvisiblechange="handleTriggerPicker"
+  bindok="handleRangeOk"
 #endif
 />
 ```
@@ -218,7 +218,7 @@ Page({
 });
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/DatePicker/index'></code>
 
@@ -261,11 +261,11 @@ Page({
 | #if ALIPAY onPickerChange        | 选中项发生变化，触发回调                                                                                                                                                             | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | 认添加年、月、日、时、分、秒单位 | (type: `year` \| `month` \| `day` \| `hour` \| `minute` \| `second`, value: number) => string                                                                                        | -                                                                                                              |
 | #if ALIPAY onVisibleChange       | 弹出框显示/隐藏状态变化触发                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void            | -            |
-| #if WECHAT bind:ok               | 点击确定按钮，触发回调                                                                                                                                                               | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:cancel           | 点击取消按钮/蒙层，触发回调                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                              | -            |
-| #if WECHAT bind:pickerchange     | 选中项发生变化，触发回调                                                                                                                                                             | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindok               | 点击确定按钮，触发回调                                                                                                                                                               | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindcancel           | 点击取消按钮/蒙层，触发回调                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                              | -            |
+| #if WECHAT bindpickerchange     | 选中项发生变化，触发回调                                                                                                                                                             | (date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | 认添加年、月、日、时、分、秒单位 | (type: `year` \| `month` \| `day` \| `hour` \| `minute` \| `second`, value: number) => string                                                                                        | -                                                                                                              |
-| #if WECHAT bind:visiblechange    | 弹出框显示/隐藏状态变化触发                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void            | -            |
+| #if WECHAT bindvisiblechange    | 弹出框显示/隐藏状态变化触发                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void            | -            |
 
 ### RangePicker
 
@@ -306,10 +306,10 @@ Page({
 | #if ALIPAY onCancel           | 点击取消按钮/蒙层，触发回调                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
 | #if ALIPAY onPickerChange     | 选中项发生变化，触发回调                                                                                                                                                             | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
 | #if ALIPAY onVisibleChange    | 弹出框显示/隐藏状态变化触发                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                    | -            |
-| #if WECHAT bind:ok            | 点击确定按钮，触发回调                                                                                                                                                               | (date: [Date, Date], dateStr: [string, string], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void       | -            |
-| #if WECHAT bind:cancel        | 点击取消按钮/蒙层，触发回调                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
-| #if WECHAT bind:pickerchange  | 选中项发生变化，触发回调                                                                                                                                                             | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
-| #if WECHAT bind:visiblechange | 弹出框显示/隐藏状态变化触发                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                    | -            |
+| #if WECHAT bindok            | 点击确定按钮，触发回调                                                                                                                                                               | (date: [Date, Date], dateStr: [string, string], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void       | -            |
+| #if WECHAT bindcancel        | 点击取消按钮/蒙层，触发回调                                                                                                                                                          | (event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                      | -            |
+| #if WECHAT bindpickerchange  | 选中项发生变化，触发回调                                                                                                                                                             | (type: `start` \| `end`, date: Date, dateStr: string, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -            |
+| #if WECHAT bindvisiblechange | 弹出框显示/隐藏状态变化触发                                                                                                                                                          | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                    | -            |
 
 ## 如何获取 `YYYY-MM-DD` 格式的时间
 
@@ -321,7 +321,7 @@ DatePicker 组件返回的时间格式为 `Date` 类型，如果需要转换为 
   onOk="handleOk"
 #endif
 #if WECHAT
-  bind:ok="handleOk"
+  bindok="handleOk"
 #endif
 />
 ```

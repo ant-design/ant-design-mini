@@ -1,0 +1,5 @@
+@import './src/style/themes/theme-mode.wxss';
+
+page {
+  background-color: var(--color-background);
+}

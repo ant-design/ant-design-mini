@@ -28,7 +28,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Input basic usage
 
@@ -36,7 +36,7 @@ In `index.json` Introducing Components in
 <ant-input placeholder="input here" />
 <ant-input placeholder="input here" defaultValue="initial value" />
 <ant-input placeholder="input here, with clear button" allowClear />
-<ant-input placeholder="disabled input" disabled="{{ true }}" />
+<ant-input placeholder="disabled input" disabled="{{true}}" />
 ```
 
 ### With Prefix and Suffix
@@ -51,7 +51,7 @@ In `index.json` Introducing Components in
 ### Controlled Mode
 
 ```xml
-<ant-input controlled="{{ true }}" value="{{ value }}" placeholder="input here" allowClear />
+<ant-input controlled="{{true}}" value="{{value}}" placeholder="input here" allowClear />
 ```
 
 ### Enter Amount
@@ -118,7 +118,7 @@ In `index.json` Introducing Components in
 #### Controlled Mode
 
 ```xml
- <ant-textarea value="{{ value }}" placeholder="input here" allowClear />
+ <ant-textarea value="{{value}}" placeholder="input here" allowClear />
 ```
 
 ### Custom
@@ -178,10 +178,10 @@ In `index.json` Introducing Components in
 | #if ALIPAY onFocus      | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
 | #if ALIPAY onBlur       | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
 | #if ALIPAY onChange     | This callback is triggered when input                                | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:confirm | This callback is triggered when the keyboard is clicked to complete                        | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:focus   | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:blur    | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
-| #if WECHAT bind:change  | This callback is triggered when input                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bindconfirm | This callback is triggered when the keyboard is clicked to complete                        | (value: string, event: Event) => void | -      |
+| #if WECHAT bindfocus   | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bindblur    | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
+| #if WECHAT bindchange  | This callback is triggered when input                                | (value: string, event: Event) => void | -      |
 
 ### Input property
 
@@ -262,7 +262,7 @@ The solution is to call the input update method in ref mode without using value 
   onTap="clear"
 #endif
 #if WECHAT
-  bind:tap="clear"
+  bindtap="clear"
 #endif
 >clear</button>
 ```

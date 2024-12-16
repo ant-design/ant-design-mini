@@ -40,7 +40,7 @@ toc: 'content'
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -79,7 +79,7 @@ Page({
   onChange="onChange"
 #endif
 #if WECHAT
-  bind:change="onChange"
+  bindchange="onChange"
 #endif
 />
 ```
@@ -93,7 +93,7 @@ Page({
   onTap="addItems"
 #endif
 #if WECHAT
-  bind:tap="addItems"
+  bindtap="addItems"
 #endif
 >
   添加items
@@ -188,7 +188,7 @@ Page({
 | style                  | 样式                               | string                                                                                           | -      |
 | title                  | 标题插槽，接收 value、index        | slot                                                                                             | -      |
 | #if ALIPAY onChange    | 切换面板的回调                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:change | 切换面板的回调                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bindchange | 切换面板的回调                     | (current: number[], e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### CollapseItem
 

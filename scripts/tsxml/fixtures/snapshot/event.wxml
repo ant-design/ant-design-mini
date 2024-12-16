@@ -1,8 +1,8 @@
 <view>
   <!-- display: inline -->
   <text
-    bind:tap="a"
-    catch:tap="b"
+    bindtap="a"
+    catchtap="b"
     >{{ a }}</text
   >
 </view>

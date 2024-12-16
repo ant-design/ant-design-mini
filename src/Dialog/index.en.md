@@ -26,24 +26,24 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 ```xml
 <ant-dialog
   content="人In天边月上明"
-  visible="{{ visible }}"
-  closable="{{ false }}"
-  footer="{{ footer }}"
+  visible="{{visible}}"
+  closable="{{false}}"
+  footer="{{footer}}"
   primaryButtonText="我知道了"
 #if ALIPAY
   onButtonTap="onButtonTap"
   onClose="handleClose"
 #endif
 #if WECHAT
-  bind:buttontap="onButtonTap"
-  bind:close="handleClose"
+  bindbuttontap="onButtonTap"
+  bindclose="handleClose"
 #endif
   />
 ```
@@ -82,8 +82,8 @@ Page({
 <ant-dialog
   title="确定删除吗？"
   content="删除后无法恢复"
-  visible="{{ true }}"
-  footer="{{ horizontalFooter }}"
+  visible="{{true}}"
+  footer="{{horizontalFooter}}"
 />
 ```
 
@@ -123,27 +123,27 @@ Page({
 | cancelButtonStyle            | Cancel Button Style                                      | string       | -      |
 | cancelButtonText             | Cancel Button Text                                      | string       | -      |
 | className                    | Class Name                                              | string       | -      |
-| closable                     | Whether to display the close button in the upper right corner. Effective only when type is focus | boolean      | -      |
+| closable                     | Whether to display the close button in the upper right corner. Only valid when type is focus | boolean      | -      |
 | content                      | Content                                              | string\|slot | -      |
 | destroyOnClose               | Whether to unload content when invisible                              | boolean      | false  |
 | footer                       | Custom Button Area                                      | slot         | -      |
 | maskClosable                 | Click whether the layer triggers the onClose.                          | boolean      | true   |
 | maskClassName                | Class name of the layer                                        | string       | -      |
-| maskStyle                    | The style of the layer                                        | string       | -      |
+| maskStyle                    | Mask Style                                        | string       | -      |
 | style                        | Style                                              | string       | -      |
 | title                        | Title                                              | string\|slot | -      |
 | visible                      | Whether to display                                          | boolean      | false  |
 | #if ALIPAY onCancelButtonTap | Cancel button click event                                  | ()=>void     | -      |
 | #if ALIPAY onClose           | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
 | #if ALIPAY onButtonTap       | Behavior button click event                                  | ()=>void     | -      |
-| #if WECHAT bind:close        | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
-| #if WECHAT bind:buttontap    | Behavior button click event                                  | ()=>void     | -      |
+| #if WECHAT bindclose        | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
+| #if WECHAT bindbuttontap    | Behavior button click event                                  | ()=>void     | -      |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                    | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                   |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |

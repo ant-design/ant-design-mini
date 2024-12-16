@@ -29,15 +29,15 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 ```xml
 <ant-checklist
-  defaultValue="{{ [1] }}"
-  options="{{ options }}"
-  data-options="{{ options }}"
+  defaultValue="{{[1]}}"
+  options="{{options}}"
+  data-options="{{options}}"
   onChange="onChange" />
 ```
 
@@ -71,8 +71,8 @@ Page({
 
 ```xml
 <ant-checklist
-  value="{{ value }}"
-  options="{{ options }}"
+  value="{{value}}"
+  options="{{options}}"
   multiple
   onChange="onChangeControlled" />
 ```
@@ -113,8 +113,8 @@ Page({
 
 ```xml
 <ant-checklist
-  defaultValue="{{ [2] }}"
-  options="{{ options }}"
+  defaultValue="{{[2]}}"
+  options="{{options}}"
   multiple
   onChange="onChange">
   <view slot="icon">
@@ -126,12 +126,12 @@ Page({
   <view
     slot="content"
     slot-scope="props">
-    title: {{ props.item.title }}
+    title: {{props.item.title}}
   </view>
 </ant-checklist>
 ```
 
-## Demo Code
+### Demo Code
 
 <code src='../../demo/pages/Checklist/index'></code>
 
@@ -148,7 +148,7 @@ Page({
 | style                  | Style                                                 | string                                                                                                                                                                                                           | -      |
 | value                  | Selected data                                             | string \| number \| (string \| number)[]                                                                                                                                                                         | -      |
 | #if ALIPAY onChange    | Trigger a callback when the selected item changes                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
-| #if WECHAT bind:change | Trigger a callback when the selected item changes                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
+| #if WECHAT bindchange | Trigger a callback when the selected item changes                           | (value: string \| number \| (string \| number)[], column: [ChecklistItem](#checklistitem) \| [ChecklistItem](#checklistitem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void |
 
 ### ChecklistItem
 

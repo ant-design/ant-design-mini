@@ -30,44 +30,44 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
 #### Default Keyboard
 
 ```xml
-<ant-number-keyboard visible="{{ visible }}" />
+<ant-number-keyboard visible="{{visible}}" />
 ```
 
 #### No decimal point
 
 ```xml
-<ant-number-keyboard point="{{ false }}" visible="{{ visible }}" />
+<ant-number-keyboard point="{{false}}" visible="{{visible}}" />
 ```
 
 #### With confirmation button
 
 ```xml
-<ant-number-keyboard confirmText="confirm" visible="{{ visible }}" />
+<ant-number-keyboard confirmText="confirm" visible="{{visible}}" />
 ```
 
 #### With closed arrow
 
 ```xml
-<ant-number-keyboard closeable="{{ true }}" visible="{{ visible }}" />
+<ant-number-keyboard closeable="{{true}}" visible="{{visible}}" />
 ```
 
 #### scrambled keyboard
 
 ```xml
-<ant-number-keyboard random="{{ true }}" visible="{{ visible }}" />
+<ant-number-keyboard random="{{true}}" visible="{{visible}}" />
 ```
 
 #### Custom Button
 
 ```xml
-<ant-number-keyboard visible="{{ visible }}" >
+<ant-number-keyboard visible="{{visible}}" >
   <view
       slot="header"
       class="number-keyboard-header"
@@ -76,7 +76,7 @@ In `index.json` Introducing Components in
     </view>
 </ant-number-keyboard>
 
-<ant-number-keyboard visible="{{ visible }}" >
+<ant-number-keyboard visible="{{visible}}" >
   <view
     slot="confirm"
     class="number-keyboard-confirm"
@@ -105,12 +105,12 @@ In `index.json` Introducing Components in
 | ----------------------- | ---------------- | --------------------- | ------ |
 | className               | Class Name             | string                | -      |
 | style                   | Style             | string                | -      |
-| value                   | Enter value           | string                | -      |
+| value                   | Input value           | string                | -      |
 | visible                 | Show             | boolean               | false  |
 | vibrate                 | Vibration             | boolean               | true   |
 | closeable               | Close Arrow         | boolean               | false  |
 | point                   | decimal point           | boolean               | true   |
-| random                  | out of order             | boolean               | false  |
+| random                  | Out of Order             | boolean               | false  |
 | confirmDisabled         | Disable confirmation button     | boolean               | false  |
 | safeArea                | Safety distance         | boolean               | true   |
 | confirmText             | Confirm the text of the button   | string                | -      |
@@ -119,9 +119,9 @@ In `index.json` Introducing Components in
 | #if ALIPAY onChange     | Callback when number changes | (val: string) => void | -      |
 | #if ALIPAY onClose      | Callback when hiding keyboard | () => void            | -      |
 | #if ALIPAY onConfirm    | Callback when clicking confirmation | () => void            | -      |
-| #if WECHAT bind:change  | Callback when number changes | (val: string) => void | -      |
-| #if WECHAT bind:close   | Callback when hiding keyboard | () => void            | -      |
-| #if WECHAT bind:confirm | Callback when clicking confirmation | () => void            | -      |
+| #if WECHAT bindchange  | Callback when number changes | (val: string) => void | -      |
+| #if WECHAT bindclose   | Callback when hiding keyboard | () => void            | -      |
+| #if WECHAT bindconfirm | Callback when clicking confirmation | () => void            | -      |
 
 ### Theme customization
 

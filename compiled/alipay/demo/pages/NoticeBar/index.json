@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "Notice",
-  "transparentTitle": "auto",
-  "titlePenetrate": "YES",
-  "usingComponents": {
-    "ant-notice": "../../../src/NoticeBar/index",
-    "ant-container": "../../../src/Container/index"
-  }
-}

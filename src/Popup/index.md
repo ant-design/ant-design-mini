@@ -36,20 +36,20 @@ toc: 'content'
 
 ```xml
 <ant-popup
-  visible="{{ visible }}"
+  visible="{{visible}}"
   position="bottom"
   title="title"
-  height="{{ 250 }}"
-  width="{{ 250 }}"
-  showClose="{{ true }}"
-  showBack="{{ true }}"
+  height="{{250}}"
+  width="{{250}}"
+  showClose="{{true}}"
+  showBack="{{true}}"
 #if ALIPAY
   onClickBack="onClickBack"
   onClose="handlePopupClose"
 #endif
 #if WECHAT
-  bind:clickback="onClickBack"
-  bind:close="handlePopupClose"
+  bindclickback="onClickBack"
+  bindclose="handlePopupClose"
 #endif
 >
   <view style="padding: 12px">
@@ -85,12 +85,12 @@ Page({
 
 ```xml
 <ant-popup
-  visible="{{ true }}"
-  height="{{ 450 }}"
+  visible="{{true}}"
+  height="{{450}}"
   className="customize-top-image-popup"
   backgroundImage="https://mdn.alipayobjects.com/huamei_ahikbw/afts/img/A*jVxmQq4bhoUAAAAAAAAAAAAADiWwAQ/original"
   position="bottom"
-  showClose="{{ false }}">
+  showClose="{{false}}">
   <view class="customize-content">
     Ea consectetur ipsum consequat exercitation laboris excepteur pariatur
     excepteur labore dolor cillum tempor esse. Ad adipisicing nostrud fugiat eu
@@ -106,9 +106,9 @@ Page({
 
 ```xml
 <ant-popup
-  visible="{{ true }}"
+  visible="{{true}}"
   position="bottom"
-  showClose="{{ true }}"
+  showClose="{{true}}"
 >
   <scroll-view
     scroll-y
@@ -124,7 +124,7 @@ Page({
 </ant-popup>
 ```
 
-## Demo 代码
+### Demo 代码
 
 <code src='../../demo/pages/Popup/index'></code>
 
@@ -153,10 +153,10 @@ Page({
 | #if ALIPAY onClickBack        | 点击返回按钮，触发回调                                                                                                                                            | () => void | -           |
 | #if ALIPAY onAfterShow        | 完全展示后触发                                                                                                                                                    | () => void | -           |
 | #if ALIPAY onAfterClose       | 完全关闭后触发                                                                                                                                                    | () => void | -           |
-| #if WECHAT bind:close         | 点击蒙层关闭，触发回调                                                                                                                                            | () => void | -           |
-| #if WECHAT bind:clickbackicon | 点击返回按钮，触发回调                                                                                                                                            | () => void | -           |
-| #if WECHAT bind:aftershow     | 完全展示后触发                                                                                                                                                    | () => void | -           |
-| #if WECHAT bind:afterclose    | 完全关闭后触发                                                                                                                                                    | () => void | -           |
+| #if WECHAT bindclose         | 点击蒙层关闭，触发回调                                                                                                                                            | () => void | -           |
+| #if WECHAT bindclickbackicon | 点击返回按钮，触发回调                                                                                                                                            | () => void | -           |
+| #if WECHAT bindaftershow     | 完全展示后触发                                                                                                                                                    | () => void | -           |
+| #if WECHAT bindafterclose    | 完全关闭后触发                                                                                                                                                    | () => void | -           |
 
 ### 主题定制
 
@@ -182,7 +182,7 @@ Page({
 如果弹窗内需要滚动，请使用 scroll-view 组件，并添加以下属性：
 
 ```html
-<popup height="{{ 250 }}" visible="{{ visible }}">
+<popup height="{{250}}" visible="{{visible}}">
   <scroll-view
     scroll-y
     disable-lower-scroll="out-of-bounds"

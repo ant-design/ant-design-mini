@@ -1,0 +1,11 @@
+<view class="navigation-bar"/>
+
+<ant-terms
+  buttonsFixed
+  termPrefix="请阅读并同意"
+  terms="{{terms}}"
+  buttons="{{buttons}}"
+  onButtonTap="handleButtonTap"
+  onTermTap="handleTermTap"
+/>
+

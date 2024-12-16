@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -34,7 +34,7 @@ In `index.json` Introducing Components in
 <popover
   content="simple tips"
   placement="top-left"
-  showCloseIcon="{{ true }}"
+  showCloseIcon="{{true}}"
   style="display: inline-block">
   <ant-button
     size="small"
@@ -57,8 +57,8 @@ In `index.json` Introducing Components in
   onTapAction="onTapAction"
 #endif
 #if WECHAT
-  bind:visiblechange="onVisibleChange"
-  bind:tapaction="onTapAction"
+  bindvisiblechange="onVisibleChange"
+  bindtapaction="onTapAction"
 #endif
   >
   <ant-button>Point me</ant-button>
@@ -105,8 +105,8 @@ Optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-r
   <popover
     content="prompt"
     placement="right"
-    showMask="{{ false }}"
-    visible="{{ visible }}"
+    showMask="{{false}}"
+    visible="{{visible}}"
     style="display: inline-block">
     <text>Click the button to modify the visible</text>
   </popover>
@@ -119,7 +119,7 @@ Optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-r
   onTap="handleVisibleChange"
 #endif
 #if WECHAT
-  bind:tap="handleVisibleChange"
+  bindtap="handleVisibleChange"
 #endif
 >
   Change visible
@@ -154,15 +154,15 @@ Page({
 | defaultVisible                | Display by default                                                                                                                                                        | boolean                                                                                             | false  |
 | destroyOnClose                | Whether to unload content when invisible                                                                                                                                                | boolean                                                                                             | false  |
 | maskClassName                 | Class name of the layer                                                                                                                                                          | string                                                                                              | -      |
-| maskStyle                     | The style of the layer                                                                                                                                                          | string                                                                                              | -      |
+| maskStyle                     | Mask Style                                                                                                                                                          | string                                                                                              | -      |
 | placement                     | Bubble box position, optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` or `right-bottom` | string                                                                                              | top    |
 | showMask                      | Whether to show the layer, if true, click the blank to close the Popover.                                                                                                                    | boolean                                                                                             | true   |
 | style                         | Style                                                                                                                                                                | string                                                                                              | -      |
 | visible                       | Whether to display                                                                                                                                                            | boolean                                                                                             | -      |
 | #if ALIPAY onVisibleChange    | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if ALIPAY onTapAction        | Operation button click callback                                                                                                                                                    | () => void                                                                                          | -      |
-| #if WECHAT bind:visiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
-| #if WECHAT bind:tapaction     | Operation button click callback                                                                                                                                                    | () => void                                                                                          | -      |
+| #if WECHAT bindvisiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
+| #if WECHAT bindtapaction     | Operation button click callback                                                                                                                                                    | () => void                                                                                          | -      |
 
 ### Theme customization
 
