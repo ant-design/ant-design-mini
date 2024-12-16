@@ -13,30 +13,30 @@
   <ant-container title="带链接的页脚">
     <ant-footer
       links="{{links1}}"
-      bind:linktap="handleLinkTap"
+      bindlinktap="handleLinkTap"
     ></ant-footer>
     <ant-footer
       links="{{links2}}"
-      bind:linktap="handleLinkTap"
+      bindlinktap="handleLinkTap"
     ></ant-footer>
   </ant-container>
   <ant-container title="带标签的页脚">
     <ant-footer
       chips="{{chips}}"
-      bind:chiptap="handleChipTap"
+      bindchiptap="handleChipTap"
     ></ant-footer>
   </ant-container>
   <ant-container title="组合使用">
     <ant-footer
       links="{{links2}}"
       content="@ 2004-2020 Alipay.com All rights reserved"
-      bind:linktap="handleLinkTap"
+      bindlinktap="handleLinkTap"
     ></ant-footer>
     <view style="height:24px;"></view>
     <ant-footer
       content="没找到需要的？搜一下试试"
       chips="{{chips}}"
-      bind:chiptap="handleChipTap"
+      bindchiptap="handleChipTap"
     ></ant-footer>
     <view style="height:24px;"></view>
     <ant-footer
@@ -44,8 +44,8 @@
       content="@ 2004-2020 Alipay.com All rights reserved"
       links="{{links2}}"
       chips="{{chips}}"
-      bind:linktap="handleLinkTap"
-      bind:chiptap="handleChipTap"
+      bindlinktap="handleLinkTap"
+      bindchiptap="handleChipTap"
     ></ant-footer>
   </ant-container>
 </view>

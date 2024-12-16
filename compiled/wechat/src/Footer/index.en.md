@@ -71,7 +71,7 @@ In `index.json` Introducing Components in
   onLinkTap="handleLinkTap"
 #endif
 #if WECHAT
-  bind:linktap="handleLinkTap"
+  bindlinktap="handleLinkTap"
 #endif
 />
 ```
@@ -108,7 +108,7 @@ Page({
   onChipTap="handleChipTap"
 #endif
 #if WECHAT
-  bind:chiptap="handleLinkTap"
+  bindchiptap="handleLinkTap"
 #endif
 />
 ```
@@ -152,8 +152,8 @@ Page({
 | noLabelDivider          | There is no label dividing line.  | `boolean`                                            | `false` |
 | #if ALIPAY onLinkTap    | Callback after link click     | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
 | #if ALIPAY onChipTap    | Callback after bottom tab click | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
-| #if WECHAT bind:linktap | Callback after link click     | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
-| #if WECHAT bind:chiptap | Callback after bottom tab click | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
+| #if WECHAT bindlinktap | Callback after link click     | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
+| #if WECHAT bindchiptap | Callback after bottom tab click | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
 
 ### ActionItem
 

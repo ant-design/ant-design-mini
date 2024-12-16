@@ -13,6 +13,10 @@
   color: @notice-color;
   background-color: @notice-background-color;
   box-sizing: border-box;
+  &.@{noticeBarPrefix}-no-height {
+    height: unset;
+    align-items: flex-start;
+  }
 
   &-error {
     color: @notice-error-color;
@@ -47,6 +51,7 @@
   &-icon {
     margin-right: @h-spacing-standard;
     font-size: 36 * @rpx;
+
     &-image-image {
       width: 36 * @rpx;
       height: 36 * @rpx;
@@ -65,13 +70,20 @@
   &-marquee {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
     vertical-align: middle;
+  }
+
+  &-ellipsis {
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
   }
 
   &-operation {
     display: flex;
     align-items: center;
+
     &-icon {
       margin-left: 24 * @rpx;
     }

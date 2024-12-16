@@ -37,6 +37,11 @@ export interface INoticeBarProps extends IBaseProps {
    */
   slotIcon?: boolean;
   /**
+   * @description 多行省略展示的行数配置
+   * @default false
+   */
+  ellipsisRow: number | boolean;
+  /**
    * @description 点击图标（箭头或者叉，由mode属性决定）的事件回调
    */
   onTap: () => void;
@@ -52,6 +57,7 @@ export const NoticeBarDefaultProps: Partial<INoticeBarProps> = {
   type: 'default',
   mode: null,
   enableMarquee: false,
+  ellipsisRow: false,
   loop: false,
   slotIcon: false,
 };

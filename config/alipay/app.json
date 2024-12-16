@@ -12,6 +12,7 @@
   "lazyCodeLoading": "requiredComponents",
   "debug": true,
   "pages": [
+    "pages/index/index",
     "pages/ActionSheet/index",
     "pages/AutoResize/index",
     "pages/Avatar/index",
@@ -84,9 +85,27 @@
     "pages/Table/index",
     "pages/Tabs/index",
     "pages/Tag/index",
+    "pages/Terms/index",
     "pages/Toast/index",
     "pages/Typography/index",
     "pages/Voucher/index",
-    "pages/index/index"
+    "pages/Form/FormBasic/index",
+    "pages/Form/FormCustom/index",
+    "pages/Form/FormCustomError/index",
+    "pages/Form/FormDependency/index",
+    "pages/Form/FormDynamic/index",
+    "pages/Form/FormImageUploadRules/index",
+    "pages/Form/FormInitialValues/index",
+    "pages/Form/FormInitialValuesAsync/index",
+    "pages/Form/FormJSON/index",
+    "pages/Form/FormLayout/index",
+    "pages/Form/FormMultiple/index",
+    "pages/Form/FormRules/index",
+    "pages/Form/FormValidate/index",
+    "pages/Form/FormValidateMessages/index",
+    "pages/Form/FormWatch/index",
+    "pages/Terms/Fixed/index",
+    "pages/Tabs/TabsElevator/index",
+    "pages/Tabs/TabsVerticalElevator/index"
   ]
 }

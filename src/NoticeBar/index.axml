@@ -1,6 +1,6 @@
 <view
   a:if="{{ show }}"
-  class="ant-notice-bar {{ className || '' }} {{ type ? 'ant-notice-bar-' + type : '' }}"
+  class="ant-notice-bar {{ className || '' }} {{ type ? 'ant-notice-bar-' + type : '' }} {{ellipsisRow > 1 ? 'ant-notice-bar-no-height' : ''}}"
   style="{{ style }}">
   <!-- #if ALIPAY -->
   <slot name="icon">
@@ -40,8 +40,8 @@
   <view
     class="ant-notice-bar-content ant-notice-bar-content{{ $id ? '-' + $id : '' }}">
     <view
-      class="ant-notice-bar-marquee ant-notice-bar-marquee{{ $id ? '-' + $id : '' }}"
-      style="{{ marqueeStyle }} display: {{ enableMarquee ? 'inline-block' : 'block' }}"
+      class="ant-notice-bar-marquee ant-notice-bar-marquee{{ $id ? '-' + $id : '' }} {{ellipsisRow > 1 ? 'ant-notice-bar-ellipsis' : ''}}"
+      style="{{ marqueeStyle }} display: {{ enableMarquee ? 'inline-block' : (ellipsisRow > 1 ? '-webkit-box' : 'block') }}; -webkit-line-clamp:{{ellipsisRow}}; white-space: {{ellipsisRow > 1 ? 'wrap' : 'nowrap'}}"
       onTransitionEnd="onTransitionEnd">
       <slot />
     </view>

@@ -21,6 +21,22 @@
   </ant-notice>
 </ant-container>
 
+<ant-container title="多行展示">
+  <block
+    a:for="{{ typeList }}"
+    a:for-index="index"
+    a:for-item="item">
+    <ant-notice
+      type="{{ item }}"
+      style="margin-bottom: 8px"
+      onTap="handleTapLink"
+      ellipsisRow="{{index + 1}}"
+      >
+      文本溢出时，开启换行。文字不够继续添加文字凑数。文字不够继续添加文字凑数.文字不够继续添加文字凑数.文字不够继续添加文字凑数
+    </ant-notice>
+  </block>
+</ant-container>
+
 <ant-container title="可滚动通告栏">
   <block
     a:for="{{ typeList }}"

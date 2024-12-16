@@ -71,7 +71,7 @@ toc: 'content'
   onLinkTap="handleLinkTap"
 #endif
 #if WECHAT
-  bind:linktap="handleLinkTap"
+  bindlinktap="handleLinkTap"
 #endif
 />
 ```
@@ -108,7 +108,7 @@ Page({
   onChipTap="handleChipTap"
 #endif
 #if WECHAT
-  bind:chiptap="handleLinkTap"
+  bindchiptap="handleLinkTap"
 #endif
 />
 ```
@@ -152,8 +152,8 @@ Page({
 | noLabelDivider          | 没有 label 的分割线  | `boolean`                                            | `false` |
 | #if ALIPAY onLinkTap    | 链接点击后的回调     | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
 | #if ALIPAY onChipTap    | 底部标签点击后的回调 | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
-| #if WECHAT bind:linktap | 链接点击后的回调     | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
-| #if WECHAT bind:chiptap | 底部标签点击后的回调 | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
+| #if WECHAT bindlinktap | 链接点击后的回调     | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
+| #if WECHAT bindchiptap | 底部标签点击后的回调 | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
 
 ### ActionItem
 
