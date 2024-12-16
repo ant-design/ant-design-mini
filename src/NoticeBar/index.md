@@ -94,7 +94,7 @@ toc: content
 | ------------- | ---------------------------------------------------------------------------------------------- | ------------ | ------- |
 | className     | 类名                                                                                           | string       | -       |
 | enableMarquee | 是否开启滚动动画                                                                               | boolean      | false   |
-| ellipsisRow     | 文案多行展示最大行数，和`enableMarquee`不能同时配置            | number\|boolean       | false       |
+| ellipsisRow     | 文案多行展示最大行数，和`enableMarquee`不能同时配置             | number\|boolean       | false       |
 | extra         | 自定义右侧内容                                                                                 | slot         | -       |
 | icon          | 左侧 icon，支持所有内置 iconType 和自定义链接，也支持自定义 slot （微信版本需要设置 slotIcon） | string       | -       |
 | loop          | 是否循环滚动，`enableMarquee` 为 true 时有效                                                   | boolean      | false   |
