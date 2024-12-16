@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "SelectContact",
-  "usingComponents": {
-    "ant-select-contact": "../../../src/SelectContact/index",
-    "ant-container": "../../../src/Container/index"
-  },
-  "allowsBounceVertical": "NO"
-}
