@@ -5,7 +5,6 @@ group:
   title: 数据展示
   order: 8
 toc: 'content'
-supportPlatform: ['alipay']
 ---
 
 # IndexBar 索引
@@ -116,7 +115,7 @@ Page({
 
 ### Demo 代码
 
-<code src='../../demo/pages/IndexBarControl/index'></code>
+<code src='../../demo/pages/IndexBar/index'></code>
 
 ## API
 

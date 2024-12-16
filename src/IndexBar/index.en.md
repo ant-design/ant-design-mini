@@ -5,7 +5,6 @@ group:
   title: Information Display
   order: 8
 toc: 'content'
-supportPlatform: ['alipay']
 ---
 
 # IndexBar
@@ -116,7 +115,7 @@ Page({
 
 ### Demo Code
 
-<code src='../../demo/pages/IndexBarControl/index'></code>
+<code src='../../demo/pages/IndexBar/index'></code>
 
 ## API
 
