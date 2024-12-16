@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -154,11 +154,11 @@ Page({
 | defaultVisible                | Display by default                                                                                                                                                        | boolean                                                                                             | false  |
 | destroyOnClose                | Whether to unload content when invisible                                                                                                                                                | boolean                                                                                             | false  |
 | maskClassName                 | Class name of the layer                                                                                                                                                          | string                                                                                              | -      |
-| maskStyle                     | Mask Style                                                                                                                                                          | string                                                                                              | -      |
+| maskStyle                     | The style of the layer                                                                                                                                                          | string                                                                                              | -      |
 | placement                     | Bubble box position, optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` or `right-bottom` | string                                                                                              | top    |
 | showMask                      | Whether to show the layer, if true, click the blank to close the Popover.                                                                                                                    | boolean                                                                                             | true   |
 | style                         | Style                                                                                                                                                                | string                                                                                              | -      |
-| visible                       | Whether to display                                                                                                                                                            | boolean                                                                                             | -      |
+| visible                       | Display                                                                                                                                                            | boolean                                                                                             | -      |
 | #if ALIPAY onVisibleChange    | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if ALIPAY onTapAction        | Operation button click callback                                                                                                                                                    | () => void                                                                                          | -      |
 | #if WECHAT bindvisiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
@@ -168,11 +168,11 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                     | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks             |
 | -------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
 | --popover-color-background | <div style="width: 150px; height: 30px; background-color: #404040; color: #ffffff;">#404040</div> | <div style="width: 150px; height: 30px; background-color: #404040; color: #ffffff;">#404040</div> | Popover default background color |
 | --popover-bg               | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Popover background color |
-| --popover-text-color       | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | Popover text color |
-| --popover-inner-color      | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div> | Popover internal color |
+| --popover-inner-color      | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | Popover internal text color |
+| --popover-text-color       | <div style="width: 150px; height: 30px; background-color: #000000; color: #ffffff;">#000000</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | Popover operation button text color |
