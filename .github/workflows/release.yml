@@ -59,6 +59,7 @@ jobs:
         if: steps.checkTag.outputs.exists == 'false'
         run: |
           npm i
+          npm run build
 
       - name: Generate Changelog, Version, Commit and Push
         if: steps.checkTag.outputs.exists == 'false' &&  github.event.inputs.release_branch != ''
