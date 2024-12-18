@@ -191,7 +191,7 @@ const useStyle = (isShowPlatfromSwitch) => {
         padding: 3px;
         .item {
           height: 27px;
-          border-radius:1px;
+          border-radius: 1px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -250,7 +250,9 @@ const Sidebar: FC = () => {
     const { pathname } = window.location;
     return (
       pathname.startsWith('/components/') ||
-      matchedRoute?.meta?.frontmatter?.nav?.path === '/components'
+      matchedRoute?.meta?.frontmatter?.nav?.path === '/components' ||
+      pathname.startsWith('/copilots/') ||
+      matchedRoute?.meta?.frontmatter?.nav?.path === '/copilot'
     );
   }, [matchedRoute]);
 

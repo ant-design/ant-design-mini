@@ -16,13 +16,11 @@ async function createConfig() {
       });
     })
   );
-  /** 生成config/wechat.json **/
-  // 获取全量文件夹列表
-  const files =
-    (await fs.readdir(path.resolve(__dirname, '..', 'src')))
+  const getComponentsList = async (componentType = 'src') => {
+    const componentsList = (await fs.readdir(path.resolve(__dirname, '..', componentType)))
       .filter((file) => {
         if (file[0] === '.') return false;
-        const mdFilePath = path.resolve(__dirname, '..', 'src', file, 'index.md');
+        const mdFilePath = path.resolve(__dirname, '..', componentType, file, 'index.md');
         // 如果没有markdown文件，进入白名单
         if (!existsSync(mdFilePath)) return true;
         const markdownContent = readFileSync(mdFilePath, { encoding: 'utf-8' });
@@ -31,50 +29,62 @@ async function createConfig() {
         if (match && match[0] && !match[0].includes('wechat')) return false;
         return true;
       });
+    return componentsList;
+  }
+  /** 生成config/wechat.json **/
+  // 获取全量文件夹列表
+  const files = [...(await getComponentsList('src')), ...(await getComponentsList('copilot'))]
 
   writeFileSync(path.resolve(__dirname, '..', 'config', 'wechat.json'), JSON.stringify({
     src: files,
   }, null, 2), 'utf8')
 
-  // 获取demo文件列表
-  const demoPageFiles = await fs.readdir(path.resolve(__dirname, '..', 'demo', 'pages'));
+
 
   const wechatAppJsonList = [];
-  // 遍历页面
-  await Promise.all(demoPageFiles.map(async fileName => {
-    // 读取json文件里的依赖组件，判断是否支持微信
-    let jsonContent = '';
-    let isSupportWechat = true;
-    // json文件可能是json5，也可能是json文件后缀
-    const jsonFilePath = path.resolve(__dirname, '..', 'demo', 'pages', fileName, 'index.json');
-    const json5FilePath = path.resolve(__dirname, '..', 'demo', 'pages', fileName, 'index.json5')
-    if (existsSync(jsonFilePath)) {
-      jsonContent = await fs.readFile(jsonFilePath, 'utf-8');
-    } else if (existsSync(json5FilePath)) {
-      jsonContent = await fs.readFile(json5FilePath, 'utf-8');
-    }
 
-    if (jsonContent) {
-      // 正则匹配文件里的../../../src/xxx/，获取xxx组件名
-      const dependCompList = jsonContent.match(/\.\.\/\.\.\/\.\.\/src\/([a-zA-Z]+)\//g);
-      // 如果依赖的组件都能找到
-      if (!dependCompList.some(comp => !files.map(file => `../../../src/${file}/`).find(fileWithPrefix => fileWithPrefix === comp))) {
-        wechatAppJsonList.push(fileName);
+  const getDemoPageFiles = async (demoDir = 'demo') => {
+    // 获取demo文件列表
+    const demoPageFiles = await fs.readdir(path.resolve(__dirname, '..', demoDir, 'pages'));
+    // 遍历页面
+    await Promise.all(demoPageFiles.map(async fileName => {
+      // 读取json文件里的依赖组件，判断是否支持微信
+      let jsonContent = '';
+      let isSupportWechat = true;
+      // json文件可能是json5，也可能是json文件后缀
+      const jsonFilePath = path.resolve(__dirname, '..', demoDir, 'pages', fileName, 'index.json');
+      const json5FilePath = path.resolve(__dirname, '..', demoDir, 'pages', fileName, 'index.json5')
+      if (existsSync(jsonFilePath)) {
+        jsonContent = await fs.readFile(jsonFilePath, 'utf-8');
+      } else if (existsSync(json5FilePath)) {
+        jsonContent = await fs.readFile(json5FilePath, 'utf-8');
+      }
+
+      if (jsonContent) {
+        // 正则匹配文件里的../../../src/xxx/，获取xxx组件名
+        const dependCompList = jsonContent.match(/\.\.\/\.\.\/\.\.\/src\/([a-zA-Z]+)\//g) || [];
+        // 如果依赖的组件都能找到
+        if (!dependCompList.some(comp => !files.map(file => `../../../src/${file}/`).find(fileWithPrefix => fileWithPrefix === comp))) {
+          wechatAppJsonList.push(fileName);
+        } else {
+          isSupportWechat = false;
+        }
       } else {
-        isSupportWechat = false;
+        wechatAppJsonList.push(fileName);
       }
-    } else {
-      wechatAppJsonList.push(fileName);
-    }
-    // 二级页面
-    const innerFiles = await fs.readdir(path.resolve(__dirname, '..', 'demo', 'pages', fileName));
-    innerFiles.forEach(innerFile => {
-      if (existsSync(path.resolve(__dirname, '..', 'demo', 'pages', fileName, innerFile, 'index.axml'))) {
-        demoPageFiles.push(`${fileName}/${innerFile}`);
-        if (isSupportWechat) wechatAppJsonList.push(`${fileName}/${innerFile}`);
-      }
-    })
-  }))
+      // 二级页面
+      const innerFiles = await fs.readdir(path.resolve(__dirname, '..', demoDir, 'pages', fileName));
+      innerFiles.forEach(innerFile => {
+        if (existsSync(path.resolve(__dirname, '..', demoDir, 'pages', fileName, innerFile, 'index.axml'))) {
+          demoPageFiles.push(`${fileName}/${innerFile}`);
+          if (isSupportWechat) wechatAppJsonList.push(`${fileName}/${innerFile}`);
+        }
+      })
+    }))
+    return demoPageFiles;
+  }
+  const demoPageFiles = [...(await getDemoPageFiles('demo')), ...(await getDemoPageFiles('copilot-demo'))];
+
   /** 生成config/wechat/app.json */
   writeFileSync(path.resolve(__dirname, '..', 'config', 'wechat', 'app.json'), JSON.stringify({
     "darkmode": true,

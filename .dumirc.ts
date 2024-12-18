@@ -57,6 +57,10 @@ export default defineConfig({
           link: '/components/overview',
         },
         {
+          title: 'Copilot系列组件',
+          link: '/copilots/copilot-overview',
+        },
+        {
           title: '资源',
           link: '/resources',
         },
@@ -77,6 +81,10 @@ export default defineConfig({
         {
           title: 'Components',
           link: '/components/overview-en',
+        },
+        {
+          title: 'Copilot Components',
+          link: '/copilots/copilot-overview-en',
         },
         {
           title: 'Resources',
@@ -563,4 +571,16 @@ export default defineConfig({
     { id: 'zh-CN', name: '中文', suffix: '' },
     { id: 'en', name: 'English', suffix: '-en' },
   ],
+  resolve: {
+    atomDirs: [
+      {
+        type: 'component',
+        dir: 'src',
+      },
+      {
+        type: 'copilot',
+        dir: 'copilot',
+      },
+    ],
+  },
 });

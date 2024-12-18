@@ -44,7 +44,7 @@ function buildUrl(
 const DefaultPlatform = 'alipay';
 
 function getSupportPlatform(platform: string) {
-  const supportWechat = true
+  const supportWechat = true;
   if (!supportWechat && platform === 'wechat') {
     return {
       platform: DefaultPlatform,
@@ -83,7 +83,10 @@ const Previewer: React.FC<IProps> = () => {
   const matchedRoute = useMatchedRoute();
 
   const isShowSim = useMemo(() => {
-    return matchedRoute?.meta?.frontmatter?.nav?.path === '/components';
+    return (
+      matchedRoute?.meta?.frontmatter?.nav?.path === '/components' ||
+      matchedRoute?.meta?.frontmatter?.nav?.path === '/copilot'
+    );
   }, [matchedRoute]);
 
   const basicUrl =

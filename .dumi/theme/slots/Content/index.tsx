@@ -110,12 +110,14 @@ const useStyle = ({ isOverview, isShowSim }) => {
 const Content: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const isOverview =
     window.location.pathname === '/components/overview' ||
-    window.location.pathname === '/components/overview-en';
+    window.location.pathname === '/components/overview-en' ||
+    window.location.pathname === '/copilots/copilot-overview' ||
+    window.location.pathname === '/copilots/copilot-overview-en';
 
   const matchedRoute = useMatchedRoute();
 
   const isShowSim = useMemo(() => {
-    return matchedRoute?.meta?.frontmatter?.nav?.path === '/components';
+    return matchedRoute?.meta?.frontmatter?.nav?.path === '/components' || matchedRoute?.meta?.frontmatter?.nav?.path === '/copilot';
   }, [matchedRoute]);
 
   const meta = useRouteMeta();
