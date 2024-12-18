@@ -4,11 +4,12 @@
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "",
+  "defaultTitle": "Prompts 组件",
   /// #endif
 
   "usingComponents": {
-    "copilot-button": "../../../src/Copilotbutton/index"
+    "ant-container": "../../../src/Container/index",
+    "prompts": "../../../src/Prompts/index"
   },
   "transparentTitle": "always"
 }
