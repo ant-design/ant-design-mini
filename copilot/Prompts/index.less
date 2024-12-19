@@ -5,28 +5,28 @@
 .@{buttonPrefix} {
   &-title {
     font-weight: 400;
-    font-size: 32rpx;
-    color: rgba(0,0,0,0.25);
-    line-height: 48rpx;
-    padding-bottom: 16rpx;
+    font-size: @prompts-title-size;
+    color: @prompts-title-color;
+    line-height: @prompts-title-line-height;
+    padding-bottom: @prompts-title-padding-bottom;
   }
   &-list {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 24rpx;
+    gap: @prompts-list-gap;
     &-item {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
 
-      border: 2rpx solid rgba(0,0,0,0.10);
+      border: 2rpx solid @prompts-item-border-color;
       border-radius: 50vh;
       padding: 20rpx 32rpx;
 
-      gap: 16rpx;
+      gap: @prompts-item-gap;
 
       &-image {
         width: 40rpx;
@@ -37,20 +37,21 @@
       &-title {
         font-weight: 500;
         font-size: 28rpx;
-        color: rgba(0,0,0,0.88);
-        line-height: 44rpx;
+        color: @prompts-item-title-color;
+        line-height: @prompts-item-content-line-height;
         text-wrap: nowrap;
       }
 
       &-content {
         font-weight: 400;
         font-size: 28rpx;
-        line-height: 44rpx;
+        color: @prompts-item-content-color;
+        line-height: @prompts-item-content-line-height;
       }
 
       &-arrow {
         font-size: 32rpx;
-        color: rgba(0,0,0,0.45);
+        color: @prompts-item-arrow-color;
       }
     }
   }
