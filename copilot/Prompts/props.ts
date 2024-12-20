@@ -13,7 +13,7 @@ interface IPromptsItem {
   /**
    * @description 提示的内容
    */
-  text: string;
+  content: string;
   /**
    * @description 提示是否展示右边的箭头
    */
