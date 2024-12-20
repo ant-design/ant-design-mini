@@ -21,3 +21,24 @@
     promptsTitle="{{ promptsTitle }}"
     onClickPromptsItem="onClickPromptsItem"  />
 </ant-container>
+
+<ant-container title="自定义提示标题">
+  <prompts 
+    list="{{ arrowList }}" 
+    onClickPromptsItem="onClickPromptsItem">
+    <view slot="prompts-title" class="customize-prompts-title">
+      自定义提示标题:
+    </view>
+  </prompts>
+</ant-container>
+
+<ant-container title="自定义提示项">
+  <prompts 
+    list="{{ baseList }}" 
+    onClickPromptsItem="onClickPromptsItem">
+    <view slot="prompts-item" slot-scope="props" class="customize-prompts-item">
+      自定义提示项：{{ props.item.title }}
+    </view>
+  </prompts>
+</ant-container>
+

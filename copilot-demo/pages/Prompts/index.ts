@@ -23,13 +23,13 @@ Page({
       },
       {
         showArrow: true,
-        title: '组件查询',
+        title: '组件查询:',
         image: 'https://mdn.alipayobjects.com/huamei_upibrs/afts/img/A*R9L1RLo4x58AAAAAAAAAAAAADkx8AQ/original',
         content: '欢迎组件'
       },
       {
         showArrow: true,
-        title: '新手帮助',
+        title: '新手帮助:',
         image: 'https://mdn.alipayobjects.com/huamei_upibrs/afts/img/A*7eRqQ4JpdccAAAAAAAAAAAAADkx8AQ/original',
         content: '如何实现快速安装和引入'
       }
