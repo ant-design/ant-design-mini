@@ -52,9 +52,21 @@ export interface ITabsProps extends IBaseProps {
   tabClassName?: string;
 
   /**
-   *@description tab active类名
+   * @description tab active类名
    */
   tabActiveClassName?: string;
+
+  /**
+   * swiper 嵌套场景下，是否组织 Tab 的 touch 事件冒泡：https://opendocs.alipay.com/mini/component/scroll-view
+   * @description catchTouchStart
+   */
+  catchTouchStart?: boolean;
+
+  /**
+   * swiper 嵌套场景下，是否组织 Tab 的 touch 事件冒泡：https://opendocs.alipay.com/mini/component/scroll-view
+   * @description catchTouchMove
+   */
+  catchTouchMove?: boolean;
 }
 
 export const TabsDefaultProps: Partial<ITabsProps> = {

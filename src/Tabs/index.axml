@@ -22,7 +22,10 @@
       scroll-left="{{ scrollLeft }}"
       scroll-x="{{ true }}"
       scroll-with-animation="{{ true }}"
-      scroll-animation-duration="{{ 300 }}">
+      scroll-animation-duration="{{ 300 }}"
+      catchTouchStart="{{catchTouchStart}}"
+      catchTouchMove="{{catchTouchMove}}"
+    >
     <!-- #endif -->
     <!-- #if WECHAT -->
     <scroll-view
@@ -34,7 +37,8 @@
       scroll-with-animation="{{ true }}"
       scroll-animation-duration="{{ 300 }}"
       enable-flex="true"
-      style="{{ scrollHeight > 0 ? 'height: ' + scrollHeight + 'px;' : '' }}">
+      style="{{ scrollHeight > 0 ? 'height: ' + scrollHeight + 'px;' : '' }}"
+    >
     <!-- #endif -->
       <view />
       <block
@@ -135,7 +139,10 @@
       scroll-top="{{ scrollTop }}"
       scroll-y="{{ true }}"
       scroll-with-animation="{{ true }}"
-      scroll-animation-duration="{{ 300 }}">
+      scroll-animation-duration="{{ 300 }}"
+      catchTouchStart="{{catchTouchStart}}"
+      catchTouchMove="{{catchTouchMove}}"
+    >
     <!-- #endif -->
     <!-- #if WECHAT -->
     <scroll-view
@@ -146,7 +153,8 @@
       scroll-y="{{ true }}"
       scroll-with-animation="{{ true }}"
       scroll-animation-duration="{{ 300 }}"
-      enable-flex="true">
+      enable-flex="true"
+    >
     <!-- #endif -->
       <view class="ant-vtabs-bar-item-wrap">
         <block
