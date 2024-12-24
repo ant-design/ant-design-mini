@@ -178,10 +178,14 @@
     </scroll-view>
   </view>
   <view class="ant-vtabs-content">
+    <!-- #if ALIPAY  -->
     <slot
       value="{{ items[mixin.value] }}"
       index="{{ mixin.value }}">
+    <!-- #endif -->
       {{ items[mixin.value].content }}
+    <!-- #if ALIPAY  -->
     </slot>
+    <!-- #endif -->
   </view>
 </view>
