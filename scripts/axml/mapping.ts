@@ -3,6 +3,9 @@ export const wechatCustomMapping = {
     onTouchStart: 'bindtouchstart',
     onTouchMove: 'bindtouchmove',
     onTouchEnd: 'bindtouchend',
+    catchTouchStart: 'catchtouchstart',
+    catchTouchMove: 'catchtouchmove',
+    catchTouchEnd: 'catchtouchend',
     onAnimationEnd: 'bindanimationend',
   },
   'scroll-view': {
