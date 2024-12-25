@@ -40,13 +40,13 @@
       wx:if="{{mode === 'link'}}"
       className="ant-notice-bar-operation-icon"
       type="RightOutline"
-      bind:tap="onTap"
+      bindtap="onTap"
     ></icon>
     <icon
       wx:if="{{mode === 'closeable'}}"
       className="ant-notice-bar-operation-icon"
       type="CloseOutline"
-      bind:tap="onTap"
+      bindtap="onTap"
     ></icon>
   </view>
 </view>

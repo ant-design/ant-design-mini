@@ -5,21 +5,21 @@
     allowClear
     required
     message="需要填写用户名"
-    bind:ref="handleRef"
+    bindref="handleRef"
   ></ant-form-input>
   <ant-form-input
     label="地址"
     name="address"
     allowClear
-    bind:ref="handleRef"
+    bindref="handleRef"
   ></ant-form-input>
   <view class="buttons">
     <ant-button
       type="primary"
-      bind:tap="submit"
+      bindtap="submit"
       style="margin-bottom: 12px"
     >提交</ant-button>
-    <ant-button bind:tap="reset">重置</ant-button>
+    <ant-button bindtap="reset">重置</ant-button>
   </view>
 </ant-container>
 <ant-container title="表单2">
@@ -29,20 +29,20 @@
     allowClear
     required
     message="需要填写用户名"
-    bind:ref="handleRef2"
+    bindref="handleRef2"
   ></ant-form-input>
   <ant-form-input
     label="地址"
     name="address"
     allowClear
-    bind:ref="handleRef2"
+    bindref="handleRef2"
   ></ant-form-input>
   <view class="buttons">
     <ant-button
       type="primary"
-      bind:tap="submit2"
+      bindtap="submit2"
       style="margin-bottom: 12px"
     >提交</ant-button>
-    <ant-button bind:tap="reset2">重置</ant-button>
+    <ant-button bindtap="reset2">重置</ant-button>
   </view>
 </ant-container>

@@ -1,6 +1,6 @@
 <ant-container title="基础用法">
   <ant-button
-    bind:tap="handleOpenBasic"
+    bindtap="handleOpenBasic"
     inline="{{true}}"
     size="large"
     data-index="1"
@@ -8,7 +8,7 @@
 </ant-container>
 <ant-container title="选项状态">
   <ant-button
-    bind:tap="handleOpenBasic"
+    bindtap="handleOpenBasic"
     inline="{{true}}"
     size="large"
     data-index="2"
@@ -16,7 +16,7 @@
 </ant-container>
 <ant-container title="带注释及icon">
   <ant-button
-    bind:tap="handleOpenBasic"
+    bindtap="handleOpenBasic"
     inline="{{true}}"
     size="large"
     data-index="3"

@@ -43,11 +43,11 @@
   <ant-selector
     value="{{value}}"
     options="{{items1}}"
-    bind:change="handleChange"
+    bindchange="handleChange"
   ></ant-selector>
   <ant-button
     size="large"
-    bind:tap="handleChangeValue"
+    bindtap="handleChangeValue"
   >改变选中值为选项三</ant-button>
 </ant-container>
 <ant-container title="单选-不允许清空">

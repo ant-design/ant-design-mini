@@ -1,26 +1,26 @@
 <ant-container title="基础用法">
   <ant-rate
     defaultValue="{{3}}"
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-rate>
 </ant-container>
 <ant-container title="半星">
   <ant-rate
     defaultValue="{{3.5}}"
     allowHalf
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-rate>
 </ant-container>
 <ant-container title="清除">
   <ant-rate
     defaultValue="{{4}}"
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-rate>
   <view class="description">allowClear: true</view>
   <ant-rate
     defaultValue="{{4}}"
     allowClear="{{false}}"
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-rate>
   <view class="description">allowClear: false</view>
 </ant-container>
@@ -41,14 +41,14 @@
     <view>
       <ant-rate
         value="{{value}}"
-        bind:change="handleChange"
+        bindchange="handleChange"
       ></ant-rate>
       <view style="margin-top: 8px">
         <ant-stepper
           value="{{value}}"
           min="{{0}}"
           max="{{5}}"
-          bind:change="handleChange"
+          bindchange="handleChange"
         ></ant-stepper>
       </view>
     </view>

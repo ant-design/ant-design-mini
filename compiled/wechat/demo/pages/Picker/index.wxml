@@ -2,12 +2,12 @@
   <ant-list-item>选择城市<ant-picker
       slot="extra"
       bind:cancel="handleDismissPicker"
-      bind:visiblechange="handleTriggerPicker"
+      bindvisiblechange="handleTriggerPicker"
       bind:ok="handleOk"
       defaultValue="{{defaultValue}}"
       placeholder="请选择"
       title="请选择"
-      bind:change="handleChange"
+      bindchange="handleChange"
       options="{{list}}"
       emptyText="暂无数据"
     ></ant-picker>
@@ -15,12 +15,12 @@
   <ant-list-item>选择城市（点击蒙层不关闭）<ant-picker
       slot="extra"
       bind:cancel="handleDismissPicker"
-      bind:visiblechange="handleTriggerPicker"
+      bindvisiblechange="handleTriggerPicker"
       bind:ok="handleOk"
       defaultValue="{{defaultValue}}"
       placeholder="请选择"
       title="请选择"
-      bind:change="handleChange"
+      bindchange="handleChange"
       maskClosable="{{false}}"
       options="{{list}}"
     ></ant-picker>
@@ -44,12 +44,12 @@
   <view class="btn-wrapper">
     <ant-button
       inline
-      bind:tap="handleChangeControlled"
+      bindtap="handleChangeControlled"
       style="margin-right: 8px"
     >选择深圳</ant-button>
     <ant-button
       inline
-      bind:tap="handleClearControlled"
+      bindtap="handleClearControlled"
     >清空</ant-button>
   </view>
 </ant-list>
@@ -57,11 +57,11 @@
   <ant-list-item>选择日期<ant-picker
       slot="extra"
       bind:cancel="handleDismissPicker"
-      bind:visiblechange="handleTriggerPicker"
+      bindvisiblechange="handleTriggerPicker"
       bind:ok="handleOk"
       placeholder="请选择"
       title="请选择"
-      bind:change="handleChange"
+      bindchange="handleChange"
       options="{{weekList}}"
     ></ant-picker>
   </ant-list-item>
@@ -70,7 +70,7 @@
   <ant-list-item>请选择时间<ant-picker
       slot="extra"
       placeholder="请选择"
-      bind:visiblechange="handleTriggerPicker"
+      bindvisiblechange="handleTriggerPicker"
       defaultValue="{{['Tues', 'pm']}}"
       title="请选择"
       bind:ok="handleOk"
@@ -85,7 +85,7 @@
         slot="extra"
         visible="{{pickerVisible}}"
         placeholder="请选择"
-        bind:visiblechange="handleTriggerControlledPicker"
+        bindvisiblechange="handleTriggerControlledPicker"
         defaultValue="{{['Tues', 'pm']}}"
         title="请选择"
         bind:ok="handleOk"
@@ -97,6 +97,6 @@
   <ant-button
     size="medium"
     type="primary"
-    bind:tap="handleOpenPicker"
+    bindtap="handleOpenPicker"
   >打开 Picker</ant-button>
 </ant-container>

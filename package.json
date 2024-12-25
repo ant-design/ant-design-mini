@@ -41,7 +41,7 @@
     "get-func-name": "2.0.0"
   },
   "devDependencies": {
-    "@alipay/axml-transverter": "^1.0.1",
+    "@alipay/axml-transverter": "^1.0.2",
     "@babel/code-frame": "^7.22.13",
     "@babel/core": "^7.22.20",
     "@babel/generator": "^7.22.15",
