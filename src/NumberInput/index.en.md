@@ -9,7 +9,7 @@ toc: 'content'
 
 # NumberInput
 
-Used when you need to enter an amount and provide a quick amount selection. Supports automatic conversion of units, maximum limit and other functions.
+Use when you need to enter an amount and provide a quick amount selection. Support unit automatic conversion, maximum limit and other functions.
 
 ## Code example
 
@@ -21,19 +21,21 @@ Used when you need to enter an amount and provide a quick amount selection. Supp
 
 ### Property
 
-| Property         | Description                 | Type                    | Default Value       |
-| ------------ | -------------------- | ----------------------- | ------------ |
-| className    | Class Name                 | string                  | -            |
-| style        | Style                 | string                  | -            |
-| value        | Value of the input box           | string                  | -            |
-| title        | Title                 | string                  | -            |
-| linkText     | Top right link copy       | string                  | -            |
-| quickAmounts | Quick Amount Options         | number[]                | -            |
-| placeholder  | Placeholder text           | string                  | 'Please enter amount' |
-| prefix       | Amount prefix             | string                  | '¥'          |
-| maxValue     | Maximum amount that can be entered       | number                  | -            |
-| onChange     | Callback when content changes     | (value: string) => void | -            |
-| onLinkTap    | Click on the callback link in the upper right corner | () => void              | -            |
+| Property                   | Description                 | Type                    | Default Value       |
+| ---------------------- | -------------------- | ----------------------- | ------------ |
+| className              | Class Name                 | string                  | -            |
+| style                  | Style                 | string                  | -            |
+| value                  | Value of the input box           | string                  | -            |
+| title                  | Title                 | string                  | -            |
+| linkText               | Top right link copy       | string                  | -            |
+| quickAmounts           | Quick Amount Options         | number[]                | -            |
+| placeholder            | Placeholder text           | string                  | 'Please enter amount' |
+| prefix                 | Amount prefix             | string                  | '¥'          |
+| maxValue               | Maximum amount that can be entered       | number                  | -            |
+| #if ALIPAY onChange    | Callback when content changes     | (value: string) => void | -            |
+| #if ALIPAY onLinkTap   | Click on the callback link in the upper right corner | () => void              | -            |
+| #if WECHAT bindchange  | Callback when content changes     | (value: string) => void | -            |
+| #if WECHAT bindlinktap | Click on the callback link in the upper right corner | () => void              | -            |
 
 ### Slot
 
@@ -53,7 +55,7 @@ Example of use:
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                            | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks               |
 | --------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
