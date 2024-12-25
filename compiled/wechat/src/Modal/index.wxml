@@ -44,19 +44,19 @@
         type="primary"
         className="ant-modal-body-footer-focus-primary"
         style="{{primaryButtonStyle || ''}}"
-        bind:tap="onPrimaryButtonTap"
+        bindtap="onPrimaryButtonTap"
       >{{primaryButtonText}}</ant-button>
       <view
         wx:if="{{secondaryButtonText}}"
         class="ant-modal-body-footer-focus-secondary"
         style="{{secondaryButtonStyle || ''}}"
-        bind:tap="onSecondaryButtonTap"
+        bindtap="onSecondaryButtonTap"
       >{{secondaryButtonText}}</view>
       <view
         wx:if="{{cancelButtonText}}"
         class="ant-modal-body-footer-focus-cancel"
         style="{{cancelButtonStyle || ''}}"
-        bind:tap="onCancelButtonTap"
+        bindtap="onCancelButtonTap"
       >{{cancelButtonText}}</view>
     </view>
     <view
@@ -67,19 +67,19 @@
         wx:if="{{cancelButtonText}}"
         class="ant-modal-body-footer-horizontal-cancel"
         style="{{cancelButtonStyle || ''}}"
-        bind:tap="onCancelButtonTap"
+        bindtap="onCancelButtonTap"
       >{{cancelButtonText}}</view>
       <view
         wx:if="{{secondaryButtonText}}"
         class="ant-modal-body-footer-horizontal-secondary"
         style="{{secondaryButtonStyle || ''}}"
-        bind:tap="onSecondaryButtonTap"
+        bindtap="onSecondaryButtonTap"
       >{{secondaryButtonText}}</view>
       <view
         wx:if="{{primaryButtonText}}"
         class="ant-modal-body-footer-horizontal-primary"
         style="{{primaryButtonStyle || ''}}"
-        bind:tap="onPrimaryButtonTap"
+        bindtap="onPrimaryButtonTap"
       >{{primaryButtonText}}</view>
     </view>
     <view
@@ -90,26 +90,26 @@
         wx:if="{{primaryButtonText}}"
         class="ant-modal-body-footer-vertical-primary"
         style="{{primaryButtonStyle || ''}}"
-        bind:tap="onPrimaryButtonTap"
+        bindtap="onPrimaryButtonTap"
       >{{primaryButtonText}}</view>
       <view
         wx:if="{{secondaryButtonText}}"
         class="ant-modal-body-footer-vertical-secondary"
         style="{{secondaryButtonStyle || ''}}"
-        bind:tap="onSecondaryButtonTap"
+        bindtap="onSecondaryButtonTap"
       >{{secondaryButtonText}}</view>
       <view
         wx:if="{{cancelButtonText}}"
         class="ant-modal-body-footer-vertical-cancel"
         style="{{cancelButtonStyle || ''}}"
-        bind:tap="onCancelButtonTap"
+        bindtap="onCancelButtonTap"
       >{{cancelButtonText}}</view>
     </view>
   </view>
   <ant-icon
     wx:if="{{type === 'focus' && closable}}"
     type="CloseOutline"
-    bind:tap="onClose"
+    bindtap="onClose"
     className="ant-modal-close"
   ></ant-icon>
 </ant-popup>

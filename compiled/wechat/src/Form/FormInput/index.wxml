@@ -12,7 +12,7 @@
   help="{{help}}"
 >
   <ant-input
-    bind:ref="handleRef"
+    bindref="handleRef"
     allowClear="{{allowClear}}"
     enableNative="{{enableNative}}"
     className="{{inputClassName}}"

@@ -23,7 +23,7 @@
       activeItemStyle="{{activeItemStyle}}"
       onSelectMax="onSelectMax"
       onSelectMin="onSelectMin"
-      bind:change="onChange"
+      bindchange="onChange"
     ></selector>
   </view>
   <view

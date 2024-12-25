@@ -5,19 +5,19 @@
   <ant-button
     type="primary"
     icon="SmileOutline"
-    bind:tap="handleTap"
+    bindtap="handleTap"
     className="btn"
   >主要按钮</ant-button>
   <ant-button
     type="primary"
-    bind:tap="handleTap"
+    bindtap="handleTap"
     icon="SmileOutline"
     className="btn"
     inline
   >主要按钮</ant-button>
   <ant-button
     type="primary"
-    bind:tap="handleTap"
+    bindtap="handleTap"
     icon="ForbidFill"
     className="btn"
     inline
@@ -31,13 +31,13 @@
   <ant-button
     type="primary"
     icon="SearchOutline"
-    bind:tap="handleTap"
+    bindtap="handleTap"
     inline
     className="round"
   >主要按钮</ant-button>
   <ant-button
     type="primary"
-    bind:tap="handleTap"
+    bindtap="handleTap"
     inline
     danger
     className="round"
@@ -50,24 +50,24 @@
   <ant-button
     type="primary"
     icon="SearchOutline"
-    bind:tap="handleTap"
+    bindtap="handleTap"
     inline
     className="circle"
   ></ant-button>
   <ant-button
     icon="SearchOutline"
-    bind:tap="handleTap"
+    bindtap="handleTap"
     inline
     className="circle"
   ></ant-button>
   <ant-button
     type="primary"
-    bind:tap="handleTap"
+    bindtap="handleTap"
     inline
     className="circle"
   >A</ant-button>
   <ant-button
-    bind:tap="handleTap"
+    bindtap="handleTap"
     inline
     className="circle"
   >A</ant-button>

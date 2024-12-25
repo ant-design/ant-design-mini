@@ -20,7 +20,7 @@
 <container title="onChange">
   <tabs
     items="{{items}}"
-    bind:change="onChange"
+    bindchange="onChange"
   ></tabs>
 </container>
 <container title="plus按钮">
@@ -28,7 +28,7 @@
     <view slot="plus">
       <icon
         type="AddOutline"
-        bind:tap="onPlus"
+        bindtap="onPlus"
       ></icon>
     </view>
   </tabs>
@@ -37,14 +37,14 @@
   <tabs
     items="{{items}}"
     current="{{current}}"
-    bind:change="handleChange"
+    bindchange="handleChange"
   ></tabs>
 </container>
 <container title="content在外层自定义">
   <tabs
     items="{{items}}"
     current="{{current}}"
-    bind:change="handleChange"
+    bindchange="handleChange"
   ></tabs>
   <view class="content">{{items[current].content}}</view>
 </container>

@@ -2,7 +2,7 @@
 <tabs
   items="{{items}}"
   current="{{current}}"
-  bind:change="onChange"
+  bindchange="onChange"
   className="tabs"
 ></tabs>
 <scroll-view

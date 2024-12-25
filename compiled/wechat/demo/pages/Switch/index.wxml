@@ -5,14 +5,14 @@
   <container title="有默认值">
     <switch
       defaultChecked="{{true}}"
-      bind:change="onChange"
+      bindchange="onChange"
     ></switch>
   </container>
   <container title="文字和图标">
     <switch
       checkedText="开"
       uncheckedText="关"
-      bind:change="onChange"
+      bindchange="onChange"
     ></switch>
   </container>
   <container title="自定义颜色">
@@ -48,12 +48,12 @@
   <container title="受控模式">
     <switch
       checked="{{checked}}"
-      bind:change="handleChange"
+      bindchange="handleChange"
       defaultChecked="{{true}}"
     ></switch>
     <button
       style="margin-top: 10px"
-      bind:tap="handleChangeByButton"
+      bindtap="handleChangeByButton"
     >切换</button>
   </container>
 </view>

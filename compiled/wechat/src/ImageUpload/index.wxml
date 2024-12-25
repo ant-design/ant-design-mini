@@ -11,7 +11,7 @@
     <view class="ant-image-upload-show">
       <view
         data-uid="{{item.uid}}"
-        bind:tap="onRemove"
+        bindtap="onRemove"
       >
         <view class="ant-image-upload-close"></view>
       </view>
@@ -42,11 +42,11 @@
         mode="{{imageMode}}"
         src="{{item.url || item.path}}"
         data-uid="{{item.uid}}"
-        bind:tap="onPreview"
+        bindtap="onPreview"
       ></image>
     </view>
   </block>
-  <view bind:tap="chooseImage">
+  <view bindtap="chooseImage">
     <view
       wx:if="{{showUploadButton}}"
       class="ant-image-upload-add-image-wrapper"

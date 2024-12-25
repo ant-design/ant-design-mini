@@ -5,10 +5,10 @@
     slot="title"
     slot-scope="item"
   >
-    <view catch:tap="true">
+    <view catchtap="true">
       <ant-checkbox
         data-index="{{item.index}}"
-        bind:change="onChange"
+        bindchange="onChange"
       ></ant-checkbox>
     </view>
     <view>{{item.value.title}}</view>
@@ -21,5 +21,5 @@
 </ant-collapse>
 <ant-button
   type="primary"
-  bind:tap="onTap"
+  bindtap="onTap"
 >提交</ant-button>

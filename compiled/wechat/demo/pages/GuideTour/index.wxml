@@ -2,19 +2,19 @@
   items="{{[list[0]]}}"
   visible="{{baseVisible}}"
   bind:cancel="closeTour"
-  bind:change="onChange"
+  bindchange="onChange"
 ></ant-guide-tour>
 <ant-guide-tour
   items="{{list}}"
   visible="{{moreVisible}}"
   bind:cancel="closeTour"
-  bind:change="onChange"
+  bindchange="onChange"
 ></ant-guide-tour>
 <ant-guide-tour
   items="{{list}}"
   visible="{{swiperVisible}}"
   bind:cancel="closeTour"
-  bind:change="onChange"
+  bindchange="onChange"
   swiperable="{{true}}"
 ></ant-guide-tour>
 <ant-guide-tour
@@ -22,26 +22,26 @@
   current="{{current}}"
   visible="{{controlledVisible}}"
   bind:cancel="closeTour"
-  bind:change="onChangeControlled"
+  bindchange="onChangeControlled"
 ></ant-guide-tour>
 <ant-container
   title="基础用法"
   className="list"
 >
   <ant-button
-    bind:tap="openTour"
+    bindtap="openTour"
     data-field="baseVisible"
   >单图模式</ant-button>
   <ant-button
-    bind:tap="openTour"
+    bindtap="openTour"
     data-field="moreVisible"
   >多图模式</ant-button>
   <ant-button
-    bind:tap="openTour"
+    bindtap="openTour"
     data-field="swiperVisible"
   >滑动模式</ant-button>
   <ant-button
-    bind:tap="openTour"
+    bindtap="openTour"
     data-field="controlledVisible"
   >受控模式</ant-button>
 </ant-container>

@@ -14,19 +14,19 @@
     <ant-list-item
       image="PayCircleOutline"
       arrow="right"
-      bind:tap="handleTap"
+      bindtap="handleTap"
       data-info="总资产"
     >总资产</ant-list-item>
     <ant-list-item
       image="SetOutline"
       arrow="right"
-      catch:tap="catchTap"
+      catchtap="catchTap"
       data-info="设置"
     >设置</ant-list-item>
     <ant-list-item
       image="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
       arrow="right"
-      bind:tap="handleTap"
+      bindtap="handleTap"
       data-info="图片"
     >图片</ant-list-item>
   </ant-list>

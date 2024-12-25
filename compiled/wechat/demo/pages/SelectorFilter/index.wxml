@@ -7,7 +7,7 @@
     >
       <view
         class="filterDemo-bar-item {{currentOpen === index ? 'filterDemo-bar-item-active' : ''}}"
-        bind:tap="onTapItem"
+        bindtap="onTapItem"
         data-index="{{index}}"
       >{{item.title}}<ant-icon
           type="DownFill"
@@ -28,7 +28,7 @@
       >
         <ant-selector
           options="{{item.options}}"
-          bind:change="handleChange"
+          bindchange="handleChange"
           data-index="{{index}}"
         ></ant-selector>
       </view>

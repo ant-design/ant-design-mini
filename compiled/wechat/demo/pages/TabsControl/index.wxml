@@ -1,7 +1,7 @@
 <tabs
   items="{{items}}"
   current="{{current}}"
-  bind:change="onChange"
+  bindchange="onChange"
 >
   <view class="content">{{items[current].content}}</view>
 </tabs>
@@ -9,18 +9,18 @@
 <view class="buttons">
   <ant-button
     inline
-    bind:tap="onPrevTap"
+    bindtap="onPrevTap"
   >上一个</ant-button>
   <ant-button
     inline
-    bind:tap="onNextTap"
+    bindtap="onNextTap"
   >下一个</ant-button>
   <ant-button
     inline
-    bind:tap="onAddTap"
+    bindtap="onAddTap"
   >添加</ant-button>
   <ant-button
     inline
-    bind:tap="onMinusTap"
+    bindtap="onMinusTap"
   >减少</ant-button>
 </view>

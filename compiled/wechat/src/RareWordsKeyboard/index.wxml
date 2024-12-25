@@ -6,7 +6,7 @@
   <view
     wx:if="{{visible}}"
     class="ant-rare-words-keyboard-modal {{showMask ? '' : 'hide'}}"
-    bind:tap="handleHide"
+    bindtap="handleHide"
     onAppear="catchAppearModal"
   ></view>
   <view class="ant-rare-words-keyboard-kb {{visible ? '' : 'hide'}}">
@@ -30,7 +30,7 @@
               <view
                 class="ant-rare-words-keyboard-match_words_item {{showMoreWords ? 'all' : ''}}"
                 data-value="{{item.unicodeChar}}"
-                bind:tap="handleWordClick"
+                bindtap="handleWordClick"
               >
                 <view class="ant-rare-words-keyboard-match_words_item_text">{{item.unicodeChar}}</view>
               </view>
@@ -60,7 +60,7 @@
           </view>
           <view
             class="ant-rare-words-keyboard-match_words_right {{showMoreWords ? 'sticky' : ''}} {{matchWordsList.length > maxDisplayNum && !showMoreWords ? 'overflow' : ''}}"
-            bind:tap="hanleLookMore"
+            bindtap="hanleLookMore"
           >
             <icon
               className="ant-rare-words-keyboard_down"
@@ -85,7 +85,7 @@
                   type="primary"
                   size="small"
                   inline
-                  bind:tap="handleRetry"
+                  bindtap="handleRetry"
                 >重试</button>
               </view>
             </result>
@@ -111,7 +111,7 @@
                 <view
                   data-value="{{item.value}}"
                   class="ant-rare-words-keyboard_pinyin_key {{showMoreWords ? 'all' : ''}}"
-                  bind:tap="handleKeyClick"
+                  bindtap="handleKeyClick"
                 >
                   <view class="ant-rare-words-keyboard_pinyin_key_text">{{item.label}}</view>
                 </view>
@@ -119,7 +119,7 @@
               <view
                 wx:if="{{mapIndex === pinyinMaps.length - 1}}"
                 class="ant-rare-words-keyboard_pinyin_key delete"
-                bind:tap="handleDelete"
+                bindtap="handleDelete"
               >
                 <view class="ant-rare-words-keyboard_pinyin_key_text">
                   <icon

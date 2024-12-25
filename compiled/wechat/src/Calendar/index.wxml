@@ -35,13 +35,13 @@
     class="ant-calendar-body"
     data-elementsize="{{elementSize}}"
     data-monthlist="{{monthList}}"
-    bind:scroll="{{scroll.handleScroll}}"
+    bindscroll="{{scroll.handleScroll}}"
     scrollIntoView="{{scrollIntoViewId}}"
     scrollWithAnimation
     scrollAnimationDuration="{{300}}"
     disableLowerScroll="out-of-bounds"
     disableUpperScroll="out-of-bounds"
-    bind:ref="handleRef"
+    bindref="handleRef"
   >
     <block
       wx:for="{{monthList}}"
@@ -66,7 +66,7 @@
                 class="{{helper.getClassName(item, index, showSelectableDatesOnly)}}"
                 id="id_{{item.time}}"
                 data-time="{{item}}"
-                bind:tap="clickCell"
+                bindtap="clickCell"
               >
                 <view class="ant-calendar-cell-container">
                   <view class="ant-calendar-cell-top">

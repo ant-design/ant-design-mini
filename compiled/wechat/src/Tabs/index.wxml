@@ -39,7 +39,7 @@
           <view
             wx:if="{{type === 'basic'}}"
             class="ant-tabs-bar-item ant-tabs-bar-basic {{tabClassName ? tabClassName : ''}} {{mixin.value === index && !item.disabled ? 'ant-tabs-bar-active' : ''}} {{item.disabled ? 'ant-tabs-bar-disabled' : ''}} {{mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : ''}}"
-            bind:tap="onChange"
+            bindtap="onChange"
             data-index="{{index}}"
           >
             <view class="ant-tabs-bar-basic-title">{{item.title}}</view>
@@ -47,7 +47,7 @@
           <view
             wx:elif="{{type === 'capsule'}}"
             class="ant-tabs-bar-item ant-tabs-bar-capsule {{tabClassName ? tabClassName : ''}} {{mixin.value === index && !item.disabled ? 'ant-tabs-bar-active' : ''}} {{item.disabled ? 'ant-tabs-bar-disabled' : ''}} {{mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : ''}}"
-            bind:tap="onChange"
+            bindtap="onChange"
             data-index="{{index}}"
           >
             <view class="ant-tabs-bar-capsule-title">{{item.title}}</view>
@@ -55,7 +55,7 @@
           <view
             wx:else
             class="ant-tabs-bar-item ant-tabs-bar-mixin {{tabClassName ? tabClassName : ''}} {{mixin.value === index && !item.disabled ? 'ant-tabs-bar-active' : ''}} {{item.disabled ? 'ant-tabs-bar-disabled' : ''}} {{mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : ''}}"
-            bind:tap="onChange"
+            bindtap="onChange"
             data-index="{{index}}"
           >
             <view class="ant-tabs-bar-mixin-title">{{item.title}}</view>
@@ -99,7 +99,7 @@
             id="ant-tabs-bar-item{{$id ? '-' + $id : ''}}-{{index}}"
             class="ant-vtabs-bar-item {{tabClassName ? tabClassName : ''}} {{mixin.value === index && !item.disabled ? 'ant-vtabs-bar-item-active' : ''}} {{item.disabled ? 'ant-vtabs-bar-item-disabled' : ''}} {{mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : ''}}"
             style="{{mixin.value + 1 === index ? 'border-radius: 0 16rpx 0 0' : ''}};{{mixin.value - 1 === index ? 'border-radius: 0 0 16rpx 0' : ''}}"
-            bind:tap="onChange"
+            bindtap="onChange"
             data-index="{{index}}"
           >
             <!--display: inline-->

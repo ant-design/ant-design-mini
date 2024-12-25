@@ -1,6 +1,6 @@
 <container title="基础用法">
   <stepper
-    bind:change="onChange"
+    bindchange="onChange"
     onBlur="onBlur"
     onConfirm="onConfirm"
     onFocus="onFocus"
@@ -48,7 +48,7 @@
 <container title="受控组件">
   <stepper
     value="{{value}}"
-    bind:change="handleChange"
+    bindchange="handleChange"
     style="margin: 8px 0"
     onBlur="onBlur"
     onConfirm="onConfirm"
@@ -56,15 +56,15 @@
   ></stepper>value:{{value}}<view class="list">
     <ant-button
       inline
-      bind:tap="add"
+      bindtap="add"
     >add</ant-button>
     <ant-button
       inline
-      bind:tap="minus"
+      bindtap="minus"
     >minus</ant-button>
     <ant-button
       inline
-      bind:tap="clear"
+      bindtap="clear"
     >clear</ant-button>
   </view>
 </container>

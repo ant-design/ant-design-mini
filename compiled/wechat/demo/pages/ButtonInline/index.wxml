@@ -5,17 +5,17 @@
   <ant-button
     type="primary"
     inline
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >主要按钮</ant-button>
   <ant-button
     type="default"
     inline
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >次要按钮</ant-button>
   <ant-button
     type="text"
     inline
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >文本按钮</ant-button>
 </ant-container>
 <ant-container
@@ -26,19 +26,19 @@
     type="primary"
     inline
     size="large"
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >主要按钮</ant-button>
   <ant-button
     type="primary"
     inline
     size="medium"
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >主要按钮</ant-button>
   <ant-button
     type="primary"
     inline
     size="small"
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >主要按钮</ant-button>
 </ant-container>
 <ant-container
@@ -49,19 +49,19 @@
     type="primary"
     inline
     danger
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >主要按钮</ant-button>
   <ant-button
     type="default"
     inline
     danger
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >次要按钮</ant-button>
   <ant-button
     type="text"
     inline
     danger
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >文本按钮</ant-button>
 </ant-container>
 <ant-container

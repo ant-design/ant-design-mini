@@ -1,28 +1,28 @@
 <form-switch
   label="需要水果"
   name="needFruit"
-  bind:change="onChange"
-  bind:ref="handleRef"
+  bindchange="onChange"
+  bindref="handleRef"
 ></form-switch>
 <view wx:if="{{needFruit}}">
   <form-stepper
     label="数量"
     name="quantity"
-    bind:ref="handleRef"
+    bindref="handleRef"
   ></form-stepper>
   <form-input
     label="收货地址"
     name="address"
     required
     message="需要填写收货地址"
-    bind:ref="handleRef"
+    bindref="handleRef"
   ></form-input>
 </view>
 <view class="buttons">
   <ant-button
     type="primary"
-    bind:tap="submit"
+    bindtap="submit"
     style="margin-bottom: 12px"
   >提交</ant-button>
-  <ant-button bind:tap="reset">重置</ant-button>
+  <ant-button bindtap="reset">重置</ant-button>
 </view>

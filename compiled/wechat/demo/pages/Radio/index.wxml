@@ -1,5 +1,5 @@
 <container title="基础用法">
-  <radio bind:change="onChange">Radio</radio>
+  <radio bindchange="onChange">Radio</radio>
 </container>
 <container title="初始值">
   <radio defaultChecked="{{true}}">Radio</radio>
@@ -20,6 +20,6 @@
 <container title="控制模式">
   <radio
     checked="{{checked}}"
-    bind:change="handleChange"
+    bindchange="handleChange"
   >Radio</radio>
 </container>
