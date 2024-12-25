@@ -6,7 +6,7 @@
   placeholder="请输入用户名"
   message="需要输入用户名"
   validateStatus="success"
-  bind:ref="handleRef"
+  bindref="handleRef"
 >
   <view
     slot="footer"
@@ -29,7 +29,7 @@
   placeholder="请输入地址"
   message="需要输入地址"
   validateStatus="success"
-  bind:ref="handleRef"
+  bindref="handleRef"
 >
   <view
     slot="footer"
@@ -48,11 +48,11 @@
 <view class="buttons">
   <ant-button
     type="primary"
-    bind:tap="submit"
+    bindtap="submit"
     style="margin-bottom: 12px"
   >提交</ant-button>
   <ant-button
-    bind:tap="reset"
+    bindtap="reset"
     style="margin-bottom: 12px"
   >重置</ant-button>
 </view>

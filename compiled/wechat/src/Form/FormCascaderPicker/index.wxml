@@ -34,9 +34,9 @@
       indicatorClassName="{{indicatorClassName}}"
       value="{{formData.value}}"
       bind:ok="onOk"
-      bind:change="onChange"
+      bindchange="onChange"
       bind:cancel="onDismissPicker"
-      bind:visiblechange="onVisibleChange"
+      bindvisiblechange="onVisibleChange"
       onFormat="{{handleFormat ? handleFormat : 'handleFormat'}}"
     >
       <slot

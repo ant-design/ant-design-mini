@@ -12,12 +12,12 @@
   help="{{help}}"
 >
   <image-upload
-    bind:ref="handleRef"
+    bindref="handleRef"
     defaultFileList="{{formData.value}}"
     maxCount="{{maxCount}}"
     imageMode="{{imageMode}}"
     sourceType="{{sourceType}}"
-    bind:change="onChange"
+    bindchange="onChange"
     onUpload="{{handleUpload ? handleUpload : 'handleUpload'}}"
     onRemove="{{handleRemove ? handleRemove : 'handleRemove'}}"
     onPreview="onPreview"

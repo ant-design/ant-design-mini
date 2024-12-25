@@ -4,7 +4,7 @@
 >
   <view
     class="ant-range-picker-selector-item {{active ? 'ant-range-picker-selector-item-active' : ''}}"
-    bind:tap="onChangeCurrentPickerType"
+    bindtap="onChangeCurrentPickerType"
     data-type="{{type}}"
   >
     <view
@@ -40,10 +40,10 @@
   maskClassName="{{maskClassName}}"
   indicatorStyle="{{indicatorStyle}}"
   indicatorClassName="{{indicatorClassName}}"
-  bind:change="onChange"
+  bindchange="onChange"
   bind:cancel="onCancel"
   bind:ok="onOk"
-  bind:visiblechange="onVisibleChange"
+  bindvisiblechange="onVisibleChange"
   maskClosable="{{maskClosable}}"
 >
   <view

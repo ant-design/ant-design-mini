@@ -3,7 +3,7 @@
     defaultValue="{{[1]}}"
     options="{{options_1}}"
     data-options="{{options_1}}"
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-checklist>
 </ant-container>
 <ant-container title="复杂布局-多选">
@@ -11,7 +11,7 @@
     defaultValue="{{[1, 2]}}"
     options="{{options_2}}"
     multiple
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-checklist>
 </ant-container>
 <ant-container title="受控模式">
@@ -19,7 +19,7 @@
     value="{{value}}"
     options="{{options_2}}"
     multiple
-    bind:change="onChangeControlled"
+    bindchange="onChangeControlled"
   ></ant-checklist>
 </ant-container>
 <ant-container title="禁用状态">
@@ -27,7 +27,7 @@
     defaultValue="{{[2]}}"
     options="{{options_3}}"
     multiple
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-checklist>
 </ant-container>
 <ant-container title="只读状态">
@@ -35,6 +35,6 @@
     defaultValue="{{[2]}}"
     options="{{options_4}}"
     multiple
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-checklist>
 </ant-container>

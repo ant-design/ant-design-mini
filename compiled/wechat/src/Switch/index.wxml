@@ -1,7 +1,7 @@
 <view
   class="ant-switch {{className ? className : ''}} ant-switch-{{size}} {{mixin.value ? 'ant-switch-checked' : ''}} {{disabled ? 'ant-switch-disabled' : ''}} {{loading ? 'ant-switch-loading' : ''}}"
   style="{{mixin.value && color ? 'background:' + color + '; border-color:' + color : ''}};{{style || ''}}"
-  bind:tap="onChange"
+  bindtap="onChange"
 >
   <view class="ant-switch-handle">
     <ant-icon

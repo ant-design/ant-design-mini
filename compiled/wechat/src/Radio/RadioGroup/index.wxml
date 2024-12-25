@@ -24,7 +24,7 @@
               value="{{item.value}}"
               disabled="{{disabled || item.disabled}}"
               color="{{item.color || color}}"
-              bind:change="onChange"
+              bindchange="onChange"
             >
               <view class="ant-radio-group-item-label-default">{{item.label}}</view>
             </radio>
@@ -43,7 +43,7 @@
             value="{{item.value}}"
             disabled="{{disabled || item.disabled}}"
             color="{{item.color || color}}"
-            bind:change="onChange"
+            bindchange="onChange"
           >
             <view class="ant-radio-group-item-label-default">{{item.label}}</view>
           </radio>

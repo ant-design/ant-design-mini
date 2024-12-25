@@ -4,7 +4,7 @@
     current="{{current}}"
   ></ant-steps>
   <ant-button
-    bind:tap="onNextTap"
+    bindtap="onNextTap"
     type="primary"
   >
     <view wx:if="{{current < items.length - 1}}">下一步</view>
@@ -12,6 +12,6 @@
   </ant-button>
   <ant-button
     wx:if="{{current > 0}}"
-    bind:tap="onPrevTap"
+    bindtap="onPrevTap"
   >上一步</ant-button>
 </ant-container>

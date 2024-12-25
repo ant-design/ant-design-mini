@@ -18,7 +18,7 @@
           <ant-checkbox
             data-value="{{item.value}}"
             checked="{{utils.indexOf(value, item.value) > -1}}"
-            bind:change="onChange"
+            bindchange="onChange"
           >{{item.title}}</ant-checkbox>
         </ant-list-item>
       </block>

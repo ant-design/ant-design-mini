@@ -12,7 +12,7 @@
 </ant-container>
 <ant-container title="可关闭通告栏">
   <ant-notice
-    bind:tap="handleClose"
+    bindtap="handleClose"
     mode="closeable"
   >这条通知可以关闭</ant-notice>
 </ant-container>
@@ -27,7 +27,7 @@
       style="margin-bottom: 8px"
       enableMarquee="{{true}}"
       loop="{{true}}"
-      bind:tap="handleTapLink"
+      bindtap="handleTapLink"
       mode="link"
     >文本溢出时，开启循环滚动。文字不够继续添加文字凑数。</ant-notice>
   </block>
@@ -42,7 +42,7 @@
       type="{{item}}"
       style="margin-bottom: 8px"
       enableMarquee="{{true}}"
-      bind:tap="handleTapLink"
+      bindtap="handleTapLink"
       mode="link"
     >文本溢出时，开启循环滚动。文字不够继续添加文字凑数。</ant-notice>
   </block>
@@ -68,13 +68,13 @@
   <ant-notice
     mode="link"
     style="margin-bottom: 8px"
-    bind:tap="handleTapLink"
+    bindtap="handleTapLink"
   >自定义右侧按钮<view
       slot="extra"
       class="extra"
     >
-      <view bind:tap="handleTapAction">不再提示</view>
-      <view bind:tap="handleTapAction">查看详情</view>
+      <view bindtap="handleTapAction">不再提示</view>
+      <view bindtap="handleTapAction">查看详情</view>
     </view>
   </ant-notice>
 </ant-container>

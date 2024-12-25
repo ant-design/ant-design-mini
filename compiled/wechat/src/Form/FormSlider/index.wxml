@@ -29,7 +29,7 @@
       showTicks="{{showTicks}}"
       showTooltip="{{showTooltip}}"
       disabled="{{disabled}}"
-      bind:change="onChange"
+      bindchange="onChange"
       onAfterChange="onAfterChange"
     ></slider>
   </view>

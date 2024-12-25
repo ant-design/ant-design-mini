@@ -18,7 +18,7 @@
           style="{{util.getChecked(item.value, mixin.value, multiple) ? activeItemStyle || '' : ''}}"
           data-value="{{item.value}}"
           data-disabled="{{item.disabled}}"
-          bind:tap="onChange"
+          bindtap="onChange"
         >
           <view
             wx:if="{{item.text}}"

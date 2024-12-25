@@ -24,7 +24,7 @@
               data-index="{{index}}"
               value="{{item.value}}"
               disabled="{{disabled || item.disabled}}"
-              bind:change="onChange"
+              bindchange="onChange"
             >
               <view class="ant-checkbox-group-item-label-default">{{item.label}}</view>
             </ant-checkbox>
@@ -43,7 +43,7 @@
             data-index="{{index}}"
             value="{{item.value}}"
             disabled="{{disabled || item.disabled}}"
-            bind:change="onChange"
+            bindchange="onChange"
           >
             <view class="ant-checkbox-group-item-label-default">{{item.label}}</view>
           </ant-checkbox>

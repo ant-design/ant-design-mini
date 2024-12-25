@@ -1,12 +1,12 @@
 <tabs
   items="{{items}}"
   current="{{current}}"
-  bind:change="onChange"
+  bindchange="onChange"
   className="tabs"
 >
   <scroll-view
     id="scroll-view"
-    bind:scroll="onScroll"
+    bindscroll="onScroll"
     onTouchStart="onTouchStart"
     scrollTop="{{scrollTop}}"
     scrollY="{{true}}"
@@ -27,7 +27,7 @@
     </block>
   </scroll-view>
   <view
-    bind:tap="onTap"
+    bindtap="onTap"
     slot="title"
     slot-scope="item"
   >{{item.value.title}}</view>

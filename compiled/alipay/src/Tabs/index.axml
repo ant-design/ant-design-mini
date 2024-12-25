@@ -23,6 +23,8 @@
       scrollX="{{true}}"
       scrollWithAnimation="{{true}}"
       scrollAnimationDuration="{{300}}"
+      catchTouchStart="{{catchTouchStart}}"
+      catchTouchMove="{{catchTouchMove}}"
     >
       <view></view>
       <block
@@ -117,6 +119,8 @@
       scrollY="{{true}}"
       scrollWithAnimation="{{true}}"
       scrollAnimationDuration="{{300}}"
+      catchTouchStart="{{catchTouchStart}}"
+      catchTouchMove="{{catchTouchMove}}"
     >
       <view class="ant-vtabs-bar-item-wrap">
         <block

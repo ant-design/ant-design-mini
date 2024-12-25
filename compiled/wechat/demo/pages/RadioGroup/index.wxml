@@ -1,14 +1,14 @@
 <ant-container title="基础用法">
   <ant-radio-group
     options="{{options}}"
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-radio-group>
 </ant-container>
 <ant-container title="初始值">
   <ant-radio-group
     defaultValue="banana"
     options="{{options}}"
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-radio-group>
 </ant-container>
 <ant-container title="横向布局">
@@ -30,6 +30,6 @@
   <ant-radio-group
     value="{{value}}"
     options="{{options}}"
-    bind:change="handleChange"
+    bindchange="handleChange"
   ></ant-radio-group>
 </ant-container>

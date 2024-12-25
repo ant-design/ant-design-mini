@@ -11,7 +11,7 @@
   <view
     wx:if="{{showMask}}"
     class="ant-popup-mask {{maskClassName || ''}} {{closing && !visible ? 'ant-popup-mask-closing' : ''}}"
-    bind:tap="onTapMask"
+    bindtap="onTapMask"
     style="{{animation ? '-webkit-animation-duration:' + duration + 'ms; animation-duration:' + duration + 'ms;' : ''}} {{maskStyle || ''}}"
   >
     <slot name="mask"></slot>

@@ -17,7 +17,7 @@
         data-active="{{utils.isActive(mixin.value, index, item.disabled)}}"
         data-index="{{index}}"
         data-id="{{$id}}"
-        bind:tap="onChange"
+        bindtap="onChange"
       >
         <view class="ant-collapse-item-line">
           <view class="ant-collapse-item-title-node">{{item.title}}</view>

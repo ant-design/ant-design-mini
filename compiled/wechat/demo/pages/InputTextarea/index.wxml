@@ -34,7 +34,7 @@
     bind:change="handleChange"
   ></ant-textarea>
   <ant-button
-    bind:tap="clear"
+    bindtap="clear"
     inline
     size="small"
   >clear</ant-button>
@@ -44,12 +44,12 @@
     placeholder="请输入内容"
     allowClear
     bind:change="onChange"
-    bind:ref="handleRef"
+    bindref="handleRef"
   ></ant-textarea>
   <view>
     <ant-button
       inline
-      bind:tap="clearByInputRef"
+      bindtap="clearByInputRef"
     >clear</ant-button>
   </view>
 </ant-container>

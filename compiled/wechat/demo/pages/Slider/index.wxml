@@ -1,7 +1,7 @@
 <container title="基本使用">
   <ant-slider
     defaultValue="{{80}}"
-    bind:change="onChange"
+    bindchange="onChange"
     bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
@@ -9,7 +9,7 @@
   <ant-slider
     defaultValue="{{[20, 60]}}"
     range
-    bind:change="onChange"
+    bindchange="onChange"
     bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
@@ -18,7 +18,7 @@
     defaultValue="{{60}}"
     step="{{20}}"
     showTicks
-    bind:change="onChange"
+    bindchange="onChange"
     bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
@@ -28,7 +28,7 @@
     step="{{20}}"
     showTicks
     showNumber
-    bind:change="onChange"
+    bindchange="onChange"
     bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
@@ -38,7 +38,7 @@
     step="{{10}}"
     showTicks
     range
-    bind:change="onChange"
+    bindchange="onChange"
     bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
@@ -49,7 +49,7 @@
     showTicks
     showNumber
     range
-    bind:change="onChange"
+    bindchange="onChange"
     bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
@@ -57,7 +57,7 @@
   <ant-slider
     defaultValue="{{80}}"
     showTooltip
-    bind:change="onChange"
+    bindchange="onChange"
     bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
@@ -66,13 +66,13 @@
     min="{{0}}"
     max="{{100}}"
     value="{{value}}"
-    bind:change="handleChange"
+    bindchange="handleChange"
   ></ant-slider>
   <ant-stepper
     min="{{0}}"
     max="{{100}}"
     value="{{value}}"
-    bind:change="handleChange"
+    bindchange="handleChange"
   ></ant-stepper>
 </container>
 <container title="自定义">
@@ -84,7 +84,7 @@
     showNumber
     activeLineStyle="background-color: #ff8f1f"
     activeDotStyle="background-color: red"
-    bind:change="onChange"
+    bindchange="onChange"
     bind:afterchange="onAfterChange"
   ></ant-slider>
 </container>
@@ -92,6 +92,6 @@
   <ant-slider
     defaultValue="{{80}}"
     disabled
-    bind:change="onChange"
+    bindchange="onChange"
   ></ant-slider>
 </container>

@@ -10,7 +10,7 @@
     scrollX="{{true}}"
     class="ant-page-infinite-content"
     id="ant-pageInfinite{{$id ? '-' + $id : ''}}"
-    bind:scroll="{{supportSjs ? sjs.changeScollDistance : 'onScroll'}}"
+    bindscroll="{{supportSjs ? sjs.changeScollDistance : 'onScroll'}}"
   >
     <slot></slot>
   </scroll-view>

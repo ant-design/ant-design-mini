@@ -31,7 +31,7 @@
     <view
       wx:if="{{allowClear}}"
       class="ant-textarea-clear {{state.value && state.value.length > 0 ? 'ant-textarea-clear-show' : 'ant-textarea-clear-hidden'}}"
-      bind:tap="onClear"
+      bindtap="onClear"
     >
       <icon
         className="ant-textarea-clear-icon"

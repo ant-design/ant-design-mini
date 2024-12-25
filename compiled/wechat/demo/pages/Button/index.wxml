@@ -4,15 +4,15 @@
 >
   <ant-button
     type="primary"
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >主要按钮</ant-button>
   <ant-button
     type="default"
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >次要按钮</ant-button>
   <ant-button
     type="text"
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >文本按钮</ant-button>
 </ant-container>
 <ant-container
@@ -22,17 +22,17 @@
   <ant-button
     type="primary"
     subText="副标题"
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >主要按钮</ant-button>
   <ant-button
     type="default"
     subText="副标题"
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >次要按钮</ant-button>
   <ant-button
     type="text"
     subText="副标题"
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >文本按钮</ant-button>
 </ant-container>
 <ant-container
@@ -76,16 +76,16 @@
   <ant-button
     type="primary"
     danger
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >主要按钮</ant-button>
   <ant-button
     type="default"
     danger
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >次要按钮</ant-button>
   <ant-button
     type="text"
     danger
-    bind:tap="handleTap"
+    bindtap="handleTap"
   >文本按钮</ant-button>
 </ant-container>

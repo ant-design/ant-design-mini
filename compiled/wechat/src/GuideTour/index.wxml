@@ -15,34 +15,34 @@
   <ant-icon
     type="CloseOutline"
     className="ant-guide-tour-clear"
-    bind:tap="onCancel"
+    bindtap="onCancel"
   ></ant-icon>
   <view class="ant-guide-tour-button">
     <ant-button
       wx:if="{{utils.checkShowJump(mixin.value, items)}}"
       inline
       size="small"
-      bind:tap="onCancel"
+      bindtap="onCancel"
     >{{jumpText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowPrev(mixin.value, items)}}"
       inline
       size="small"
-      bind:tap="onPrev"
+      bindtap="onPrev"
       data-current-value="{{mixin.value}}"
     >{{prevStepText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowNext(mixin.value, items)}}"
       inline
       size="small"
-      bind:tap="onNext"
+      bindtap="onNext"
       data-current-value="{{mixin.value}}"
     >{{nextStepText}}</ant-button>
     <ant-button
       wx:if="{{utils.checkShowKnow(mixin.value, items)}}"
       inline
       size="small"
-      bind:tap="onCancel"
+      bindtap="onCancel"
     >{{gotItText}}</ant-button>
   </view>
   <block wx:if="{{swiperable}}">
@@ -60,7 +60,7 @@
       current="{{mixin.value}}"
       adjustHeight="none"
       style="height: 100vh"
-      bind:change="onSwiperChange"
+      bindchange="onSwiperChange"
     >
       <block
         wx:for="{{items}}"

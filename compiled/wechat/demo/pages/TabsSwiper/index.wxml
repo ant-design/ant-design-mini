@@ -1,14 +1,14 @@
 <ant-tabs
   items="{{items}}"
   current="{{current}}"
-  bind:change="onChange"
+  bindchange="onChange"
 >
   <swiper
     current="{{current}}"
     autoplay="{{false}}"
     vertical="{{false}}"
     circular="{{false}}"
-    bind:change="onSwipeChange"
+    bindchange="onSwipeChange"
   >
     <block
       wx:for="{{items}}"
