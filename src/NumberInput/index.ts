@@ -1,17 +1,37 @@
-import { NumberInputProps } from "./props";
-import { Component, getValueFromProps, triggerEvent, triggerEventOnly } from "../_util/simply";
+import {
+  Component,
+  getValueFromProps,
+  triggerEvent,
+  triggerEventOnly,
+} from '../_util/simply';
+import { NumberInputProps } from './props';
 
-const UNIT_LIST = ['百', '千', '万', '十万', '百万', '千万', '亿', '十亿', '百亿', '千亿'];
+const UNIT_LIST = [
+  '百',
+  '千',
+  '万',
+  '十万',
+  '百万',
+  '千万',
+  '亿',
+  '十亿',
+  '百亿',
+  '千亿',
+];
 
 Component(
   NumberInputProps,
   {
     // 统一处理输入值
     update(value: string) {
-      this.setUnit(value)
+      this.setUnit(value);
       triggerEvent(this, 'change', value);
     },
-    handleInput(value) {
+    handleInput(val) {
+      let value = val;
+      /// #if WECHAT
+      value = val.detail;
+      /// #endif
       // 处理金额输入格式
       const formattedValue = this.formatAmount(value);
       const checkedValue = this.checkMaxValue(formattedValue);
@@ -28,10 +48,12 @@ Component(
       value = value.replace(/[^\d.]/g, '');
       // 保留两位小数
       const parts = value.split('.');
-      if (parts.length > 2) { // 移除多余的小数点
+      if (parts.length > 2) {
+        // 移除多余的小数点
         value = parts[0] + '.' + parts[1];
       }
-      if (parts[1]?.length > 2) { // 保留两位小数
+      if (parts[1]?.length > 2) {
+        // 保留两位小数
         value = parts[0] + '.' + parts[1].slice(0, 2);
       }
       return value;
@@ -58,4 +80,13 @@ Component(
   },
   {
     unit: '',
-  });
+  },
+  undefined,
+  /// #if WECHAT
+  {
+    attached() {
+      this.triggerEvent('ref', this);
+    },
+  }
+  /// #endif
+);

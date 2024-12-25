@@ -185,4 +185,8 @@ export const wechatCustomMapping = {
     onCountdownFinish: 'bindcountdownfinish',
     onReadChange: 'bindreadchange',
   },
+  'ant-number-input': {
+    onChange: 'bindchange',
+    onLinkTap: 'bindlinktap',
+  },
 };
