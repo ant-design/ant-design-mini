@@ -9,7 +9,7 @@
     type="text"
     data-mode="minus"
     disabled="{{disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value <= min}}"
-    bind:tap="onTap"
+    bindtap="onTap"
     bind:disabledtap="onDisabledTap"
   ></ant-button>
   <view class="ant-stepper-input-wrap">
@@ -42,7 +42,7 @@
     type="text"
     data-mode="add"
     disabled="{{disabled || mixin.value !== '' && mixin.value !== undefined && mixin.value >= max}}"
-    bind:tap="onTap"
+    bindtap="onTap"
     bind:disabledtap="onDisabledTap"
   ></ant-button>
 </view>

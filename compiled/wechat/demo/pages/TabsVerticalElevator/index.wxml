@@ -1,7 +1,7 @@
 <ant-tabs
   items="{{items}}"
   current="{{current}}"
-  bind:change="onChange"
+  bindchange="onChange"
   direction="vertical"
   className="tabs"
   tabsBarClassName="tabs-bar"
@@ -9,7 +9,7 @@
 >
   <scroll-view
     id="scroll-view"
-    bind:scroll="onScroll"
+    bindscroll="onScroll"
     onTouchStart="onTouchStart"
     scrollTop="{{scrollTop}}"
     scrollY="{{true}}"

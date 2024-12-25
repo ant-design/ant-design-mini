@@ -31,13 +31,13 @@
   <view slot="content">
     <view class="custom-header">
       <view
-        bind:tap="demo3PreviousMonth"
+        bindtap="demo3PreviousMonth"
         class="custom-header-left"
       >
         <ant-icon type="LeftOutline"></ant-icon>上个月</view>
       <view>{{demo3.title}}</view>
       <view
-        bind:tap="demo3NextMonth"
+        bindtap="demo3NextMonth"
         class="custom-header-right"
       >下个月<ant-icon type="RightOutline"></ant-icon>
       </view>
@@ -102,25 +102,25 @@
     style="height: 1000rpx"
   >
     <ant-calendar
-      bind:ref="handleRef"
+      bindref="handleRef"
       value="{{demo9.value}}"
-      bind:change="demo9HandleChange"
+      bindchange="demo9HandleChange"
       selectionMode="single"
       changedScrollIntoView
     ></ant-calendar>
     <ant-button
       type="primary"
-      bind:tap="demo9HandlePreviousDay"
+      bindtap="demo9HandlePreviousDay"
     >上一天</ant-button>
     <ant-button
       style="margin-top: 8rpx"
       type="primary"
-      bind:tap="demo9HandleNextDay"
+      bindtap="demo9HandleNextDay"
     >下一天</ant-button>
     <ant-button
       style="margin-top: 8rpx"
       type="primary"
-      bind:tap="demo9HandleScrollIntoView"
+      bindtap="demo9HandleScrollIntoView"
     >滚动到指定日期</ant-button>
   </view>
 </collapse-container>

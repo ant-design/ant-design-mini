@@ -5,7 +5,7 @@
 <view
   class="ant-picker {{disabled ? 'ant-picker-disabled' : ''}} {{className || ''}}"
   style="{{style || ''}}"
-  bind:tap="onOpen"
+  bindtap="onOpen"
 >
   <slot
     name="prefix"
@@ -43,7 +43,7 @@
       hoverClass="ant-picker-header-item-hover"
       hoverStartTime="20"
       hoverStayTime="50"
-      bind:tap="onCancel"
+      bindtap="onCancel"
     >{{cancelText}}</view>
     <view class="ant-picker-header-item ant-picker-header-title">
       <view>{{title}}</view>
@@ -53,7 +53,7 @@
       hoverClass="ant-picker-header-item-hover"
       hoverStartTime="20"
       hoverStayTime="50"
-      bind:tap="onOk"
+      bindtap="onOk"
     >{{okText}}</view>
   </view>
   <view class="ant-picker-content">
@@ -66,7 +66,7 @@
         indicatorStyle="{{indicatorStyle || ''}}"
         indicatorClass="{{indicatorClassName || ''}}"
         value="{{selectedIndex}}"
-        bind:change="onChange"
+        bindchange="onChange"
       >
         <block
           wx:for="{{columns}}"

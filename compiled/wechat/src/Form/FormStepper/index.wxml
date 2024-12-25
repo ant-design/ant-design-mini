@@ -15,7 +15,7 @@
   <view>
     <stepper
       value="{{formData.value}}"
-      bind:change="onChange"
+      bindchange="onChange"
       className="{{stepperClassName}}"
       style="{{stepperStyle}}"
       min="{{min}}"

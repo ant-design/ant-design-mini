@@ -2,7 +2,7 @@
   <list-item>
     <view
       class="number-content {{value ? '' : 'number-placeholder'}}"
-      catch:tap="onAmountFocus"
+      catchtap="onAmountFocus"
     >
       <!--display: inline-->
       <text wx:if="{{value}}">{{value}}</text>
@@ -22,7 +22,7 @@
     visible="{{visible}}"
     closeable="{{true}}"
     value="{{value}}"
-    bind:change="onChange"
+    bindchange="onChange"
     bind:close="onClose"
   ></number-keyboard>
 </list>

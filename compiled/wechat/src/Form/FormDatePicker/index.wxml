@@ -39,7 +39,7 @@
       bind:ok="onOk"
       bind:pickerchange="onPickerChange"
       bind:cancel="onDismissPicker"
-      bind:visiblechange="onVisibleChange"
+      bindvisiblechange="onVisibleChange"
       onFormatLabel="{{handleFormatLabel ? handleFormatLabel : 'handleFormatLabel'}}"
       onFormat="{{handleFormat ? handleFormat : 'handleFormat'}}"
     >

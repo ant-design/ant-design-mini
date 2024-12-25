@@ -19,7 +19,7 @@
   <ant-icon
     style="position: absolute; right: 12px; top: 12px"
     type="CloseOutline"
-    bind:tap="handlePopupClose"
+    bindtap="handlePopupClose"
   ></ant-icon>
 </ant-popup>
 <ant-popup
@@ -99,28 +99,28 @@
 >
   <ant-button
     data-position="top"
-    bind:tap="handleShowBasic"
+    bindtap="handleShowBasic"
   >顶部弹出</ant-button>
   <ant-button
     data-position="bottom"
-    bind:tap="handleShowBasic"
+    bindtap="handleShowBasic"
   >底部弹出</ant-button>
   <ant-button
     data-position="left"
-    bind:tap="handleShowBasic"
+    bindtap="handleShowBasic"
   >左侧弹出</ant-button>
   <ant-button
     data-position="right"
-    bind:tap="handleShowBasic"
+    bindtap="handleShowBasic"
   >右侧弹出</ant-button>
-  <ant-button bind:tap="handleShowClose">自定义弹窗内关闭</ant-button>
-  <ant-button bind:tap="handleShowScroll">超长内容滚动</ant-button>
+  <ant-button bindtap="handleShowClose">自定义弹窗内关闭</ant-button>
+  <ant-button bindtap="handleShowScroll">超长内容滚动</ant-button>
 </container>
 <list>
   <list-item>开启过渡动画<switch
       slot="extra"
       checked="{{animation}}"
-      bind:change="handleChangeAnimation"
+      bindchange="handleChangeAnimation"
     ></switch>
   </list-item>
 </list>

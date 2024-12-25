@@ -4,13 +4,13 @@
     inline="{{true}}"
     type="primary"
     data-index="1"
-    bind:tap="handleShowToast"
+    bindtap="handleShowToast"
   >简短文字</ant-button>
   <ant-button
     className="button"
     inline="{{true}}"
     data-index="4"
-    bind:tap="handleShowToast"
+    bindtap="handleShowToast"
   >过长文字</ant-button>
 </ant-container>
 <ant-container title="带有图标">
@@ -19,37 +19,37 @@
     inline="{{true}}"
     type="primary"
     data-index="7"
-    bind:tap="handleShowToast"
+    bindtap="handleShowToast"
   >成功提示</ant-button>
   <ant-button
     className="button"
     inline="{{true}}"
     data-index="8"
-    bind:tap="handleShowToast"
+    bindtap="handleShowToast"
   >失败提示</ant-button>
   <ant-button
     className="button"
     inline="{{true}}"
     data-index="9"
-    bind:tap="handleShowToast"
+    bindtap="handleShowToast"
   >警告提示</ant-button>
   <ant-button
     className="button"
     inline="{{true}}"
     data-index="2"
-    bind:tap="handleShowToast"
+    bindtap="handleShowToast"
   >自定义图标</ant-button>
   <ant-button
     className="button"
     inline="{{true}}"
     data-index="5"
-    bind:tap="handleShowToast"
+    bindtap="handleShowToast"
   >自定义图片</ant-button>
   <ant-button
     className="button"
     inline="{{true}}"
     data-index="6"
-    bind:tap="handleShowToast"
+    bindtap="handleShowToast"
   >加载态</ant-button>
 </ant-container>
 <ant-container title="延迟关闭">
@@ -58,7 +58,7 @@
     inline="{{true}}"
     type="primary"
     data-index="3"
-    bind:tap="handleShowToast"
+    bindtap="handleShowToast"
   >提示持续3s</ant-button>
 </ant-container>
 <ant-toast

@@ -35,7 +35,7 @@
 <ant-container title="点击事件">
   <view style="display: flex">
     <ant-icon
-      bind:tap="handleTap"
+      bindtap="handleTap"
       data-id="icon"
       type="SmileOutline"
       style="font-size: 50px"

@@ -1,6 +1,6 @@
 <view
   class="ant-checklist-item"
-  bind:tap="{{item.disabled || item.readonly ? '' : 'onChecklistItemClick'}}"
+  bindtap="{{item.disabled || item.readonly ? '' : 'onChecklistItemClick'}}"
   hoverClass="{{item.disabled || item.readonly ? '' : 'ant-checklist-item-hover'}}"
   hoverStartTime="{{20}}"
   hoverStayTime="{{40}}"

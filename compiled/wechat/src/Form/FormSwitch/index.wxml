@@ -21,7 +21,7 @@
       uncheckedText="{{uncheckedText}}"
       size="{{size}}"
       style="{{switchStyle}}"
-      bind:change="onChange"
+      bindchange="onChange"
     ></switch>
   </view>
   <view

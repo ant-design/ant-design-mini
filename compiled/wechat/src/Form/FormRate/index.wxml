@@ -23,7 +23,7 @@
     style="{{rateStyle}}"
     characterActiveClassName="{{characterActiveClassName}}"
     characterClassName="{{characterClassName}}"
-    bind:change="onChange"
+    bindchange="onChange"
   >
     <view slot="character">
       <icon type="StarFill"></icon>
