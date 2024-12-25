@@ -1,4 +1,4 @@
-import isEqual from 'lodash.isequal';
+import equal from 'fast-deep-equal';
 import createValue from '../mixins/value';
 import { Component, triggerEvent, triggerEventValues } from '../_util/simply';
 import { DefaultProps } from './props';
@@ -9,7 +9,7 @@ Component(
     dealAllCountdown(val) {
       // 如果时间表的没有变，直接返回
       const newCountdownRecord = val.map((item) => item.countdownTime);
-      if (isEqual(this.countdownTimeRecord, newCountdownRecord)) return;
+      if (equal(this.countdownTimeRecord, newCountdownRecord)) return;
       this.setData({
         countdownArr: new Array(val.length),
       });
@@ -122,7 +122,7 @@ Component(
     },
     async deriveDataFromProps(nextProps) {
       const { buttons } = nextProps;
-      if (!isEqual(this.props.buttons, buttons)) {
+      if (!equal(this.props.buttons, buttons)) {
         if (
           Array.isArray(buttons) &&
           buttons.length &&
