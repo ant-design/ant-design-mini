@@ -31,7 +31,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-The logic layer registers the input box component ref into the Form
+Logical layer registers input box component ref into Form
 ```xml
 <form-input
   label="用户名"
@@ -66,7 +66,7 @@ Page({
 });
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -256,7 +256,7 @@ Example:
 
 ### onValueChange and onValuesChange
 
-`setFieldValue` and `setFieldsValue` Will not trigger `onValueChange` and `onValuesChange`。`onValueChange` and `onValuesChange` It is only triggered by user action. If in `setFieldValue` or `setFieldsValue` then want to trigger `onValueChange` or `onValuesChange`you need to call these methods manually.
+`setFieldValue` and `setFieldsValue` Will not trigger `onValueChange` and `onValuesChange`。`onValueChange` and `onValuesChange` It is only triggered when a user action is taken. If in `setFieldValue` or `setFieldsValue` then want to trigger `onValueChange` or `onValuesChange`you need to call these methods manually.
 
 **Example**：
 

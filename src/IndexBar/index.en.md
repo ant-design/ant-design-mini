@@ -21,7 +21,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -63,6 +63,7 @@ Page({
 ### Use in conjunction with a list
 
 ```xml
+#if ALIPAY
 <view class="base">
   <index-bar
     className="indexbar"
@@ -80,10 +81,14 @@ Page({
     </view>
   </index-bar>
 </view>
+#endif
+#if WECHAT
+因微信不支持作用域插槽，暂不支持此用法
+#endif
 ```
 
 ```css
-.base {
+#if ALIPAY .base {
   width: 100%;
   height: 100vh;
 }
@@ -92,9 +97,11 @@ Page({
   right: 10px;
   top: 20vh;
 }
+# endif #if WECHAT Because WeChat does not support scope slots, this usage is temporarily not supported# endif;
 ```
 
 ```js
+#if ALIPAY
 Page({
   data: {
     items: [],
@@ -107,6 +114,10 @@ Page({
     });
   },
 });
+#endif
+#if WECHAT
+因微信不支持作用域插槽，暂不支持此用法
+#endif
 ```
 
 ### Controlled Mode
@@ -119,18 +130,19 @@ Page({
 
 ## API
 
-| Property            | Description                              | Type                                          | Default Value |
-| --------------- | --------------------------------- | --------------------------------------------- | ------ |
-| activeClassName | Style when index is active                  | string                                        | -      |
-| className       | Class Name                              | string                                        | -      |
-| current         | Index value                            | string                                        | -      |
-| defaultCurrent  | Default Index                          | string                                        | -      |
-| labelPreview    | Index preview content, receiving value and index | slot                                          | -      |
-| items           | Index Array                          | [Item](#item)                                 | []     |
-| style           | Style                              | string                                        | -      |
-| size            | Dimensions of the index (width and height in px)       | number                                        | 16     |
-| vibrate         | Whether it vibrates when the index changes                | boolean                                       | true   |
-| onChange        | Callback when index changes                  | (value: [Item](#item), index: number) => void |
+| Property                   | Description                              | Type                                          | Default Value |
+| ---------------------- | --------------------------------- | --------------------------------------------- | ------ |
+| activeClassName        | Style when index is active                  | string                                        | -      |
+| className              | Class Name                              | string                                        | -      |
+| current                | Index value                            | string                                        | -      |
+| defaultCurrent         | Default Index                          | string                                        | -      |
+| labelPreview           | Index preview content, receiving value and index | slot                                          | -      |
+| items                  | Index Array                          | [Item](#item)                                 | []     |
+| style                  | Style                              | string                                        | -      |
+| size                   | Dimensions of the index (width and height in px)       | number                                        | 16     |
+| vibrate                | Whether it vibrates when the index changes                | boolean                                       | true   |
+| #if ALIPAY onChange    | Callback when index changes                  | (value: [Item](#item), index: number) => void |
+| #if WECHAT bindchange | Callback when index changes                  | (value: [Item](#item), index: number) => void |
 
 #### Item
 
@@ -143,7 +155,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                           | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks               |
 | -------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |

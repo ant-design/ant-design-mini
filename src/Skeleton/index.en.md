@@ -40,7 +40,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -98,7 +98,7 @@ In `index.json` Introducing Components in
 | animate   | Show animation effect                             | boolean               | false  |
 | avatar    | Whether to display avatar bitmap                           | `boolean \| Avatar`   | false  |
 | className | Class Name                                         | string                | -      |
-| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly. | boolean               | true   |
+| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean               | true   |
 | paragraph | Paragraph                                         | `number \| Paragraph` | true   |
 | style     | Style                                         | CSSProperties         | -      |
 | title     | Whether to display title bitmap                           | boolean               | true   |
@@ -109,7 +109,7 @@ In `index.json` Introducing Components in
 | --------- | ------------------------------------------------ | ------------- | -------- |
 | animate   | Show animation effect                                 | boolean       | false    |
 | className | Class Name                                             | string        | -        |
-| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly.     | boolean       | true     |
+| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly.     | boolean       | true     |
 | shape     | Avatar Shape `circle` or `square`                    | string        | `square` |
 | size      | Avatar size `x-small`、`small`、`medium` or `large` | string        | `medium` |
 | style     | Style                                             | CSSProperties | -        |
@@ -120,7 +120,7 @@ In `index.json` Introducing Components in
 | --------- | -------------------------------------------- | ------------- | ------ |
 | animate   | Show animation effect                             | boolean       | false  |
 | className | Class Name                                         | string        | -      |
-| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly. | boolean       | true   |
+| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean       | true   |
 | rows      | Number of paragraph lines, greater than 0                        | number        | 3      |
 | style     | Style                                         | CSSProperties | -      |
 
@@ -130,7 +130,7 @@ In `index.json` Introducing Components in
 | --------- | -------------------------------------------- | ------------- | ------ |
 | animate   | Show animation effect                             | boolean       | false  |
 | className | Class Name                                         | string        | -      |
-| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly. | boolean       | true   |
+| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean       | true   |
 | style     | Style                                         | CSSProperties | -      |
 
 #### Button Button
@@ -139,7 +139,7 @@ In `index.json` Introducing Components in
 | --------- | -------------------------------------------- | ------------- | -------- |
 | animate   | Show animation effect                             | boolean       | false    |
 | className | Class Name                                         | string        | -        |
-| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly. | boolean       | true     |
+| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean       | true     |
 | size      | size,`small`、`medium` or `large`           | string        | `medium` |
 | style     | Style                                         | CSSProperties | -        |
 
@@ -149,7 +149,7 @@ In `index.json` Introducing Components in
 | --------- | -------------------------------------------- | ------------- | ------ |
 | animate   | Show animation effect                             | boolean       | false  |
 | className | Class Name                                         | string        | -      |
-| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly. | boolean       | true   |
+| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean       | true   |
 | style     | Style                                         | CSSProperties | -      |
 
 ### Theme customization

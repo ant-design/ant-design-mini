@@ -9,7 +9,7 @@ toc: 'content'
 
 # GuideTour
 
-Mask the boot component with a custom card. Applies to the introduction of key features on the page.
+The boot component of the layer and custom card. Applies to an introduction to key features on the page.
 
 ## Introduction
 
@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -130,10 +130,10 @@ Page({
 | defaultCurrent         | Default Current Step     | `number`                            | 0        |
 | items                  | Step Information         | [`GuideTourItem`](#guidetourttem)[] | -        |
 | maskClassName          | Class name of the layer       | `string`                            | -        |
-| maskStyle              | The style of the layer       | `string`                            | -        |
+| maskStyle              | Mask Style       | `string`                            | -        |
 | style                  | Style             | `string`                            | -        |
 | swiperable             | Whether sliding mode is on | `boolean`                           | `false`  |
-| visible                | Whether to display         | `boolean`                           | `false`  |
+| visible                | Display         | `boolean`                           | `false`  |
 | jumpText               | Copy of the skip button   | `string`                            | 'Skip'   |
 | prevStepText           | Copy of the previous button | `string`                            | 'One step' |
 | nextStepText           | Copy of the next button | `string`                            | 'Next step' |
@@ -157,7 +157,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                    | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                 |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |

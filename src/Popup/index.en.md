@@ -26,11 +26,11 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
-> - `ant-popup` Components must pass `visible` Property controls the show/hide state.`position` Specifies the direction of occurrence, optional `top` `bottom` `left` `right`. The contents of the pop-up window are filled in the form of slots.
+> - `ant-popup` components must pass through `visible` Property controls the show/hide state.`position` Specifies the direction of occurrence, optional `top` `bottom` `left` `right`. The contents of the pop-up window are filled in the form of slots.
 > - `close` The event will be triggered when the icon is closed by clicking the upper right corner or when the layer is closed by clicking the layer.
 > - `clickBack` event is triggered when the back button in the upper left corner is clicked.
 
@@ -137,13 +137,13 @@ Page({
 | className                     | Class Name                                                                                                                                                              | string     | -           |
 | destroyOnClose                | Unload content when invisible                                                                                                                                                  | boolean    | false       |
 | duration                      | Transition animation duration, in milliseconds                                                                                                                                            | number     | 300         |
-| height                        | height, in position `top` or `bottom` When used, the unit is px. Optional, when not transmitted, it is highly adaptive according to the content area.                                                                        | number     | -           |
+| height                        | The height, in position, is `top` or `bottom` When used, the unit is px. Optional, when not transmitted, it is highly adaptive according to the content area.                                                                        | number     | -           |
 | maskClassName                 | Class name of the layer                                                                                                                                                        | string     | -           |
-| maskStyle                     | The style of the layer                                                                                                                                                        | string     | -           |
+| maskStyle                     | Mask Style                                                                                                                                                        | string     | -           |
 | position                      | Pop-up window layout, optional`top` `bottom` `left` `right`                                                                                                                       | string     | `bottom`    |
-| showMask                      | Whether to show the layer                                                                                                                                                      | boolean    | true        |
+| showMask                      | Show Mask                                                                                                                                                      | boolean    | true        |
 | style                         | Style                                                                                                                                                              | string     | -           |
-| visible                       | Whether to display                                                                                                                                                          | boolean    | false       |
+| visible                       | Display                                                                                                                                                          | boolean    | false       |
 | width                         | The width, in position, is `left` or `right` unit px                                                                                                            | number     | -           |
 | zIndex                        | Pop-up Level                                                                                                                                                          | number     | 998         |
 | backgroundImage               | Background map of the pop-up box                                                                                                                                                      | string     | -           |
@@ -175,7 +175,7 @@ Component provides the following CSS variables, which can be used to customize s
 
 ### After Popup is opened, what if the page behind the layer can scroll?
 
-Preventing page scrolling after the mask does not currently take effect in IDE and emulator, please debug on real machine.
+Preventing page scrolling after the layer is currently not effective in IDE and emulator, please debug on real machine.
 
 ### Popup internal elements need to support scrolling how to deal?
 

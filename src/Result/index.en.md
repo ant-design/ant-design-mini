@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -69,13 +69,13 @@ In `index.json` Introducing Components in
 | message   | Deputy Copywriter                                                                                   | string \| slot | -      |
 | style     | Style                                                                                     | string         | -      |
 | title     | Main Copy                                                                                   | string \| slot | -      |
-| type      | Built-in type `success`(successful),`error`(error/danger),`info`(information prompt),`wait`(Waiting for processing) | string         | -      |
+| type      | Built-in type `success`(success),`error`(error/danger),`info`(information prompt),`wait`(Waiting for processing) | string         | -      |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                   | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                |
 | ------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------- |

@@ -17,7 +17,7 @@ toc: content
 - `icon` properties can support `Icon` Components `type` property, you can also pass in the link address of the icon directly.
 - In disabled mode, you can pass in `onDisabledTap` Event, used to listen for the user's click on the text in the disabled state.
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 
@@ -35,7 +35,7 @@ toc: content
 | style                       | Style                                                                | string                         | -        |
 | disabled                    | Disable                                                            | boolean                        | false    |
 | selectable                  | Can be selected                                                        | boolean                        | false    |
-| fontWeight                  | Word weight, compatible with iOS, Android platform bold effect                              | `normal` \| `medium` \| `bold` | `normal` |
+| fontWeight                  | Heavy characters, compatible with iOS and Android platforms                              | `normal` \| `medium` \| `bold` | `normal` |
 | lineThrough                 | Add Strikethrough Style                                                      | boolean                        | false    |
 | underline                   | Add Underline Style                                                      | boolean                        | false    |
 | ellipsisRow                 | Multiple lines are omitted, and the value must be greater than or equal to 1, which is consistent with the-webkit-line-clamp attribute of css. | number                         | -        |

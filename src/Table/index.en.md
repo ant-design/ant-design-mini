@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 
@@ -160,16 +160,16 @@ Page({
 | title          | Column Header           | string  | -      |
 | dataIndex      | Column Value Field       | string  | -      |
 | key            | Column Unique Identifier       | string  | -      |
-| width          | Column Width           | number  | -      |
+| width          | Column width           | number  | -      |
 | fixed          | Fixed column       | boolean | -      |
 | textAlignRight | Whether column text is right-justified | boolean | -      |
 
 ## Slot
 
-| Name     | Description                                                                        |
-| -------- | --------------------------------------------------------------------------- |
-| Default slot | Data source is empty slot                                                              |
-| item     | Cell Slot (Scope Slot, Exposed Properties `item`、`index`、`row`、`rowIndex`） |
+| Name     | Description                                                                                    |
+| -------- | --------------------------------------------------------------------------------------- |
+| Default Slot | Data source is empty slot                                                                          |
+| item     | Cell Slot (Scope Slot, Exposed Properties `item`、`index`、`row`、`rowIndex`. WeChat is not supported) |
 
 ### Theme customization
 

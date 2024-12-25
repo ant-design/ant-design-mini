@@ -29,7 +29,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -262,14 +262,14 @@ Page({
 | defaultCurrent         | Selected index initial value                                                                                 | number                                                                                       | 0          |
 | direction              | tabs direction,`horizontal`(Horizontal) `vertical`(Vertical)                                                 | string                                                                                       | horizontal |
 | items                  | option, quantity must be greater than 0                                                                           | `Item[]`                                                                                     | -          |
-| plus                   | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of)  | slot                                                                                         | -          |
+| plus                   | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(Corresponding `Item`) `index`(Corresponding `Item` index of)  | slot                                                                                         | -          |
 | scrollMode             | Scrolling mode, optional 'edge', 'center'                                                                | string                                                                                       | edge       |
 | style                  | Style                                                                                           | string                                                                                       | -          |
 | tabsBarClassName       | tabs bar class name                                                                                  | string                                                                                       | -          |
 | tabClassName           | tab class name                                                                                       | string                                                                                       | -          |
 | tabActiveClassName     | tab active class name                                                                                | string                                                                                       | -          |
-| title                  | Custom `Items` Title;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of) | slot                                                                                         | -          |
-| type                   | Type,`basic`(basis),`capsule`(capsule),`mixin`(Mixed)                                            | string                                                                                       | `basic`    |
+| title                  | Custom `Items` Title;<br /> `slot-scope` Include `value`(Corresponding `Item`) `index`(Corresponding `Item` index of) | slot                                                                                         | -          |
+| type                   | Type,`basic`(Foundation),`capsule`(capsule),`mixin`(Mixed)                                            | string                                                                                       | `basic`    |
 | #if ALIPAY onChange    | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 | #if WECHAT bindchange | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 
@@ -279,7 +279,7 @@ Page({
 | ----- | ---- | ------ | ------ |
 | title | Title | string | -      |
 
-In addition to item can have `title`, you can also add custom properties, such. `content`, `badge` and so on, these properties can be used. `slot-scope` Visit:
+In addition to item can have `title`, you can also add custom attributes, such `content`, `badge` and so on, these properties can be used. `slot-scope` Visit:
 
 ```js
 Page({
