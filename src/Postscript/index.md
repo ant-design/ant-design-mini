@@ -5,7 +5,6 @@ group:
   title: 业务组件
   order: 15
 toc: 'content'
-supportPlatform: ['alipay']
 ---
 
 # Postscript 资金附言组件
@@ -22,17 +21,18 @@ supportPlatform: ['alipay']
 
 ### 属性
 
-| 属性                 | 说明             | 类型                    | 默认值            |
-| -------------------- | ---------------- | ----------------------- | ----------------- |
-| className            | 类名             | string                  | -                 |
-| style                | 样式             | string                  | -                 |
-| title                | 标题             | string                  | -                 |
-| maxLength            | 最大输入长度     | number                  | Infinity          |
-| quickInputs          | 快捷输入选项     | string[]                | []                |
-| placeholder          | 占位符文本       | string                  | '给 TA 带句话吧~' |
-| placeholderClassName | 占位符类名       | string                  | -                 |
-| combineSymbol        | 快捷输入连接符号 | string                  | -                 |
-| onChange             | 内容变化时的回调 | (value: string) => void | -                 |
+| 属性                  | 说明             | 类型                    | 默认值            |
+| --------------------- | ---------------- | ----------------------- | ----------------- |
+| className             | 类名             | string                  | -                 |
+| style                 | 样式             | string                  | -                 |
+| title                 | 标题             | string                  | -                 |
+| maxLength             | 最大输入长度     | number                  | Infinity          |
+| quickInputs           | 快捷输入选项     | string[]                | []                |
+| placeholder           | 占位符文本       | string                  | '给 TA 带句话吧~' |
+| placeholderClassName  | 占位符类名       | string                  | -                 |
+| combineSymbol         | 快捷输入连接符号 | string                  | -                 |
+| #if ALIPAY onChange   | 内容变化时的回调 | (value: string) => void | -                 |
+| #if WECHAT bindchange | 内容变化时的回调 | (value: string) => void | -                 |
 
 ### 主题定制
 

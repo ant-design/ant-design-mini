@@ -189,4 +189,7 @@ export const wechatCustomMapping = {
     onChange: 'bindchange',
     onLinkTap: 'bindlinktap',
   },
+  'ant-postscript': {
+    onChange: 'bindchange',
+  },
 };

@@ -5,7 +5,6 @@ group:
   title: Bizness Components
   order: 15
 toc: 'content'
-supportPlatform: ['alipay']
 ---
 
 # Postscript
@@ -22,17 +21,18 @@ Use when additional notes need to be added below the form or content.
 
 ### Property
 
-| Property                 | Description             | Type                    | Default Value            |
-| -------------------- | ---------------- | ----------------------- | ----------------- |
-| className            | Class Name             | string                  | -                 |
-| style                | Style             | string                  | -                 |
-| title                | Title             | string                  | -                 |
-| maxLength            | Maximum input length     | number                  | Infinity          |
-| quickInputs          | Quick Input Options     | string[]                | []                |
-| placeholder          | Placeholder text       | string                  | "Bring a message to TA ~' |
-| placeholderClassName | Placeholder class name       | string                  | -                 |
-| combineSymbol        | Quick Input Connection Symbol | string                  | -                 |
-| onChange             | Callback when content changes | (value: string) => void | -                 |
+| Property                  | Description             | Type                    | Default Value            |
+| --------------------- | ---------------- | ----------------------- | ----------------- |
+| className             | Class Name             | string                  | -                 |
+| style                 | Style             | string                  | -                 |
+| title                 | Title             | string                  | -                 |
+| maxLength             | Maximum input length     | number                  | Infinity          |
+| quickInputs           | Quick Input Options     | string[]                | []                |
+| placeholder           | Placeholder text       | string                  | "Bring a message to TA ~' |
+| placeholderClassName  | Placeholder class name       | string                  | -                 |
+| combineSymbol         | Quick Input Connection Symbol | string                  | -                 |
+| #if ALIPAY onChange   | Callback when content changes | (value: string) => void | -                 |
+| #if WECHAT bindchange | Callback when content changes | (value: string) => void | -                 |
 
 ### Theme customization
 

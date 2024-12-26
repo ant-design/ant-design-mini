@@ -14,7 +14,7 @@
     placeholder="点击快速输入试试"
     quickInputs="{{quickInputs}}"
     combineSymbol="+"
-    onChange="handleChange2"
+    onChange="handleChange"
   />
 </container>
 
@@ -22,7 +22,7 @@
   <ant-postscript
     quickInputs="{{quickInputs2}}"
     combineSymbol=" "
-    onChange="handleChange3"
+    onChange="handleChange"
   />
 </container>
 
@@ -31,7 +31,7 @@
     maxLength="10"
     title="转账备注"
     placeholder="最长输入10个字"
-    onChange="handleChange4"
+    onChange="handleChange"
   />
 </container>
 
@@ -40,6 +40,6 @@
     className="custom-postscript"
     title="转账备注"
     quickInputs="{{quickInputs}}"
-    onChange="handleChange5"
+    onChange="handleChange"
   />
 </container>
