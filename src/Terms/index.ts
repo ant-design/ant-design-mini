@@ -1,6 +1,11 @@
 import equal from 'fast-deep-equal';
 import createValue from '../mixins/value';
-import { Component, triggerEvent, triggerEventValues } from '../_util/simply';
+import {
+  Component,
+  getValueFromProps,
+  triggerEvent,
+  triggerEventValues,
+} from '../_util/simply';
 import { DefaultProps } from './props';
 
 Component(
@@ -42,7 +47,8 @@ Component(
             this.setData({
               countdownArr,
             });
-            const item = this.props.buttons[index];
+            const buttons = getValueFromProps(this, 'buttons');
+            const item = buttons[index];
             triggerEventValues(this, 'countdownFinish', [item, index]);
           }
         }, 1000);
@@ -110,7 +116,7 @@ Component(
     onInit() {
       this.countdownTimeRecord = []; // 缓存记录需要倒计时的项和时间，变化时用于判断要不要重置倒计时
       this.countdownTimerArr = []; // 记录倒计时timerId，方便销毁组件时销毁
-      const { buttons } = this.props;
+      const buttons = getValueFromProps(this, 'buttons');
       if (
         Array.isArray(buttons) &&
         buttons.length &&
@@ -122,7 +128,7 @@ Component(
     },
     async deriveDataFromProps(nextProps) {
       const { buttons } = nextProps;
-      if (!equal(this.props.buttons, buttons)) {
+      if (!equal(getValueFromProps(this, 'buttons'), buttons)) {
         if (
           Array.isArray(buttons) &&
           buttons.length &&
@@ -135,7 +141,31 @@ Component(
     },
     /// #endif
     /// #if WECHAT
-
+    attached() {
+      this.countdownTimeRecord = []; // 缓存记录需要倒计时的项和时间，变化时用于判断要不要重置倒计时
+      this.countdownTimerArr = []; // 记录倒计时timerId，方便销毁组件时销毁
+      const buttons = getValueFromProps(this, 'buttons');
+      if (
+        Array.isArray(buttons) &&
+        buttons.length &&
+        buttons.some((item) => item.countdownTime)
+      ) {
+        // 数组形式
+        this.dealAllCountdown(buttons);
+      }
+    },
+    observers: {
+      'buttons': function (data) {
+        if (
+          Array.isArray(data.buttons) &&
+          data.buttons.length &&
+          data.buttons.some((item) => item.countdownTime)
+        ) {
+          // 数组形式
+          this.dealAllCountdown(data.buttons);
+        }
+      },
+    },
     /// #endif
   }
 );
