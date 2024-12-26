@@ -57,7 +57,7 @@ Page({
       }
     ],
   },
-  onClickPromptsItem(item) {
+  onTapPromptsItem(item) {
     my.alert({
       content: `点击了 ${item.title || ''} ${item.content || ''}`,
     });

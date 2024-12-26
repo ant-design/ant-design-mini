@@ -34,7 +34,7 @@ toc: 'content'
 <prompts 
   list="{{ baseList }}" 
   promptsTitle="{{ promptsTitle }}"
-  onClickPromptsItem="onClickPromptsItem"  />
+  onTapPromptsItem="onTapPromptsItem"  />
 ```
 
 ```javascript
@@ -53,7 +53,7 @@ Page({
       }
     ],
   },
-  onClickPromptsItem(item) {
+  onTapPromptsItem(item) {
     my.alert({
       content: `点击了 ${item.title || ''} ${item.content || ''}`,
     });
@@ -67,7 +67,7 @@ Page({
 <prompts 
     list="{{ arrowList }}" 
     promptsTitle="{{ promptsTitle }}"
-    onClickPromptsItem="onClickPromptsItem"  />
+    onTapPromptsItem="onTapPromptsItem"  />
 ```
 
 
@@ -96,7 +96,7 @@ Page({
       }
     ],
   },
-  onClickPromptsItem(item) {
+  onTapPromptsItem(item) {
     my.alert({
       content: `点击了 ${item.title || ''} ${item.content || ''}`,
     });
@@ -111,7 +111,7 @@ Page({
   list="{{ styleList }}" 
   className="customizeStyle"
   promptsTitle="{{ promptsTitle }}"
-  onClickPromptsItem="onClickPromptsItem"  />
+  onTapPromptsItem="onTapPromptsItem"  />
 ```
 
 ```css
@@ -129,7 +129,7 @@ Page({
 ```xml
 <prompts 
     list="{{ arrowList }}" 
-    onClickPromptsItem="onClickPromptsItem">
+    onTapPromptsItem="onTapPromptsItem">
     <view slot="prompts-title" class="customize-prompts-title">
       自定义提示标题:
     </view>
@@ -141,7 +141,7 @@ Page({
 ```xml
 <prompts 
   list="{{ baseList }}" 
-  onClickPromptsItem="onClickPromptsItem">
+  onTapPromptsItem="onTapPromptsItem">
   <view slot="prompts-item" slot-scope="props" class="customize-prompts-item">
     自定义提示项：{{ props.item.title }}
   </view>

@@ -5,10 +5,10 @@ Component(
   PromptsProps,
   // methods
   {
-    onClickPromptsItem(e) {
-      if (this.props.onClickPromptsItem) {
+    onTapPromptsItem(e) {
+      if (this.props.onTapPromptsItem) {
         const { item } = e.target.dataset || {};
-        this.props.onClickPromptsItem(item);
+        this.props.onTapPromptsItem(item);
       }
     },
   },

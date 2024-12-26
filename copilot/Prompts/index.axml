@@ -7,7 +7,7 @@
   <view class="ant-copilot-prompts-list">
     <block a:for="{{ list }}">
       <slot name="prompts-item" item="{{ item }}">
-        <view class="ant-copilot-prompts-list-item" data-item="{{ item }}" onTap="onClickPromptsItem">
+        <view class="ant-copilot-prompts-list-item" data-item="{{ item }}" onTap="onTapPromptsItem">
           <image 
             mode="scaleToFill"
             a:if="{{ item.image }}" 

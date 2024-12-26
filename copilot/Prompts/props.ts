@@ -41,7 +41,7 @@ export interface IPromptsProps extends IBaseProps {
   
   className?: string;
 
-  onClickPromptsItem?: (item: IPromptsItem) => void;
+  onTapPromptsItem?: (item: IPromptsItem) => void;
 }
 
 export const PromptsProps: Partial<IPromptsProps> = {
