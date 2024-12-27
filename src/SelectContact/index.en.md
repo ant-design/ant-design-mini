@@ -41,6 +41,9 @@ In `index.json` Introducing Components in
 #if ALIPAY
   onChange="handleChange"
 #endif
+#if WECHAT
+  bindchange="handleChange"
+#endif
 />
 ```
 

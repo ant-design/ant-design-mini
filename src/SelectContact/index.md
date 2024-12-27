@@ -41,6 +41,9 @@ toc: content
 #if ALIPAY
   onChange="handleChange"
 #endif
+#if WECHAT
+  bindchange="handleChange"
+#endif
 />
 ```
 
