@@ -6,6 +6,7 @@
     items="{{items}}"
     current="{{current}}"
     onChange="onChange">
+    <!-- #if ALIPAY -->
     <view slot-scope="props">
       <list header="{{props.value.label}}">
         <list-item
@@ -15,5 +16,6 @@
         </list-item>
       </list>
     </view>
+    <!-- #endif -->
   </ant-index-bar>
 </view>

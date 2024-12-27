@@ -18,7 +18,7 @@
     a:if="{{ !destroyOnClose || mixin.value }}"
     hidden="{{ !mixin.value }}"
     id="ant-popover-list-content{{ $id ? '-' + $id : '' }}"
-    class="ant-popover-list-content ant-popover-list-{{ adjustedPlacement }} ant-popover-list-content"
+    class="ant-popover-list-content ant-popover-list-{{ adjustedPlacement }}"
     style="{{ popoverContentStyle }}; {{ adjustedPlacement ? '' : 'opacity: 0' }}">
     <view
       class="ant-popover-list-content-arrow ant-popover-list-{{ adjustedPlacement }}-arrow" />

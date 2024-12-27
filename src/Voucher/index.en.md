@@ -5,7 +5,6 @@ group:
   title: Bizness Components
   order: 15
 toc: content
-supportPlatform: ['alipay']
 ---
 
 # Voucher
@@ -27,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 
@@ -149,18 +148,18 @@ Page({
 
 ## Event
 
-| Event Name                     | Description                 | Type                  |
-| -------------------------- | -------------------- | --------------------- |
-| #if ALIPAY onBtnTap        | Click the button to trigger this callback | `(item, event)=>void` |
-| #if ALIPAY onVoucherTap    | Click the card to trigger this callback | `(item, event)=>void` |
+| Event Name                    | Description                 | Type                  |
+| ------------------------- | -------------------- | --------------------- |
+| #if ALIPAY onBtnTap       | Click the button to trigger this callback | `(item, event)=>void` |
+| #if ALIPAY onVoucherTap   | Click the card to trigger this callback | `(item, event)=>void` |
 | #if WECHAT bindbtntap     | Click the button to trigger this callback | `(item, event)=>void` |
 | #if WECHAT bindvouchertap | Click the card to trigger this callback | `(item, event)=>void` |
 
 ## Slot
 
-| Name                | Description     |
-| ------------------- | -------- |
-| voucher-action-area | Area of action |
+| Name                | Description                   |
+| ------------------- | ---------------------- |
+| voucher-action-area | Action area (not supported by WeChat) |
 
 ### Theme customization
 
@@ -178,8 +177,8 @@ Component provides the following CSS variables, which can be used to customize s
 | --voucher-action-bg                | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | Operation background color         |
 | --voucher-action-left-bg           | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | Operation left background color     |
 | --voucher-action-left-threshold-bg | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | Operation Left Threshold Background Color |
-| --voucher-action-right-color       | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#fffffff</div>                                   | Operation right color         |
+| --voucher-action-right-color       | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#fffffff</div>                                  | Operation right color         |
 | --voucher-action-right-title-color | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | Manipulation Right Title Color     |
 | --voucher-action-right-desc-color  | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.8); color: #000;">rgba(255, 255, 255, 0.8)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.8); color: #000;">rgba(255, 255, 255, 0.8)</div> | Operation right description color     |
-| --voucher-item-right-title-color   | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>                                | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>                                | Right side title color 1     |
-| --voucher-item-right-title-color   | <div style="width: 150px; height: 40px; background-color: #666666; color: #ffffff;">#666</div>                                   | <div style="width: 150px; height: 40px; background-color: #808080; color: #ffffff;">#808080</div>                                | Title color on right side of coupon 2     |
+| --voucher-item-right-title-color   | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>                                | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>                                | Title color 1 on right side of coupon     |
+| --voucher-item-right-title-color   | <div style="width: 150px; height: 40px; background-color: #666666; color: #ffffff;">#666</div>                                   | <div style="width: 150px; height: 40px; background-color: #808080; color: #ffffff;">#808080</div>                                | Right Title Color 2     |

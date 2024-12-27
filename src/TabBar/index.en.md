@@ -25,7 +25,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 ```xml
@@ -93,8 +93,8 @@ Page({
 | ---------- | -------------------------------------------------- | ------ | ------ |
 | icon       | bottom icon, support [Icon](./Icon) or picture address           | string | -      |
 | activeIcon | bottom icon for active state, support [Icon](./Icon) or picture address | string | -      |
-| text       | Bottom text                                           | string | -      |
-| badge      | Type of logo, see [Badge](./Badge) Components               | object | -      |
+| text       | Bottom Text                                           | string | -      |
+| badge      | Logo type, see [Badge](./Badge) Components               | object | -      |
 
 ### Theme customization
 

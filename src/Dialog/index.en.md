@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -123,7 +123,7 @@ Page({
 | cancelButtonStyle            | Cancel Button Style                                      | string       | -      |
 | cancelButtonText             | Cancel Button Text                                      | string       | -      |
 | className                    | Class Name                                              | string       | -      |
-| closable                     | Whether to display the close button in the upper right corner. Only valid when type is focus | boolean      | -      |
+| closable                     | Whether to display the close button in the upper right corner. Valid only when type is focus | boolean      | -      |
 | content                      | Content                                              | string\|slot | -      |
 | destroyOnClose               | Whether to unload content when invisible                              | boolean      | false  |
 | footer                       | Custom Button Area                                      | slot         | -      |
@@ -132,7 +132,7 @@ Page({
 | maskStyle                    | Mask Style                                        | string       | -      |
 | style                        | Style                                              | string       | -      |
 | title                        | Title                                              | string\|slot | -      |
-| visible                      | Whether to display                                          | boolean      | false  |
+| visible                      | Display                                          | boolean      | false  |
 | #if ALIPAY onCancelButtonTap | Cancel button click event                                  | ()=>void     | -      |
 | #if ALIPAY onClose           | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
 | #if ALIPAY onButtonTap       | Behavior button click event                                  | ()=>void     | -      |

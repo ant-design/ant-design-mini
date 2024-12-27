@@ -97,6 +97,6 @@ Component provides the following CSS variables, which can be used to customize s
 
 | Name   | Description       |
 | ------ | ---------- |
-| -      | Default slot   |
+| -      | Default Slot   |
 | prefix | Countdown Head |
 | suffix | Countdown Tail |

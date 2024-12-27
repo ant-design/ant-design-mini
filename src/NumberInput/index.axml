@@ -14,7 +14,7 @@
   <view class="ant-number-input-content">
     <text class="ant-number-input-prefix">{{prefix}}</text>
     <ant-input
-      class="ant-number-input-field"
+      className="ant-number-input-field"
       placeholderClassName="ant-number-input-placeholder"
       value="{{value}}"
       placeholder="{{placeholder}}"

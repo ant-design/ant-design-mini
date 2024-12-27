@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 
@@ -61,7 +61,7 @@ In `index.json` Introducing Components in
 </ant-card>
 ```
 
-### Heading ceiling
+### Title ceiling
 
 ```xml
 <ant-card
@@ -144,7 +144,7 @@ In `index.json` Introducing Components in
 
 | Name        | Description                 |
 | ----------- | -------------------- |
-| Default slot    | Card Content             |
+| Default Slot    | Card Content             |
 | headerTitle | Custom Title Bar Left Title |
 | headerRight | Customize the right content of the title bar |
 

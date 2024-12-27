@@ -47,7 +47,7 @@ In `index.json` Introducing Components in
 #endif
 ```
 
-### Footer with Content
+### Footer with content
 
 ```xml
 <ant-footer content="@ 2004-2020 Alipay.com All rights reserved" />
@@ -159,5 +159,5 @@ Page({
 
 | Property | Description     | Type   | Default Value |
 | ---- | -------- | ------ | ------ |
-| text | Show copy | string | -      |
+| text | Show Copywriting | string | -      |
 | key  | Unique identification | string | -      |

@@ -9,7 +9,7 @@ toc: content
 
 # Input
 
-Through the keyboard input content, is the most basic form field packaging. Generally used in the form page for information collection.
+Enter content through the keyboard, is the most basic form field packaging. Generally used in the form page for information collection.
 
 ## Introduction
 
@@ -28,7 +28,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Input basic usage
 

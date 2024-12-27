@@ -26,11 +26,11 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
-> [options](#selectoritem) property is an object that contains `text`(main copy), `subText`(Deputy copywriter), `value`(option value), `disabled`(disabled or not).
+> [options](#selectoritem) property is an object that contains `text`(main copy), `subText`(Deputy Copywriter), `value`(option value), `disabled`(disabled or not).
 
 ```xml
   <ant-selector defaultValue="2" options="{{options}}" />
@@ -177,7 +177,7 @@ Page({
 | className                 | Class Name                                                    | string                                                                                                                                                                                                                                   | -      |
 | defaultValue              | The default selection item, when multiple selection type is array                            | string \| number \| string[] \| number[]                                                                                                                                                                                                 | -      |
 | disabled                  | Whether the whole is disabled                                            | boolean                                                                                                                                                                                                                                  | false  |
-| maxSelectedCount          | Maximum Number of Optional Items                                      | number                                                                                                                                                                                                                                   | -      |
+| maxSelectedCount          | Maximum number of options                                      | number                                                                                                                                                                                                                                   | -      |
 | minSelectedCount          | Number of minimum selectable items                                      | number                                                                                                                                                                                                                                   | -      |
 | multiple                  | Whether to allow multi-selection, the current radio/multi-selection status will be displayed when the tab bar is displayed. | boolean                                                                                                                                                                                                                                  | false  |
 | options                   | Option Data Source                                              | [SelectorItem](#selectoritem)[]                                                                                                                                                                                                          | []     |

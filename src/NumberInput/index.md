@@ -5,12 +5,26 @@ group:
   title: 业务组件
   order: 15
 toc: 'content'
-supportPlatform: ['alipay']
 ---
 
 # NumberInput 金额输入
 
 需要输入金额并提供快捷金额选择时使用。支持单位自动转换、最大值限制等功能。
+
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-number-input": "antd-mini/es/NumberInput/index"
+#endif
+#if WECHAT
+  "ant-number-input": "antd-mini/NumberInput/index"
+#endif
+}
+```
 
 ## 代码示例
 
@@ -22,19 +36,21 @@ supportPlatform: ['alipay']
 
 ### 属性
 
-| 属性         | 说明                 | 类型                    | 默认值       |
-| ------------ | -------------------- | ----------------------- | ------------ |
-| className    | 类名                 | string                  | -            |
-| style        | 样式                 | string                  | -            |
-| value        | 输入框的值           | string                  | -            |
-| title        | 标题                 | string                  | -            |
-| linkText     | 右上角链接文案       | string                  | -            |
-| quickAmounts | 快捷金额选项         | number[]                | -            |
-| placeholder  | 占位符文本           | string                  | '请输入金额' |
-| prefix       | 金额前缀             | string                  | '¥'          |
-| maxValue     | 最大可输入金额       | number                  | -            |
-| onChange     | 内容变化时的回调     | (value: string) => void | -            |
-| onLinkTap    | 点击右上角链接的回调 | () => void              | -            |
+| 属性                   | 说明                 | 类型                    | 默认值       |
+| ---------------------- | -------------------- | ----------------------- | ------------ |
+| className              | 类名                 | string                  | -            |
+| style                  | 样式                 | string                  | -            |
+| value                  | 输入框的值           | string                  | -            |
+| title                  | 标题                 | string                  | -            |
+| linkText               | 右上角链接文案       | string                  | -            |
+| quickAmounts           | 快捷金额选项         | number[]                | -            |
+| placeholder            | 占位符文本           | string                  | '请输入金额' |
+| prefix                 | 金额前缀             | string                  | '¥'          |
+| maxValue               | 最大可输入金额       | number                  | -            |
+| #if ALIPAY onChange    | 内容变化时的回调     | (value: string) => void | -            |
+| #if ALIPAY onLinkTap   | 点击右上角链接的回调 | () => void              | -            |
+| #if WECHAT bindchange  | 内容变化时的回调     | (value: string) => void | -            |
+| #if WECHAT bindlinktap | 点击右上角链接的回调 | () => void              | -            |
 
 ### 插槽
 

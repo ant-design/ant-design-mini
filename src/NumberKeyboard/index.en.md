@@ -30,7 +30,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -105,12 +105,12 @@ In `index.json` Introducing Components in
 | ----------------------- | ---------------- | --------------------- | ------ |
 | className               | Class Name             | string                | -      |
 | style                   | Style             | string                | -      |
-| value                   | Input value           | string                | -      |
+| value                   | Enter value           | string                | -      |
 | visible                 | Show             | boolean               | false  |
 | vibrate                 | Vibration             | boolean               | true   |
 | closeable               | Close Arrow         | boolean               | false  |
 | point                   | decimal point           | boolean               | true   |
-| random                  | Out of Order             | boolean               | false  |
+| random                  | out of order             | boolean               | false  |
 | confirmDisabled         | Disable confirmation button     | boolean               | false  |
 | safeArea                | Safety distance         | boolean               | true   |
 | confirmText             | Confirm the text of the button   | string                | -      |

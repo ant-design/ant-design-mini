@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -112,11 +112,11 @@ Page({
 | defaultVisible                | Display by default                                                                                                                                                        | boolean                                                                                                                      | false  |
 | destroyOnClose                | Whether to unload content when invisible                                                                                                                                                | boolean                                                                                                                      | false  |
 | maskClassName                 | Class name of the layer                                                                                                                                                          | string                                                                                                                       | -      |
-| maskStyle                     | The style of the layer                                                                                                                                                          | string                                                                                                                       | -      |
+| maskStyle                     | Mask Style                                                                                                                                                          | string                                                                                                                       | -      |
 | placement                     | Bubble box position, optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` or `right-bottom` | string                                                                                                                       | top    |
-| showMask                      | Whether to show the layer, if true, click the blank to close the Popover.                                                                                                                    | boolean                                                                                                                      | true   |
+| showMask                      | Whether to display the mask layer. If it is true, click the blank to close the Popover.                                                                                                                    | boolean                                                                                                                      | true   |
 | style                         | Style                                                                                                                                                                | string                                                                                                                       | -      |
-| visible                       | Whether to display                                                                                                                                                            | boolean                                                                                                                      | -      |
+| visible                       | Display                                                                                                                                                            | boolean                                                                                                                      | -      |
 | #if ALIPAY onVisibleChange    | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
 | #if ALIPAY onTapItem          | Callback at the time of visible change                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if WECHAT bindvisiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
@@ -126,7 +126,7 @@ Page({
 
 | Property      | Description                                                    | Type    | Default Value |
 | --------- | ------------------------------------------------------- | ------- | ------ |
-| icon      | The icon of the menu                                             | string  | -      |
+| icon      | The menu icon                                             | string  | -      |
 | iconImage | The icon picture of the menu is taken first iconImage the icon field is not taken again. | string  | -      |
 | text      | Class Name                                                    | string  | -      |
 | showBadge | Disable                                                | boolean | false  |

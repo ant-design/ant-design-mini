@@ -33,7 +33,7 @@ interface PostscriptProps extends IBaseProps {
 
 export const PostscriptProps: PostscriptProps = {
   title: '',
-  maxLength: Infinity,
+  maxLength: -1,
   quickInputs: [],
   placeholder: '给TA带句话吧~',
   placeholderClassName: '',
