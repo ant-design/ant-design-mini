@@ -1,7 +1,5 @@
 import getFirstLetter from 'pinyin-firstletter';
 
-console.log('===> getFirstLetter', getFirstLetter)
-
 /** 索引表枚举 */
 export const AlphabetMap = {
   A: 1,

@@ -192,4 +192,7 @@ export const wechatCustomMapping = {
   'ant-postscript': {
     onChange: 'bindchange',
   },
+  'ant-select-contact': {
+    onSelect: 'bindselect',
+  },
 };
