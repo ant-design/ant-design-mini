@@ -11,6 +11,21 @@ toc: 'content'
 
 Use when additional notes need to be added below the form or content.
 
+## Introduction
+
+In `index.json` Introducing Components in
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-postscript": "antd-mini/es/Postscript/index"
+#endif
+#if WECHAT
+  "ant-postscript": "antd-mini/Postscript/index"
+#endif
+}
+```
+
 ## Code example
 
 ### Basic Usage

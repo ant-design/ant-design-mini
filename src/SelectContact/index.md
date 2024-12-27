@@ -20,6 +20,9 @@ toc: content
 #if ALIPAY
   "ant-select-contact": "antd-mini/es/SelectContact/index"
 #endif
+#if WECHAT
+  "ant-select-contact": "antd-mini/SelectContact/index"
+#endif
 }
 ```
 

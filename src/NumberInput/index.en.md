@@ -9,7 +9,22 @@ toc: 'content'
 
 # NumberInput
 
-Use when you need to enter an amount and provide a quick amount selection. Support unit automatic conversion, maximum limit and other functions.
+Use when you need to enter an amount and provide a quick amount selection. Supports automatic conversion of units, maximum limit and other functions.
+
+## Introduction
+
+In `index.json` Introducing Components in
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-number-input": "antd-mini/es/NumberInput/index"
+#endif
+#if WECHAT
+  "ant-number-input": "antd-mini/NumberInput/index"
+#endif
+}
+```
 
 ## Code example
 

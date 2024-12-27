@@ -11,6 +11,21 @@ toc: 'content'
 
 需要在表单或内容下方添加补充说明时使用。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-postscript": "antd-mini/es/Postscript/index"
+#endif
+#if WECHAT
+  "ant-postscript": "antd-mini/Postscript/index"
+#endif
+}
+```
+
 ## 代码示例
 
 ### 基础用法

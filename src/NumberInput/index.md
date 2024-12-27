@@ -11,6 +11,21 @@ toc: 'content'
 
 需要输入金额并提供快捷金额选择时使用。支持单位自动转换、最大值限制等功能。
 
+## 引入
+
+在 `index.json` 中引入组件
+
+```json
+"usingComponents": {
+#if ALIPAY
+  "ant-number-input": "antd-mini/es/NumberInput/index"
+#endif
+#if WECHAT
+  "ant-number-input": "antd-mini/NumberInput/index"
+#endif
+}
+```
+
 ## 代码示例
 
 ### 基本使用
