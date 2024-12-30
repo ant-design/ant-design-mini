@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "1.10.7",
+  "version": "1.10.8",
   "scripts": {
     "dev": "node ./scripts/dev.js",
     "build": "node ./scripts/build.js",
