@@ -31,28 +31,28 @@ In `index.json` Introducing Components in
 ### Basic use
 
 ```xml
-<result type="success" title="success" message="subtitle content" />
+<ant-result type="success" title="success" message="subtitle content" />
 
-<result type="wait" title="wait" message="subtitle content" />
+<ant-result type="wait" title="wait" message="subtitle content" />
 
-<result type="info" title="info" message="subtitle content" />
+<ant-result type="info" title="info" message="subtitle content" />
 
-<result type="warning" title="warning" message="subtitle content" />
+<ant-result type="warning" title="warning" message="subtitle content" />
 
-<result type="error" title="error" message="subtitle content" />
+<ant-result type="error" title="error" message="subtitle content" />
 ```
 
 ### Slot
 
 ```xml
-<result
+<ant-result
   image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
   <view slot="title">Title slot</view>
   <view slot="message">Describe the slot</view>
   <view slot="extra" class="extra">
     Other Modules
   </view>
-</result>
+</ant-result>
 ```
 
 ### Demo Code
@@ -69,7 +69,7 @@ In `index.json` Introducing Components in
 | message   | Deputy Copywriter                                                                                   | string \| slot | -      |
 | style     | Style                                                                                     | string         | -      |
 | title     | Main Copy                                                                                   | string \| slot | -      |
-| type      | Built-in type `success`(success),`error`(error/danger),`info`(information prompt),`wait`(Waiting for processing) | string         | -      |
+| type      | Built-in type `success`(successful),`error`(error/danger),`info`(information prompt),`wait`(Waiting for processing) | string         | -      |
 
 ### Theme customization
 

@@ -11,7 +11,7 @@ toc: 'content'
 
 Provide a placeholder graphic combination where you need to wait for content to load.
 
-- The network is slow, requires a long wait to load, and is only used when loading for the first time.
+- The network is slow, requires a long wait to load, and is only used when it is loaded for the first time.
 - On the premise of ensuring the performance of the mobile phone, try to use preloading, preferably without skeleton screen.
 - It is suitable for home pages, lists and cards with more graphic information and important information. Do not use small module class components (such as pop-up windows).
 
@@ -23,19 +23,19 @@ In `index.json` Introducing Components in
 "usingComponents": {
 #if ALIPAY
   "ant-skeleton": "antd-mini/es/Skeleton/index",
-  "skeleton-avatar": "antd-mini/es/Skeleton/Avatar/index",
-  "skeleton-title": "antd-mini/es/Skeleton/Title/index",
-  "skeleton-button": "antd-mini/es/Skeleton/Button/index",
-  "skeleton-paragraph": "antd-mini/es/Skeleton/Paragraph/index",
-  "skeleton-input": "antd-mini/es/Skeleton/Input/index",
+  "ant-skeleton-avatar": "antd-mini/es/Skeleton/Avatar/index",
+  "ant-skeleton-title": "antd-mini/es/Skeleton/Title/index",
+  "ant-skeleton-button": "antd-mini/es/Skeleton/Button/index",
+  "ant-skeleton-paragraph": "antd-mini/es/Skeleton/Paragraph/index",
+  "ant-skeleton-input": "antd-mini/es/Skeleton/Input/index",
 #endif
 #if WECHAT
   "ant-skeleton": "antd-mini/Skeleton/index",
-  "skeleton-avatar": "antd-mini/Skeleton/Avatar/index",
-  "skeleton-title": "antd-mini/Skeleton/Title/index",
-  "skeleton-button": "antd-mini/Skeleton/Button/index",
-  "skeleton-paragraph": "antd-mini/Skeleton/Paragraph/index",
-  "skeleton-input": "antd-mini/Skeleton/Input/index",
+  "ant-skeleton-avatar": "antd-mini/Skeleton/Avatar/index",
+  "ant-skeleton-title": "antd-mini/Skeleton/Title/index",
+  "ant-skeleton-button": "antd-mini/Skeleton/Button/index",
+  "ant-skeleton-paragraph": "antd-mini/Skeleton/Paragraph/index",
+  "ant-skeleton-input": "antd-mini/Skeleton/Input/index",
 #endif
 }
 ```
@@ -45,36 +45,36 @@ In `index.json` Introducing Components in
 ### Basic use
 
 ```xml
-<skeleton animate="{{true}}" />
+<ant-skeleton animate="{{true}}" />
 ```
 
 ### With avatar
 
 ```xml
-<skeleton avatar="{{true}}" />
+<ant-skeleton avatar="{{true}}" />
 ```
 
 ### Custom Combinations
 
 ```xml
-<skeleton-avatar />
-<skeleton-paragraph rows="{{1}}" />
-<skeleton-input />
-<skeleton-input />
-<skeleton-input />
-<skeleton-button size="small" />
+<ant-skeleton-avatar />
+<ant-skeleton-paragraph rows="{{1}}" />
+<ant-skeleton-input />
+<ant-skeleton-input />
+<ant-skeleton-input />
+<ant-skeleton-button size="small" />
 ```
 
 ### complex combination
 
 ```xml
-<skeleton
+<ant-skeleton
   loading="{{showLoading}}"
   title="{{false}}"
   avatar="{{true}}"
   paragraph="{{paragraph}}">
   <view class="container">
-    <avatar
+    <ant-avatar
       src="https://images.unsplash.com/photo-1546967191-fdfb13ed6b1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" />
     <view class="content">
         We supply a series of design principles, practical patterns and high
@@ -82,7 +82,7 @@ In `index.json` Introducing Components in
         beautifully and efficiently.
     </view>
   </view>
-</skeleton>
+</ant-skeleton>
 ```
 
 ### Demo Code
@@ -98,7 +98,7 @@ In `index.json` Introducing Components in
 | animate   | Show animation effect                             | boolean               | false  |
 | avatar    | Whether to display avatar bitmap                           | `boolean \| Avatar`   | false  |
 | className | Class Name                                         | string                | -      |
-| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean               | true   |
+| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly. | boolean               | true   |
 | paragraph | Paragraph                                         | `number \| Paragraph` | true   |
 | style     | Style                                         | CSSProperties         | -      |
 | title     | Whether to display title bitmap                           | boolean               | true   |
@@ -109,7 +109,7 @@ In `index.json` Introducing Components in
 | --------- | ------------------------------------------------ | ------------- | -------- |
 | animate   | Show animation effect                                 | boolean       | false    |
 | className | Class Name                                             | string        | -        |
-| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly.     | boolean       | true     |
+| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly.     | boolean       | true     |
 | shape     | Avatar Shape `circle` or `square`                    | string        | `square` |
 | size      | Avatar size `x-small`、`small`、`medium` or `large` | string        | `medium` |
 | style     | Style                                             | CSSProperties | -        |
@@ -120,7 +120,7 @@ In `index.json` Introducing Components in
 | --------- | -------------------------------------------- | ------------- | ------ |
 | animate   | Show animation effect                             | boolean       | false  |
 | className | Class Name                                         | string        | -      |
-| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean       | true   |
+| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly. | boolean       | true   |
 | rows      | Number of paragraph lines, greater than 0                        | number        | 3      |
 | style     | Style                                         | CSSProperties | -      |
 
@@ -130,7 +130,7 @@ In `index.json` Introducing Components in
 | --------- | -------------------------------------------- | ------------- | ------ |
 | animate   | Show animation effect                             | boolean       | false  |
 | className | Class Name                                         | string        | -      |
-| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean       | true   |
+| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly. | boolean       | true   |
 | style     | Style                                         | CSSProperties | -      |
 
 #### Button Button
@@ -139,7 +139,7 @@ In `index.json` Introducing Components in
 | --------- | -------------------------------------------- | ------------- | -------- |
 | animate   | Show animation effect                             | boolean       | false    |
 | className | Class Name                                         | string        | -        |
-| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean       | true     |
+| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly. | boolean       | true     |
 | size      | size,`small`、`medium` or `large`           | string        | `medium` |
 | style     | Style                                         | CSSProperties | -        |
 
@@ -149,7 +149,7 @@ In `index.json` Introducing Components in
 | --------- | -------------------------------------------- | ------------- | ------ |
 | animate   | Show animation effect                             | boolean       | false  |
 | className | Class Name                                         | string        | -      |
-| loading   | When true, displays the accounting bitmap. Otherwise, the subassembly is displayed directly. | boolean       | true   |
+| loading   | When true, displays the accounting bitmap. On the other hand, it shows the subassembly directly. | boolean       | true   |
 | style     | Style                                         | CSSProperties | -      |
 
 ### Theme customization

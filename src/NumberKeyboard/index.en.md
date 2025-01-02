@@ -105,7 +105,7 @@ In `index.json` Introducing Components in
 | ----------------------- | ---------------- | --------------------- | ------ |
 | className               | Class Name             | string                | -      |
 | style                   | Style             | string                | -      |
-| value                   | Enter value           | string                | -      |
+| value                   | Input value           | string                | -      |
 | visible                 | Show             | boolean               | false  |
 | vibrate                 | Vibration             | boolean               | true   |
 | closeable               | Close Arrow         | boolean               | false  |

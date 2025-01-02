@@ -34,8 +34,8 @@ toc: content
 | activeClassName             | Click to activate the style class.                                                  | string                         | -        |
 | style                       | Style                                                                | string                         | -        |
 | disabled                    | Disable                                                            | boolean                        | false    |
-| selectable                  | Can be selected                                                        | boolean                        | false    |
-| fontWeight                  | Heavy characters, compatible with iOS and Android platforms                              | `normal` \| `medium` \| `bold` | `normal` |
+| selectable                  | Whether it can be selected                                                        | boolean                        | false    |
+| fontWeight                  | Word weight, compatible with iOS, Android platform bold effect                              | `normal` \| `medium` \| `bold` | `normal` |
 | lineThrough                 | Add Strikethrough Style                                                      | boolean                        | false    |
 | underline                   | Add Underline Style                                                      | boolean                        | false    |
 | ellipsisRow                 | Multiple lines are omitted, and the value must be greater than or equal to 1, which is consistent with the-webkit-line-clamp attribute of css. | number                         | -        |
@@ -49,8 +49,8 @@ toc: content
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                       | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks         |
 | ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
-| --typography-container-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Typography container color |
+| --typography-container-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | typography container color |

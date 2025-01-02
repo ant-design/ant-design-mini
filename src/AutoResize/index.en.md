@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 <code src="../../demo/pages/AutoResize/index"></code>
 
@@ -36,6 +36,6 @@ In `index.json` Introducing Components in
 | ----------- | ----------------------------------------------------------------------------------------------------------------------- | ------- | ------ |
 | text        | Text to be passed in, used to calculate the width                                                                                              | string  | -      |
 | minFontSize | The minimum font size limit can be set according to the business.                                                                                      | number  | 30     |
-| maxFontSize | The original design font size of this area, which cannot exceed this font size at most.                                                                                  | number  | 36     |
+| maxFontSize | The original design font size of the area, the maximum size cannot exceed this font size.                                                                                  | number  | 36     |
 | wrap        | Whether to support line feed                                                                                                            | boolean | false  |
-| ratio       | Copy width ratio, calculated `maxFontSize / ratio * Copy length`, there are scenes where the English characters are long but the container width is enough to display, but the font is reduced, which can be increased at this time. |
+| ratio       | Copy width ratio, calculated `maxFontSize / ratio * Copy Length`, there are scenes where the English characters are long but the container width is enough to display, but the font is reduced, which can be increased at this time. |

@@ -100,7 +100,7 @@ Page({
 ### Slot
 
 ```xml
-<voucher
+<ant-voucher
   size="small"
   dataSource="{{dataSource}}"
 >
@@ -110,7 +110,7 @@ Page({
   >
     Expired
   </view>
-</voucher>
+</ant-voucher>
 ```
 
 ### Demo Code
@@ -165,7 +165,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                             | Light Mode Default                                                                                                                   | Dark Mode Default                                                                                                                   | Remarks                 |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- |

@@ -76,7 +76,7 @@ Page({
 
 ### Multiple Action Points
 
-> `footer` property supports passing in multiple action points and can specify `layout` For `vertical`or`horizontal`That is, the horizontal and vertical layout of the action point.
+> `footer` property supports the passing in of multiple action points, and you can specify `layout` For `vertical`or`horizontal`That is, the horizontal and vertical layout of the action point.
 
 ```xml
 <ant-dialog
@@ -132,7 +132,7 @@ Page({
 | maskStyle                    | Mask Style                                        | string       | -      |
 | style                        | Style                                              | string       | -      |
 | title                        | Title                                              | string\|slot | -      |
-| visible                      | Display                                          | boolean      | false  |
+| visible                      | Whether to display                                          | boolean      | false  |
 | #if ALIPAY onCancelButtonTap | Cancel button click event                                  | ()=>void     | -      |
 | #if ALIPAY onClose           | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
 | #if ALIPAY onButtonTap       | Behavior button click event                                  | ()=>void     | -      |
@@ -143,7 +143,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                    | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                   |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |

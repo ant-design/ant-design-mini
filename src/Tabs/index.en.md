@@ -34,7 +34,7 @@ In `index.json` Introducing Components in
 ### Basic use
 
 ```xml
-<tabs items="{{items}}" />
+<ant-tabs items="{{items}}" />
 ```
 
 ```js
@@ -66,44 +66,44 @@ Page({
 ### With content
 
 ```xml
-<tabs items="{{items}}">
+<ant-tabs items="{{items}}">
   <view class="content" slot-scope="item">
     {{item.value.content}}
   </view>
-</tabs>
+</ant-tabs>
 ```
 
 ### Capsule
 
 ```xml
-<tabs type="capsule" items="{{items}}" defaultCurrent="{{1}}"></tabs>
+<ant-tabs type="capsule" items="{{items}}" defaultCurrent="{{1}}"></ant-tabs>
 ```
 
 ### With subtitle
 
 ```xml
-<tabs type="mixin" items="{{items}}"></tabs>
+<ant-tabs type="mixin" items="{{items}}"></ant-tabs>
 ```
 
 ### With logo
 
 ```xml
-<tabs items="{{items}}">
+<ant-tabs items="{{items}}">
  <view
     slot="title"
     slot-scope="item">
     <view a:if="{{item.value.badge}}">
-      <badge>{{item.value.title}}</badge>
+      <ant-badge>{{item.value.title}}</ant-badge>
     </view>
     <view a:else>{{item.value.title}}</view>
   </view>
-</tabs>
+</ant-tabs>
 ```
 
 ### Disable state
 
 ```xml
-<tabs items="{{items}}" />
+<ant-tabs items="{{items}}" />
 ```
 
 ```js
@@ -135,17 +135,17 @@ Page({
 ### plus button
 
 ```xml
-<tabs items="{{items}}">
+<ant-tabs items="{{items}}">
   <view slot="plus">
-    <icon type="AddOutline" onTap="onPlus" />
+    <ant-icon type="AddOutline" onTap="onPlus" />
   </view>
-</tabs>
+</ant-tabs>
 ```
 
 ### Control mode
 
 ```xml
-<tabs
+<ant-tabs
   items="{{items}}"
   current="{{current}}"
 #if ALIPAY
@@ -157,10 +157,10 @@ Page({
 />
 ```
 
-### Center scroll after selection
+### Center Scroll After Selection
 
 ```xml
-<tabs items="{{items}}" scrollMode="center" />
+<ant-tabs items="{{items}}" scrollMode="center" />
 ```
 
 ### Swiper
@@ -211,7 +211,7 @@ Page({
 - Toggling the tab content scrolls to the very top.
 
 ```xml
- <tabs items="{{items}}" current="{{current}}" onChange="onChange" className="sticky-tabs" />
+ <ant-tabs items="{{items}}" current="{{current}}" onChange="onChange" className="sticky-tabs" />
 ```
 
 ```css
@@ -225,7 +225,7 @@ Page({
 ### Portrait mode
 
 ```xml
- <tabs
+ <ant-tabs
     items="{{items}}"
     current="{{current}}"
     onChange="onChange"
@@ -242,7 +242,7 @@ Page({
     >
       {{items[current].content}}
     </scroll-view>
-  </tabs>
+  </ant-tabs>
 ```
 
 ### Longitudinal elevator mode
@@ -262,14 +262,14 @@ Page({
 | defaultCurrent         | Selected index initial value                                                                                 | number                                                                                       | 0          |
 | direction              | tabs direction,`horizontal`(Horizontal) `vertical`(Vertical)                                                 | string                                                                                       | horizontal |
 | items                  | option, quantity must be greater than 0                                                                           | `Item[]`                                                                                     | -          |
-| plus                   | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(Corresponding `Item`) `index`(Corresponding `Item` index of)  | slot                                                                                         | -          |
+| plus                   | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of)  | slot                                                                                         | -          |
 | scrollMode             | Scrolling mode, optional 'edge', 'center'                                                                | string                                                                                       | edge       |
 | style                  | Style                                                                                           | string                                                                                       | -          |
 | tabsBarClassName       | tabs bar class name                                                                                  | string                                                                                       | -          |
 | tabClassName           | tab class name                                                                                       | string                                                                                       | -          |
 | tabActiveClassName     | tab active class name                                                                                | string                                                                                       | -          |
-| title                  | Custom `Items` Title;<br /> `slot-scope` Include `value`(Corresponding `Item`) `index`(Corresponding `Item` index of) | slot                                                                                         | -          |
-| type                   | Type,`basic`(Foundation),`capsule`(capsule),`mixin`(Mixed)                                            | string                                                                                       | `basic`    |
+| title                  | Custom `Items` Title;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of) | slot                                                                                         | -          |
+| type                   | Type,`basic`(basis),`capsule`(capsule),`mixin`(Mixed)                                            | string                                                                                       | `basic`    |
 | #if ALIPAY onChange    | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 | #if WECHAT bindchange | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 
@@ -279,7 +279,7 @@ Page({
 | ----- | ---- | ------ | ------ |
 | title | Title | string | -      |
 
-In addition to item can have `title`, you can also add custom attributes, such `content`, `badge` and so on, these properties can be used. `slot-scope` Visit:
+In addition to item can have `title`, you can also add custom properties, such. `content`, `badge` and so on, these properties can be used. `slot-scope` Visit:
 
 ```js
 Page({

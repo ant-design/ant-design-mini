@@ -83,7 +83,7 @@ Page({
 
 ### bubble position adaptive
 
-> `autoAdjustOverflow` Property to automatically adjust the position of the bubble when it is occluded
+> `autoAdjustOverflow` Property to automatically adjust the position of the bubble when it is blocked
 
 ```xml
 <ant-popover-list
@@ -114,9 +114,9 @@ Page({
 | maskClassName                 | Class name of the layer                                                                                                                                                          | string                                                                                                                       | -      |
 | maskStyle                     | Mask Style                                                                                                                                                          | string                                                                                                                       | -      |
 | placement                     | Bubble box position, optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` or `right-bottom` | string                                                                                                                       | top    |
-| showMask                      | Whether to display the mask layer. If it is true, click the blank to close the Popover.                                                                                                                    | boolean                                                                                                                      | true   |
+| showMask                      | Whether to show the layer, if true, click the blank to close the Popover.                                                                                                                    | boolean                                                                                                                      | true   |
 | style                         | Style                                                                                                                                                                | string                                                                                                                       | -      |
-| visible                       | Display                                                                                                                                                            | boolean                                                                                                                      | -      |
+| visible                       | Whether to display                                                                                                                                                            | boolean                                                                                                                      | -      |
 | #if ALIPAY onVisibleChange    | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
 | #if ALIPAY onTapItem          | Callback at the time of visible change                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if WECHAT bindvisiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
@@ -126,7 +126,7 @@ Page({
 
 | Property      | Description                                                    | Type    | Default Value |
 | --------- | ------------------------------------------------------- | ------- | ------ |
-| icon      | The menu icon                                             | string  | -      |
+| icon      | The icon of the menu                                             | string  | -      |
 | iconImage | The icon picture of the menu is taken first iconImage the icon field is not taken again. | string  | -      |
 | text      | Class Name                                                    | string  | -      |
 | showBadge | Disable                                                | boolean | false  |
@@ -143,4 +143,4 @@ Component provides the following CSS variables, which can be used to customize s
 | --popover-list-content-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.93); color: #ffffff;">rgba(0, 0, 0, 0.93)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.93); color: #ffffff;">rgba(0, 0, 0, 0.93)</div> | Popover List Content Background Color |
 | --popover-list-content-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | Popover List Content Color     |
 | --popover-list-badge-color   | <div style="width: 150px; height: 30px; background-color: #ff411c; color: #ffffff;">#ff411c</div>                         | <div style="width: 150px; height: 30px; background-color: #ff411c; color: #ffffff;">#ff411c</div>                         | Popover List Badge Color     |
-|  --popover-list-item-bg      | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div>                         | <div style="width: 150px; height: 30px; background-color: #444444; color: #ffffff;">#444444</div>                         | Popover List Content Text Color |
+|  --popover-list-item-bg      | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div>                         | <div style="width: 150px; height: 30px; background-color: #444444; color: #ffffff;">#444444</div>                         | Popover list content text color |

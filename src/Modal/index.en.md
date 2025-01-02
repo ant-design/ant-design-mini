@@ -53,7 +53,7 @@ In `index.json` Introducing Components in
 | style                              | Style                                              | string       | -         |
 | title                              | Title                                              | string\|slot | -         |
 | type                               | type, optional `default`(default),`focus`(emphasis mode)     | string       | `default` |
-| visible                            | Display                                          | boolean      | false     |
+| visible                            | Whether to display                                          | boolean      | false     |
 | #if ALIPAY onCancelButtonTap       | Cancel button click event                                  | ()=>void     | -         |
 | #if ALIPAY onClose                 | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -         |
 | #if ALIPAY onPrimaryButtonTap      | Main button click event                                    | ()=>void     | -         |
