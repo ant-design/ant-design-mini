@@ -13,6 +13,6 @@
     "ant-slider": "../../../src/Slider/index",
     "ant-icon": "../../../src/Icon/index",
     "ant-stepper": "../../../src/Stepper/index",
-    "container": "../../../src/Container/index"
+    "ant-container": "../../../src/Container/index"
   }
 }

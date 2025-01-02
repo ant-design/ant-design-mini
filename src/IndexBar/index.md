@@ -27,9 +27,9 @@ toc: 'content'
 
 ```xml
 <view class="base">
-  <list header="基本使用"></list>
+  <ant-list header="基本使用"></ant-list>
   <view class="indexbar">
-    <index-bar items="{{items}}" />
+    <ant-index-bar items="{{items}}" />
   </view>
 </view>
 ```
@@ -65,21 +65,21 @@ Page({
 ```xml
 #if ALIPAY
 <view class="base">
-  <index-bar
+  <ant-index-bar
     className="indexbar"
     items="{{items}}"
     defaultCurrent="H"
     onChange="onChange">
     <view slot-scope="props">
-      <list header="{{props.value.label}}">
-        <list-item
+      <ant-list header="{{props.value.label}}">
+        <ant-list-item
           a:for="{{4}}"
           a:for-item="itemX">
           {{props.value.label}}-{{itemX}}
-        </list-item>
-      </list>
+        </ant-list-item>
+      </ant-list>
     </view>
-  </index-bar>
+  </ant-index-bar>
 </view>
 #endif
 #if WECHAT

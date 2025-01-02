@@ -10,7 +10,7 @@
   /// #endif
 
   "usingComponents": {
-    "safe-area": "../../../src/SafeArea/index",
+    "ant-safe-area": "../../../src/SafeArea/index",
     "ant-container": "../../../src/Container/index"
   }
 }

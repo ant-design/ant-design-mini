@@ -8,13 +8,13 @@
     onChange="onChange">
     <!-- #if ALIPAY -->
     <view slot-scope="props">
-      <list header="{{props.value.label}}">
-        <list-item
+      <ant-list header="{{props.value.label}}">
+        <ant-list-item
           a:for="{{nameMap[props.value.label]}}"
           a:for-item="itemX">
           {{itemX}}
-        </list-item>
-      </list>
+        </ant-list-item>
+      </ant-list>
     </view>
     <!-- #endif -->
   </ant-index-bar>

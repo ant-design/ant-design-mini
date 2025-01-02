@@ -1,29 +1,29 @@
 <view class="navigation-bar"/>
 
-<container title="基础用法">
+<ant-container title="基础用法">
   <ant-input placeholder="请输入内容" onChange="onChange" />
-</container>
+</ant-container>
 
-<container title="初始值">
+<ant-container title="初始值">
   <ant-input placeholder="请输入内容" defaultValue="这是antd mini小程序组件" onChange="onChange" />
-</container>
+</ant-container>
 
-<container title="带清除按钮">
+<ant-container title="带清除按钮">
   <ant-input placeholder="请输入内容" allowClear />
-</container>
+</ant-container>
 
-<container title="带有前缀后缀">
+<ant-container title="带有前缀后缀">
   <ant-input placeholder="请输入内容" onChange="onChange" allowClear>
     <view slot="prefix">￥</view>
     <view slot="suffix">RMB</view>
   </ant-input>
-</container>
+</ant-container>
 
-<container title="禁用状态">
+<ant-container title="禁用状态">
   <ant-input placeholder="被禁用的输入框" disabled="{{ true }}" />
-</container>
+</ant-container>
 
-<container title="受控模式">
+<ant-container title="受控模式">
   <ant-input
     controlled="{{ true }}"
     value="{{ value }}"
@@ -34,9 +34,9 @@
   <ant-button onTap="clear" inline size="small">
     clear
   </ant-button>
-</container>
+</ant-container>
 
-<container title="受控模式-输入金额">
+<ant-container title="受控模式-输入金额">
   <ant-input
     placeholder="请输入金额"
     value="{{ money }}"
@@ -49,9 +49,9 @@
     <view slot="prefix">￥</view>
     <view slot="suffix">RMB</view>
   </ant-input>
-</container>
+</ant-container>
 
-<container title="非受控模式通过ref修改input">
+<ant-container title="非受控模式通过ref修改input">
   <ant-input placeholder="请输入内容" onChange="onChange" ref="handleRefInput" />
 
   <view>
@@ -59,8 +59,8 @@
       clear
     </ant-button>
   </view>
-</container>
-<container title="搜索框">
+</ant-container>
+<ant-container title="搜索框">
   <view class="search-line">
     <ant-input
       placeholder="请输入内容"
@@ -77,37 +77,37 @@
     </ant-input>
     <view class="cancel">取消</view>
   </view>
-</container>
+</ant-container>
 
-<container title="Textarea基础用法">
+<ant-container title="Textarea基础用法">
   <ant-textarea
     placeholder="请输入内容"
     autoHeight
     onChange="onChange" />
-</container>
+</ant-container>
 
-<container title="初始值">
+<ant-container title="初始值">
   <ant-textarea
     placeholder="请输入内容"
     defaultValue="这是antd mini小程序组件"
     autoHeight
     onChange="onChange" />
-</container>
+</ant-container>
 
-<container title="带清除按钮">
+<ant-container title="带清除按钮">
   <ant-textarea
     placeholder="请输入内容"
     autoHeight
     allowClear />
-</container>
+</ant-container>
 
-<container title="禁用状态">
+<ant-container title="禁用状态">
   <ant-textarea
     placeholder="被禁用的输入框"
     disabled />
-</container>
+</ant-container>
 
-<container title="受控模式">
+<ant-container title="受控模式">
   <ant-textarea
     value="{{ value }}"
     placeholder="请输入内容"
@@ -119,9 +119,9 @@
     size="small">
     clear
   </ant-button>
-</container>
+</ant-container>
 
-<container title="非受控模式通过ref修改input">
+<ant-container title="非受控模式通过ref修改input">
   <ant-textarea
     placeholder="请输入内容"
     allowClear
@@ -134,9 +134,9 @@
       clear
     </ant-button>
   </view>
-</container>
+</ant-container>
 
-<container title="带有border">
+<ant-container title="带有border">
   <ant-input
     className="custom"
     placeholder="请输入内容"
@@ -158,9 +158,9 @@
     className="custom"
     placeholder="请输入内容"
     onChange="onChange" />
-</container>
+</ant-container>
 
-<container title="自定义背景颜色">
+<ant-container title="自定义背景颜色">
   <ant-input
     className="custom-color"
     placeholder="请输入内容"
@@ -170,20 +170,20 @@
     className="custom-color"
     placeholder="请输入内容"
     onChange="onChange" />
-</container>
+</ant-container>
 <!-- #if ALIPAY -->
 <!-- 微信不支持  placeholderClassName -->
-<container title="自定义 placeholderClassName">
+<ant-container title="自定义 placeholderClassName">
   <ant-input
     placeholderClassName="placeholder"
     placeholder="请输入内容"
     onChange="onChange" />
-</container>
+</ant-container>
 <!-- #endif -->
 
-<container title="自定义 placeholderStyle">
+<ant-container title="自定义 placeholderStyle">
   <ant-input
     placeholderStyle="color: red;"
     placeholder="请输入内容"
     onChange="onChange" />
-</container>
+</ant-container>

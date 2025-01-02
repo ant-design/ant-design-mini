@@ -1,48 +1,48 @@
 <view class="navigation-bar"/>
 
-<container title="基础用法">
-  <stepper
+<ant-container title="基础用法">
+  <ant-stepper
     onChange="onChange"
     onBlur="onBlur"
     onConfirm="onConfirm"
     onFocus="onFocus" />
-</container>
-<container title="初始值">
-  <stepper defaultValue="{{ 0 }}" />
-</container>
-<container title="step 0.01">
-  <stepper
+</ant-container>
+<ant-container title="初始值">
+  <ant-stepper defaultValue="{{ 0 }}" />
+</ant-container>
+<ant-container title="step 0.01">
+  <ant-stepper
     defaultValue="{{ 0 }}"
     step="{{ 0.01 }}"
     inputStyle="width: 60px" />
-</container>
-<container title="precision 1">
-  <stepper
+</ant-container>
+<ant-container title="precision 1">
+  <ant-stepper
     defaultValue="{{ 0 }}"
     precision="{{ 1 }}"
     inputStyle="width: 60px" />
-</container>
-<container title="限制输入范围 [0, 10]">
-  <stepper
+</ant-container>
+<ant-container title="限制输入范围 [0, 10]">
+  <ant-stepper
     defaultValue="{{ 0 }}"
     min="{{ 0 }}"
     max="{{ 10 }}"
     step="{{ 1 }}"
     onDisabledTap="handleDisabledTap" />
-</container>
-<container title="禁用状态">
-  <stepper
+</ant-container>
+<ant-container title="禁用状态">
+  <ant-stepper
     defaultValue="{{ 0 }}"
     disabled
     onDisabledTap="handleDisabledTap" />
-</container>
-<container title="输入框只读">
-  <stepper
+</ant-container>
+<ant-container title="输入框只读">
+  <ant-stepper
     defaultValue="{{ 0 }}"
     inputReadOnly />
-</container>
-<container title="受控组件">
-  <stepper
+</ant-container>
+<ant-container title="受控组件">
+  <ant-stepper
     value="{{ value }}"
     onChange="handleChange"
     style="margin: 8px 0"
@@ -67,4 +67,4 @@
       clear
     </ant-button>
   </view>
-</container>
+</ant-container>
