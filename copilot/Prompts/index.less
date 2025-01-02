@@ -1,0 +1,58 @@
+@import (reference) './variable.less';
+
+@buttonPrefix: ant-copilot-prompts;
+
+.@{buttonPrefix} {
+  &-title {
+    font-weight: 400;
+    font-size: @prompts-title-size;
+    color: @prompts-title-color;
+    line-height: @prompts-title-line-height;
+    padding-bottom: @prompts-title-padding-bottom;
+  }
+  &-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: @prompts-list-gap;
+    &-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      border: 2rpx solid @prompts-item-border-color;
+      border-radius: 50vh;
+      padding: 20rpx 32rpx;
+
+      gap: @prompts-item-gap;
+
+      &-image {
+        width: 40rpx;
+        height: 40rpx;
+        flex-shrink: 0;
+      }
+
+      &-title {
+        font-weight: 500;
+        font-size: 28rpx;
+        color: @prompts-item-title-color;
+        line-height: @prompts-item-content-line-height;
+        text-wrap: nowrap;
+      }
+
+      &-content {
+        font-weight: 400;
+        font-size: 28rpx;
+        color: @prompts-item-content-color;
+        line-height: @prompts-item-content-line-height;
+      }
+
+      &-arrow {
+        font-size: 32rpx;
+        color: @prompts-item-arrow-color;
+      }
+    }
+  }
+}

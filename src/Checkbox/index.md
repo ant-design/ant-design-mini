@@ -19,11 +19,11 @@ toc: 'content'
 "usingComponents": {
 #if ALIPAY
   "ant-checkbox": "antd-mini/es/Checkbox/index",
-  "ant-checkbox-group": "antd-mini/es/CheckboxGroup/index"
+  "ant-checkbox-group": "antd-mini/es/Checkbox/CheckboxGroup/index"
 #endif
 #if WECHAT
   "ant-checkbox": "antd-mini/Checkbox/index",
-  "ant-checkbox-group": "antd-mini/CheckboxGroup/index"
+  "ant-checkbox-group": "antd-mini/Checkbox/CheckboxGroup/index"
 #endif
 }
 ```

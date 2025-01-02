@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -41,6 +41,13 @@ In `index.json` Introducing Components in
 ```xml
 <ant-notice mode="closeable">
   This notification can be turned off
+</ant-notice>
+```
+
+### Multi-line display notice board
+```xml
+<ant-notice type="default"  ellipsisRow="{{2}}">
+  Turn on line feed when text overflows. Not enough text to continue adding text to make up. Not enough text to continue adding text to make up.
 </ant-notice>
 ```
 
@@ -66,7 +73,7 @@ In `index.json` Introducing Components in
 
 <ant-notice type="primary" mode="link"
   icon="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
->Customize the left icon image</ant-notice>
+>Customize the left icon picture</ant-notice>
 
 <ant-notice mode="link" onTap="handleTapLink">
   Customize right button
@@ -87,10 +94,11 @@ In `index.json` Introducing Components in
 | ------------- | ---------------------------------------------------------------------------------------------- | ------------ | ------- |
 | className     | Class Name                                                                                           | string       | -       |
 | enableMarquee | Whether to turn on scroll animation                                                                               | boolean      | false   |
+| ellipsisRow     | The copy multi-line shows the maximum number of rows, and`enableMarquee`Cannot be configured simultaneously            | number\|boolean       | false       |
 | extra         | Customize right content                                                                                 | slot         | -       |
 | icon          | The icon on the left supports all built-in iconType and custom links, as well as custom slots (WeChat version requires slotIcon settings) | string       | -       |
 | loop          | Whether to cycle scrolling,`enableMarquee` Valid when true                                                   | boolean      | false   |
-| mode          | the type of announcement,`link` Indicates connection, the whole line can be clicked;`closeable` Indicates that clicking x can be closed; If you do not fill in, there is no icon on the right.   | string       | -       |
+| mode          | the type of announcement,`link` Indicates connection, the whole line can be dotted;`closeable` Indicates that clicking x can be closed; If you do not fill in, there is no icon on the right.   | string       | -       |
 | style         | Style                                                                                           | string       | -       |
 | title         | Title                                                                                           | string\|slot | -       |
 | type          | type, optional `default`, `error`, `primary`, `info`                                               | string       | default |
@@ -101,7 +109,7 @@ In `index.json` Introducing Components in
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                            | Default Value                                                                                                              | Dark Mode Default                                                                                                                      | Remarks             |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
