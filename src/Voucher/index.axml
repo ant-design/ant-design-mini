@@ -29,11 +29,12 @@
               {{item.desc}}
             </view>
           </view>
-
+          <!-- #if ALIPAY -->
           <slot name="voucher-action-area" item="{{item}}" index="{{index}}">
+          <!-- #endif -->
             <view class="voucher-action-area-default">
-              <image a:if="{{item.actionAreaInfo.imageUrl}}" mode="widthFix" src="{{item.actionAreaInfo.imageUrl}}"/>
-              <button
+              <image class="image" a:if="{{item.actionAreaInfo.imageUrl}}" mode="widthFix" src="{{item.actionAreaInfo.imageUrl}}"/>
+              <ant-button
                 a:else
                 disabled="{{item.actionAreaInfo.disabled}}"
                 inline
@@ -42,9 +43,11 @@
                 data-index="{{index}}"
                 onTap="handleBtnTap">
                 {{item.actionAreaInfo.text}}
-              </button>
+              </ant-button>
             </view>
+          <!-- #if ALIPAY -->
           </slot>
+          <!-- #endif -->
         </view>
       </view>
     </block>

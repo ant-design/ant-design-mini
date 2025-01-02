@@ -26,33 +26,33 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
 ```xml
-<result type="success" title="success" message="subtitle content" />
+<ant-result type="success" title="success" message="subtitle content" />
 
-<result type="wait" title="wait" message="subtitle content" />
+<ant-result type="wait" title="wait" message="subtitle content" />
 
-<result type="info" title="info" message="subtitle content" />
+<ant-result type="info" title="info" message="subtitle content" />
 
-<result type="warning" title="warning" message="subtitle content" />
+<ant-result type="warning" title="warning" message="subtitle content" />
 
-<result type="error" title="error" message="subtitle content" />
+<ant-result type="error" title="error" message="subtitle content" />
 ```
 
 ### Slot
 
 ```xml
-<result
+<ant-result
   image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
   <view slot="title">Title slot</view>
   <view slot="message">Describe the slot</view>
   <view slot="extra" class="extra">
     Other Modules
   </view>
-</result>
+</ant-result>
 ```
 
 ### Demo Code
@@ -75,7 +75,7 @@ In `index.json` Introducing Components in
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                   | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                |
 | ------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------- |

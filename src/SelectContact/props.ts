@@ -98,38 +98,29 @@ export interface ISelectContactProps extends IBaseProps {
   extParams?: Record<string, any>;
 
   /** 推荐人列表 */
-  recommendContactsList?: IContactUserInfo;
+  recommendContactsList?: IContactUserInfo[];
 
   /** 全部联系人列表 */
   allContactsList?: IContactInfo[];
+
+  /** 当前请求会话ID */
+  sessionId?: string;
 
   /** 选中联系人 */
   onSelect: (_params: IOnSelectParams) => void;
 
   /** 获取数据接口报错 */
   onError: (_e: any) => void;
-
-  /** 推荐列表为空时 */
-  onContactListEmpty: () => void;
-
-  /** 删除指定推荐联系人失败 */
-  onDeleteRecommendUserError: (_e: any) => void;
-
-  /** 删除好友成功 */
-  onDeleteRecommendUser: (_e: IContactInfo) => void;
-
-  /** 搜索用户 */
-  onSearchUser: (keyword: string) => void;
 }
 
 export const SelectContactDefaultProps: Partial<ISelectContactProps> = {
   className: '',
   height: '100%',
+  recommendContactsList: [],
+  allContactsList: [],
+  sessionId: '',
   /** 其他扩展参数 */
   extParams: {},
   onSelect: (e) => {},
   onError: (e) => {},
-  onContactListEmpty: () => {},
-  onDeleteRecommendUserError: (e) => {},
-  onDeleteRecommendUser: (keyword) => {},
 };

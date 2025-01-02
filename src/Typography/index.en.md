@@ -17,7 +17,7 @@ toc: content
 - `icon` properties can support `Icon` Components `type` property, you can also pass in the link address of the icon directly.
 - In disabled mode, you can pass in `onDisabledTap` Event, used to listen for the user's click on the text in the disabled state.
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 
@@ -34,7 +34,7 @@ toc: content
 | activeClassName             | Click to activate the style class.                                                  | string                         | -        |
 | style                       | Style                                                                | string                         | -        |
 | disabled                    | Disable                                                            | boolean                        | false    |
-| selectable                  | Can be selected                                                        | boolean                        | false    |
+| selectable                  | Whether it can be selected                                                        | boolean                        | false    |
 | fontWeight                  | Word weight, compatible with iOS, Android platform bold effect                              | `normal` \| `medium` \| `bold` | `normal` |
 | lineThrough                 | Add Strikethrough Style                                                      | boolean                        | false    |
 | underline                   | Add Underline Style                                                      | boolean                        | false    |
@@ -49,8 +49,8 @@ toc: content
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                       | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks         |
 | ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
-| --typography-container-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Typography container color |
+| --typography-container-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | typography container color |

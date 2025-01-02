@@ -40,9 +40,9 @@ export const componentList = [
       { name: 'Card', nameZN: '基础卡片', path: '/pages/Card/index' },
       { name: 'Avatar', nameZN: '头像', path: '/pages/Avatar/index' },
       {
-        name: 'IndexBarControl',
-        nameZN: '索引-控制',
-        path: '/pages/IndexBarControl/index',
+        name: 'IndexBar',
+        nameZN: '索引',
+        path: '/pages/IndexBar/index',
       },
       { name: 'Collapse', nameZN: '折叠面板', path: '/pages/Collapse/index' },
       { name: 'Grid', nameZN: '宫格', path: '/pages/Grid/index' },

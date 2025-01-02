@@ -31,28 +31,28 @@ toc: 'content'
 ### 基本使用
 
 ```xml
-<result type="success" title="success" message="subtitle content" />
+<ant-result type="success" title="success" message="subtitle content" />
 
-<result type="wait" title="wait" message="subtitle content" />
+<ant-result type="wait" title="wait" message="subtitle content" />
 
-<result type="info" title="info" message="subtitle content" />
+<ant-result type="info" title="info" message="subtitle content" />
 
-<result type="warning" title="warning" message="subtitle content" />
+<ant-result type="warning" title="warning" message="subtitle content" />
 
-<result type="error" title="error" message="subtitle content" />
+<ant-result type="error" title="error" message="subtitle content" />
 ```
 
 ### 插槽
 
 ```xml
-<result
+<ant-result
   image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
   <view slot="title">标题插槽</view>
   <view slot="message">描述插槽</view>
   <view slot="extra" class="extra">
     其他模块
   </view>
-</result>
+</ant-result>
 ```
 
 ### Demo 代码

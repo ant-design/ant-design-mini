@@ -9,7 +9,7 @@ toc: 'content'
 
 # Radio
 
-Make a single selection from a set of options.
+Single selection from a set of options.
 
 ## Introduction
 
@@ -28,7 +28,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -159,7 +159,7 @@ Page({
 | color                  | Icon Color           | string                                                                                             | -          |
 | disabled               | Disable           | boolean                                                                                            | false      |
 | defaultValue           | Initial value             | string                                                                                             | -          |
-| label                  | Slots, Receiving Values and Indexes | slot                                                                                               | -          |
+| label                  | slots, receiving values and indexes | slot                                                                                               | -          |
 | options                | Optional             | `{label?: string; value?: string; disabled?: boolean;}[]`                                          | -          |
 | position               | Layout mode           | string                                                                                             | `vertical` |
 | style                  | Style               | string                                                                                             | -          |

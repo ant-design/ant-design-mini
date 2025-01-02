@@ -57,7 +57,7 @@ Search and view the icon, click the icon to copy.
 | :------------------- | :----------------------- | :----------------- | :----- |
 | className            | Class Name                     | string             | -      |
 | style                | Style                     | string             | -      |
-| type                 | Types of icons               | string             | -      |
+| type                 | Types of Icons               | string             | -      |
 | #if ALIPAY catchTap  | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
 | #if ALIPAY onTap     | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
 | #if WECHAT catchtap | Callback function triggered when the icon is clicked | (e: Event) => void | -      |

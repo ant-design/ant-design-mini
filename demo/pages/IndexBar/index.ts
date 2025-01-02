@@ -1,3 +1,4 @@
+/// #if ALIPAY
 const nameMap = {
   'A': ['Alice', 'Andy', 'Amanda'],
   'B': ['Bob', 'Brian', 'Bella'],
@@ -26,10 +27,12 @@ const nameMap = {
   'Y': ['Yara', 'Yuri', 'Yvonne'],
   'Z': ['Zoe', 'Zach', 'Zane'],
 };
-
+/// #endif
 Page({
   data: {
+    /// #if ALIPAY
     nameMap,
+    /// #endif
     items: [],
     current: '',
   },
@@ -37,7 +40,9 @@ Page({
     // 异步获取数据
     setTimeout(() => {
       this.setData({
+        /// #if ALIPAY
         nameMap,
+        /// #endif
         items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((u) => {
           return { label: u, disablePreview: true };
         }),
@@ -45,8 +50,15 @@ Page({
       });
     }, 1000);
   },
-  onChange(item, index) {
+  onChange(...args) {
+    /// #if ALIPAY
+    const [item, index] = args;
     console.log(item, index);
     this.setData({ current: item.label });
+    /// #endif
+    /// #if WECHAT
+    console.log(...args[0].detail);
+    this.setData({ current: args[0].detail[0].label });
+    /// #endif
   },
 });

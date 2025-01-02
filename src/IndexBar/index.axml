@@ -1,7 +1,7 @@
 <view
   class="ant-indexbar-side {{className}}"
   disable-scroll="{{true}}"
-  style="{{{ width: `${size}px;` }}} {{style}}"
+  style="{{style}}"
   hover-stop-propagation>
   <view
     a:if="{{showMask}}"
@@ -15,11 +15,10 @@
       catchTouchEnd="onTouchEnd"
       data-item="{{item, index}}"
       id="{{'ant-alphabet-' + index}}"
-      style="{{{ width: `${size}px`, height: `${size}px` }}}">
+      style="width: {{size}}px; height: {{size}}px;">
       <view
-        style="{{{ width: `${size}px`, height: `${size}px` }}}"
-        class="ant-indexbar-side-item-default {{activeClassName}}
-        {{touchKey ? ((touchKey === item.label) ? 'ant-indexbar-side-active' : '') : (index === currentKey ? 'ant-indexbar-side-active' : '')}}">
+        style="width: {{size}}px; height: {{size}}px;"
+        class="ant-indexbar-side-item-default {{activeClassName}} {{touchKey ? ((touchKey === item.label) ? 'ant-indexbar-side-active' : '') : (index === currentKey ? 'ant-indexbar-side-active' : '')}}">
         {{item.label}}
       </view>
       <view
@@ -34,6 +33,8 @@
     </view>
   </view>
 </view>
+
+<!-- #if ALIPAY -->
 <scroll-view
   a:if="{{ hasDefaultSlot }}"
   scroll-y
@@ -49,3 +50,4 @@
       index="{{index}}" />
   </view>
 </scroll-view>
+<!-- #endif -->

@@ -1,60 +1,60 @@
 <view class="navigation-bar"/>
 
-<container title="成功状态">
-  <result
+<ant-container title="成功状态">
+  <ant-result
     title="操作成功"
     message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行"
     type="success" />
-</container>
+</ant-container>
 
-<container title="等待状态">
-  <result
+<ant-container title="等待状态">
+  <ant-result
     title="等待处理"
     message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行"
     type="wait" />
-</container>
+</ant-container>
 
-<container title="提示状态">
-  <result
+<ant-container title="提示状态">
+  <ant-result
     title="信息提示"
     message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行"
     type="info" />
-</container>
+</ant-container>
 
-<container title="警告状态">
-  <result
+<ant-container title="警告状态">
+  <ant-result
     title="警告提示"
     message="内容详情可折行，建议不超过两行建议不超过两行建议不超过两行"
     type="warning" />
-</container>
+</ant-container>
 
-<container title="失败状态">
-  <result
+<ant-container title="失败状态">
+  <ant-result
     title="无法完成操作"
     message="内容详情可折行，建议不超过两行\n建议不超过两行建议不超过两行"
     type="error" />
-</container>
+</ant-container>
 <!-- #if ALIPAY -->
-<container title="自定义-按钮">
-  <result
+<ant-container title="自定义-按钮">
+  <ant-result
     image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
     <view slot="title">标题插槽</view>
     <view slot="message">描述插槽</view>
     <view slot="extra" style="padding-top: 48rpx;">
-      <button type="primary">主要操作</button>
-      <button aide> 辅助操作 </button>
+      <ant-button type="primary">主要操作</ant-button>
+      <ant-button aide> 辅助操作 </ant-button>
     </view>
-  </result>
-</container>
+  </ant-result>
+</ant-container>
 
-<container title="自定义-模块">
-  <result
+<ant-container title="自定义-模块">
+  <ant-result
     image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">
     <view slot="title">标题插槽</view>
     <view slot="message">描述插槽</view>
     <view slot="extra" class="extra">
       其他模块
     </view>
-  </result>
-</container>
+  </ant-result>
+</ant-container>
 <!-- #endif -->

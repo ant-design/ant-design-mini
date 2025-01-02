@@ -1,8 +1,9 @@
+import equal from 'fast-deep-equal';
 import filter from 'lodash.filter';
 import get from 'lodash.get';
-import isEqual from 'lodash.isequal';
 import reduce from 'lodash.reduce';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
+import { Component, getValueFromProps } from '../_util/simply';
 import { RenderRuleProps, TableDefaultProps } from './props';
 
 const rpx2px = (rpx, windowWidth = 375) => {
@@ -16,31 +17,14 @@ const rpx2px = (rpx, windowWidth = 375) => {
 
 const defaultWidth = 150;
 
-Component({
-  sysInfo: Promise.resolve({} as any),
-  data: {
-    widthPx: 0,
-    list: [],
-    showFixedShadow: false,
-  },
-  props: TableDefaultProps,
-  onInit() {
-    this.init();
-  },
-  didUpdate(prevProps) {
-    const { dataSource: prevDataSource, columns: prevColumns } = prevProps;
-    const { dataSource, columns } = this.props;
-
-    if (
-      !isEqual(prevDataSource, dataSource) ||
-      !isEqual(prevColumns, columns)
-    ) {
-      this.init();
-    }
-  },
-  methods: {
+Component(
+  TableDefaultProps,
+  {
     async init() {
-      const { columns, dataSource } = this.props;
+      const [columns, dataSource] = getValueFromProps(this, [
+        'columns',
+        'dataSource',
+      ]);
       const { windowWidth } = await this.getSysInfo();
       const width = reduce(
         columns,
@@ -51,7 +35,6 @@ Component({
       );
       const columnsData = this.renderColumns(columns, windowWidth);
       const rowsData = this.renderRows(dataSource, windowWidth);
-
       this.setData({
         widthPx: rpx2px(width, windowWidth),
         list: [...columnsData, ...rowsData],
@@ -72,7 +55,7 @@ Component({
       ];
     },
     renderRows(dataSource, windowWidth, renderRule: RenderRuleProps = {}) {
-      const { columns } = this.props;
+      const columns = getValueFromProps(this, 'columns');
       const rowsData = dataSource.map((v, i) => {
         return {
           type: 'rows',
@@ -109,8 +92,14 @@ Component({
       return rowsData;
     },
     async handleSort(e) {
-      const { columns, dataSource } = this.props;
-      const { key, sorter, sorterStatus } = get(e, 'target.dataset.item');
+      const [columns, dataSource] = getValueFromProps(this, [
+        'columns',
+        'dataSource',
+      ]);
+      const { key, sorter, sorterStatus } = get(
+        e,
+        'currentTarget.dataset.item'
+      );
       const filterData = filter(columns, { key });
       const onSort = filterData && filterData[0] && filterData[0].onSort;
       const { windowWidth } = await this.getSysInfo();
@@ -156,4 +145,42 @@ Component({
       return this.sysInfo;
     },
   },
-});
+  {
+    widthPx: 0,
+    list: [],
+    showFixedShadow: false,
+  },
+  undefined,
+  {
+    sysInfo: Promise.resolve({} as any),
+    /// #if ALIPAY
+    onInit() {
+      this.init();
+    },
+    didUpdate(prevProps) {
+      const { dataSource: prevDataSource, columns: prevColumns } = prevProps;
+      const [columns, dataSource] = getValueFromProps(this, [
+        'columns',
+        'dataSource',
+      ]);
+
+      if (!equal(prevDataSource, dataSource) || !equal(prevColumns, columns)) {
+        this.init();
+      }
+    },
+    /// #endif
+    /// #if WECHAT
+    created() {
+      this.init();
+    },
+    observers: {
+      'dataSource': function () {
+        this.init();
+      },
+      'columns': function () {
+        this.init();
+      },
+    },
+    /// #endif
+  }
+);

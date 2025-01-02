@@ -31,14 +31,20 @@
 
   &-quick {
     display: flex;
-    gap: @h-spacing-mini;
 
+    .ant-postscript-quick-item:last-child {
+      margin-right: 0;
+    }
     &-item {
+      margin-right: @h-spacing-mini;
       flex-shrink: 0;
       padding: @h-spacing-small @h-spacing-standard;
       border-radius: @corner-radius-circle;
       font-size: @font-size-content;
       color: @postscript-quick-text-color;
+      /// #if WECHAT
+      height: fit-content;
+      /// #endif
       .hairline-radius(@postscript-quick-border-color, @corner-radius-circle);
 
       &:active {
@@ -47,4 +53,3 @@
     }
   }
 }
-

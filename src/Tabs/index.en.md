@@ -29,12 +29,12 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
 ```xml
-<tabs items="{{items}}" />
+<ant-tabs items="{{items}}" />
 ```
 
 ```js
@@ -66,44 +66,44 @@ Page({
 ### With content
 
 ```xml
-<tabs items="{{items}}">
+<ant-tabs items="{{items}}">
   <view class="content" slot-scope="item">
     {{item.value.content}}
   </view>
-</tabs>
+</ant-tabs>
 ```
 
 ### Capsule
 
 ```xml
-<tabs type="capsule" items="{{items}}" defaultCurrent="{{1}}"></tabs>
+<ant-tabs type="capsule" items="{{items}}" defaultCurrent="{{1}}"></ant-tabs>
 ```
 
 ### With subtitle
 
 ```xml
-<tabs type="mixin" items="{{items}}"></tabs>
+<ant-tabs type="mixin" items="{{items}}"></ant-tabs>
 ```
 
 ### With logo
 
 ```xml
-<tabs items="{{items}}">
+<ant-tabs items="{{items}}">
  <view
     slot="title"
     slot-scope="item">
     <view a:if="{{item.value.badge}}">
-      <badge>{{item.value.title}}</badge>
+      <ant-badge>{{item.value.title}}</ant-badge>
     </view>
     <view a:else>{{item.value.title}}</view>
   </view>
-</tabs>
+</ant-tabs>
 ```
 
 ### Disable state
 
 ```xml
-<tabs items="{{items}}" />
+<ant-tabs items="{{items}}" />
 ```
 
 ```js
@@ -135,17 +135,17 @@ Page({
 ### plus button
 
 ```xml
-<tabs items="{{items}}">
+<ant-tabs items="{{items}}">
   <view slot="plus">
-    <icon type="AddOutline" onTap="onPlus" />
+    <ant-icon type="AddOutline" onTap="onPlus" />
   </view>
-</tabs>
+</ant-tabs>
 ```
 
 ### Control mode
 
 ```xml
-<tabs
+<ant-tabs
   items="{{items}}"
   current="{{current}}"
 #if ALIPAY
@@ -157,10 +157,10 @@ Page({
 />
 ```
 
-### Center scroll after selection
+### Center Scroll After Selection
 
 ```xml
-<tabs items="{{items}}" scrollMode="center" />
+<ant-tabs items="{{items}}" scrollMode="center" />
 ```
 
 ### Swiper
@@ -211,7 +211,7 @@ Page({
 - Toggling the tab content scrolls to the very top.
 
 ```xml
- <tabs items="{{items}}" current="{{current}}" onChange="onChange" className="sticky-tabs" />
+ <ant-tabs items="{{items}}" current="{{current}}" onChange="onChange" className="sticky-tabs" />
 ```
 
 ```css
@@ -225,7 +225,7 @@ Page({
 ### Portrait mode
 
 ```xml
- <tabs
+ <ant-tabs
     items="{{items}}"
     current="{{current}}"
     onChange="onChange"
@@ -242,7 +242,7 @@ Page({
     >
       {{items[current].content}}
     </scroll-view>
-  </tabs>
+  </ant-tabs>
 ```
 
 ### Longitudinal elevator mode

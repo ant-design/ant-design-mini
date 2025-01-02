@@ -1,7 +1,7 @@
 <view class="navigation-bar"/>
 
-<list header="数字输入框示例">
-  <list-item>
+<ant-list header="数字输入框示例">
+  <ant-list-item>
     <view
       class="number-content {{ value ? '' : 'number-placeholder' }}"
       catchTap="onNumberFocus">
@@ -18,12 +18,12 @@
         class="number-light"
         style="{{ value ? 'position: static;' : 'position: absolute;' }}" />
     </view>
-  </list-item>
-  <number-keyboard
+  </ant-list-item>
+  <ant-number-keyboard
     visible="{{ visible }}"
     point="{{ false }}"
     closeable="{{ true }}"
     value="{{ value }}"
     onChange="onChange"
     onClose="onClose" />
-</list>
+</ant-list>

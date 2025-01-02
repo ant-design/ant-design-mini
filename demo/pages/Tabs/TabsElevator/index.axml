@@ -1,6 +1,6 @@
 <view class="navigation-bar"/>
 
-<tabs
+<ant-tabs
   items="{{ items }}"
   current="{{ current }}"
   onChange="onChange"
@@ -37,4 +37,4 @@
       </view>
     </block>
   </scroll-view>
-</tabs>
+</ant-tabs>

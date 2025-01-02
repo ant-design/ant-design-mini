@@ -34,7 +34,7 @@ toc: 'content'
 ### 基本使用
 
 ```xml
-<tabs items="{{items}}" />
+<ant-tabs items="{{items}}" />
 ```
 
 ```js
@@ -66,44 +66,44 @@ Page({
 ### 带有 content
 
 ```xml
-<tabs items="{{items}}">
+<ant-tabs items="{{items}}">
   <view class="content" slot-scope="item">
     {{item.value.content}}
   </view>
-</tabs>
+</ant-tabs>
 ```
 
 ### 胶囊
 
 ```xml
-<tabs type="capsule" items="{{items}}" defaultCurrent="{{1}}"></tabs>
+<ant-tabs type="capsule" items="{{items}}" defaultCurrent="{{1}}"></ant-tabs>
 ```
 
 ### 带副标题
 
 ```xml
-<tabs type="mixin" items="{{items}}"></tabs>
+<ant-tabs type="mixin" items="{{items}}"></ant-tabs>
 ```
 
 ### 带徽标
 
 ```xml
-<tabs items="{{items}}">
+<ant-tabs items="{{items}}">
  <view
     slot="title"
     slot-scope="item">
     <view a:if="{{item.value.badge}}">
-      <badge>{{item.value.title}}</badge>
+      <ant-badge>{{item.value.title}}</ant-badge>
     </view>
     <view a:else>{{item.value.title}}</view>
   </view>
-</tabs>
+</ant-tabs>
 ```
 
 ### 禁用状态
 
 ```xml
-<tabs items="{{items}}" />
+<ant-tabs items="{{items}}" />
 ```
 
 ```js
@@ -135,17 +135,17 @@ Page({
 ### plus 按钮
 
 ```xml
-<tabs items="{{items}}">
+<ant-tabs items="{{items}}">
   <view slot="plus">
-    <icon type="AddOutline" onTap="onPlus" />
+    <ant-icon type="AddOutline" onTap="onPlus" />
   </view>
-</tabs>
+</ant-tabs>
 ```
 
 ### 控制模式
 
 ```xml
-<tabs
+<ant-tabs
   items="{{items}}"
   current="{{current}}"
 #if ALIPAY
@@ -160,7 +160,7 @@ Page({
 ### 选择后居中滚动
 
 ```xml
-<tabs items="{{items}}" scrollMode="center" />
+<ant-tabs items="{{items}}" scrollMode="center" />
 ```
 
 ### Swiper
@@ -211,7 +211,7 @@ Page({
 - 切换 tab content 会滚动到最顶部。
 
 ```xml
- <tabs items="{{items}}" current="{{current}}" onChange="onChange" className="sticky-tabs" />
+ <ant-tabs items="{{items}}" current="{{current}}" onChange="onChange" className="sticky-tabs" />
 ```
 
 ```css
@@ -225,7 +225,7 @@ Page({
 ### 纵向模式
 
 ```xml
- <tabs
+ <ant-tabs
     items="{{items}}"
     current="{{current}}"
     onChange="onChange"
@@ -242,7 +242,7 @@ Page({
     >
       {{items[current].content}}
     </scroll-view>
-  </tabs>
+  </ant-tabs>
 ```
 
 ### 纵向电梯模式

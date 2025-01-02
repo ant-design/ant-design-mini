@@ -11,6 +11,6 @@
 
   "usingComponents": {
     "ant-postscript": "../../../src/Postscript/index",
-    "container": "../../../src/Container/index"
+    "ant-container": "../../../src/Container/index"
   }
 }

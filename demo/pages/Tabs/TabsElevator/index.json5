@@ -10,7 +10,6 @@
   /// #endif
 
   "usingComponents": {
-    "tabs": "../../../../src/Tabs/index",
-    "container": "../../../../src/Container/index"
+    "ant-tabs": "../../../../src/Tabs/index"
   }
 }
