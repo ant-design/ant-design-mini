@@ -2,6 +2,11 @@ export const componentList = [
   {
     type: '通用',
     list: [
+      {
+        name: 'Suggestion',
+        nameZN: '快捷指令',
+        path: '/pages/Suggestion/index',
+      },
       { name: 'Prompts', nameZN: 'Prompts', path: '/pages/Prompts/index' },
       { name: 'Button', nameZN: '按钮', path: '/pages/Button/index' },
       { name: 'Icon', nameZN: '图标', path: '/pages/Icon/index' },
@@ -11,11 +16,7 @@ export const componentList = [
   {
     type: '导航',
     list: [
-      {
-        name: 'Footer页脚',
-        nameZN: 'Footer页脚',
-        path: '/pages/Footer/index',
-      },
+      { name: 'Footer页脚', nameZN: 'Footer页脚', path: '/pages/Footer/index' },
       {
         name: 'TabBar',
         nameZN: 'TabBar底部标签栏',
@@ -39,11 +40,7 @@ export const componentList = [
     list: [
       { name: 'Card', nameZN: '基础卡片', path: '/pages/Card/index' },
       { name: 'Avatar', nameZN: '头像', path: '/pages/Avatar/index' },
-      {
-        name: 'IndexBar',
-        nameZN: '索引',
-        path: '/pages/IndexBar/index',
-      },
+      { name: 'IndexBar', nameZN: '索引', path: '/pages/IndexBar/index' },
       { name: 'Collapse', nameZN: '折叠面板', path: '/pages/Collapse/index' },
       { name: 'Grid', nameZN: '宫格', path: '/pages/Grid/index' },
       { name: 'List', nameZN: '列表', path: '/pages/List/index' },
@@ -183,7 +180,11 @@ export const componentList = [
         path: '/pages/SelectContact/index',
       },
       { name: 'Terms', nameZN: '协议', path: '/pages/Terms/index' },
-      { name: 'TermsFixed', nameZN: '固定底部协议', path: '/pages/Terms/Fixed/index' },
+      {
+        name: 'TermsFixed',
+        nameZN: '固定底部协议',
+        path: '/pages/Terms/Fixed/index',
+      },
     ],
   },
   {

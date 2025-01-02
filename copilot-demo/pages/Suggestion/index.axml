@@ -1,0 +1,32 @@
+<view class="navigation-bar"/>
+
+<ant-container title="基础用法">
+  <ant-suggestion
+    items="{{items1}}"
+    onSelect="handleSelect"
+  />
+</ant-container>
+
+<ant-container title="支持 ant-icon">
+  <ant-suggestion
+    items="{{items2}}"
+    onSelect="handleSelect"
+  />
+</ant-container>
+
+<!-- #if ALIPAY -->
+<ant-container title="插槽">
+  <ant-suggestion
+    items="{{items2}}"
+    onSelect="handleSelect"
+  >
+    <view slot-scope="prop" a:if="{{prop.index === 0}}">
+      <ant-icon type="PictureOutline"/>
+    </view>
+    <view slot-scope="prop" a:if="{{prop.item.value === 'suggestion'}}">
+      <ant-icon type="VideoOutline"/>
+    </view>
+  </ant-suggestion>
+</ant-container>
+<!-- #endif -->
+

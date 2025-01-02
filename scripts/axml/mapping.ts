@@ -195,4 +195,7 @@ export const wechatCustomMapping = {
   'ant-select-contact': {
     onSelect: 'bindselect',
   },
+  'ant-suggestion': {
+    onSelect: 'bindselect',
+  },
 };

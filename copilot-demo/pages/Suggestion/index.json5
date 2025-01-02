@@ -1,16 +1,17 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "Prompts",
+  "navigationBarTitleText": "Suggestion",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "Prompts",
+  "defaultTitle": "Suggestion",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
+    "ant-suggestion": "../../../src/Suggestion/index",
     "ant-container": "../../../src/Container/index",
-    "ant-prompts": "../../../src/Prompts/index"
+    "ant-icon": "../../../src/Icon/index"
   }
 }

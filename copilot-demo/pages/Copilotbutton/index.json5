@@ -1,14 +1,16 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "Copilotbutton",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "",
+  "defaultTitle": "Copilotbutton",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
-    "copilot-button": "../../../src/Copilotbutton/index"
+    "ant-copilot-button": "../../../src/Copilotbutton/index"
   },
   "transparentTitle": "always"
 }
