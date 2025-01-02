@@ -83,7 +83,7 @@ Component(
     /// #if WECHAT
     observers: {
       'visible': function (nextProps) {
-        const { visible, duration, animation } = nextProps;
+        const { visible, duration, animation } = this.data;
         const enableAnimation = animation && duration > 0;
         if (enableAnimation && !visible && !this.data.closing) {
           this.setData({ closing: true });
