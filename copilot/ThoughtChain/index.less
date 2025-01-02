@@ -1,0 +1,93 @@
+@import (reference) './variable.less';
+
+@buttonPrefix: ant-copilot-thoughtchain;
+
+.@{buttonPrefix} {
+  &-node {
+    margin-bottom: 36rpx;
+
+    &-title {
+      display: flex;
+      align-items: flex-start;
+      line-height: 44rpx;
+
+      &-fail,
+      &-success {
+        font-size: 32rpx;
+        color: #00000073;
+      }
+
+      &-fail,
+      &-success,
+      &-loading {
+        margin-top: 6rpx;
+      }
+
+      &-text {
+        color: #00000073;
+        margin-left: 25rpx;
+        font-size: 28rpx;
+        .ant-icon {
+          margin-left: 24rpx;
+        }
+      }
+    }
+
+    &-content {
+      padding-left: 58rpx;
+      margin-top: 18rpx;
+
+      &-text,
+      &-link {
+        color: #000000;
+        font-size: 24rpx;
+
+        &-item {
+          line-height: 40rpx;
+          margin-bottom: 16rpx;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &-link {
+        color: #1677ff;
+      }
+
+      &-tag {
+        display: flex;
+        flex-flow: wrap;
+        &-item {
+          background: #0000000a;
+          border-radius: 12rpx;
+          font-size: 24rpx;
+          color: #000000a6;
+          line-height: 40rpx;
+          padding: 8rpx 24rpx;
+          margin-right: 16rpx;
+          margin-bottom: 8rpx;
+        }
+      }
+    }
+
+    &-secondlevel {
+      background-color: #00000009;
+      border-radius: 24rpx;
+      margin-top: 24rpx;
+      padding: 24px;
+    }
+
+    &.secondLevel {
+      .@{buttonPrefix}-node-title {
+
+        &-fail,
+        &-success,
+        &-text {
+          color: #000000;
+        }
+      }
+    }
+  }
+}

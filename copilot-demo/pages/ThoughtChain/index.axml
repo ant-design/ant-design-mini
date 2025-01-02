@@ -1,0 +1,14 @@
+<view class="navigation-bar" />
+
+<ant-container title="基础用法">
+  <thought-chain list="{{basicList}}" onContentItemTap="onContentItemTap" />
+</ant-container>
+<ant-container title="自定义节点内容">
+  <thought-chain list="{{customList}}" onContentItemTap="onContentItemTap">
+    <view slot="content" slot-scope="props">
+      <view a:if="{{props.contentType === 'customType'}}" style="color: red">
+        customType: {{props.content}}
+      </view>
+    </view>
+  </thought-chain>
+</ant-container>

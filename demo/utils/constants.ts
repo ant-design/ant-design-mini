@@ -3,6 +3,7 @@ export const componentList = [
     type: '通用',
     list: [
       { name: 'Prompts', nameZN: 'Prompts', path: '/pages/Prompts/index' },
+      { name: 'ThoughtChain', nameZN: '思考链', path: '/pages/ThoughtChain/index' },
       { name: 'Button', nameZN: '按钮', path: '/pages/Button/index' },
       { name: 'Icon', nameZN: '图标', path: '/pages/Icon/index' },
       { name: 'Sticky', nameZN: '黏性吸附', path: '/pages/Sticky/index' },

@@ -4,11 +4,12 @@
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "",
+  "defaultTitle": "ThoughtChain 组件",
   /// #endif
 
   "usingComponents": {
-    "copilot-button": "../../../src/Copilotbutton/index"
+    "ant-container": "../../../src/Container/index",
+    "thought-chain": "../../../src/ThoughtChain/index"
   },
   "transparentTitle": "always"
 }
