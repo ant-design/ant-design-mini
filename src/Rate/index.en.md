@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -63,7 +63,7 @@ Page({
 
 ### Controlled Mode
 
-> `value` property and `change` Events, cooperation can achieve a controlled mode. Here's the example through `ant-stepper` Component change `value` Status,`ant-rate` Components `value` States can also change together.
+> `value` property and `change` event, cooperation can achieve a controlled mode. Here's the example through `ant-stepper` Component Change `value` Status,`ant-rate` Components `value` States can also change together.
 
 ```xml
 <ant-rate

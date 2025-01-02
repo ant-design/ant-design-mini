@@ -23,19 +23,19 @@ toc: 'content'
 "usingComponents": {
 #if ALIPAY
   "ant-skeleton": "antd-mini/es/Skeleton/index",
-  "skeleton-avatar": "antd-mini/es/Skeleton/Avatar/index",
-  "skeleton-title": "antd-mini/es/Skeleton/Title/index",
-  "skeleton-button": "antd-mini/es/Skeleton/Button/index",
-  "skeleton-paragraph": "antd-mini/es/Skeleton/Paragraph/index",
-  "skeleton-input": "antd-mini/es/Skeleton/Input/index",
+  "ant-skeleton-avatar": "antd-mini/es/Skeleton/Avatar/index",
+  "ant-skeleton-title": "antd-mini/es/Skeleton/Title/index",
+  "ant-skeleton-button": "antd-mini/es/Skeleton/Button/index",
+  "ant-skeleton-paragraph": "antd-mini/es/Skeleton/Paragraph/index",
+  "ant-skeleton-input": "antd-mini/es/Skeleton/Input/index",
 #endif
 #if WECHAT
   "ant-skeleton": "antd-mini/Skeleton/index",
-  "skeleton-avatar": "antd-mini/Skeleton/Avatar/index",
-  "skeleton-title": "antd-mini/Skeleton/Title/index",
-  "skeleton-button": "antd-mini/Skeleton/Button/index",
-  "skeleton-paragraph": "antd-mini/Skeleton/Paragraph/index",
-  "skeleton-input": "antd-mini/Skeleton/Input/index",
+  "ant-skeleton-avatar": "antd-mini/Skeleton/Avatar/index",
+  "ant-skeleton-title": "antd-mini/Skeleton/Title/index",
+  "ant-skeleton-button": "antd-mini/Skeleton/Button/index",
+  "ant-skeleton-paragraph": "antd-mini/Skeleton/Paragraph/index",
+  "ant-skeleton-input": "antd-mini/Skeleton/Input/index",
 #endif
 }
 ```
@@ -45,36 +45,36 @@ toc: 'content'
 ### 基本使用
 
 ```xml
-<skeleton animate="{{true}}" />
+<ant-skeleton animate="{{true}}" />
 ```
 
 ### 带头像
 
 ```xml
-<skeleton avatar="{{true}}" />
+<ant-skeleton avatar="{{true}}" />
 ```
 
 ### 自定义组合
 
 ```xml
-<skeleton-avatar />
-<skeleton-paragraph rows="{{1}}" />
-<skeleton-input />
-<skeleton-input />
-<skeleton-input />
-<skeleton-button size="small" />
+<ant-skeleton-avatar />
+<ant-skeleton-paragraph rows="{{1}}" />
+<ant-skeleton-input />
+<ant-skeleton-input />
+<ant-skeleton-input />
+<ant-skeleton-button size="small" />
 ```
 
 ### 复杂组合
 
 ```xml
-<skeleton
+<ant-skeleton
   loading="{{showLoading}}"
   title="{{false}}"
   avatar="{{true}}"
   paragraph="{{paragraph}}">
   <view class="container">
-    <avatar
+    <ant-avatar
       src="https://images.unsplash.com/photo-1546967191-fdfb13ed6b1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" />
     <view class="content">
         We supply a series of design principles, practical patterns and high
@@ -82,7 +82,7 @@ toc: 'content'
         beautifully and efficiently.
     </view>
   </view>
-</skeleton>
+</ant-skeleton>
 ```
 
 ### Demo 代码

@@ -13,6 +13,6 @@
     "ant-input": "../../../src/Input/index",
     "ant-textarea": "../../../src/Input/Textarea/index",
     "ant-icon": "../../../src/Icon/index",
-    "container": "../../../src/Container/index"
+    "ant-container": "../../../src/Container/index"
   }
 }

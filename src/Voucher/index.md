@@ -100,7 +100,7 @@ Page({
 ### 插槽
 
 ```xml
-<voucher
+<ant-voucher
   size="small"
   dataSource="{{dataSource}}"
 >
@@ -110,7 +110,7 @@ Page({
   >
     已过期
   </view>
-</voucher>
+</ant-voucher>
 ```
 
 ### Demo 代码

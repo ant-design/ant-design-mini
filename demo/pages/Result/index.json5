@@ -10,8 +10,8 @@
   /// #endif
 
   "usingComponents": {
-    "result": "../../../src/Result/index",
-    "button": "../../../src/Button/index",
-    "container": "../../../src/Container/index"
+    "ant-result": "../../../src/Result/index",
+    "ant-button": "../../../src/Button/index",
+    "ant-container": "../../../src/Container/index"
   }
 }

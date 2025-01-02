@@ -11,6 +11,6 @@
 
   "usingComponents": {
     "ant-number-input": "../../../src/NumberInput/index",
-    "container": "../../../src/Container/index"
+    "ant-container": "../../../src/Container/index"
   }
 }

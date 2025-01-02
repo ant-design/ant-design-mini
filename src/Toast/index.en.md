@@ -83,10 +83,10 @@ Page({
 | className             | Component root node class name                                                    | string      | -      |
 | content               | Text content                                                          | string      | -      |
 | duration              | Duration, does not automatically close when 0                                     | number      | 2000   |
-| maskCloseable         | Click whether the mask is closed                                                  | boolean     | false  |
+| maskCloseable         | Click whether the layer is closed                                                  | boolean     | false  |
 | icon                  | Icon, supports all types of Icon components                                     | string      | -      |
 | image                 | Picture Link                                                          | string      | -      |
-| maskStyle             | Masked Style                                                          | string      | -      |
+| maskStyle             | Mask Style                                                          | string      | -      |
 | showMask              | Whether to show the layer                                                      | boolean     | false  |
 | style                 | Style                                                              | string      | -      |
 | type                  | Built-in icon type, optional `success` `error` `warning` `loading` `alipay` | string      | -      |

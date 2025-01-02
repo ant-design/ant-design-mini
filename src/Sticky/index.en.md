@@ -8,7 +8,7 @@ toc: 'content'
 ---
 
 # Sticky
-Used in the case of the need for adsorption in some places in the rolling.
+Used in cases where it is necessary to adsorb in some places during rolling.
 
 ## Precautions
 

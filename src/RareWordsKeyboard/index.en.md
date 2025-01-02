@@ -32,16 +32,16 @@ The problem of rare characters has always been a difficult point in the society.
 | safeArea               | Whether to keep safe distance                      | boolean                   | true   |
 | #if ALIPAY onClose     | Callback triggered when keyboard is closed                  | `() => void`              | -      |
 | #if ALIPAY onChange    | Callback triggered when input completes                  | `(value: string) => void` | -      |
-| #if ALIPAY onError     | Open callback triggered when keyboard error occurs              | `(err: Error) => void`    | -      |
+| #if ALIPAY onError     | Open the callback that is triggered when the keyboard goes wrong              | `(err: Error) => void`    | -      |
 | #if WECHAT bindclose  | Callback triggered when keyboard is closed                  | `() => void`              | -      |
 | #if WECHAT bindchange | Callback triggered when input completes                  | `(value: string) => void` | -      |
-| #if WECHAT binderror  | Open callback triggered when keyboard error occurs              | `(err: Error) => void`    | -      |
+| #if WECHAT binderror  | Open the callback that is triggered when the keyboard goes wrong              | `(err: Error) => void`    | -      |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                        | Default Value                                                                                                                    | Dark Mode Default                                                                                                            | Remarks               |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------ |

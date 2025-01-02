@@ -1,6 +1,6 @@
 <view class="navigation-bar"/>
 
-<container title="带有border">
+<ant-container title="带有border">
   <ant-input
     className="custom"
     placeholder="请输入内容"
@@ -22,9 +22,9 @@
     className="custom"
     placeholder="请输入内容"
     onChange="onChange" />
-</container>
+</ant-container>
 
-<container title="自定义背景颜色">
+<ant-container title="自定义背景颜色">
   <ant-input
     className="custom-color"
     placeholder="请输入内容"
@@ -34,20 +34,20 @@
     className="custom-color"
     placeholder="请输入内容"
     onChange="onChange" />
-</container>
+</ant-container>
 <!-- #if ALIPAY -->
 <!-- 微信不支持  placeholderClassName -->
-<container title="自定义 placeholderClassName">
+<ant-container title="自定义 placeholderClassName">
   <ant-input
     placeholderClassName="placeholder"
     placeholder="请输入内容"
     onChange="onChange" />
-</container>
+</ant-container>
 <!-- #endif -->
 
-<container title="自定义 placeholderStyle">
+<ant-container title="自定义 placeholderStyle">
   <ant-input
     placeholderStyle="color: red;"
     placeholder="请输入内容"
     onChange="onChange" />
-</container>
+</ant-container>

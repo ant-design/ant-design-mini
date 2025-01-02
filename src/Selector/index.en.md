@@ -46,7 +46,7 @@ In `index.json` Introducing Components in
 
 ### Limit the number of selections
 
-> `maxSelectedCount`、`minSelectedCount` property can limit the number of selections,`selectMax`、`selectMin` Event is triggered when the limit is exceeded.
+> `maxSelectedCount`、`minSelectedCount` attribute can limit the number of selections,`selectMax`、`selectMin` Event is triggered when the limit is exceeded.
 
 ```xml
 <ant-selector
@@ -177,7 +177,7 @@ Page({
 | className                 | Class Name                                                    | string                                                                                                                                                                                                                                   | -      |
 | defaultValue              | The default selection item, when multiple selection type is array                            | string \| number \| string[] \| number[]                                                                                                                                                                                                 | -      |
 | disabled                  | Whether the whole is disabled                                            | boolean                                                                                                                                                                                                                                  | false  |
-| maxSelectedCount          | Maximum number of options                                      | number                                                                                                                                                                                                                                   | -      |
+| maxSelectedCount          | Maximum Number of Optional Items                                      | number                                                                                                                                                                                                                                   | -      |
 | minSelectedCount          | Number of minimum selectable items                                      | number                                                                                                                                                                                                                                   | -      |
 | multiple                  | Whether to allow multi-selection, the current radio/multi-selection status will be displayed when the tab bar is displayed. | boolean                                                                                                                                                                                                                                  | false  |
 | options                   | Option Data Source                                              | [SelectorItem](#selectoritem)[]                                                                                                                                                                                                          | []     |

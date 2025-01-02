@@ -86,7 +86,7 @@ Page({
 
 ### Hover Tip
 
-> Incoming `showTooltip` Property, you can display a hovering hint when dragging.
+> Incoming `showTooltip` Property, you can display a hovering prompt when dragging.
 
 ```xml
 <ant-slider defaultValue="{{80}}" showTooltip />
@@ -100,7 +100,7 @@ Page({
 
 ### Controlled Mode
 
-> `value` property and `change` event, cooperation can achieve a controlled mode. Here's the example through `ant-stepper` Component change `value` Status,`ant-slider` Components `value` States can also change together.
+> `value` property and `change` event, cooperation can achieve a controlled mode. Here's the example through `ant-stepper` Component Change `value` Status,`ant-slider` Components `value` States can also change together.
 
 ```xml
 <ant-slider
