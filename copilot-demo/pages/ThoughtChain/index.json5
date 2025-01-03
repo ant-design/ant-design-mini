@@ -1,6 +1,6 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "Copilotbutton",
   /// #endif
 
   /// #if ALIPAY

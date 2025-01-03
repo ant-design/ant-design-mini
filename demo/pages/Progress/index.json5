@@ -11,7 +11,7 @@
 
   "usingComponents": {
     "ant-button": "../../../src/Button/index",
-    "progress": "../../../src/Progress/index",
-    "container": "../../../src/Container/index"
+    "ant-progress": "../../../src/Progress/index",
+    "ant-container": "../../../src/Container/index"
   }
 }

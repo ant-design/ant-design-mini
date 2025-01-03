@@ -1,17 +1,21 @@
-import { PostscriptProps } from './props';
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { PostscriptProps } from './props';
 
 Component(
   PostscriptProps,
   {
     checkMaxLength(value) {
-      const maxLength = Number(getValueFromProps(this, 'maxLength'));
-      if (value.length > maxLength) {
+      const maxLength = Number(getValueFromProps(this, 'maxLength') || -1);
+      if (maxLength !== -1 && value.length > maxLength) {
         return value.slice(0, maxLength);
       }
       return value;
     },
-    handleInput(value) {
+    handleInput(val) {
+      let value = val;
+      /// #if WECHAT
+      value = val.detail;
+      /// #endif
       this.setData({ content: value });
       triggerEvent(this, 'change', value);
     },
@@ -19,14 +23,18 @@ Component(
     handleQuickInput(e) {
       const { value } = e.currentTarget.dataset;
       const combineSymbol = getValueFromProps(this, 'combineSymbol');
-      const result = this.checkMaxLength(combineSymbol
-        ? `${this.data.content? `${this.data.content}${combineSymbol}` : ''}${value}`
-        : value);
+      const result = this.checkMaxLength(
+        combineSymbol
+          ? `${
+              this.data.content ? `${this.data.content}${combineSymbol}` : ''
+            }${value}`
+          : value
+      );
       this.setData({ content: result });
       triggerEvent(this, 'change', result);
-    }
+    },
   },
   {
-    content: ''
+    content: '',
   }
 );

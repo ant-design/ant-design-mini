@@ -1,44 +1,44 @@
 <view class="navigation-bar"/>
 
 <ant-container title="基础用法">
-  <prompts 
-    list="{{ baseList }}" 
+  <ant-prompts
+    list="{{ baseList }}"
     promptsTitle="{{ promptsTitle }}"
     onTapPromptsItem="onTapPromptsItem"  />
 </ant-container>
 
 <ant-container title="有箭头">
-  <prompts 
-    list="{{ arrowList }}" 
+  <ant-prompts
+    list="{{ arrowList }}"
     promptsTitle="{{ promptsTitle }}"
     onTapPromptsItem="onTapPromptsItem"  />
 </ant-container>
 
 <ant-container title="样式覆盖">
-  <prompts 
-    list="{{ styleList }}" 
+  <ant-prompts
+    list="{{ styleList }}"
     className="customizeStyle"
     promptsTitle="{{ promptsTitle }}"
     onTapPromptsItem="onTapPromptsItem"  />
 </ant-container>
 
 <ant-container title="自定义提示标题">
-  <prompts 
-    list="{{ arrowList }}" 
+  <ant-prompts
+    list="{{ arrowList }}"
     onTapPromptsItem="onTapPromptsItem">
     <view slot="prompts-title" class="customize-prompts-title">
       自定义提示标题:
     </view>
-  </prompts>
+  </ant-prompts>
 </ant-container>
 
 <ant-container title="自定义提示项">
-  <prompts 
-    list="{{ baseList }}" 
+  <ant-prompts
+    list="{{ baseList }}"
     onTapPromptsItem="onTapPromptsItem">
     <view slot="prompts-item" slot-scope="props" class="customize-prompts-item">
       自定义提示项：{{ props.item.title }}
     </view>
-  </prompts>
+  </ant-prompts>
 </ant-container>
 

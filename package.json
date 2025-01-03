@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。",
   "miniprogram": "compiled/wechat/src",
   "scripts": {
@@ -38,7 +38,6 @@
     "fast-deep-equal": "3.1.3",
     "lodash.filter": "^4.6.0",
     "lodash.get": "^4.4.2",
-    "lodash.isequal": "^4.5.0",
     "lodash.isfunction": "^3.0.9",
     "lodash.kebabcase": "^4.1.1",
     "lodash.reduce": "^4.6.0",

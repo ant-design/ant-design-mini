@@ -16,7 +16,7 @@ List of functional extensions. Show hidden function menus by sliding.
 1. The component's parent container must have width and height set.
 2. The sum of the widths of the sliding buttons on both sides must be the same.
 3. When elasticity is set to false, a smaller damping value provides a better experience.
-4. The second confirmation of the sliding on each side will only trigger the first one, the others will not trigger.
+4. The second confirmation of the sliding on each side will only trigger the first one, and the others will not trigger.
 5. It is recommended to use it in applets of the basic library 2.0.1.0 versions (such as DingTalk applets) have defects in sliding experience (lack of sliding transition effect after touchend).
 
 ## Introduction
@@ -35,7 +35,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic Usage
 
@@ -66,7 +66,7 @@ In `index.json` Introducing Components in
     onSwipeEnd="onSwipeEnd"
     onSwipeStart="onSwipeStart"
     onButtonTap="onButtonTap">
-  <view>Right side-three buttons</view>
+  <view>Right-three buttons</view>
 </ant-swipe-action>
 ```
 

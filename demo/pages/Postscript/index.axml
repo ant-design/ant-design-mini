@@ -1,45 +1,45 @@
 <view class="navigation-bar"/>
 
-<container title="基础用法">
+<ant-container title="基础用法">
   <ant-postscript
     title="转账备注"
     quickInputs="{{quickInputs}}"
     onChange="handleChange"
   />
-</container>
+</ant-container>
 
-<container title="连接快速输入">
+<ant-container title="连接快速输入">
   <ant-postscript
     title="拼接快速输入"
     placeholder="点击快速输入试试"
     quickInputs="{{quickInputs}}"
     combineSymbol="+"
-    onChange="handleChange2"
+    onChange="handleChange"
   />
-</container>
+</ant-container>
 
-<container title="无标题">
+<ant-container title="无标题">
   <ant-postscript
     quickInputs="{{quickInputs2}}"
     combineSymbol=" "
-    onChange="handleChange3"
+    onChange="handleChange"
   />
-</container>
+</ant-container>
 
-<container title="最长输入限制">
+<ant-container title="最长输入限制">
   <ant-postscript
     maxLength="10"
     title="转账备注"
     placeholder="最长输入10个字"
-    onChange="handleChange4"
+    onChange="handleChange"
   />
-</container>
+</ant-container>
 
-<container title="自定义样式">
+<ant-container title="自定义样式">
   <ant-postscript
     className="custom-postscript"
     title="转账备注"
     quickInputs="{{quickInputs}}"
-    onChange="handleChange5"
+    onChange="handleChange"
   />
-</container>
+</ant-container>

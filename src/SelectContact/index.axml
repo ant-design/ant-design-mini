@@ -51,29 +51,17 @@
               class="contact-recommend"
               key="{{item.userId}}"
             >
-              <swipe-action
-                right="{{right}}"
-                swiped="{{item.userId === currentSelectedDeleteUID}}"
-                key="{{item.userId}}"
-                callbackData="{{item}}"
-                outOfBounds="{{false}}"
-                inertiaWidth="{{0}}"
-                onSwipeEnd="onSwipeEnd"
-                onSwipeStart="onSwipeStart"
-                onRightItemEvent="onRightItemEvent"
+              <list-item
+                image="{{ item.avatar || 'https://gw.alipayobjects.com/zos/bmw-prod/84a917f8-0279-49c9-82e5-4effc58c4c85.svg' }}"
+                upperSubtitle="{{ item.loginId }}"
+                arrow="{{ true }}"
+                data-item="{{ item }}"
+                data-personSource="{{ list.personSource }}"
+                onTap="onItemClick"
               >
-                <list-item
-                  image="{{ item.avatar || 'https://gw.alipayobjects.com/zos/bmw-prod/84a917f8-0279-49c9-82e5-4effc58c4c85.svg' }}"
-                  upperSubtitle="{{ item.loginId }}"
-                  arrow="{{ true }}"
-                  data-item="{{ item }}"
-                  data-personSource="{{ list.personSource }}"
-                  onClick="onItemClick"
-                >
-                  {{ item.displayName }}
-                  <view a:if="{{ item.tag }}" class="tag" slot="afterTitle">{{ item.tag }}</view>
-                </list-item>
-              </swipe-action>
+                {{ item.displayName }}
+                <view a:if="{{ item.tag }}" class="tag" slot="afterTitle">{{ item.tag }}</view>
+              </list-item>
             </view>
             <!-- 全部联系人列表 -->
             <view a:for="{{ allContactsList }}" a:for-item="list" key="{{list}}">
@@ -89,7 +77,7 @@
                   arrow="{{ true }}"
                   data-item="{{ item }}"
                   data-personSource="{{ list.personSource }}"
-                  onClick="onItemClick"
+                  onTap="onItemClick"
                 >
                   {{ item.displayName }}
                   <view a:if="{{ item.tag }}" class="tag" slot="afterTitle">{{ item.tag }}</view>
@@ -103,7 +91,7 @@
     </block>
 
     <!-- 索引表 -->
-    <alphabet alphabet="{{alphabet}}" onScrollIntoView="onScrollIntoView" />
+    <alphabet alphabet="{{alphabet}}" onScrollIntoView="{{onScrollIntoView ? onScrollIntoView : 'onScrollIntoView'}}" />
   </view>
 
   <!-- 搜索状态 -->

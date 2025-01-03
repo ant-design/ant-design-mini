@@ -1,14 +1,14 @@
 <view class="navigation-bar"/>
 
-<container title="基础用法">
+<ant-container title="基础用法">
   <ant-number-input
     title="输入金额"
     value="{{value1}}"
     onChange="handleChange1"
   />
-</container>
+</ant-container>
 
-<container title="快捷输入">
+<ant-container title="快捷输入">
   <ant-number-input
     title="提现金额"
     linkText="交易明细"
@@ -17,9 +17,9 @@
     onChange="handleChange2"
     onLinkTap="handleLinkTap"
   />
-</container>
+</ant-container>
 
-<container title="自定义slot">
+<ant-container title="自定义slot">
   <ant-number-input
     title="提现金额"
     value="{{value3}}"
@@ -29,4 +29,4 @@
   >
     <view slot="footer">剩余额度：{{maxValue}} <text class="link-text" onTap="handleAllWithdraw">全部提现</text></view>
   </ant-number-input>
-</container>
+</ant-container>

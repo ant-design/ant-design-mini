@@ -1,63 +1,63 @@
 <view class="navigation-bar"/>
 
-<container title="基础用法">
-  <tabs items="{{ items }}" />
-</container>
+<ant-container title="基础用法">
+  <ant-tabs items="{{ items }}" />
+</ant-container>
 <!-- #if ALIPAY -->
-<container title="带有content">
-  <tabs items="{{ items }}">
+<ant-container title="带有content">
+  <ant-tabs items="{{ items }}">
     <view class="content" slot-scope="item">
       {{ item.value.content }}
     </view>
-  </tabs>
-</container>
+  </ant-tabs>
+</ant-container>
 <!-- #endif -->
-<container title="胶囊">
-  <tabs type="capsule" items="{{ items }}" defaultCurrent="{{ 1 }}" />
-</container>
+<ant-container title="胶囊">
+  <ant-tabs type="capsule" items="{{ items }}" defaultCurrent="{{ 1 }}" />
+</ant-container>
 
-<container title="带副标题">
-  <tabs type="mixin" items="{{ items }}" />
-</container>
+<ant-container title="带副标题">
+  <ant-tabs type="mixin" items="{{ items }}" />
+</ant-container>
 <!-- #if ALIPAY -->
-<container title="带徽标">
-  <tabs items="{{ items }}">
+<ant-container title="带徽标">
+  <ant-tabs items="{{ items }}">
     <view slot="title" slot-scope="item">
       <view a:if="{{ item.value.badge }}">
-        <badge>{{ item.value.title }}</badge>
+        <ant-badge>{{ item.value.title }}</ant-badge>
       </view>
       <view a:else>{{ item.value.title }}</view>
     </view>
-  </tabs>
-</container>
+  </ant-tabs>
+</ant-container>
 <!-- #endif -->
-<container title="禁用状态">
-  <tabs items="{{ items2 }}" />
-</container>
-<container title="onChange">
-  <tabs items="{{ items }}" onChange="onChange" />
-</container>
-<container title="plus按钮">
-  <tabs items="{{ items }}">
+<ant-container title="禁用状态">
+  <ant-tabs items="{{ items2 }}" />
+</ant-container>
+<ant-container title="onChange">
+  <ant-tabs items="{{ items }}" onChange="onChange" />
+</ant-container>
+<ant-container title="plus按钮">
+  <ant-tabs items="{{ items }}">
     <view slot="plus">
-      <icon type="AddOutline" onTap="onPlus" />
+      <ant-icon type="AddOutline" onTap="onPlus" />
     </view>
-  </tabs>
-</container>
-<container title="控制模式">
-  <tabs items="{{ items }}" current="{{ current }}" onChange="handleChange" />
-</container>
-<container title="content在外层自定义123">
-  <tabs items="{{ items }}" current="{{ current }}" onChange="handleChange" />
+  </ant-tabs>
+</ant-container>
+<ant-container title="控制模式">
+  <ant-tabs items="{{ items }}" current="{{ current }}" onChange="handleChange" />
+</ant-container>
+<ant-container title="content在外层自定义123">
+  <ant-tabs items="{{ items }}" current="{{ current }}" onChange="handleChange" />
   <view class="content">{{ items[current].content }}</view>
-</container>
+</ant-container>
 
-<container title="受控模式">
-  <tabs items="{{ items3 }}" current="{{ current }}" onChange="onChange">
+<ant-container title="受控模式">
+  <ant-tabs items="{{ items3 }}" current="{{ current }}" onChange="onChange">
     <view class="content">{{ items3[current].content }}</view>
-  </tabs>
+  </ant-tabs>
 
-  <view class="container">
+  <view class="ant-container">
     current: {{ current }} length: {{ items3.length }}
   </view>
 
@@ -76,13 +76,13 @@
     </ant-button>
   </view>
 
-</container>
-<container title="选择后居中滚动">
-  <tabs items="{{ items3 }}" scrollMode="center" />
-</container>
+</ant-container>
+<ant-container title="选择后居中滚动">
+  <ant-tabs items="{{ items3 }}" scrollMode="center" />
+</ant-container>
 
-<container title="Swiper">
-  <tabs items="{{ items }}" current="{{ current }}" onChange="onChange">
+<ant-container title="Swiper">
+  <ant-tabs items="{{ items }}" current="{{ current }}" onChange="onChange">
     <swiper
       current="{{ current }}"
       autoplay="{{ false }}"
@@ -96,12 +96,12 @@
         </swiper-item>
       </block>
     </swiper>
-  </tabs>
+  </ant-tabs>
 
-</container>
+</ant-container>
 
-<container title="纵向模式">
-  <tabs
+<ant-container title="纵向模式">
+  <ant-tabs
     items="{{ items }}"
     current="{{ current }}"
     onChange="onChange"
@@ -118,5 +118,5 @@
     >
       {{ items[current].longContent }}
     </scroll-view>
-  </tabs>
-</container>
+  </ant-tabs>
+</ant-container>

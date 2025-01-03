@@ -1,15 +1,16 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "Prompts",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "Prompts 组件",
+  "defaultTitle": "Prompts",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
     "ant-container": "../../../src/Container/index",
-    "prompts": "../../../src/Prompts/index"
-  },
-  "transparentTitle": "always"
+    "ant-prompts": "../../../src/Prompts/index"
+  }
 }

@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -203,9 +203,9 @@ Page({
 | style                         | outermost style string                                                                                                                                                  | string                               | -            |
 | popoverType                   | Bootstrap style for bubble feedback                                                                                                                                                  | 'circle' \| 'default'                | -            |
 | autoAdjustOverflow            | Whether bubble position is adaptive                                                                                                                                                  | boolean                              | true         |
-| #if ALIPAY onVisibleChange    | Hook showing state change                                                                                                                                                  | (visible: boolean) => void           | -            |
+| #if ALIPAY onVisibleChange    | Show status change hook                                                                                                                                                  | (visible: boolean) => void           | -            |
 | #if ALIPAY onTapFeedItem      | Feedback Item Click Callback                                                                                                                                                      | (item: any) => void                  | -            |
-| #if WECHAT bindvisiblechange | Hook showing state change                                                                                                                                                  | (visible: boolean) => void           | -            |
+| #if WECHAT bindvisiblechange | Show status change hook                                                                                                                                                  | (visible: boolean) => void           | -            |
 | #if WECHAT bindtapfeeditem   | Feedback Item Click Callback                                                                                                                                                      | ([FeedItem](#feeditem): any) => void | -            |
 
 ### FeedItem
@@ -221,7 +221,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                              | Default Value                                                                                                                                | Dark Mode Default                                                                                                                        | Remarks             |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |

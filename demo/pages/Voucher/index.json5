@@ -10,7 +10,7 @@
   /// #endif
 
   "usingComponents": {
-    "voucher": "../../../src/Voucher/index",
+    "ant-voucher": "../../../src/Voucher/index",
     "ant-checkbox": "../../../src/Checkbox/index",
     "ant-container": "../../../src/Container/index"
   }

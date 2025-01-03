@@ -1,4 +1,4 @@
-import { Component } from '../_util/simply';
+import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
 import {
   IContactInfo,
   IContactUserInfo,
@@ -10,19 +10,26 @@ Component(
   SelectContactDefaultProps,
   {
     init() {
-      const { platform } = my.getSystemInfoSync();
-
+      let platform;
+      /// #if ALIPAY
+      platform = my.getSystemInfoSync().platform;
+      /// #endif
+      /// #if WECHAT
+      // @ts-ignore
+      platform = wx.getDeviceInfo().platform;
+      /// #endif
       this.setData({
         isIOS: /ios/gi.test(platform),
       });
-
       try {
+        const [recommendContactsListFromProps, allContactsListFromProps] =
+          getValueFromProps(this, ['recommendContactsList', 'allContactsList']);
         const recommendContactsList = this.handleRecommendContacts(
-          this.props.recommendContactsList
+          recommendContactsListFromProps
         );
         /** 全部联系人 */
         const allContactsList = this.handleAllContacts(
-          this.props.allContactsList
+          allContactsListFromProps
         );
 
         /** 展示的联系人列表 */
@@ -30,15 +37,14 @@ Component(
 
         /** 字母表 */
         const alphabet = this.generateAlphabet(contactsList);
-
         this.setData({
           recommendContactsList,
           allContactsList,
           alphabet,
-          sessionId: this.props.sessionId,
         });
       } catch (error) {
-        this.props.onError(error);
+        const onError = getValueFromProps(this, 'onError');
+        onError && onError(error);
         this.setData({
           contactListEmpty: true,
         });
@@ -63,7 +69,8 @@ Component(
           searchStatus: 'loading',
           searchList: [],
         });
-        const { userInfos = [] } = this.props.searchContacts({
+        const searchContacts = getValueFromProps(this, 'searchContacts');
+        const { userInfos = [] } = searchContacts({
           keyword: searchValue,
         });
 
@@ -126,12 +133,12 @@ Component(
 
     /** 联系人点击事件 */
     onItemClick(e) {
-      const { item, personSource } = e.target.dataset;
+      const { item, personSource } = e.currentTarget.dataset;
 
-      this.props.onSelect({
+      triggerEvent(this, 'select', {
         userInfo: item,
         personSource,
-        sessionId: this.data.sessionId,
+        sessionId: getValueFromProps(this, 'sessionId'),
       });
     },
 
@@ -213,20 +220,7 @@ Component(
       this.setData({ toView });
     },
 
-    onSwipeEnd(key) {
-      if (key === this.data.currentSelectedDeleteUID) {
-        /** 左滑功能点击后会再次执行onSwipeEnd */
-        this.setData({ currentSelectedDeleteUID: null });
-      } else {
-        this.setData({ currentSelectedDeleteUID: key });
-      }
-    },
-
-    onSwipeStart() {
-      this.setData({ currentSelectedDeleteUID: null });
-    },
     handleSearch() {
-      console.log(this.data.searchable, '有点奇怪');
       this.setData({ searchable: true });
     },
     handleCancelSearch() {
@@ -274,30 +268,24 @@ Component(
      */
     isIOS: false,
 
-    /** 推荐好友-左滑功能配置/ */
-    right: [
-      {
-        type: 'delete',
-        text: '取消推荐',
-        bgColor: '#FF2B00',
-        color: '#fff',
-      },
-    ],
-
-    /** 当前选中删除推荐好友UID */
-    currentSelectedDeleteUID: '',
-
-    /** 当前请求会话ID */
-    sessionId: '',
     /** 全局删除推荐好友标识 */
     deleteRecommendUserFlag: false,
     /** 是否正在搜索 */
-    searchable: false
+    searchable: false,
+    onScrollIntoView: null,
   },
   [],
   {
+    /// #if ALIPAY
     onInit() {
       this.init();
     },
+    /// #endif
+    /// #if WECHAT
+    attached() {
+      this.init();
+      this.setData({ onScrollIntoView: this.onScrollIntoView.bind(this) });
+    },
+    /// #endif
   }
 );

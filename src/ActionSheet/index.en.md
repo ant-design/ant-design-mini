@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -106,7 +106,7 @@ Page({
 
 ### Option Status
 
-> [actions](#actionsheetitem) Each of the provided `icon` `danger` `description` `disabled` Used to set the option state.
+> [actions](#actionsheetitem) Each of the items provided `icon` `danger` `description` `disabled` Used to set the option state.
 
 ```xml
 <ant-action-sheet

@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -76,7 +76,7 @@ Page({
 
 ### Multiple Action Points
 
-> `footer` property supports passing in multiple action points and can specify `layout` For `vertical`or`horizontal`That is, the horizontal and vertical layout of the action point.
+> `footer` property supports the passing in of multiple action points, and you can specify `layout` For `vertical`or`horizontal`That is, the horizontal and vertical layout of the action point.
 
 ```xml
 <ant-dialog
@@ -123,7 +123,7 @@ Page({
 | cancelButtonStyle            | Cancel Button Style                                      | string       | -      |
 | cancelButtonText             | Cancel Button Text                                      | string       | -      |
 | className                    | Class Name                                              | string       | -      |
-| closable                     | Whether to display the close button in the upper right corner. Only valid when type is focus | boolean      | -      |
+| closable                     | Whether to display the close button in the upper right corner. Valid only when type is focus | boolean      | -      |
 | content                      | Content                                              | string\|slot | -      |
 | destroyOnClose               | Whether to unload content when invisible                              | boolean      | false  |
 | footer                       | Custom Button Area                                      | slot         | -      |
@@ -143,7 +143,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                    | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                   |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |
