@@ -1,23 +1,31 @@
 <view class="ant-copilot-prompts {{ className }}">
+  <!-- #if ALIPAY -->
   <slot name="prompts-title">
+  <!-- #endif -->
     <view a:if="{{ promptsTitle }}" class="ant-copilot-prompts-title">
       {{ promptsTitle }}
     </view>
+  <!-- #if ALIPAY -->
   </slot>
+  <!-- #endif -->
   <view class="ant-copilot-prompts-list">
     <block a:for="{{ list }}">
+      <!-- #if ALIPAY -->
       <slot name="prompts-item" item="{{ item }}">
+      <!-- #endif -->
         <view class="ant-copilot-prompts-list-item" data-item="{{ item }}" onTap="onTapPromptsItem">
-          <image 
+          <image
             mode="scaleToFill"
-            a:if="{{ item.image }}" 
-            src="{{ item.image }}" 
+            a:if="{{ item.image }}"
+            src="{{ item.image }}"
             class="ant-copilot-prompts-list-item-image" />
           <text a:if="{{ item.title }}" class="ant-copilot-prompts-list-item-title">{{ item.title }}</text>
           <text a:if="{{ item.content }}" class="ant-copilot-prompts-list-item-content">{{ item.content }}</text>
           <ant-icon a:if="{{ item.showArrow }}" type="RightOutline" class="ant-copilot-prompts-list-item-arrow" />
         </view>
+      <!-- #if ALIPAY -->
       </slot>
+      <!-- #endif -->
     </block>
   </view>
 </view>
