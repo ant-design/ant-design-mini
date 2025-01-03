@@ -1,6 +1,6 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "Copilotbutton",
+  "navigationBarTitleText": "ThoughtChain 组件",
   /// #endif
 
   /// #if ALIPAY
