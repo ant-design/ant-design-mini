@@ -52,9 +52,10 @@ Page({
     my.showToast({ content: item.value });
     /// #endif
     /// #if WECHAT
-    item = i.detail;
+    item = i.detail[0];
     console.log(item);
-    my.showToast({ content: item.value });
+    // @ts-ignore
+    wx.showToast({ title: item.value });
     /// #endif
   },
 });

@@ -1,5 +1,4 @@
-//@ts-ignore
-import { componentList, allComponents } from '../../utils/constants';
+import { allComponents, componentList } from '../../utils/constants';
 
 Page({
   data: {
