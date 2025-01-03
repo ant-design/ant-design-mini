@@ -8,8 +8,50 @@ Page({
         title: '理解问题',
       },
       {
+        status: 'fail',
+        title: '没有在本地找到结果',
+      },
+      {
+        status: 'loading',
+        title: '在互联网上搜索问题',
+      },
+    ],
+    secondLevelList: [
+      {
+        status: 'success',
+        title: '理解问题',
+        content: '解析语法结构',
+        contentType: 'text',
+      },
+      {
         status: 'loading',
         title: '搜索问题',
+        list: [
+          {
+            status: 'success',
+            title: '理解问题',
+          },
+          {
+            status: 'success',
+            title: '联网搜索',
+            content: ['当前主流电脑配置', '黑神话悟空所需显卡', '3A游戏'],
+            contentType: 'tag',
+          },
+          {
+            status: 'success',
+            title: '已根据搜索结果精选3篇资料',
+            contentType: 'link',
+            content: [
+              '1. 黑神话悟空介绍',
+              '2. 对于1080p显示器，4060ti和4060该选哪个？',
+              '3. 黑神话悟空官方建议配置',
+            ],
+          },
+          {
+            status: 'loading',
+            title: '联想更多结果',
+          },
+        ],
       },
     ],
     customList: [
@@ -21,65 +63,12 @@ Page({
       },
       {
         status: 'success',
-        title: '搜索中：Ant Design X 的发布时间。这一句比较长所以需要进行换行',
-        content: [
-          '1. 这是处理内容结果',
-          '2. 步骤2，这是一条很长的步骤，所以需要进行换行。需要进行换行',
-          '3. 结束搜索',
-        ],
-        contentType: 'text',
-      },
-      {
-        status: 'success',
-        title: '搜索中：Ant Design X 的发布时间。这一句比较长所以需要进行换行',
-        content: ['1. 这是处理内容结果', '2. 步骤2', '3. 结束搜索'],
-        contentType: 'link',
-      },
-      {
-        status: 'success',
-        title: '搜索中：Ant Design X 的发布时间。这一句比较长所以需要进行换行',
-        content: ['这是处理内容结果', '步骤2', '结束搜索'],
-        contentType: 'tag',
-      },
-      {
-        status: 'success',
-        title: '搜索中：Ant Design X 的发布时间。这一句比较长所以需要进行换行',
+        title: '搜索问题',
         list: [
           {
-            status: 'loading',
-            title: '理解问题',
-            content: '这是处理内容结果',
-            contentType: 'text',
-          },
-          {
-            status: 'fail',
-            title:
-              '搜索中：Ant Design X 的发布时间。这一句比较长所以需要进行换行',
-            content: [
-              '1. 这是处理内容结果',
-              '2. 步骤2，这是一条很长的步骤，所以需要进行换行。需要进行换行',
-              '3. 结束搜索',
-            ],
-            contentType: 'text',
-          },
-          {
             status: 'success',
             title:
-              '搜索中：Ant Design X 的发布时间。这一句比较长所以需要进行换行',
-            content: ['1. 这是处理内容结果', '2. 步骤2', '3. 结束搜索'],
-            contentType: 'link',
-          },
-          {
-            status: 'success',
-            title:
-              '搜索中：Ant Design X 的发布时间。这一句比较长所以需要进行换行',
-            content: ['这是处理内容结果', '步骤2', '结束搜索'],
-            contentType: 'tag',
-          },
-          {
-            status: 'success',
-            title:
-              '搜索中：Ant Design X 的发布时间。这一句比较长所以需要进行换行',
+              '搜索中',
             content: '子节点中的自定义内容',
             contentType: 'customType',
           },

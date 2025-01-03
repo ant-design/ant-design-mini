@@ -3,6 +3,9 @@
 <ant-container title="基础用法">
   <thought-chain list="{{basicList}}" onContentItemTap="onContentItemTap" />
 </ant-container>
+<ant-container title="二级节点">
+  <thought-chain list="{{secondLevelList}}" onContentItemTap="onContentItemTap" />
+</ant-container>
 <ant-container title="自定义节点内容">
   <thought-chain list="{{customList}}" onContentItemTap="onContentItemTap">
     <view slot="content" slot-scope="props">
