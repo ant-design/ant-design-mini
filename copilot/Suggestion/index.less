@@ -4,9 +4,12 @@
 
 .@{buttonPrefix} {
   &-items {
+    box-sizing: border-box;
     padding: 24 * @rpx;
     display: flex;
-    align-items: center;
+    /// #if WECHAT
+    height: 106 * @rpx;
+    /// #endif
     &::-webkit-scrollbar {
       display: none;
     }
@@ -14,9 +17,13 @@
       &:last-of-type {
         margin-right: 0;
       }
+      /// #if WECHAT
+      height: 58 * @rpx;
+      box-sizing: border-box;
+      /// #endif
       flex-shrink: 0;
       padding: 8 * @rpx 24 * @rpx;
-      border: 2 * @rpx solid rgba(0, 0, 0, 0.1);
+      border: 2 * @rpx solid @suggestion-item-border-color;
       border-radius: 30 * @rpx;
       margin-right: 16 * @rpx;
       display: flex;
@@ -32,6 +39,7 @@
         .ant-typography-text {
           font-size: 30 * @rpx;
           line-height: 42 * @rpx;
+          color: @suggestion-item-text-color;
         }
       }
     }

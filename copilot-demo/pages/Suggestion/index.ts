@@ -45,8 +45,14 @@ Page({
       },
     ],
   },
-  handleSelect(item) {
+  handleSelect(i) {
+    let item = i;
     /// #if ALIPAY
+    console.log(item);
+    my.showToast({ content: item.value });
+    /// #endif
+    /// #if WECHAT
+    item = i.detail;
     console.log(item);
     my.showToast({ content: item.value });
     /// #endif
