@@ -1,5 +1,5 @@
 <view class="ant-suggestion {{className}}" style="{{style}}">
-  <scroll-view enable-flex scroll-x class="ant-suggestion-items">
+  <scroll-view scroll-x="{{ true }}" enable-flex="true" class="ant-suggestion-items">
     <view a:for="{{items}}" class="ant-suggestion-items-item">
       <!-- #if ALIPAY -->
       <slot item="{{item}}" index="{{index}}">

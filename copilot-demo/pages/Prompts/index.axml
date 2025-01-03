@@ -22,6 +22,7 @@
     onTapPromptsItem="onTapPromptsItem"  />
 </ant-container>
 
+<!-- #if ALIPAY -->
 <ant-container title="自定义提示标题">
   <ant-prompts
     list="{{ arrowList }}"
@@ -41,4 +42,4 @@
     </view>
   </ant-prompts>
 </ant-container>
-
+<!-- #endif -->
