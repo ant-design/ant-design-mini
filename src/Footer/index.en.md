@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -47,7 +47,7 @@ In `index.json` Introducing Components in
 #endif
 ```
 
-### Footer with Content
+### Footer with content
 
 ```xml
 <ant-footer content="@ 2004-2020 Alipay.com All rights reserved" />
@@ -149,7 +149,7 @@ Page({
 | content                 | Common Content Section       | `string`                                             | -       |
 | links                   | Link                 | `Array<`[ActionItem](#actionitem)`>`                 | -       |
 | chips                   | Bottom Label             | `Array<`[ActionItem](#actionitem)`>`                 | -       |
-| noLabelDivider          | There is no label dividing line.  | `boolean`                                            | `false` |
+| noLabelDivider          | No dividing line with label  | `boolean`                                            | `false` |
 | #if ALIPAY onLinkTap    | Callback after link click     | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
 | #if ALIPAY onChipTap    | Callback after bottom tab click | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
 | #if WECHAT bindlinktap | Callback after link click     | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |

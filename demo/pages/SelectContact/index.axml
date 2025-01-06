@@ -6,8 +6,7 @@
     onSelect="onSelect"
     recommendContactsList="{{recommendContactsList}}"
     allContactsList="{{allContactsList}}"
-    onDeleteRecommendUserError="onDeleteRecommendUserError"
-    onDeleteRecommendUser="onDeleteRecommendUser"
+    onError="{{onError ? onError : 'onError'}}"
   >
     <view slot="contactListEmpty">列表为空</view>
   </ant-select-contact>

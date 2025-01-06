@@ -5,7 +5,6 @@ group:
   title: 数据展示
   order: 8
 toc: 'content'
-supportPlatform: ['alipay']
 ---
 
 # IndexBar 索引
@@ -28,9 +27,9 @@ supportPlatform: ['alipay']
 
 ```xml
 <view class="base">
-  <list header="基本使用"></list>
+  <ant-list header="基本使用"></ant-list>
   <view class="indexbar">
-    <index-bar items="{{items}}" />
+    <ant-index-bar items="{{items}}" />
   </view>
 </view>
 ```
@@ -64,27 +63,32 @@ Page({
 ### 结合列表使用
 
 ```xml
+#if ALIPAY
 <view class="base">
-  <index-bar
+  <ant-index-bar
     className="indexbar"
     items="{{items}}"
     defaultCurrent="H"
     onChange="onChange">
     <view slot-scope="props">
-      <list header="{{props.value.label}}">
-        <list-item
+      <ant-list header="{{props.value.label}}">
+        <ant-list-item
           a:for="{{4}}"
           a:for-item="itemX">
           {{props.value.label}}-{{itemX}}
-        </list-item>
-      </list>
+        </ant-list-item>
+      </ant-list>
     </view>
-  </index-bar>
+  </ant-index-bar>
 </view>
+#endif
+#if WECHAT
+因微信不支持作用域插槽，暂不支持此用法
+#endif
 ```
 
 ```css
-.base {
+#if ALIPAY .base {
   width: 100%;
   height: 100vh;
 }
@@ -93,9 +97,11 @@ Page({
   right: 10px;
   top: 20vh;
 }
+#endif #if WECHAT 因微信不支持作用域插槽，暂不支持此用法 #endif;
 ```
 
 ```js
+#if ALIPAY
 Page({
   data: {
     items: [],
@@ -108,6 +114,10 @@ Page({
     });
   },
 });
+#endif
+#if WECHAT
+因微信不支持作用域插槽，暂不支持此用法
+#endif
 ```
 
 ### 受控模式
@@ -116,22 +126,23 @@ Page({
 
 ### Demo 代码
 
-<code src='../../demo/pages/IndexBarControl/index'></code>
+<code src='../../demo/pages/IndexBar/index'></code>
 
 ## API
 
-| 属性            | 说明                              | 类型                                          | 默认值 |
-| --------------- | --------------------------------- | --------------------------------------------- | ------ |
-| activeClassName | 索引激活时的样式                  | string                                        | -      |
-| className       | 类名                              | string                                        | -      |
-| current         | 索引值                            | string                                        | -      |
-| defaultCurrent  | 默认索引                          | string                                        | -      |
-| labelPreview    | 索引预览内容，接收 value 和 index | slot                                          | -      |
-| items           | 索引数组                          | [Item](#item)                                 | []     |
-| style           | 样式                              | string                                        | -      |
-| size            | 索引的尺寸（宽高，单位 px）       | number                                        | 16     |
-| vibrate         | 索引改变时是否震动                | boolean                                       | true   |
-| onChange        | 索引改变时的回调                  | (value: [Item](#item), index: number) => void |
+| 属性                   | 说明                              | 类型                                          | 默认值 |
+| ---------------------- | --------------------------------- | --------------------------------------------- | ------ |
+| activeClassName        | 索引激活时的样式                  | string                                        | -      |
+| className              | 类名                              | string                                        | -      |
+| current                | 索引值                            | string                                        | -      |
+| defaultCurrent         | 默认索引                          | string                                        | -      |
+| labelPreview           | 索引预览内容，接收 value 和 index | slot                                          | -      |
+| items                  | 索引数组                          | [Item](#item)                                 | []     |
+| style                  | 样式                              | string                                        | -      |
+| size                   | 索引的尺寸（宽高，单位 px）       | number                                        | 16     |
+| vibrate                | 索引改变时是否震动                | boolean                                       | true   |
+| #if ALIPAY onChange    | 索引改变时的回调                  | (value: [Item](#item), index: number) => void |
+| #if WECHAT bindchange | 索引改变时的回调                  | (value: [Item](#item), index: number) => void |
 
 #### Item
 

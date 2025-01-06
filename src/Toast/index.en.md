@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -86,8 +86,8 @@ Page({
 | maskCloseable         | Click whether the layer is closed                                                  | boolean     | false  |
 | icon                  | Icon, supports all types of Icon components                                     | string      | -      |
 | image                 | Picture Link                                                          | string      | -      |
-| maskStyle             | Mat Style                                                          | string      | -      |
-| showMask              | Show Mask                                                      | boolean     | false  |
+| maskStyle             | Mask Style                                                          | string      | -      |
+| showMask              | Whether to show the layer                                                      | boolean     | false  |
 | style                 | Style                                                              | string      | -      |
 | type                  | Built-in icon type, optional `success` `error` `warning` `loading` `alipay` | string      | -      |
 | textType              | Text type, optional `short` `long`the short type has a larger fillet               | string      | `long` |

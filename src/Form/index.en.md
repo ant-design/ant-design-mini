@@ -31,7 +31,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-The logic layer registers the input box component ref into the Form
+Logical layer registers input box component ref into Form
 ```xml
 <form-input
   label="用户名"
@@ -66,7 +66,7 @@ Page({
 });
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -120,7 +120,7 @@ Page({
 
 <code src='../../demo/pages/Form/FormJSON/index'></code>
 
-### Custom Error Styles
+### Custom Error Style
 
 Use `validateStatus: success` and `footer slot` Customize the error style.
 
@@ -174,7 +174,7 @@ Properties Included in All Form Components
 | getFieldValue            | Get the value of a form item                                                       | (name: string) => any                                                                  |
 | getFieldsValue           | Gets the value for a set of field names. If no nameList is passed, all fields pairs are returned.           | (nameList?: string[]) => Record<string, any>                                           |
 | getFieldValidatorStatus  | Get form check status                                                     | (name: string) => [ValidatorStatus](#validatorstatus)                                  |
-| getFieldsValidatorStatus | Get a set of form validation statuses. If no nameList is passed, all fields pairs are returned.             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
+| getFieldsValidatorStatus | Get a set of form validation states. If no nameList is passed, all fields pairs are returned.             | (nameList?: string[]) => Record<string, [ValidatorStatus](#validatorstatus)>           |
 | reset                    | Reset form to initial value                                                     | () => void                                                                             |
 | isFieldTouched           | Determine whether a form item has been modified                                               | () => boolean                                                                          |
 | onValueChange            | Listen for the value modification of the specified form item, view[Detailed Description](#onvaluechangeonvalueschange) | (name: string, (changedValue: any, allValues: Record<string, any>) => void) => void    |

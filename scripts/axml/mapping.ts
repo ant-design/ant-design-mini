@@ -3,6 +3,9 @@ export const wechatCustomMapping = {
     onTouchStart: 'bindtouchstart',
     onTouchMove: 'bindtouchmove',
     onTouchEnd: 'bindtouchend',
+    catchTouchStart: 'catchtouchstart',
+    catchTouchMove: 'catchtouchmove',
+    catchTouchEnd: 'catchtouchend',
     onAnimationEnd: 'bindanimationend',
   },
   'scroll-view': {
@@ -181,5 +184,15 @@ export const wechatCustomMapping = {
     onTermPrefixTap: 'bindtermprefixtap',
     onCountdownFinish: 'bindcountdownfinish',
     onReadChange: 'bindreadchange',
+  },
+  'ant-number-input': {
+    onChange: 'bindchange',
+    onLinkTap: 'bindlinktap',
+  },
+  'ant-postscript': {
+    onChange: 'bindchange',
+  },
+  'ant-select-contact': {
+    onSelect: 'bindselect',
   },
 };

@@ -16,7 +16,7 @@ The problem of rare characters has always been a difficult point in the society.
 1. Developers can decide for themselves when to evoke a rare word keyboard.
 2. After entering a rare word, the input of the rare word will be returned through the callback parameter, and the keyboard will be closed.
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -41,7 +41,7 @@ The problem of rare characters has always been a difficult point in the society.
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                        | Default Value                                                                                                                    | Dark Mode Default                                                                                                            | Remarks               |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------ |

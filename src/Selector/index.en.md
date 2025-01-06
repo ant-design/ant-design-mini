@@ -26,11 +26,11 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
-> [options](#selectoritem) property is an object that contains `text`(main copy), `subText`(Deputy copywriter), `value`(option value), `disabled`(disabled or not).
+> [options](#selectoritem) property is an object that contains `text`(main copy), `subText`(Deputy Copywriter), `value`(option value), `disabled`(disabled or not).
 
 ```xml
   <ant-selector defaultValue="2" options="{{options}}" />
@@ -46,7 +46,7 @@ In `index.json` Introducing Components in
 
 ### Limit the number of selections
 
-> `maxSelectedCount`、`minSelectedCount` property can limit the number of selections,`selectMax`、`selectMin` Event is triggered when the limit is exceeded.
+> `maxSelectedCount`、`minSelectedCount` attribute can limit the number of selections,`selectMax`、`selectMin` Event is triggered when the limit is exceeded.
 
 ```xml
 <ant-selector

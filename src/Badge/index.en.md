@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -75,7 +75,7 @@ In `index.json` Introducing Components in
 
 | Property      | Description                                                                                                                                     | Type                     | Default Value      |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ----------- |
-| bgColor   | Custom background color, CSS color value                                                                                                                   | string                   | -           |
+| bgColor   | Custom background color, CSS color values                                                                                                                   | string                   | -           |
 | className | Class name of the component root node                                                                                                                         | string                   | -           |
 | offsetX   | Horizontal offset                                                                                                                           | string                   | '-50%'      |
 | offsetY   | Offset in vertical direction                                                                                                                         | string                   | '-50%'      |

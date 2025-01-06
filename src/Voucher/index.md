@@ -5,7 +5,6 @@ group:
   title: 业务组件
   order: 15
 toc: content
-supportPlatform: ['alipay']
 ---
 
 # Voucher 优惠券
@@ -101,7 +100,7 @@ Page({
 ### 插槽
 
 ```xml
-<voucher
+<ant-voucher
   size="small"
   dataSource="{{dataSource}}"
 >
@@ -111,7 +110,7 @@ Page({
   >
     已过期
   </view>
-</voucher>
+</ant-voucher>
 ```
 
 ### Demo 代码
@@ -149,18 +148,18 @@ Page({
 
 ## 事件
 
-| 事件名                     | 说明                 | 类型                  |
-| -------------------------- | -------------------- | --------------------- |
-| #if ALIPAY onBtnTap        | 点击按钮，触发此回调 | `(item, event)=>void` |
-| #if ALIPAY onVoucherTap    | 点击卡片，触发此回调 | `(item, event)=>void` |
+| 事件名                    | 说明                 | 类型                  |
+| ------------------------- | -------------------- | --------------------- |
+| #if ALIPAY onBtnTap       | 点击按钮，触发此回调 | `(item, event)=>void` |
+| #if ALIPAY onVoucherTap   | 点击卡片，触发此回调 | `(item, event)=>void` |
 | #if WECHAT bindbtntap     | 点击按钮，触发此回调 | `(item, event)=>void` |
 | #if WECHAT bindvouchertap | 点击卡片，触发此回调 | `(item, event)=>void` |
 
 ## 插槽
 
-| 名称                | 说明     |
-| ------------------- | -------- |
-| voucher-action-area | 行动区域 |
+| 名称                | 说明                   |
+| ------------------- | ---------------------- |
+| voucher-action-area | 行动区域（微信不支持） |
 
 ### 主题定制
 
@@ -178,7 +177,7 @@ Page({
 | --voucher-action-bg                | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | 操作背景颜色         |
 | --voucher-action-left-bg           | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | 操作左侧背景颜色     |
 | --voucher-action-left-threshold-bg | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | 操作左侧阈值背景颜色 |
-| --voucher-action-right-color       | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#fffffff</div>                                   | 操作右侧颜色         |
+| --voucher-action-right-color       | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#fffffff</div>                                  | 操作右侧颜色         |
 | --voucher-action-right-title-color | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #000;">#ffffff</div>                                   | 操作右侧标题颜色     |
 | --voucher-action-right-desc-color  | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.8); color: #000;">rgba(255, 255, 255, 0.8)</div> | <div style="width: 150px; height: 40px; background-color: rgba(255, 255, 255, 0.8); color: #000;">rgba(255, 255, 255, 0.8)</div> | 操作右侧描述颜色     |
 | --voucher-item-right-title-color   | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>                                | <div style="width: 150px; height: 40px; background-color: #383939; color: #ffffff;">#383939</div>                                | 券右侧标题颜色 1     |

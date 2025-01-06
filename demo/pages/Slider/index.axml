@@ -1,37 +1,37 @@
 <view class="navigation-bar"/>
 
-<container title="基本使用">
+<ant-container title="基本使用">
   <ant-slider
     defaultValue="{{ 80 }}"
     onChange="onChange"
     onAfterChange="onAfterChange" />
-</container>
+</ant-container>
 
-<container title="禁用状态">
+<ant-container title="禁用状态">
   <ant-slider
     defaultValue="{{ 80 }}"
     disabled
     onChange="onChange" />
-</container>
+</ant-container>
 
-<container title="无节点双滑块">
+<ant-container title="无节点双滑块">
   <ant-slider
     defaultValue="{{ [20, 60] }}"
     range
     onChange="onChange"
     onAfterChange="onAfterChange" />
-</container>
+</ant-container>
 
-<container title="节点单滑块">
+<ant-container title="节点单滑块">
   <ant-slider
     defaultValue="{{ 60 }}"
     step="{{ 20 }}"
     showTicks
     onChange="onChange"
     onAfterChange="onAfterChange" />
-</container>
+</ant-container>
 
-<container title="有数字节点单滑块">
+<ant-container title="有数字节点单滑块">
   <ant-slider
     defaultValue="{{ 80 }}"
     step="{{ 20 }}"
@@ -39,9 +39,9 @@
     showNumber
     onChange="onChange"
     onAfterChange="onAfterChange" />
-</container>
+</ant-container>
 
-<container title="节点双滑块">
+<ant-container title="节点双滑块">
   <ant-slider
     defaultValue="{{ [10, 50] }}"
     step="{{ 10 }}"
@@ -49,9 +49,9 @@
     range
     onChange="onChange"
     onAfterChange="onAfterChange" />
-</container>
+</ant-container>
 
-<container title="有数字节点双滑块">
+<ant-container title="有数字节点双滑块">
   <ant-slider
     defaultValue="{{ [10, 50] }}"
     step="{{ 10 }}"
@@ -60,17 +60,17 @@
     range
     onChange="onChange"
     onAfterChange="onAfterChange" />
-</container>
+</ant-container>
 
-<container title="在拖动时显示悬浮提示">
+<ant-container title="在拖动时显示悬浮提示">
   <ant-slider
     defaultValue="{{ 80 }}"
     showTooltip
     onChange="onChange"
     onAfterChange="onAfterChange" />
-</container>
+</ant-container>
 
-<container title="受控模式">
+<ant-container title="受控模式">
   <ant-slider
     min="{{ 0 }}"
     max="{{ 100 }}"
@@ -81,9 +81,9 @@
     max="{{ 100 }}"
     value="{{ value }}"
     onChange="handleChange" />
-</container>
+</ant-container>
 
-<container title="自定义">
+<ant-container title="自定义">
   <ant-slider
     defaultValue="{{ 80 }}"
     step="{{ 20 }}"
@@ -118,4 +118,4 @@
     </view>
     <!-- #endif -->
   </ant-slider>
-</container>
+</ant-container>
