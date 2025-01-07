@@ -22,11 +22,11 @@ Picker 选择器显示一个或多个选项集合的可滚动列表，相比于�
 "usingComponents": {
 #if ALIPAY
   "ant-picker": "antd-mini/es/Picker/index",
-  "ant-cascader-picker": "antd-mini/es/CascaderPicker/index"
+  "ant-cascader-picker": "antd-mini/es/Picker/CascaderPicker/index"
 #endif
 #if WECHAT
   "ant-picker": "antd-mini/Picker/index",
-  "ant-cascader-picker": "antd-mini/CascaderPicker/index"
+  "ant-cascader-picker": "antd-mini/Picker/CascaderPicker/index"
 #endif
 }
 ```

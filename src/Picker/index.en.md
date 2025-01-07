@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 #endif
 #if WECHAT
   "ant-picker": "antd-mini/Picker/index",
-  "ant-cascader-picker": "antd-mini/CascaderPicker/index"
+  "ant-cascader-picker": "antd-mini/Picker/CascaderPicker/index"
 #endif
 }
 ```
