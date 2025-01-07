@@ -139,6 +139,16 @@ Page({
 </ant-table>
 ```
 
+### 超出换行展示
+可以使用列配置参数里的```ellipsisRow```控制是否换行以及最终展示多少行，超出以省略号展示
+
+```xml
+<ant-table 
+  dataSource="{{[{key: '0', name: '这是一行很长的数据，需要换行展示blablablabla', age: 18, sex: '男', address: '成都'}]}}" 
+  columns="{{fullColumns}}"
+/>
+```
+
 ### Demo 代码
 
 <code src="../../demo/pages/Table/index"></code>
@@ -155,14 +165,16 @@ Page({
 
 ### Column
 
-| 属性           | 说明             | 类型    | 默认值 |
-| -------------- | ---------------- | ------- | ------ |
-| title          | 列标题           | string  | -      |
-| dataIndex      | 列取值字段       | string  | -      |
-| key            | 列唯一标识       | string  | -      |
-| width          | 列宽度           | number  | -      |
-| fixed          | 是否固定列       | boolean | -      |
-| textAlignRight | 列文本是否右对齐 | boolean | -      |
+| 属性           | 说明                         | 类型    | 默认值 |
+| -------------- | ---------------------------- | ------- | ------ |
+| title          | 列标题                       | string  | -      |
+| dataIndex      | 列取值字段                   | string  | -      |
+| key            | 列唯一标识                   | string  | -      |
+| width          | 列宽度                       | number  | -      |
+| fixed          | 是否固定列                   | boolean | -      |
+| textAlignRight | 列文本是否右对齐             | boolean | -      |
+| ellipsisRow    | 单元格最大展示行数，超出省略 | number  | -      |
+
 
 ## 插槽
 
