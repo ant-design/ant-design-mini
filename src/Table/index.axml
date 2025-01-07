@@ -41,7 +41,6 @@
                       class="ant-table-list-item-sorter-icon"
                       src="{{val.sorterStatus === 'reverse' ? 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*Co9CQ61uhPAAAAAAAAAAAAAADv57AQ/original' : 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*h9ZcSLzVBjgAAAAAAAAAAAAADv57AQ/original'}}"
                     />
-                    <!--</view> -->
                   </view>
                 </view>
               </view>
