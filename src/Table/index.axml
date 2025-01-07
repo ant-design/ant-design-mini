@@ -42,7 +42,6 @@
               <view
                 a:else
                 class="ant-table-list-item-rows ant-table-list-item-value  {{itemIndex==0?'ant-table-list-item-value-first':''}} {{ val.textAlignRight ? 'ant-table-list-item-value-align-right' : '' }}"
-                
               >
                 <view  class="{{val.ellipsisRow ? 'ant-table-list-item-ellipsis' : ''}}" style="{{val.ellipsisRow ? `-webkit-line-clamp:${val.ellipsisRow}`: ''}}">
                   <!-- #if ALIPAY -->
