@@ -9,9 +9,9 @@ toc: 'content'
 
 # ConfigProvider
 
-Used to globally configure Antd-Mini components, provide theme customization, internationalization support.
+For global configuration Ant Design Mini components, provide theme customization, internationalization support.
 
-can pass `ConfigProvider` component to globally configure Antd-Mini components, including:
+can pass `ConfigProvider` component to globally configure Ant Design Mini components, including:
 
 - Setting the theme globally,[CSS Variables](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties) To organize styles, by overwriting these CSS variables, you can customize the theme, dynamically switch the theme and other effects;
 - Global setting internationalization, multi-language support by setting Locales;
