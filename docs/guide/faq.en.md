@@ -7,7 +7,7 @@ toc: true
 
 ### 3. Can x be used with 2.x, 1.x, 0.x
 
-Because there is no migration cost to upgrade from 2.x, 1.x to 3.x, you can do it directly from 2.x, 1.x. upgrade to 3.x, under reference[Upgrade Guide](http://localhost:8000/guide/migration)。
+Because there is no migration cost to upgrade from 2.x, 1.x to 3.x, you can do it directly from 2.x, 1.x. upgrade to 3.x, under reference[Upgrade Guide](https://mini.ant.design/guide/migration)。
 
 For 0.x, you can use the npm alias to install.
 
