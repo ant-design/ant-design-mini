@@ -140,7 +140,7 @@ Page({
 ```
 
 ### Beyond line break display
-You can use the ```ellipsisRow``` in the column configuration parameters to control whether to wrap lines and how many lines are finally displayed, beyond the ellipsis.
+You can use the column configuration parameters.```ellipsisRow```Controls whether to wrap lines and how many lines are eventually displayed, beyond the ellipsis
 
 ```xml
 <ant-table 
