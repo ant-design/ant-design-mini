@@ -32,9 +32,15 @@ toc: 'content'
 
 ```xml
 <ant-prompts
-  list="{{ baseList }}"
-  promptsTitle="{{ promptsTitle }}"
-  onTapPromptsItem="onTapPromptsItem"  />
+  list="{{baseList}}"
+  promptsTitle="{{promptsTitle}}"
+#if ALIPAY
+  onTapPromptsItem="onTapPromptsItem"
+#endif
+#if WECHAT
+  bindtappromptsitem="onTapPromptsItem"
+#endif
+/>
 ```
 
 ```js
@@ -54,9 +60,16 @@ Page({
     ],
   },
   onTapPromptsItem(item) {
+    let item = i;
+#if ALIPAY
     my.alert({
       content: `点击了 ${item.title || ''} ${item.content || ''}`,
     });
+#endif
+#if WECHAT
+    item = i.detail;
+    wx.showToast({ title: `点击了 ${item.title || ''} ${item.content || ''}` });
+#endif
   },
 });
 ```
@@ -65,9 +78,9 @@ Page({
 
 ```xml
 <ant-prompts
-    list="{{ arrowList }}"
-    promptsTitle="{{ promptsTitle }}"
-    onTapPromptsItem="onTapPromptsItem"  />
+  list="{{ arrowList }}"
+  promptsTitle="{{ promptsTitle }}"
+/>
 ```
 
 ```js
@@ -98,11 +111,6 @@ Page({
       },
     ],
   },
-  onTapPromptsItem(item) {
-    my.alert({
-      content: `点击了 ${item.title || ''} ${item.content || ''}`,
-    });
-  },
 });
 ```
 
@@ -113,7 +121,7 @@ Page({
   list="{{ styleList }}"
   className="customizeStyle"
   promptsTitle="{{ promptsTitle }}"
-  onTapPromptsItem="onTapPromptsItem"  />
+/>
 ```
 
 ```css
@@ -128,21 +136,17 @@ Page({
 ### 自定义提示标题
 
 ```xml
-<ant-prompts
-    list="{{ arrowList }}"
-    onTapPromptsItem="onTapPromptsItem">
-    <view slot="prompts-title" class="customize-prompts-title">
-      自定义提示标题:
-    </view>
-  </ant-prompts>
+<ant-prompts list="{{ arrowList }}">
+  <view slot="prompts-title" class="customize-prompts-title">
+    自定义提示标题:
+  </view>
+</ant-prompts>
 ```
 
 ### 自定义提示项
 
 ```xml
-<ant-prompts
-  list="{{ baseList }}"
-  onTapPromptsItem="onTapPromptsItem">
+<ant-prompts list="{{ baseList }}">
   <view slot="prompts-item" slot-scope="props" class="customize-prompts-item">
     自定义提示项：{{ props.item.title }}
   </view>
@@ -159,23 +163,26 @@ Page({
 
 以下表格介绍了 Prompts 组件的 API 属性：
 
-| 属性         | 说明     | 类型           | 默认值 |
-| ------------ | -------- | -------------- | ------ |
-| promptsTitle | 提示标题 | string         | -      |
-| className    | 类名     | string         | -      |
-| list         | 提示列表 | IPromptsItem[] | -      |
+| 属性                          | 说明         | 类型                                         | 默认值 |
+| ----------------------------- | ------------ | -------------------------------------------- | ------ |
+| promptsTitle                  | 提示标题     | string                                       | -      |
+| className                     | 类名         | string                                       | -      |
+| list                          | 提示列表     | [PromptsItem](#promptsitem)[]                | -      |
+| #if ALIPAY onTapPromptsItem   | 提示点击回调 | (item: [PromptsItem](#promptsitem)) => void; | -      |
+| #if WECHAT bindtappromptsitem | 提示点击回调 | (item: [PromptsItem](#promptsitem)) => void; | -      |
 
-IPromptsItem 属性
-| 属性 | 说明 | 类型 | 默认值 |
-| --------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------- |
-| image | 提示项的图片 | string | - |
-| title |提示项标题 | string | - |
-| content | 提示内容 | string  
-| showArrow | 是否展示箭头 | boolean
+### PromptsItem 属性
 
-插槽 slot
+| 属性      | 说明         | 类型    | 默认值 |
+| --------- | ------------ | ------- | ------ |
+| image     | 提示项的图片 | string  | -      |
+| title     | 提示项标题   | string  | -      |
+| content   | 提示内容     | string  | -      |
+| showArrow | 是否展示箭头 | boolean | -      |
+
+### 插槽 slot
 
 | 插槽名称      | 说明           |
-| ------------- | -------------- | --- |
-| prompts-title | 提示项的标题题 |     |
-| prompts-item  | 提示子项项     |     |
+| ------------- | -------------- |
+| prompts-title | 提示项的标题题 |
+| prompts-item  | 提示子项项     |

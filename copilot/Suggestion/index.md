@@ -36,7 +36,7 @@ toc: 'content'
 #if ALIPAY
   onSelect="handleSelect"
 #endif
-#if ALIPAY
+#if WECHAT
   bindselect="handleSelect"
 #endif
 />
@@ -68,11 +68,15 @@ Page({
       },
     ],
   },
-  handleSelect(item) {
-    /// #if ALIPAY
-    console.log(item);
+ handleSelect(i) {
+    let item = i;
+#if ALIPAY
     my.showToast({ content: item.value });
-    /// #endif
+#endif
+#if WECHAT
+    item = i.detail[0];
+    wx.showToast({ title: item.value });
+#endif
   },
 });
 ```
