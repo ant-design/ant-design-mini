@@ -85,7 +85,7 @@ Page({
     ],
     fullColumns: [
       {
-        title: '姓名',
+        title: '这是一段很长的表头这是一段很长的表头这是一段很长的表头',
         dataIndex: 'name',
         key: 'name',
         ellipsisRow: 2,
