@@ -139,6 +139,16 @@ Page({
 </ant-table>
 ```
 
+### Beyond line break display
+You can use the ```ellipsisRow``` in the column configuration parameters to control whether to wrap lines and how many lines are finally displayed, beyond the ellipsis.
+
+```xml
+<ant-table 
+  dataSource="{{[{key: '0', name: '这是一行很长的数据，需要换行展示blablablabla', age: 18, sex: '男', address: '成都'}]}}" 
+  columns="{{fullColumns}}"
+/>
+```
+
 ### Demo Code
 
 <code src="../../demo/pages/Table/index"></code>
@@ -155,14 +165,16 @@ Page({
 
 ### Column
 
-| Property           | Description             | Type    | Default Value |
-| -------------- | ---------------- | ------- | ------ |
-| title          | Column Header           | string  | -      |
-| dataIndex      | Column Value Field       | string  | -      |
-| key            | Column Unique Identifier       | string  | -      |
-| width          | Column Width           | number  | -      |
-| fixed          | Fixed column       | boolean | -      |
-| textAlignRight | Whether column text is right-justified | boolean | -      |
+| Property           | Description                         | Type    | Default Value |
+| -------------- | ---------------------------- | ------- | ------ |
+| title          | Column Header                       | string  | -      |
+| dataIndex      | Column Value Field                   | string  | -      |
+| key            | Column Unique Identifier                   | string  | -      |
+| width          | Column Width                       | number  | -      |
+| fixed          | Fixed column                   | boolean | -      |
+| textAlignRight | Whether column text is right-justified             | boolean | -      |
+| ellipsisRow    | The maximum number of rows displayed in a cell, which exceeds omission. | number  | -      |
+
 
 ## Slot
 

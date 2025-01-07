@@ -71,6 +71,7 @@ Component(
             rowsData: v,
             widthPx: rpx2px(val.width || defaultWidth, windowWidth),
             fixed: val.fixed,
+            ellipsisRow: val.ellipsisRow,
           })),
         };
       });

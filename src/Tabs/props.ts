@@ -46,6 +46,15 @@ export interface ITabsProps extends IBaseProps {
    * @description tabs bar类名
    */
   tabsBarClassName?: string;
+
+  /**
+   * @description tab bar wrap类名
+   */
+  tabsBarWrapClassName?: string;
+
+  /**
+   * @description tab 类名
+   */
   /**
    * @description tab类名
    */
@@ -65,6 +74,7 @@ export const TabsDefaultProps: Partial<ITabsProps> = {
   items: [],
   scrollMode: 'edge',
   tabsBarClassName: '',
+  tabsBarWrapClassName: '',
   tabActiveClassName: '',
   tabClassName: '',
 };
