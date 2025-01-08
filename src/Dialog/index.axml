@@ -69,6 +69,7 @@
         <view class="ant-dialog-body-footer ant-dialog-body-footer-{{ footer.layout || 'vertical' }}">
           <view
             a:for="{{ footer.buttons }}"
+            a:key="id"
             data-item="{{ item }}"
             onTap="onButtonTap"
             class="ant-dialog-body-footer-button"

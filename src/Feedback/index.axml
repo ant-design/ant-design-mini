@@ -38,6 +38,7 @@
       <view
         class="ant-feedback-content-list-item"
         a:for="{{ list }}"
+        a:key="id"
         data-item="{{ item }}"
         onTap="onTapFeedItem"
       >
@@ -67,6 +68,7 @@
         onTap="onTapFeedItem"
         class="ant-feedback-content-list-item"
         a:for="{{ list }}"
+        a:key="id"
         data-item="{{ item }}">
         <ant-icon a:if="{{ item.icon }}" type="{{ item.icon }}" />
         <image

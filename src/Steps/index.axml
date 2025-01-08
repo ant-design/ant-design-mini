@@ -8,7 +8,8 @@
   <block
     a:for="{{ items }}"
     a:for-index="index"
-    a:for-item="item">
+    a:for-item="item"
+    a:key="title">
     <view
       class="ant-steps-item ant-steps-item-{{ direction }} {{ index < current ? 'ant-steps-item-finish' : '' }} {{ index === current ? 'ant-steps-item-active' : '' }} {{ index > current || (status === 'error' &&  index === current) ? 'ant-steps-item-non-active' : '' }}">
       <view

@@ -13,7 +13,8 @@
         <block
           a:for="{{ options }}"
           a:for-index="index"
-          a:for-item="item">
+          a:for-item="item"
+          a:key="value">
           <list-item>
             <radio
               checked="{{ componentUtils.getChecked(index, options, mixin.value) }}"
@@ -42,7 +43,8 @@
         <block
           a:for="{{ options }}"
           a:for-index="index"
-          a:for-item="item">
+          a:for-item="item"
+          a:key="value">
           <radio
             checked="{{ componentUtils.getChecked(index, options, mixin.value) }}"
             data-index="{{ index }}"

@@ -107,12 +107,14 @@
   <block
     a:for="{{ customOptions }}"
     a:for-index="index"
-    a:for-item="option">
+    a:for-item="option"
+    a:key="title">
     <ant-list header="{{ option.title }}">
       <block
         a:for="{{ option.list }}"
         a:for-index="index"
-        a:for-item="item">
+        a:for-item="item"
+        a:key="value">
         <ant-list-item>
           <ant-checkbox
             data-value="{{ item.value }}"

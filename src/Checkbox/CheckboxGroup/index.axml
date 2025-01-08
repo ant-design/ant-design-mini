@@ -13,7 +13,8 @@
         <block
           a:for="{{ options }}"
           a:for-index="index"
-          a:for-item="item">
+          a:for-item="item"
+          a:key="value">
           <list-item>
             <ant-checkbox
               color="{{ color }}"
@@ -42,7 +43,8 @@
         <block
           a:for="{{ options }}"
           a:for-index="index"
-          a:for-item="item">
+          a:for-item="item"
+          a:key="value">
           <ant-checkbox
             color="{{ color }}"
             checked="{{ componentUtils.getCheckboxChecked(item, mixin.value) }}"

@@ -8,7 +8,8 @@
   <block
     a:for="{{ items }}"
     a:for-index="index"
-    a:for-item="item">
+    a:for-item="item"
+    a:key="title">
     <view
       class="ant-collapse-item {{ item.className || '' }} {{ utils.isActive(mixin.value, index, item.disabled) ? 'ant-collapse-item-active' : '' }} {{ item.disabled ? 'ant-collapse-item-disabled' : '' }}">
       <view

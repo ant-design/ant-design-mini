@@ -40,7 +40,8 @@
       <block
         a:for="{{ items }}"
         a:for-index="index"
-        a:for-item="item">
+        a:for-item="item"
+        a:key="title">
         <view
           id="ant-tabs-bar-item{{ $id ? '-' + $id : '' }}-{{ index }}"
           class="ant-tabs-bar-wrap ant-tabs-bar-wrap-{{ type }} {{ tabsBarClassName ? tabsBarClassName : '' }} {{tabsBarWrapClassName ? tabsBarWrapClassName : ''}}">
@@ -152,7 +153,8 @@
         <block
           a:for="{{ items }}"
           a:for-index="index"
-          a:for-item="item">
+          a:for-item="item"
+          a:key="title">
           <view
             id="ant-tabs-bar-item{{ $id ? '-' + $id : '' }}-{{ index }}"
             class="ant-vtabs-bar-item {{ tabClassName ? tabClassName : '' }} {{ mixin.value === index && !item.disabled ? 'ant-vtabs-bar-item-active' : '' }} {{ item.disabled ? 'ant-vtabs-bar-item-disabled' : '' }} {{ mixin.value === index && !item.disabled && tabActiveClassName ? tabActiveClassName : '' }}"
