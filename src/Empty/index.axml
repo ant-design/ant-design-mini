@@ -53,6 +53,7 @@
     <view a:if="{{ buttonInfo.list.length > 0 }}" class="ant-empty-button ant-empty-button-layout-{{ buttonInfo.layout }}">
       <ant-button
         a:for="{{ buttonInfo.list }}"
+        a:key="text"
         type="{{item.type}}"
         data-item="{{ item }}"
         onTap="onClickButton"

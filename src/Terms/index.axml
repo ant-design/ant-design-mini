@@ -45,6 +45,7 @@
         <text
           class="ant-terms-protocol-item"
           a:for="{{terms}}"
+          a:key="key"
           onTap="onTermTap"
           data-item="{{item}}"
           data-index="{{index}}"
@@ -83,7 +84,7 @@
           next-margin="35px"
           onChange="onReadChange"
         >
-          <block a:for="{{terms}}">
+          <block a:for="{{terms}}" a:key="key">
             <swiper-item className="ant-terms-read-protocol-swiper-item">
               <view
                 class="ant-terms-read-protocol"
@@ -133,6 +134,7 @@
       <slot name="prefix"></slot>
       <view
         a:for="{{buttons}}"
+        a:key="key"
         class="ant-terms-btn-item {{buttonsDirection==='horizontal' ? 'ant-terms-btn-item-flex' : ''}}"
         data-item="{{item}}"
         data-index="{{index}}"

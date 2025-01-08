@@ -5,7 +5,8 @@
     <block
       a:for="{{ items }}"
       a:for-index="index"
-      a:for-item="item">
+      a:for-item="item"
+      a:key="text">
       <view
         class="ant-tab-bar-item {{ index === mixin.value ? 'ant-tab-bar-item-active ' + (activeClassName || '') : '' }}"
         style="{{ index === mixin.value ? activeStyle || '' : '' }}"

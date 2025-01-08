@@ -1,6 +1,7 @@
 <view class="alphabet-container">
   <view
     a:for="{{alphabet}}"
+    a:key="*this"
     class="alphabet-container-item {{item === touchKey ? 'alphabet-container-active' : ''}}"
     catchTouchStart="onTouchStart"
     catchTouchMove="onTouchMove"

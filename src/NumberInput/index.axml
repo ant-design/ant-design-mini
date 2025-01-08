@@ -30,6 +30,7 @@
       <view
         class="ant-number-input-quick-item"
         a:for="{{quickAmounts}}"
+        a:key="*this"
         data-value="{{item}}"
         onTap="handleQuickInput"
       >

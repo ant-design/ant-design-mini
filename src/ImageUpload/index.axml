@@ -4,7 +4,7 @@
   <!-- #if ALIPAY -->
   <slot fileList="{{ mixin.value }}">
     <!-- #endif -->
-    <block a:for="{{ mixin.value }}" a:for-index="index" a:for-item="item" key="{{ item.uid }}">
+    <block a:for="{{ mixin.value }}" a:for-index="index" a:for-item="item" a:key="uid">
       <view class="ant-image-upload-show">
         <view data-uid="{{ item.uid }}" onTap="onRemove">
           <!-- #if ALIPAY  -->

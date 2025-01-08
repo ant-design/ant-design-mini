@@ -5,7 +5,7 @@
 >
   <view class="ant-table-content" style="{{widthPx?`width: ${widthPx}px;`:''}} {{ scrollHeight ? `height: ${scrollHeight};` : '' }}">
     <view class="ant-table-list">
-      <block a:for="{{list}}" key="{{item.key}}">
+      <block a:for="{{list}}" a:key="key">
         <!-- displayType-full 设置一行铺满展示 ant-table-list-item-{{item.type}} -->
         <view
           class="ant-table-list-item {{displayType==='FULL'?'ant-table-list-item-full':''}}"
@@ -15,7 +15,7 @@
             a:for="{{item.value}}"
             a:for-index="itemIndex"
             a:for-item="val"
-            key="{{val.key}}"
+            a:key="key"
           >
             <view
               class="ant-table-list-item-columns-item {{val.fixed ? `ant-table-list-item-value-fixed ${showFixedShadow ? 'ant-table-list-item-value-shadow' : ''}` : ''}}"

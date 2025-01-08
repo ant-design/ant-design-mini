@@ -9,6 +9,7 @@
   <view class="ant-indexbar-side-content">
     <view
       a:for="{{items}}"
+      a:key="label"
       class="ant-indexbar-side-item"
       catchTouchStart="onTouchStart"
       catchTouchMove="onTouchMove"
@@ -43,6 +44,7 @@
   onScroll="onScroll">
   <view
     a:for="{{items}}"
+    a:key="label"
     class="ant-indexbar-side-list"
     id="{{`ant-indexbar-${item.label}`}}">
     <slot
