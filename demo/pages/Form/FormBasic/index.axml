@@ -5,7 +5,6 @@
   name="account"
   placeholder="请输入用户名"
   tooltip="用户名说明"
-  required
   allowClear
   ref="handleRef" />
 <form-input

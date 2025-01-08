@@ -126,16 +126,18 @@ class Field extends EventEmitter {
       message,
       validateTrigger
     );
-    this.ref.on((trigger, value, extraInfo?: any) => {
+    this.ref.on(async (trigger, value, extraInfo?: any) => {
       if (trigger === 'onChange') {
         this.setValue(value);
         this.touched = true;
         // 触发校验，需要在 onValueChange 之前执行
-        this.validateTrigger.forEach((item) => {
-          if (item === trigger) {
-            this.validate();
-          }
-        });
+        await Promise.all(
+          this.validateTrigger.map((item) => {
+            if (item === trigger) {
+              return this.validate();
+            }
+          })
+        );
         this.emit('valueChange', value);
         return;
       } else if (trigger === 'didUnmount') {

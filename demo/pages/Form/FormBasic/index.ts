@@ -36,14 +36,30 @@ Page({
   onLoad() {
     this.form = new Form({
       initialValues: { user: { account: 'andy', phone: '10000' } },
+      rules: {
+        account: [
+          {
+            required: true,
+            message: '请输入账号',
+          },
+          () => ({
+            // 一定需要时异步函数，返回Promise对象
+            validator: async (_, value) => {
+              if (value.length !== 11) {
+                throw new Error('请输入正确的账号');
+              }
+            },
+          }),
+        ],
+      },
     });
     this.form.onValueChange('user.account', (value, allValues) => {
-      const validates =  this.form.getFieldsValidatorStatus();
+      const validates = this.form.getFieldsValidatorStatus();
       console.log('onValueChange:', value, allValues, validates);
     });
     this.form.onValuesChange((value, allValues) => {
-      const validates =  this.form.getFieldsValidatorStatus();
-      console.log('onValuesChange:', value, allValues,validates);
+      const validates = this.form.getFieldsValidatorStatus();
+      console.log('onValuesChange:', value, allValues, validates);
     });
     /// #if WECHAT
     if (this.formRefList) {
