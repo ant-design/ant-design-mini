@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "1.10.8",
+  "version": "1.10.9-alpha.1",
   "scripts": {
     "dev": "node ./scripts/dev.js",
     "build": "node ./scripts/build.js",
@@ -35,6 +35,7 @@
   "devDependencies": {
     "@types/jest": "^27.4.0",
     "@types/less": "^3.0.3",
+    "@types/node": "^14.18.36",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
     "antd": "^4.20.7",
