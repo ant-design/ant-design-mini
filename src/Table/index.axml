@@ -22,42 +22,47 @@
               style="width:{{displayType==='FULL'?`${100/item.value.length}%;`:`${val.widthPx}px;`}} "
             >
               <view a:if="{{item.type === 'columns'}}" class="ant-table-list-item-columns ant-table-list-item-value {{ val.textAlignRight ? 'ant-table-list-item-value-align-right' : '' }}">
-                {{val.title}}
                 <view
-                  a:if="{{val.sorter}}"
-                  data-item="{{val}}"
-                  onTap="handleSort"
-                  class="ant-table-list-item-sorter"
+                  class="{{val.ellipsisRow ? 'ant-table-list-item-ellipsis' : ''}}"
+                  style="{{val.ellipsisRow ? `-webkit-line-clamp:${val.ellipsisRow}`: ''}};display: {{val.ellipsisRow ? '-webkit-box': 'flex'}}"
                 >
-                  <image
-                    class="ant-table-list-item-sorter-icon"
-                    src="{{val.sorterStatus === 'forward' ? 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*q71qTY02S-AAAAAAAAAAAAAADv57AQ/original' : 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*42gLQbKpi30AAAAAAAAAAAAADv57AQ/original'}}"
-                  />
-                  <image
-                    class="ant-table-list-item-sorter-icon"
-                    src="{{val.sorterStatus === 'reverse' ? 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*Co9CQ61uhPAAAAAAAAAAAAAADv57AQ/original' : 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*h9ZcSLzVBjgAAAAAAAAAAAAADv57AQ/original'}}"
-                  />
+                  {{val.title}}
+                  <view
+                    a:if="{{val.sorter}}"
+                    data-item="{{val}}"
+                    onTap="handleSort"
+                    class="ant-table-list-item-sorter"
+                  >
+                    <image
+                      class="ant-table-list-item-sorter-icon"
+                      src="{{val.sorterStatus === 'forward' ? 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*q71qTY02S-AAAAAAAAAAAAAADv57AQ/original' : 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*42gLQbKpi30AAAAAAAAAAAAADv57AQ/original'}}"
+                    />
+                    <image
+                      class="ant-table-list-item-sorter-icon"
+                      src="{{val.sorterStatus === 'reverse' ? 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*Co9CQ61uhPAAAAAAAAAAAAAADv57AQ/original' : 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*h9ZcSLzVBjgAAAAAAAAAAAAADv57AQ/original'}}"
+                    />
+                  </view>
                 </view>
               </view>
-              <view
-                a:else
-                class="ant-table-list-item-rows ant-table-list-item-value  {{itemIndex==0?'ant-table-list-item-value-first':''}} {{ val.textAlignRight ? 'ant-table-list-item-value-align-right' : '' }}"
-              >
-                <view  class="{{val.ellipsisRow ? 'ant-table-list-item-ellipsis' : ''}}" style="{{val.ellipsisRow ? `-webkit-line-clamp:${val.ellipsisRow}`: ''}}">
-                  <!-- #if ALIPAY -->
-                  <slot
-                    item="{{val}}"
-                    index="{{itemIndex}}"
-                    row="{{item}}"
-                    rowIndex="{{index}}"
-                    name="item"
-                  >
-                    <!-- #endif -->
-                    {{val.value}}
-                    <!-- #if ALIPAY -->
-                  </slot>
+              <view a:else class="ant-table-list-item-rows ant-table-list-item-value  {{itemIndex==0?'ant-table-list-item-value-first':''}} {{ val.textAlignRight ? 'ant-table-list-item-value-align-right' : '' }}">
+                <!-- #if ALIPAY -->
+                <slot
+                  item="{{val}}"
+                  index="{{itemIndex}}"
+                  row="{{item}}"
+                  rowIndex="{{index}}"
+                  name="item"
+                >
                   <!-- #endif -->
-                </view>
+                  <view
+                    class="{{val.ellipsisRow ? 'ant-table-list-item-ellipsis' : ''}}"
+                    style="{{val.ellipsisRow ? `-webkit-line-clamp:${val.ellipsisRow}`: ''}}"
+                  >
+                    {{val.value}}
+                  </view>
+                  <!-- #if ALIPAY -->
+                </slot>
+                <!-- #endif -->
               </view>
             </view>
           </block>
