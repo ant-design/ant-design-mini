@@ -38,10 +38,12 @@ Page({
       initialValues: { user: { account: 'andy', phone: '10000' } },
     });
     this.form.onValueChange('user.account', (value, allValues) => {
-      console.log('onValueChange:', value, allValues);
+      const validates =  this.form.getFieldsValidatorStatus();
+      console.log('onValueChange:', value, allValues, validates);
     });
     this.form.onValuesChange((value, allValues) => {
-      console.log('onValuesChange:', value, allValues);
+      const validates =  this.form.getFieldsValidatorStatus();
+      console.log('onValuesChange:', value, allValues,validates);
     });
     /// #if WECHAT
     if (this.formRefList) {

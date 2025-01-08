@@ -130,7 +130,14 @@ class Field extends EventEmitter {
       if (trigger === 'onChange') {
         this.setValue(value);
         this.touched = true;
+        // 触发校验，需要在 onValueChange 之前执行
+        this.validateTrigger.forEach((item) => {
+          if (item === trigger) {
+            this.validate();
+          }
+        });
         this.emit('valueChange', value);
+        return;
       } else if (trigger === 'didUnmount') {
         this.emit('didUnmount');
       } else if (trigger === 'deriveDataFromProps') {
