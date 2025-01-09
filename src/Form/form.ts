@@ -100,11 +100,20 @@ class Field extends EventEmitter{
     super();
     this.ref = ref;
     this.create(name, initialValues[name], rules[name], validateMessages, required, label, message, validateTrigger);
-    this.ref.on((trigger, value) => {
+    this.ref.on(async (trigger, value) => {
       if (trigger === 'onChange') {
         this.setValue(value);
         this.touched = true;
+        // 触发校验，需要在 onValueChange 之前执行
+        await Promise.all(
+          this.validateTrigger.map((item) => {
+            if (item === trigger) {
+              return this.validate();
+            }
+          })
+        );
         this.emit('valueChange', value);
+        return;
       } else if (trigger === 'didUnmount') {
         this.emit('didUnmount');
       } else if (trigger === 'deriveDataFromProps') {
@@ -152,13 +161,13 @@ class Field extends EventEmitter{
   }
 
   /**
-   * 
+   *
    * @param rule 修改 Validator
-   * @param name 
-   * @param required 
-   * @param message 
-   * @param validateMessages 
-   * @returns 
+   * @param name
+   * @param required
+   * @param message
+   * @param validateMessages
+   * @returns
    */
   private transformValidatorRules(name: string, rule: RawRule, required: boolean, label: string, message: string, validateMessages: ValidateMessages) {
     let requiredRule = false;
@@ -285,7 +294,7 @@ class Field extends EventEmitter{
 
   /**
    * 得到 Field 校验器状态
-   * @returns 
+   * @returns
    */
   getValidatorStatus(): ValidatorStatus {
     const { status, errors } = this.ref.getFormData();
@@ -356,7 +365,7 @@ class Field extends EventEmitter{
 
   /**
    * 重置 Field
-   * @param initialValue 
+   * @param initialValue
    */
   reset(initialValue: Value) {
     this.touched = false;
@@ -446,7 +455,7 @@ export class Form {
 
   /**
    * 遍历表单field对象
-   * @param callback 
+   * @param callback
    */
   private eachField(callback: (field: Field, name: string) => void) {
     const fields = this.fields;
@@ -458,7 +467,7 @@ export class Form {
 
   /**
    * 设置 rules
-   * @param rules 
+   * @param rules
    */
   private setRules(rules: Rules) {
     this.rules = this.transformRules(rules);
@@ -556,12 +565,12 @@ export class Form {
   /**
    * 设置 initialValues，这个操作不会对页面进行修改，要是需要重置表单可跟上 reset 方法；
    * 这样是对于表单已经在编辑，但是需要重新initialValues的场景
-   * 
-   * eg: 
+   *
+   * eg:
    *    this.setInitialValues(initialValues);
    *    this.reset();
-   * 
-   * @param initialValues 
+   *
+   * @param initialValues
    */
   setInitialValues(initialValues: Values) {
     this.initialValues = initialValues;
@@ -569,8 +578,8 @@ export class Form {
 
   /**
    * 获取对应字段名的值
-   * @param name 
-   * @returns 
+   * @param name
+   * @returns
    */
   getFieldValue(name: string) {
     const field = this.fields[name];
@@ -582,8 +591,8 @@ export class Form {
 
   /**
    * 获取一组字段名对应的值
-   * @param nameList 
-   * @returns 
+   * @param nameList
+   * @returns
    */
   getFieldsValue(nameList?: string[]) {
     const fieldsValue: Values = {};
@@ -596,8 +605,8 @@ export class Form {
 
   /**
    * 获取对应字段名的校验器状态
-   * @param name 
-   * @returns 
+   * @param name
+   * @returns
    */
   getFieldValidatorStatus(name: string) {
     const field = this.fields[name];
@@ -609,8 +618,8 @@ export class Form {
 
   /**
    * 获取一组字段名的校验器状态
-   * @param nameList 
-   * @returns 
+   * @param nameList
+   * @returns
    */
   getFieldsValidatorStatus(nameList?: string[]) {
     const fieldsValidatorStatus: Record<string, ValidatorStatus> = {};
@@ -625,7 +634,7 @@ export class Form {
    * 设置对应字段名的校验器状态
    * @param name 表单名称
    * @param validatorStatus 校验状态
-   * @returns 
+   * @returns
    */
   setFieldValidatorStatus(name: string, validatorStatus: ValidatorStatus) {
     const field = this.fields[name];
@@ -638,7 +647,7 @@ export class Form {
   /**
    * 设置一组字段名的校验器状态
    * @param fieldsValidatorStatus 表单校验状态
-   * @returns 
+   * @returns
    */
   setFieldsValidatorStatus(fieldsValidatorStatus: Record<string, ValidatorStatus>) {
     Object.keys(fieldsValidatorStatus).forEach(name => {
@@ -649,7 +658,7 @@ export class Form {
   /**
    * 检查对应字段是否被用户操作过
    * @param name 字段名称
-   * @returns 
+   * @returns
    */
    isFieldTouched(name: string) {
     const field = this.fields[name];

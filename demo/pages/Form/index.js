@@ -1,8 +1,26 @@
 import { Form } from '../../../src/Form/form';
 import cityList from './city';
 
+const phoneLengthValidator = async (_, value) => {
+  if (value.length !== 11) {
+    throw new Error('请输入正确的账号');
+  }
+};
 Page({
-  form: new Form(),
+  form: new Form({
+    rules: {
+      account: [
+        {
+          required: true,
+          message: '请输入账号',
+        },
+        () => ({
+          // 一定需要时异步函数，返回Promise对象
+          validator: phoneLengthValidator,
+        }),
+      ],
+    }
+  }),
   data: {
     fruitList: ['苹果', '香蕉', '橘子', '西瓜'],
     cityList,
@@ -20,6 +38,12 @@ Page({
       { value: 'football', text: '⚽️' },
       { value: 'badminton', text: '🏸️' },
     ],
+  },
+  onLoad() {
+    this.form.onValuesChange((value, allValues) => {
+      const validates = this.form.getFieldsValidatorStatus();
+      console.log('onValuesChange:', value, allValues, validates);
+    });
   },
   handleRef(ref) {
     this.form.addItem(ref);
