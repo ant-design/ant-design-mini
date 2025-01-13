@@ -196,9 +196,6 @@ export const wechatCustomMapping = {
     onSelect: 'bindselect',
   },
   'ant-prompts': {
-    onTapPromptsItem: 'bindtappromptsitem',
-  },
-  'ant-suggestion': {
-    onSelect: 'bindselect',
+    onItemTap: 'binditemtap',
   },
 };
