@@ -3,17 +3,21 @@ import { IBaseProps } from '../../src/_util/base';
 
 interface IPromptsItem {
   /**
+   * @description 唯一标识用于区分每个提示项
+   */
+  key: string;
+  /**
    * @description 前面的icon图片链接
    */
-  image?: string;
+  icon?: string;
   /**
-   * @description 提示的标题
+   * @description 提示标签显示提示的主要内容
    */
-  title?: string;
+  label?: string;
   /**
-   * @description 提示的内容
+   * @description 提示描述提供额外的信息
    */
-  content: string;
+  description: string;
   /**
    * @description 提示是否展示右边的箭头
    */
@@ -29,23 +33,39 @@ interface IPromptsItem {
 export interface IPromptsProps extends IBaseProps {
   /**
    * @description 提示列表
-   * @default default
+   * @default []
    */
   list?: IPromptsItem[];
 
   /**
    * @description 提示列表的标题
-   * @default default
+   * @default ''
    */
   promptsTitle?: string;
-  
-  className?: string;
 
-  onTapPromptsItem?: (item: IPromptsItem) => void;
+  /**
+   * @description 纵向布局
+   * @default true
+   */
+  vertical?: boolean;
+
+  /**
+   * @description 横向布局下，自动换行
+   * @default false
+   */
+  wrap?: boolean;
+
+  /**
+   * @description 点击选项之后的回调
+   */
+  onItemTap?: (item: IPromptsItem, index: number) => void;
 }
 
 export const PromptsProps: Partial<IPromptsProps> = {
   list: [],
   className: '',
-  promptsTitle: ''
+  promptsTitle: '',
+  vertical: true,
+  wrap: false,
+  onItemTap() {},
 };
