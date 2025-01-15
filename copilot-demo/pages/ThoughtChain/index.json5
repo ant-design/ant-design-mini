@@ -1,0 +1,15 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "ThoughtChain 组件",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "ThoughtChain 组件",
+  /// #endif
+
+  "usingComponents": {
+    "ant-container": "../../../src/Container/index",
+    "thought-chain": "../../../src/ThoughtChain/index"
+  },
+  "transparentTitle": "always"
+}
