@@ -1,25 +1,66 @@
-<view class="ant-table {{ scrollHeight ? 'ant-table-scroll-height' : '' }} {{className}}" onTouchMove="handleTouchMove" onScrollToUpper="handleScrollToUpper">
+<view
+  class="ant-table {{ scrollHeight ? 'ant-table-scroll-height' : '' }} {{className}}"
+  onTouchMove="handleTouchMove"
+  onScrollToUpper="handleScrollToUpper"
+>
   <view class="ant-table-content" style="{{widthPx?`width: ${widthPx}px;`:''}} {{ scrollHeight ? `height: ${scrollHeight};` : '' }}">
     <view class="ant-table-list">
-      <block a:for="{{list}}" key="{{item.key}}">
+      <block a:for="{{list}}" a:key="key">
         <!-- displayType-full 设置一行铺满展示 ant-table-list-item-{{item.type}} -->
-        <view class="ant-table-list-item {{displayType==='FULL'?'ant-table-list-item-full':''}}" style="{{ item.type === 'columns' && scrollHeight ? 'position: sticky; top: 0; z-index: 10;' : '' }}">
-          <block a:for="{{item.value}}" a:for-item="val" key="{{val.key}}" a:for-index="itemIndex">
-            <view class="ant-table-list-item-columns-item {{val.fixed ? `ant-table-list-item-value-fixed ${showFixedShadow ? 'ant-table-list-item-value-shadow' : ''}` : ''}}"
-                  style="width:{{displayType==='FULL'?`${100/item.value.length}%;`:`${val.widthPx}px;`}} ">
+        <view
+          class="ant-table-list-item {{displayType==='FULL'?'ant-table-list-item-full':''}}"
+          style="{{ item.type === 'columns' && scrollHeight ? 'position: sticky; top: 0; z-index: 10;' : '' }}"
+        >
+          <block
+            a:for="{{item.value}}"
+            a:for-index="itemIndex"
+            a:for-item="val"
+            a:key="key"
+          >
+            <view
+              class="ant-table-list-item-columns-item {{val.fixed ? `ant-table-list-item-value-fixed ${showFixedShadow ? 'ant-table-list-item-value-shadow' : ''}` : ''}}"
+              style="width:{{displayType==='FULL'?`${100/item.value.length}%;`:`${val.widthPx}px;`}} "
+            >
               <view a:if="{{item.type === 'columns'}}" class="ant-table-list-item-columns ant-table-list-item-value {{ val.textAlignRight ? 'ant-table-list-item-value-align-right' : '' }}">
-                {{val.title}}
-                <view a:if="{{val.sorter}}" data-item="{{val}}" onTap="handleSort" class="ant-table-list-item-sorter">
-                  <image class="ant-table-list-item-sorter-icon" src="{{val.sorterStatus === 'forward' ? 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*q71qTY02S-AAAAAAAAAAAAAADv57AQ/original' : 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*42gLQbKpi30AAAAAAAAAAAAADv57AQ/original'}}" />
-                  <image class="ant-table-list-item-sorter-icon" src="{{val.sorterStatus === 'reverse' ? 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*Co9CQ61uhPAAAAAAAAAAAAAADv57AQ/original' : 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*h9ZcSLzVBjgAAAAAAAAAAAAADv57AQ/original'}}" />
+                <view
+                  class="{{val.ellipsisRow ? 'ant-table-list-item-ellipsis' : ''}}"
+                  style="{{val.ellipsisRow ? `-webkit-line-clamp:${val.ellipsisRow}`: ''}};display: {{val.ellipsisRow ? '-webkit-box': 'flex'}}"
+                >
+                  {{val.title}}
+                  <view
+                    a:if="{{val.sorter}}"
+                    data-item="{{val}}"
+                    onTap="handleSort"
+                    class="ant-table-list-item-sorter"
+                  >
+                    <image
+                      class="ant-table-list-item-sorter-icon"
+                      src="{{val.sorterStatus === 'forward' ? 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*q71qTY02S-AAAAAAAAAAAAAADv57AQ/original' : 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*42gLQbKpi30AAAAAAAAAAAAADv57AQ/original'}}"
+                    />
+                    <image
+                      class="ant-table-list-item-sorter-icon"
+                      src="{{val.sorterStatus === 'reverse' ? 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*Co9CQ61uhPAAAAAAAAAAAAAADv57AQ/original' : 'https://mdn.alipayobjects.com/huamei_mvxdgg/afts/img/A*h9ZcSLzVBjgAAAAAAAAAAAAADv57AQ/original'}}"
+                    />
+                  </view>
                 </view>
               </view>
               <view a:else class="ant-table-list-item-rows ant-table-list-item-value  {{itemIndex==0?'ant-table-list-item-value-first':''}} {{ val.textAlignRight ? 'ant-table-list-item-value-align-right' : '' }}">
                 <!-- #if ALIPAY -->
-                <slot item="{{val}}" index="{{itemIndex}}" row="{{item}}" rowIndex="{{index}}" name="item">
-                <!-- #endif -->
-                  {{val.value}}
-                <!-- #if ALIPAY -->
+                <slot
+                  item="{{val}}"
+                  index="{{itemIndex}}"
+                  row="{{item}}"
+                  rowIndex="{{index}}"
+                  name="item"
+                >
+                  <!-- #endif -->
+                  <view
+                    class="{{val.ellipsisRow ? 'ant-table-list-item-ellipsis' : ''}}"
+                    style="{{val.ellipsisRow ? `-webkit-line-clamp:${val.ellipsisRow}`: ''}}"
+                  >
+                    {{val.value}}
+                  </view>
+                  <!-- #if ALIPAY -->
                 </slot>
                 <!-- #endif -->
               </view>
@@ -33,9 +74,9 @@
       <view a:if="{{list.length <= 1}}" class="ant-table-empty">
         <!-- #if ALIPAY -->
         <slot item="{{val}}" name="empty">
-        <!-- #endif -->
+          <!-- #endif -->
           <image class="ant-table-empty-image" src="https://mdn.alipayobjects.com/huamei_9iifqq/afts/img/A*AWeXQYuIODwAAAAAAAAAAAAADjWYAQ/original" />
-        <!-- #if ALIPAY -->
+          <!-- #if ALIPAY -->
         </slot>
         <!-- #endif -->
       </view>

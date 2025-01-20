@@ -1,5 +1,5 @@
 const nameArr = [
-  '小明',
+  '小红',
   '小何',
   '小花',
   '小美',
@@ -43,6 +43,7 @@ Page({
         key: 'name',
         width: 150,
         fixed: true,
+        ellipsisRow: 2,
       },
       {
         title: '年龄',
@@ -84,9 +85,11 @@ Page({
     ],
     fullColumns: [
       {
-        title: '姓名',
+        title: '这是一段很长的表头这是一段很长的表头这是一段很长的表头',
         dataIndex: 'name',
         key: 'name',
+        ellipsisRow: 2,
+        width: 400,
       },
       {
         title: '年龄',

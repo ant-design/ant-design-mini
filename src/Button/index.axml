@@ -14,7 +14,7 @@
   catchTap="{{ catchTap ? 'catchTap' : '' }}"
   public-id="{{ publicId }}"
   open-type="{{ openType }}"
-  class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : ( aide && ['default', 'primary'].indexOf(type) > -1 ? '-aide' : '' )) }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
+  class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : (utils.isAide(aide, type) ? '-aide' : '' )) }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
   style="{{ style }}"
 >
 <!-- #endif -->
@@ -34,7 +34,7 @@
   bindchooseavatar="onChooseAvatar"
   public-id="{{ publicId }}"
   open-type="{{ openType }}"
-  class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : '') }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
+  class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : (utils.isAide(aide, type) ? '-aide' : '' )) }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
   style="{{ style }}"
 >
 <!-- #endif -->
@@ -45,6 +45,16 @@
       <view a:if="{{ !inline && subText }}" class="ant-button-content-subtext">
         {{ subText }}
       </view>
+    </view>
+    <view
+      a:if="{{loading}}"
+      class="ant-button-content-loading-container"
+    >
+      <loading
+        type="mini"
+        color="currentColor"
+        className="ant-button-content-loading"
+      ></loading>
     </view>
   </view>
 </button>

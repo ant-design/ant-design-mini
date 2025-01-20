@@ -9,7 +9,8 @@
     <block
       a:for="{{ options }}"
       a:for-index="index"
-      a:for-item="item">
+      a:for-item="item"
+      a:key="value">
       <view
         class="ant-selector-content {{ options.length <= 2 ? 'ant-selector-content-item2' : '' }}">
         <view

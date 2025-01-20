@@ -1,4 +1,5 @@
 @import (reference) './variable.less';
+@import '../style/mixins/hairline.less';
 
 @cardPrefix: ant-card;
 
@@ -43,8 +44,9 @@
 
   .ant-card-divider {
     margin: 0 24 * @rpx;
-    height: 1px;
     &-with-line {
+      position: relative;
+      .hairline('top',@ant-card-divider-color);
     }
   }
 

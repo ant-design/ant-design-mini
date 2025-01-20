@@ -47,7 +47,7 @@
     </view>
   </ant-sticky>
 
-  <view a:if="{{!finalFoldStatus}}" class="ant-card-divider {{divider ? 'ant-card-divider-with-line g-hairline--top' : ''}}"></view>
+  <view a:if="{{!finalFoldStatus}}" class="ant-card-divider {{divider ? 'ant-card-divider-with-line' : ''}}"></view>
 
   <!-- 卡片内容插槽 -->
   <view class="ant-card-content {{ finalFoldStatus ? 'ant-card-content-collapse' : '' }}">

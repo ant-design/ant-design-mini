@@ -56,3 +56,10 @@
 >
   <ant-table dataSource="{{dataSource}}" columns="{{fullColumns}}" displayType="FULL" className='full-table-table' />
 </ant-container>
+
+<ant-container
+  title="超出行数省略展示"
+  className="list"
+>
+  <ant-table dataSource="{{[{key: '0', name: '这是一行很长的数据，需要换行展示blablablabla', age: 18, sex: '男', address: '成都'}]}}" columns="{{fullColumns}}" className='full-table-table' />
+</ant-container>

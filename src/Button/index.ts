@@ -29,6 +29,10 @@ Component({
       type: String,
       value: 'default',
     },
+    aide: {
+      type: Boolean,
+      value: false,
+    },
   },
   options: {
     styleIsolation: 'shared',

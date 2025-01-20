@@ -198,4 +198,7 @@ export const wechatCustomMapping = {
   'ant-suggestion': {
     onSelect: 'bindselect',
   },
+  'ant-empty': {
+    onClickButton: 'bindclickbutton',
+  },
 };

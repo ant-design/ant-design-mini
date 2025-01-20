@@ -13,7 +13,8 @@
     <block
       a:for="{{ markItems }}"
       a:for-index="index"
-      a:for-item="item">
+      a:for-item="item"
+      a:key="*this">
       <view class="{{ helper.getMarkCellClassName(index, markItems) }}">
         <!-- display: inline -->
         <!-- #if WECHAT -->
@@ -67,7 +68,8 @@
     <block
       a:for="{{ monthList }}"
       a:for-index="index"
-      a:for-item="currentMonth">
+      a:for-item="currentMonth"
+      a:key="title">
       <view
         class="ant-calendar-body-container {{ currentMonth.className || '' }}" style="{{ currentMonth.style || '' }}">
         <view class="ant-calendar-title-container">
@@ -83,7 +85,8 @@
           <block
             a:for="{{ currentMonth.cells }}"
             a:for-index="index"
-            a:for-item="item">
+            a:for-item="item"
+            a:key="time">
             <block a:if="{{helper.isDisplay(index, currentMonth.cells)}}">
               <view
                 class="{{ helper.getClassName(item, index, showSelectableDatesOnly) }}"

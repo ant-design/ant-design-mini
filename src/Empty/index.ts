@@ -1,9 +1,9 @@
-import { Component, IPlatformEvent } from '../_util/simply';
+import { Component, IPlatformEvent, triggerEvent } from '../_util/simply';
 import { EmptyFunctionalProps } from './props';
 
 Component(EmptyFunctionalProps, {
   onClickButton(e: IPlatformEvent) {
-    const { item } = e.target.dataset;
-    this.props.onClickButton(item);
+    const { item } = e.currentTarget.dataset;
+    triggerEvent(this, 'clickButton', item);
   },
 });
