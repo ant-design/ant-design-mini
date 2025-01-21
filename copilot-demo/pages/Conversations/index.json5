@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Conversations",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Conversations",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-container": "../../../src/Container/index",
+    "ant-conversations": "../../../src/Conversations/index"
+  }
+}
