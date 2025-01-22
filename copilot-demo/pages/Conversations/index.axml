@@ -8,3 +8,24 @@
     onMenuItemTap="handleMenuItemTap"
   />
 </ant-container>
+
+
+<ant-container title="抽屉中展示">
+  <ant-button onTap="handleOpenHistory" inline size="small">历史记录</ant-button>
+  <ant-popup
+    className="history-popup"
+    visible="{{ visible }}"
+    height="{{ 250 }}"
+    width="{{ 250 }}"
+    position="left"
+    animation
+    onClose="handlePopupClose"
+  >
+    <ant-conversations
+      items="{{items}}"
+      menus="{{menus}}"
+      onItemTap="handleItemTap"
+      onMenuItemTap="handleMenuItemTap"
+    />
+  </ant-popup>
+</ant-container>

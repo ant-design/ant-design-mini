@@ -42,13 +42,7 @@ interface MenuItem {
   confirmText?: string;
 }
 
-/**
- * @description 按钮，用户只需单击一下即可执行操作并做出选择。
- * 常用于表单提交、界面跳转、模块引导点击。具体用法和小程序框架中 button 保持一致，在 button 基础上做了样式的封装。
- * 封装后的按钮可改变按钮形态、增加 loading，以及内置了几种不同样式的按钮。
- */
-
-export interface IPromptsProps extends IBaseProps {
+export interface IConversationsProps extends IBaseProps {
   /**
    * @description 提示列表
    * @default []
@@ -72,7 +66,7 @@ export interface IPromptsProps extends IBaseProps {
   onMenuItemTap?: (item: MenuItem, index: number) => void;
 }
 
-export const ConversationsProps: Partial<IPromptsProps> = {
+export const ConversationsProps: Partial<IConversationsProps> = {
   className: '',
   style: '',
   items: [],

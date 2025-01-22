@@ -1,5 +1,6 @@
 Page({
   data: {
+    visible: false,
     items: [
       {
         key: '1',
@@ -84,5 +85,16 @@ Page({
       title: `菜单${menuItem.detail[0].index}_列表项${menuItem.detail[1].key}`,
     });
     /// #endif
+  },
+
+  handleOpenHistory() {
+    this.setData({
+      visible: true,
+    });
+  },
+  handlePopupClose() {
+    this.setData({
+      visible: false,
+    });
   },
 });

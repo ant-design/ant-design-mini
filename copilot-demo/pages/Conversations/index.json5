@@ -11,6 +11,8 @@
 
   "usingComponents": {
     "ant-container": "../../../src/Container/index",
-    "ant-conversations": "../../../src/Conversations/index"
+    "ant-conversations": "../../../src/Conversations/index",
+    "ant-popup": "../../../src/Popup/index",
+    "ant-button": "../../../src/Button/index"
   }
 }
