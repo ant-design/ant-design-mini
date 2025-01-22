@@ -18,6 +18,7 @@
           hover-start-time="{{20}}"
           hover-stay-time="{{40}}"
           hover-class="{{item.disabled ? '' : 'ant-copilot-conversations-hover'}}"
+          onTouchStart="{{item.disabled ? '' : 'onTouchStart'}}"
           onTouchEnd="{{item.disabled ? '' : 'onItemTap'}}"
           data-item="{{item}}"
           data-index="{{index}}"
