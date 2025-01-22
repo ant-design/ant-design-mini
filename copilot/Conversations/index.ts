@@ -1,7 +1,7 @@
 import { Component, triggerEventValues } from '../../src/_util/simply';
-import { PromptsProps } from './props';
+import { ConversationsProps } from './props';
 
-Component(PromptsProps, {
+Component(ConversationsProps, {
   onItemTap(e) {
     const { item, index } = e.currentTarget.dataset;
     triggerEventValues(this, 'itemTap', [item, index], e);

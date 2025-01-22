@@ -55,7 +55,7 @@ export interface IPromptsProps extends IBaseProps {
    * @description 会话操作菜单
    * @default []
    */
-  menu?: MenuItem[];
+  menus?: MenuItem[];
 
   /**
    * @description 点击会话项之后的回调
@@ -68,10 +68,10 @@ export interface IPromptsProps extends IBaseProps {
   onMenuItemTap?: (item: MenuItem, index: number) => void;
 }
 
-export const PromptsProps: Partial<IPromptsProps> = {
+export const ConversationsProps: Partial<IPromptsProps> = {
   className: '',
   style: '',
   items: [],
-  menu: [],
+  menus: [],
   onItemTap() {},
 };

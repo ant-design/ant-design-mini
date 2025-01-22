@@ -1,5 +1,8 @@
 <view class="navigation-bar"/>
 
 <ant-container title="基础用法">
-  <ant-conversations />
+  <ant-conversations
+    items="{{items}}"
+    menus="{{menus}}"
+  />
 </ant-container>

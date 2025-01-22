@@ -1,4 +1,21 @@
 <view class="ant-copilot-conversations {{ className }}" style="{{ style }}">
-
+    <block
+      a:for="{{ items }}"
+      a:for-index="index"
+      a:for-item="item"
+      a:key="key">
+      <view class="t-swipe-item-con">
+        <ant-swipe-action
+          data-item="{{ item }}"
+          rightButtons="{{ menus }}"
+          elasticity="{{ true }}"
+          onButtonTap="onButtonTap"
+        >
+          <slot>
+            <view class="t-swipe-item-con-view">{{item.label}}</view>
+          </slot>
+        </ant-swipe-action>
+      </view>
+    </block>
 
 </view>
