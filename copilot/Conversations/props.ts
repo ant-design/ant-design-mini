@@ -23,9 +23,13 @@ interface Conversation {
    */
   timestamp?: string;
   /**
-   * @description 是否禁用
+   * @description 是否禁用点击
    */
   disabled?: boolean;
+  /**
+   * @description 是否菜单禁用滑动
+   */
+  disabledMenu?: boolean;
 }
 
 interface MenuItem {
@@ -74,4 +78,5 @@ export const ConversationsProps: Partial<IPromptsProps> = {
   items: [],
   menus: [],
   onItemTap() {},
+  onMenuItemTap() {},
 };

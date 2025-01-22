@@ -1,19 +1,42 @@
-<view class="ant-copilot-conversations {{ className }}" style="{{ style }}">
+<view class="ant-copilot-conversations {{className}}" style="{{style}}">
     <block
-      a:for="{{ items }}"
+      a:for="{{items}}"
       a:for-index="index"
       a:for-item="item"
       a:key="key">
-      <view class="t-swipe-item-con">
+      <view class="ant-copilot-conversations-swipe-item">
         <ant-swipe-action
-          data-item="{{ item }}"
-          rightButtons="{{ menus }}"
-          elasticity="{{ true }}"
+          data-item="{{item}}"
+          data-index="{{index}}"
+          rightButtons="{{menus}}"
+          elasticity="{{true}}"
+          disabled="{{item.disabledMenu}}"
           onButtonTap="onButtonTap"
         >
-          <slot>
-            <view class="t-swipe-item-con-view">{{item.label}}</view>
-          </slot>
+          <view
+            class="ant-copilot-conversations-swipe-item-view"
+            hover-start-time="{{20}}"
+            hover-stay-time="{{40}}"
+            hover-class="{{item.disabled ? '' : 'ant-copilot-conversations-hover'}}"
+            onTouchEnd="{{item.disabled ? '' : 'onItemTap'}}"
+            data-item="{{item}}"
+            data-index="{{index}}"
+          >
+            <!-- #if ALIPAY -->
+            <slot>
+            <!-- #endif -->
+              <image a:if="{{item.icon}}" class="ant-copilot-conversations-swipe-item-view-icon" src="{{item.icon}}" />
+              <view class="ant-copilot-conversations-swipe-item-view-main">
+                <view class="ant-copilot-conversations-swipe-item-view-main-top">
+                  <view a:if="{{item.label}}" class="ant-copilot-conversations-swipe-item-view-label">{{item.label}}</view>
+                  <view a:if="{{item.timestamp}}" class="ant-copilot-conversations-swipe-item-view-timestamp">{{item.timestamp}}</view>
+                </view>
+                <view a:if="{{item.description}}" class="ant-copilot-conversations-swipe-item-view-desc">{{item.description}}</view>
+              </view>
+            <!-- #if ALIPAY -->
+            </slot>
+            <!-- #endif -->
+          </view>
         </ant-swipe-action>
       </view>
     </block>

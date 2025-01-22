@@ -4,5 +4,7 @@
   <ant-conversations
     items="{{items}}"
     menus="{{menus}}"
+    onItemTap="handleItemTap"
+    onMenuItemTap="handleMenuItemTap"
   />
 </ant-container>

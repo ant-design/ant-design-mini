@@ -198,4 +198,8 @@ export const wechatCustomMapping = {
   'ant-prompts': {
     onItemTap: 'binditemtap',
   },
+  'ant-conversations': {
+    onItemTap: 'binditemtap',
+    onMenuItemTap: 'bindmenuitemtap',
+  },
 };
