@@ -9,6 +9,21 @@
   />
 </ant-container>
 
+<!-- #if ALIPAY -->
+<ant-container title="自定义插槽">
+  <ant-conversations
+    items="{{items.slice(2,5)}}"
+    menus="{{menus}}"
+    onItemTap="handleItemTap"
+    onMenuItemTap="handleMenuItemTap"
+  >
+    <view slot-scope="props">
+      <view style="color: #1677ff;">{{props.item.label}}</view>
+      <view style="color: #bbbbbb;">{{props.item.description}}</view>
+    </view>
+  </ant-conversations>
+</ant-container>
+<!-- #endif -->
 
 <ant-container title="抽屉中展示">
   <ant-button onTap="handleOpenHistory" inline size="small">历史记录</ant-button>
