@@ -154,6 +154,7 @@ Page({
 ```
 
 ### 横向模式
+
 ```xml
 <ant-prompts
   promptsTitle="超长滑动"
@@ -196,7 +197,7 @@ Page({
 | #if ALIPAY onItemTap   | 提示点击回调         | (item: [PromptsItem](#promptsitem),index:number) => void; | -      |
 | #if WECHAT binditemtap | 提示点击回调         | (item: [PromptsItem](#promptsitem),index:number) => void; | -      |
 
-### PromptsItem 属性
+### PromptsItem
 
 | 属性        | 说明                                     | 类型    | 默认值 |
 | ----------- | ---------------------------------------- | ------- | ------ |

@@ -33,18 +33,33 @@ interface Conversation {
 }
 
 interface MenuItem {
+  /**
+   * @description 按钮文字
+   */
   text: string;
+  /**
+   * @description 按钮宽度
+   * @default 150
+   */
   width?: number;
+  /**
+   * @description 按钮背景颜色
+   */
   bgColor?: string;
+  /**
+   * @description 按钮字体颜色
+   * @default "#fff"
+   */
   color?: string;
-  slotName?: string;
-  confirmType?: '' | 'move' | 'tap';
+  /**
+   * @description 二次确认的文案描述；若为空，则展示 text
+   */
   confirmText?: string;
 }
 
 export interface IConversationsProps extends IBaseProps {
   /**
-   * @description 提示列表
+   * @description 会话列表
    * @default []
    */
   items?: Conversation[];
@@ -63,7 +78,10 @@ export interface IConversationsProps extends IBaseProps {
   /**
    * @description 点击菜单项之后的回调
    */
-  onMenuItemTap?: (item: MenuItem, index: number) => void;
+  onMenuItemTap?: (item: {
+    menuInfo: MenuItem;
+    itemInfo: Conversation;
+  }) => void;
 }
 
 export const ConversationsProps: Partial<IConversationsProps> = {
