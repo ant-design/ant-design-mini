@@ -17,16 +17,6 @@
           confirm-type="send"
           onInput="handleInput"
         />
-        <!-- <ant-textarea
-          className="ant-copilot-sender-input"
-          value="{{value}}"
-          placeholder="{{placeholder}}"
-          maxLength="{{-1}}"
-          showCount="{{false}}"
-          disabled="{{disabled}}"
-          autoHeight
-          onChange="onChange"
-        ></ant-textarea> -->
       </view>
       <slot name="suffix"></slot>
       <view class="ant-copilot-sender-content-button {{loading ? 'loading' : ''}}" onTap="handleMainBtn"></view>

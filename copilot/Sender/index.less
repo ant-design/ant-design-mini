@@ -9,7 +9,7 @@
   &-contain {
     display: flex;
     flex-direction: column;
-    background: #ffffff;
+    background: @sender-background-color;
     box-shadow: 0 6rpx 16rpx -8rpx rgba(0, 10, 26, 0.08),
       0 9rpx 28rpx 0 rgba(0, 10, 26, 0.05),
       0 12rpx 48rpx 16rpx rgba(0, 10, 26, 0.03);
@@ -34,6 +34,7 @@
           padding: 0;
           font-size: 30rpx;
           line-height: 48rpx;
+          background: @sender-background-color;
           color: @sender-input-text-color;
           caret-color: @sender-input-caret-color;
           max-height: @sender-max-height;
