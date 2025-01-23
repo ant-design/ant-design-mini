@@ -196,9 +196,10 @@ export const wechatCustomMapping = {
     onSelect: 'bindselect',
   },
   'ant-prompts': {
-    onTapPromptsItem: 'bindtappromptsitem',
+    onItemTap: 'binditemtap',
   },
-  'ant-suggestion': {
-    onSelect: 'bindselect',
+  'ant-conversations': {
+    onItemTap: 'binditemtap',
+    onMenuItemTap: 'bindmenuitemtap',
   },
 };

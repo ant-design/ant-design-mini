@@ -1,12 +1,9 @@
-import { Component, triggerEvent } from '../../src/_util/simply';
+import { Component, triggerEventValues } from '../../src/_util/simply';
 import { PromptsProps } from './props';
 
-Component(
-  PromptsProps,
-  {
-    onTapPromptsItem(e) {
-      const { item } = e.currentTarget.dataset;
-      triggerEvent(this, 'tapPromptsItem', item, e);
-    },
-  }
-);
+Component(PromptsProps, {
+  onItemTap(e) {
+    const { item, index } = e.currentTarget.dataset;
+    triggerEventValues(this, 'itemTap', [item, index], e);
+  },
+});
