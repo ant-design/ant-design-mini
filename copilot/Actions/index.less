@@ -1,0 +1,31 @@
+@import (reference) './variable.less';
+@import (reference) '../../src/style/mixins/hairline.less';
+
+@prefixCls: ant-copilot-actions;
+
+.@{prefixCls} {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: @size-3;
+  background: @actions-background-color;
+  padding: @size-2 @size-3;
+  border-radius: @corner-radius-xl;
+
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: @size-7;
+    height: @size-7;
+    border-radius: @corner-radius-md-plus;
+    &:active {
+      background: @actions-item-hover-background-color;
+    }
+    &-icon {
+      font-size: @size-5;
+      width: @size-5;
+      height: @size-5;
+    }
+  }
+}
+

@@ -1,0 +1,62 @@
+<view class="navigation-bar" />
+
+<ant-container title="基础用法">
+  <ant-bubble content="这是一条普通消息" avatar="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ" />
+</ant-container>
+
+<ant-container title="打字动画">
+  <ant-switch checked="{{ showTyping }}" onChange="onTypingChange" />
+  <block a:if="{{ showTyping }}">
+    <ant-bubble content="你好，这是一段打字效果动画" typing="{{true}}" onTypingComplete="onTypingComplete" />
+    <ant-bubble content="你好，这是一段快速的打字效果动画" typing="{{{ step: 1, interval: 50 }}}" onTypingComplete="onTypingComplete" />
+    <ant-bubble content="这是一段很长的文本消息，用于测试打字效果动画。该条消息会一次打印多个字符" typing="{{{ step: 3, interval: 100 }}}" onTypingComplete="onTypingComplete" />
+  </block>
+</ant-container>
+<ant-container title="用户消息">
+  <ant-bubble content="这是用户发送的消息" placement="end" avatar="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ" />
+</ant-container>
+
+<ant-container title="长文本">
+  <ant-bubble
+    content="这是一段很长的文本消息，用于测试气泡的自动换行效果。气泡会根据内容自动调整宽度，这样可以保证良好的阅读体验。"
+    avatar="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ"
+  />
+</ant-container>
+
+<ant-container title="对话场景">
+  <ant-bubble content="你好,请问有什么可以帮你?" avatar="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ" />
+  <ant-bubble content="我想了解一下这个产品的功能" placement="end" avatar="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ" />
+  <ant-bubble content="好的,这个产品主要有以下功能..." avatar="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ" />
+</ant-container>
+
+<!-- 各种形状 -->
+<ant-container title="各种形状">
+  <ant-bubble content="shape: default" shape="default" />
+  <ant-bubble content="shape: round" shape="round" />
+  <ant-bubble content="shape: corner" shape="corner" placement="end" />
+  <ant-bubble content="variant: borderless" variant="borderless" />
+  <ant-bubble content="variant: outlined" variant="outlined" />
+  <ant-bubble content="variant: shadow" variant="shadow" />
+</ant-container>
+
+<ant-container title="用户名">
+  <ant-bubble content="你好,请问有什么可以帮你?" avatar="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ">
+    <view slot="header">
+      <text class="ant-copilot-bubble-name">Ant Design Mini</text>
+    </view>
+  </ant-bubble>
+</ant-container>
+
+<ant-container title="加载中">
+  <ant-switch checked="{{ loading }}" onChange="onSwitchChange" />
+  <ant-bubble content="你好，这是一段加载后显示的内容" loading="{{loading}}" />
+  <ant-bubble content="你好，这是一段加载后显示的内容，同时附带打字效果" loading="{{loading}}" typing="{{true}}" />
+</ant-container>
+
+<ant-container title="自定义内容">
+  <ant-bubble placement="end">
+    <view>这是一段图文组合消息</view>
+    <image class="ant-copilot-bubble-image" src="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ" />
+  </ant-bubble>
+</ant-container>
+

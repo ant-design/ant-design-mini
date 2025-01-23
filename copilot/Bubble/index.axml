@@ -1,0 +1,15 @@
+<view
+  class="ant-copilot-bubble {{'ant-copilot-bubble-' + placement}} {{className}}"
+  style="{{style}}"
+>
+  <image a:if="{{avatar}}" class="ant-copilot-bubble-avatar" src="{{avatar}}" />
+  <view class="ant-copilot-bubble-container">
+    <slot name="header"></slot>
+    <view class="ant-copilot-bubble-content {{shape}} {{variant}}">
+      <ant-loading a:if="{{loading}}" type="mini" color="#8C8C8C"/>
+      <text a:if="{{!loading && bubbleText}}">{{bubbleText}}</text>
+      <slot a:if="{{!loading}}"></slot>
+    </view>
+    <slot name="footer"></slot>
+  </view>
+</view>

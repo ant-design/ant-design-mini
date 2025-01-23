@@ -1,5 +1,15 @@
 export const componentList = [
   {
+    type: 'Copilot',
+    list: [
+      { name: 'Suggestion', nameZN: '快捷指令', path: '/pages/Suggestion/index' },
+      { name: 'Prompts', nameZN: 'Prompts', path: '/pages/Prompts/index' },
+      { name: 'Actions', nameZN: 'Actions', path: '/pages/Actions/index' },
+      { name: 'Bubble', nameZN: '气泡', path: '/pages/Bubble/index' },
+      { name: 'Sender', nameZN: '发送器', path: '/pages/Sender/index' },
+    ],
+  },
+  {
     type: '通用',
     list: [
       {

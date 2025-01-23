@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Actions",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Actions",
+  /// #endif
+
+  "usingComponents": {
+    "ant-actions": "../../../src/Actions/index",
+    "ant-bubble": "../../../src/Bubble/index",
+    "ant-switch": "../../../src/Switch/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

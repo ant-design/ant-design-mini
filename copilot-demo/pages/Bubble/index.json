@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "ant-bubble": "../../../src/Bubble/index",
+    "ant-container": "../../../src/Container/index",
+    "ant-switch": "../../../src/Switch/index"
+  }
+}
