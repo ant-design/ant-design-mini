@@ -64,6 +64,7 @@
     "@emotion/css": "11.11.2",
     "@emotion/react": "11.11.0",
     "@emotion/server": "11.11.0",
+    "@galacean/effects": "^2.2.2",
     "@swc/types": "0.1.12",
     "@types/gulp": "^4.0.13",
     "@types/less": "^3.0.3",

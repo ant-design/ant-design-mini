@@ -1,5 +1,6 @@
 import { MenuFoldOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
+import { Player } from '@galacean/effects';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import {
@@ -11,7 +12,7 @@ import {
   useSiteData,
 } from 'dumi';
 import { INavItem } from 'dumi/dist/client/theme-api/types';
-import { useCallback, useContext } from 'react';
+import { useCallback, useContext, useEffect, useRef } from 'react';
 import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
 import useLocaleValue from '../../hooks/useLocaleValue';
 import useSiteToken from '../../hooks/useSiteToken';
@@ -79,6 +80,18 @@ const useStyle = () => {
         text-align: center;
       }
     `,
+    navItem: css`
+      position: relative;
+    `,
+    newPlayer: css`
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9;
+    `,
     popoverMenuNav: css`
       ${antCls}-menu-item,
       ${antCls}-menu-submenu {
@@ -112,8 +125,40 @@ export default function Navigation({ isMobile, responsive }: NavigationProps) {
   const locale = useLocale();
   const moreLinks = useLocaleValue('moreLinks');
   const activeMenuItem = pathname.split('/').slice(0, 2).join('/');
+  const playerDom = useRef<HTMLDivElement>(null);
+  const timers = useRef<NodeJS.Timeout[]>([]);
+
+  useEffect(() => {
+    if (!playerDom.current) return;
+
+    const player = new Player({
+      container: playerDom.current,
+    });
+
+    const timer1 = setTimeout(() => {
+      player.loadScene(
+        'https://mdn.alipayobjects.com/mars/afts/file/A*wKDRRKoA9fcAAAAAAAAAAAAADlB4AQ'
+      );
+      player.play();
+      const timer2 = setTimeout(() => {
+        player.loadScene(
+          'https://mdn.alipayobjects.com/mars/afts/file/A*wKDRRKoA9fcAAAAAAAAAAAAADlB4AQ'
+        );
+        player.play();
+        timers.current.push(timer2);
+      }, 10000);
+    }, 3000);
+    timers.current.push(timer1);
+    return () => {
+      timers.current.forEach((t) => {
+        clearTimeout(t);
+      });
+      timers.current = [];
+    };
+  }, []);
 
   const createMenuItems = (navs: INavItem[]) => {
+    const style = useStyle();
     return navs.map((navItem: INavItem) => {
       const linkKeyValue = (navItem.link ?? '')
         .split('/')
@@ -121,14 +166,25 @@ export default function Navigation({ isMobile, responsive }: NavigationProps) {
         .join('/');
       return {
         // eslint-disable-next-line no-nested-ternary
-        label: navItem.children ? (
-          navItem.title
-        ) : isExternalLinks(navItem.link) ? (
-          <a href={`${navItem.link}${search}`} target="_blank" rel="noreferrer">
-            {navItem.title}
-          </a>
-        ) : (
-          <Link to={`${navItem.link}${search}`}>{navItem.title}</Link>
+        label: (
+          <div css={style.navItem}>
+            {navItem.children ? (
+              navItem.title
+            ) : isExternalLinks(navItem.link) ? (
+              <a
+                href={`${navItem.link}${search}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {navItem.title}
+              </a>
+            ) : (
+              <Link to={`${navItem.link}${search}`}>{navItem.title}</Link>
+            )}
+            {navItem.isNew ? (
+              <div ref={playerDom} css={style.newPlayer}></div>
+            ) : null}
+          </div>
         ),
         key: isExternalLinks(navItem.link) ? navItem.link : linkKeyValue,
         children: navItem.children ? createMenuItems(navItem.children) : null,

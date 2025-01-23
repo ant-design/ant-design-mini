@@ -59,6 +59,8 @@ export default defineConfig({
         {
           title: 'Copilot',
           link: '/copilots/conversations',
+          // @ts-ignore
+          isNew: true,
         },
         {
           title: '资源',
