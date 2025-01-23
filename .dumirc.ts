@@ -61,6 +61,8 @@ export default defineConfig({
           link: '/copilots/conversations',
           // @ts-ignore
           isNew: true,
+          rightIcon:
+            'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*iiKoT73_9ucAAAAAAAAAAAAAetF8AQ/original',
         },
         {
           title: '资源',

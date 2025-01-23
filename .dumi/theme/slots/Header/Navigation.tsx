@@ -12,6 +12,7 @@ import {
   useSiteData,
 } from 'dumi';
 import { INavItem } from 'dumi/dist/client/theme-api/types';
+import { motion } from 'framer-motion';
 import { useCallback, useContext, useEffect, useRef } from 'react';
 import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
 import useLocaleValue from '../../hooks/useLocaleValue';
@@ -82,6 +83,9 @@ const useStyle = () => {
     `,
     navItem: css`
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     `,
     newPlayer: css`
       width: 100px;
@@ -91,6 +95,12 @@ const useStyle = () => {
       left: 50%;
       transform: translateX(-50%);
       z-index: 9;
+      pointer-events: none;
+    `,
+    rightIcon: css`
+      margin-left: 8px;
+      width: 16px;
+      height: 16px;
     `,
     popoverMenuNav: css`
       ${antCls}-menu-item,
@@ -184,6 +194,24 @@ export default function Navigation({ isMobile, responsive }: NavigationProps) {
             {navItem.isNew ? (
               <div ref={playerDom} css={style.newPlayer}></div>
             ) : null}
+            {navItem.rightIcon && (
+              <motion.div
+                style={{ display: 'inline-block' }}
+                animate={{
+                  rotate: [-5, 5, -5, 5, 0], // 轻微旋转
+                  x: [-2, 2, -2, 2, 0], // 轻微水平移动
+                  y: [-1, 1, -1, 1, 0], // 轻微垂直移动
+                  transition: {
+                    duration: 1.0, // 增加持续时间，使晃动更加平滑
+                    repeat: Infinity, // 无限循环
+                    ease: 'easeInOut', // 使用平滑的缓动函数
+                    repeatDelay: 3,
+                  },
+                }}
+              >
+                <img css={style.rightIcon} src={navItem.rightIcon} alt="" />
+              </motion.div>
+            )}
           </div>
         ),
         key: isExternalLinks(navItem.link) ? navItem.link : linkKeyValue,
