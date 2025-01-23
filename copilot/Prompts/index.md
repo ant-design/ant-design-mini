@@ -2,12 +2,12 @@
 nav:
   path: /copilot
 group:
-  title: 通用
+  title: Copilot
   order: 1
 toc: 'content'
 ---
 
-# Copilot Prompts 提示列表
+# Prompts 提示列表
 
 用于让首次接触 AI 产品的用户快速理解 AI 能做什么，可以清晰传达给用户 AI 可实现的意图范围和预期功能。使用合适的欢迎推荐组件，可以有效降低用户学习成本，让用户快速了解并顺利开始。
 
@@ -32,9 +32,15 @@ toc: 'content'
 
 ```xml
 <ant-prompts
-  list="{{ baseList }}"
-  promptsTitle="{{ promptsTitle }}"
-  onTapPromptsItem="onTapPromptsItem"  />
+  list="{{baseList}}"
+  promptsTitle="{{promptsTitle}}"
+#if ALIPAY
+  onItemTap="onItemTap"
+#endif
+#if WECHAT
+  binditemtap="onItemTap"
+#endif
+/>
 ```
 
 ```js
@@ -53,10 +59,17 @@ Page({
       },
     ],
   },
-  onTapPromptsItem(item) {
+  onItemTap(item) {
+    let item = i;
+#if ALIPAY
     my.alert({
       content: `点击了 ${item.title || ''} ${item.content || ''}`,
     });
+#endif
+#if WECHAT
+    item = i.detail;
+    wx.showToast({ title: `点击了 ${item.title || ''} ${item.content || ''}` });
+#endif
   },
 });
 ```
@@ -65,9 +78,9 @@ Page({
 
 ```xml
 <ant-prompts
-    list="{{ arrowList }}"
-    promptsTitle="{{ promptsTitle }}"
-    onTapPromptsItem="onTapPromptsItem"  />
+  list="{{ arrowList }}"
+  promptsTitle="{{ promptsTitle }}"
+/>
 ```
 
 ```js
@@ -98,11 +111,6 @@ Page({
       },
     ],
   },
-  onTapPromptsItem(item) {
-    my.alert({
-      content: `点击了 ${item.title || ''} ${item.content || ''}`,
-    });
-  },
 });
 ```
 
@@ -113,7 +121,7 @@ Page({
   list="{{ styleList }}"
   className="customizeStyle"
   promptsTitle="{{ promptsTitle }}"
-  onTapPromptsItem="onTapPromptsItem"  />
+/>
 ```
 
 ```css
@@ -128,24 +136,44 @@ Page({
 ### 自定义提示标题
 
 ```xml
-<ant-prompts
-    list="{{ arrowList }}"
-    onTapPromptsItem="onTapPromptsItem">
-    <view slot="prompts-title" class="customize-prompts-title">
-      自定义提示标题:
-    </view>
-  </ant-prompts>
+<ant-prompts list="{{ arrowList }}">
+  <view slot="prompts-title" class="customize-prompts-title">
+    自定义提示标题:
+  </view>
+</ant-prompts>
 ```
 
 ### 自定义提示项
 
 ```xml
-<ant-prompts
-  list="{{ baseList }}"
-  onTapPromptsItem="onTapPromptsItem">
+<ant-prompts list="{{ baseList }}">
   <view slot="prompts-item" slot-scope="props" class="customize-prompts-item">
     自定义提示项：{{ props.item.title }}
   </view>
+</ant-prompts>
+```
+
+### 横向模式
+
+```xml
+<ant-prompts
+  promptsTitle="超长滑动"
+  list="{{ horizontalList }}"
+  vertical="{{false}}"
+/>
+<ant-prompts
+  promptsTitle="超长换行"
+  list="{{ horizontalList }}"
+  vertical="{{false}}"
+  wrap
+/>
+<ant-prompts
+  promptsTitle="自定义"
+  list="{{ horizontalList }}"
+  vertical="{{false}}"
+  wrap
+>
+  <view slot="prompts-item" slot-scope="props">自定义：{{ props.item.label }}</view>
 </ant-prompts>
 ```
 
@@ -159,23 +187,29 @@ Page({
 
 以下表格介绍了 Prompts 组件的 API 属性：
 
-| 属性         | 说明     | 类型           | 默认值 |
-| ------------ | -------- | -------------- | ------ |
-| promptsTitle | 提示标题 | string         | -      |
-| className    | 类名     | string         | -      |
-| list         | 提示列表 | IPromptsItem[] | -      |
+| 属性                   | 说明                 | 类型                                                      | 默认值 |
+| ---------------------- | -------------------- | --------------------------------------------------------- | ------ |
+| className              | 类名                 | string                                                    | -      |
+| list                   | 提示列表             | [PromptsItem](#promptsitem)[]                             | -      |
+| promptsTitle           | 提示标题             | string                                                    | -      |
+| vertical               | 横向布局下，自动换行 | boolean                                                   | true   |
+| wrap                   | 类名                 | boolean                                                   | false  |
+| #if ALIPAY onItemTap   | 提示点击回调         | (item: [PromptsItem](#promptsitem),index:number) => void; | -      |
+| #if WECHAT binditemtap | 提示点击回调         | (item: [PromptsItem](#promptsitem),index:number) => void; | -      |
 
-IPromptsItem 属性
-| 属性 | 说明 | 类型 | 默认值 |
-| --------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------- |
-| image | 提示项的图片 | string | - |
-| title |提示项标题 | string | - |
-| content | 提示内容 | string  
-| showArrow | 是否展示箭头 | boolean
+### PromptsItem
 
-插槽 slot
+| 属性        | 说明                                     | 类型    | 默认值 |
+| ----------- | ---------------------------------------- | ------- | ------ |
+| key         | 唯一标识用于区分每个提示项               | string  | -      |
+| icon        | 前面的 icon 图片链接，支持传入 antd-icon | string  | -      |
+| label       | 提示标签显示提示的主要内容               | string  | -      |
+| description | 提示描述提供额外的信息                   | string  | -      |
+| showArrow   | 提示是否展示右边的箭头                   | boolean | -      |
+
+### 插槽 slot
 
 | 插槽名称      | 说明           |
-| ------------- | -------------- | --- |
-| prompts-title | 提示项的标题题 |     |
-| prompts-item  | 提示子项项     |     |
+| ------------- | -------------- |
+| prompts-title | 提示项的标题题 |
+| prompts-item  | 提示子项项     |

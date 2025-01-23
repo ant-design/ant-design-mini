@@ -57,8 +57,12 @@ export default defineConfig({
           link: '/components/overview',
         },
         {
-          title: 'Copilot系列组件',
-          link: '/copilots/copilot-overview',
+          title: 'Copilot',
+          link: '/copilots/conversations',
+          // @ts-ignore
+          isNew: true,
+          rightIcon:
+            'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*iiKoT73_9ucAAAAAAAAAAAAAetF8AQ/original',
         },
         {
           title: '资源',
@@ -83,8 +87,8 @@ export default defineConfig({
           link: '/components/overview-en',
         },
         {
-          title: 'Copilot Components',
-          link: '/copilots/copilot-overview-en',
+          title: 'Copilot',
+          link: '/copilots/conversations-en',
         },
         {
           title: 'Resources',

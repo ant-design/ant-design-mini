@@ -4,14 +4,14 @@
   <ant-prompts
     list="{{ baseList }}"
     promptsTitle="{{ promptsTitle }}"
-    onTapPromptsItem="onTapPromptsItem"  />
+    onItemTap="onItemTap"  />
 </ant-container>
 
 <ant-container title="有箭头">
   <ant-prompts
     list="{{ arrowList }}"
     promptsTitle="{{ promptsTitle }}"
-    onTapPromptsItem="onTapPromptsItem"  />
+    onItemTap="onItemTap"  />
 </ant-container>
 
 <ant-container title="样式覆盖">
@@ -19,15 +19,41 @@
     list="{{ styleList }}"
     className="customizeStyle"
     promptsTitle="{{ promptsTitle }}"
-    onTapPromptsItem="onTapPromptsItem"  />
+    onItemTap="onItemTap"  />
 </ant-container>
 
+<ant-container title="横向展示">
+  <ant-prompts
+    promptsTitle="超长滑动"
+    list="{{ horizontalList }}"
+    vertical="{{false}}"
+    onItemTap="onItemTap"
+  />
+  <ant-prompts
+    promptsTitle="超长换行"
+    list="{{ horizontalList }}"
+    vertical="{{false}}"
+    wrap
+    onItemTap="onItemTap"
+  />
+  <ant-prompts
+    promptsTitle="自定义"
+    list="{{ horizontalList }}"
+    vertical="{{false}}"
+    wrap
+    onItemTap="onItemTap"
+  >
+    <view slot="prompts-item" slot-scope="props">自定义：{{ props.item.label }}</view>
+  </ant-prompts>
+</ant-container>
+
+<!-- #if ALIPAY -->
 <ant-container title="自定义提示标题">
   <ant-prompts
     list="{{ arrowList }}"
-    onTapPromptsItem="onTapPromptsItem">
+    onItemTap="onItemTap">
     <view slot="prompts-title" class="customize-prompts-title">
-      自定义提示标题:
+      我可以帮助您：
     </view>
   </ant-prompts>
 </ant-container>
@@ -35,10 +61,10 @@
 <ant-container title="自定义提示项">
   <ant-prompts
     list="{{ baseList }}"
-    onTapPromptsItem="onTapPromptsItem">
+    onItemTap="onItemTap">
     <view slot="prompts-item" slot-scope="props" class="customize-prompts-item">
-      自定义提示项：{{ props.item.title }}
+      自定义提示项：{{ props.item.label }}
     </view>
   </ant-prompts>
 </ant-container>
-
+<!-- #endif -->

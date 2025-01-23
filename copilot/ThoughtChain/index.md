@@ -7,9 +7,9 @@ group:
 toc: 'content'
 ---
 
-# Copilot ThoughtChain 思考链
+# ThoughtChain 思考链
 
-用于可视化展示AI处理请求、生成内容或执行任务的进程与状态。这是一个与动画相关的组件，需要提供各节点动画的props和API和使用方进行交互。
+用于可视化展示 AI 处理请求、生成内容或执行任务的进程与状态。这是一个与动画相关的组件，需要提供各节点动画的 props 和 API 和使用方进行交互。
 
 ## 引入
 
@@ -35,6 +35,7 @@ toc: 'content'
   <ant-thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
   </ant-thought-chain>
 ```
+
 ```javascript
 Page({
   data: {
@@ -54,7 +55,7 @@ Page({
         content: '黑神话悟空所需显卡',
         icon: 'MoreOutline',
       },
-    ]
+    ],
   },
   onContentItemTap(e) {
     const { content } = e.currentTarget.dataset || {};
@@ -62,7 +63,7 @@ Page({
       content: `点击了内容「${content}」`,
     });
   },
-})
+});
 ```
 
 ### 自定义内容
@@ -141,7 +142,7 @@ Page({
       content: `点击了内容「${content}」`,
     });
   },
-})
+});
 ```
 
 ### Demo 代码
@@ -170,7 +171,7 @@ IThoughtChainItemProps 属性
 | content     | 节点内容                                                | string                    | - |
 
 
-插槽 slot 
+插槽 slot
 
 | 插槽名称 | 说明           |
 | -------- | -------------- |
