@@ -2,14 +2,14 @@
 nav:
   path: /copilot
 group:
-  title: 通用
+  title: Copilot
   order: 2
 toc: 'content'
 ---
 
-# Copilot ThoughtChain 思考链
+# ThoughtChain 思考链
 
-用于可视化展示AI处理请求、生成内容或执行任务的进程与状态。这是一个与动画相关的组件，需要提供各节点动画的props和API和使用方进行交互。
+用于可视化展示 AI 处理请求、生成内容或执行任务的进程与状态。这是一个与动画相关的组件，需要提供各节点动画的 props 和 API 和使用方进行交互。
 
 ## 引入
 
@@ -18,10 +18,10 @@ toc: 'content'
 ```json
 "usingComponents": {
 #if ALIPAY
-  "thought-chain": "antd-mini/es/ThoughtChain/index"
+  "ant-thought-chain": "antd-mini/es/ThoughtChain/index"
 #endif
 #if WECHAT
-  "thought-chain": "antd-mini/ThoughtChain/index"
+  "ant-thought-chain": "antd-mini/ThoughtChain/index"
 #endif
 }
 ```
@@ -29,11 +29,13 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
-这个示例渲染了一级节点，支持```loading``` ```fail``` ```success``` 三种节点状态
+
+这个示例渲染了一级节点，支持`loading` `fail` `success` 三种节点状态
 
 ```xml
  <thought-chain list="{{basicList}}" onContentItemTap="onContentItemTap" />
 ```
+
 ```javascript
 Page({
   data: {
@@ -50,7 +52,7 @@ Page({
         status: 'loading',
         title: '在互联网上搜索问题',
       },
-    ]
+    ],
   },
   onContentItemTap(e) {
     const { content } = e.target.dataset || {};
@@ -58,12 +60,13 @@ Page({
       content: `点击了内容「${content}」`,
     });
   },
-})
+});
 ```
 
 ### 二级节点
-节点的内容默认支持3种形态(contentType)，文字类型：```text```，链接类型：```link```，标签类型：```tag```。
-一级节点支持配置list，设置子节点（二级节点）。
+
+节点的内容默认支持 3 种形态(contentType)，文字类型：`text`，链接类型：`link`，标签类型：`tag`。
+一级节点支持配置 list，设置子节点（二级节点）。
 
 ```javascript
 Page({
@@ -105,13 +108,14 @@ Page({
           },
         ],
       },
-    ]
-  }
-})
+    ],
+  },
+});
 ```
 
 ### 自定义节点内容
-支持通过slot自定义节点内容
+
+支持通过 slot 自定义节点内容
 
 ```xml
  <thought-chain list="{{customList}}" onContentItemTap="onContentItemTap">
@@ -122,6 +126,7 @@ Page({
     </view>
   </thought-chain>
 ```
+
 ```javascript
 Page({
   data: {
@@ -138,8 +143,7 @@ Page({
         list: [
           {
             status: 'success',
-            title:
-              '搜索中',
+            title: '搜索中',
             content: '子节点中的自定义内容',
             contentType: 'customType',
           },
@@ -153,7 +157,7 @@ Page({
       content: `点击了内容「${content}」`,
     });
   },
-})
+});
 ```
 
 ### Demo 代码
@@ -166,22 +170,22 @@ Page({
 
 以下表格介绍了 ThoughtChain 组件的 API 属性：
 
-| 属性         | 说明     | 类型           | 默认值 |
-| ------------ | -------- | -------------- | ------ |
-| className    | 类名     | string         | -      |
-| list         | 提示列表 | IThoughtChainItemProps[] | -      |
+| 属性      | 说明     | 类型                     | 默认值 |
+| --------- | -------- | ------------------------ | ------ |
+| className | 类名     | string                   | -      |
+| list      | 提示列表 | IThoughtChainItemProps[] | -      |
 
 IThoughtChainItemProps 属性
-| 属性      | 说明         | 类型    | 默认值 |
+| 属性 | 说明 | 类型 | 默认值 |
 | --------- | ------------ | ------- | ------ |
-| status     | 节点状态 | ```loading``` ```success``` ```fail```  | -      |
-| title     | 节点标题   | string  | -      |
-| content   | 节点内容     | string \| string[]  |
-| contentType | 节点内容类型，默认类型有```text``` ```link``` ```tag``` | string |
-| list   | 子节点，仅一级节点支持子节点    |  IThoughtChainItemProps[] |
+| status | 节点状态 | `loading` `success` `fail` | - |
+| title | 节点标题 | string | - |
+| content | 节点内容 | string \| string[] |
+| contentType | 节点内容类型，默认类型有`text` `link` `tag` | string |
+| list | 子节点，仅一级节点支持子节点 | IThoughtChainItemProps[] |
 
-插槽 slot 
+插槽 slot
 
-| 插槽名称      | 说明           |
-| ------------- | -------------- |
-| content | 自定义节点内容 |  |
+| 插槽名称 | 说明           |
+| -------- | -------------- | --- |
+| content  | 自定义节点内容 |     |

@@ -2,12 +2,12 @@
 nav:
   path: /copilot
 group:
-  title: 通用
+  title: Copilot
   order: 1
 toc: 'content'
 ---
 
-# Copilot Prompts 提示列表
+# Prompts 提示列表
 
 用于让首次接触 AI 产品的用户快速理解 AI 能做什么，可以清晰传达给用户 AI 可实现的意图范围和预期功能。使用合适的欢迎推荐组件，可以有效降低用户学习成本，让用户快速了解并顺利开始。
 

@@ -2,7 +2,7 @@
 nav:
   path: /copilot
 group:
-  title: 通用
+  title: Copilot
   order: 1
 toc: 'content'
 ---
@@ -16,10 +16,10 @@ toc: 'content'
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-prompts": "antd-mini/es/Conversations/index"
+  "ant-conversations": "antd-mini/es/Conversations/index"
 #endif
 #if WECHAT
-  "ant-prompts": "antd-mini/Conversations/index"
+  "ant-conversations": "antd-mini/Conversations/index"
 #endif
 }
 ```
@@ -29,18 +29,18 @@ toc: 'content'
 ### 基本使用
 
 ```xml
-  <ant-conversations
-    items="{{items}}"
-    menus="{{menus}}"
+<ant-conversations
+  items="{{items}}"
+  menus="{{menus}}"
 #if ALIPAY
-    onItemTap="handleItemTap"
-    onMenuItemTap="handleMenuItemTap"
+  onItemTap="handleItemTap"
+  onMenuItemTap="handleMenuItemTap"
 #endif
 #if WECHAT
-    binditemtap="handleItemTap"
-    bindmenuitemtap="handleMenuItemTap"
+  binditemtap="handleItemTap"
+  bindmenuitemtap="handleMenuItemTap"
 #endif
-  />
+/>
 ```
 
 ```js
