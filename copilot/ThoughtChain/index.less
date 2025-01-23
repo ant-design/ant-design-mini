@@ -5,45 +5,37 @@
 .@{buttonPrefix} {
   &-node {
     margin-bottom: 36rpx;
+
     &:last-child {
       margin-bottom: 0;
     }
+
     &-title {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       line-height: 44rpx;
+      color: @thought-chain-title-color;
 
-      &-fail,
-      &-success {
-        font-size: 32rpx;
-        color: #00000073;
+      &-icon {
+        width: 32rpx;
+        margin-right: 16rpx;
       }
 
-      &-fail,
-      &-success,
-      &-loading {
-        margin-top: 6rpx;
-      }
-
-      &-text {
-        color: #00000073;
-        margin-left: 25rpx;
-        font-size: 28rpx;
-        .ant-icon {
-          margin-left: 24rpx;
-        }
+      &-collapse {
+        margin-left: 16rpx;
+        font-size: 36rpx;
       }
     }
 
     &-content {
       padding-left: 58rpx;
       margin-top: 18rpx;
+      
 
       &-text,
       &-link {
-        color: #000000;
-        font-size: 24rpx;
-
+        color: @thought-chain-text-color;
+        font-size: 28rpx;
         &-item {
           line-height: 40rpx;
           margin-bottom: 16rpx;
@@ -55,40 +47,7 @@
       }
 
       &-link {
-        color: #1677ff;
-      }
-
-      &-tag {
-        display: flex;
-        flex-flow: wrap;
-        &-item {
-          background: #0000000a;
-          border-radius: 12rpx;
-          font-size: 24rpx;
-          color: #000000a6;
-          line-height: 40rpx;
-          padding: 8rpx 24rpx;
-          margin-right: 16rpx;
-          margin-bottom: 8rpx;
-        }
-      }
-    }
-
-    &-secondlevel {
-      background-color: #00000009;
-      border-radius: 24rpx;
-      margin-top: 24rpx;
-      padding: 24px;
-    }
-
-    &.secondLevel {
-      .@{buttonPrefix}-node-title {
-
-        &-fail,
-        &-success,
-        &-text {
-          color: #000000;
-        }
+        color: @thought-chain-link-color;
       }
     }
   }

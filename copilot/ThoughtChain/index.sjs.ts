@@ -1,17 +1,15 @@
-function isExpand(foldStatus, listLength, index, firstLevelItem) {
-  const expand =
-    foldStatus === 'expand' || (!foldStatus && index === listLength - 1);
-  const hasContent =
-    (firstLevelItem.content && firstLevelItem.contentType) ||
-    (firstLevelItem.list && firstLevelItem.list.length);
-  return expand && hasContent;
+function isExpand(collapsible, key, foldStatusMap) {
+  if (collapsible) {
+    if (collapsible.expandedKeys) {
+      return collapsible.expandedKeys.includes(key);
+    }
+    return !foldStatusMap[key];
+  }
+  return true;
 }
 
-function hasExpandArrow(firstLevelItem){
-  const hasContent =
-    (firstLevelItem.content && firstLevelItem.contentType) ||
-    (firstLevelItem.list && firstLevelItem.list.length);
-  return hasContent;
+function hasExpandArrow(collapsible) {
+  if (collapsible) return true;
 }
 
 export default { isExpand, hasExpandArrow };

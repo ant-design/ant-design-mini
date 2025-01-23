@@ -198,6 +198,10 @@ export const wechatCustomMapping = {
   'ant-suggestion': {
     onSelect: 'bindselect',
   },
+  'ant-thought-chain': {
+    onExpand: 'bindexpand',
+    onContentItemTap: 'bindcontentitemtap'
+  },
   'ant-empty': {
     onClickButton: 'bindclickbutton',
   },

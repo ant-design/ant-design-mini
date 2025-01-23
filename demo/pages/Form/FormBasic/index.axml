@@ -19,6 +19,7 @@
       type="QuestionCircleOutline" />
   </view>
 </form-input>
+<form-input label="数字" name="number" type="number" ref="handleRef" />
 <form-input
   label="地址"
   name="address"

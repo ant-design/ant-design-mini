@@ -1,10 +1,5 @@
-import { Component } from '../../src/_util/simply';
+import { Component, triggerEvent } from '../../src/_util/simply';
 import { ThoughtChainProps } from './props';
-enum statusEnum {
-  LOADING = 'loading',
-  SUCCESS = 'success',
-  FAIL = 'fail',
-}
 
 Component(
   ThoughtChainProps,
@@ -12,27 +7,41 @@ Component(
   {
     onContentItemTap(e) {
       if (this.props.onContentItemTap) {
-        this.props.onContentItemTap(e);
+        triggerEvent(this, 'contentItemTap', e, e);
       }
     },
     onTitleTap(e) {
-      const { index, isExpand } = e.target.dataset || {};
-      const { firstLevelFoldStatusList } = this.data;
-      const newStatusList = [...firstLevelFoldStatusList];
-      newStatusList[index] = isExpand ? 'fold' : 'expand';
-      this.setData({
-        firstLevelFoldStatusList: newStatusList,
-      });
+      if (!this.props.collapsible) return;
+      // 受控模式
+      if (this.props.onExpand && this.props.collapsible?.expandedKeys) {
+        const { collapsible, onExpand } = this.props;
+        const { expandedKeys } = collapsible;
+        const { key } = e.currentTarget.dataset;
+        const isExpandNow = expandedKeys.includes(key);
+        const newExpandedKeys = [...expandedKeys];
+        if (isExpandNow) {
+          newExpandedKeys.splice(newExpandedKeys.indexOf(key), 1);
+        } else {
+          newExpandedKeys.push(key);
+        }
+        onExpand(newExpandedKeys, key);
+      } else {
+        const { key } = e.currentTarget.dataset;
+        const foldStatusMap = { ...this.data.foldStatusMap };
+        const isFold = foldStatusMap[key];
+        foldStatusMap[key] = !isFold;
+        this.setData({
+          foldStatusMap,
+        });
+      }
     },
   },
   // data
   {
-    statusEnum,
-    firstLevelFoldStatusList: [],
+    foldStatusMap: {},
   },
   // mixins
   undefined,
   // 生命周期方法
-  {
-  }
+  {}
 );

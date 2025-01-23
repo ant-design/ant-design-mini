@@ -2,8 +2,8 @@
 nav:
   path: /copilot
 group:
-  title: 通用
-  order: 2
+  title: 确认
+  order: 4
 toc: 'content'
 ---
 
@@ -18,10 +18,10 @@ toc: 'content'
 ```json
 "usingComponents": {
 #if ALIPAY
-  "thought-chain": "antd-mini/es/ThoughtChain/index"
+  "ant-thought-chain": "antd-mini/es/ThoughtChain/index"
 #endif
 #if WECHAT
-  "thought-chain": "antd-mini/ThoughtChain/index"
+  "ant-thought-chain": "antd-mini/ThoughtChain/index"
 #endif
 }
 ```
@@ -29,31 +29,35 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
-这个示例渲染了一级节点，支持```loading``` ```fail``` ```success``` 三种节点状态
+这个示例渲染了多个节点
 
 ```xml
- <thought-chain list="{{basicList}}" onContentItemTap="onContentItemTap" />
+  <ant-thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
+  </ant-thought-chain>
 ```
 ```javascript
 Page({
   data: {
-    demoList: [
+    basicList: [
       {
-        status: 'success',
         title: '理解问题',
+        content: '3A游戏',
+        icon: 'CheckCircleOutline'
       },
       {
-        status: 'fail',
         title: '没有在本地找到结果',
+        content: '当前主流显卡',
+        icon: 'CheckCircleOutline'
       },
       {
-        status: 'loading',
         title: '在互联网上搜索问题',
+        content: '黑神话悟空所需显卡',
+        icon: 'MoreOutline',
       },
     ]
   },
   onContentItemTap(e) {
-    const { content } = e.target.dataset || {};
+    const { content } = e.currentTarget.dataset || {};
     my.alert({
       content: `点击了内容「${content}」`,
     });
@@ -61,38 +65,63 @@ Page({
 })
 ```
 
-### 二级节点
-节点的内容默认支持3种形态(contentType)，文字类型：```text```，链接类型：```link```，标签类型：```tag```。
-一级节点支持配置list，设置子节点（二级节点）。
+### 自定义内容
+content slot支持自定义节点内容。仅支付宝端支持自定义内容，微信端不支持自定义内容。
+```xml
+ <ant-thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{false}}">
+    <view slot="content" slot-scope="module" style="color: red">
+      {{module.content}}
+    </view>
+  </ant-thought-chain>
+```
 
+### 二级节点
+支持通过slot自定义节点内容，通过嵌套thought-chain组件进行二级节点的渲染。仅支付宝端支持自定义内容，微信端不支持自定义内容。
+
+```xml
+ <ant-thought-chain items="{{customList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
+    <view slot="content" slot-scope="module">
+      <view a:if="{{typeof(module.content) === 'object'}}" class="secondLevel">
+        <ant-thought-chain
+          className="second-thoughtchain"
+          items="{{module.content}}"
+          collapsible="{{false}}"
+        >
+          <view slot="content" slot-scope="secondModule" a:if="{{typeof(secondModule.content) === 'object'}}">
+            <view class="second-thoughtchain-content" a:for="{{secondModule.content}}">
+              {{item}}
+            </view>
+          </view>
+          <view a:else class="second-thoughtchain-content">
+            {{secondModule.content}}
+          </view>
+        </ant-thought-chain>
+      </view>
+      <view a:else>{{module.content}}</view>
+    </view>
+  </ant-thought-chain>
+```
 ```javascript
 Page({
   data: {
-    secondLevelList: [
+    customList: [
       {
-        status: 'success',
         title: '理解问题',
         content: '解析语法结构',
-        contentType: 'text',
       },
       {
         status: 'loading',
         title: '搜索问题',
-        list: [
+        content: [
           {
-            status: 'success',
             title: '理解问题',
           },
           {
-            status: 'success',
             title: '联网搜索',
-            content: ['当前主流电脑配置', '黑神话悟空所需显卡', '3A游戏'],
-            contentType: 'tag',
+            content: '1. 黑神话悟空介绍',
           },
           {
-            status: 'success',
             title: '已根据搜索结果精选3篇资料',
-            contentType: 'link',
             content: [
               '1. 黑神话悟空介绍',
               '2. 对于1080p显示器，4060ti和4060该选哪个？',
@@ -100,52 +129,11 @@ Page({
             ],
           },
           {
-            status: 'loading',
             title: '联想更多结果',
           },
         ],
       },
     ]
-  }
-})
-```
-
-### 自定义节点内容
-支持通过slot自定义节点内容
-
-```xml
- <thought-chain list="{{customList}}" onContentItemTap="onContentItemTap">
-    <view slot="content" slot-scope="props">
-      <view a:if="{{props.contentType === 'customType'}}" style="color: red">
-        customType: {{props.content}}
-      </view>
-    </view>
-  </thought-chain>
-```
-```javascript
-Page({
-  data: {
-    customList: [
-      {
-        status: 'success',
-        title: '理解问题',
-        content: '这是自定义样式的内容',
-        contentType: 'customType',
-      },
-      {
-        status: 'success',
-        title: '搜索问题',
-        list: [
-          {
-            status: 'success',
-            title:
-              '搜索中',
-            content: '子节点中的自定义内容',
-            contentType: 'customType',
-          },
-        ],
-      },
-    ],
   },
   onContentItemTap(e) {
     const { content } = e.target.dataset || {};
@@ -166,22 +154,30 @@ Page({
 
 以下表格介绍了 ThoughtChain 组件的 API 属性：
 
-| 属性         | 说明     | 类型           | 默认值 |
-| ------------ | -------- | -------------- | ------ |
-| className    | 类名     | string         | -      |
-| list         | 提示列表 | IThoughtChainItemProps[] | -      |
+| 属性      | 说明     | 类型                     | 默认值 |
+| --------- | -------- | ------------------------ | ------ |
+| className | 类名     | string                   | -      |
+| items      | 节点列表 | IThoughtChainItemProps[] | []      |
+| collapsible      | 是否支持 | boolean\|ICollapsibleOptions | true      |
+| style      | 自定义样式 | string | -      |
+
 
 IThoughtChainItemProps 属性
-| 属性      | 说明         | 类型    | 默认值 |
-| --------- | ------------ | ------- | ------ |
-| status     | 节点状态 | ```loading``` ```success``` ```fail```  | -      |
-| title     | 节点标题   | string  | -      |
-| content   | 节点内容     | string \| string[]  |
-| contentType | 节点内容类型，默认类型有```text``` ```link``` ```tag``` | string |
-| list   | 子节点，仅一级节点支持子节点    |  IThoughtChainItemProps[] |
+| 属性        | 说明                                                    | 类型                                   | 默认值 |
+| ----------- | ------------------------------------------------------- | -------------------------------------- | ------ |
+| icon      | 标题前图标，可以使用ant-icon里的类型，也可以传入https图片链接                                                | string | CheckCircleOutline     |
+| title       | 节点标题                                                | string                                 | -      |
+| content     | 节点内容                                                | string                    | - |
+
 
 插槽 slot 
 
-| 插槽名称      | 说明           |
-| ------------- | -------------- |
-| content | 自定义节点内容 |  |
+| 插槽名称 | 说明           |
+| -------- | -------------- |
+| content  | 自定义节点内容 |  |
+
+ICollapsibleOptions 属性
+| 属性        | 说明                                                    | 类型                                   | 默认值 |
+| ----------- | ------------------------------------------------------- | -------------------------------------- | ------ |
+| expandedKeys      | 展开的节点key列表 | string[] | []      |
+

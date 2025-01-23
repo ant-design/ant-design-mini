@@ -1,142 +1,30 @@
 <import-sjs from="./index.sjs" name="utils" />
-<template name="content">
-  <view a:if="{{contentType === 'text'}}" class="ant-copilot-thoughtchain-node-content-text">
-    <view a:if="{{typeof content === 'string'}}">{{content}}</view>
-    <view a:elif="{{typeof content === 'object'}}">
-      <view a:for="{{content}}" class="ant-copilot-thoughtchain-node-content-text-item">
-        {{item}}
-      </view>
-    </view>
-  </view>
-  <view a:if="{{contentType === 'link'}}" class="ant-copilot-thoughtchain-node-content-link">
-    <view
-      a:if="{{typeof content === 'string'}}"
-      data-id="{{id}}"
-      data-index="{{0}}"
-      data-content="{{content}}"
-      data-nodeItem="{{nodeItem}}"
-      data-contentType="{{contentType}}"
-      onTap="onContentItemTap"
-    >
-      {{content}}
-    </view>
-    <view a:elif="{{typeof content === 'object'}}">
-      <view
-        a:for="{{content}}"
-        class="ant-copilot-thoughtchain-node-content-link-item"
-        data-id="{{id}}"
-        data-index="{{index}}"
-        data-content="{{item}}"
-        data-contentType="{{contentType}}"
-        data-nodeItem="{{nodeItem}}"
-        onTap="onContentItemTap"
-      >
-        {{item}}
-      </view>
-    </view>
-  </view>
-  <view a:if="{{contentType === 'tag'}}" class="ant-copilot-thoughtchain-node-content-tag">
-    <view
-      a:for="{{content}}"
-      class="ant-copilot-thoughtchain-node-content-tag-item"
-      data-id="{{id}}"
-      data-index="{{index}}"
-      data-content="{{item}}"
-      data-nodeItem="{{nodeItem}}"
-      data-contentType="{{contentType}}"
-      onTap="onContentItemTap"
-    >
-      {{item}}
-    </view>
-  </view>
-</template>
-<template name="title">
-  <view class="ant-copilot-thoughtchain-node-title">
-    <ant-loading
-      a:if="{{item.status === statusEnum.LOADING}}"
-      className="ant-copilot-thoughtchain-node-title-loading"
-      type="spin"
-      size="small"
-      color="{{isFirstLevel ? '#000000a6' : '#000'}}"
-    />
-    <ant-icon
-      a:elif="{{item.status === statusEnum.FAIL}}"
-      className="ant-copilot-thoughtchain-node-title-fail"
-      type="CloseCircleOutline"
-    />
-    <ant-icon
-      a:else
-      className="ant-copilot-thoughtchain-node-title-success"
-      type="CheckCircleOutline"
-    />
-    <view class="ant-copilot-thoughtchain-node-title-text">
-      {{item.title}}
-      <ant-icon a:if="{{isExpand && hasExpandArrow}}" type="UpOutline" />
-      <ant-icon a:elif="{{hasExpandArrow}}" type="DownOutline" />
-    </view>
-
-  </view>
-</template>
 <view class="ant-copilot-thoughtchain {{ className }}">
-  <view
-    a:for="{{list}}"
-    a:for-index="firstLevelIndex"
-    a:for-item="firstLevelItem"
-    class="ant-copilot-thoughtchain-node"
-  >
-    <view onTap="onTitleTap" data-index="{{firstLevelIndex}}" data-isExpand="{{utils.isExpand(firstLevelFoldStatusList[firstLevelIndex], list.length, firstLevelIndex, firstLevelItem)}}">
-      <slot name="title" title="{{firstLevelItem.title}}" isExpand="{{utils.isExpand(firstLevelFoldStatusList[firstLevelIndex], list.length, firstLevelIndex, firstLevelItem)}}">
-        <template is="title" data="{{item: firstLevelItem, statusEnum, isFirstLevel: true, hasExpandArrow: utils.hasExpandArrow(firstLevelItem) ,isExpand: utils.isExpand(firstLevelFoldStatusList[firstLevelIndex], list.length, firstLevelIndex, firstLevelItem)}}" />
-      </slot>
-    </view>
-    <view
-      a:if="{{utils.isExpand(firstLevelFoldStatusList[firstLevelIndex], list.length, firstLevelIndex, firstLevelItem) && firstLevelItem.content && firstLevelItem.contentType}}"
-      class="ant-copilot-thoughtchain-node-content"
-    >
-      <view a:if="{{['text', 'link', 'tag'].includes(firstLevelItem.contentType)}}">
-        <template is="content" data="{{content: firstLevelItem.content, contentType: firstLevelItem.contentType, id: firstLevelItem.id || firstLevelIndex, nodeItem: firstLevelItem}}">
-        </template>
-      </view>
-      <view a:else>
-        <slot
-          name="content"
-          contentType="{{firstLevelItem.contentType}}"
-          content="{{firstLevelItem.content}}"
-          id="{{firstLevelItem.id || firstLevelIndex}}"
-        >
-        </slot>
-      </view>
-
-    </view>
-    <view a:if="{{utils.isExpand(firstLevelFoldStatusList[firstLevelIndex], list.length, firstLevelIndex, firstLevelItem) && firstLevelItem.list && firstLevelItem.list.length}}" class="ant-copilot-thoughtchain-node-secondlevel">
-      <view
-        a:for="{{firstLevelItem.list}}"
-        a:for-index="secondLevelIndex"
-        a:for-item="secondLevelItem"
-        class="ant-copilot-thoughtchain-node secondLevel"
-      >
-        <slot name="title" title="{{secondLevelItem.title}}">
-          <template is="title" data="{{item: secondLevelItem, statusEnum, isFirstLevel: false}}" />
-        </slot>
-        <view
-          a:if="{{secondLevelItem.content && secondLevelItem.contentType}}"
-          class="ant-copilot-thoughtchain-node-content secondLevel"
-        >
-          <view a:if="{{['text', 'link', 'tag'].includes(secondLevelItem.contentType)}}">
-            <template is="content" data="{{content: secondLevelItem.content, contentType: secondLevelItem.contentType, id: `${firstLevelItem.id || firstLevelIndex}-${secondLevelItem.id || secondLevelIndex}` , nodeItem: secondLevelItem}}">
-            </template>
-          </view>
-          <view a:else>
-            <slot
-              name="content"
-              contentType="{{secondLevelItem.contentType}}"
-              content="{{secondLevelItem.content}}"
-              id="{{`${firstLevelItem.id || firstLevelIndex}-${secondLevelItem.id || secondLevelIndex}` }}"
-            >
-            </slot>
-          </view>
+  <view a:for="{{items}}" class="ant-copilot-thoughtchain-node">
+    <view onTap="onTitleTap" data-index="{{index}}" data-key="{{item.key || index}}">
+      <view class="ant-copilot-thoughtchain-node-title">
+        <image
+          a:if="{{item.icon && item.icon.includes('https://')}}"
+          class="ant-copilot-thoughtchain-node-title-icon"
+          mode="widthFix"
+          src="{{item.icon}}"
+        />
+        <ant-icon a:else type="{{item.icon || 'CheckCircleOutline'}}" class="ant-copilot-thoughtchain-node-title-icon" />
+        {{item.title}}
+        <view a:if="{{collapsible}}" class="ant-copilot-thoughtchain-node-title-collapse">
+          <ant-icon type="{{utils.isExpand(collapsible, item.key || index, foldStatusMap) ? 'UpOutline' : 'DownOutline'}}" />
         </view>
       </view>
+    </view>
+    <view
+      a:if="{{utils.isExpand(collapsible, item.key || index, foldStatusMap)}}"
+      class="ant-copilot-thoughtchain-node-content"
+    >
+      <slot name="content" content="{{item.content}}" item="{{item}}">
+        <view class="ant-copilot-thoughtchain-node-content-text" onTap="onContentItemTap" data-key="{{item.key || index}}" data-content="{{item.content}}">
+          <view>{{item.content}}</view>
+        </view>
+      </slot>
     </view>
   </view>
 </view>

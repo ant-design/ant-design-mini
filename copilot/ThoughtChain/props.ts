@@ -3,17 +3,9 @@ import { IBaseProps } from '../../src/_util/base';
 
 interface IThoughtChainItemProps {
   /**
-   * @description 节点状态 'loading' | 'success' | 'fail'
-   */
-  status?: string;
-  /**
    * @description 节点标题
    */
   title?: string;
-  /**
-   * @description 内容类型，内置了text、tag以及link类型，也可以自定义
-   */
-  contentType?: string;
 
   /**
    * @description 内容
@@ -21,14 +13,22 @@ interface IThoughtChainItemProps {
   content?: any;
 
   /**
-   * @description ID
+   * @description UUID
    */
-  id?: string;
+  key?: string;
+  /**
+   * @description 标题图标
+   */
+  icon?: string;
 
   /**
    * @description 二级思考链
    */
-  list?: IThoughtChainItemProps[];
+  items?: IThoughtChainItemProps[];
+}
+
+export interface ICollapsibleOptions extends IBaseProps {
+  expandedKeys?: string[];
 }
 
 /**
@@ -42,15 +42,27 @@ export interface IThoughtChainProps extends IBaseProps {
    * @description 思考节点列表
    * @default default
    */
-  list?: IThoughtChainItemProps[];
+  items?: IThoughtChainItemProps[];
 
   className?: string;
 
-  onContentItemTap?: (e: any) => void;
+  /**
+   * @description 是否可折叠
+   * @default true
+   */
+  collapsible?: boolean | ICollapsibleOptions;
+  /**
+   * @description 样式
+   */
+  style?: string;
+
+  onExpand?: (expandedKeys: string[], currentExpandeKey: string) => void;
 }
 
-
 export const ThoughtChainProps: Partial<IThoughtChainProps> = {
-  list: [],
+  items: [],
   className: '',
+  collapsible: true,
+  style: '',
+  onExpand: () => {},
 };
