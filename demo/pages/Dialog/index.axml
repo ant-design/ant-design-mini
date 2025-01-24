@@ -145,10 +145,11 @@
     三个按钮 竖排
   </ant-button>
 </ant-container>
+
+<!-- #if ALIPAY -->
 <ant-container
   title="局部插槽"
   className="list">
-  <!-- #if ALIPAY -->
   <ant-button
     data-field="slotWeakVisible"
     onTap="handleOpen">
@@ -159,17 +160,17 @@
     onTap="handleOpen">
     强活动氛围弹框
   </ant-button>
-  <!-- #endif -->
 </ant-container>
+<!-- #endif -->
 
+<!-- #if ALIPAY -->
 <ant-container
   title="自定义"
   className="list">
-  <!-- #if ALIPAY -->
   <ant-button
     data-field="customBodyVisible"
     onTap="handleOpen">
     完全自定义内容区
   </ant-button>
-  <!-- #endif -->
 </ant-container>
+<!-- #endif -->

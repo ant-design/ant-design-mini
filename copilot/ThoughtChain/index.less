@@ -1,0 +1,54 @@
+@import (reference) './variable.less';
+
+@buttonPrefix: ant-copilot-thoughtchain;
+
+.@{buttonPrefix} {
+  &-node {
+    margin-bottom: 36rpx;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-title {
+      display: flex;
+      align-items: center;
+      line-height: 44rpx;
+      color: @thought-chain-title-color;
+
+      &-icon {
+        width: 32rpx;
+        margin-right: 16rpx;
+      }
+
+      &-collapse {
+        margin-left: 16rpx;
+        font-size: 36rpx;
+      }
+    }
+
+    &-content {
+      padding-left: 58rpx;
+      margin-top: 18rpx;
+      
+
+      &-text,
+      &-link {
+        color: @thought-chain-text-color;
+        font-size: 28rpx;
+        &-item {
+          line-height: 40rpx;
+          margin-bottom: 16rpx;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &-link {
+        color: @thought-chain-link-color;
+      }
+    }
+  }
+}

@@ -9,6 +9,11 @@ export interface IPopupProps extends IBaseProps {
    */
   visible: boolean;
   /**
+   * @description 标题
+   * @default ''
+   */
+  title?: string;
+  /**
    * @description 是否关闭后销毁内部元素
    * @default false
    */
@@ -94,6 +99,7 @@ export interface IPopupProps extends IBaseProps {
 
 export const PopupDefaultProps: Partial<IPopupProps> = {
   visible: false,
+  title: '',
   destroyOnClose: false,
   backgroundImage: '',
   showMask: true,

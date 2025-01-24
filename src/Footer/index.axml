@@ -26,7 +26,7 @@
     <view
       class="ant-footer-links-item"
       a:for="{{links}}"
-      key="{{item.key}}"
+      a:key="key"
       data-item="{{item}}"
       onTap="onTapLink"
     >
@@ -55,7 +55,7 @@
     <view
       class="ant-footer-chips-item {{index === 0 ? 'first' : ''}} {{item.disabled ? 'disabled' : ''}}"
       a:for="{{chips}}"
-      key="{{item.key}}"
+      a:key="key"
       hover-start-time="20"
       hover-stay-time="50"
       hover-class="hover"

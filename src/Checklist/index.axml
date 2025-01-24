@@ -9,7 +9,8 @@
     <block
       a:for="{{ options }}"
       a:for-index="index"
-      a:for-item="item">
+      a:for-item="item"
+      a:key="value">
       <ant-checklist-item
         checked="{{ utils.getChecked(item.value, mixin.value, multiple) }}"
         item="{{ item }}"

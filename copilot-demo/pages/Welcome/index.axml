@@ -1,0 +1,5 @@
+<view class="navigation-bar" />
+
+<ant-container title="基础用法">
+  <ant-welcome title="👋🏻 你好，我是 Ant Design X" description="基于 Ant Design 的 AGI 产品界面解决方案，创造更美好的智能视界～" />
+</ant-container>

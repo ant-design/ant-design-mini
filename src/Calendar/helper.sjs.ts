@@ -101,7 +101,7 @@ function isDisplay(index, items) {
     return true;
   return (
     index >= Math.floor(_items_reduce.minIndex / 7) * 7 &&
-    index < Math.ceil(_items_reduce.maxIndex / 7) * 7
+    index <= Math.ceil(_items_reduce.maxIndex / 7) * 7
   );
 }
 

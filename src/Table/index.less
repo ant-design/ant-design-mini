@@ -64,6 +64,7 @@
         text-align: left;
         box-sizing: border-box;
 
+
         &-align-right {
           justify-content: flex-end;
         }
@@ -88,6 +89,14 @@
             pointer-events: none;
           }
         }
+      }
+
+      &-ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        white-space: wrap;
       }
     }
   }

@@ -1,0 +1,36 @@
+<view class="navigation-bar" />
+
+<ant-container title="基础用法">
+  <thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
+  </thought-chain>
+</ant-container>
+<ant-container title="自定义内容">
+  <thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{false}}">
+    <view slot="content" slot-scope="module" style="color: red">
+      {{module.content}}
+    </view>
+  </thought-chain>
+</ant-container>
+<ant-container title="二级节点">
+  <thought-chain items="{{customList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
+    <view slot="content" slot-scope="module">
+      <view a:if="{{typeof(module.content) === 'object'}}" class="secondLevel">
+        <thought-chain
+          className="second-thoughtchain"
+          items="{{module.content}}"
+          collapsible="{{false}}"
+        >
+          <view slot="content" slot-scope="secondModule" a:if="{{typeof(secondModule.content) === 'object'}}">
+            <view class="second-thoughtchain-content" a:for="{{secondModule.content}}">
+              {{item}}
+            </view>
+          </view>
+          <view a:else class="second-thoughtchain-content">
+            {{secondModule.content}}
+          </view>
+        </thought-chain>
+      </view>
+      <view a:else>{{module.content}}</view>
+    </view>
+  </thought-chain>
+</ant-container>

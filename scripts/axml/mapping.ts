@@ -202,4 +202,11 @@ export const wechatCustomMapping = {
     onItemTap: 'binditemtap',
     onMenuItemTap: 'bindmenuitemtap',
   },
+  'ant-thought-chain': {
+    onExpand: 'bindexpand',
+    onContentItemTap: 'bindcontentitemtap'
+  },
+  'ant-empty': {
+    onClickButton: 'bindclickbutton',
+  },
 };

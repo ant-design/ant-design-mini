@@ -141,7 +141,12 @@
   }
 
   &-inline {
+    /// #if ALIPAY
     display: inline-block;
+    /// #endif
+    /// #if WECHAT
+    display: inline-flex;
+    /// #endif
     border-radius: @button-corner-radius;
 
     .@{buttonPrefix}-content-loading-container {
