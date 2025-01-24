@@ -1,4 +1,13 @@
 {
+  /// #if WECHAT
+  "navigationBarTitleText": "Bubble",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Bubble",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
   "usingComponents": {
     "ant-bubble": "../../../src/Bubble/index",
     "ant-actions": "../../../src/Actions/index",

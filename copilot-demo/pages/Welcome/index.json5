@@ -1,10 +1,12 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "Welcome 组件",
+  "navigationBarTitleText": "Welcome",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "Welcome 组件",
+  "defaultTitle": "Welcome",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {

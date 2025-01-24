@@ -1,4 +1,13 @@
 {
+  /// #if WECHAT
+  "navigationBarTitleText": "Sender",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Sender",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
   "usingComponents": {
     "ant-sender": "../../../src/Sender/index",
     "ant-upload": "../../../src/ImageUpload/index",
