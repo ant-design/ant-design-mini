@@ -187,7 +187,6 @@ ICollapsibleOptions 属性
 
 | 事件名 | 说明 | 类型 |
 | --- | --- | --- |
-| onTap | 点击描述时触发 | (e) => void |
 | onContentTap | 点击内容时触发 | (e) => void |
 | onExpand | 展开/收起时触发 | (expandedKeys: string[], clickKey: string) => void |
 
