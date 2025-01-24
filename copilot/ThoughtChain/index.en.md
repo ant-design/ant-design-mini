@@ -2,7 +2,7 @@
 nav:
   path: /copilot
 group:
-  title: 确认
+  title: Confirm
   order: 4
 toc: 'content'
 ---

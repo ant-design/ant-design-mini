@@ -14,7 +14,7 @@ Component(
       if (!this.props.collapsible) return;
       // 受控模式
       if (this.props.onExpand && this.props.collapsible?.expandedKeys) {
-        const { collapsible, onExpand } = this.props;
+        const { collapsible } = this.props;
         const { expandedKeys } = collapsible;
         const { key } = e.currentTarget.dataset;
         const isExpandNow = expandedKeys.includes(key);
@@ -24,7 +24,7 @@ Component(
         } else {
           newExpandedKeys.push(key);
         }
-        onExpand(newExpandedKeys, key);
+        triggerEvent(this, 'expand', newExpandedKeys, key);
       } else {
         const { key } = e.currentTarget.dataset;
         const foldStatusMap = { ...this.data.foldStatusMap };
