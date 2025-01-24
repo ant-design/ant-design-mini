@@ -1,8 +1,10 @@
+<view class="navigation-bar" />
+
 <ant-container title="基础用法">
   <ant-actions items="{{basicActions}}" onItemTap="handleTapAction" />
 </ant-container>
 
-<ant-container title="配合bubble使用">
+<ant-container title="配合 Bubble 使用">
   <ant-switch checked="{{ showBubble }}" onChange="toggleBubble" />
   <ant-bubble
     a:if="{{ showBubble }}"

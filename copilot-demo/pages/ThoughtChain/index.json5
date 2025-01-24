@@ -1,10 +1,12 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "ThoughtChain 组件",
+  "navigationBarTitleText": "ThoughtChain",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "ThoughtChain 组件",
+  "defaultTitle": "ThoughtChain",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
   /// #endif
 
   "usingComponents": {
