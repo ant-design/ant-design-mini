@@ -158,7 +158,7 @@ Page({
 | placement                     | Bubble box position, optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` or `right-bottom` | string                                                                                              | top    |
 | showMask                      | Whether to show the layer, if true, click the blank to close the Popover.                                                                                                                    | boolean                                                                                             | true   |
 | style                         | Style                                                                                                                                                                | string                                                                                              | -      |
-| visible                       | Whether to display                                                                                                                                                            | boolean                                                                                             | -      |
+| visible                       | Display                                                                                                                                                            | boolean                                                                                             | -      |
 | #if ALIPAY onVisibleChange    | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if ALIPAY onTapAction        | Operation button click callback                                                                                                                                                    | () => void                                                                                          | -      |
 | #if WECHAT bindvisiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
@@ -168,7 +168,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                     | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks             |
 | -------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |

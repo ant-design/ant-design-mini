@@ -19,8 +19,10 @@
   },
   "include": [
     "src/**/*",
+    "copilot/**/*",
     "./typings/**/*",
     "demo/**/*",
+    "copilot-demo/**/*",
     "tests/**/*",
     "demo/wechat.d.ts"
   ],

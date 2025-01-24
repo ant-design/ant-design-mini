@@ -1,0 +1,61 @@
+<view class="page">
+  <view class="content">
+    <ant-container title="基础用法">
+      <ant-sender value="{{value}}" onChange="handleChange" onSubmit="handleSend" />
+    </ant-container>
+
+    <ant-container title="发送loading状态">
+      <ant-sender
+        value="{{value1}}"
+        placeholder="输入你想说的话..."
+        onChange="handleChange1"
+        onSubmit="handleSend1"
+        onCancel="handleCancel"
+        loading="{{loading}}"
+      />
+    </ant-container>
+
+    <ant-container title="禁用状态">
+      <ant-sender disabled="{{true}}" placeholder="输入框已禁用" />
+    </ant-container>
+
+    <ant-container title="配合upload组件">
+      <ant-sender
+        value="{{value3}}"
+        placeholder="可以配合其他组件使用"
+        onChange="handleChange3"
+        onSubmit="handleSend3"
+      >
+        <view slot="input-header">
+          <ant-upload defaultFileList="{{[{ url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*znK_ToIL8rQAAAAAAAAAAAAAARQnAQ', status: 'done' }]}}" />
+        </view>
+      </ant-sender>
+    </ant-container>
+
+    <ant-container title="配合bubble和prompts">
+      <scroll-view scroll-y style="height: 600rpx;" scroll-into-view="{{scrollToView}}">
+        <view a:for="{{bubbleList}}" id="msg-{{index}}">
+          <ant-bubble
+            content="{{item.content}}"
+            placement="{{index%2 ? 'end' : 'start'}}"
+            shape="{{index%2 ? 'corner' : 'default'}}"
+            typing="{{index%2 === 0}}"
+          />
+        </view>
+      </scroll-view>
+      <ant-sender
+        value="{{value4}}"
+        placeholder="组合使用"
+        onChange="handleChange4"
+        onSubmit="handleSend4"
+      >
+        <ant-prompts
+          slot="header"
+          items="{{horizontalList}}"
+          vertical="{{false}}"
+          onItemTap="onItemTap"
+        ></ant-prompts>
+      </ant-sender>
+    </ant-container>
+  </view>
+</view>

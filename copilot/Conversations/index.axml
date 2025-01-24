@@ -1,0 +1,44 @@
+<view class="ant-copilot-conversations {{className}}" style="{{style}}">
+  <block
+    a:for="{{items}}"
+    a:for-index="index"
+    a:for-item="item"
+    a:key="key">
+    <view class="ant-copilot-conversations-swipe-item">
+      <ant-swipe-action
+        data-item="{{item}}"
+        data-index="{{index}}"
+        rightButtons="{{menus}}"
+        elasticity="{{true}}"
+        disabled="{{item.disabledMenu}}"
+        onButtonTap="onButtonTap"
+      >
+        <view
+          class="ant-copilot-conversations-swipe-item-view"
+          hover-start-time="{{20}}"
+          hover-stay-time="{{40}}"
+          hover-class="{{item.disabled ? '' : 'ant-copilot-conversations-hover'}}"
+          onTouchStart="{{item.disabled ? '' : 'onTouchStart'}}"
+          onTouchEnd="{{item.disabled ? '' : 'onItemTap'}}"
+          data-item="{{item}}"
+          data-index="{{index}}"
+        >
+          <!-- #if ALIPAY -->
+          <slot item="{{item}}" index="{{index}}">
+          <!-- #endif -->
+            <image a:if="{{item.icon}}" class="ant-copilot-conversations-swipe-item-view-icon" src="{{item.icon}}" />
+            <view class="ant-copilot-conversations-swipe-item-view-main">
+              <view class="ant-copilot-conversations-swipe-item-view-main-top">
+                <view a:if="{{item.label}}" class="ant-copilot-conversations-swipe-item-view-label">{{item.label}}</view>
+                <view a:if="{{item.timestamp}}" class="ant-copilot-conversations-swipe-item-view-timestamp">{{item.timestamp}}</view>
+              </view>
+              <view a:if="{{item.description}}" class="ant-copilot-conversations-swipe-item-view-desc">{{item.description}}</view>
+            </view>
+          <!-- #if ALIPAY -->
+          </slot>
+          <!-- #endif -->
+        </view>
+      </ant-swipe-action>
+    </view>
+  </block>
+</view>

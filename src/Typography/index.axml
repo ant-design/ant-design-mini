@@ -28,7 +28,7 @@
       type="{{icon}}"
       className="ant-typography-icon"
     />
-    <image a:else class="ant-typography-icon-image" style="width: {{fontSize}};height: {{fontSize}};" src="{{icon}}"/>
+    <image a:else class="ant-typography-icon-image" style="{{fontSize ? `width: ${fontSize};height: ${fontSize};` : ''}}" src="{{icon}}"/>
   </view>
 
   <!-- 文案 -->
@@ -48,6 +48,6 @@
       type="{{icon}}"
       className="ant-typography-icon"
     />
-    <image a:else class="ant-typography-icon-image" style="width: {{fontSize}};height: {{fontSize}};" src="{{icon}}"/>
+    <image a:else class="ant-typography-icon-image" style="{{fontSize ? `width: ${fontSize};height: ${fontSize};` : ''}}" src="{{icon}}"/>
   </view>
 </view>

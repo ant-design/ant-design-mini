@@ -1,0 +1,18 @@
+<import-sjs from="./check.sjs" name="sjs" />
+
+<view class="ant-copilot-actions {{className}}" style="{{style}}">
+  <view
+    a:for="{{items}}"
+    class="ant-copilot-actions-item"
+    hover-class="ant-copilot-actions-item-hover"
+    onTap="handleTapAction"
+    data-action="{{item}}"
+  >
+    <ant-icon
+      a:if="{{sjs.checkIcon(item.icon)}}"
+      className="ant-copilot-actions-item-icon"
+      type="{{item.icon}}"
+    />
+    <image a:else class="ant-copilot-actions-item-icon" src="{{item.icon}}" />
+  </view>
+</view>

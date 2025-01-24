@@ -57,6 +57,14 @@ export default defineConfig({
           link: '/components/overview',
         },
         {
+          title: 'Copilot',
+          link: '/copilots/bubble',
+          // @ts-ignore
+          isNew: true,
+          rightIcon:
+            'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*iiKoT73_9ucAAAAAAAAAAAAAetF8AQ/original',
+        },
+        {
           title: '资源',
           link: '/resources',
         },
@@ -77,6 +85,10 @@ export default defineConfig({
         {
           title: 'Components',
           link: '/components/overview-en',
+        },
+        {
+          title: 'Copilot',
+          link: '/copilots/conversations-en',
         },
         {
           title: 'Resources',
@@ -563,4 +575,16 @@ export default defineConfig({
     { id: 'zh-CN', name: '中文', suffix: '' },
     { id: 'en', name: 'English', suffix: '-en' },
   ],
+  resolve: {
+    atomDirs: [
+      {
+        type: 'component',
+        dir: 'src',
+      },
+      {
+        type: 'copilot',
+        dir: 'copilot',
+      },
+    ],
+  },
 });

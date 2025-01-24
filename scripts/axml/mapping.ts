@@ -198,4 +198,26 @@ export const wechatCustomMapping = {
   'ant-empty': {
     onClickButton: 'bindclickbutton',
   },
+  'ant-prompts': {
+    onItemTap: 'binditemtap',
+  },
+  'ant-conversations': {
+    onItemTap: 'binditemtap',
+    onMenuItemTap: 'bindmenuitemtap',
+  },
+  'ant-thought-chain': {
+    onExpand: 'bindexpand',
+    onContentTap: 'bindcontenttap'
+  },
+  'ant-actions': {
+    onItemTap: 'binditemtap',
+  },
+  'ant-bubble': {
+    onTypingComplete: 'bindtypingcomplete',
+  },
+  'ant-sender': {
+    onChange: 'bindchange',
+    onSubmit: 'bindsubmit',
+    onCancel: 'bindcancel',
+  },
 };

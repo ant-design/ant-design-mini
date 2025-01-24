@@ -1,0 +1,76 @@
+@import (reference) './variable.less';
+
+@prefixCls: ant-copilot-sender;
+
+.@{prefixCls} {
+  width: 100%;
+  padding: 0 @size-3;
+  box-sizing: border-box;
+  &-contain {
+    display: flex;
+    flex-direction: column;
+    background: @sender-background-color;
+    box-shadow: 0 6rpx 16rpx -8rpx rgba(0, 10, 26, 0.08),
+      0 9rpx 28rpx 0 rgba(0, 10, 26, 0.05),
+      0 12rpx 48rpx 16rpx rgba(0, 10, 26, 0.03);
+    border-radius: 48rpx;
+    padding: @size-3;
+    box-sizing: border-box;
+    &:focus-within {
+      box-shadow: 0 0 0 1rpx @sender-focus-border-color inset;
+    }
+    .@{prefixCls}-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: @size-3;
+      &-input {
+        flex: 1;
+        // height: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        .ant-copilot-sender-input {
+          width: 100%;
+          margin-left: @size-1;
+          padding: 0;
+          font-size: 30rpx;
+          line-height: 48rpx;
+          background: @sender-background-color;
+          color: @sender-input-text-color;
+          caret-color: @sender-input-caret-color;
+          max-height: @sender-max-height;
+          box-sizing: border-box;
+          resize: none;
+          overflow-y: hidden;
+          &::placeholder {
+            color: @sender-placeholder-color;
+          }
+          .a-textarea-content {
+            height: 48rpx;
+          }
+        }
+      }
+      &-button {
+        align-self: flex-end;
+        width: 48rpx;
+        height: 48rpx;
+        background-image: url('https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/KFh1TbUBh5gAAAAAAAAAAAAADoEQAQFr/original');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: @corner-radius-circle;
+        &.loading {
+          background-image: url('https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/Zt4xRJ5QGnMAAAAAAAAAAAAADoEQAQFr/original');
+        }
+        &:active {
+          opacity: 0.8;
+        }
+      }
+      &.disabled {
+        .@{prefixCls}-content-button {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

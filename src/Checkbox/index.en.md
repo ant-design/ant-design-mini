@@ -28,7 +28,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## Code example
 
 ### Basic use
 

@@ -1,0 +1,61 @@
+@import (reference) './variable.less';
+
+@buttonPrefix: ant-copilot-conversations;
+
+.@{buttonPrefix} {
+  &-hover {
+    opacity: 0.6;
+  }
+  &-swipe-item {
+    height: @conversations-swipe-item-height;
+    &-view {
+      height: 100%;
+      width: @conversations-swipe-item-view-width;
+      padding: 24 * @rpx 32 * @rpx;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      &-main {
+        flex-grow: 1;
+        overflow: hidden;
+        &-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+      &-icon {
+        flex-shrink: 0;
+        width: 72 * @rpx;
+        height: 72 * @rpx;
+        border-radius: 50%;
+        margin-right: 24 * @rpx;
+      }
+      &-label {
+        font-size: 28 * @rpx;
+        line-height: 40 * @rpx;
+        height: 40 * @rpx;
+        color: @conversations-swipe-item-view-label-color;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &-timestamp {
+        flex-shrink: 0;
+        margin-left: 28 * @rpx;
+        font-size: 28 * @rpx;
+        line-height: 44 * @rpx;
+        color: @conversations-swipe-item-view-timestamp-color;
+      }
+      &-desc {
+        font-size: 24 * @rpx;
+        line-height: 48 * @rpx;
+        height: 48 * @rpx;
+        color: @conversations-swipe-item-view-desc-color;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

@@ -73,7 +73,7 @@ In `index.json` Introducing Components in
 
 <ant-notice type="primary" mode="link"
   icon="https://gw.alipayobjects.com/mdn/rms_ce4c6f/afts/img/A*XMCgSYx3f50AAAAAAAAAAABkARQnAQ"
->Customize the left icon image</ant-notice>
+>Customize the left icon picture</ant-notice>
 
 <ant-notice mode="link" onTap="handleTapLink">
   Customize right button
@@ -109,7 +109,7 @@ In `index.json` Introducing Components in
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                            | Default Value                                                                                                              | Dark Mode Default                                                                                                                      | Remarks             |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
