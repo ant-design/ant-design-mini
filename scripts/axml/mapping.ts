@@ -195,6 +195,9 @@ export const wechatCustomMapping = {
   'ant-select-contact': {
     onSelect: 'bindselect',
   },
+  'ant-empty': {
+    onClickButton: 'bindclickbutton',
+  },
   'ant-prompts': {
     onItemTap: 'binditemtap',
   },
@@ -205,9 +208,6 @@ export const wechatCustomMapping = {
   'ant-thought-chain': {
     onExpand: 'bindexpand',
     onContentItemTap: 'bindcontentitemtap'
-  },
-  'ant-empty': {
-    onClickButton: 'bindclickbutton',
   },
   'ant-actions': {
     onItemTap: 'binditemtap',

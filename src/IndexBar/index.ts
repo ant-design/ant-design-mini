@@ -29,11 +29,19 @@ Component(
         ? current
         : defaultCurrent;
       const _index = items?.findIndex((u) => initCurrent === u.label);
-      this.setData({
-        currentKey: _index,
-        touchKeyIndex: _index,
-        touchKey: initCurrent,
-      });
+      this.setData(
+        {
+          currentKey: _index,
+          touchKeyIndex: _index,
+          touchKey: initCurrent,
+        },
+        () => {
+          this.setData({
+            touchKeyIndex: -1,
+            touchKey: '',
+          });
+        }
+      );
     },
     isControlled(nextProps, valueKey = 'current') {
       if ('controlled' in nextProps) {
@@ -129,8 +137,6 @@ Component(
       if (currentKey !== newIndex - 1 && newIndex - 1 >= 0 && !moving) {
         this.setData({
           currentKey: newIndex - 1,
-          touchKeyIndex: newIndex - 1,
-          touchKey: items[newIndex - 1].label,
         });
         this.onAlphabetClick(items[newIndex - 1], newIndex - 1);
       }
