@@ -182,3 +182,12 @@ ICollapsibleOptions 属性
 | ----------- | ------------------------------------------------------- | -------------------------------------- | ------ |
 | expandedKeys      | 展开的节点key列表 | string[] | []      |
 
+
+### 事件
+
+| 事件名 | 说明 | 类型 |
+| --- | --- | --- |
+| onTap | 点击描述时触发 | (e) => void |
+| onContentItemTap | 点击内容时触发 | (e) => void |
+| onExpand | 展开/收起时触发 | (expandedKeys: string[], clickKey: string) => void |
+
