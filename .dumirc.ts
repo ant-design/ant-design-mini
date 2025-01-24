@@ -88,7 +88,11 @@ export default defineConfig({
         },
         {
           title: 'Copilot',
-          link: '/copilots/conversations-en',
+          link: '/copilots/bubble-en',
+          // @ts-ignore
+          isNew: true,
+          rightIcon:
+            'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*iiKoT73_9ucAAAAAAAAAAAAAetF8AQ/original',
         },
         {
           title: 'Resources',
