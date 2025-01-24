@@ -16,15 +16,37 @@
         </view>
       </view>
     </view>
+    <!-- #if ALIPAY -->
     <view
       a:if="{{utils.isExpand(collapsible, item.key || index, foldStatusMap)}}"
       class="ant-copilot-thoughtchain-node-content"
     >
       <slot name="content" content="{{item.content}}" item="{{item}}">
-        <view class="ant-copilot-thoughtchain-node-content-text" onTap="onContentItemTap" data-key="{{item.key || index}}" data-content="{{item.content}}">
+        <view
+          class="ant-copilot-thoughtchain-node-content-text"
+          onTap="onContentTap"
+          data-key="{{item.key || index}}"
+          data-content="{{item.content}}"
+        >
           <view>{{item.content}}</view>
         </view>
       </slot>
     </view>
+    <!-- #endif -->
+    <!-- #if WECHAT -->
+    <view
+      a:if="{{utils.isExpand(collapsible, item.key || index, foldStatusMap)}}"
+      class="ant-copilot-thoughtchain-node-content"
+    >
+      <view
+        class="ant-copilot-thoughtchain-node-content-text"
+        onTap="onContentTap"
+        data-key="{{item.key || index}}"
+        data-content="{{item.content}}"
+      >
+        <view>{{item.content}}</view>
+      </view>
+    </view>
+    <!-- #endif -->
   </view>
 </view>

@@ -6,12 +6,12 @@ Page({
       {
         title: '理解问题',
         content: '3A游戏',
-        icon: 'CheckCircleOutline'
+        icon: 'CheckCircleOutline',
       },
       {
         title: '没有在本地找到结果',
         content: '当前主流显卡',
-        icon: 'CheckCircleOutline'
+        icon: 'CheckCircleOutline',
       },
       {
         title: '在互联网上搜索问题',
@@ -51,9 +51,13 @@ Page({
     ],
   },
   onContentItemTap(e) {
-    const { content } = e.target.dataset || {};
-    my.alert({
-      content: `点击了内容「${content}」`,
-    });
+    const { content } = e.currentTarget.dataset || {};
+    /// #if ALIPAY
+    my.showToast({ content: content });
+    /// #endif
+    /// #if WECHAT
+    // @ts-ignore
+    wx.showToast({ title: content });
+    /// #endif
   },
 });

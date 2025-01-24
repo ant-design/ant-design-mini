@@ -57,6 +57,8 @@ export interface IThoughtChainProps extends IBaseProps {
   style?: string;
 
   onExpand?: (expandedKeys: string[], currentExpandeKey: string) => void;
+  /** 内容点击事件 */
+  onContentTap?: (e) => void;
 }
 
 export const ThoughtChainProps: Partial<IThoughtChainProps> = {
@@ -65,4 +67,5 @@ export const ThoughtChainProps: Partial<IThoughtChainProps> = {
   collapsible: true,
   style: '',
   onExpand: () => {},
+  onContentTap: () => {},
 };

@@ -1,20 +1,22 @@
-import { Component, triggerEvent } from '../../src/_util/simply';
+import {
+  Component,
+  getValueFromProps,
+  triggerEventValues,
+} from '../../src/_util/simply';
 import { ThoughtChainProps } from './props';
 
 Component(
   ThoughtChainProps,
   // methods
   {
-    onContentItemTap(e) {
-      if (this.props.onContentItemTap) {
-        triggerEvent(this, 'contentItemTap', e, e);
-      }
+    onContentTap(e) {
+      triggerEventValues(this, 'contentTap', [e], e);
     },
     onTitleTap(e) {
-      if (!this.props.collapsible) return;
+      const [collapsible, onExpand] = getValueFromProps(this, ['collapsible', 'onExpand']);
+      if (!collapsible) return;
       // 受控模式
-      if (this.props.onExpand && this.props.collapsible?.expandedKeys) {
-        const { collapsible } = this.props;
+      if (onExpand && collapsible?.expandedKeys) {
         const { expandedKeys } = collapsible;
         const { key } = e.currentTarget.dataset;
         const isExpandNow = expandedKeys.includes(key);
@@ -24,7 +26,7 @@ Component(
         } else {
           newExpandedKeys.push(key);
         }
-        triggerEvent(this, 'expand', newExpandedKeys, key);
+        triggerEventValues(this, 'expand', [newExpandedKeys, key]);
       } else {
         const { key } = e.currentTarget.dataset;
         const foldStatusMap = { ...this.data.foldStatusMap };

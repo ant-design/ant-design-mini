@@ -1,19 +1,19 @@
 <view class="navigation-bar" />
-
-<ant-container title="基础用法">
-  <thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
-  </thought-chain>
-</ant-container>
 <!-- #if ALIPAY -->
+<ant-container title="基础用法">
+  <ant-thought-chain items="{{basicList}}" onContentTap="onContentItemTap" collapsible="{{true}}">
+  </ant-thought-chain>
+</ant-container>
+
 <ant-container title="自定义内容">
-  <thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{false}}">
+  <ant-thought-chain items="{{basicList}}" onContentTap="onContentItemTap" collapsible="{{false}}">
     <view slot="content" slot-scope="module" style="color: red">
       {{module.content}}
     </view>
-  </thought-chain>
+  </ant-thought-chain>
 </ant-container>
 <ant-container title="二级节点">
-  <thought-chain items="{{customList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
+  <ant-thought-chain items="{{customList}}" onContentTap="onContentItemTap" collapsible="{{true}}">
     <view slot="content" slot-scope="module">
       <view a:if="{{typeof(module.content) === 'object'}}" class="secondLevel">
         <thought-chain
@@ -33,6 +33,12 @@
       </view>
       <view a:else>{{module.content}}</view>
     </view>
-  </thought-chain>
+  </ant-thought-chain>
+</ant-container>
+<!-- #endif -->
+ <!-- #if WECHAT -->
+<ant-container title="基础用法">
+  <ant-thought-chain items="{{basicList}}" onContentTap="onContentItemTap" collapsible="{{true}}">
+  </ant-thought-chain>
 </ant-container>
 <!-- #endif -->
