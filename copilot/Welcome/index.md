@@ -3,13 +3,13 @@ nav:
   path: /copilot
 group:
   title: 唤醒
-  order: 1
+  order: 2
 toc: 'content'
 ---
 
-# ThoughtChain 思考链
+# Welcome 欢迎
 
-用于可视化展示 AI 处理请求、生成内容或执行任务的进程与状态。这是一个与动画相关的组件，需要提供各节点动画的 props 和 API 和使用方进行交互。
+这是一个基于 Ant Design 设计系统的欢迎提示组件，用于向用户展示产品身份和核心价值主张。
 
 ## 引入
 
@@ -18,10 +18,10 @@ toc: 'content'
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-thought-chain": "antd-mini/es/ThoughtChain/index"
+  "ant-welcome": "antd-mini/es/Welcome/index"
 #endif
 #if WECHAT
-  "ant-thought-chain": "antd-mini/ThoughtChain/index"
+  "ant-welcome": "antd-mini/Welcome/index"
 #endif
 }
 ```
@@ -29,156 +29,30 @@ toc: 'content'
 ## 代码示例
 
 ### 基本使用
-这个示例渲染了多个节点
-
 ```xml
-  <ant-thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
-  </ant-thought-chain>
-```
-
-```javascript
-Page({
-  data: {
-    basicList: [
-      {
-        title: '理解问题',
-        content: '3A游戏',
-        icon: 'CheckCircleOutline'
-      },
-      {
-        title: '没有在本地找到结果',
-        content: '当前主流显卡',
-        icon: 'CheckCircleOutline'
-      },
-      {
-        title: '在互联网上搜索问题',
-        content: '黑神话悟空所需显卡',
-        icon: 'MoreOutline',
-      },
-    ],
-  },
-  onContentItemTap(e) {
-    const { content } = e.currentTarget.dataset || {};
-    my.alert({
-      content: `点击了内容「${content}」`,
-    });
-  },
-});
-```
-
-### 自定义内容
-content slot支持自定义节点内容。仅支付宝端支持自定义内容，微信端不支持自定义内容。
-```xml
- <ant-thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{false}}">
-    <view slot="content" slot-scope="module" style="color: red">
-      {{module.content}}
-    </view>
-  </ant-thought-chain>
-```
-
-### 二级节点
-支持通过slot自定义节点内容，通过嵌套thought-chain组件进行二级节点的渲染。仅支付宝端支持自定义内容，微信端不支持自定义内容。
-
-```xml
- <ant-thought-chain items="{{customList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
-    <view slot="content" slot-scope="module">
-      <view a:if="{{typeof(module.content) === 'object'}}" class="secondLevel">
-        <ant-thought-chain
-          className="second-thoughtchain"
-          items="{{module.content}}"
-          collapsible="{{false}}"
-        >
-          <view slot="content" slot-scope="secondModule" a:if="{{typeof(secondModule.content) === 'object'}}">
-            <view class="second-thoughtchain-content" a:for="{{secondModule.content}}">
-              {{item}}
-            </view>
-          </view>
-          <view a:else class="second-thoughtchain-content">
-            {{secondModule.content}}
-          </view>
-        </ant-thought-chain>
-      </view>
-      <view a:else>{{module.content}}</view>
-    </view>
-  </ant-thought-chain>
-```
-```javascript
-Page({
-  data: {
-    customList: [
-      {
-        title: '理解问题',
-        content: '解析语法结构',
-      },
-      {
-        status: 'loading',
-        title: '搜索问题',
-        content: [
-          {
-            title: '理解问题',
-          },
-          {
-            title: '联网搜索',
-            content: '1. 黑神话悟空介绍',
-          },
-          {
-            title: '已根据搜索结果精选3篇资料',
-            content: [
-              '1. 黑神话悟空介绍',
-              '2. 对于1080p显示器，4060ti和4060该选哪个？',
-              '3. 黑神话悟空官方建议配置',
-            ],
-          },
-          {
-            title: '联想更多结果',
-          },
-        ],
-      },
-    ]
-  },
-  onContentItemTap(e) {
-    const { content } = e.target.dataset || {};
-    my.alert({
-      content: `点击了内容「${content}」`,
-    });
-  },
-});
+  <ant-welcome title="👋🏻 你好，我是 Ant Design X" description="基于 Ant Design 的 AGI 产品界面解决方案，创造更美好的智能视界～" />
 ```
 
 ### Demo 代码
 
-<code src='../../copilot-demo/pages/ThoughtChain/index'></code>
+<code src='../../copilot-demo/pages/Welcome/index'></code>
 
 ## API
 
-### ThoughtChain
+### Welcome
 
-以下表格介绍了 ThoughtChain 组件的 API 属性：
+以下表格介绍了 Welcome 组件的 API 属性：
 
 | 属性      | 说明     | 类型                     | 默认值 |
 | --------- | -------- | ------------------------ | ------ |
 | className | 类名     | string                   | -      |
-| items      | 节点列表 | IThoughtChainItemProps[] | []      |
-| collapsible      | 是否支持 | boolean\|ICollapsibleOptions | true      |
-| style      | 自定义样式 | string | -      |
+| styles      | 自定义样式 | string | -      |
+| title      | 标题 | string | -      |
+| description      | 描述介绍 | string | -      |
 
 
-IThoughtChainItemProps 属性
-| 属性        | 说明                                                    | 类型                                   | 默认值 |
-| ----------- | ------------------------------------------------------- | -------------------------------------- | ------ |
-| icon      | 标题前图标，可以使用ant-icon里的类型，也可以传入https图片链接                                                | string | CheckCircleOutline     |
-| title       | 节点标题                                                | string                                 | -      |
-| content     | 节点内容                                                | string                    | - |
+### 事件
 
-
-插槽 slot
-
-| 插槽名称 | 说明           |
-| -------- | -------------- |
-| content  | 自定义节点内容 |  |
-
-ICollapsibleOptions 属性
-| 属性        | 说明                                                    | 类型                                   | 默认值 |
-| ----------- | ------------------------------------------------------- | -------------------------------------- | ------ |
-| expandedKeys      | 展开的节点key列表 | string[] | []      |
-
+| 事件名 | 说明 | 类型 |
+| --- | --- | --- |
+| onTap | 点击描述时触发 | (e) => void |

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "ant-sender": "../../../src/Sender/index",
+    "ant-upload": "../../../src/ImageUpload/index",
+    "ant-bubble": "../../../src/Bubble/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

@@ -2,8 +2,8 @@
 nav:
   path: /copilot
 group:
-  title: Copilot
-  order: 1
+  title: 唤醒
+  order: 2
 toc: 'content'
 ---
 

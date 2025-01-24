@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# Copilot ThoughtChain thinking chain
+# ThoughtChain
 
 Use to visualize the process and status of AI processing requests, generating content, or executing tasks. This is an animation-related component that needs to provide props and API for each node animation to interact with users.
 
@@ -35,6 +35,7 @@ This example renders multiple nodes
   <ant-thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
   </ant-thought-chain>
 ```
+
 ```javascript
 Page({
   data: {
@@ -54,7 +55,7 @@ Page({
         content: '黑神话悟空所需显卡',
         icon: 'MoreOutline',
       },
-    ]
+    ],
   },
   onContentItemTap(e) {
     const { content } = e.currentTarget.dataset || {};
@@ -62,7 +63,7 @@ Page({
       content: `点击了内容「${content}」`,
     });
   },
-})
+});
 ```
 
 ### Custom Content
@@ -141,7 +142,7 @@ Page({
       content: `点击了内容「${content}」`,
     });
   },
-})
+});
 ```
 
 ### Demo Code
@@ -170,7 +171,7 @@ IThoughtChainItemProps Properties
 | content     | Node Content                                                | string                    | - |
 
 
-Slot 
+Slot
 
 | Slot Name | Description           |
 | -------- | -------------- |

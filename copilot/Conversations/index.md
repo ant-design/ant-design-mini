@@ -2,7 +2,7 @@
 nav:
   path: /copilot
 group:
-  title: Copilot
+  title: 通用
   order: 1
 toc: 'content'
 ---
