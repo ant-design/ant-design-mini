@@ -4,6 +4,7 @@
   <thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
   </thought-chain>
 </ant-container>
+<!-- #if ALIPAY -->
 <ant-container title="自定义内容">
   <thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{false}}">
     <view slot="content" slot-scope="module" style="color: red">
@@ -34,3 +35,4 @@
     </view>
   </thought-chain>
 </ant-container>
+<!-- #endif -->
