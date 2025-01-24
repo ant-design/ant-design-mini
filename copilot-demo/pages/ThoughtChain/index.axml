@@ -16,7 +16,7 @@
   <ant-thought-chain items="{{customList}}" onContentTap="onContentItemTap" collapsible="{{true}}">
     <view slot="content" slot-scope="module">
       <view a:if="{{typeof(module.content) === 'object'}}" class="secondLevel">
-        <thought-chain
+        <ant-thought-chain
           className="second-thoughtchain"
           items="{{module.content}}"
           collapsible="{{false}}"
@@ -29,7 +29,7 @@
           <view a:else class="second-thoughtchain-content">
             {{secondModule.content}}
           </view>
-        </thought-chain>
+        </ant-thought-chain>
       </view>
       <view a:else>{{module.content}}</view>
     </view>
