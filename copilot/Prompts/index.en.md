@@ -32,8 +32,8 @@ In `index.json` Introducing Components in
 
 ```xml
 <ant-prompts
-  list="{{baseList}}"
-  promptsTitle="{{promptsTitle}}"
+  items="{{baseList}}"
+  title="{{promptsTitle}}"
 #if ALIPAY
   onItemTap="onItemTap"
 #endif
@@ -78,8 +78,8 @@ Page({
 
 ```xml
 <ant-prompts
-  list="{{ arrowList }}"
-  promptsTitle="{{ promptsTitle }}"
+  items="{{ arrowList }}"
+  title="{{ promptsTitle }}"
 />
 ```
 
@@ -118,9 +118,9 @@ Page({
 
 ```xml
 <ant-prompts
-  list="{{ styleList }}"
+  items="{{ styleList }}"
   className="customizeStyle"
-  promptsTitle="{{ promptsTitle }}"
+  title="{{ promptsTitle }}"
 />
 ```
 
@@ -136,7 +136,7 @@ Page({
 ### Custom Prompt Title
 
 ```xml
-<ant-prompts list="{{ arrowList }}">
+<ant-prompts items="{{ arrowList }}">
   <view slot="prompts-title" class="customize-prompts-title">
     Custom prompt title:
   </view>
@@ -146,7 +146,7 @@ Page({
 ### Custom Prompt Item
 
 ```xml
-<ant-prompts list="{{ baseList }}">
+<ant-prompts items="{{ baseList }}">
   <view slot="prompts-item" slot-scope="props" class="customize-prompts-item">
     Custom prompt items :{{ props.item.title}}
   </view>
@@ -157,19 +157,19 @@ Page({
 
 ```xml
 <ant-prompts
-  promptsTitle="超长滑动"
-  list="{{ horizontalList }}"
+  title="超长滑动"
+  items="{{ horizontalList }}"
   vertical="{{false}}"
 />
 <ant-prompts
-  promptsTitle="超长换行"
-  list="{{ horizontalList }}"
+  title="超长换行"
+  items="{{ horizontalList }}"
   vertical="{{false}}"
   wrap
 />
 <ant-prompts
-  promptsTitle="自定义"
-  list="{{ horizontalList }}"
+  title="自定义"
+  items="{{ horizontalList }}"
   vertical="{{false}}"
   wrap
 >
@@ -190,8 +190,8 @@ The following table describes the API properties for Prompts components:
 | Property                   | Description                 | Type                                                      | Default Value |
 | ---------------------- | -------------------- | --------------------------------------------------------- | ------ |
 | className              | Class Name                 | string                                                    | -      |
-| list                   | Prompt List             | [PromptsItem](#promptsitem)[]                             | -      |
-| promptsTitle           | Prompt Title             | string                                                    | -      |
+| items                   | Prompt Items             | [PromptsItem](#promptsitem)[]                             | -      |
+| title           | Prompt Title             | string                                                    | -      |
 | vertical               | Under horizontal layout, automatic line wrap | boolean                                                   | true   |
 | wrap                   | Class Name                 | boolean                                                   | false  |
 | #if ALIPAY onItemTap   | Prompt for click callback         | (item: [PromptsItem](#promptsitem),index:number) => void; | -      |

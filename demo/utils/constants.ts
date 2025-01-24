@@ -18,7 +18,7 @@ export const componentList = [
         path: '/pages/Suggestion/index',
       },
       { name: 'Prompts', nameZN: 'Prompts', path: '/pages/Prompts/index' },
-      { name: 'ThoughtChain', nameZN: '思考链', path: '/pages/ThoughtChain/index' },
+      { name: 'ThoughtChain', nameZN: '思维链', path: '/pages/ThoughtChain/index' },
       { name: 'Welcome', nameZN: '欢迎', path: '/pages/Welcome/index' },
       { name: 'Button', nameZN: '按钮', path: '/pages/Button/index' },
       { name: 'Icon', nameZN: '图标', path: '/pages/Icon/index' },

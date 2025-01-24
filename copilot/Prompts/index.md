@@ -32,8 +32,8 @@ toc: 'content'
 
 ```xml
 <ant-prompts
-  list="{{baseList}}"
-  promptsTitle="{{promptsTitle}}"
+  items="{{baseList}}"
+  title="{{promptsTitle}}"
 #if ALIPAY
   onItemTap="onItemTap"
 #endif
@@ -78,8 +78,8 @@ Page({
 
 ```xml
 <ant-prompts
-  list="{{ arrowList }}"
-  promptsTitle="{{ promptsTitle }}"
+  items="{{ arrowList }}"
+  title="{{ promptsTitle }}"
 />
 ```
 
@@ -118,9 +118,9 @@ Page({
 
 ```xml
 <ant-prompts
-  list="{{ styleList }}"
+  items="{{ styleList }}"
   className="customizeStyle"
-  promptsTitle="{{ promptsTitle }}"
+  title="{{ promptsTitle }}"
 />
 ```
 
@@ -136,7 +136,7 @@ Page({
 ### 自定义提示标题
 
 ```xml
-<ant-prompts list="{{ arrowList }}">
+<ant-prompts items="{{ arrowList }}">
   <view slot="prompts-title" class="customize-prompts-title">
     自定义提示标题:
   </view>
@@ -146,7 +146,7 @@ Page({
 ### 自定义提示项
 
 ```xml
-<ant-prompts list="{{ baseList }}">
+<ant-prompts items="{{ baseList }}">
   <view slot="prompts-item" slot-scope="props" class="customize-prompts-item">
     自定义提示项：{{ props.item.title }}
   </view>
@@ -157,19 +157,19 @@ Page({
 
 ```xml
 <ant-prompts
-  promptsTitle="超长滑动"
-  list="{{ horizontalList }}"
+  title="超长滑动"
+  items="{{ horizontalList }}"
   vertical="{{false}}"
 />
 <ant-prompts
-  promptsTitle="超长换行"
-  list="{{ horizontalList }}"
+  title="超长换行"
+  items="{{ horizontalList }}"
   vertical="{{false}}"
   wrap
 />
 <ant-prompts
-  promptsTitle="自定义"
-  list="{{ horizontalList }}"
+  title="自定义"
+  items="{{ horizontalList }}"
   vertical="{{false}}"
   wrap
 >
@@ -190,8 +190,8 @@ Page({
 | 属性                   | 说明                 | 类型                                                      | 默认值 |
 | ---------------------- | -------------------- | --------------------------------------------------------- | ------ |
 | className              | 类名                 | string                                                    | -      |
-| list                   | 提示列表             | [PromptsItem](#promptsitem)[]                             | -      |
-| promptsTitle           | 提示标题             | string                                                    | -      |
+| items                   | 提示列表             | [PromptsItem](#promptsitem)[]                             | -      |
+| title           | 提示标题             | string                                                    | -      |
 | vertical               | 横向布局下，自动换行 | boolean                                                   | true   |
 | wrap                   | 类名                 | boolean                                                   | false  |
 | #if ALIPAY onItemTap   | 提示点击回调         | (item: [PromptsItem](#promptsitem),index:number) => void; | -      |

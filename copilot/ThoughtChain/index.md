@@ -7,7 +7,7 @@ group:
 toc: 'content'
 ---
 
-# ThoughtChain 思考链
+# ThoughtChain 思维链
 
 用于可视化展示 AI 处理请求、生成内容或执行任务的进程与状态。这是一个与动画相关的组件，需要提供各节点动画的 props 和 API 和使用方进行交互。
 
