@@ -58,7 +58,7 @@ export default defineConfig({
         },
         {
           title: 'Copilot',
-          link: '/copilots/conversations',
+          link: '/copilots/bubble',
           // @ts-ignore
           isNew: true,
           rightIcon:

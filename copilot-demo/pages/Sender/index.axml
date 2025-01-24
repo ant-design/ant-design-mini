@@ -45,13 +45,13 @@
       </scroll-view>
       <ant-sender
         value="{{value4}}"
-        placeholder="自定义样式"
+        placeholder="组合使用"
         onChange="handleChange4"
         onSubmit="handleSend4"
       >
         <ant-prompts
           slot="header"
-          list="{{horizontalList}}"
+          items="{{horizontalList}}"
           vertical="{{false}}"
           onItemTap="onItemTap"
         ></ant-prompts>

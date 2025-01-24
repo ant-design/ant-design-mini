@@ -35,13 +35,13 @@ export interface IPromptsProps extends IBaseProps {
    * @description 提示列表
    * @default []
    */
-  list?: IPromptsItem[];
+  items?: IPromptsItem[];
 
   /**
    * @description 提示列表的标题
    * @default ''
    */
-  promptsTitle?: string;
+  title?: string;
 
   /**
    * @description 纵向布局
@@ -62,9 +62,9 @@ export interface IPromptsProps extends IBaseProps {
 }
 
 export const PromptsProps: Partial<IPromptsProps> = {
-  list: [],
+  items: [],
   className: '',
-  promptsTitle: '',
+  title: '',
   vertical: true,
   wrap: false,
   onItemTap() {},
