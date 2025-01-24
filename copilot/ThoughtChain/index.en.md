@@ -32,7 +32,7 @@ In `index.json` Introducing Components in
 This example renders multiple nodes
 
 ```xml
-  <ant-thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
+  <ant-thought-chain items="{{basicList}}" onContentTap="onContentTap" collapsible="{{true}}">
   </ant-thought-chain>
 ```
 
@@ -57,7 +57,7 @@ Page({
       },
     ],
   },
-  onContentItemTap(e) {
+  onContentTap(e) {
     const { content } = e.currentTarget.dataset || {};
     my.alert({
       content: `点击了内容「${content}」`,
@@ -69,7 +69,7 @@ Page({
 ### Custom Content
 content slot supports custom node content. Only Alipay supports custom content, WeChat does not support custom content.
 ```xml
- <ant-thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{false}}">
+ <ant-thought-chain items="{{basicList}}" onContentTap="onContentTap" collapsible="{{false}}">
     <view slot="content" slot-scope="module" style="color: red">
       {{module.content}}
     </view>
@@ -80,7 +80,7 @@ content slot supports custom node content. Only Alipay supports custom content, 
 You can customize node content through slots and render secondary nodes through nested thought-chain components. Only Alipay supports custom content, WeChat does not support custom content.
 
 ```xml
- <ant-thought-chain items="{{customList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
+ <ant-thought-chain items="{{customList}}" onContentTap="onContentTap" collapsible="{{true}}">
     <view slot="content" slot-scope="module">
       <view a:if="{{typeof(module.content) === 'object'}}" class="secondLevel">
         <ant-thought-chain
@@ -188,6 +188,6 @@ ICollapsibleOptions Properties
 | Event Name | Description | Type |
 | --- | --- | --- |
 | onTap | Trigger when a description is clicked | (e) => void |
-| onContentItemTap | Trigger when content is clicked | (e) => void |
+| onContentTap | Trigger when content is clicked | (e) => void |
 | onExpand | Trigger on deploy/stow | (expandedKeys: string[], clickKey: string) => void |
 

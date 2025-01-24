@@ -32,7 +32,7 @@ toc: 'content'
 这个示例渲染了多个节点
 
 ```xml
-  <ant-thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
+  <ant-thought-chain items="{{basicList}}" onContentTap="onContentTap" collapsible="{{true}}">
   </ant-thought-chain>
 ```
 
@@ -57,7 +57,7 @@ Page({
       },
     ],
   },
-  onContentItemTap(e) {
+  onContentTap(e) {
     const { content } = e.currentTarget.dataset || {};
     my.alert({
       content: `点击了内容「${content}」`,
@@ -69,7 +69,7 @@ Page({
 ### 自定义内容
 content slot支持自定义节点内容。仅支付宝端支持自定义内容，微信端不支持自定义内容。
 ```xml
- <ant-thought-chain items="{{basicList}}" onContentItemTap="onContentItemTap" collapsible="{{false}}">
+ <ant-thought-chain items="{{basicList}}" onContentTap="onContentTap" collapsible="{{false}}">
     <view slot="content" slot-scope="module" style="color: red">
       {{module.content}}
     </view>
@@ -80,7 +80,7 @@ content slot支持自定义节点内容。仅支付宝端支持自定义内容�
 支持通过slot自定义节点内容，通过嵌套thought-chain组件进行二级节点的渲染。仅支付宝端支持自定义内容，微信端不支持自定义内容。
 
 ```xml
- <ant-thought-chain items="{{customList}}" onContentItemTap="onContentItemTap" collapsible="{{true}}">
+ <ant-thought-chain items="{{customList}}" onContentTap="onContentTap" collapsible="{{true}}">
     <view slot="content" slot-scope="module">
       <view a:if="{{typeof(module.content) === 'object'}}" class="secondLevel">
         <ant-thought-chain
@@ -188,6 +188,6 @@ ICollapsibleOptions 属性
 | 事件名 | 说明 | 类型 |
 | --- | --- | --- |
 | onTap | 点击描述时触发 | (e) => void |
-| onContentItemTap | 点击内容时触发 | (e) => void |
+| onContentTap | 点击内容时触发 | (e) => void |
 | onExpand | 展开/收起时触发 | (expandedKeys: string[], clickKey: string) => void |
 
