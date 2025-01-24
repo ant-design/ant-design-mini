@@ -1,25 +1,30 @@
-import { Component } from '../../src/_util/simply';
+import { Component, getValueFromProps, triggerEventOnly } from '../../src/_util/simply';
 import { BubbleProps } from './props';
 
 Component(
   BubbleProps,
   {
     startTyping() {
-      if (this.props.loading) {
+      const [loading, typing, content] = getValueFromProps(this, [
+        'loading',
+        'typing',
+        'content',
+      ]);
+      if (loading) {
         return;
       }
-      if (this.props.content) {
-        const typingOptions = this.props.typing
-          ? this.props.typing === true
+      if (content) {
+        const typingOptions = typing
+          ? typing === true
             ? { step: 1, interval: 100 }
-            : this.props.typing
+            : typing
           : false;
         if (typingOptions) {
           const { step = 1, interval = 100 } = typingOptions;
-          const content = this.props.content;
+          const bubbleText = content;
           // todo 待优化
           const typingLoop = (length: number, typedLength: number) => {
-            const typingText = content.slice(0, typedLength);
+            const typingText = bubbleText.slice(0, typedLength);
             this.setData({
               bubbleText: typingText,
             });
@@ -28,15 +33,15 @@ Component(
                 typingLoop(length, typedLength + step);
               }, interval);
             } else {
-              this.props.onTypingComplete?.();
+              triggerEventOnly(this, 'typingComplete')
             }
           };
-          typingLoop(content.length, step);
+          typingLoop(bubbleText.length, step);
         } else {
           this.setData({
-            bubbleText: this.props.content,
+            bubbleText: content,
           });
-          this.props.onTypingComplete?.();
+          triggerEventOnly(this, 'typingComplete')
         }
       }
     },
@@ -58,8 +63,15 @@ Component(
         }
       },
     },
+/// #if ALIPAY
     didMount() {
       this.startTyping();
     },
+/// #endif
+/// #if WECHAT
+    attached() {
+      this.startTyping();
+    },
+/// #endif
   }
 );

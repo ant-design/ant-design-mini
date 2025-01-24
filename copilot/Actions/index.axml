@@ -1,4 +1,4 @@
-<import-sjs from="./check.sjs" name="{ checkIcon }" />
+<import-sjs from="./check.sjs" name="sjs" />
 
 <view class="ant-copilot-actions {{className}}" style="{{style}}">
   <view
@@ -9,7 +9,7 @@
     data-action="{{item}}"
   >
     <ant-icon
-      a:if="{{checkIcon(item.icon)}}"
+      a:if="{{sjs.checkIcon(item.icon)}}"
       className="ant-copilot-actions-item-icon"
       type="{{item.icon}}"
     />

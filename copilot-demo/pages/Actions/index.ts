@@ -34,6 +34,10 @@ Page({
   },
 
   handleTapAction(item) {
+    /// #if WECHAT
+    // @ts-ignore
+    item = item.detail;
+    /// #endif
     const basicActions = [...this.data.basicActions];
     if (item.label === 'like') {
       this.setData({
@@ -43,18 +47,38 @@ Page({
         ? 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/JmVoRp-2UwMAAAAAAAAAAAAADoEQAQFr/original'
         : 'LikeOutline';
     } else {
+      /// #if ALIPAY
       my.showToast({
         content: `${item.label} tapped`,
       });
+      /// #endif
+      /// #if WECHAT
+      // @ts-ignore
+      wx.showToast({
+        title: `${item.label} tapped`,
+      });
+      /// #endif
     }
     this.setData({
       basicActions,
     });
   },
   handleBubbleAction(item) {
+    /// #if WECHAT
+    // @ts-ignore
+    item = item.detail;
+    /// #endif
+    /// #if ALIPAY
     my.showToast({
       content: `${item.label} tapped`,
     });
+    /// #endif
+    /// #if WECHAT
+    // @ts-ignore
+    wx.showToast({
+      title: `${item.label} tapped`,
+    });
+    /// #endif
   },
   onTypingComplete() {
     this.setData({

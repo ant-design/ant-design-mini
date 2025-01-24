@@ -209,4 +209,15 @@ export const wechatCustomMapping = {
   'ant-empty': {
     onClickButton: 'bindclickbutton',
   },
+  'ant-actions': {
+    onItemTap: 'binditemtap',
+  },
+  'ant-bubble': {
+    onTypingComplete: 'bindtypingcomplete',
+  },
+  'ant-sender': {
+    onChange: 'bindchange',
+    onSubmit: 'bindsubmit',
+    onCancel: 'bindcancel',
+  },
 };

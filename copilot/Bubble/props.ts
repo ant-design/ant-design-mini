@@ -45,7 +45,6 @@ export const BubbleProps: IBubbleProps = {
   placement: 'start',
   loading: false,
   typing: false,
-  onTypingComplete: () => {},
   shape: 'default',
   variant: 'filled',
   avatar: '',

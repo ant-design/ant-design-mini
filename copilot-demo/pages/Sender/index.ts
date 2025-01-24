@@ -21,6 +21,10 @@ Page({
   },
   /** 基础用法  */
   handleChange(value: string) {
+    /// #if WECHAT
+    // @ts-ignore
+    value = value.detail;
+    /// #endif
     this.setData({ value });
   },
   handleSend() {
@@ -28,6 +32,10 @@ Page({
   },
   /** 发送loading状态  */
   handleChange1(value: string) {
+    /// #if WECHAT
+    // @ts-ignore
+    value = value.detail;
+    /// #endif
     this.setData({ value1: value });
   },
   handleSend1() {
@@ -42,6 +50,10 @@ Page({
   },
   /** 配合upload组件 */
   handleChange3(value: string) {
+    /// #if WECHAT
+    // @ts-ignore
+    value = value.detail;
+    /// #endif
     this.setData({ value3: value });
   },
   handleSend3() {
@@ -56,6 +68,10 @@ Page({
     });
   },
   handleChange4(value: string) {
+    /// #if WECHAT
+    // @ts-ignore
+    value = value.detail;
+    /// #endif
     this.setData({ value4: value });
   },
   handleSend4() {

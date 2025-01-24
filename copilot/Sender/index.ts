@@ -1,16 +1,18 @@
-import { Component, triggerEvent, triggerEventOnly } from '../../src/_util/simply';
+import { Component, getValueFromProps, triggerEvent, triggerEventOnly } from '../../src/_util/simply';
 import { SenderProps } from './props';
 
 Component(SenderProps, {
   handleMainBtn() {
-    if (this.props.loading) {
+    const [ loading ] = getValueFromProps(this, ['loading']);
+    if (loading) {
       this.handleCancel();
     } else {
       this.handleSubmit();
     }
   },
   handleSubmit() {
-    triggerEvent(this, 'submit', this.props.value);
+    const [ value ] = getValueFromProps(this, ['value']);
+    triggerEvent(this, 'submit', value);
   },
   handleCancel() {
     triggerEventOnly(this, 'cancel');
