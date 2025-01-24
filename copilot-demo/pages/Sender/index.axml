@@ -49,6 +49,12 @@
         onChange="handleChange4"
         onSubmit="handleSend4"
       >
+        <ant-prompts
+          slot="header"
+          list="{{horizontalList}}"
+          vertical="{{false}}"
+          onItemTap="onItemTap"
+        ></ant-prompts>
       </ant-sender>
     </ant-container>
   </view>

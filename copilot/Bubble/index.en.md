@@ -42,6 +42,7 @@ When you need to display the content of the dialogue, it supports a variety of b
 | --- | --- |
 | default | Custom bubble content |
 | header | Custom header content (such as user name) |
+| footer | Custom footer content (such as custom operations) |
 
 ### Theme customization
 

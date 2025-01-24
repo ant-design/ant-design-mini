@@ -39,10 +39,13 @@
   <ant-bubble content="variant: shadow" variant="shadow" />
 </ant-container>
 
-<ant-container title="用户名">
+<ant-container title="用户名和操作">
   <ant-bubble content="你好,请问有什么可以帮你?" avatar="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ">
     <view slot="header">
       <text class="ant-copilot-bubble-name">Ant Design Mini</text>
+    </view>
+    <view slot="footer">
+      <ant-actions items="{{basicActions}}" onItemTap="handleTapAction" />
     </view>
   </ant-bubble>
 </ant-container>

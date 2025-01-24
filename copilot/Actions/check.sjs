@@ -1,7 +1,8 @@
 /// #if ALIPAY
-export function checkIcon(icon = '') {
+function checkIcon(icon = '') {
   return getRegExp('^[a-zA-Z]+$').test(icon);
 }
+export default { checkIcon };
 /// #endif
 /// #if WECHAT
 function checkIcon(icon = '') {

@@ -4,8 +4,8 @@ const mockResponse = [
   '这是个很好的问题，我来仔细想想...',
   '我明白你的想法，确实值得深入讨论。',
   '感谢分享，这让我想到了一些新的观点。',
-  '你提到的这点很有启发性，我们可以进一步探讨。'
-]
+  '你提到的这点很有启发性，我们可以进一步探讨。',
+];
 Page({
   senderTimer: null,
   data: {
@@ -15,8 +15,33 @@ Page({
     value4: '',
     loading: false,
     scrollToView: '',
-    bubbleList: [
-      { content: '你好，世界！'}
+    bubbleList: [{ content: '你好，世界！' }],
+    horizontalList: [
+      {
+        icon: 'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*AdC9RZfDwicAAAAAAAAAAAAADtF8AQ/original',
+        label: '我的日程',
+        value: 'schedule',
+        key: '1',
+      },
+      {
+        icon: 'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*Mbi1R5eGTecAAAAAAAAAAAAADtF8AQ/original',
+        label: '快捷功能',
+        value: 'suggestion',
+        key: '2',
+      },
+      {
+        icon: 'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*WqBJSZEpPbwAAAAAAAAAAAAADtF8AQ/original',
+        label: '诊断分析',
+        value: 'analyze',
+        key: '3',
+      },
+      {
+        // 支持 antd-icon
+        icon: 'MoreOutline',
+        label: '更多',
+        value: 'more',
+        key: '4',
+      },
     ],
   },
   /** 基础用法  */
@@ -74,12 +99,21 @@ Page({
     /// #endif
     this.setData({ value4: value });
   },
-  handleSend4() {
-    if (!this.data.value4) return;
-    this.addBubble(this.data.value4);
+  onItemTap(e) {
+    /// #if WECHAT
+    // @ts-ignore
+    e = e.detail;
+    /// #endif
+    this.handleSend4(e.label)
+  },
+  handleSend4(val: string) {
+    if (!this.data.value4 && !val) return;
+    this.addBubble(val || this.data.value4);
     this.setData({ value4: '' });
     setTimeout(() => {
-      this.addBubble(mockResponse[Math.floor(Math.random() * mockResponse.length)]);
+      this.addBubble(
+        mockResponse[Math.floor(Math.random() * mockResponse.length)]
+      );
     }, 500);
   },
 });

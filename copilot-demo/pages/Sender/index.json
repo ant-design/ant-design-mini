@@ -2,6 +2,7 @@
   "usingComponents": {
     "ant-sender": "../../../src/Sender/index",
     "ant-upload": "../../../src/ImageUpload/index",
+    "ant-prompts": "../../../src/Prompts/index",
     "ant-bubble": "../../../src/Bubble/index",
     "ant-container": "../../../src/Container/index"
   }
