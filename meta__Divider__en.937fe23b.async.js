@@ -1,0 +1,25 @@
+"use strict";(self.webpackChunkantd_mini=self.webpackChunkantd_mini||[]).push([[8100],{83338:function(d,a,e){e.r(a),e.d(a,{demos:function(){return o}});var n=e(67294),t=e(85544),o={"src-divider-demo-divider":{component:n.memo(n.lazy(function(){return e.e(2433).then(e.bind(e,38251))})),asset:{type:"BLOCK",id:"src-divider-demo-divider",refAtomIds:[],dependencies:{},entry:"index.ts"},context:{},renderOpts:void 0}}},68737:function(d,a,e){e.r(a),e.d(a,{texts:function(){return t}});var n=e(85544);const t=[{value:"The dividing line that separates the content. Segmentation of text paragraphs in different sections. Split inline text/links, such as the action column of a table.",paraId:0,tocIndex:0},{value:"In ",paraId:1,tocIndex:1},{value:"index.json",paraId:1,tocIndex:1},{value:" Introducing Components in",paraId:1,tocIndex:1},{value:`"usingComponents": {
+#if ALIPAY
+  "ant-divider": "antd-mini/es/Divider/index"
+#endif
+#if WECHAT
+  "ant-divider": "antd-mini/Divider/index"
+#endif
+}
+`,paraId:2,tocIndex:1},{value:`<ant-divider />
+`,paraId:3,tocIndex:3},{value:`<ant-divider text="center content" />
+<ant-divider text="left content" textPosition="left" />
+<ant-divider text="right content" textPosition="right" />
+`,paraId:4,tocIndex:4},{value:` <ant-divider
+  text="custom styles"
+  textStyle="color:#1677ff; fontWeight:600"
+  lineHeight="{{2}}"
+  lineType="dashed"
+  lineColor="#1677ff"
+/>
+`,paraId:5,tocIndex:5},{value:`<view class="divider-vertical">
+  <view>100m</view>
+  <ant-divider direction="vertical" />
+  <view>detail address</view>
+</view>
+`,paraId:6,tocIndex:6},{value:"Property",paraId:7,tocIndex:8},{value:"Description",paraId:7,tocIndex:8},{value:"Type",paraId:7,tocIndex:8},{value:"Default Value",paraId:7,tocIndex:8},{value:"className",paraId:7,tocIndex:8},{value:"Root node class name",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"direction",paraId:7,tocIndex:8},{value:"Split line direction, optional ",paraId:7,tocIndex:8},{value:"horizontal",paraId:7,tocIndex:8},{value:" ",paraId:7,tocIndex:8},{value:"vertical",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"horizontal",paraId:7,tocIndex:8},{value:"lineColor",paraId:7,tocIndex:8},{value:"Split line color",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"lineHeight",paraId:7,tocIndex:8},{value:"Split line height, only if ",paraId:7,tocIndex:8},{value:"direction",paraId:7,tocIndex:8},{value:" For ",paraId:7,tocIndex:8},{value:"horizontal",paraId:7,tocIndex:8},{value:" Effective at the time, in units ",paraId:7,tocIndex:8},{value:"px",paraId:7,tocIndex:8},{value:"number",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"lineType",paraId:7,tocIndex:8},{value:"Split line type, optional ",paraId:7,tocIndex:8},{value:"solid",paraId:7,tocIndex:8},{value:" ",paraId:7,tocIndex:8},{value:"dashed",paraId:7,tocIndex:8},{value:" ",paraId:7,tocIndex:8},{value:"dotted",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"lineWidth",paraId:7,tocIndex:8},{value:"Split line width, only if ",paraId:7,tocIndex:8},{value:"direction",paraId:7,tocIndex:8},{value:" For ",paraId:7,tocIndex:8},{value:"vertical",paraId:7,tocIndex:8},{value:" Effective at the time, in units ",paraId:7,tocIndex:8},{value:"px",paraId:7,tocIndex:8},{value:"number",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"style",paraId:7,tocIndex:8},{value:"Style",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"textClassName",paraId:7,tocIndex:8},{value:"Split line text class name",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"textPosition",paraId:7,tocIndex:8},{value:"Split line text position, optional ",paraId:7,tocIndex:8},{value:"left",paraId:7,tocIndex:8},{value:" ",paraId:7,tocIndex:8},{value:"center",paraId:7,tocIndex:8},{value:" ",paraId:7,tocIndex:8},{value:"right",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"center",paraId:7,tocIndex:8},{value:"textStyle",paraId:7,tocIndex:8},{value:"Split Line Text Style",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"text",paraId:7,tocIndex:8},{value:"Split Line Text",paraId:7,tocIndex:8},{value:"string | slot",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.",paraId:8,tocIndex:10},{value:"Variable name",paraId:9,tocIndex:10},{value:"Default Value",paraId:9,tocIndex:10},{value:"Dark Mode Default",paraId:9,tocIndex:10},{value:"Remarks",paraId:9,tocIndex:10},{value:"--divider-text-color",paraId:9,tocIndex:10},{value:"#333333",paraId:9,tocIndex:10},{value:"#c5cad1",paraId:9,tocIndex:10},{value:"Split line text color",paraId:9,tocIndex:10},{value:"--divider-border-color",paraId:9,tocIndex:10},{value:"#e5e5e5",paraId:9,tocIndex:10},{value:"#2b2b2b2",paraId:9,tocIndex:10},{value:"Split Line Border Color",paraId:9,tocIndex:10}]}}]);
