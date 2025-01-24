@@ -182,3 +182,12 @@ ICollapsibleOptions Properties
 | ----------- | ------------------------------------------------------- | -------------------------------------- | ------ |
 | expandedKeys      | expanded node key list | string[] | []      |
 
+
+### Event
+
+| Event Name | Description | Type |
+| --- | --- | --- |
+| onTap | Trigger when a description is clicked | (e) => void |
+| onContentItemTap | Trigger when content is clicked | (e) => void |
+| onExpand | Trigger on deploy/stow | (expandedKeys: string[], clickKey: string) => void |
+

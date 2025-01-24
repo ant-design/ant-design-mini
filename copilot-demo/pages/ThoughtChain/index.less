@@ -1,18 +1,31 @@
 page {
   // background: #f5f5f5;
   padding: 12rpx;
+  /* 浅色模式的css变量 */
+@media (prefers-color-scheme: light) {
+  --background-color: #f5f5f5;
+  --title-color: #000;
+  --content-color: #999;
+}
+
+/* 深色模式的css变量 */
+@media (prefers-color-scheme: dark) {
+  --background-color: #0A0A0A;
+  --title-color: #fff;
+  --content-color: #666;
+}
   .secondLevel {
     padding: 24rpx;
-    background-color: #f5f5f5;
+    background-color: var(--background-color);
     border-radius: 24rpx;
     margin-left: -58rpx;
   }
   .second-thoughtchain {
     .ant-copilot-thoughtchain-node-title {
-      color: #000;
+      color: var(--title-color);
     }
     .second-thoughtchain-content {
-      color: #999;
+      color: var(--content-color);
     }
   }
 }
