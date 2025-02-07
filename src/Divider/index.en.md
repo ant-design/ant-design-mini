@@ -78,7 +78,7 @@ In `index.json` Introducing Components in
 | lineType      | Split line type, optional `solid` `dashed` `dotted`                       | string         | -            |
 | lineWidth     | Split line width, only if `direction` For `vertical` Effective at the time, in units `px`   | number         | -            |
 | style         | Style                                                             | string         | -            |
-| textClassName | Split line text class name                                                   | string         | -            |
+| textClassName | Split Line Text Class Name                                                   | string         | -            |
 | textPosition  | Split line text position, optional `left` `center` `right`                     | string         | `center`     |
 | textStyle     | Split Line Text Style                                                   | string         | -            |
 | text          | Split Line Text                                                       | string \| slot | -            |

@@ -32,7 +32,7 @@ Search and view the icon, click the icon to copy.
 
 <Icon></Icon>
 
-## Code Sample
+## Code example
 
 ### Basic use
 
@@ -57,11 +57,11 @@ Search and view the icon, click the icon to copy.
 | :------------------- | :----------------------- | :----------------- | :----- |
 | className            | Class Name                     | string             | -      |
 | style                | Style                     | string             | -      |
-| type                 | Types of Icons               | string             | -      |
-| #if ALIPAY catchTap  | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
-| #if ALIPAY onTap     | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
-| #if WECHAT catchtap | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
-| #if WECHAT bindtap  | Callback function triggered when the icon is clicked | (e: Event) => void | -      |
+| type                 | Types of icons               | string             | -      |
+| #if ALIPAY catchTap  | Callback function triggered when icon is clicked | (e: Event) => void | -      |
+| #if ALIPAY onTap     | Callback function triggered when icon is clicked | (e: Event) => void | -      |
+| #if WECHAT catchtap | Callback function triggered when icon is clicked | (e: Event) => void | -      |
+| #if WECHAT bindtap  | Callback function triggered when icon is clicked | (e: Event) => void | -      |
 
 ### Theme customization
 

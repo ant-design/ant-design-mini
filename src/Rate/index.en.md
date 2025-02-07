@@ -63,7 +63,7 @@ Page({
 
 ### Controlled Mode
 
-> `value` property and `change` event, cooperation can achieve a controlled mode. Here's the example through `ant-stepper` Component Change `value` Status,`ant-rate` Components `value` States can also change together.
+> `value` property and `change` Events, cooperation can achieve a controlled mode. Here's the example through `ant-stepper` Component change `value` Status,`ant-rate` Components `value` States can also change together.
 
 ```xml
 <ant-rate
@@ -140,7 +140,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name             | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                    |
 | ------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------- |

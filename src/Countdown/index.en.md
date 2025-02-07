@@ -76,9 +76,9 @@ Page({
 | time                            | Choose one from the countdownEndTime, in seconds | `number`            | 0          |
 | autoShowDay                     | Less than one day automatically does not show days                 | `boolean`           | true       |
 | countdownType                   | Extra-long countdown requires display days               | `string`            | -          |
-| #if ALIPAY onCountdownChange    | Callback when the countdown changes                   | `Function`          | -          |
+| #if ALIPAY onCountdownChange    | Callback when countdown changes                   | `Function`          | -          |
 | #if ALIPAY onCountdownFinish    | Countdown End Callback                       | `Function`          | -          |
-| #if WECHAT bindcountdownchange | Callback when the countdown changes                   | `Function`          | -          |
+| #if WECHAT bindcountdownchange | Callback when countdown changes                   | `Function`          | -          |
 | #if WECHAT bindcountdownfinish | Countdown End Callback                       | `Function`          | -          |
 
 ### Theme customization

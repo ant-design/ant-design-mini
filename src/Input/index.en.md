@@ -9,7 +9,7 @@ toc: content
 
 # Input
 
-Through the keyboard input content, is the most basic form field packaging. Generally used in the form page for information collection.
+Enter content through the keyboard, is the most basic form field packaging. Generally used in the form page for information collection.
 
 ## Introduction
 
@@ -174,11 +174,11 @@ In `index.json` Introducing Components in
 | placeholder             | Placeholder                                          | string                                | -      |
 | style                   | Style                                            | string                                | -      |
 | value                   | The value of the input box. Controlled mode.                          | string                                | -      |
-| #if ALIPAY onConfirm    | This callback is triggered when the keyboard is clicked                        | (value: string, event: Event) => void | -      |
+| #if ALIPAY onConfirm    | This callback is triggered when the keyboard is clicked to complete                        | (value: string, event: Event) => void | -      |
 | #if ALIPAY onFocus      | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
 | #if ALIPAY onBlur       | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
 | #if ALIPAY onChange     | This callback is triggered when input                                | (value: string, event: Event) => void | -      |
-| #if WECHAT bindconfirm | This callback is triggered when the keyboard is clicked                        | (value: string, event: Event) => void | -      |
+| #if WECHAT bindconfirm | This callback is triggered when the keyboard is clicked to complete                        | (value: string, event: Event) => void | -      |
 | #if WECHAT bindfocus   | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
 | #if WECHAT bindblur    | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
 | #if WECHAT bindchange  | This callback is triggered when input                                | (value: string, event: Event) => void | -      |

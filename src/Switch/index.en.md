@@ -53,7 +53,7 @@ Page({
 });
 ```
 
-### Disable mode
+### Disable Mode
 
 > Incoming `disabled` property, disable the juxtaposition gray switch button.
 
@@ -167,7 +167,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                 | Light Mode Default                                                                                           | Dark Mode Default                                                                                           | Remarks             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------- |

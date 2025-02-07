@@ -393,5 +393,5 @@ Page({
 | ----------------------------------------------------- | ------------------ | -------- | ------ |
 | key                                                   | Unique identification           | `string` | `-`    |
 | text                                                  | Button Copy           | `string` | `-`    |
-| countdownTime                                         | Number of seconds, in seconds | `number` | `-`    |
+| countdownTime                                         | Timing seconds, in seconds | `number` | `-`    |
 | Transparent transmission [ant-button](/components/button#button) All Properties |

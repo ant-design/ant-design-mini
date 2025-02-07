@@ -5,7 +5,7 @@
 </ant-container>
 <ant-container title="语义标签">
   <view class="tag-list">
-    <ant-tag className="myTag">default</ant-tag>
+    <ant-tag className="myTag">primary</ant-tag>
     <ant-tag
       className="myTag"
       color="success">
