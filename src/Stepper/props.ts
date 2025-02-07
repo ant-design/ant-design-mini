@@ -103,4 +103,9 @@ export const StepperDefaultProps: Partial<IStepperProps> = {
   inputStyle: '',
   disabled: false,
   inputReadOnly: false,
+  onChange: null,
+  onConfirm: null,
+  onFocus: null,
+  onBlur: null,
+  onDisabledTap: null,
 };

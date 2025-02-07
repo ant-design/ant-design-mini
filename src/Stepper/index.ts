@@ -1,7 +1,7 @@
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
+import mixinValue from '../mixins/value';
+import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
 import { StepperDefaultProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
-import mixinValue from '../mixins/value';
 
 Component(
   StepperDefaultProps,
@@ -11,7 +11,11 @@ Component(
       triggerEvent(this, 'focus', value === '' ? null : Number(value), e);
     },
     onChange(val, e) {
-      const { needUpdate, value } = this.update(val);
+      let curVal = val;
+      /// #if WECHAT
+      curVal = val.detail;
+      /// #endif
+      const { needUpdate, value } = this.update(curVal);
       if (getValueFromProps(this, 'onChange') && needUpdate) {
         triggerEvent(this, 'change', value === '' ? null : Number(value), e);
       }
