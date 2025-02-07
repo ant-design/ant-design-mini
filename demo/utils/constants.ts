@@ -2,24 +2,26 @@ export const componentList = [
   {
     type: 'Copilot',
     list: [
-      { name: 'Suggestion', nameZN: '快捷指令', path: '/pages/Suggestion/index' },
-      { name: 'Prompts', nameZN: 'Prompts', path: '/pages/Prompts/index' },
-      { name: 'Actions', nameZN: 'Actions', path: '/pages/Actions/index' },
       { name: 'Bubble', nameZN: '气泡', path: '/pages/Bubble/index' },
+      {
+        name: 'Conversations',
+        nameZN: '管理会话',
+        path: '/pages/Conversations/index',
+      },
+      { name: 'Prompts', nameZN: '提示列表', path: '/pages/Prompts/index' },
+      { name: 'Welcome', nameZN: '欢迎', path: '/pages/Welcome/index' },
+      { name: 'Actions', nameZN: '操作列表', path: '/pages/Actions/index' },
       { name: 'Sender', nameZN: '发送器', path: '/pages/Sender/index' },
+      {
+        name: 'ThoughtChain',
+        nameZN: '思维链',
+        path: '/pages/ThoughtChain/index',
+      },
     ],
   },
   {
     type: '通用',
     list: [
-      {
-        name: 'Suggestion',
-        nameZN: '快捷指令',
-        path: '/pages/Suggestion/index',
-      },
-      { name: 'Prompts', nameZN: 'Prompts', path: '/pages/Prompts/index' },
-      { name: 'ThoughtChain', nameZN: '思维链', path: '/pages/ThoughtChain/index' },
-      { name: 'Welcome', nameZN: '欢迎', path: '/pages/Welcome/index' },
       { name: 'Button', nameZN: '按钮', path: '/pages/Button/index' },
       { name: 'Icon', nameZN: '图标', path: '/pages/Icon/index' },
       { name: 'Sticky', nameZN: '黏性吸附', path: '/pages/Sticky/index' },
