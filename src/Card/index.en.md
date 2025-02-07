@@ -145,7 +145,7 @@ In `index.json` Introducing Components in
 | Name        | Description                 |
 | ----------- | -------------------- |
 | Default Slot    | Card Content             |
-| headerTitle | Custom Title Bar Left Title |
+| headerTitle | Custom Title Bar Left Header |
 | headerRight | Customize the right content of the title bar |
 
 ### Theme customization

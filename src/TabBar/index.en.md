@@ -93,7 +93,7 @@ Page({
 | ---------- | -------------------------------------------------- | ------ | ------ |
 | icon       | bottom icon, support [Icon](./Icon) or picture address           | string | -      |
 | activeIcon | bottom icon for active state, support [Icon](./Icon) or picture address | string | -      |
-| text       | Bottom text                                           | string | -      |
+| text       | Bottom Text                                           | string | -      |
 | badge      | Type of logo, see [Badge](./Badge) Components               | object | -      |
 
 ### Theme customization

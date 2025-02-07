@@ -83,7 +83,7 @@ Page({
 
 ### bubble position adaptive
 
-> `autoAdjustOverflow` Property to automatically adjust the position of the bubble when it is blocked
+> `autoAdjustOverflow` Property to automatically adjust the position of the bubble when it is occluded
 
 ```xml
 <ant-popover-list
@@ -112,7 +112,7 @@ Page({
 | defaultVisible                | Display by default                                                                                                                                                        | boolean                                                                                                                      | false  |
 | destroyOnClose                | Whether to unload content when invisible                                                                                                                                                | boolean                                                                                                                      | false  |
 | maskClassName                 | Class name of the layer                                                                                                                                                          | string                                                                                                                       | -      |
-| maskStyle                     | Mask Style                                                                                                                                                          | string                                                                                                                       | -      |
+| maskStyle                     | The style of the layer                                                                                                                                                          | string                                                                                                                       | -      |
 | placement                     | Bubble box position, optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` or `right-bottom` | string                                                                                                                       | top    |
 | showMask                      | Whether to show the layer, if true, click the blank to close the Popover.                                                                                                                    | boolean                                                                                                                      | true   |
 | style                         | Style                                                                                                                                                                | string                                                                                                                       | -      |
@@ -143,4 +143,4 @@ Component provides the following CSS variables, which can be used to customize s
 | --popover-list-content-bg    | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.93); color: #ffffff;">rgba(0, 0, 0, 0.93)</div> | <div style="width: 150px; height: 30px; background-color: rgba(0, 0, 0, 0.93); color: #ffffff;">rgba(0, 0, 0, 0.93)</div> | Popover List Content Background Color |
 | --popover-list-content-color | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | Popover List Content Color     |
 | --popover-list-badge-color   | <div style="width: 150px; height: 30px; background-color: #ff411c; color: #ffffff;">#ff411c</div>                         | <div style="width: 150px; height: 30px; background-color: #ff411c; color: #ffffff;">#ff411c</div>                         | Popover List Badge Color     |
-|  --popover-list-item-bg      | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div>                         | <div style="width: 150px; height: 30px; background-color: #444444; color: #ffffff;">#444444</div>                         | Popover list content text color |
+|  --popover-list-item-bg      | <div style="width: 150px; height: 30px; background-color: #e5e5e5; color: #333333;">#e5e5e5</div>                         | <div style="width: 150px; height: 30px; background-color: #444444; color: #ffffff;">#444444</div>                         | Popover List Content Text Color |

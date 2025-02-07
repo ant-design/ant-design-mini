@@ -66,10 +66,10 @@ In `index.json` Introducing Components in
 | className | Class Name                                                                                     | string         | -      |
 | extra     | Bottom Custom Rendering                                                                           | slot           | -      |
 | image     | Custom Picture                                                                               | string \| slot | -      |
-| message   | Deputy Copywriter                                                                                   | string \| slot | -      |
+| message   | Deputy copywriter                                                                                   | string \| slot | -      |
 | style     | Style                                                                                     | string         | -      |
 | title     | Main Copy                                                                                   | string \| slot | -      |
-| type      | Built-in type `success`(successful),`error`(error/danger),`info`(information prompt),`wait`(Waiting for processing) | string         | -      |
+| type      | Built-in type `success`(success),`error`(error/danger),`info`(information prompt),`wait`(Waiting for processing) | string         | -      |
 
 ### Theme customization
 

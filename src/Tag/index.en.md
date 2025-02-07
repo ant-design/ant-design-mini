@@ -37,10 +37,10 @@ In `index.json` Introducing Components in
 ### semantic label
 
 ```xml
-<ant-tag>default</ant-tag>
+<ant-tag>primary</ant-tag>
 <ant-tag color="success">success</ant-tag>
 <ant-tag color="warning">warning</ant-tag>
-<ant-tag color="warning">danger</ant-tag>
+<ant-tag color="danger">danger</ant-tag>
 ```
 
 ### Fill mode
