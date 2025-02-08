@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ant-icon": "../Icon/index",
+    "ant-loading": "../Loading/index"
+  }
+}

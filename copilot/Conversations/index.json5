@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ant-swipe-action": "../SwipeAction/index"
+  }
+}

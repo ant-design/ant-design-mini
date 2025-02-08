@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "ant-swipe-action": "../../src/SwipeAction/index"
-  }
-}
