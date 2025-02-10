@@ -45,8 +45,8 @@ Page({
           () => ({
             // 一定需要时异步函数，返回Promise对象
             validator: async (_, value) => {
-              if (value.length !== 11) {
-                throw new Error('请输入正确的账号');
+              if (value.length < 6) {
+                throw new Error('请输入至少6位');
               }
             },
           }),

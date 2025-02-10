@@ -1,16 +1,9 @@
 <view class="navigation-bar"/>
 
 <form-input
-  label="用户名"
+  label="账号"
   name="account"
-  placeholder="请输入用户名"
-  tooltip="用户名说明"
-  allowClear
-  ref="handleRef" />
-<form-input
-  label="密码"
-  name="password"
-  placeholder="请输入密码"
+  placeholder="请输入账号"
   allowClear
   ref="handleRef">
   <view slot="tooltip">
@@ -18,6 +11,14 @@
       onTap="showToast"
       type="QuestionCircleOutline" />
   </view>
+</form-input>
+<form-input
+  label="密码"
+  name="password"
+  placeholder="请输入密码"
+  tooltip="密码说明"
+  allowClear
+  ref="handleRef">
 </form-input>
 <form-input label="数字" name="number" type="number" ref="handleRef" />
 <form-input
@@ -105,6 +106,6 @@
   <ant-button onTap="reset">重置</ant-button>
 </view>
 <ant-toast
-  content="密码的自定义 tooltip"
+  content="账号的自定义 tooltip"
   visible="{{ toastShow }}"
   onClose="handleCloseToast" />
