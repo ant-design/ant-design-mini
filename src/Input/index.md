@@ -164,20 +164,20 @@ toc: content
 
 ### Input、Textarea 相同的属性
 
-| 属性                    | 说明                                            | 类型                                  | 默认值 |
-| ----------------------- | ----------------------------------------------- | ------------------------------------- | ------ |
-| className               | 类名                                            | string                                | -      |
-| controlled              | 有键盘输入问题，可使用 `controlled="{{false}}"` | boolean                               | -      |
-| defaultValue            | 初始值                                          | string                                | -      |
-| disabled                | 是否禁用                                        | boolean                               | false  |
-| maxLength               | 最大长度                                        | number                                | 140    |
-| placeholder             | 占位符                                          | string                                | -      |
-| style                   | 样式                                            | string                                | -      |
-| value                   | 输入框的值。受控模式。                          | string                                | -      |
-| #if ALIPAY onConfirm    | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
-| #if ALIPAY onFocus      | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
-| #if ALIPAY onBlur       | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
-| #if ALIPAY onChange     | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
+| 属性                   | 说明                                            | 类型                                  | 默认值 |
+| ---------------------- | ----------------------------------------------- | ------------------------------------- | ------ |
+| className              | 类名                                            | string                                | -      |
+| controlled             | 有键盘输入问题，可使用 `controlled="{{false}}"` | boolean                               | -      |
+| defaultValue           | 初始值                                          | string                                | -      |
+| disabled               | 是否禁用                                        | boolean                               | false  |
+| maxLength              | 最大长度                                        | number                                | 140    |
+| placeholder            | 占位符                                          | string                                | -      |
+| style                  | 样式                                            | string                                | -      |
+| value                  | 输入框的值。受控模式。                          | string                                | -      |
+| #if ALIPAY onConfirm   | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
+| #if ALIPAY onFocus     | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if ALIPAY onBlur      | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
+| #if ALIPAY onChange    | 输入时触发此回调                                | (value: string, event: Event) => void | -      |
 | #if WECHAT bindconfirm | 点击键盘完成时触发此回调                        | (value: string, event: Event) => void | -      |
 | #if WECHAT bindfocus   | 聚焦时触发此回调                                | (value: string, event: Event) => void | -      |
 | #if WECHAT bindblur    | 失焦时触发此回调                                | (value: string, event: Event) => void | -      |
@@ -288,3 +288,7 @@ Page({
 ### 实例方法不可用
 
 需要使用 `component2`，详情参见[ref 获取组件实例](https://opendocs.alipay.com/mini/framework/component-ref)。
+
+### Input 字体样式通过 css 覆盖，ios 端无法生效
+
+需要传入 `always-system="{{true}}"`
