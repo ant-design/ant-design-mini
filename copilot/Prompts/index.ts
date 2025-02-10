@@ -1,4 +1,5 @@
-import { Component, triggerEventValues } from '../../src/_util/simply';
+// @ts-nocheck
+import { Component, triggerEventValues } from '../_util/simply';
 import { PromptsProps } from './props';
 
 Component(PromptsProps, {

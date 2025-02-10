@@ -1,4 +1,9 @@
-import { Component, getValueFromProps, triggerEventOnly } from '../../src/_util/simply';
+// @ts-nocheck
+import {
+  Component,
+  getValueFromProps,
+  triggerEventOnly,
+} from '../_util/simply';
 import { BubbleProps } from './props';
 
 Component(
@@ -33,7 +38,7 @@ Component(
                 typingLoop(length, typedLength + step);
               }, interval);
             } else {
-              triggerEventOnly(this, 'typingComplete')
+              triggerEventOnly(this, 'typingComplete');
             }
           };
           typingLoop(bubbleText.length, step);
@@ -41,7 +46,7 @@ Component(
           this.setData({
             bubbleText: content,
           });
-          triggerEventOnly(this, 'typingComplete')
+          triggerEventOnly(this, 'typingComplete');
         }
       }
     },
@@ -63,15 +68,15 @@ Component(
         }
       },
     },
-/// #if ALIPAY
+    /// #if ALIPAY
     didMount() {
       this.startTyping();
     },
-/// #endif
-/// #if WECHAT
+    /// #endif
+    /// #if WECHAT
     attached() {
       this.startTyping();
     },
-/// #endif
+    /// #endif
   }
 );

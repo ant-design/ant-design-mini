@@ -1,4 +1,5 @@
-import { IBaseProps } from '../../src/_util/base';
+// @ts-nocheck
+import { IBaseProps } from '../_util/base';
 
 interface ISenderProps extends IBaseProps {
   /**
