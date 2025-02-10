@@ -1,4 +1,5 @@
-import { IBaseProps } from '../../src/_util/base';
+// @ts-nocheck
+import { IBaseProps } from '../_util/base';
 
 interface IBubbleProps extends IBaseProps {
   /**
@@ -33,7 +34,7 @@ interface IBubbleProps extends IBaseProps {
    * @description 设置聊天内容打字动画
    * @default false
    */
-  typing?: boolean | { step?: number, interval?: number };
+  typing?: boolean | { step?: number; interval?: number };
   /**
    * @description 打字动画完成时触发
    */

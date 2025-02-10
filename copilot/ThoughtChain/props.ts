@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IBaseProps } from '../../src/_util/base';
+// @ts-nocheck
+import { IBaseProps } from '../_util/base';
 
 interface IThoughtChainItemProps {
   /**

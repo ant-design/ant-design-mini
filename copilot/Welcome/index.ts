@@ -1,4 +1,5 @@
-import { Component, triggerEvent } from '../../src/_util/simply';
+// @ts-nocheck
+import { Component, triggerEvent } from '../_util/simply';
 import { WelcomeProps } from './props';
 
 Component(

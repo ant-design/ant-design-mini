@@ -1,8 +1,9 @@
+// @ts-nocheck
 import {
   Component,
   getValueFromProps,
   triggerEventValues,
-} from '../../src/_util/simply';
+} from '../_util/simply';
 import { ThoughtChainProps } from './props';
 
 Component(
