@@ -11,12 +11,23 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <view>
+    <block a:if="{{readonly && !formData.value && formData.value!==false}}">
+      <!-- #if ALIPAY -->
+      <slot name="readonly" formData="{{formData}}">
+      <!-- #endif -->
+        -
+      <!-- #if ALIPAY -->
+      </slot>
+      <!-- #endif -->
+    </block>
     <switch
+      a:else
       className="{{ switchClassName }}"
       checked="{{ formData.value }}"
       checkedText="{{ checkedText }}"
       color="{{ color }}"
       disabled="{{ disabled }}"
+      readonly="{{ readonly }}"
       uncheckedText="{{ uncheckedText }}"
       size="{{ size }}"
       style="{{ switchStyle }}"

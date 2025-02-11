@@ -10,12 +10,23 @@
   requiredMark="{{ requiredMark }}"
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
+  <view a:if="{{readonly}}">
+    <!-- #if ALIPAY -->
+    <slot name="readonly" formData="{{formData}}">
+    <!-- #endif -->
+    <text a:if="{{formData.value}}">{{formData.value}}</text>
+    <text a:else>-</text>
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
+  </view>
   <ant-input
+    a:else
+    style="{{ inputStyle }}"
     ref="handleRef"
     allowClear="{{ allowClear }}"
     enableNative="{{ enableNative }}"
     className="{{ inputClassName }}"
-    style="{{ inputStyle }}"
     disabled="{{ disabled }}"
     type="{{ type }}"
     password="{{ password }}"

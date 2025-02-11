@@ -10,7 +10,24 @@
   requiredMark="{{ requiredMark }}"
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
+  <view a:if="{{readonly}}">
+    <!-- #if ALIPAY -->
+    <slot name="readonly" formData="{{formData}}">
+    <!-- #endif -->
+      <image
+        a:if="{{formData.value.length > 0}}"
+        class="ant-image-upload-image"
+        a:for="{{formData.value}}"
+        mode="{{ imageMode }}"
+        src="{{ item.url || item.path }}"
+      />
+      <text a:else>-</text>
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
+  </view>
   <image-upload
+    a:else
     ref="handleRef"
     defaultFileList="{{ formData.value }}"
     maxCount="{{ maxCount }}"

@@ -17,6 +17,7 @@ export interface FormItemProps extends IBaseProps {
   extra?: string;
   message?: string;
   dependencies?: string[];
+  readonly?: boolean;
 }
 
 export const FormItemDefaultProps: FormItemProps = {
@@ -32,6 +33,7 @@ export const FormItemDefaultProps: FormItemProps = {
   tooltip: '',
   required: false,
   disabled: false,
+  readonly: false,
   extra: '',
   message: null,
   dependencies: null,

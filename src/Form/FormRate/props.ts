@@ -1,9 +1,9 @@
-import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
 import { IRateProps, RateDefaultProps } from '../../Rate/props';
+import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
 
 export interface FormRateProps
   extends Omit<IRateProps, 'defaultValue'>,
-    FormItemProps {
+    Omit<FormItemProps, 'readonly'> {
   rateClassName?: string;
   rateStyle?: string;
 }

@@ -15,7 +15,17 @@
   help="{{ help }}"
 >
   <view>
+    <block a:if="{{readonly && !formData.value}}">
+      <!-- #if ALIPAY -->
+      <slot name="readonly" formData="{{formData}}">
+      <!-- #endif -->
+        -
+      <!-- #if ALIPAY -->
+      </slot>
+      <!-- #endif -->
+    </block>
     <ant-cascader-picker
+      a:else
       options="{{ options }}"
       cancelText="{{ u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText }}"
       okText="{{ u.isPropsEmpty(okText) ? locale.global.okText : okText }}"
@@ -27,6 +37,7 @@
       style="{{ style }}"
       popStyle="{{ popStyle }}"
       disabled="{{ disabled }}"
+      readonly="{{ readonly }}"
       title="{{ title }}"
       maskClassName="{{ maskClassName }}"
       indicatorStyle="{{ indicatorStyle }}"
@@ -42,7 +53,7 @@
       <slot name="title" slot="title" />
 
       <ant-icon
-        a:if="{{ arrowUtil.getArrow(arrow) }}"
+        a:if="{{!readonly && arrowUtil.getArrow(arrow) }}"
         className="ant-form-cascader-picker-arrow"
         type="{{ arrowUtil.getArrow(arrow) }}"
         slot="suffix"

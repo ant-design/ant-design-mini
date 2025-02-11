@@ -12,6 +12,7 @@
   <ant-list-item arrow="right" data-src="FormValidate" onTap="gotoPage">自定义表单项校验</ant-list-item>
   <ant-list-item arrow="right" data-src="FormValidateMessages" onTap="gotoPage">自定义表单校验消息</ant-list-item>
   <ant-list-item arrow="right" data-src="FormMultiple" onTap="gotoPage">多个表单</ant-list-item>
+  <ant-list-item arrow="right" data-src="FormReadonly" onTap="gotoPage">只读状态</ant-list-item>
   <ant-list-item arrow="right" data-src="FormImageUploadRules" onTap="gotoPage">图片校验</ant-list-item>
   <ant-list-item arrow="right" data-src="FormJSON" onTap="gotoPage">JSON 生成表单</ant-list-item>
   <ant-list-item arrow="right" data-src="FormCustomError" onTap="gotoPage">自定义错误样式</ant-list-item>

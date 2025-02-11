@@ -11,7 +11,17 @@
   requiredMark="{{ requiredMark }}"
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
+  <block a:if="{{readonly && !formData.value && formData.value!==0}}">
+    <!-- #if ALIPAY -->
+    <slot name="readonly" formData="{{formData}}">
+    <!-- #endif -->
+      -
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
+  </block>
   <rate
+    a:else
     value="{{ formData.value }}"
     count="{{ count }}"
     gutter="{{ gutter }}"
