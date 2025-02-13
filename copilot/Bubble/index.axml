@@ -6,9 +6,11 @@
   <view class="ant-copilot-bubble-container">
     <slot name="header"></slot>
     <view class="ant-copilot-bubble-content {{shape}} {{variant}}">
+      <slot name="content-header"></slot>
       <ant-loading a:if="{{loading}}" type="mini" color="#8C8C8C"/>
       <text a:if="{{!loading && bubbleText}}">{{bubbleText}}</text>
       <slot a:if="{{!loading}}"></slot>
+      <slot name="content-footer"></slot>
     </view>
     <slot name="footer"></slot>
   </view>
