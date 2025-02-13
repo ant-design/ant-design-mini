@@ -1,5 +1,6 @@
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -22,7 +23,7 @@
       <!-- #endif -->
     </view>
     <checkbox-group
-      style="{{readonly ? 'display:none' : ''}};{{ style }}"
+      style="{{readonly ? 'display:none' : ''}};{{ checkboxGroupStyle }}"
       options="{{ options }}"
       value="{{ formData.value }}"
       onChange="onChange"

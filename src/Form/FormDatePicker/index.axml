@@ -3,6 +3,7 @@
 
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -25,7 +26,7 @@
       <!-- #endif -->
     </block>
     <ant-date-picker
-      style="{{readonly ? 'display:none' : ''}};{{ style }}"
+      style="{{readonly ? 'display:none' : ''}};{{ datePickerStyle }}"
       min="{{ min }}"
       max="{{ max }}"
       format="{{ format }}"

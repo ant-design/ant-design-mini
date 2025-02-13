@@ -3,6 +3,7 @@
 
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -25,7 +26,7 @@
       <!-- #endif -->
     </block>
     <ant-cascader-picker
-      style="{{readonly ? 'display:none' : ''}};{{ style }}"
+      style="{{readonly ? 'display:none' : ''}};{{ cascaderPickerStyle }}"
       options="{{ options }}"
       cancelText="{{ u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText }}"
       okText="{{ u.isPropsEmpty(okText) ? locale.global.okText : okText }}"
