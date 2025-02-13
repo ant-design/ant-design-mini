@@ -22,7 +22,7 @@
         mode="{{ imageMode }}"
         src="{{ item.url || item.path }}"
       />
-      <text a:else>-</text>
+      <text a:if="{{formData.value.length <= 0}}">-</text>
     <!-- #if ALIPAY -->
     </slot>
     <!-- #endif -->
