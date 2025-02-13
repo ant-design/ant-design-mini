@@ -21,7 +21,7 @@
     <!-- #endif -->
   </block>
   <rate
-    style="{{readonly ? 'display:none' : ''}};{{ rateStyle }}"
+    style="{{readonly && !formData.value && formData.value!==0 ? 'display:none' : ''}};{{ rateStyle }}"
     value="{{ formData.value }}"
     count="{{ count }}"
     gutter="{{ gutter }}"

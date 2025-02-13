@@ -22,7 +22,7 @@
       <!-- #endif -->
     </block>
     <switch
-      style="{{readonly ? 'display:none' : ''}};{{ switchStyle }}"
+      style="{{readonly && !formData.value && formData.value!==false ? 'display:none' : ''}};{{ switchStyle }}"
       className="{{ switchClassName }}"
       checked="{{ formData.value }}"
       checkedText="{{ checkedText }}"
