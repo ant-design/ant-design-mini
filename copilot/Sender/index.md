@@ -34,13 +34,14 @@ toc: 'content'
 
 ### 事件
 
-| 事件名   | 说明                               | 类型                    |
-| -------- | ---------------------------------- | ----------------------- |
-| onChange | 输入框内容变化时触发               | (value: string) => void |
-| onSubmit | 点击发送按钮时触发                 | (value: string) => void |
-| onCancel | 点击取消按钮时触发(loading 状态下) | () => void              |
-| onFocus  | 输入框聚焦时触发                   | () => void              |
-| onBlur   | 输入框失焦时触发                   | () => void              |
+| 事件名    | 说明                               | 类型                    |
+| --------- | ---------------------------------- | ----------------------- |
+| onChange  | 输入框内容变化时触发               | (value: string) => void |
+| onSubmit  | 点击发送按钮时触发                 | (value: string) => void |
+| onCancel  | 点击取消按钮时触发(loading 状态下) | () => void              |
+| onConfirm | 点击输入法中的确认按钮时触发       | (value: string) => void |
+| onFocus   | 输入框聚焦时触发                   | () => void              |
+| onBlur    | 输入框失焦时触发                   | () => void              |
 
 ### Slots
 

@@ -23,7 +23,7 @@
             onInput="handleInput"
             onFocus="handleFocus"
             onBlur="handleBlur"
-            onConfirm="handleSubmit"
+            onConfirm="handleConfirm"
           />
         </view>
         <slot name="suffix"></slot>

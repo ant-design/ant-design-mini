@@ -18,6 +18,10 @@ Component(
         this.handleSubmit();
       }
     },
+    handleConfirm() {
+      const [value] = getValueFromProps(this, ['value']);
+      triggerEvent(this, 'confirm', value);
+    },
     handleSubmit() {
       const [value] = getValueFromProps(this, ['value']);
       triggerEvent(this, 'submit', value);
