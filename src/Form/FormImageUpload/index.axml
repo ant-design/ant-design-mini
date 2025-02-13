@@ -1,5 +1,6 @@
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -27,7 +28,7 @@
     <!-- #endif -->
   </view>
   <image-upload
-    a:else
+    style="{{readonly ? 'display:none' : ''}};{{ imageUploadStyle }}"
     ref="handleRef"
     defaultFileList="{{ formData.value }}"
     maxCount="{{ maxCount }}"

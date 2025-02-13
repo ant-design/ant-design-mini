@@ -1,5 +1,6 @@
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -22,7 +23,7 @@
       <!-- #endif -->
     </view>
     <ant-radio-group
-      a:else
+      style="{{readonly ? 'display:none' : ''}};{{ radioGroupStyle }}"
       options="{{ options }}"
       value="{{ formData.value }}"
       onChange="onChange"

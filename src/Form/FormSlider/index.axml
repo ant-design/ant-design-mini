@@ -23,8 +23,7 @@
       <!-- #endif -->
     </view>
     <slider
-      a:else
-      style="{{ sliderStyle }}"
+      style="{{readonly ? 'display:none' : ''}};{{ sliderStyle }}"
       value="{{ formData.value }}"
       className="{{ sliderClassName }}"
       activeLineClassName="{{ activeLineClassName }}"

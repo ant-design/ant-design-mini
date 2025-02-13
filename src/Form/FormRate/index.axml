@@ -21,7 +21,7 @@
     <!-- #endif -->
   </block>
   <rate
-    a:else
+    style="{{readonly ? 'display:none' : ''}};{{ rateStyle }}"
     value="{{ formData.value }}"
     count="{{ count }}"
     gutter="{{ gutter }}"
@@ -29,7 +29,6 @@
     allowHalf="{{ allowHalf }}"
     allowClear="{{ allowClear }}"
     className="{{ rateClassName }}"
-    style="{{ rateStyle }}"
     characterActiveClassName="{{ characterActiveClassName }}"
     characterClassName="{{ characterClassName }}"
     onChange="onChange">

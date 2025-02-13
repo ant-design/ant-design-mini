@@ -1,5 +1,6 @@
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -21,7 +22,7 @@
       <!-- #endif -->
     </block>
     <switch
-      a:else
+      style="{{readonly ? 'display:none' : ''}};{{ switchStyle }}"
       className="{{ switchClassName }}"
       checked="{{ formData.value }}"
       checkedText="{{ checkedText }}"
@@ -30,7 +31,6 @@
       readonly="{{ readonly }}"
       uncheckedText="{{ uncheckedText }}"
       size="{{ size }}"
-      style="{{ switchStyle }}"
       onChange="onChange" />
   </view>
 

@@ -2,6 +2,7 @@
 
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -24,7 +25,7 @@
     <!-- #endif -->
   </view>
   <ant-textarea
-    a:else
+    style="{{readonly ? 'display:none' : ''}};{{ textareaStyle }}"
     ref="handleRef"
     allowClear="{{ allowClear }}"
     enableNative="{{ enableNative }}"
