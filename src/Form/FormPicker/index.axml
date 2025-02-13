@@ -25,14 +25,13 @@
       <!-- #endif -->
     </block>
     <ant-picker
-      a:else
+      style="{{readonly ? 'display:none' : ''}};{{ style }}"
       cancelText="{{ u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText }}"
       okText="{{ u.isPropsEmpty(okText) ? locale.global.okText : okText }}"
       placeholder="{{ u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder  }}"
       maskClosable="{{ maskClosable }}"
       maskStyle="{{ maskStyle }}"
       popClassName="{{ popClassName }}"
-      style="{{ style }}"
       popStyle="{{ popStyle }}"
       animationType="{{ animationType }}"
       disabled="{{ disabled }}"

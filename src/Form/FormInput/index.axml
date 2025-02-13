@@ -21,8 +21,7 @@
     <!-- #endif -->
   </view>
   <ant-input
-    a:else
-    style="{{ inputStyle }}"
+    style="{{readonly ? 'display:none' : ''}};{{ inputStyle }}"
     ref="handleRef"
     allowClear="{{ allowClear }}"
     enableNative="{{ enableNative }}"

@@ -22,7 +22,7 @@
       <!-- #endif -->
     </view>
     <checkbox-group
-      a:else
+      style="{{readonly ? 'display:none' : ''}};{{ style }}"
       options="{{ options }}"
       value="{{ formData.value }}"
       onChange="onChange"

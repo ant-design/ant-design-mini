@@ -24,7 +24,7 @@
     <!-- #endif -->
   </view>
   <ant-textarea
-    a:else
+    style="{{readonly ? 'display:none' : ''}};{{ style }}"
     ref="handleRef"
     allowClear="{{ allowClear }}"
     enableNative="{{ enableNative }}"

@@ -25,7 +25,7 @@
       <!-- #endif -->
     </block>
     <ant-cascader-picker
-      a:else
+      style="{{readonly ? 'display:none' : ''}};{{ style }}"
       options="{{ options }}"
       cancelText="{{ u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText }}"
       okText="{{ u.isPropsEmpty(okText) ? locale.global.okText : okText }}"
@@ -34,7 +34,6 @@
       maskClosable="{{ maskClosable }}"
       maskStyle="{{ maskStyle }}"
       popClassName="{{ popClassName }}"
-      style="{{ style }}"
       popStyle="{{ popStyle }}"
       disabled="{{ disabled }}"
       readonly="{{ readonly }}"

@@ -27,7 +27,7 @@
     <!-- #endif -->
   </view>
   <image-upload
-    a:else
+    style="{{readonly ? 'display:none' : ''}};{{ style }}"
     ref="handleRef"
     defaultFileList="{{ formData.value }}"
     maxCount="{{ maxCount }}"

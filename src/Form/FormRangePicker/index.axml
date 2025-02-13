@@ -25,7 +25,7 @@
       <!-- #endif -->
     </block>
     <ant-range-picker
-      a:else
+      style="{{readonly ? 'display:none' : ''}};{{ style }}"
       endPlaceholder="{{ u.isPropsEmpty(cancelText) ? locale.rangePicker.endPlaceholder : cancelText }}"
       startPlaceholder="{{ u.isPropsEmpty(cancelText) ? locale.rangePicker.startPlaceholder : cancelText }}"
       splitCharacter="{{ splitCharacter }}"
@@ -40,7 +40,6 @@
       maskClosable="{{ maskClosable }}"
       maskStyle="{{ maskStyle }}"
       popClassName="{{ popClassName }}"
-      style="{{ style }}"
       popStyle="{{ popStyle }}"
       disabled="{{ disabled }}"
       readonly="{{ readonly }}"

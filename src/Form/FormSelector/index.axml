@@ -22,7 +22,7 @@
       <!-- #endif -->
     </view>
     <selector
-      a:else
+      style="{{readonly ? 'display:none' : ''}};{{ style }}"
       value="{{ formData.value }}"
       options="{{ options }}"
       multiple="{{ multiple }}"

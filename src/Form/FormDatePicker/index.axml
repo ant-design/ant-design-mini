@@ -25,7 +25,7 @@
       <!-- #endif -->
     </block>
     <ant-date-picker
-      a:else
+      style="{{readonly ? 'display:none' : ''}};{{ style }}"
       min="{{ min }}"
       max="{{ max }}"
       format="{{ format }}"
@@ -37,7 +37,6 @@
       maskClosable="{{ maskClosable }}"
       maskStyle="{{ maskStyle }}"
       popClassName="{{ popClassName }}"
-      style="{{ style }}"
       popStyle="{{ popStyle }}"
       disabled="{{ disabled }}"
       readonly="{{ readonly }}"
