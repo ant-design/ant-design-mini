@@ -28,6 +28,12 @@ Component(
     handleInput(e) {
       triggerEvent(this, 'change', e.detail.value);
     },
+    handleFocus() {
+      triggerEvent(this, 'focus');
+    },
+    handleBlur() {
+      triggerEvent(this, 'blur');
+    },
   },
   {},
   [],

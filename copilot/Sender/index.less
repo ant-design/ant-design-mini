@@ -7,8 +7,14 @@
   padding: 0 @size-3;
   box-sizing: border-box;
   &-contain {
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     background: @sender-background-color;
     box-shadow: 0 6rpx 16rpx -8rpx rgba(0, 10, 26, 0.08),
       0 9rpx 28rpx 0 rgba(0, 10, 26, 0.05),

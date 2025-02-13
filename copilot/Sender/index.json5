@@ -1,6 +1,4 @@
 {
   "component": true,
-  "usingComponents": {
-    "ant-textarea": "../Input/Textarea/index"
-  }
+  "usingComponents": {}
 }

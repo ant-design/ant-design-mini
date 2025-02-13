@@ -33,6 +33,8 @@ interface ISenderProps extends IBaseProps {
    * @description 点击取消按钮时触发
    */
   onCancel?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
 }
 
 export const SenderProps: ISenderProps = {

@@ -45,6 +45,9 @@
     </view>
   </scroll-view>
   <ant-sender value="{{value4}}" placeholder="组合使用" onChange="handleChange4" onSubmit="handleSend4">
+    <view slot="wrapper-prefix">
+      <ant-icon className="audioIcon" type="AudioOutline"></ant-icon>
+    </view>
     <ant-prompts
       slot="header"
       items="{{horizontalList}}"
