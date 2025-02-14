@@ -15,7 +15,7 @@
       <!-- #if ALIPAY -->
       <slot name="prompts-item" item="{{ item }}">
       <!-- #endif -->
-        <view class="ant-copilot-prompts-vertical-list-item" data-item="{{item}}" data-index="{{index}}" onTap="onItemTap">
+        <view class="ant-copilot-prompts-vertical-list-item {{item.disabled ? 'disabled' : ''}}" data-item="{{item}}" data-index="{{index}}" onTap="onItemTap">
           <ant-icon
             a:if="{{!util.isUrl(item.icon)}}"
             type="{{item.icon}}"
@@ -38,7 +38,7 @@
   </view>
 
   <scroll-view a:else scroll-x="{{!wrap}}" enable-flex="true" class="ant-copilot-prompts-horizontal-list {{wrap ? 'wrap' : ''}}">
-    <view a:for="{{items}}" class="ant-copilot-prompts-horizontal-list-item">
+    <view a:for="{{items}}" class="ant-copilot-prompts-horizontal-list-item {{item.disabled ? 'disabled' : ''}}">
       <!-- #if ALIPAY -->
       <slot name="prompts-item" item="{{item}}" index="{{index}}">
       <!-- #endif -->

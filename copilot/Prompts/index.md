@@ -190,8 +190,8 @@ Page({
 | 属性                   | 说明                 | 类型                                                      | 默认值 |
 | ---------------------- | -------------------- | --------------------------------------------------------- | ------ |
 | className              | 类名                 | string                                                    | -      |
-| items                   | 提示列表             | [PromptsItem](#promptsitem)[]                             | -      |
-| title           | 提示标题             | string                                                    | -      |
+| items                  | 提示列表             | [PromptsItem](#promptsitem)[]                             | -      |
+| title                  | 提示标题             | string                                                    | -      |
 | vertical               | 横向布局下，自动换行 | boolean                                                   | true   |
 | wrap                   | 类名                 | boolean                                                   | false  |
 | #if ALIPAY onItemTap   | 提示点击回调         | (item: [PromptsItem](#promptsitem),index:number) => void; | -      |
@@ -205,7 +205,8 @@ Page({
 | icon        | 前面的 icon 图片链接，支持传入 antd-icon | string  | -      |
 | label       | 提示标签显示提示的主要内容               | string  | -      |
 | description | 提示描述提供额外的信息                   | string  | -      |
-| showArrow   | 提示是否展示右边的箭头                   | boolean | -      |
+| showArrow   | 提示是否展示右边的箭头                   | boolean | false  |
+| disabled    | 设置为 true 时禁用点击事件               | boolean | false  |
 
 ### 插槽 slot
 

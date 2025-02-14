@@ -22,7 +22,11 @@ interface IPromptsItem {
   /**
    * @description 提示是否展示右边的箭头
    */
-  showArrow?: string;
+  showArrow?: boolean;
+  /**
+   * @description  设置为 true 时禁用点击事件
+   */
+  disabled?: boolean;
 }
 
 /**

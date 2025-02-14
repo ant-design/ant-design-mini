@@ -37,6 +37,14 @@ Page({
         description: '如何实现快速安装和引入',
         key: '3',
       },
+      {
+        showArrow: true,
+        label: '禁用:',
+        icon: 'https://mdn.alipayobjects.com/huamei_upibrs/afts/img/A*7eRqQ4JpdccAAAAAAAAAAAAADkx8AQ/original',
+        description: '如何实现快速安装和引入',
+        key: '4',
+        disabled: true,
+      },
     ],
     styleList: [
       {
@@ -84,11 +92,18 @@ Page({
         key: '3',
       },
       {
+        icon: 'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*WqBJSZEpPbwAAAAAAAAAAAAADtF8AQ/original',
+        label: '禁用',
+        value: 'analyze',
+        key: '4',
+        disabled: true,
+      },
+      {
         // 支持 antd-icon
         icon: 'MoreOutline',
         label: '更多',
         value: 'more',
-        key: '4',
+        key: '5',
       },
     ],
   },
