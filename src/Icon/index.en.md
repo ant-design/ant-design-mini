@@ -32,7 +32,7 @@ Search and view the icon, click the icon to copy.
 
 <Icon></Icon>
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -67,7 +67,7 @@ Search and view the icon, click the icon to copy.
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name       | Default Value                                                                                           | Dark Mode Default                                                                                   | Remarks     |
 | ------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------- |

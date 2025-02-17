@@ -25,7 +25,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Top Safety Area
 ```xml

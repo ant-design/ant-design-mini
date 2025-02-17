@@ -17,7 +17,7 @@ toc: content
 - `icon` properties can support `Icon` Components `type` property, you can also pass in the link address of the icon directly.
 - In disabled mode, you can pass in `onDisabledTap` Event, used to listen for the user's click on the text in the disabled state.
 
-## Code example
+## Code Sample
 
 ### Basic Usage
 
@@ -53,4 +53,4 @@ Component provides the following CSS variables, which can be used to customize s
 
 | Variable name                       | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks         |
 | ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
-| --typography-container-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Typesetting container color |
+| --typography-container-color | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | typography container color |

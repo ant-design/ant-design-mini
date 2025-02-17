@@ -36,8 +36,8 @@ Page({
   onLoad() {
     this.form = new Form({
       initialValues: {
-        'account': 'rayhomie',
-        'address': '成都市青羊区',
+        'account': 'uaisduasd',
+        'address': '北京北京市',
         'animalChoose': 'fox',
         'birthday': '2025-03-11T00:00:00.000Z',
         'city': ['11', '110'],
@@ -127,7 +127,7 @@ Page({
 
   update() {
     this.form.setFieldsValue({
-      'account': 'pony',
+      'account': 'maksusi',
       'address': 333,
       'animalChoose': 'fox',
       'birthday': Date.now(),

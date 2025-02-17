@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -120,7 +120,7 @@ Page({
 | --------------------------- | --------------------------------- | ------------------------------------------------- | -------- |
 | className                   | Root node class name                        | string                                            | -        |
 | title                       | Title Copy                          | string \| slot                                    | -        |
-| image                       | Picture. You can pass in a string as the picture address.    | string \| slot                                    |
+| image                       | Picture, string can be passed in as picture address    | string \| slot                                    |
 | message                     | Description Copy                          | string \| slot                                    | -        |
 | style                       | Style                              | string                                            | -        |
 | size                        | Empty status size, optional `normal` `small` | string                                            | `normal` |
@@ -139,7 +139,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                    | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks               |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |

@@ -29,7 +29,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -262,14 +262,14 @@ Page({
 | defaultCurrent         | Selected index initial value                                                                                 | number                                                                                       | 0          |
 | direction              | tabs direction,`horizontal`(Horizontal) `vertical`(Vertical)                                                 | string                                                                                       | horizontal |
 | items                  | option, quantity must be greater than 0                                                                           | `Item[]`                                                                                     | -          |
-| plus                   | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(Corresponding `Item`) `index`(Corresponding `Item` index of)  | slot                                                                                         | -          |
+| plus                   | Operation button slot in upper right corner;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of)  | slot                                                                                         | -          |
 | scrollMode             | Scrolling mode, optional 'edge', 'center'                                                                | string                                                                                       | edge       |
 | style                  | Style                                                                                           | string                                                                                       | -          |
 | tabsBarClassName       | tabs bar class name                                                                                  | string                                                                                       | -          |
 | tabClassName           | tab class name                                                                                       | string                                                                                       | -          |
 | tabsBarWrapClassName           | tab wrap class name                                                                                       | string                                                                                       | -          |
 | tabActiveClassName     | tab active class name                                                                                | string                                                                                       | -          |
-| title                  | Custom `Items` Title;<br /> `slot-scope` Include `value`(Corresponding `Item`) `index`(Corresponding `Item` index of) | slot                                                                                         | -          |
+| title                  | Custom `Items` Title;<br /> `slot-scope` Include `value`(corresponding `Item`) `index`(corresponding `Item` index of) | slot                                                                                         | -          |
 | type                   | Type,`basic`(basis),`capsule`(capsule),`mixin`(Mixed)                                            | string                                                                                       | `basic`    |
 | #if ALIPAY onChange    | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
 | #if WECHAT bindchange | When the panel is switched, the callback is triggered.                                                                         | (index: number, e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -          |
@@ -315,7 +315,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                        | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks                |
 | ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------- |
