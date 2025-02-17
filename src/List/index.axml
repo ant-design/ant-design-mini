@@ -1,5 +1,5 @@
 <view
-  class="ant-list {{ className ? className : '' }} {{ radius ? 'ant-list-radius' : '' }}">
+  class="ant-list {{ className ? className : '' }} {{ radius ? 'ant-list-radius' : '' }}" style="{{style}}">
   <view
     a:if="{{ header }}"
     class="ant-list-header">

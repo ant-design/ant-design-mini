@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -75,7 +75,7 @@ In `index.json` Introducing Components in
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 
 | Variable name                    | Light Mode Default                                                                                           | Dark Mode Default                                                                                           | Remarks                 |
@@ -86,7 +86,7 @@ Component provides the following CSS variables, which can be used to customize s
 | --tag-success-color       | <div style="width: 150px; height: 40px; background-color: #22b35e; color: #ffffff;">#22b35e</div>       | <div style="width: 150px; height: 40px; background-color: #34b368; color: #ffffff;">#34b368</div>       | Success Label Color         |
 | --tag-primary-light-color | <div style="width: 150px; height: 40px; background-color: #e7f1ff; color: #333333;">#e7f1ff</div>       | <div style="width: 150px; height: 40px; background-color: #0d2543; color: #ffffff;">#0d2543</div>       | Main label light         |
 | --tag-warning-light-color | <div style="width: 150px; height: 40px; background-color: #ffefdf; color: #333333;">#ffefdf</div>       | <div style="width: 150px; height: 40px; background-color: #ffefdf; color: #333333;">#ffefdf</div>       | Warning label light color         |
-| --tag-danger-light-color  | <div style="width: 150px; height: 40px; background-color: #ffece3; color: #333333;">#ffece3</div>       | <div style="width: 150px; height: 40px; background-color: #ffece3; color: #333333;">#ffece3</div>       | Hazard label light color         |
+| --tag-danger-light-color  | <div style="width: 150px; height: 40px; background-color: #ffece3; color: #333333;">#ffece3</div>       | <div style="width: 150px; height: 40px; background-color: #ffece3; color: #333333;">#ffece3</div>       | Hazard label light         |
 | --tag-success-light-color | <div style="width: 150px; height: 40px; background-color: #d4fff1; color: #333333;">#d4fff1</div>       | <div style="width: 150px; height: 40px; background-color: #d4fff1; color: #333333;">#d4fff1</div>       | Success Label Light         |
 | --tag-base-color          | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>       | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>       | Base Label Color         |
 | --tag-primary-color-faded | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.3); color: #ffffff;">rgba(22, 119, 255, 0.3)</div> | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.3); color: #ffffff;">rgba(22, 119, 255, 0.3)</div> | Main label color (faded) |

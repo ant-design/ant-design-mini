@@ -5,6 +5,7 @@
   name="account"
   placeholder="请输入账号"
   allowClear
+  readonly
   ref="handleRef">
   <view slot="tooltip">
     <ant-icon
@@ -18,38 +19,54 @@
   placeholder="请输入密码"
   tooltip="密码说明"
   allowClear
+  readonly
   ref="handleRef">
 </form-input>
-<form-input label="数字" name="number" type="number" ref="handleRef" />
+<form-input
+  label="数字"
+  name="number"
+  type="number"
+  readonly
+  ref="handleRef"
+/>
 <form-input
   label="地址"
   name="address"
   placeholder="请输入地址"
   allowClear
+  readonly
   ref="handleRef" />
 <form-switch
   label="选择"
   name="needDelivery"
-  ref="handleRef" />
+  readonly
+  ref="handleRef"
+/>
 <form-stepper
   label="数量"
   name="quantity"
-  ref="handleRef" />
+  readonly
+  ref="handleRef"
+  />
 <form-picker
   label="水果"
   arrow
   name="fruit"
   options="{{ fruitList }}"
+  readonly
   ref="handleRef" />
 <form-date-picker
   label="出生日期"
   arrow
   name="birthday"
-  ref="handleRef" />
+  readonly
+  ref="handleRef"
+  />
 <form-range-picker
   label="时间范围"
   arrow
   name="range"
+  readonly
   ref="handleRef" />
 <form-cascader-picker
   label="城市"
@@ -58,32 +75,38 @@
   name="city"
   tooltip="选择城市"
   placeholder="请输入城市"
+  readonly
   ref="handleRef" />
 <form-radio-group
   label="动物单选"
   name="animalChoose"
   color="red"
   options="{{ radioGroupOptions }}"
+  readonly
   ref="handleRef" />
 <form-checkbox-group
   label="蔬菜多选"
   name="fruitChoose"
   options="{{ checkboxGroupOptions }}"
+  readonly
   ref="handleRef" />
 <form-selector
   label="喜好"
   name="likeChoose"
   options="{{ selectorOptions }}"
+  readonly
   ref="handleRef" />
 <form-slider
   label="选择分数"
   name="slider"
   showTooltip
+  readonly
   ref="handleRef" />
 <form-upload-image
   label="图片"
   name="image"
   onUpload="{{ onUpload ? onUpload : 'onUpload' }}"
+  readonly
   ref="handleRef" />
 <form-textarea
   label="说明"
@@ -91,10 +114,12 @@
   placeholder="请输入说明"
   allowClear
   autoHeight
+  readonly
   ref="handleRef" />
 <form-rate
   label="评分"
   name="rate"
+  readonly
   ref="handleRef" />
 <view class="buttons">
   <ant-button
@@ -103,7 +128,12 @@
     style="margin-bottom: 12px">
     提交
   </ant-button>
-  <ant-button onTap="reset">重置</ant-button>
+  <ant-button
+    onTap="update"
+    style="margin-bottom: 12px">
+    更新
+  </ant-button>
+  <ant-button onTap="clear">清空</ant-button>
 </view>
 <ant-toast
   content="账号的自定义 tooltip"

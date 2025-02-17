@@ -37,6 +37,11 @@ export interface ISwitchProps extends IBaseProps {
   disabled?: boolean;
 
   /**
+   * 是否只读
+   */
+  readonly?: boolean;
+
+  /**
    * 初始值
    */
   defaultChecked?: boolean;
@@ -55,5 +60,6 @@ export const SwitchDefaultProps: Partial<ISwitchProps> = {
   uncheckedText: '',
   size: 'medium',
   disabled: false,
+  readonly: false,
   defaultChecked: false,
 };

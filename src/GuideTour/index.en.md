@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -130,14 +130,14 @@ Page({
 | defaultCurrent         | Default Current Step     | `number`                            | 0        |
 | items                  | Step Information         | [`GuideTourItem`](#guidetourttem)[] | -        |
 | maskClassName          | Class name of the layer       | `string`                            | -        |
-| maskStyle              | The style of the layer       | `string`                            | -        |
+| maskStyle              | Mask Style       | `string`                            | -        |
 | style                  | Style             | `string`                            | -        |
 | swiperable             | Whether sliding mode is on | `boolean`                           | `false`  |
 | visible                | Whether to display         | `boolean`                           | `false`  |
-| jumpText               | Copy of the skip button   | `string`                            | 'Skip'   |
+| jumpText               | Copy of skip button   | `string`                            | 'Skip'   |
 | prevStepText           | Copy of the previous button | `string`                            | 'One step' |
 | nextStepText           | Copy of the next button | `string`                            | 'Next step' |
-| gotItText              | Know the copy of the button | `string`                            | "I know' |
+| gotItText              | I know the copy of the button. | `string`                            | "I know' |
 | #if ALIPAY onCancel    | Close Callback         | `() => void`                        | -        |
 | #if ALIPAY onChange    | Step Change Callback     | `(index: number) => void`           | -        |
 | #if WECHAT bindcancel | Close Callback         | `() => void`                        | -        |
@@ -157,7 +157,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                    | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                 |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |

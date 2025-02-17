@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -76,16 +76,16 @@ Page({
 | time                            | Choose one from the countdownEndTime, in seconds | `number`            | 0          |
 | autoShowDay                     | Less than one day automatically does not show days                 | `boolean`           | true       |
 | countdownType                   | Extra-long countdown requires display days               | `string`            | -          |
-| #if ALIPAY onCountdownChange    | Callback when countdown changes                   | `Function`          | -          |
+| #if ALIPAY onCountdownChange    | Callback when the countdown changes                   | `Function`          | -          |
 | #if ALIPAY onCountdownFinish    | Countdown End Callback                       | `Function`          | -          |
-| #if WECHAT bindcountdownchange | Callback when countdown changes                   | `Function`          | -          |
+| #if WECHAT bindcountdownchange | Callback when the countdown changes                   | `Function`          | -          |
 | #if WECHAT bindcountdownfinish | Countdown End Callback                       | `Function`          | -          |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                       | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks               |
 | ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
@@ -97,6 +97,6 @@ Component provides the following CSS variables, which can be used to customize s
 
 | Name   | Description       |
 | ------ | ---------- |
-| -      | Default Slot   |
+| -      | Default slot   |
 | prefix | Countdown Head |
 | suffix | Countdown Tail |

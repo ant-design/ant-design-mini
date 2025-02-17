@@ -8,6 +8,7 @@
   options="{{ columns }}"
   value="{{ currentValue }}"
   disabled="{{ disabled }}"
+  readonly="{{ readonly }}"
   title="{{ title }}"
   placeholder="{{ placeholder }}"
   okText="{{  okText }}"

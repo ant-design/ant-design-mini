@@ -164,20 +164,20 @@ In `index.json` Introducing Components in
 
 ### Input, Textarea the same property
 
-| Property                    | Description                                            | Type                                  | Default Value |
-| ----------------------- | ----------------------------------------------- | ------------------------------------- | ------ |
-| className               | Class Name                                            | string                                | -      |
-| controlled              | There are keyboard input problems, you can use `controlled="{{false}}"` | boolean                               | -      |
-| defaultValue            | Initial value                                          | string                                | -      |
-| disabled                | Disable                                        | boolean                               | false  |
-| maxLength               | Maximum length                                        | number                                | 140    |
-| placeholder             | Placeholder                                          | string                                | -      |
-| style                   | Style                                            | string                                | -      |
-| value                   | The value of the input box. Controlled mode.                          | string                                | -      |
-| #if ALIPAY onConfirm    | This callback is triggered when the keyboard is clicked to complete                        | (value: string, event: Event) => void | -      |
-| #if ALIPAY onFocus      | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
-| #if ALIPAY onBlur       | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
-| #if ALIPAY onChange     | This callback is triggered when input                                | (value: string, event: Event) => void | -      |
+| Property                   | Description                                            | Type                                  | Default Value |
+| ---------------------- | ----------------------------------------------- | ------------------------------------- | ------ |
+| className              | Class Name                                            | string                                | -      |
+| controlled             | There are keyboard input problems, you can use `controlled="{{false}}"` | boolean                               | -      |
+| defaultValue           | Initial value                                          | string                                | -      |
+| disabled               | Disable                                        | boolean                               | false  |
+| maxLength              | Maximum length                                        | number                                | 140    |
+| placeholder            | Placeholder                                          | string                                | -      |
+| style                  | Style                                            | string                                | -      |
+| value                  | The value of the input box. Controlled mode.                          | string                                | -      |
+| #if ALIPAY onConfirm   | This callback is triggered when the keyboard is clicked to complete                        | (value: string, event: Event) => void | -      |
+| #if ALIPAY onFocus     | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
+| #if ALIPAY onBlur      | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
+| #if ALIPAY onChange    | This callback is triggered when input                                | (value: string, event: Event) => void | -      |
 | #if WECHAT bindconfirm | This callback is triggered when the keyboard is clicked to complete                        | (value: string, event: Event) => void | -      |
 | #if WECHAT bindfocus   | Trigger this callback when focused                                | (value: string, event: Event) => void | -      |
 | #if WECHAT bindblur    | Trigger this callback when out of focus                                | (value: string, event: Event) => void | -      |
@@ -288,3 +288,7 @@ Starting with v2.15.0, updating values via the update method is not supported in
 ### Instance method not available
 
 need to use `component2`, for details see[ref Get Component Instance](https://opendocs.alipay.com/mini/framework/component-ref)。
+
+### The input font style is overwritten by css and cannot take effect on ios.
+
+Need to pass in `always-system="{{true}}"`

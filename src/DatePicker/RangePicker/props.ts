@@ -58,6 +58,10 @@ export interface IDateRangePickerProps extends IBaseProps {
    */
   disabled?: boolean;
   /**
+   * @description 是否只读
+   */
+  readonly?: boolean;
+  /**
    *@description 选中框样式
    * 版本要求： 支付宝小程序基础库 1.10.0 及以上
    */
@@ -175,6 +179,7 @@ export const DateRangePickerDefaultProps: Partial<IDateRangePickerProps> = {
   popClassName: '',
   popStyle: '',
   disabled: false,
+  readonly: false,
   onFormatLabel: null,
   onFormat: null,
 };

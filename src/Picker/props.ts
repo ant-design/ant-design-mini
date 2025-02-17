@@ -36,6 +36,10 @@ export interface IPickerProps extends IBaseProps {
    */
   disabled?: boolean;
   /**
+   * @description 是否只读
+   */
+  readonly?: boolean;
+  /**
    * @description 标题
    */
   title: string;
@@ -138,6 +142,7 @@ export const PickerDefaultProps: Partial<IPickerProps> = {
   value: null,
   defaultValue: null,
   disabled: false,
+  readonly: false,
   title: '',
   okText: null,
   cancelText: null,

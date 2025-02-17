@@ -131,8 +131,11 @@ ComponentWithSignalStoreImpl(
     },
 
     onOpen() {
-      const disabled = getValueFromProps(this, 'disabled');
-      if (!disabled) {
+      const [disabled, readonly] = getValueFromProps(this, [
+        'disabled',
+        'readonly',
+      ]);
+      if (!disabled && !readonly) {
         this.tempSelectedIndex = null;
         const selectedIndex = this.getterSelectedIndex();
         this.setData({

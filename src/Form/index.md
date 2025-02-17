@@ -32,6 +32,7 @@ Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 
 ```
 
 逻辑层将输入框组件 ref 注册到 Form 中
+
 ```xml
 <form-input
   label="用户名"
@@ -39,7 +40,7 @@ Form 表单包含数据录入、校验以及相应的样式。Form 组件需要 
   placeholder="请输入用户名"
   tooltip="用户名说明"
   allowClear
-  ref="handleRef" 
+  ref="handleRef"
 />
 ```
 
@@ -111,6 +112,10 @@ Page({
 ### 多个表单
 
 <code src='../../demo/pages/Form/FormMultiple/index'></code>
+
+### 表单项只读
+
+<code src='../../demo/pages/Form/FormReadonly/index'></code>
 
 ### 图片校验
 

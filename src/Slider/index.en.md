@@ -25,7 +25,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -86,7 +86,7 @@ Page({
 
 ### Hover Tip
 
-> Incoming `showTooltip` Property, you can display a hovering hint when dragging.
+> Incoming `showTooltip` Property, you can display a hovering prompt when dragging.
 
 ```xml
 <ant-slider defaultValue="{{80}}" showTooltip />
@@ -224,7 +224,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                         | Default Value                                                                                                                    | Dark Mode Default                                                                                                            | Remarks             |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------- |

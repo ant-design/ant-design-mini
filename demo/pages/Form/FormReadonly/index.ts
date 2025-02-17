@@ -35,7 +35,50 @@ Page({
   },
   onLoad() {
     this.form = new Form({
-      initialValues: { user: { account: 'andy', phone: '10000' } },
+      initialValues: {
+        'account': 'uaisduasd',
+        'address': '北京北京市',
+        'animalChoose': 'fox',
+        'birthday': '2025-03-11T00:00:00.000Z',
+        'city': ['11', '110'],
+        'description': '这是一段很长的说明竞技即时阿斯达阿斯达',
+        'fruit': '西瓜',
+        'fruitChoose': ['potato', 'tomato'],
+        'image': [
+          {
+            'path': 'https://resource/apml3e3908342944e384a1940a8605c9ad7c.png',
+            'size': 38595,
+            'status': 'done',
+            'uid': '196-1739260033378-1',
+            'url':
+              'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
+          },
+          {
+            'path': 'https://resource/apml3e3908342944e384a1940a8605c9ad7c.png',
+            'size': 38595,
+            'status': 'done',
+            'uid': '196-1739260033378-1',
+            'url':
+              'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
+          },
+          {
+            'path': 'https://resource/apml3e3908342944e384a1940a8605c9ad7c.png',
+            'size': 38595,
+            'status': 'done',
+            'uid': '196-1739260033378-1',
+            'url':
+              'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
+          },
+        ],
+        'likeChoose': 'football',
+        'needDelivery': true,
+        'number': '22134',
+        'password': '123455',
+        'quantity': 2,
+        'range': ['2025-04-11T00:00:00.000Z', '2025-12-11T00:00:00.000Z'],
+        'rate': 4,
+        'slider': 65,
+      },
       rules: {
         account: [
           {
@@ -81,24 +124,18 @@ Page({
     this.formRefList.push(ref.detail);
     /// #endif
   },
-  reset() {
-    this.form.reset({ user: { phone: '10000' } });
-  },
+
   update() {
     this.form.setFieldsValue({
-      user: { account: 'pony', phone: '10086', password: '123456' },
-      address: '312312',
-      needDelivery: true,
-      quantity: 20,
-      fruit: '西瓜',
-      birthday: Date.now(),
-      range: [Date.now(), Date.now() + 86400000],
+      'account': 'maksusi',
+      'address': 333,
+      'animalChoose': 'fox',
+      'birthday': Date.now(),
       city: ['36', '360'],
-      animalChoose: 'fox',
-      fruitChoose: ['potato', 'eggplant'],
-      likeChoose: 'badminton',
-      slider: 44,
-      image: [
+      'description': '说明一下情况',
+      'fruit': '西瓜',
+      'fruitChoose': ['potato', 'eggplant'],
+      'image': [
         {
           path: 'https://resource/apml3bc4f816b58586ab65e1b54980a10c87.jpg',
           size: 2352941,
@@ -107,8 +144,35 @@ Page({
           url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ',
         },
       ],
-      description: '说明一下情况',
+      'likeChoose': 'badminton',
+      'needDelivery': false,
+      'number': 15937127381,
+      password: '34124124123',
+      'quantity': 20,
+      'range': [Date.now(), Date.now() + 86400000],
       rate: 4,
+      'slider': 44,
+    });
+  },
+  clear() {
+    this.form.setFieldsValue({
+      'account': undefined,
+      'address': undefined,
+      'animalChoose': undefined,
+      'birthday': undefined,
+      city: undefined,
+      'description': undefined,
+      'fruit': undefined,
+      'fruitChoose': undefined,
+      'image': undefined,
+      'likeChoose': undefined,
+      'needDelivery': undefined,
+      'number': undefined,
+      password: undefined,
+      'quantity': undefined,
+      'range': undefined,
+      rate: undefined,
+      'slider': undefined,
     });
   },
   async submit() {

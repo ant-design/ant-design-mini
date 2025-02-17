@@ -11,7 +11,17 @@
   requiredMark="{{ requiredMark }}"
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
+  <block a:if="{{readonly && !formData.value && formData.value!==0}}">
+    <!-- #if ALIPAY -->
+    <slot name="readonly" formData="{{formData}}">
+    <!-- #endif -->
+      -
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
+  </block>
   <rate
+    style="{{readonly && !formData.value && formData.value!==0 ? 'display:none' : ''}};{{ rateStyle }}"
     value="{{ formData.value }}"
     count="{{ count }}"
     gutter="{{ gutter }}"
@@ -19,7 +29,6 @@
     allowHalf="{{ allowHalf }}"
     allowClear="{{ allowClear }}"
     className="{{ rateClassName }}"
-    style="{{ rateStyle }}"
     characterActiveClassName="{{ characterActiveClassName }}"
     characterClassName="{{ characterClassName }}"
     onChange="onChange">

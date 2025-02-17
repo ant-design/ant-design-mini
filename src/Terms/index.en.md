@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -393,5 +393,5 @@ Page({
 | ----------------------------------------------------- | ------------------ | -------- | ------ |
 | key                                                   | Unique identification           | `string` | `-`    |
 | text                                                  | Button Copy           | `string` | `-`    |
-| countdownTime                                         | Timing seconds, in seconds | `number` | `-`    |
+| countdownTime                                         | Number of seconds, in seconds | `number` | `-`    |
 | Transparent transmission [ant-button](/components/button#button) All Properties |

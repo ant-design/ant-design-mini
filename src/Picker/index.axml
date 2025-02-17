@@ -2,7 +2,7 @@
 <import-sjs from="../_util/isPropsEmpty.sjs" name="u" />
 
 <view
-  class="ant-picker {{ disabled ? 'ant-picker-disabled' : '' }} {{ className || '' }}"
+  class="ant-picker {{ disabled ? 'ant-picker-disabled' : '' }} {{ readonly ? 'ant-picker-readonly' : '' }} {{ className || '' }}"
   style="{{ style || '' }}"
   onTap="onOpen"
 >

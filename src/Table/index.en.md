@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic Usage
 
@@ -139,7 +139,7 @@ Page({
 </ant-table>
 ```
 
-### Beyond line break display
+### Beyond Line Break Display
 You can use the column configuration parameters.```ellipsisRow```Controls whether to wrap lines and how many lines are eventually displayed, beyond the ellipsis
 
 ```xml
@@ -159,7 +159,7 @@ You can use the column configuration parameters.```ellipsisRow```Controls whethe
 | ------------ | ---------------------------------------------------------------------- | ------------------- | ------- |
 | className    | Container className                                                         | string              | -       |
 | dataSource   | Data Source                                                                 | any[]               | -       |
-| columns      | Configuration description of table columns                                                       | [Column](#column)[] | -       |
+| columns      | Table column configuration description                                                       | [Column](#column)[] | -       |
 | displayType  | Table style type. The default style is displayed based on the configured width. Optional `FULL`、`DEFAULT` | string              | DEFAULT |
 | scrollHeight | Specify scrollable area height                                                     | string              | -       |
 
@@ -170,7 +170,7 @@ You can use the column configuration parameters.```ellipsisRow```Controls whethe
 | title          | Column Header                       | string  | -      |
 | dataIndex      | Column Value Field                   | string  | -      |
 | key            | Column Unique Identifier                   | string  | -      |
-| width          | Column Width                       | number  | -      |
+| width          | Column width                       | number  | -      |
 | fixed          | Fixed column                   | boolean | -      |
 | textAlignRight | Whether column text is right-justified             | boolean | -      |
 | ellipsisRow    | The maximum number of rows displayed in a cell, which exceeds omission. | number  | -      |
@@ -180,7 +180,7 @@ You can use the column configuration parameters.```ellipsisRow```Controls whethe
 
 | Name     | Description                                                                                    |
 | -------- | --------------------------------------------------------------------------------------- |
-| Default Slot | Data source is empty slot                                                                          |
+| Default slot | Data source is empty slot                                                                          |
 | item     | Cell Slot (Scope Slot, Exposed Properties `item`、`index`、`row`、`rowIndex`. WeChat is not supported) |
 
 ### Theme customization

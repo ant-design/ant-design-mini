@@ -29,7 +29,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -148,31 +148,32 @@ Page({
 
 ## API
 
-| Property                   | Description                                            | Type                                                                                                | Default Value   |
-| ---------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------- |
-| className              | Class Name                                            | string                                                                                              | -        |
-| checkedText            | Content when selected                                    | string \| slot                                                                                      | -        |
-| checked                | Check                                        | boolean                                                                                             | -        |
-| color                  | Selected background color                                      | string                                                                                              | -        |
-| defaultChecked         | Checked by default                                    | boolean                                                                                             | `false`  |
-| disabled               | Disable                                        | boolean                                                                                             | `false`  |
-| loading                | Load status                                    | boolean                                                                                             | `false`  |
-| uncheckedText          | Content when not selected                                  | string \| slot                                                                                      | -        |
-| size                   | Component size, optional value is `medium`、`small`、`x-small` | string                                                                                              | `medium` |
-| style                  | Style                                            | string                                                                                              | -        |
-| #if ALIPAY onChange    | Callback triggered when Switch is clicked                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
+| Property                  | Description                                            | Type                                                                                                | Default Value   |
+| --------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------- |
+| className             | Class Name                                            | string                                                                                              | -        |
+| checkedText           | Content when selected                                    | string \| slot                                                                                      | -        |
+| checked               | Check                                        | boolean                                                                                             | -        |
+| color                 | Selected background color                                      | string                                                                                              | -        |
+| defaultChecked        | Checked by default                                    | boolean                                                                                             | `false`  |
+| disabled              | Disable                                        | boolean                                                                                             | `false`  |
+| readonly              | Read-only                                        | boolean                                                                                             | `false`  |
+| loading               | Load status                                    | boolean                                                                                             | `false`  |
+| uncheckedText         | Content when not selected                                  | string \| slot                                                                                      | -        |
+| size                  | Component size, optional value is `medium`、`small`、`x-small` | string                                                                                              | `medium` |
+| style                 | Style                                            | string                                                                                              | -        |
+| #if ALIPAY onChange   | Callback triggered when Switch is clicked                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
 | #if WECHAT bindchange | Callback triggered when Switch is clicked                        | (checked: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -        |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
-| Variable name                 | Light Mode Default                                                                                           | Dark Mode Default                                                                                           | Remarks             |
-| ---------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------- |
-| --switch-fill          | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>       | Switch Fill Color     |
-| --switch-border-color  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div>       | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div>       | Switch border color     |
-| --switch-loading-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div>       | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div>       | Switch loading color     |
-| --switch-handle-bg     | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>       | Switch handle background color |
-| --switch-inner-color   | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div>       | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div>       | Switch internal color     |
+| Variable name                 | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks             |
+| ---------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| --switch-fill          | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Switch Fill Color     |
+| --switch-border-color  | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | Switch border color     |
+| --switch-loading-color | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Switch loading color     |
+| --switch-handle-bg     | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Switch handle background color |
+| --switch-inner-color   | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Switch internal color     |

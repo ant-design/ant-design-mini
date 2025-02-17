@@ -12,11 +12,21 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <view>
+    <view a:if="{{readonly}}">
+      <!-- #if ALIPAY -->
+      <slot name="readonly" formData="{{formData}}">
+      <!-- #endif -->
+      <text a:if="{{formData.value}}">{{formData.value}}</text>
+      <text a:else>-</text>
+      <!-- #if ALIPAY -->
+      </slot>
+      <!-- #endif -->
+    </view>
     <stepper
+      style="{{readonly ? 'display:none' : ''}};{{ stepperStyle }}"
       value="{{ formData.value }}"
       onChange="onChange"
       className="{{ stepperClassName }}"
-      style="{{ stepperStyle }}"
       min="{{ min }}"
       max="{{ max }}"
       type="{{ type }}"

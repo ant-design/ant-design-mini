@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -111,7 +111,7 @@ The following table describes the API properties for the Button component:
 | loading                     | Whether it is loading or not, it cannot be clicked during loading.                                    | boolean                                                                       | -         |
 | size                        | Button size. Only in `inline` Effective under, optional `small`、`medium`、`large` | string                                                                        | `medium`  |
 | aide                        | Whether the button is a secondary button Only default and primary buttons consume this parameter     | boolean                                                                       | false     |
-| subText                     | Secondary text, displayed on the second line.`inline` Do not take effect                       | string                                                                        | -         |
+| subText                     | Secondary text, displayed on the second line.`inline` Not effective                       | string                                                                        | -         |
 | #if ALIPAY catchTap         | Click the button to trigger this callback, non-bubbling                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onTap            | Click the button to trigger this callback                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onDisabledTap    | Click Departure Callback when disabled (not supported by WeChat)                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
@@ -123,7 +123,7 @@ The following table describes the API properties for the Button component:
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                                   | Default Value                                                                                                                | Dark Mode Default                                                                                                        | Remarks                 |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- |

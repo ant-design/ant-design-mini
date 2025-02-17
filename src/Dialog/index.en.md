@@ -26,7 +26,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -76,7 +76,7 @@ Page({
 
 ### Multiple Action Points
 
-> `footer` property supports passing in multiple action points and can specify `layout` For `vertical`or`horizontal`That is, the horizontal and vertical layout of the action point.
+> `footer` property supports the passing in of multiple action points, and you can specify `layout` For `vertical`or`horizontal`That is, the horizontal and vertical layout of the action point.
 
 ```xml
 <ant-dialog
@@ -129,15 +129,15 @@ Page({
 | footer                       | Custom Button Area                                      | slot         | -      |
 | maskClosable                 | Click whether the layer triggers the onClose.                          | boolean      | true   |
 | maskClassName                | Class name of the layer                                        | string       | -      |
-| maskStyle                    | The style of the layer                                        | string       | -      |
+| maskStyle                    | Masking Style                                        | string       | -      |
 | style                        | Style                                              | string       | -      |
 | title                        | Title                                              | string\|slot | -      |
 | visible                      | Whether to display                                          | boolean      | false  |
 | #if ALIPAY onCancelButtonTap | Cancel button click event                                  | ()=>void     | -      |
 | #if ALIPAY onClose           | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
-| #if ALIPAY onButtonTap       | Behavior button click event                                  | ()=>void     | -      |
+| #if ALIPAY onButtonTap       | Behavior Button Click Event                                  | ()=>void     | -      |
 | #if WECHAT bindclose        | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
-| #if WECHAT bindbuttontap    | Behavior button click event                                  | ()=>void     | -      |
+| #if WECHAT bindbuttontap    | Behavior Button Click Event                                  | ()=>void     | -      |
 
 ### Theme customization
 
