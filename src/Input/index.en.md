@@ -173,9 +173,9 @@ In `index.json` Introducing Components in
 | maxLength              | Maximum length                                                       | number                                | 140                     |
 | placeholder            | Placeholder                                                         | string                                | -                       |
 | style                  | Style                                                           | string                                | -                       |
-| max                    | Maximum value, which takes effect only when type is number, digit, numberpad, or digitpad | number                                | Number.MAX_SAFE_INTEGER |
-| min                    | Minimum value, effective only when type is number, digit, numberpad, digitpad | number                                | Number.MIN_SAFE_INTEGER |
-| precision              | Calculation accuracy, keep a few decimal places                                         | number                                | -1                      |
+| max                    | The maximum value, which takes effect only when type is number, digit, numberpad, or digitpad, and a valid number is entered. | number                                | Number.MAX_SAFE_INTEGER |
+| min                    | The minimum value, which takes effect only when type is number, digit, numberpad, or digitpad, and a valid number is entered. | number                                | Number.MIN_SAFE_INTEGER |
+| precision              | Calculation accuracy, keep a few decimal places, enter a valid number to take effect                     | number                                | -1                      |
 | value                  | The value of the input box. Controlled mode.                                         | string                                | -                       |
 | #if ALIPAY onConfirm   | This callback is triggered when the keyboard is clicked                                       | (value: string, event: Event) => void | -                       |
 | #if ALIPAY onFocus     | Trigger this callback when focused                                               | (value: string, event: Event) => void | -                       |

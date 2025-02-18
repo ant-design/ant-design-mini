@@ -57,15 +57,15 @@ export interface InputProps extends IBaseProps {
    */
   randomNumber?: boolean;
   /**
-   * @description 最大值，仅在 type 为 number、digit、numberpad、digitpad 时生效
+   * @description 最大值，仅在 type 为 number、digit、numberpad、digitpad 时，且输入有效数字后生效
    */
   max?: number;
   /**
-   * @description 最小值，仅在 type 为 number、digit、numberpad、digitpad 时生效
+   * @description 最小值，仅在 type 为 number、digit、numberpad、digitpad 时，且输入有效数字后生效
    */
   min?: number;
   /**
-   * @description 计算精度，保留几位小数
+   * @description 计算精度，保留几位小数，输入有效数字后生效
    * @default -1
    */
   precision?: number;

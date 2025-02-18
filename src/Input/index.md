@@ -173,9 +173,9 @@ toc: content
 | maxLength              | 最大长度                                                       | number                                | 140                     |
 | placeholder            | 占位符                                                         | string                                | -                       |
 | style                  | 样式                                                           | string                                | -                       |
-| max                    | 最大值，仅在 type 为 number、digit、numberpad、digitpad 时生效 | number                                | Number.MAX_SAFE_INTEGER |
-| min                    | 最小值，仅在 type 为 number、digit、numberpad、digitpad 时生效 | number                                | Number.MIN_SAFE_INTEGER |
-| precision              | 计算精度，保留几位小数                                         | number                                | -1                      |
+| max                    | 最大值，仅在 type 为 number、digit、numberpad、digitpad 时，且输入有效数字后生效 | number                                | Number.MAX_SAFE_INTEGER |
+| min                    | 最小值，仅在 type 为 number、digit、numberpad、digitpad 时，且输入有效数字后生效 | number                                | Number.MIN_SAFE_INTEGER |
+| precision              | 计算精度，保留几位小数，输入有效数字后生效                     | number                                | -1                      |
 | value                  | 输入框的值。受控模式。                                         | string                                | -                       |
 | #if ALIPAY onConfirm   | 点击键盘完成时触发此回调                                       | (value: string, event: Event) => void | -                       |
 | #if ALIPAY onFocus     | 聚焦时触发此回调                                               | (value: string, event: Event) => void | -                       |

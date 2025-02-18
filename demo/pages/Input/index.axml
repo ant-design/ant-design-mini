@@ -191,7 +191,7 @@
 <ant-container title="数字输入框限制">
   <ant-input
     placeholder="请输入数字"
-    type="number"
+    type="digitpad"
     onChange="onChange"
     max="{{100}}"
     min="{{-10}}"
