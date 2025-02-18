@@ -20,7 +20,7 @@
   allowClear
   ref="handleRef">
 </form-input>
-<form-input label="数字" name="number" type="number" ref="handleRef" />
+<form-input label="数字" name="number" type="number" max="{{100}}" min="{{20}}" precision="{{2}}" ref="handleRef" />
 <form-input
   label="地址"
   name="address"
