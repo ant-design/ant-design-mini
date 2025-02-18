@@ -45,6 +45,7 @@ ComponentWithSignalStoreImpl(
         }
         value = val;
       }
+      console.log('onBlur',value);
       triggerEvent(this, 'blur', value, e);
     },
     onConfirm(e) {

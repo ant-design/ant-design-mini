@@ -197,16 +197,5 @@ export function textInputAndTextArea(componentName: string, defaultProps) {
       expect(onChange.mock.calls.map((o) => o[0])).toEqual(['']);
       expect(instance.getData().state.value).toEqual('1');
     });
-
-    it('数字键盘', async () => {
-      const onChange = vi.fn();
-      const instance = getInstance(componentName, {
-        value: '1',
-        onChange,
-      });
-      await callMethod(instance, 'onClear', {});
-      expect(onChange.mock.calls.map((o) => o[0])).toEqual(['']);
-      expect(instance.getData().state.value).toEqual('1');
-    });
   });
 }
