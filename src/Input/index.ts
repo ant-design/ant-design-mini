@@ -1,8 +1,13 @@
 import { effect } from '@preact/signals-core';
 import mixinValue from '../mixins/value';
-import { ComponentWithSignalStoreImpl, triggerEvent } from '../_util/simply';
+import {
+  ComponentWithSignalStoreImpl,
+  getValueFromProps,
+  triggerEvent,
+} from '../_util/simply';
 import i18nController from '../_util/store';
 import { InputDefaultProps } from './props';
+import { formatNumberWithLimits, isNumber } from './utils';
 
 ComponentWithSignalStoreImpl(
   {
@@ -29,10 +34,17 @@ ComponentWithSignalStoreImpl(
       triggerEvent(this, 'focus', value, e);
     },
     onBlur(e) {
-      const value = e.detail.value;
+      let value = e.detail.value;
       this.setData({
         selfFocus: false,
       });
+      const val = this.checkNumberValue(value);
+      if (val !== null) {
+        if (val !== value && !this.isControlled()) {
+          this.update(val);
+        }
+        value = val;
+      }
       triggerEvent(this, 'blur', value, e);
     },
     onConfirm(e) {
@@ -44,6 +56,19 @@ ComponentWithSignalStoreImpl(
         this.update('');
       }
       triggerEvent(this, 'change', '', e);
+    },
+    checkNumberValue(value) {
+      const [type, max, min, precision] = getValueFromProps(this, [
+        'type',
+        'max',
+        'min',
+        'precision',
+      ]);
+      const NUMBER_KEYBOARD = ['number', 'digit', 'numberpad', 'digitpad'];
+      if (NUMBER_KEYBOARD.indexOf(type) !== -1 && isNumber(value)) {
+        return formatNumberWithLimits(value, max, min, precision);
+      }
+      return null;
     },
   },
   {

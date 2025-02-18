@@ -1,5 +1,5 @@
-import { getInstance, sleep, callMethod, wrapValue } from 'tests/utils';
-import { describe, it, expect, vi } from 'vitest';
+import { callMethod, getInstance, sleep, wrapValue } from 'tests/utils';
+import { describe, expect, it, vi } from 'vitest';
 
 export function textInputAndTextArea(componentName: string, defaultProps) {
   it('test default props', async () => {
@@ -188,6 +188,17 @@ export function textInputAndTextArea(componentName: string, defaultProps) {
     });
 
     it('受控模式下调用 onClear, 数据不变', async () => {
+      const onChange = vi.fn();
+      const instance = getInstance(componentName, {
+        value: '1',
+        onChange,
+      });
+      await callMethod(instance, 'onClear', {});
+      expect(onChange.mock.calls.map((o) => o[0])).toEqual(['']);
+      expect(instance.getData().state.value).toEqual('1');
+    });
+
+    it('数字键盘', async () => {
       const onChange = vi.fn();
       const instance = getInstance(componentName, {
         value: '1',

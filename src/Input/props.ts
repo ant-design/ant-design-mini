@@ -56,6 +56,19 @@ export interface InputProps extends IBaseProps {
    * @default false
    */
   randomNumber?: boolean;
+  /**
+   * @description 最大值，仅在 type 为 number、digit、numberpad、digitpad 时生效
+   */
+  max?: number;
+  /**
+   * @description 最小值，仅在 type 为 number、digit、numberpad、digitpad 时生效
+   */
+  min?: number;
+  /**
+   * @description 计算精度，保留几位小数
+   * @default -1
+   */
+  precision?: number;
 
   /// #if WECHAT
   /**
@@ -126,4 +139,7 @@ export const InputDefaultProps: InputProps = {
   name: null,
   focusStyle: null,
   randomNumber: null,
+  min: Number.MIN_SAFE_INTEGER,
+  max: Number.MAX_SAFE_INTEGER,
+  precision: -1,
 };
