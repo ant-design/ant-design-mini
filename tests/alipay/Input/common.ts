@@ -1,5 +1,5 @@
-import { getInstance, sleep, callMethod, wrapValue } from 'tests/utils';
-import { describe, it, expect, vi } from 'vitest';
+import { callMethod, getInstance, sleep, wrapValue } from 'tests/utils';
+import { describe, expect, it, vi } from 'vitest';
 
 export function textInputAndTextArea(componentName: string, defaultProps) {
   it('test default props', async () => {
