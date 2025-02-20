@@ -9,7 +9,7 @@ toc: 'content'
 
 # Checkbox
 
-Multiple selection in a set of options. When used alone, it can represent a switch between two states, and `switch` Similar. The difference is that switching `switch` will directly trigger a state change, while `checkbox` Generally used for status markers and needs to be coordinated with the submit operation.
+Make multiple selections in a set of options. When used alone, it can represent a switch between two states, and `switch` Similar. The difference is that switching `switch` will directly trigger a state change, while `checkbox` Generally used for status markers and needs to be coordinated with the submit operation.
 
 ## Introduction
 
@@ -28,7 +28,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 

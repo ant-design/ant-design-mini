@@ -46,7 +46,7 @@ toc: content
 
 ### 多行展示通告栏
 ```xml
-<ant-notice type="default"  ellipsisRow="{{2}}">
+<ant-notice type="default" ellipsisRow="{{2}}">
   文本溢出时，开启换行。文字不够继续添加文字凑数。文字不够继续添加文字凑数。
 </ant-notice>
 ```

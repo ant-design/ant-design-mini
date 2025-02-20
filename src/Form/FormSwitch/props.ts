@@ -1,9 +1,9 @@
-import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
 import { ISwitchProps, SwitchDefaultProps } from '../../Switch/props';
+import { FormItemDefaultProps, FormItemProps } from '../FormItem/props';
 
 export interface FormSwitchProps
   extends Omit<ISwitchProps, 'checked' | 'defaultChecked'>,
-    FormItemProps {
+    Omit<FormItemProps, 'readonly'> {
   switchClassName: string;
   switchStyle: string;
 }

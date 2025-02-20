@@ -3,6 +3,7 @@
 
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -15,7 +16,17 @@
   help="{{ help }}"
 >
   <view>
+    <block a:if="{{readonly && !formData.value}}">
+      <!-- #if ALIPAY -->
+      <slot name="readonly" formData="{{formData}}">
+      <!-- #endif -->
+        -
+      <!-- #if ALIPAY -->
+      </slot>
+      <!-- #endif -->
+    </block>
     <ant-date-picker
+      style="{{readonly && !formData.value ? 'display:none' : ''}};{{ datePickerStyle }}"
       min="{{ min }}"
       max="{{ max }}"
       format="{{ format }}"
@@ -27,9 +38,9 @@
       maskClosable="{{ maskClosable }}"
       maskStyle="{{ maskStyle }}"
       popClassName="{{ popClassName }}"
-      style="{{ style }}"
       popStyle="{{ popStyle }}"
       disabled="{{ disabled }}"
+      readonly="{{ readonly }}"
       title="{{ title }}"
       maskClassName="{{ maskClassName }}"
       indicatorStyle="{{ indicatorStyle }}"
@@ -45,7 +56,7 @@
       <slot name="content" slot="content" />
       <slot name="title" slot="title" />
       <ant-icon
-        a:if="{{ arrowUtil.getArrow(arrow) }}"
+        a:if="{{!readonly && arrowUtil.getArrow(arrow) }}"
         className="ant-form-date-picker-arrow"
         type="{{ arrowUtil.getArrow(arrow) }}"
         slot="suffix"

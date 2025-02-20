@@ -35,7 +35,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic Usage
 
@@ -66,7 +66,7 @@ In `index.json` Introducing Components in
     onSwipeEnd="onSwipeEnd"
     onSwipeStart="onSwipeStart"
     onButtonTap="onButtonTap">
-  <view>Right-three buttons</view>
+  <view>Right side-three buttons</view>
 </ant-swipe-action>
 ```
 
@@ -149,7 +149,7 @@ Can be set simultaneously`leftButtons`and`rightButtons`
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name               | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks         |
 | -------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |

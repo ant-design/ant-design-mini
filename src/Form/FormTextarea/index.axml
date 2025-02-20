@@ -2,6 +2,7 @@
 
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -13,7 +14,18 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}"
 >
+  <view a:if="{{readonly}}">
+    <!-- #if ALIPAY -->
+    <slot name="readonly" formData="{{formData}}">
+    <!-- #endif -->
+      <text a:if="{{formData.value}}">{{formData.value}}</text>
+      <text a:else>-</text>
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
+  </view>
   <ant-textarea
+    style="{{readonly ? 'display:none' : ''}};{{ textareaStyle }}"
     ref="handleRef"
     allowClear="{{ allowClear }}"
     enableNative="{{ enableNative }}"

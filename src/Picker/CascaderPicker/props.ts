@@ -44,6 +44,10 @@ export interface ICascaderProps extends IBaseProps {
    */
   disabled?: boolean;
   /**
+   * @description 是否只读
+   */
+  readonly?: boolean;
+  /**
    * @description 标题
    */
   title: string;
@@ -130,6 +134,7 @@ export const CascaderDefaultProps: Partial<ICascaderProps> = {
   placeholder: '请选择',
   cancelText: '取消',
   disabled: false,
+  readonly: false,
   title: '',
   okText: '确定',
   maskClosable: true,

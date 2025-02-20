@@ -42,7 +42,7 @@
 
 <view
   class="ant-slider {{ className ? className : '' }}"
-  style="opacity: {{ disabled ? '0.4' : '1' }};">
+  style="opacity: {{ disabled ? '0.4' : '1' }};{{style}}">
   <view
     class="ant-slider-track {{ showNumber ? 'ant-slider-track-number' : '' }}">
     <view

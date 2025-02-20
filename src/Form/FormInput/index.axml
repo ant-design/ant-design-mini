@@ -1,5 +1,6 @@
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -10,12 +11,22 @@
   requiredMark="{{ requiredMark }}"
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
+  <view a:if="{{readonly}}">
+    <!-- #if ALIPAY -->
+    <slot name="readonly" formData="{{formData}}">
+    <!-- #endif -->
+    <text a:if="{{formData.value}}">{{formData.value}}</text>
+    <text a:else>-</text>
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
+  </view>
   <ant-input
+    style="{{readonly ? 'display:none' : ''}};{{ inputStyle }}"
     ref="handleRef"
     allowClear="{{ allowClear }}"
     enableNative="{{ enableNative }}"
     className="{{ inputClassName }}"
-    style="{{ inputStyle }}"
     disabled="{{ disabled }}"
     type="{{ type }}"
     password="{{ password }}"
@@ -30,6 +41,9 @@
     selectionStart="{{ selectionStart }}"
     selectionEnd="{{ selectionEnd }}"
     randomNumber="{{ randomNumber }}"
+    max="{{ max }}"
+    min="{{ min }}"
+    precision="{{ precision }}"
     onChange="onChange"
     onBlur="onBlur"
     onFocus="onFocus"

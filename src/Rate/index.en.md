@@ -26,11 +26,11 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
-> `count` property specifies the total number of stars, `allowHalf` Stats allow half a star, `allowClear` Property allows to clear after clicking again.
+> `count` property specifies the total number of stars, `allowHalf` Attribute allows half a star, `allowClear` Property allows to clear after clicking again.
 
 ```xml
 <ant-rate
@@ -140,7 +140,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name             | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                    |
 | ------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------- |

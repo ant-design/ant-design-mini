@@ -1,5 +1,6 @@
 <form-item
   className="{{ className }}"
+  style="{{ style }}"
   position="{{ position }}"
   label="{{ label }}"
   labelWidth="{{ labelWidth }}"
@@ -10,7 +11,24 @@
   requiredMark="{{ requiredMark }}"
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
+  <view a:if="{{readonly}}">
+    <!-- #if ALIPAY -->
+    <slot name="readonly" formData="{{formData}}">
+    <!-- #endif -->
+      <image
+        a:if="{{formData.value.length > 0}}"
+        class="ant-image-upload-image"
+        a:for="{{formData.value}}"
+        mode="{{ imageMode }}"
+        src="{{ item.url || item.path }}"
+      />
+      <text a:if="{{formData.value.length <= 0}}">-</text>
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
+  </view>
   <image-upload
+    style="{{readonly ? 'display:none' : ''}};{{ imageUploadStyle }}"
     ref="handleRef"
     defaultFileList="{{ formData.value }}"
     maxCount="{{ maxCount }}"

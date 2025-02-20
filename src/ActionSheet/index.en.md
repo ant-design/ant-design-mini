@@ -26,11 +26,11 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
-> `ant-action-sheet` components must pass through `visible` Property controls the show/hide state.`actions` property passes in the data to drive the options rendering.
+> `ant-action-sheet` components must pass through `visible` Property controls the show/hide state.`actions` property to pass in the data-driven options rendering.
 
 ```xml
 <ant-action-sheet

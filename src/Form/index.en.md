@@ -31,7 +31,8 @@ In `index.json` Introducing Components in
 }
 ```
 
-Logical layer registers input box component ref into Form
+The logic layer registers the input box component ref into the Form
+
 ```xml
 <form-input
   label="用户名"
@@ -39,7 +40,7 @@ Logical layer registers input box component ref into Form
   placeholder="请输入用户名"
   tooltip="用户名Description"
   allowClear
-  ref="handleRef" 
+  ref="handleRef"
 />
 ```
 
@@ -66,7 +67,7 @@ Page({
 });
 ```
 
-## Code example
+## Code Sample
 
 ### Basic use
 
@@ -112,6 +113,10 @@ Page({
 
 <code src='../../demo/pages/Form/FormMultiple/index'></code>
 
+### Form Item Read Only
+
+<code src='../../demo/pages/Form/FormReadonly/index'></code>
+
 ### Picture verification
 
 <code src='../../demo/pages/Form/FormImageUploadRules/index'></code>
@@ -128,7 +133,7 @@ Use `validateStatus: success` and `footer slot` Customize the error style.
 
 ### Custom Form Item
 
-by using [FormItem](#formitem)、[createForm](#createform) Customizable form items. In the example `form-checklist`、`form-location` Is a custom form item component.
+by using [FormItem](#formitem)、[createForm](#createform) Customizable form items. In the example `form-checklist`、`form-location` For custom form item components.
 
 <code src='../../demo/pages/Form/FormCustom/index'></code>
 
@@ -419,7 +424,7 @@ For more methods, please refer `createForm` Method-related documentation. Use `f
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
 
 | Variable name                | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks             |
 | --------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |

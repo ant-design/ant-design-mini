@@ -1,5 +1,5 @@
 <view
-  class="ant-switch {{ className ? className : '' }} ant-switch-{{ size }} {{ mixin.value ? 'ant-switch-checked' : '' }} {{ disabled ? 'ant-switch-disabled' : '' }} {{ loading ? 'ant-switch-loading' : '' }}"
+  class="ant-switch {{ className ? className : '' }} ant-switch-{{ size }} {{ mixin.value ? 'ant-switch-checked' : '' }} {{ disabled ? 'ant-switch-disabled' : '' }} {{ readonly ? 'ant-switch-readonly' : '' }} {{ loading ? 'ant-switch-loading' : '' }}"
   style="{{ mixin.value && color ? 'background:' + color + '; border-color:' + color : '' }};{{ style || '' }}"
   onTap="onChange">
   <view class="ant-switch-handle">

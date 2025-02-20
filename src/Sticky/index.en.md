@@ -29,7 +29,7 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code example
+## Code Sample
 
 ### Basic Usage
 
@@ -46,7 +46,7 @@ In `index.json` Introducing Components in
 ```xml
 <ant-sticky top="100px">
   <view>
-    I will top the place 100px from the top
+    I will be at the top 100px from the top of the place
   </view>
 </ant-sticky>
 ```
@@ -65,7 +65,7 @@ In `index.json` Introducing Components in
 #endif
 >
   <view>
-    <view>I'll be ceiling 180px from the top</view>
+    <view>I'll be ceiling 180px away from the top</view>
     <view>Whether it has sucked {{stickyStatus}}</view>
   </view>
 </ant-sticky>
@@ -101,7 +101,7 @@ Page({
 | Property                            | Type     | Default Value         | Description                                                                 |
 | ------------------------------- | -------- | -------------- | -------------------------------------------------------------------- |
 | className                       | string   | ""             | Container className                                                       |
-| top                             | string   | ""             | Ceiling height, need to write units, such as 10px,24rpx                                |
+| top                             | string   | ""             | The ceiling height, need to write units, such as 10px,24rpx                                |
 | check                           | bool     | false          | Whether it is necessary to sense whether the ceiling has been absorbed, because the ceiling inspection still has a certain cost.                 |
 | sticky                          | bool     | true           | Whether to ceiling, some scenes do not necessarily need                                       |
 | transparentTitle                | bool     | false          | Whether it is a transparent head, the transparent head will automatically calculate the titleBar height, and the default adsorption is under the titlebar |
