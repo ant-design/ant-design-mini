@@ -19,6 +19,7 @@ Component(
       triggerEvent(this, 'change', resolveEventValue(value), e);
     },
     onBlur(value, e) {
+      this.emit('onChange', resolveEventValue(value));
       triggerEvent(this, 'blur', resolveEventValue(value), e);
     },
     onFocus(value, e) {
