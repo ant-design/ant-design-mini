@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // @ts-nocheck
-import { IBaseProps } from '../../src/_util/base';
+import { IBaseProps } from '../_util/base';
 
 export interface IWelcomeProps extends IBaseProps {
   className?: string;
