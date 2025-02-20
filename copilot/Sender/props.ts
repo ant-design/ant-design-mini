@@ -33,6 +33,18 @@ interface ISenderProps extends IBaseProps {
    * @description 点击取消按钮时触发
    */
   onCancel?: () => void;
+  /**
+   * @description 点击输入法中的确认按钮时触发
+   */
+  onConfirm?: (value: string) => void;
+  /**
+   * @description 输入框聚焦时触发
+   */
+  onFocus?: () => void;
+  /**
+   * @description 输入框失焦时触发
+   */
+  onBlur?: () => void;
 }
 
 export const SenderProps: ISenderProps = {

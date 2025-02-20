@@ -38,11 +38,13 @@ toc: 'content'
 
 ### Slots
 
-| 名称    | 说明                           |
-| ------- | ------------------------------ |
-| default | 自定义气泡内容                 |
-| header  | 自定义头部内容(如用户名)       |
-| footer  | 自定义底部内容(如自定义操作等) |
+| 名称           | 说明                           |
+| -------------- | ------------------------------ |
+| default        | 自定义气泡内容                 |
+| header         | 自定义头部内容(如用户名)       |
+| footer         | 自定义底部内容(如自定义操作等) |
+| content-header | 内容部分的头部                 |
+| content-footer | 内容部分的尾部                 |
 
 ### 主题定制
 
@@ -62,7 +64,7 @@ toc: 'content'
 
 ### 1. 如何实现打字机效果?
 
-可以通过 typing 属性配置打字动画：
+可以通过 typing 属性配置打字动画:
 
 - 设置 `typing="{{true}}"` 使用默认配置
 - 设置 `typing="{{{ step: 1, interval: 50 }}}"` 自定义每次打印字符数和间隔时间
@@ -70,7 +72,7 @@ toc: 'content'
 
 ### 2. 支持哪些气泡样式?
 
-通过 shape 和 variant 属性组合可以实现多种气泡样式：
+通过 shape 和 variant 属性组合可以实现多种气泡样式:
 
-- shape： 控制气泡形状，支持 default/round/corner
-- variant： 控制气泡外观，支持 filled/borderless/outlined/shadow
+- shape: 控制气泡形状,支持 default/round/corner
+- variant: 控制气泡外观,支持 filled/borderless/outlined/shadow

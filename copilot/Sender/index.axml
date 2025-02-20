@@ -1,26 +1,36 @@
 <view class="ant-copilot-sender {{className}}" style="{{style}}">
   <slot name="header"></slot>
-  <view class="ant-copilot-sender-contain">
-    <slot name="input-header"></slot>
-    <view class="ant-copilot-sender-content {{disabled ? 'disabled' : ''}}">
-      <slot name="prefix"></slot>
-      <view class="ant-copilot-sender-content-input">
-        <textarea
-          id="ant-copilot-sender-input"
-          class="ant-copilot-sender-input"
-          value="{{value}}"
-          placeholder="{{placeholder}}"
-          disabled="{{disabled}}"
-          maxlength="{{-1}}"
-          show-count="{{false}}"
-          auto-height="{{true}}"
-          confirm-type="send"
-          onInput="handleInput"
-        />
+  <view class="ant-copilot-sender-contain-wrapper">
+    <slot name="wrapper-prefix"></slot>
+    <view class="ant-copilot-sender-contain">
+      <slot name="input-header"></slot>
+      <view class="ant-copilot-sender-content {{disabled ? 'disabled' : ''}}">
+        <slot name="prefix"></slot>
+        <view class="ant-copilot-sender-content-input">
+          <textarea
+            id="ant-copilot-sender-input"
+            class="ant-copilot-sender-input"
+            value="{{value}}"
+            placeholder="{{placeholder}}"
+            disabled="{{disabled}}"
+            maxlength="{{-1}}"
+            show-count="{{false}}"
+            auto-height="{{true}}"
+            confirm-type="send"
+            enableNative="{{enableNative}}"
+            controlled="{{controlled}}"
+            always-system="{{alwaysSystem}}"
+            onInput="handleInput"
+            onFocus="handleFocus"
+            onBlur="handleBlur"
+            onConfirm="handleConfirm"
+          />
+        </view>
+        <slot name="suffix"></slot>
+        <view class="ant-copilot-sender-content-button {{loading ? 'loading' : ''}}" onTap="handleMainBtn"></view>
       </view>
-      <slot name="suffix"></slot>
-      <view class="ant-copilot-sender-content-button {{loading ? 'loading' : ''}}" onTap="handleMainBtn"></view>
     </view>
+    <slot name="wrapper-suffix"></slot>
   </view>
   <slot name="footer"></slot>
 </view>

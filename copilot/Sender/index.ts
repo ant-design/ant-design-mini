@@ -18,6 +18,10 @@ Component(
         this.handleSubmit();
       }
     },
+    handleConfirm() {
+      const [value] = getValueFromProps(this, ['value']);
+      triggerEvent(this, 'confirm', value);
+    },
     handleSubmit() {
       const [value] = getValueFromProps(this, ['value']);
       triggerEvent(this, 'submit', value);
@@ -27,6 +31,12 @@ Component(
     },
     handleInput(e) {
       triggerEvent(this, 'change', e.detail.value);
+    },
+    handleFocus() {
+      triggerEvent(this, 'focus');
+    },
+    handleBlur() {
+      triggerEvent(this, 'blur');
     },
   },
   {},

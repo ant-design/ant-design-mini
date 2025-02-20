@@ -13,6 +13,7 @@
     "ant-upload": "../../../src/ImageUpload/index",
     "ant-prompts": "../../../src/Prompts/index",
     "ant-bubble": "../../../src/Bubble/index",
-    "ant-container": "../../../src/Container/index"
+    "ant-container": "../../../src/Container/index",
+    "ant-icon": "../../../src/Icon/index"
   }
 }

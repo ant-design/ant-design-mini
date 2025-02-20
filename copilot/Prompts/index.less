@@ -28,6 +28,11 @@
 
       gap: @prompts-item-gap;
 
+      &.disabled {
+        opacity: 0.45;
+        pointer-events: none;
+      }
+
       &-icon {
         font-size: 32 * @rpx;
       }
@@ -77,6 +82,10 @@
       /// #endif
     }
     &-item {
+      &.disabled {
+        opacity: 0.45;
+        pointer-events: none;
+      }
       &:last-of-type {
         margin-right: 0;
       }
