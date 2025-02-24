@@ -9,16 +9,19 @@ import i18nController from '../_util/store';
 import { InputDefaultProps } from './props';
 import { formatNumberWithLimits, isNumber } from './utils';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  InputDefaultProps,
-  {
+  props: InputDefaultProps,
+  data: {
+    selfFocus: false,
+  },
+  methods: {
     onChange(e) {
       const value = e.detail.value;
       if (!this.isControlled()) {
@@ -45,7 +48,7 @@ ComponentWithSignalStoreImpl(
         }
         value = val;
       }
-      console.log('onBlur',value);
+      console.log('onBlur', value);
       triggerEvent(this, 'blur', value, e);
     },
     onConfirm(e) {
@@ -72,15 +75,10 @@ ComponentWithSignalStoreImpl(
       return null;
     },
   },
-  {
-    selfFocus: false,
-  },
-  [mixinValue({ scopeKey: 'state' })],
+  mixins: [mixinValue({ scopeKey: 'state' })],
   /// #if WECHAT
-  {
-    attached() {
-      this.triggerEvent('ref', this);
-    },
-  }
+  attached() {
+    this.triggerEvent('ref', this);
+  },
   /// #endif
-);
+});

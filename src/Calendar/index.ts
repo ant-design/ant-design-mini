@@ -17,16 +17,23 @@ import {
   renderCells,
 } from './utils';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  CalendarDefaultProps,
-  {
+  props: CalendarDefaultProps,
+  data: {
+    elementSize: null,
+    markItems: [],
+    monthList: [],
+    headerState: 0,
+    scrollIntoViewId: '',
+  },
+  methods: {
     getInstance() {
       if (this.$id) {
         return my;
@@ -206,80 +213,71 @@ ComponentWithSignalStoreImpl(
       this.setData({ markItems, monthList });
     },
   },
-  {
-    elementSize: null,
-    markItems: [],
-    monthList: [],
-    headerState: 0,
-    scrollIntoViewId: '',
+  mixins: [mixinValue()],
+  didMount() {
+    this.updateData();
+    this.measurementFn();
+    // 初始化默认值时，滚动到选中位置
+    const [value, defaultValue] = getValueFromProps(this, [
+      'value',
+      'defaultValue',
+    ]);
+    if (this.isControlled()) {
+      this.updateScrollIntoViewId(getScrollIntoViewId(value));
+    } else {
+      defaultValue &&
+        this.updateScrollIntoViewId(getScrollIntoViewId(defaultValue));
+    }
   },
-  [mixinValue()],
-  {
-    didMount() {
+  didUpdate(prevProps, prevData) {
+    if (!this.isEqualValue(prevData)) {
+      // 滚动到已选的位置
+      const changedScrollIntoView = getValueFromProps(
+        this,
+        'changedScrollIntoView'
+      );
+      changedScrollIntoView &&
+        this.updateScrollIntoViewId(getScrollIntoViewId(this.getValue()));
+    }
+    if (!equal(prevProps, this.props) || !this.isEqualValue(prevData)) {
       this.updateData();
-      this.measurementFn();
-      // 初始化默认值时，滚动到选中位置
-      const [value, defaultValue] = getValueFromProps(this, [
-        'value',
-        'defaultValue',
-      ]);
-      if (this.isControlled()) {
-        this.updateScrollIntoViewId(getScrollIntoViewId(value));
-      } else {
-        defaultValue &&
-          this.updateScrollIntoViewId(getScrollIntoViewId(defaultValue));
-      }
-    },
-    didUpdate(prevProps, prevData) {
-      if (!this.isEqualValue(prevData)) {
-        // 滚动到已选的位置
-        const changedScrollIntoView = getValueFromProps(
-          this,
-          'changedScrollIntoView'
-        );
-        changedScrollIntoView &&
-          this.updateScrollIntoViewId(getScrollIntoViewId(this.getValue()));
-      }
-      if (!equal(prevProps, this.props) || !this.isEqualValue(prevData)) {
+    }
+  },
+  /// #if WECHAT
+  attached() {
+    this.updateData();
+    this.measurementFn();
+    // 初始化默认值时，滚动到选中位置
+    const [value, defaultValue] = getValueFromProps(this, [
+      'value',
+      'defaultValue',
+    ]);
+    if (this.isControlled()) {
+      this.updateScrollIntoViewId(getScrollIntoViewId(value));
+    } else {
+      defaultValue &&
+        this.updateScrollIntoViewId(getScrollIntoViewId(defaultValue));
+    }
+    this.triggerEvent('ref', this);
+  },
+
+  observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      if (!equal(prevData, data)) {
         this.updateData();
       }
     },
-    /// #if WECHAT
-    attached() {
-      this.updateData();
-      this.measurementFn();
-      // 初始化默认值时，滚动到选中位置
-      const [value, defaultValue] = getValueFromProps(this, [
-        'value',
-        'defaultValue',
-      ]);
-      if (this.isControlled()) {
-        this.updateScrollIntoViewId(getScrollIntoViewId(value));
-      } else {
-        defaultValue &&
-          this.updateScrollIntoViewId(getScrollIntoViewId(defaultValue));
-      }
-      this.triggerEvent('ref', this);
+    'mixin.value': function () {
+      // 滚动到已选的位置
+      const changedScrollIntoView = getValueFromProps(
+        this,
+        'changedScrollIntoView'
+      );
+      changedScrollIntoView &&
+        this.updateScrollIntoViewId(getScrollIntoViewId(this.getValue()));
     },
-
-    observers: {
-      '**': function (data) {
-        const prevData = this._prevData || this.data;
-        this._prevData = { ...data };
-        if (!equal(prevData, data)) {
-          this.updateData();
-        }
-      },
-      'mixin.value': function () {
-        // 滚动到已选的位置
-        const changedScrollIntoView = getValueFromProps(
-          this,
-          'changedScrollIntoView'
-        );
-        changedScrollIntoView &&
-          this.updateScrollIntoViewId(getScrollIntoViewId(this.getValue()));
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

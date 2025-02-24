@@ -60,21 +60,20 @@ export const ComponentWithSignalStoreImpl = <
   Data = unknown,
   Mixins = unknown,
   InstanceMethods extends ExtendedInstanceMethods = ExtendedInstanceMethods
->(
-  storeOptions: TStoreOptions<S, M>,
-  defaultProps: Props,
-  methods?: Methods &
-    ThisType<ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods>>,
-  data?: Data & any,
-  mixins?: Mixins & any,
-  instanceMethods?: InstanceMethods &
-    ThisType<
-      ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods> & {
-        $store: S;
-        props: Props;
-      }
-    >
-) => {
+>({
+  storeOptions,
+  props: defaultProps,
+  methods,
+  data,
+  mixins,
+  ...instanceMethods
+}: {
+  storeOptions?: TStoreOptions<S, M>;
+  props?: Props;
+  methods?: Methods;
+  data?: Data;
+  mixins?: Mixins & any;
+} & InstanceMethods) => {
   const storeBinder = new StoreBinder(storeOptions);
 
   const defaultOnInit = function () {
