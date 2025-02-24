@@ -4,6 +4,7 @@ import { SwitchDefaultProps } from './props';
 
 Component({
   props: SwitchDefaultProps,
+  data: null,
   methods: {
     onChange(e) {
       const value = !this.getValue();
