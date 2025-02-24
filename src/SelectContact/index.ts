@@ -6,9 +6,56 @@ import {
 } from './props';
 import { AlphabetMap, getFirstLetterInMap, getId } from './util';
 
-Component(
-  SelectContactDefaultProps,
-  {
+Component({
+  props: SelectContactDefaultProps,
+  data: {
+    /** 推荐联系人 */
+    recommendContactsList: [],
+
+    /** 全部联系人 */
+    allContactsList: [],
+
+    /** 字母表 */
+    alphabet: [],
+
+    /** 滚动到的 Element id */
+    toView: '',
+
+    /** 联系人为空 */
+    contactListEmpty: false,
+
+    /** 数据加载中 */
+    loading: true,
+
+    /** 输入框占位文案 */
+    placeholder: '输入手机号、电子邮箱、好友姓名查找',
+
+    /** 是否展示搜索页 */
+    showSearch: false,
+
+    /** 搜索关键词 */
+    searchValue: '',
+
+    /** 搜索页状态 */
+    searchStatus: 'normal',
+
+    /** 搜索结果 */
+    searchList: [],
+
+    /**
+     * 是否是 IOS
+     *
+     * 由于 Andriod 对于 sticky 的兼容性太差（会覆盖右侧索引表），暂时只开放 IOS 的 sticky
+     */
+    isIOS: false,
+
+    /** 全局删除推荐好友标识 */
+    deleteRecommendUserFlag: false,
+    /** 是否正在搜索 */
+    searchable: false,
+    onScrollIntoView: null,
+  },
+  methods: {
     init() {
       let platform;
       /// #if ALIPAY
@@ -227,65 +274,15 @@ Component(
       this.setData({ searchable: false });
     },
   },
-  {
-    /** 推荐联系人 */
-    recommendContactsList: [],
-
-    /** 全部联系人 */
-    allContactsList: [],
-
-    /** 字母表 */
-    alphabet: [],
-
-    /** 滚动到的 Element id */
-    toView: '',
-
-    /** 联系人为空 */
-    contactListEmpty: false,
-
-    /** 数据加载中 */
-    loading: true,
-
-    /** 输入框占位文案 */
-    placeholder: '输入手机号、电子邮箱、好友姓名查找',
-
-    /** 是否展示搜索页 */
-    showSearch: false,
-
-    /** 搜索关键词 */
-    searchValue: '',
-
-    /** 搜索页状态 */
-    searchStatus: 'normal',
-
-    /** 搜索结果 */
-    searchList: [],
-
-    /**
-     * 是否是 IOS
-     *
-     * 由于 Andriod 对于 sticky 的兼容性太差（会覆盖右侧索引表），暂时只开放 IOS 的 sticky
-     */
-    isIOS: false,
-
-    /** 全局删除推荐好友标识 */
-    deleteRecommendUserFlag: false,
-    /** 是否正在搜索 */
-    searchable: false,
-    onScrollIntoView: null,
+  /// #if ALIPAY
+  onInit() {
+    this.init();
   },
-  [],
-  {
-    /// #if ALIPAY
-    onInit() {
-      this.init();
-    },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.init();
-      this.setData({ onScrollIntoView: this.onScrollIntoView.bind(this) });
-    },
-    /// #endif
-  }
-);
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.init();
+    this.setData({ onScrollIntoView: this.onScrollIntoView.bind(this) });
+  },
+  /// #endif
+});

@@ -8,9 +8,13 @@ import {
 } from '../_util/simply';
 import { DefaultProps } from './props';
 
-Component(
-  DefaultProps,
-  {
+Component({
+  props: DefaultProps,
+  data: {
+    checked: false,
+    countdownArr: [],
+  },
+  methods: {
     dealAllCountdown(val) {
       // 如果时间表的没有变，直接返回
       const newCountdownRecord = val.map((item) => item.countdownTime);
@@ -101,22 +105,29 @@ Component(
       triggerEvent(this, 'readChange', current, event);
     },
   },
-  {
-    checked: false,
-    countdownArr: [],
-  },
-  [
+  mixins: [
     createValue({
       valueKey: 'readCurrent',
       defaultValueKey: 'defaultReadCurrent',
     }),
   ],
-  {
-    /// #if ALIPAY
-    onInit() {
-      this.countdownTimeRecord = []; // 缓存记录需要倒计时的项和时间，变化时用于判断要不要重置倒计时
-      this.countdownTimerArr = []; // 记录倒计时timerId，方便销毁组件时销毁
-      const buttons = getValueFromProps(this, 'buttons');
+  /// #if ALIPAY
+  onInit() {
+    this.countdownTimeRecord = []; // 缓存记录需要倒计时的项和时间，变化时用于判断要不要重置倒计时
+    this.countdownTimerArr = []; // 记录倒计时timerId，方便销毁组件时销毁
+    const buttons = getValueFromProps(this, 'buttons');
+    if (
+      Array.isArray(buttons) &&
+      buttons.length &&
+      buttons.some((item) => item.countdownTime)
+    ) {
+      // 数组形式
+      this.dealAllCountdown(buttons);
+    }
+  },
+  async deriveDataFromProps(nextProps) {
+    const { buttons } = nextProps;
+    if (!equal(getValueFromProps(this, 'buttons'), buttons)) {
       if (
         Array.isArray(buttons) &&
         buttons.length &&
@@ -125,47 +136,34 @@ Component(
         // 数组形式
         this.dealAllCountdown(buttons);
       }
-    },
-    async deriveDataFromProps(nextProps) {
-      const { buttons } = nextProps;
-      if (!equal(getValueFromProps(this, 'buttons'), buttons)) {
-        if (
-          Array.isArray(buttons) &&
-          buttons.length &&
-          buttons.some((item) => item.countdownTime)
-        ) {
-          // 数组形式
-          this.dealAllCountdown(buttons);
-        }
-      }
-    },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.countdownTimeRecord = []; // 缓存记录需要倒计时的项和时间，变化时用于判断要不要重置倒计时
-      this.countdownTimerArr = []; // 记录倒计时timerId，方便销毁组件时销毁
-      const buttons = getValueFromProps(this, 'buttons');
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.countdownTimeRecord = []; // 缓存记录需要倒计时的项和时间，变化时用于判断要不要重置倒计时
+    this.countdownTimerArr = []; // 记录倒计时timerId，方便销毁组件时销毁
+    const buttons = getValueFromProps(this, 'buttons');
+    if (
+      Array.isArray(buttons) &&
+      buttons.length &&
+      buttons.some((item) => item.countdownTime)
+    ) {
+      // 数组形式
+      this.dealAllCountdown(buttons);
+    }
+  },
+  observers: {
+    'buttons': function (data) {
       if (
-        Array.isArray(buttons) &&
-        buttons.length &&
-        buttons.some((item) => item.countdownTime)
+        Array.isArray(data.buttons) &&
+        data.buttons.length &&
+        data.buttons.some((item) => item.countdownTime)
       ) {
         // 数组形式
-        this.dealAllCountdown(buttons);
+        this.dealAllCountdown(data.buttons);
       }
     },
-    observers: {
-      'buttons': function (data) {
-        if (
-          Array.isArray(data.buttons) &&
-          data.buttons.length &&
-          data.buttons.some((item) => item.countdownTime)
-        ) {
-          // 数组形式
-          this.dealAllCountdown(data.buttons);
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

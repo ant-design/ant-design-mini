@@ -1,6 +1,8 @@
-import { ImageIconProps } from './props';
 import { Component } from '../_util/simply';
+import { ImageIconProps } from './props';
 
 Component<ImageIconProps>({
-  image: '',
+  props: {
+    image: '',
+  },
 });

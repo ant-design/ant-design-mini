@@ -24,7 +24,8 @@
     "ignoreUploadUnusedFiles": false,
     "es6": true,
     "enhance": true,
-    "postcss": false
+    "postcss": false,
+    "minified": true
   },
   "condition": {},
   "editorSetting": {

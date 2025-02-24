@@ -19,9 +19,12 @@ const UNIT_LIST = [
   '千亿',
 ];
 
-Component(
-  NumberInputProps,
-  {
+Component({
+  props: NumberInputProps,
+  data: {
+    unit: '',
+  },
+  methods: {
     // 统一处理输入值
     update(value: string) {
       this.setUnit(value);
@@ -78,15 +81,10 @@ Component(
       this.setData({ unit });
     },
   },
-  {
-    unit: '',
-  },
-  undefined,
+
   /// #if WECHAT
-  {
-    attached() {
-      this.triggerEvent('ref', this);
-    },
-  }
+  attached() {
+    this.triggerEvent('ref', this);
+  },
   /// #endif
-);
+});

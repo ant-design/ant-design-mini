@@ -6,9 +6,12 @@ import {
 } from '../_util/simply';
 import { BubbleProps } from './props';
 
-Component(
-  BubbleProps,
-  {
+Component({
+  props: BubbleProps,
+  data: {
+    bubbleText: '',
+  },
+  methods: {
     startTyping() {
       const [loading, typing, content] = getValueFromProps(this, [
         'loading',
@@ -51,32 +54,27 @@ Component(
       }
     },
   },
-  {
-    bubbleText: '',
+
+  options: {
+    // 使用基础库内置的数据变化观测器
+    observers: true,
+    multipleSlots: true,
   },
-  [],
-  {
-    options: {
-      // 使用基础库内置的数据变化观测器
-      observers: true,
-      multipleSlots: true,
+  observers: {
+    loading: function (loading: boolean) {
+      if (!loading) {
+        this.startTyping();
+      }
     },
-    observers: {
-      loading: function (loading: boolean) {
-        if (!loading) {
-          this.startTyping();
-        }
-      },
-    },
-    /// #if ALIPAY
-    didMount() {
-      this.startTyping();
-    },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.startTyping();
-    },
-    /// #endif
-  }
-);
+  },
+  /// #if ALIPAY
+  didMount() {
+    this.startTyping();
+  },
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.startTyping();
+  },
+  /// #endif
+});

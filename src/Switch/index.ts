@@ -1,10 +1,10 @@
+import mixinValue from '../mixins/value';
 import { Component, triggerEvent } from '../_util/simply';
 import { SwitchDefaultProps } from './props';
-import mixinValue from '../mixins/value';
 
-Component(
-  SwitchDefaultProps,
-  {
+Component({
+  props: SwitchDefaultProps,
+  methods: {
     onChange(e) {
       const value = !this.getValue();
       if (!this.isControlled()) {
@@ -13,11 +13,10 @@ Component(
       triggerEvent(this, 'change', value, e);
     },
   },
-  null,
-  [
+  mixins: [
     mixinValue({
       valueKey: 'checked',
       defaultValueKey: 'defaultChecked',
     }),
-  ]
-);
+  ],
+});

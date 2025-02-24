@@ -1,15 +1,25 @@
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { Component, triggerEvent, triggerEventOnly } from '../_util/simply';
 import { PINYIN_MAP } from './constants';
 import { RareWordsKeyboardProps } from './props';
 import { formatZDatas, loadFontFace, matchWordsRecommend } from './utils';
 import { ZDATAS } from './zdatas';
-import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 
 const wordsData = formatZDatas(ZDATAS.datas);
 
-Component(
-  RareWordsKeyboardProps,
-  {
+Component({
+  props: RareWordsKeyboardProps,
+  data: {
+    loading: false,
+    inputValue: [], // 已输入的字符数组
+    displayStr: '', // 已输入的字符串
+    matchWordsList: [], // 候选字列表
+    showMoreWords: false, // 是否展示更多候选字
+    pinyinMaps: PINYIN_MAP, // 拼音键盘
+    maxDisplayNum: 0, // 一行最多展示的字数
+    showErrorPage: false, // 是否展示错误页
+  },
+  methods: {
     getInstance() {
       if (this.$id) {
         return my;
@@ -121,29 +131,16 @@ Component(
       this.handleHide();
     },
   },
-  {
-    loading: false,
-    inputValue: [], // 已输入的字符数组
-    displayStr: '', // 已输入的字符串
-    matchWordsList: [], // 候选字列表
-    showMoreWords: false, // 是否展示更多候选字
-    pinyinMaps: PINYIN_MAP, // 拼音键盘
-    maxDisplayNum: 0, // 一行最多展示的字数
-    showErrorPage: false, // 是否展示错误页
+  /// #if ALIPAY
+  didMount() {
+    this.loadFont();
+    this.computeMaxDisplayNum();
   },
-  null,
-  {
-    /// #if ALIPAY
-    didMount() {
-      this.loadFont();
-      this.computeMaxDisplayNum();
-    },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.loadFont();
-      this.computeMaxDisplayNum();
-    },
-    /// #endif
-  }
-);
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.loadFont();
+    this.computeMaxDisplayNum();
+  },
+  /// #endif
+});

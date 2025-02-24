@@ -215,18 +215,22 @@ export class StoreBinder<S, M extends TMapState<S>> {
 
 function ComponentImpl<
   Props,
-  Methods = unknown,
   Data = unknown,
+  Methods = unknown,
   Mixins = unknown,
   InstanceMethods = unknown
->(
-  defaultProps: Props,
-  methods?: Methods &
-    ThisType<ComponentInstance<Props, Methods, Data, Mixins, InstanceMethods>>,
-  data?: Data & any,
-  mixins?: Mixins & any,
-  instanceMethods?: InstanceMethods & any
-) {
+>({
+  props: defaultProps,
+  data,
+  methods,
+  mixins,
+  ...instanceMethods
+}: {
+  props?: Props;
+  data?: Data;
+  methods?: Methods;
+  mixins?: Mixins & any;
+} & InstanceMethods) {
   /// #if WECHAT
   Component({
     properties: buildProperties(mergeDefaultProps(defaultProps)),

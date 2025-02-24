@@ -2,20 +2,11 @@
 import { Component, triggerEvent } from '../_util/simply';
 import { WelcomeProps } from './props';
 
-Component(
-  WelcomeProps,
-  // methods
-  {
+Component({
+  props: WelcomeProps,
+  methods: {
     onContentTap(e) {
-      if (this.props.onTap) {
-        triggerEvent(this, 'tap', e);
-      }
+      triggerEvent(this, 'tap', e);
     },
   },
-  // data
-  {},
-  // mixins
-  undefined,
-  // 生命周期方法
-  {}
-);
+});

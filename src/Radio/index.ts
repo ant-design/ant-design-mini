@@ -1,10 +1,10 @@
+import mixinValue from '../mixins/value';
 import { Component, triggerEvent } from '../_util/simply';
 import { RadioDefaultProps } from './props';
-import mixinValue from '../mixins/value';
 
-Component(
-  RadioDefaultProps,
-  {
+Component({
+  props: RadioDefaultProps,
+  methods: {
     /// #if ALIPAY
     onChange(e) {
       const value = e.detail.value;
@@ -28,11 +28,10 @@ Component(
 
     /// #endif
   },
-  null,
-  [
+  mixins: [
     mixinValue({
       valueKey: 'checked',
       defaultValueKey: 'defaultChecked',
     }),
-  ]
-);
+  ],
+});

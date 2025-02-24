@@ -3,9 +3,9 @@ import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
 import { StepperDefaultProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
 
-Component(
-  StepperDefaultProps,
-  {
+Component({
+  props: StepperDefaultProps,
+  methods: {
     onFocus(e) {
       const value = this.getValue();
       triggerEvent(this, 'focus', value === '' ? null : Number(value), e);
@@ -85,8 +85,7 @@ Component(
       }
     },
   },
-  undefined,
-  [
+  mixins: [
     mixinValue({
       transformValue(num, extra, precision) {
         const [min, max, step, precisionFormProps] = getValueFromProps(this, [
@@ -113,5 +112,5 @@ Component(
         };
       },
     }),
-  ]
-);
+  ],
+});

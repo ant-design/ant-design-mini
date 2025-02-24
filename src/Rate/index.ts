@@ -1,11 +1,12 @@
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { RateDefaultProps } from './props';
 import createValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { RateDefaultProps } from './props';
 
-Component(
-  RateDefaultProps,
-  {
+Component({
+  props: RateDefaultProps,
+  data: { displayValue: null },
+  methods: {
     getInstance() {
       if (this.$id) {
         return my;
@@ -107,8 +108,7 @@ Component(
       }
     },
   },
-  { displayValue: null },
-  [
+  mixins: [
     createValue({
       transformValue(value) {
         const allowHalf = getValueFromProps(this, 'allowHalf');
@@ -124,5 +124,5 @@ Component(
         };
       },
     }),
-  ]
-);
+  ],
+});

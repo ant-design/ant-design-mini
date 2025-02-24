@@ -1,13 +1,17 @@
 import {
   Component,
-  triggerEventOnly,
   getValueFromProps,
+  triggerEventOnly,
 } from '../_util/simply';
 import { ToastDefaultProps } from './props';
 
-Component(
-  ToastDefaultProps,
-  {
+Component({
+  props: ToastDefaultProps,
+  data: {
+    show: false,
+  },
+  timer: null,
+  methods: {
     closeMask() {
       if (this.timer) {
         clearTimeout(this.timer);
@@ -37,52 +41,44 @@ Component(
       }
     },
   },
-  {
-    show: false,
+  /// #if ALIPAY
+  didUpdate(prev) {
+    const visible = getValueFromProps(this, 'visible');
+    if (!prev.visible && visible) {
+      this.handleShowToast();
+    } else if (!visible && this.data.show) {
+      this.closeMask();
+    }
   },
-  undefined,
-  {
-    timer: null,
+  didMount() {
+    const visible = getValueFromProps(this, 'visible');
+    if (visible) {
+      this.handleShowToast();
+    }
+  },
+  /// #endif
 
-    /// #if ALIPAY
-    didUpdate(prev) {
-      const visible = getValueFromProps(this, 'visible');
-      if (!prev.visible && visible) {
+  /// #if WECHAT
+  observers: {
+    'visible': function (visible) {
+      if (visible) {
         this.handleShowToast();
       } else if (!visible && this.data.show) {
         this.closeMask();
       }
     },
-    didMount() {
-      const visible = getValueFromProps(this, 'visible');
-      if (visible) {
-        this.handleShowToast();
-      }
+    'content': function (content) {
+      this.setData({
+        displayContent:
+          content === 'string' ? content.substring(0, 24) : content,
+      });
     },
-    /// #endif
-
-    /// #if WECHAT
-    observers: {
-      'visible': function (visible) {
-        if (visible) {
-          this.handleShowToast();
-        } else if (!visible && this.data.show) {
-          this.closeMask();
-        }
-      },
-      'content': function (content) {
-        this.setData({
-          displayContent:
-            content === 'string' ? content.substring(0, 24) : content,
-        });
-      },
-    },
-    attached() {
-      const visible = getValueFromProps(this, 'visible');
-      if (visible) {
-        this.handleShowToast();
-      }
-    },
-    /// #endif
-  }
-);
+  },
+  attached() {
+    const visible = getValueFromProps(this, 'visible');
+    if (visible) {
+      this.handleShowToast();
+    }
+  },
+  /// #endif
+});

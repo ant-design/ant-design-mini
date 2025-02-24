@@ -8,9 +8,13 @@ import { PopupDefaultProps } from './props';
 
 const isOldVersion = isOldSDKVersion();
 
-Component(
-  PopupDefaultProps,
-  {
+Component({
+  props: PopupDefaultProps,
+  data: {
+    closing: false,
+    isOldVersion,
+  },
+  methods: {
     onClickCloseIcon() {
       const { closing } = this.data;
       if (closing) {
@@ -44,55 +48,49 @@ Component(
       }
     },
   },
-  {
-    closing: false,
-    isOldVersion,
-  },
-  undefined,
-  {
-    /// #if ALIPAY
-    async deriveDataFromProps(nextProps) {
-      const [visible, duration, animation] = getValueFromProps(this, [
-        'visible',
-        'duration',
-        'animation',
-      ]);
-      const enableAnimation = animation && duration > 0;
 
-      if (
-        nextProps.visible !== visible &&
-        enableAnimation &&
-        !nextProps.visible &&
-        !this.data.closing
-      ) {
+  /// #if ALIPAY
+  async deriveDataFromProps(nextProps) {
+    const [visible, duration, animation] = getValueFromProps(this, [
+      'visible',
+      'duration',
+      'animation',
+    ]);
+    const enableAnimation = animation && duration > 0;
+
+    if (
+      nextProps.visible !== visible &&
+      enableAnimation &&
+      !nextProps.visible &&
+      !this.data.closing
+    ) {
+      this.setData({ closing: true });
+    }
+  },
+  didUpdate(prevProps) {
+    const [visible, duration, animation] = getValueFromProps(this, [
+      'visible',
+      'duration',
+      'animation',
+    ]);
+    const enableAnimation = animation && duration > 0;
+    if (prevProps.visible !== visible && !enableAnimation) {
+      triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  observers: {
+    'visible': function (nextProps) {
+      const { visible, duration, animation } = nextProps;
+      const enableAnimation = animation && duration > 0;
+      if (enableAnimation && !visible && !this.data.closing) {
         this.setData({ closing: true });
       }
-    },
-    didUpdate(prevProps) {
-      const [visible, duration, animation] = getValueFromProps(this, [
-        'visible',
-        'duration',
-        'animation',
-      ]);
-      const enableAnimation = animation && duration > 0;
-      if (prevProps.visible !== visible && !enableAnimation) {
+      if (!enableAnimation) {
         triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
       }
     },
-    /// #endif
-    /// #if WECHAT
-    observers: {
-      'visible': function (nextProps) {
-        const { visible, duration, animation } = nextProps;
-        const enableAnimation = animation && duration > 0;
-        if (enableAnimation && !visible && !this.data.closing) {
-          this.setData({ closing: true });
-        }
-        if (!enableAnimation) {
-          triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

@@ -1,11 +1,11 @@
-import { Component, triggerEventValues } from '../../_util/simply';
 import { resolveEventValues } from '../../_util/platform';
-import { FormSelectorDefaultProps } from './props';
+import { Component, triggerEventValues } from '../../_util/simply';
 import { createForm } from '../form';
+import { FormSelectorDefaultProps } from './props';
 
-Component(
-  FormSelectorDefaultProps,
-  {
+Component({
+  props: FormSelectorDefaultProps,
+  methods: {
     onChange(value, item, e) {
       const v = resolveEventValues(value, item);
       this.emit('onChange', v[0]);
@@ -18,6 +18,5 @@ Component(
       triggerEventValues(this, 'selectMin', resolveEventValues(value, item), e);
     },
   },
-  null,
-  [createForm()]
-);
+  mixins: [createForm()],
+});

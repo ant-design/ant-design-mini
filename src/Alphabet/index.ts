@@ -2,8 +2,8 @@ import { Component, getValueFromProps } from '../_util/simply';
 
 let d = false;
 
-Component(
-  {
+Component({
+  props: {
     /** 字母表 */
     alphabet: [],
 
@@ -13,7 +13,7 @@ Component(
       return _item;
     },
   },
-  {
+  methods: {
     onTouchStart(e: any) {
       if (this.data.moving) return;
       const alphabet = getValueFromProps(this, 'alphabet');
@@ -79,20 +79,19 @@ Component(
       onScrollIntoView && onScrollIntoView(item);
     },
   },
-  {
-    /** 按下触摸点的高度 */
-    touchClientY: 0,
 
-    /** 选中字母的下标 */
-    touchKeyIndex: -1,
+  /** 按下触摸点的高度 */
+  touchClientY: 0,
 
-    /** 选中的字母 */
-    touchKey: '',
+  /** 选中字母的下标 */
+  touchKeyIndex: -1,
 
-    /** 每个字母的高度 */
-    itemScrollHeight: 16,
+  /** 选中的字母 */
+  touchKey: '',
 
-    /** 是否正在滚动 */
-    moving: false,
-  }
-);
+  /** 每个字母的高度 */
+  itemScrollHeight: 16,
+
+  /** 是否正在滚动 */
+  moving: false,
+});

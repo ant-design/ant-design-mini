@@ -1,11 +1,15 @@
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
-import { CollapseDefaultProps } from './props';
-import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import createValue from '../mixins/value';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { CollapseDefaultProps } from './props';
 
-Component(
-  CollapseDefaultProps,
-  {
+Component({
+  props: CollapseDefaultProps,
+  data: {
+    contentHeight: [],
+    hasChange: false,
+  },
+  methods: {
     getInstance() {
       if (this.$id) {
         return my;
@@ -122,11 +126,8 @@ Component(
       });
     },
   },
-  {
-    contentHeight: [],
-    hasChange: false,
-  },
-  [
+
+  mixins: [
     createValue({
       valueKey: 'current',
       defaultValueKey: 'defaultCurrent',
@@ -142,61 +143,57 @@ Component(
       },
     }),
   ],
-  {
-    /// #if ALIPAY
-    didUpdate(prevProps, prevData) {
-      console.log(
-        prevProps.items !== this.props.items,
-        !this.isEqualValue(prevData)
-      );
-      if (
-        prevProps.items !== this.props.items ||
-        !this.isEqualValue(prevData)
-      ) {
+
+  /// #if ALIPAY
+  didUpdate(prevProps, prevData) {
+    console.log(
+      prevProps.items !== this.props.items,
+      !this.isEqualValue(prevData)
+    );
+    if (prevProps.items !== this.props.items || !this.isEqualValue(prevData)) {
+      this.updateContentHeight(this.getValue(prevData), this.getValue());
+    }
+  },
+  didMount() {
+    const current = this.getValue();
+    const contentHeight = this.props.items.map((item, index) => {
+      if (current.indexOf(index) >= 0) {
+        return '';
+      }
+      return '0px';
+    });
+    this.setData({
+      hasChange: true,
+      contentHeight,
+    });
+  },
+  /// #endif
+
+  /// #if WECHAT
+  observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      if (prevData.items !== data.items || !this.isEqualValue(prevData)) {
         this.updateContentHeight(this.getValue(prevData), this.getValue());
       }
     },
-    didMount() {
-      const current = this.getValue();
-      const contentHeight = this.props.items.map((item, index) => {
-        if (current.indexOf(index) >= 0) {
-          return '';
-        }
-        return '0px';
-      });
-      this.setData({
-        hasChange: true,
-        contentHeight,
-      });
-    },
-    /// #endif
+  },
 
-    /// #if WECHAT
-    observers: {
-      '**': function (data) {
-        const prevData = this._prevData || this.data;
-        this._prevData = { ...data };
-        if (prevData.items !== data.items || !this.isEqualValue(prevData)) {
-          this.updateContentHeight(this.getValue(prevData), this.getValue());
-        }
-      },
-    },
+  attached() {
+    const current = this.getValue();
+    const contentHeight = this.properties.items.map((item, index) => {
+      if (current.indexOf(index) >= 0) {
+        return '';
+      }
+      return '0px';
+    });
+    this.setData({
+      hasChange: true,
+      contentHeight,
+    });
 
-    attached() {
-      const current = this.getValue();
-      const contentHeight = this.properties.items.map((item, index) => {
-        if (current.indexOf(index) >= 0) {
-          return '';
-        }
-        return '0px';
-      });
-      this.setData({
-        hasChange: true,
-        contentHeight,
-      });
-
-      this._prevData = this.data;
-    },
-    /// #endif
-  }
-);
+    this._prevData = this.data;
+  },
+  /// #endif
+});
