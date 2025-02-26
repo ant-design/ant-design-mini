@@ -15,7 +15,7 @@
       >
         <!-- 必填小红点 -->
         <view a:if="{{ finalRequired && finalRequiredMarkStyle === 'asterisk' }}" class="fr-form-item-label-text-asterisk">*</view>
-        {{ `${label}{${labelExtra}}` }}
+        {{ `${label}${labelExtra}` }}
         <popover
           content="{{ tips }}"
           a:if="{{ tips }}"
