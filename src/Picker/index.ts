@@ -16,16 +16,29 @@ import {
   getStrictMatchedItemByValue,
 } from './utils';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  PickerDefaultProps,
-  {
+  props: PickerDefaultProps,
+  data: {
+    formatValue: '',
+    columns: [],
+    visible: false,
+    selectedIndex: [],
+    locale: {
+      locale: '23123',
+      global: {},
+    },
+  },
+  tempSelectedIndex: null,
+  single: false,
+  isChangingPickerView: false,
+  methods: {
     // visible受控判断
     isVisibleControlled() {
       /// #if ALIPAY
@@ -204,17 +217,8 @@ ComponentWithSignalStoreImpl(
       triggerEventValues(this, 'ok', [matchedValues, matchedColumn]);
     },
   },
-  {
-    formatValue: '',
-    columns: [],
-    visible: false,
-    selectedIndex: [],
-    locale: {
-      locale: '23123',
-      global: {},
-    },
-  },
-  [
+
+  mixins: [
     mixinValue({
       transformValue(value) {
         return {
@@ -224,117 +228,110 @@ ComponentWithSignalStoreImpl(
       },
     }),
   ],
-  {
-    tempSelectedIndex: null,
-    single: false,
-    isChangingPickerView: false,
-    /// #if ALIPAY
-    onInit() {
-      this.initData();
-    },
-    didUpdate(prevProps) {
-      const options = getValueFromProps(this, 'options');
-      if (!equal(options, prevProps.options)) {
-        const newColums = this.getterColumns(options);
-        this.setData(
-          {
-            columns: newColums,
-          },
-          () => {
-            // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
-            if (!this.isChangingPickerView) {
-              this.tempSelectedIndex = null;
-              const selectedIndex = this.getterSelectedIndex();
-              this.setData({
-                selectedIndex,
-              });
-            }
+
+  /// #if ALIPAY
+  onInit() {
+    this.initData();
+  },
+  didUpdate(prevProps) {
+    const options = getValueFromProps(this, 'options');
+    if (!equal(options, prevProps.options)) {
+      const newColums = this.getterColumns(options);
+      this.setData(
+        {
+          columns: newColums,
+        },
+        () => {
+          // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
+          if (!this.isChangingPickerView) {
+            this.tempSelectedIndex = null;
+            const selectedIndex = this.getterSelectedIndex();
+            this.setData({
+              selectedIndex,
+            });
           }
-        );
-      }
-      const value = getValueFromProps(this, 'value');
-      if (!equal(prevProps.value, value)) {
-        const selectedIndex = this.getterSelectedIndex();
-        this.tempSelectedIndex = null;
+        }
+      );
+    }
+    const value = getValueFromProps(this, 'value');
+    if (!equal(prevProps.value, value)) {
+      const selectedIndex = this.getterSelectedIndex();
+      this.tempSelectedIndex = null;
+      this.setData({
+        selectedIndex,
+      });
+    }
+    const visible = getValueFromProps(this, 'visible');
+    if (!equal(prevProps.visible, visible)) {
+      this.setData({ visible });
+    }
+    const formatValue = this.getterFormatText();
+    const formattedValueText = getValueFromProps(this, 'formattedValueText');
+    if (
+      formatValue !== this.data.formatValue ||
+      prevProps.formattedValueText !== formattedValueText
+    ) {
+      this.setData({
+        formatValue,
+      });
+    }
+    this.isChangingPickerView = false;
+  },
+  /// #endif
+  /// #if WECHAT
+  created() {
+    this.initData();
+  },
+  observers: {
+    'options': function () {
+      const options = getValueFromProps(this, 'options');
+      const newColums = this.getterColumns(options);
+      this.setData(
+        {
+          columns: newColums,
+        },
+        () => {
+          // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
+          if (!this.isChangingPickerView) {
+            this.tempSelectedIndex = null;
+            const selectedIndex = this.getterSelectedIndex();
+            this.setData({
+              selectedIndex,
+            });
+          }
+          this.isChangingPickerView = false;
+        }
+      );
+    },
+    'value': function () {
+      const selectedIndex = this.getterSelectedIndex();
+      this.tempSelectedIndex = null;
+      this.setData({
+        selectedIndex,
+      });
+    },
+    'visible': function () {
+      const visible = getValueFromProps(this, 'visible');
+      if (this.data.visible !== visible) {
         this.setData({
-          selectedIndex,
+          visible,
         });
       }
-      const visible = getValueFromProps(this, 'visible');
-      if (!equal(prevProps.visible, visible)) {
-        this.setData({ visible });
-      }
-      const formatValue = this.getterFormatText();
+    },
+    'formattedValueText': function () {
       const formattedValueText = getValueFromProps(this, 'formattedValueText');
-      if (
-        formatValue !== this.data.formatValue ||
-        prevProps.formattedValueText !== formattedValueText
-      ) {
+      this.setData({
+        formatValue: formattedValueText,
+      });
+    },
+    '**': function () {
+      const formatValue = this.getterFormatText();
+      if (formatValue !== this.data.formatValue) {
         this.setData({
           formatValue,
         });
       }
-      this.isChangingPickerView = false;
     },
-    /// #endif
-    /// #if WECHAT
-    created() {
-      this.initData();
-    },
-    observers: {
-      'options': function () {
-        const options = getValueFromProps(this, 'options');
-        const newColums = this.getterColumns(options);
-        this.setData(
-          {
-            columns: newColums,
-          },
-          () => {
-            // 如果是在滚动过程中columns发生变化，以onChange里抛出的selectedIndex为准
-            if (!this.isChangingPickerView) {
-              this.tempSelectedIndex = null;
-              const selectedIndex = this.getterSelectedIndex();
-              this.setData({
-                selectedIndex,
-              });
-            }
-            this.isChangingPickerView = false;
-          }
-        );
-      },
-      'value': function () {
-        const selectedIndex = this.getterSelectedIndex();
-        this.tempSelectedIndex = null;
-        this.setData({
-          selectedIndex,
-        });
-      },
-      'visible': function () {
-        const visible = getValueFromProps(this, 'visible');
-        if (this.data.visible !== visible) {
-          this.setData({
-            visible,
-          });
-        }
-      },
-      'formattedValueText': function () {
-        const formattedValueText = getValueFromProps(
-          this,
-          'formattedValueText'
-        );
-        this.setData({
-          formatValue: formattedValueText,
-        });
-      },
-      '**': function () {
-        const formatValue = this.getterFormatText();
-        if (formatValue !== this.data.formatValue) {
-          this.setData({
-            formatValue,
-          });
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

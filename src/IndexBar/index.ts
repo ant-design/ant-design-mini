@@ -10,9 +10,20 @@ import {
 } from '../_util/simply';
 import { IndexBarDefaultProps } from './props';
 
-Component(
-  IndexBarDefaultProps,
-  {
+Component({
+  props: IndexBarDefaultProps,
+  data: {
+    touchClientY: 0, // 按下触摸点所处页面的高度
+    touchKeyIndex: -1, // 选中的字母
+    touchKey: '', // 触发的key
+    itemHeight: 16, // 每个字母的高度
+    moving: false, // 滑动进行时
+    showMask: false, // 打开遮罩，防止和页面的滑动重叠了
+    currentKey: 0,
+    topRange: [],
+    hasDefaultSlot: true,
+  },
+  methods: {
     getInstance() {
       if (this.$id) {
         return my;
@@ -154,68 +165,55 @@ Component(
       this.setData({ topRange: arr, hasDefaultSlot: !!ret[0].height });
     },
   },
-  {
-    touchClientY: 0, // 按下触摸点所处页面的高度
-    touchKeyIndex: -1, // 选中的字母
-    touchKey: '', // 触发的key
-    itemHeight: 16, // 每个字母的高度
-    moving: false, // 滑动进行时
-    showMask: false, // 打开遮罩，防止和页面的滑动重叠了
-    currentKey: 0,
-    topRange: [],
-    hasDefaultSlot: true,
+
+  /// #if ALIPAY
+  didMount() {
+    this.init(getValueFromProps(this));
   },
-  undefined,
-  {
-    /// #if ALIPAY
-    didMount() {
-      this.init(getValueFromProps(this));
-    },
-    deriveDataFromProps(nextProps) {
-      const _prop = getValueFromProps(this);
-      const { current, items } = nextProps;
-      if (!equal(_prop.items, nextProps.items)) {
-        this.init(nextProps);
+  deriveDataFromProps(nextProps) {
+    const _prop = getValueFromProps(this);
+    const { current, items } = nextProps;
+    if (!equal(_prop.items, nextProps.items)) {
+      this.init(nextProps);
+    }
+    if (_prop.current !== current) {
+      const _index = items?.findIndex((u) => current === u.label);
+      this.setData({
+        currentKey: _index,
+      });
+      if (!this.isControlled(nextProps)) {
+        this.setData({
+          touchKeyIndex: _index,
+          touchKey: current,
+        });
       }
-      if (_prop.current !== current) {
-        const _index = items?.findIndex((u) => current === u.label);
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.init(getValueFromProps(this));
+  },
+  observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      if (!equal(prevData.items, data.items)) {
+        this.init(data.items);
+      }
+      if (!equal(prevData.current, data.current)) {
+        const _index = data.items.findIndex((u) => data.current === u.label);
         this.setData({
           currentKey: _index,
         });
-        if (!this.isControlled(nextProps)) {
+        if (!this.isControlled(data)) {
           this.setData({
             touchKeyIndex: _index,
-            touchKey: current,
+            touchKey: data.current,
           });
         }
       }
     },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.init(getValueFromProps(this));
-    },
-    observers: {
-      '**': function (data) {
-        const prevData = this._prevData || this.data;
-        this._prevData = { ...data };
-        if (!equal(prevData.items, data.items)) {
-          this.init(data.items);
-        }
-        if (!equal(prevData.current, data.current)) {
-          const _index = data.items.findIndex((u) => data.current === u.label);
-          this.setData({
-            currentKey: _index,
-          });
-          if (!this.isControlled(data)) {
-            this.setData({
-              touchKeyIndex: _index,
-              touchKey: data.current,
-            });
-          }
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

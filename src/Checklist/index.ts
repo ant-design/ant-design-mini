@@ -1,14 +1,14 @@
+import mixinValue from '../mixins/value';
 import {
   Component,
-  triggerEventValues,
   getValueFromProps,
+  triggerEventValues,
 } from '../_util/simply';
 import { ChecklistDefaultProps } from './props';
-import mixinValue from '../mixins/value';
 
-Component(
-  ChecklistDefaultProps,
-  {
+Component({
+  props: ChecklistDefaultProps,
+  methods: {
     onChange(item) {
       const [multiple, options] = getValueFromProps(this, [
         'multiple',
@@ -46,8 +46,8 @@ Component(
       }
     },
   },
-  null,
-  [
+
+  mixins: [
     mixinValue({
       transformValue(val) {
         const value = val || [];
@@ -57,5 +57,5 @@ Component(
         };
       },
     }),
-  ]
-);
+  ],
+});

@@ -17,9 +17,15 @@ const rpx2px = (rpx, windowWidth = 375) => {
 
 const defaultWidth = 150;
 
-Component(
-  TableDefaultProps,
-  {
+Component({
+  props: TableDefaultProps,
+  data: {
+    widthPx: 0,
+    list: [],
+    showFixedShadow: false,
+  },
+  sysInfo: Promise.resolve({} as any),
+  methods: {
     async init() {
       const [columns, dataSource] = getValueFromProps(this, [
         'columns',
@@ -146,42 +152,33 @@ Component(
       return this.sysInfo;
     },
   },
-  {
-    widthPx: 0,
-    list: [],
-    showFixedShadow: false,
+  /// #if ALIPAY
+  onInit() {
+    this.init();
   },
-  undefined,
-  {
-    sysInfo: Promise.resolve({} as any),
-    /// #if ALIPAY
-    onInit() {
-      this.init();
-    },
-    didUpdate(prevProps) {
-      const { dataSource: prevDataSource, columns: prevColumns } = prevProps;
-      const [columns, dataSource] = getValueFromProps(this, [
-        'columns',
-        'dataSource',
-      ]);
+  didUpdate(prevProps) {
+    const { dataSource: prevDataSource, columns: prevColumns } = prevProps;
+    const [columns, dataSource] = getValueFromProps(this, [
+      'columns',
+      'dataSource',
+    ]);
 
-      if (!equal(prevDataSource, dataSource) || !equal(prevColumns, columns)) {
-        this.init();
-      }
-    },
-    /// #endif
-    /// #if WECHAT
-    created() {
+    if (!equal(prevDataSource, dataSource) || !equal(prevColumns, columns)) {
+      this.init();
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  created() {
+    this.init();
+  },
+  observers: {
+    'dataSource': function () {
       this.init();
     },
-    observers: {
-      'dataSource': function () {
-        this.init();
-      },
-      'columns': function () {
-        this.init();
-      },
+    'columns': function () {
+      this.init();
     },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

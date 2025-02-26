@@ -1,12 +1,12 @@
 import {
   Component,
-  triggerEventOnly,
   triggerCatchEvent,
+  triggerEventOnly,
 } from '../../_util/simply';
 import { IListItemProps } from './props';
 
-Component<IListItemProps>(
-  {
+Component<IListItemProps>({
+  props: {
     image: '',
     title: '',
     brief: '',
@@ -16,7 +16,7 @@ Component<IListItemProps>(
     disabled: false,
     showDivider: true,
   },
-  {
+  methods: {
     /// #if ALIPAY
     onTap(e) {
       if (this.props.disabled) {
@@ -31,5 +31,5 @@ Component<IListItemProps>(
       triggerCatchEvent(this, 'catchTap', e);
     },
     /// #endif
-  }
-);
+  },
+});

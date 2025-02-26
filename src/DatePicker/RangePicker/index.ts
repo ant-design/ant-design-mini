@@ -20,16 +20,26 @@ import {
 } from '../util';
 import { DateRangePickerDefaultProps } from './props';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  DateRangePickerDefaultProps,
-  {
+  props: DateRangePickerDefaultProps,
+  data: {
+    currentValue: [], // 当前picker选中值，didmount、弹窗打开、切换开始结束、picker变化时更新
+    columns: [], // 当前可选项，didmound、弹窗打开、切换开始结束、picker变化时更新
+    pickerType: 'start' as 'start' | 'end',
+    currentStartDate: null, // 展开时开始时间，date格式，有value，则取value[0]，否则取当天，需要判断当天是否在可选范围内
+    currentEndDate: null, // 展开时开始时间，date格式，有value，则取value[1]，否则取开始时间
+    forceUpdate: 0, // 强制更新picker组件，已知需处理的情况：value超限，但是需要更新format，由于picker的参数均未变化，无法触发picker的渲染
+    formattedValueText: '',
+  },
+  pickerVisible: false,
+  methods: {
     // visible受控判断
     isVisibleControlled() {
       /// #if ALIPAY
@@ -309,16 +319,7 @@ ComponentWithSignalStoreImpl(
       }
     },
   },
-  {
-    currentValue: [], // 当前picker选中值，didmount、弹窗打开、切换开始结束、picker变化时更新
-    columns: [], // 当前可选项，didmound、弹窗打开、切换开始结束、picker变化时更新
-    pickerType: 'start' as 'start' | 'end',
-    currentStartDate: null, // 展开时开始时间，date格式，有value，则取value[0]，否则取当天，需要判断当天是否在可选范围内
-    currentEndDate: null, // 展开时开始时间，date格式，有value，则取value[1]，否则取开始时间
-    forceUpdate: 0, // 强制更新picker组件，已知需处理的情况：value超限，但是需要更新format，由于picker的参数均未变化，无法触发picker的渲染
-    formattedValueText: '',
-  },
-  [
+  mixins: [
     mixinValue({
       transformValue(value) {
         return {
@@ -332,78 +333,75 @@ ComponentWithSignalStoreImpl(
     }),
     computed(),
   ],
-  {
-    pickerVisible: false,
-    /// #if ALIPAY
-    didMount() {
-      this.pickerVisible = false;
-      const [visible, defaultVisible] = getValueFromProps(this, [
-        'visible',
-        'defaultVisible',
-      ]);
+  /// #if ALIPAY
+  didMount() {
+    this.pickerVisible = false;
+    const [visible, defaultVisible] = getValueFromProps(this, [
+      'visible',
+      'defaultVisible',
+    ]);
+    this.setData({
+      visible: this.isVisibleControlled() ? visible : defaultVisible,
+      formattedValueText: this.onFormat(),
+    });
+  },
+
+  didUpdate(prevProps, prevData) {
+    const currentProps = getValueFromProps(this);
+    const visible = getValueFromProps(this, 'visible');
+    if (this.isVisibleControlled() && !equal(prevProps.visible, visible)) {
+      this.setData({ visible });
+      this.setCurrentValue(currentProps);
+      this.pickerVisible = visible;
+    }
+
+    if (!this.isEqualValue(prevData)) {
       this.setData({
-        visible: this.isVisibleControlled() ? visible : defaultVisible,
+        forceUpdate: this.data.forceUpdate + 1,
         formattedValueText: this.onFormat(),
       });
-    },
-
-    didUpdate(prevProps, prevData) {
+      if (this.pickerVisible) {
+        // 展开状态才更新picker的数据，否则下次triggerVisible触发
+        this.setCurrentValue(currentProps);
+      }
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  created() {
+    this.pickerVisible = false;
+    const [visible, defaultVisible] = getValueFromProps(this, [
+      'visible',
+      'defaultVisible',
+    ]);
+    this.setData({
+      visible: this.isVisibleControlled() ? visible : defaultVisible,
+      formattedValueText: this.onFormat(),
+    });
+  },
+  observers: {
+    'visible': function (data) {
+      const prevVisible = this._prevVisible;
+      this._prevVisible = data;
       const currentProps = getValueFromProps(this);
       const visible = getValueFromProps(this, 'visible');
-      if (this.isVisibleControlled() && !equal(prevProps.visible, visible)) {
+      if (this.isVisibleControlled() && prevVisible !== visible) {
         this.setData({ visible });
         this.setCurrentValue(currentProps);
         this.pickerVisible = visible;
       }
-
-      if (!this.isEqualValue(prevData)) {
-        this.setData({
-          forceUpdate: this.data.forceUpdate + 1,
-          formattedValueText: this.onFormat(),
-        });
-        if (this.pickerVisible) {
-          // 展开状态才更新picker的数据，否则下次triggerVisible触发
-          this.setCurrentValue(currentProps);
-        }
-      }
     },
-    /// #endif
-    /// #if WECHAT
-    created() {
-      this.pickerVisible = false;
-      const [visible, defaultVisible] = getValueFromProps(this, [
-        'visible',
-        'defaultVisible',
-      ]);
+    'mixin.value': function () {
+      const currentProps = getValueFromProps(this);
       this.setData({
-        visible: this.isVisibleControlled() ? visible : defaultVisible,
+        forceUpdate: this.data.forceUpdate + 1,
         formattedValueText: this.onFormat(),
       });
+      if (this.pickerVisible) {
+        // 展开状态才更新picker的数据，否则下次triggerVisible触发
+        this.setCurrentValue(currentProps);
+      }
     },
-    observers: {
-      'visible': function (data) {
-        const prevVisible = this._prevVisible;
-        this._prevVisible = data;
-        const currentProps = getValueFromProps(this);
-        const visible = getValueFromProps(this, 'visible');
-        if (this.isVisibleControlled() && prevVisible !== visible) {
-          this.setData({ visible });
-          this.setCurrentValue(currentProps);
-          this.pickerVisible = visible;
-        }
-      },
-      'mixin.value': function () {
-        const currentProps = getValueFromProps(this);
-        this.setData({
-          forceUpdate: this.data.forceUpdate + 1,
-          formattedValueText: this.onFormat(),
-        });
-        if (this.pickerVisible) {
-          // 展开状态才更新picker的数据，否则下次triggerVisible触发
-          this.setCurrentValue(currentProps);
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

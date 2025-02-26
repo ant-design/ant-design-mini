@@ -1,10 +1,10 @@
-import { Component, triggerEvent, getValueFromProps } from '../../_util/simply';
-import { CheckboxGroupDefaultProps } from './props';
 import mixinValue from '../../mixins/value';
+import { Component, getValueFromProps, triggerEvent } from '../../_util/simply';
+import { CheckboxGroupDefaultProps } from './props';
 
-Component(
-  CheckboxGroupDefaultProps,
-  {
+Component({
+  props: CheckboxGroupDefaultProps,
+  methods: {
     onChange(args, e) {
       if (getValueFromProps(this, 'disabled')) {
         return;
@@ -30,8 +30,8 @@ Component(
       triggerEvent(this, 'change', currentValue, e);
     },
   },
-  null,
-  [
+
+  mixins: [
     mixinValue({
       transformValue(val) {
         const value = val || [];
@@ -41,5 +41,5 @@ Component(
         };
       },
     }),
-  ]
-);
+  ],
+});

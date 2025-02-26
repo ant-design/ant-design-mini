@@ -10,9 +10,16 @@ import { CountdownDefaultProps } from './props';
 
 dayjs.extend(duration);
 
-Component(
-  CountdownDefaultProps,
-  {
+Component({
+  props: CountdownDefaultProps,
+  data: {
+    countdownDay: null, // 注意这些倒计时相关的都应该是字符串
+    countdownHour: null, // 倒计时小时 注意都用字符串，避免0被判false的问题
+    countdownMin: null, // 倒计时分钟
+    countdownSec: null, // 倒计时秒
+    showDecisecond: true, // 倒计时结束时不展示秒后一位(厘秒)
+  },
+  methods: {
     init() {
       const [
         countdownStartTime,
@@ -159,52 +166,43 @@ Component(
       }
     },
   },
-  {
-    countdownDay: null, // 注意这些倒计时相关的都应该是字符串
-    countdownHour: null, // 倒计时小时 注意都用字符串，避免0被判false的问题
-    countdownMin: null, // 倒计时分钟
-    countdownSec: null, // 倒计时秒
-    showDecisecond: true, // 倒计时结束时不展示秒后一位(厘秒)
+
+  /// #if ALIPAY
+  onInit() {
+    this.init();
   },
-  undefined,
-  {
-    /// #if ALIPAY
-    onInit() {
-      this.init();
-    },
-    didUnmount() {
-      clearInterval(this.intervalId);
-      clearTimeout(this.timer);
-    },
-    didUpdate(prevProps) {
-      const autoShowDay = getValueFromProps(this, 'autoShowDay');
-      if (prevProps.autoShowDay !== autoShowDay) {
+  didUnmount() {
+    clearInterval(this.intervalId);
+    clearTimeout(this.timer);
+  },
+  didUpdate(prevProps) {
+    const autoShowDay = getValueFromProps(this, 'autoShowDay');
+    if (prevProps.autoShowDay !== autoShowDay) {
+      this.setData({
+        showDay: autoShowDay ? this.data.countdownDay !== '0' : true,
+      });
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.init();
+  },
+  detached() {
+    clearInterval(this.intervalId);
+    clearTimeout(this.timer);
+  },
+  observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      if (prevData.autoShowDay !== data.autoShowDay) {
         this.setData({
-          showDay: autoShowDay ? this.data.countdownDay !== '0' : true,
+          showDay: data.autoShowDay ? this.data.countdownDay !== '0' : true,
         });
       }
     },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.init();
-    },
-    detached() {
-      clearInterval(this.intervalId);
-      clearTimeout(this.timer);
-    },
-    observers: {
-      '**': function (data) {
-        const prevData = this._prevData || this.data;
-        this._prevData = { ...data };
-        if (prevData.autoShowDay !== data.autoShowDay) {
-          this.setData({
-            showDay: data.autoShowDay ? this.data.countdownDay !== '0' : true,
-          });
-        }
-      },
-    },
+  },
 
-    /// #endif
-  }
-);
+  /// #endif
+});

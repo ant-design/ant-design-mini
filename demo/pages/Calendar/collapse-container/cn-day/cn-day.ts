@@ -1,17 +1,22 @@
 import dayjs from 'dayjs';
 import equal from 'fast-deep-equal';
-import Converter from './js-calendar-converter';
 import { Component, getValueFromProps } from '../../../../../src/_util/simply';
+import Converter from './js-calendar-converter';
 
 interface Props {
   cell: any;
 }
 
-Component(
-  {
+Component({
+  props: {
     cell: null,
   } as Props,
-  {
+  data: {
+    cnday: '',
+    festival: '',
+    unset: '',
+  },
+  methods: {
     updateData() {
       const cell = getValueFromProps(this, 'cell');
       const time = dayjs(cell?.time);
@@ -33,37 +38,30 @@ Component(
       });
     },
   },
-  {
-    cnday: '',
-    festival: '',
-    unset: '',
+
+  /// #if ALIPAY
+  onInit() {
+    this.updateData();
   },
-  null,
-  {
-    /// #if ALIPAY
-    onInit() {
+  didUpdate(prevProps) {
+    const cell = getValueFromProps(this, 'cell');
+    if (!equal(prevProps.cell, cell)) {
       this.updateData();
-    },
-    didUpdate(prevProps) {
-      const cell = getValueFromProps(this, 'cell');
-      if (!equal(prevProps.cell, cell)) {
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.updateData();
+  },
+  observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      if (!equal(prevData.cell, data.cell)) {
         this.updateData();
       }
     },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.updateData();
-    },
-    observers: {
-      '**': function (data) {
-        const prevData = this._prevData || this.data;
-        this._prevData = { ...data };
-        if (!equal(prevData.cell, data.cell)) {
-          this.updateData();
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

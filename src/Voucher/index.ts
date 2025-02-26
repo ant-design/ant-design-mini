@@ -2,9 +2,9 @@ import isFunction from 'lodash.isfunction';
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
 import { componentsProps } from './props';
 
-Component(
-  componentsProps,
-  {
+Component({
+  props: componentsProps,
+  methods: {
     getCurTapVoucher(event) {
       const { index } = event.currentTarget.dataset;
       const dataSource = getValueFromProps(this, 'dataSource');
@@ -25,7 +25,4 @@ Component(
       }
     },
   },
-  undefined,
-  undefined,
-  undefined
-);
+});

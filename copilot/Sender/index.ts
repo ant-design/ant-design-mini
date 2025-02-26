@@ -7,9 +7,10 @@ import {
 } from '../_util/simply';
 import { SenderProps } from './props';
 
-Component(
-  SenderProps,
-  {
+Component({
+  props: SenderProps,
+  multipleSlots: true,
+  methods: {
     handleMainBtn() {
       const [loading] = getValueFromProps(this, ['loading']);
       if (loading) {
@@ -39,9 +40,4 @@ Component(
       triggerEvent(this, 'blur');
     },
   },
-  {},
-  [],
-  {
-    multipleSlots: true,
-  }
-);
+});

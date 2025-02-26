@@ -1,12 +1,20 @@
-import { Component, triggerEvent, getValueFromProps } from '../_util/simply';
 import equal from 'fast-deep-equal';
-import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
-import { sliderDefaultProps, SliderValue } from './props';
 import createValue from '../mixins/value';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { sliderDefaultProps, SliderValue } from './props';
 
-Component(
-  sliderDefaultProps,
-  {
+Component({
+  props: sliderDefaultProps,
+  data: {
+    sliderLeft: 0,
+    sliderWidth: 0,
+    tickList: [],
+    changingStart: false,
+    changingEnd: false,
+  },
+  onChangeValue: undefined,
+  methods: {
     getInstance() {
       if (this.$id) {
         return my;
@@ -242,14 +250,7 @@ Component(
       this.onTouchChanged(e, 'end');
     },
   },
-  {
-    sliderLeft: 0,
-    sliderWidth: 0,
-    tickList: [],
-    changingStart: false,
-    changingEnd: false,
-  },
-  [
+  mixins: [
     createValue({
       transformValue(val, extra, needUpdate = true, emit) {
         const value = this.formatValue(val);
@@ -272,33 +273,34 @@ Component(
       },
     }),
   ],
-  {
-    onChangeValue: undefined,
-    /// #if ALIPAY
-    didUpdate(prevProps) {
-      const [min, max, step, range, showTicks, value] = getValueFromProps(
-        this,
-        ['min', 'max', 'step', 'range', 'showTicks', 'value']
-      );
-      if (
-        !equal(min, prevProps.min) ||
-        !equal(max, prevProps.max) ||
-        !equal(step, prevProps.step) ||
-        !equal(range, prevProps.range) ||
-        !equal(showTicks, prevProps.showTicks)
-      ) {
-        this.update(value);
-      }
-    },
-    /// #endif
-    /// #if WECHAT
-    observers: {
-      'min, max, step, range, showTicks': function () {
-        const value = getValueFromProps(this, 'value');
+  /// #if ALIPAY
+  didUpdate(prevProps) {
+    const [min, max, step, range, showTicks, value] = getValueFromProps(this, [
+      'min',
+      'max',
+      'step',
+      'range',
+      'showTicks',
+      'value',
+    ]);
+    if (
+      !equal(min, prevProps.min) ||
+      !equal(max, prevProps.max) ||
+      !equal(step, prevProps.step) ||
+      !equal(range, prevProps.range) ||
+      !equal(showTicks, prevProps.showTicks)
+    ) {
+      this.update(value);
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  observers: {
+    'min, max, step, range, showTicks': function () {
+      const value = getValueFromProps(this, 'value');
 
-        this.update(value);
-      },
+      this.update(value);
     },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

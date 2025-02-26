@@ -1,11 +1,11 @@
-import { Component, triggerEvent, triggerEventOnly } from '../../_util/simply';
 import { resolveEventValue } from '../../_util/platform';
-import { FormStepperDefaultProps } from './props';
+import { Component, triggerEvent, triggerEventOnly } from '../../_util/simply';
 import { createForm } from '../form';
+import { FormStepperDefaultProps } from './props';
 
-Component(
-  FormStepperDefaultProps,
-  {
+Component({
+  props: FormStepperDefaultProps,
+  methods: {
     onChange(value, e) {
       this.emit('onChange', resolveEventValue(value));
       triggerEvent(this, 'change', resolveEventValue(value), e);
@@ -20,6 +20,5 @@ Component(
       triggerEvent(this, 'confirm', resolveEventValue(value), e);
     },
   },
-  null,
-  [createForm()]
-);
+  mixins: [createForm()],
+});

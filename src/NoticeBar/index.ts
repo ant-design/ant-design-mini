@@ -1,15 +1,19 @@
+import { IBoundingClientRect } from '../_util/base';
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import {
   Component,
-  triggerEventOnly,
   getValueFromProps,
+  triggerEventOnly,
 } from '../_util/simply';
-import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { NoticeBarDefaultProps } from './props';
-import { IBoundingClientRect } from '../_util/base';
 
-Component(
-  NoticeBarDefaultProps,
-  {
+Component({
+  props: NoticeBarDefaultProps,
+  data: {
+    show: true,
+    marqueeStyle: '',
+  },
+  methods: {
     getInstance() {
       if (this.$id) {
         return my;
@@ -130,25 +134,58 @@ Component(
     },
     /// #endif
   },
-  {
-    show: true,
-    marqueeStyle: '',
-  },
-  undefined,
-  {
-    /// #if ALIPAY
-    didMount() {
-      const { enableMarquee } = this.props;
 
-      if (enableMarquee) {
+  /// #if ALIPAY
+  didMount() {
+    const { enableMarquee } = this.props;
+
+    if (enableMarquee) {
+      this.measureText((state) => {
+        this.startMarquee.call(this, state);
+      });
+    }
+  },
+
+  didUpdate() {
+    const { enableMarquee } = this.props;
+    // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
+    if (enableMarquee) {
+      this.measureText((state) => {
+        this.startMarquee.call(this, state);
+      });
+    }
+  },
+
+  pageEvents: {
+    onShow() {
+      if (this.props.enableMarquee) {
+        this.setData({ marqueeStyle: '' });
+        this.resetMarquee({
+          overflowWidth: 0,
+          duration: 0,
+          viewWidth: 0,
+        });
         this.measureText((state) => {
           this.startMarquee.call(this, state);
         });
       }
     },
+  },
+  /// #endif
 
-    didUpdate() {
-      const { enableMarquee } = this.props;
+  /// #if WECHAT
+  attached() {
+    const { enableMarquee } = this.properties;
+
+    if (enableMarquee) {
+      this.measureText((state) => {
+        this.startMarquee.call(this, state);
+      });
+    }
+  },
+
+  observers: {
+    'enableMarquee': function (enableMarquee) {
       // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
       if (enableMarquee) {
         this.measureText((state) => {
@@ -156,59 +193,20 @@ Component(
         });
       }
     },
+  },
 
-    pageEvents: {
-      onShow() {
-        if (this.props.enableMarquee) {
-          this.setData({ marqueeStyle: '' });
-          this.resetMarquee({
-            overflowWidth: 0,
-            duration: 0,
-            viewWidth: 0,
-          });
-          this.measureText((state) => {
-            this.startMarquee.call(this, state);
-          });
-        }
-      },
-    },
-    /// #endif
-
-    /// #if WECHAT
-    attached() {
-      const { enableMarquee } = this.properties;
-
-      if (enableMarquee) {
-        this.measureText((state) => {
-          this.startMarquee.call(this, state);
+  pageLifetimes: {
+    show: function () {
+      if (this.properties.enableMarquee) {
+        this.setData({ marqueeStyle: '' });
+        this.resetMarquee({
+          overflowWidth: 0,
+          duration: 0,
+          viewWidth: 0,
         });
+        this.measureText((state) => this.startMarquee.call(this, state));
       }
     },
-
-    observers: {
-      'enableMarquee': function (enableMarquee) {
-        // 这里更新处理的原因是防止notice内容在动画过程中发生改变。
-        if (enableMarquee) {
-          this.measureText((state) => {
-            this.startMarquee.call(this, state);
-          });
-        }
-      },
-    },
-
-    pageLifetimes: {
-      show: function () {
-        if (this.properties.enableMarquee) {
-          this.setData({ marqueeStyle: '' });
-          this.resetMarquee({
-            overflowWidth: 0,
-            duration: 0,
-            viewWidth: 0,
-          });
-          this.measureText((state) => this.startMarquee.call(this, state));
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

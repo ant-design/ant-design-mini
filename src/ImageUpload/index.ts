@@ -9,16 +9,16 @@ import {
 import i18nController from '../_util/store';
 import { File, LocalFile, UploaderDefaultProps } from './props';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  UploaderDefaultProps,
-  {
+  props: UploaderDefaultProps,
+  methods: {
     async chooseImage() {
       const [onBeforeUpload, onUpload, onChooseImageError] = getValueFromProps(
         this,
@@ -37,9 +37,9 @@ ComponentWithSignalStoreImpl(
       try {
         const chooseImageRes = await chooseImage({
           count:
-            typeof maxCount === 'undefined'
-              ? Infinity
-              : maxCount - fileList.length,
+            typeof maxCount === 'number' && !isNaN(maxCount)
+              ? maxCount - fileList.length
+              : 9999,
           sourceType,
         });
         localFileList = (
@@ -189,8 +189,7 @@ ComponentWithSignalStoreImpl(
       return `${prefix}-${this.count}`;
     },
   },
-  null,
-  [
+  mixins: [
     createValue({
       defaultValueKey: 'defaultFileList',
       valueKey: 'fileList',
@@ -216,32 +215,30 @@ ComponentWithSignalStoreImpl(
       },
     }),
   ],
-  {
-    /// #if ALIPAY
-    didMount() {
+  /// #if ALIPAY
+  didMount() {
+    this.updateShowUploadButton();
+  },
+  didUpdate(prevProps, prevData) {
+    if (!this.isEqualValue(prevData)) {
       this.updateShowUploadButton();
-    },
-    didUpdate(prevProps, prevData) {
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.triggerEvent('ref', this);
+    this.updateShowUploadButton();
+    this._prevData = this.data;
+  },
+  observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
       if (!this.isEqualValue(prevData)) {
         this.updateShowUploadButton();
       }
     },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.triggerEvent('ref', this);
-      this.updateShowUploadButton();
-      this._prevData = this.data;
-    },
-    observers: {
-      '**': function (data) {
-        const prevData = this._prevData || this.data;
-        this._prevData = { ...data };
-        if (!this.isEqualValue(prevData)) {
-          this.updateShowUploadButton();
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

@@ -1,10 +1,10 @@
-import { TabBarDefaultProps } from './props';
-import { Component, triggerEvent } from '../_util/simply';
 import mixinValue from '../mixins/value';
+import { Component, triggerEvent } from '../_util/simply';
+import { TabBarDefaultProps } from './props';
 
-Component(
-  TabBarDefaultProps,
-  {
+Component({
+  props: TabBarDefaultProps,
+  methods: {
     onChange(e) {
       const { index } = e.currentTarget.dataset;
       if (index === this.getValue()) {
@@ -16,11 +16,10 @@ Component(
       triggerEvent(this, 'change', index, e);
     },
   },
-  null,
-  [
+  mixins: [
     mixinValue({
       valueKey: 'current',
       defaultValueKey: 'defaultCurrent',
     }),
-  ]
-);
+  ],
+});

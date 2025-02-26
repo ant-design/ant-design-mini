@@ -2,9 +2,10 @@ import mixinValue from '../../mixins/value';
 import { Component, triggerEvent } from '../../_util/simply';
 import { InputBlurDefaultProps } from './props';
 
-Component(
-  InputBlurDefaultProps,
-  {
+Component({
+  props: InputBlurDefaultProps,
+  focus: false,
+  methods: {
     onChange(e) {
       const value = e.detail.value;
       if (this.isControlled()) {
@@ -30,8 +31,7 @@ Component(
       triggerEvent(this, 'confirm', value, e);
     },
   },
-  undefined,
-  [
+  mixins: [
     mixinValue({
       scopeKey: 'state',
       transformValue(value, extra, updateWithoutFocusCheck) {
@@ -47,7 +47,4 @@ Component(
       },
     }),
   ],
-  {
-    focus: false,
-  }
-);
+});

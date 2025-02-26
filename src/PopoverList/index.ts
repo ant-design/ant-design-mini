@@ -5,9 +5,13 @@ import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
 import { PopoverDefaultProps } from './props';
 import { getPopoverStyle } from './utils';
 
-Component(
-  PopoverDefaultProps,
-  {
+Component({
+  props: PopoverDefaultProps,
+  data: {
+    adjustedPlacement: '',
+    popoverContentStyle: '',
+  },
+  methods: {
     getInstance() {
       if (this.$id) {
         return my;
@@ -78,11 +82,8 @@ Component(
       triggerEvent(this, 'visibleChange', value, e);
     },
   },
-  {
-    adjustedPlacement: '',
-    popoverContentStyle: '',
-  },
-  [
+
+  mixins: [
     mixinValue({
       valueKey: 'visible',
       defaultValueKey: 'defaultVisible',
@@ -101,30 +102,29 @@ Component(
       },
     }),
   ],
-  {
-    /// #if ALIPAY
-    didUpdate(prevProps) {
-      const [placement, autoAdjustOverflow] = getValueFromProps(this, [
-        'placement',
-        'autoAdjustOverflow',
-      ]);
-      if (
-        (prevProps.placement !== placement ||
-          prevProps.autoAdjustOverflow !== autoAdjustOverflow) &&
-        this.getValue()
-      ) {
+
+  /// #if ALIPAY
+  didUpdate(prevProps) {
+    const [placement, autoAdjustOverflow] = getValueFromProps(this, [
+      'placement',
+      'autoAdjustOverflow',
+    ]);
+    if (
+      (prevProps.placement !== placement ||
+        prevProps.autoAdjustOverflow !== autoAdjustOverflow) &&
+      this.getValue()
+    ) {
+      this.updatePopover();
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  observers: {
+    'placement, autoAdjustOverflow, mixin': function () {
+      if (this.getValue()) {
         this.updatePopover();
       }
     },
-    /// #endif
-    /// #if WECHAT
-    observers: {
-      'placement, autoAdjustOverflow, mixin': function () {
-        if (this.getValue()) {
-          this.updatePopover();
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

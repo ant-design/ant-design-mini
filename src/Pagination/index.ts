@@ -1,10 +1,15 @@
+import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { Component } from '../_util/simply';
 import { PaginationDefaultProps } from './props';
-import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 
-Component(
-  PaginationDefaultProps,
-  {
+Component({
+  props: PaginationDefaultProps,
+  data: {
+    pageDeg: 0,
+    supportSjs: true,
+  },
+  wrapWidth: 0,
+  methods: {
     async clacWidth() {
       const rect = await getInstanceBoundingClientRect(
         this,
@@ -25,22 +30,14 @@ Component(
       }
     },
   },
-  {
-    pageDeg: 0,
-    supportSjs: true,
+  /// #if ALIPAY
+  onInit() {
+    let supportSjs;
+    if (typeof my === 'undefined') {
+      supportSjs = true;
+    }
+    supportSjs = my.canIUse('sjs.event');
+    this.setData({ supportSjs });
   },
-  undefined,
-  {
-    wrapWidth: 0,
-    /// #if ALIPAY
-    onInit() {
-      let supportSjs;
-      if (typeof my === 'undefined') {
-        supportSjs = true;
-      }
-      supportSjs = my.canIUse('sjs.event');
-      this.setData({ supportSjs });
-    },
-    /// #endif
-  }
-);
+  /// #endif
+});

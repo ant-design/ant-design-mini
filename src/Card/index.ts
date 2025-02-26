@@ -5,9 +5,12 @@ import {
   triggerEventOnly,
 } from '../_util/simply';
 import { CardDefaultProps } from './props';
-Component(
-  CardDefaultProps,
-  {
+Component({
+  props: CardDefaultProps,
+  data: {
+    finalFoldStatus: false,
+  },
+  methods: {
     // 点击展开收起按钮
     handleTapFoldBtn(e) {
       const { finalConfig = {}, finalFoldStatus } = this.data;
@@ -37,59 +40,54 @@ Component(
       triggerEvent(this, 'titleSticky', status);
     },
   },
-  {
-    finalFoldStatus: false,
+
+  /// #if ALIPAY
+  onInit() {
+    const [foldStatus, config] = getValueFromProps(this, [
+      'foldStatus',
+      'config',
+    ]);
+    this.setData({
+      finalFoldStatus: foldStatus,
+      finalConfig: {
+        ...CardDefaultProps.config,
+        ...config,
+      },
+    });
   },
-  undefined,
-  {
-    /// #if ALIPAY
-    onInit() {
-      const [foldStatus, config] = getValueFromProps(this, [
-        'foldStatus',
-        'config',
-      ]);
+  didUpdate(prevProps) {
+    const foldStatus = getValueFromProps(this, 'foldStatus');
+    if (prevProps.foldStatus !== foldStatus) {
       this.setData({
         finalFoldStatus: foldStatus,
-        finalConfig: {
-          ...CardDefaultProps.config,
-          ...config,
-        },
       });
-    },
-    didUpdate(prevProps) {
-      const foldStatus = getValueFromProps(this, 'foldStatus');
-      if (prevProps.foldStatus !== foldStatus) {
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    const [foldStatus, config] = getValueFromProps(this, [
+      'foldStatus',
+      'config',
+    ]);
+    this.setData({
+      finalFoldStatus: foldStatus,
+      finalConfig: {
+        ...CardDefaultProps.config,
+        ...config,
+      },
+    });
+  },
+  observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      if (prevData.foldStatus !== data.foldStatus) {
         this.setData({
-          finalFoldStatus: foldStatus,
+          finalFoldStatus: data.foldStatus,
         });
       }
     },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      const [foldStatus, config] = getValueFromProps(this, [
-        'foldStatus',
-        'config',
-      ]);
-      this.setData({
-        finalFoldStatus: foldStatus,
-        finalConfig: {
-          ...CardDefaultProps.config,
-          ...config,
-        },
-      });
-    },
-    observers: {
-      '**': function (data) {
-        const prevData = this._prevData || this.data;
-        this._prevData = { ...data };
-        if (prevData.foldStatus !== data.foldStatus) {
-          this.setData({
-            finalFoldStatus: data.foldStatus,
-          });
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

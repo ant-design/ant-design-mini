@@ -3,9 +3,20 @@ import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bound
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
 import { TabsDefaultProps } from './props';
 
-Component(
-  TabsDefaultProps,
-  {
+Component({
+  props: TabsDefaultProps,
+  data: {
+    /// #if WECHAT
+    scrollHeight: 0,
+    /// #endif
+    scrollLeft: 0,
+    scrollTop: 0,
+    leftFade: false,
+    rightFade: false,
+  },
+  scrollLeft: 0,
+  scrollTop: 0,
+  methods: {
     getInstance() {
       if (this.$id) {
         return my;
@@ -134,59 +145,48 @@ Component(
       triggerEvent(this, 'change', index, e);
     },
   },
-  {
-    /// #if WECHAT
-    scrollHeight: 0,
-    /// #endif
-    scrollLeft: 0,
-    scrollTop: 0,
-    leftFade: false,
-    rightFade: false,
-  },
-  [
+
+  mixins: [
     createValue({
       valueKey: 'current',
       defaultValueKey: 'defaultCurrent',
     }),
   ],
-  {
-    scrollLeft: 0,
-    scrollTop: 0,
-    /// #if ALIPAY
-    didMount() {
+
+  /// #if ALIPAY
+  didMount() {
+    this.updateScroll();
+  },
+  didUpdate(prevProps, prevData) {
+    const items = getValueFromProps(this, 'items');
+    if (prevProps.items !== items || !this.isEqualValue(prevData)) {
       this.updateScroll();
-    },
-    didUpdate(prevProps, prevData) {
-      const items = getValueFromProps(this, 'items');
-      if (prevProps.items !== items || !this.isEqualValue(prevData)) {
-        this.updateScroll();
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.updateScroll();
+    this.getBoundingClientRect('.ant-tabs-bar-item').then((res) => {
+      const direction = getValueFromProps(this, 'direction');
+      if (res && res.height > 0 && direction !== 'vertical') {
+        this.setData({
+          scrollHeight: res.height,
+        });
+      } else {
+        this.setData({
+          scrollHeight: direction === 'vertical' ? 0 : 40,
+        });
       }
-    },
-    /// #endif
-    /// #if WECHAT
-    attached() {
+    });
+  },
+  observers: {
+    'items': function () {
       this.updateScroll();
-      this.getBoundingClientRect('.ant-tabs-bar-item').then((res) => {
-        const direction = getValueFromProps(this, 'direction');
-        if (res && res.height > 0 && direction !== 'vertical') {
-          this.setData({
-            scrollHeight: res.height,
-          });
-        } else {
-          this.setData({
-            scrollHeight: direction === 'vertical' ? 0 : 40,
-          });
-        }
-      });
     },
-    observers: {
-      'items': function () {
-        this.updateScroll();
-      },
-      'mixin.current': function () {
-        this.updateScroll();
-      },
+    'mixin.current': function () {
+      this.updateScroll();
     },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

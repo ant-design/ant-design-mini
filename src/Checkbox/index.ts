@@ -1,10 +1,10 @@
-import { CheckboxDefaultProps } from './props';
-import { Component, triggerEvent } from '../_util/simply';
 import mixinValue from '../mixins/value';
+import { Component, triggerEvent } from '../_util/simply';
+import { CheckboxDefaultProps } from './props';
 
-Component(
-  CheckboxDefaultProps,
-  {
+Component({
+  props: CheckboxDefaultProps,
+  methods: {
     onChange(e) {
       const value = !this.getValue();
       if (!this.isControlled()) {
@@ -13,11 +13,10 @@ Component(
       triggerEvent(this, 'change', value, e);
     },
   },
-  null,
-  [
+  mixins: [
     mixinValue({
       valueKey: 'checked',
       defaultValueKey: 'defaultChecked',
     }),
-  ]
-);
+  ],
+});

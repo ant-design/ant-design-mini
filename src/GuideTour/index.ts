@@ -8,16 +8,16 @@ import {
 import i18nController from '../_util/store';
 import { GuideTourDefaultProps } from './props';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  GuideTourDefaultProps,
-  {
+  props: GuideTourDefaultProps,
+  methods: {
     async onNext() {
       const currentValue = this.getValue();
       const newCurrent = currentValue + 1;
@@ -48,11 +48,10 @@ ComponentWithSignalStoreImpl(
       triggerEvent(this, 'change', current);
     },
   },
-  undefined,
-  [
+  mixins: [
     mixinValue({
       valueKey: 'current',
       defaultValueKey: 'defaultCurrent',
     }),
-  ]
-);
+  ],
+});
