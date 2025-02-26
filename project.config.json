@@ -24,7 +24,8 @@
     "ignoreUploadUnusedFiles": false,
     "es6": true,
     "enhance": true,
-    "postcss": false
+    "postcss": false,
+    "minified": true
   },
   "condition": {},
   "editorSetting": {
@@ -38,5 +39,5 @@
   "srcMiniprogramRoot": "wechat/",
   "projectname": "antd",
   "simulatorPluginLibVersion": {},
-  "appid": "wx8ff82766a3552dcb"
+  "appid": ""
 }
