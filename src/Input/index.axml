@@ -60,7 +60,7 @@
       confirm-hold="{{ confirmHold }}"
       always-system="{{ alwaysSystem }}"
       controlled="{{ state.controlled }}"
-      cursor="{{ cursor }}"
+      cursor="{{focus && cursor ? cursor : state.value.length}}"
       selection-start="{{ selectionStart }}"
       selection-end="{{ selectionEnd }}"
       random-number="{{ randomNumber }}"
