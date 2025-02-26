@@ -36,7 +36,7 @@
   <switch
     onTriggerChange="onTriggerChange"
     field="{{ item.path }}"
-    config="{{mappingSjs.getComponentConfig(item)}}"
+    config="{{ mappingSjs.getComponentConfig(item) }}"
     value="{{ value }}"/>
 </template>
 
@@ -66,24 +66,9 @@
 
 <form-item
   a:for="{{ finalFormItemArr }}"
-  visible="{{item.visible}}"
-  label="{{item.title}}"
-  name="{{item.path}}"
-  requiredMarkStyle="{{ item.requiredMarkStyle }}"
-  className="{{ item.className }}"
-  relation="{{item.relation}}"
-  required="{{item.required}}"
-  rules="{{item.rules}}"
   item="{{ item }}"
   displayType="{{ item.displayType || displayType }}"
-  spmInfo="{{ item.props.spmInfo }}"
-  defaultValue="{{item.value}}"
-  tips="{{ item.tips }}"
-  tipsConfig="{{ item.tipsConfig }}"
-  widget="{{ item.widget }}"
-  type="{{item.type}}"
   value="{{ mappingSjs.getFormItemValue(formData, item.path) }}"
-  extra="{{item.extra}}"
 >
   <view
     slot-scope="props"

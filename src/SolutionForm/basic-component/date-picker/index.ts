@@ -4,10 +4,6 @@ import { getStore } from '../../store/index';
 createComponent({
   onInit() {
     this.store = getStore();
-    this.store.dispatch('handleTracert', {
-      spmInfo: this.props?.config?.spmInfo,
-      type: 'expo',
-    });
   },
   methods: {
     onChange(v, dateStr, e) {
@@ -28,13 +24,6 @@ createComponent({
     },
     onVisibleChange(visible, e) {
       this.props?.config?.onVisibleChange?.(visible, e);
-      if (visible) {
-        // 如果展示则表示点击了picker 做埋点上报
-        this.store.dispatch('handleTracert', {
-          spmInfo: this.props?.config?.spmInfo,
-          type: 'click',
-        });
-      }
     },
   },
 });

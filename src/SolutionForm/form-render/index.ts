@@ -2,11 +2,8 @@ import { get, isEqual, isFunction } from 'lodash';
 import { destroyStore, getStore } from '../store/index';
 import { createComponent } from '@alipay/merchant-base-mini';
 import { FormRenderDefaultProps } from './props';
-import { getPathArr } from '../store/helper';
-import { getFullPathByPath } from '../util/schema';
 
 createComponent({
-
   props: FormRenderDefaultProps,
 
   data: {
@@ -38,29 +35,6 @@ createComponent({
         this.props?.onValueChange?.(this.changeFormData, this.formData);
       },
     },
-    errorInfo: {
-      deep: true,
-      handler(newErrorInfo, oldErrorInfo) {
-        const curKeys = getPathArr(newErrorInfo, this.hasGroup);
-        curKeys.forEach((curKey) => {
-          // 当前key展示的信息
-          const newInfo = get(newErrorInfo, curKey, [])[0];
-          // 当前key以前的信息
-          const oldInfo = get(oldErrorInfo, curKey, [])[0];
-          // 根据当前key获取原本的schema 以便获取埋点信息
-          const originSchema = get(this.schemaData, getFullPathByPath(curKey));
-          const { errorSpm, errorExtra } = originSchema.props?.spmInfo || {};
-
-          // 如果更改后的errorInfo有值并且和以前的错误信息不一样则上报埋点
-          if (newInfo && !isEqual(newInfo, oldInfo)) {
-            this.store.dispatch('handleTracert', {
-              spmInfo: { spm: errorSpm, extra: errorExtra },
-              type: 'expo',
-            });
-          }
-        });
-      },
-    },
     formData() {
       this.store.commit('updateSchema', {
         schema: this.props.schema,
@@ -70,7 +44,6 @@ createComponent({
 
   onInit() {
     this.store = getStore();
-    this.store.commit('updateTracert', this.props);
 
     // 存在表单初始值
     if (this.props.initialValues) {
@@ -105,18 +78,13 @@ createComponent({
      */
     async handleSubmit() {
       const { onSubmit } = this.props;
-      try {
-        const res = await this.store.dispatch('validate');
-        const { errors: validateErrors = {} } = res;
-        const formData = { ...this.store.state.formData };
-        const errors = Object.keys(validateErrors).map(
-          (key) => validateErrors[key],
-        );
-        if (isFunction(onSubmit)) {
-          onSubmit(formData, errors);
-        }
-      } catch (error) {
-        console.log('handleSubmit error', error);
+      const res = await this.store.dispatch('validate');
+      const { errors: validateErrors = {} } = res;
+      const errors = Object.keys(validateErrors).map(
+        (key) => validateErrors[key],
+      );
+      if (isFunction(onSubmit)) {
+        onSubmit(get(this.store.state, 'formData', {}), errors);
       }
     },
 

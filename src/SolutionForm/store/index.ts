@@ -9,7 +9,6 @@ import {
 import {
   unset,
   get,
-  isFunction,
   set,
   cloneDeep,
   startsWith,
@@ -36,8 +35,6 @@ const originalState: STORE.IState = {
   fields: [],
   // 是否存在分组
   hasGroup: false,
-  // 埋点实例，又外部传入
-  tracertInstance: null,
 };
 
 const getStoreInstance = () => {
@@ -166,8 +163,7 @@ const getStoreInstance = () => {
       },
       // 更新表单的schema信息
       updateSchema(state, { schema }) {
-        const isInit = !state.formRenderPropsConfig.formId;
-        const { properties, type, ...otherProps } = schema;
+        const { properties, ...otherProps } = schema;
 
         const subSchemaArr = Object.keys(properties || {})
           .map((key) => ({
@@ -220,48 +216,9 @@ const getStoreInstance = () => {
           },
         });
       },
-      updateTracert(state, payload) {
-        Object.assign(state, {
-          tracertInstance: payload?.tracertInstance || null,
-        });
-      },
     },
 
     actions: {
-      /**
-       * 统一埋点上报
-       */
-      handleTracert({ state }, { spmInfo, type }) {
-        // 埋点信息不存在 则不做后续逻辑处理
-        if (!spmInfo || !spmInfo.spm) {
-          return;
-        }
-        if (!state.tracertInstance) {
-          // eslint-disable-next-line no-console
-          console.error(
-            '[form-render-mini error]: 埋点没有传入埋点实例 tracertInstance',
-          );
-        } else if (
-          !isFunction(state.tracertInstance?.expo) ||
-          !isFunction(state.tracertInstance?.click)
-        ) {
-          // eslint-disable-next-line no-console
-          console.error(
-            '[form-render-mini error]: 埋点实例 tracertInstance.expo | tracertInstance.click 不是function',
-          );
-        } else {
-          const { spm, extra = {} } = spmInfo || {};
-          // spm存在 上报数据
-          if (spm) {
-            if (type === 'expo') {
-              state.tracertInstance?.expo(spm, extra);
-            }
-            if (type === 'click') {
-              state.tracertInstance?.click(spm, extra);
-            }
-          }
-        }
-      },
       /**
        * 表单项更新识别配置进行校验
        * 表项项存在非空校验 && 有错误提示 && 当前输入有值 =》触发当前项的校验

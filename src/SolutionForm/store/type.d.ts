@@ -45,11 +45,6 @@ declare namespace STORE {
     errorInfo: Record<string, IError[]>;
     rules: Record<string, IRule | IRule[]>;
     fields: string[];
-    tracertInstance: null | ITracertInstance;
   }
 }
 
-interface ITracertInstance {
-  expo(spmId: string, params?: Record<string, any>): void;
-  click(spmId: string, params?: Record<string, any>): void;
-}

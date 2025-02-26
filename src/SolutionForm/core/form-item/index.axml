@@ -1,27 +1,27 @@
 <view
   class="fr-form-item {{ className || '' }}"
   style="{{ currentErrorInfo.message ? 'padding-bottom: 14rpx;' : '' }}"
-  a:if="{{ visible !== false }}">
-  <view class="fr-form-item-line fr-form-item-line-{{displayType}} {{ !!errorInfo ? 'noLine'  : '' }}">
-    <view class="fr-form-item-content fr-form-item-content-{{displayType}}">
+  a:if="{{ item.visible !== false }}">
+  <view class="fr-form-item-line fr-form-item-line-{{finalDisplayType}} {{ !!errorInfo ? 'noLine'  : '' }}">
+    <view class="fr-form-item-content fr-form-item-content-{{finalDisplayType}}">
       <!--label-->
       <view
-        a:if="{{!!label}}"
+        a:if="{{!!item.title}}"
         class="
           fr-form-item-label
-          fr-form-item-label-{{displayType}}
+          fr-form-item-label-{{finalDisplayType}}
           {{ finalRequired ? 'fr-form-item-label-required': 'fr-form-item-label-not-required' }}
         "
       >
         <!-- 必填小红点 -->
         <view a:if="{{ finalRequired && finalRequiredMarkStyle === 'asterisk' }}" class="fr-form-item-label-text-asterisk">*</view>
-        {{ `${label}${labelExtra}` }}
+        {{ `${item.title}${labelExtra}` }}
         <popover
-          content="{{ tips }}"
-          a:if="{{ tips }}"
+          content="{{ item.tips }}"
+          a:if="{{ item.tips }}"
           className="{{ tipsConfig.className }}"
           contentStyle="{{ tipsConfig.contentStyle }}"
-          contentClassName="{{ tipsConfig.contentClassName }}"
+          contentClassName="{{ tipsConfig.tipsConfig.contentClassName }}"
           placement="{{ tipsConfig.placement || 'top-left' }}"
           autoAdjustOverflow="{{ false }}"
           destroyOnClose="{{ true }}"
@@ -35,7 +35,7 @@
         </popover>
       </view>
 
-      <view class="fr-form-item-field fr-form-item-field-{{displayType}}" onTap="onTapItem">
+      <view class="fr-form-item-field fr-form-item-field-{{finalDisplayType}}">
         <!--表单项 内容组件的插槽 展示不同的表单组件-->
         <slot />
         <view

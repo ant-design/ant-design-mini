@@ -51,7 +51,7 @@ Page({
           type: 'object',
           properties: {
             number: {
-              title: '身份证号码',
+              title: '身份证',
               type: 'string',
               widget: 'input',
               props: {
