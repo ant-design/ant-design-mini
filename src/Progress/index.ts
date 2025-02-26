@@ -1,14 +1,18 @@
 import deepEqual from 'fast-deep-equal';
-import { Component, getValueFromProps } from '../_util/simply';
-import { ProgressBarDefaultProps } from './props';
 import { createCanvasContext } from '../_util/jsapi/create-canvas-context';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
+import { Component, getValueFromProps } from '../_util/simply';
+import { ProgressBarDefaultProps } from './props';
 
 const animationFrameDuration = 16;
 
-Component(
-  ProgressBarDefaultProps,
-  {
+Component({
+  props: ProgressBarDefaultProps,
+  data: {
+    curProgress: 0,
+    canvasWidth: 100,
+  },
+  methods: {
     requestAnimationFrame(fn, duration = animationFrameDuration) {
       setTimeout(fn, duration);
     },
@@ -133,34 +137,28 @@ Component(
         : `ant-progress-canvas`;
     },
   },
-  {
-    curProgress: 0,
-    canvasWidth: 100,
-  },
-  undefined,
-  {
-    ctx: null as any,
-    drawColor: null as any,
-    canvas: null,
-    /// #if ALIPAY
-    didMount() {
-      this.calProgress();
-    },
-    didUpdate(prevProps) {
-      if (deepEqual(this.props, prevProps)) return;
-      this.calProgress();
-    },
-    /// #endif
 
-    /// #if WECHAT
-    attached() {
+  ctx: null as any,
+  drawColor: null as any,
+  canvas: null,
+  /// #if ALIPAY
+  didMount() {
+    this.calProgress();
+  },
+  didUpdate(prevProps) {
+    if (deepEqual(this.props, prevProps)) return;
+    this.calProgress();
+  },
+  /// #endif
+
+  /// #if WECHAT
+  attached() {
+    this.calProgress();
+  },
+  observers: {
+    '**': function () {
       this.calProgress();
     },
-    observers: {
-      '**': function () {
-        this.calProgress();
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

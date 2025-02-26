@@ -2,9 +2,13 @@ import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bound
 import { Component, getValueFromProps } from '../_util/simply';
 import { AutoResizeDefaultProps } from './props';
 
-Component(
-  AutoResizeDefaultProps,
-  {
+Component({
+  props: AutoResizeDefaultProps,
+  data: {
+    /** 换行或省略号样式 */
+    wrapAndEllipsisStyle: '',
+  },
+  methods: {
     getInstance() {
       if (this.$id) {
         return my;
@@ -69,21 +73,14 @@ Component(
       });
     },
   },
-  {
-    /** 换行或省略号样式 */
-    wrapAndEllipsisStyle: '',
+  /// #if ALIPAY
+  didMount() {
+    this.adjustFontSize();
   },
-  undefined,
-  {
-    /// #if ALIPAY
-    didMount() {
-      this.adjustFontSize();
-    },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.adjustFontSize();
-    },
-    /// #endif
-  }
-);
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.adjustFontSize();
+  },
+  /// #endif
+});

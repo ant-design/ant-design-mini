@@ -1,17 +1,25 @@
 import {
   Component,
+  getValueFromProps,
   triggerEvent,
   triggerEventOnly,
-  getValueFromProps,
 } from '../_util/simply';
 
 import { NumberKeyboardDefaultProps } from './props';
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-Component(
-  NumberKeyboardDefaultProps,
-  {
+Component({
+  props: NumberKeyboardDefaultProps,
+  data: {
+    numArr: [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+    ],
+    randomArr: [],
+  },
+  methods: {
     catchAppearModal() {
       this.setRandom();
     },
@@ -68,25 +76,15 @@ Component(
       }
     },
   },
-  {
-    numArr: [
-      [1, 2, 3],
-      [4, 5, 6],
-      [7, 8, 9],
-    ],
-    randomArr: [],
+
+  /// #if ALIPAY
+  didMount() {
+    this.setRandom();
   },
-  undefined,
-  {
-    /// #if ALIPAY
-    didMount() {
-      this.setRandom();
-    },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.setRandom();
-    },
-    /// #endif
-  }
-);
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.setRandom();
+  },
+  /// #endif
+});

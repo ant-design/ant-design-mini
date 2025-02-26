@@ -6,15 +6,20 @@ import {
 } from '../_util/simply';
 import { ThoughtChainProps } from './props';
 
-Component(
-  ThoughtChainProps,
-  // methods
-  {
+Component({
+  props: ThoughtChainProps,
+  data: {
+    foldStatusMap: {},
+  },
+  methods: {
     onContentTap(e) {
       triggerEventValues(this, 'contentTap', [e], e);
     },
     onTitleTap(e) {
-      const [collapsible, onExpand] = getValueFromProps(this, ['collapsible', 'onExpand']);
+      const [collapsible, onExpand] = getValueFromProps(this, [
+        'collapsible',
+        'onExpand',
+      ]);
       if (!collapsible) return;
       // 受控模式
       if (onExpand && collapsible?.expandedKeys) {
@@ -39,12 +44,4 @@ Component(
       }
     },
   },
-  // data
-  {
-    foldStatusMap: {},
-  },
-  // mixins
-  undefined,
-  // 生命周期方法
-  {}
-);
+});

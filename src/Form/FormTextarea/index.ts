@@ -5,16 +5,16 @@ import i18nController from '../../_util/store';
 import { createForm } from '../form';
 import { FormTextareaDefaultProps } from './props';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  FormTextareaDefaultProps,
-  {
+  props: FormTextareaDefaultProps,
+  methods: {
     handleRef(input) {
       /// #if ALIPAY
       this.input = input;
@@ -41,8 +41,7 @@ ComponentWithSignalStoreImpl(
       triggerEvent(this, 'change', resolveEventValue(value), e);
     },
   },
-  null,
-  [
+  mixins: [
     createForm({
       methods: {
         setFormData(this: any, values) {
@@ -57,5 +56,5 @@ ComponentWithSignalStoreImpl(
         },
       },
     }),
-  ]
-);
+  ],
+});

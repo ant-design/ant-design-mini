@@ -1,11 +1,11 @@
-import { Component, triggerEvent } from '../../_util/simply';
 import { resolveEventValue } from '../../_util/platform';
-import { FormInputDefaultProps } from './props';
+import { Component, triggerEvent } from '../../_util/simply';
 import { createForm } from '../form';
+import { FormInputDefaultProps } from './props';
 
-Component(
-  FormInputDefaultProps,
-  {
+Component({
+  props: FormInputDefaultProps,
+  methods: {
     handleRef(input) {
       /// #if ALIPAY
       this.input = input;
@@ -29,8 +29,7 @@ Component(
       triggerEvent(this, 'confirm', resolveEventValue(value), e);
     },
   },
-  null,
-  [
+  mixins: [
     createForm({
       methods: {
         setFormData(this: any, values) {
@@ -45,5 +44,5 @@ Component(
         },
       },
     }),
-  ]
-);
+  ],
+});

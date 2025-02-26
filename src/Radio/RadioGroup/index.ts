@@ -1,10 +1,10 @@
-import { Component, triggerEvent, getValueFromProps } from '../../_util/simply';
-import { RadioGroupDefaultProps } from './props';
 import mixinValue from '../../mixins/value';
+import { Component, getValueFromProps, triggerEvent } from '../../_util/simply';
+import { RadioGroupDefaultProps } from './props';
 
-Component(
-  RadioGroupDefaultProps,
-  {
+Component({
+  props: RadioGroupDefaultProps,
+  methods: {
     onChange(_, e) {
       let event;
       /// #if ALIPAY
@@ -22,6 +22,5 @@ Component(
       triggerEvent(this, 'change', value, event);
     },
   },
-  null,
-  [mixinValue()]
-);
+  mixins: [mixinValue()],
+});

@@ -4,16 +4,19 @@ import { ComponentWithSignalStoreImpl, triggerEvent } from '../../_util/simply';
 import i18nController from '../../_util/store';
 import { TextareaDefaultProps } from './props';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  TextareaDefaultProps,
-  {
+  props: TextareaDefaultProps,
+  data: {
+    selfFocus: false,
+  },
+  methods: {
     onChange(e) {
       const value = e.detail.value;
       if (!this.isControlled()) {
@@ -46,15 +49,10 @@ ComponentWithSignalStoreImpl(
       triggerEvent(this, 'change', '', e);
     },
   },
-  {
-    selfFocus: false,
-  },
-  [mixinValue({ scopeKey: 'state' })],
+  mixins: [mixinValue({ scopeKey: 'state' })],
   /// #if WECHAT
-  {
-    attached() {
-      this.triggerEvent('ref', this);
-    },
-  }
+  attached() {
+    this.triggerEvent('ref', this);
+  },
   /// #endif
-);
+});

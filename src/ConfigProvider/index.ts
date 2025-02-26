@@ -8,8 +8,8 @@ import i18nController from '../_util/store';
 import { cssVariables } from './darkTheme';
 import { ConfigProviderDefaultProps } from './props';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
@@ -17,8 +17,11 @@ ComponentWithSignalStoreImpl(
       themeState: ({ store }) => store.currentTheme.value,
     },
   },
-  ConfigProviderDefaultProps,
-  {
+  props: ConfigProviderDefaultProps,
+  data: {
+    cssVarStyle: '',
+  },
+  methods: {
     update() {
       const [theme, themeVars, locale] = getValueFromProps(this, [
         'theme',
@@ -56,20 +59,14 @@ ComponentWithSignalStoreImpl(
       });
     },
   },
-  {
-    cssVarStyle: '',
+  /// #if ALIPAY
+  onInit() {
+    this.update();
   },
-  [],
-  {
-    /// #if ALIPAY
-    onInit() {
-      this.update();
-    },
-    /// #endif
-    /// #if WECHAT
-    attached() {
-      this.update();
-    },
-    /// #endif
-  }
-);
+  /// #endif
+  /// #if WECHAT
+  attached() {
+    this.update();
+  },
+  /// #endif
+});

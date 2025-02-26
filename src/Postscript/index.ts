@@ -1,9 +1,12 @@
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
 import { PostscriptProps } from './props';
 
-Component(
-  PostscriptProps,
-  {
+Component({
+  props: PostscriptProps,
+  data: {
+    content: '',
+  },
+  methods: {
     checkMaxLength(value) {
       const maxLength = Number(getValueFromProps(this, 'maxLength') || -1);
       if (maxLength !== -1 && value.length > maxLength) {
@@ -34,7 +37,4 @@ Component(
       triggerEvent(this, 'change', result);
     },
   },
-  {
-    content: '',
-  }
-);
+});

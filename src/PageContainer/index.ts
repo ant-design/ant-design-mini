@@ -8,16 +8,16 @@ import {
 import i18nController from '../_util/store';
 import { BuiltinStatus, PageDefaultProps } from './props';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  PageDefaultProps,
-  {
+  props: PageDefaultProps,
+  methods: {
     handleActionTap(e) {
       triggerEventOnly(this, 'actionTap', e);
     },
@@ -52,32 +52,29 @@ ComponentWithSignalStoreImpl(
       }
     },
   },
-  {},
-  undefined,
-  {
-    /// #if ALIPAY
-    didMount() {
-      const props = getValueFromProps(this);
-      this.updatePageStatus({}, props);
-    },
-    didUpdate(prevProps) {
-      const props = getValueFromProps(this);
-      this.updatePageStatus(prevProps, props);
-    },
-    /// #endif
 
-    /// #if WECHAT
-    attached() {
-      const props = getValueFromProps(this);
-      this.updatePageStatus({}, props);
+  /// #if ALIPAY
+  didMount() {
+    const props = getValueFromProps(this);
+    this.updatePageStatus({}, props);
+  },
+  didUpdate(prevProps) {
+    const props = getValueFromProps(this);
+    this.updatePageStatus(prevProps, props);
+  },
+  /// #endif
+
+  /// #if WECHAT
+  attached() {
+    const props = getValueFromProps(this);
+    this.updatePageStatus({}, props);
+  },
+  observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      this.updatePageStatus(prevData, data);
     },
-    observers: {
-      '**': function (data) {
-        const prevData = this._prevData || this.data;
-        this._prevData = { ...data };
-        this.updatePageStatus(prevData, data);
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});

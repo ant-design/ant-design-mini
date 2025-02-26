@@ -1,14 +1,14 @@
+import mixinValue from '../mixins/value';
 import {
   Component,
-  triggerEventValues,
   getValueFromProps,
+  triggerEventValues,
 } from '../_util/simply';
-import { SelectorDefaultProps, ISelectorItem } from './props';
-import mixinValue from '../mixins/value';
+import { ISelectorItem, SelectorDefaultProps } from './props';
 
-Component(
-  SelectorDefaultProps,
-  {
+Component({
+  props: SelectorDefaultProps,
+  methods: {
     onChange(e) {
       const { disabled, value } = e.currentTarget.dataset;
       const [
@@ -99,6 +99,5 @@ Component(
       }
     },
   },
-  null,
-  [mixinValue()]
-);
+  mixins: [mixinValue()],
+});

@@ -1,11 +1,11 @@
-import { Component, triggerEvent, getValueFromProps } from '../../_util/simply';
 import { resolveEventValue } from '../../_util/platform';
-import { FormImageUploadDefaultProps } from './props';
+import { Component, getValueFromProps, triggerEvent } from '../../_util/simply';
 import { createForm } from '../form';
+import { FormImageUploadDefaultProps } from './props';
 
-Component(
-  FormImageUploadDefaultProps,
-  {
+Component({
+  props: FormImageUploadDefaultProps,
+  methods: {
     handleRef(imageUpload) {
       /// #if ALIPAY
       this.imageUpload = imageUpload;
@@ -45,8 +45,8 @@ Component(
       }
     },
   },
-  {},
-  [
+
+  mixins: [
     createForm({
       methods: {
         setFormData(this: any, values) {
@@ -62,15 +62,14 @@ Component(
       },
     }),
   ],
-  {
-    /// #if WECHAT
-    attached() {
-      this.setData({
-        handleUpload: this.handleUpload.bind(this),
-        handleRemove: this.handleRemove.bind(this),
-        handleBeforeUpload: this.handleBeforeUpload.bind(this),
-      });
-    },
-    /// #endif
-  }
-);
+
+  /// #if WECHAT
+  attached() {
+    this.setData({
+      handleUpload: this.handleUpload.bind(this),
+      handleRemove: this.handleRemove.bind(this),
+      handleBeforeUpload: this.handleBeforeUpload.bind(this),
+    });
+  },
+  /// #endif
+});

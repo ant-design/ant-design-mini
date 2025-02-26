@@ -11,16 +11,16 @@ import i18nController from '../../_util/store';
 import { createForm } from '../form';
 import { FormCascaderPickerDefaultProps } from './props';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  FormCascaderPickerDefaultProps,
-  {
+  props: FormCascaderPickerDefaultProps,
+  methods: {
     onOk(value, option, e) {
       const v = resolveEventValues(value, option);
       this.emit('onChange', v[0]);
@@ -50,15 +50,12 @@ ComponentWithSignalStoreImpl(
       }
     },
   },
-  {},
-  [createForm()],
-  {
-    /// #if WECHAT
-    attached() {
-      this.setData({
-        handleFormat: this.handleFormat.bind(this),
-      });
-    },
-    /// #endif
-  }
-);
+  mixins: [createForm()],
+  /// #if WECHAT
+  attached() {
+    this.setData({
+      handleFormat: this.handleFormat.bind(this),
+    });
+  },
+  /// #endif
+});

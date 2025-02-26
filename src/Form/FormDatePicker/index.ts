@@ -11,16 +11,16 @@ import i18nController from '../../_util/store';
 import { createForm } from '../form';
 import { FormDatePickerDefaultProps } from './props';
 
-ComponentWithSignalStoreImpl(
-  {
+ComponentWithSignalStoreImpl({
+  storeOptions: {
     store: () => i18nController,
     updateHook: effect,
     mapState: {
       locale: ({ store }) => store.currentLocale.value,
     },
   },
-  FormDatePickerDefaultProps,
-  {
+  props: FormDatePickerDefaultProps,
+  methods: {
     onOk(date, dateStr, e) {
       const v = resolveEventValues(date, dateStr);
       /// #if ALIPAY
@@ -59,16 +59,13 @@ ComponentWithSignalStoreImpl(
       }
     },
   },
-  {},
-  [createForm()],
-  {
-    /// #if WECHAT
-    attached() {
-      this.setData({
-        handleFormat: this.handleFormat.bind(this),
-        handleFormatLabel: this.handleFormatLabel.bind(this),
-      });
-    },
-    /// #endif
-  }
-);
+  mixins: [createForm()],
+  /// #if WECHAT
+  attached() {
+    this.setData({
+      handleFormat: this.handleFormat.bind(this),
+      handleFormatLabel: this.handleFormatLabel.bind(this),
+    });
+  },
+  /// #endif
+});

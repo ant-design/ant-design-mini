@@ -1,3 +1,6 @@
+import equal from 'fast-deep-equal';
+import mixinValue from '../../mixins/value';
+import { resolveEventValue, resolveEventValues } from '../../_util/platform';
 import {
   Component,
   getValueFromProps,
@@ -5,14 +8,17 @@ import {
   triggerEventOnly,
   triggerEventValues,
 } from '../../_util/simply';
-import { resolveEventValue, resolveEventValues } from '../../_util/platform';
 import { CascaderDefaultProps } from './props';
-import equal from 'fast-deep-equal';
-import mixinValue from '../../mixins/value';
 
-Component(
-  CascaderDefaultProps,
-  {
+Component({
+  props: CascaderDefaultProps,
+  data: {
+    currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
+    columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
+    formattedValueText: '',
+    visible: false,
+  },
+  methods: {
     // visible受控判断
     isVisibleControlled() {
       /// #if ALIPAY
@@ -156,21 +162,44 @@ Component(
       triggerEventOnly(this, 'cancel', e);
     },
   },
-  {
-    currentValue: [], // 当前picker选中值，didmount、弹窗打开、picker变化时更新
-    columns: [], // 可选项，didmound、弹窗打开、picker变化时更新
-    formattedValueText: '',
-    visible: false,
+
+  mixins: [mixinValue()],
+
+  /// #if ALIPAY
+  onInit() {
+    this.initColumns();
   },
-  [mixinValue()],
-  {
-    /// #if ALIPAY
-    onInit() {
-      this.initColumns();
-    },
-    didUpdate(prevProps, prevData) {
+  didUpdate(prevProps, prevData) {
+    const options = getValueFromProps(this, 'options');
+    if (!equal(options, prevProps.options)) {
+      const { currentValue } = this.data;
+      const newColumns = this.getterColumns(currentValue, options);
+      this.setData({
+        columns: newColumns,
+      });
+    }
+    if (!this.isEqualValue(prevData)) {
+      const realValue = this.getValue();
+      const newColumns = this.getterColumns(realValue, options);
+      const currentValue = this.getValidValue(realValue, newColumns);
+      this.setData({ currentValue, formattedValueText: this.onFormat() });
+    }
+    const visible = getValueFromProps(this, 'visible');
+    if (this.isVisibleControlled() && !equal(prevProps.visible, visible)) {
+      this.setData({ visible });
+    }
+  },
+  /// #endif
+  /// #if WECHAT
+  created() {
+    this.initColumns();
+  },
+  observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
       const options = getValueFromProps(this, 'options');
-      if (!equal(options, prevProps.options)) {
+      if (!equal(options, prevData.options)) {
         const { currentValue } = this.data;
         const newColumns = this.getterColumns(currentValue, options);
         this.setData({
@@ -183,44 +212,15 @@ Component(
         const currentValue = this.getValidValue(realValue, newColumns);
         this.setData({ currentValue, formattedValueText: this.onFormat() });
       }
+    },
+    'visible': function (data) {
+      const prevVisible = this._prevVisible;
+      this._prevVisible = data;
       const visible = getValueFromProps(this, 'visible');
-      if (this.isVisibleControlled() && !equal(prevProps.visible, visible)) {
+      if (this.isVisibleControlled() && !equal(prevVisible, visible)) {
         this.setData({ visible });
       }
     },
-    /// #endif
-    /// #if WECHAT
-    created() {
-      this.initColumns();
-    },
-    observers: {
-      '**': function (data) {
-        const prevData = this._prevData || this.data;
-        this._prevData = { ...data };
-        const options = getValueFromProps(this, 'options');
-        if (!equal(options, prevData.options)) {
-          const { currentValue } = this.data;
-          const newColumns = this.getterColumns(currentValue, options);
-          this.setData({
-            columns: newColumns,
-          });
-        }
-        if (!this.isEqualValue(prevData)) {
-          const realValue = this.getValue();
-          const newColumns = this.getterColumns(realValue, options);
-          const currentValue = this.getValidValue(realValue, newColumns);
-          this.setData({ currentValue, formattedValueText: this.onFormat() });
-        }
-      },
-      'visible': function (data) {
-        const prevVisible = this._prevVisible;
-        this._prevVisible = data;
-        const visible = getValueFromProps(this, 'visible');
-        if (this.isVisibleControlled() && !equal(prevVisible, visible)) {
-          this.setData({ visible });
-        }
-      },
-    },
-    /// #endif
-  }
-);
+  },
+  /// #endif
+});
