@@ -39,7 +39,7 @@ ComponentWithSignalStoreImpl({
           count:
             typeof maxCount === 'number' && !isNaN(maxCount)
               ? maxCount - fileList.length
-              : Infinity,
+              : 9999,
           sourceType,
         });
         localFileList = (
@@ -171,10 +171,8 @@ ComponentWithSignalStoreImpl({
     },
     updateShowUploadButton() {
       const maxCount = getValueFromProps(this, 'maxCount');
-      const max =
-        typeof maxCount === 'number' && !isNaN(maxCount) ? maxCount : Infinity;
       this.setData({
-        showUploadButton: !max || this.getValue().length < max,
+        showUploadButton: !maxCount || this.getValue().length < maxCount,
       });
     },
     count: 0,
