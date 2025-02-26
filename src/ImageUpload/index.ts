@@ -37,9 +37,9 @@ ComponentWithSignalStoreImpl({
       try {
         const chooseImageRes = await chooseImage({
           count:
-            typeof maxCount === 'undefined'
-              ? Infinity
-              : maxCount - fileList.length,
+            typeof maxCount === 'number' && !isNaN(maxCount)
+              ? maxCount - fileList.length
+              : Infinity,
           sourceType,
         });
         localFileList = (
@@ -171,8 +171,10 @@ ComponentWithSignalStoreImpl({
     },
     updateShowUploadButton() {
       const maxCount = getValueFromProps(this, 'maxCount');
+      const max =
+        typeof maxCount === 'number' && !isNaN(maxCount) ? maxCount : Infinity;
       this.setData({
-        showUploadButton: !maxCount || this.getValue().length < maxCount,
+        showUploadButton: !max || this.getValue().length < max,
       });
     },
     count: 0,
