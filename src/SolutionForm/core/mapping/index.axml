@@ -1,0 +1,130 @@
+<import-sjs from="./index.sjs" name="mappingSjs" />
+
+<template name="uploadVideoImage">
+  <upload-video-image
+    onTriggerChange="onTriggerChange"
+    field="{{ item.path }}"
+    config="{{mappingSjs.getComponentConfig(item)}}"
+    value="{{ value }}"/>
+</template>
+
+<template name="imageUpload">
+  <image-upload
+    onTriggerChange="onTriggerChange"
+    field="{{ item.path }}"
+    config="{{mappingSjs.getComponentConfig(item)}}"
+    value="{{ value }}"/>
+</template>
+
+<template name="input">
+  <input
+    onTriggerChange="onTriggerChange"
+    field="{{ item.path }}"
+    config="{{mappingSjs.getComponentConfig(item)}}"
+    value="{{ value }}"/>
+</template>
+
+<template name="radio">
+  <radio
+    onTriggerChange="onTriggerChange"
+    field="{{ item.path }}"
+    config="{{mappingSjs.getComponentConfig(item)}}"
+    value="{{ value }}"/>
+</template>
+
+<template name="switch">
+  <switch
+    onTriggerChange="onTriggerChange"
+    field="{{ item.path }}"
+    config="{{mappingSjs.getComponentConfig(item)}}"
+    value="{{ value }}"/>
+</template>
+
+<template name="picker">
+  <picker
+    onTriggerChange="onTriggerChange"
+    field="{{ item.path }}"
+    config="{{mappingSjs.getComponentConfig(item)}}"
+    value="{{ value }}"/>
+</template>
+
+<template name="date-picker">
+  <date-picker
+    onTriggerChange="onTriggerChange"
+    field="{{item.path }}"
+    config="{{mappingSjs.getComponentConfig(item)}}"
+    value="{{ value }}"/>
+</template>
+
+<template name="textarea">
+  <textarea
+    onTriggerChange="onTriggerChange"
+    field="{{ item.path }}"
+    config="{{mappingSjs.getComponentConfig(item)}}"
+    value="{{ value }}"/>
+</template>
+
+<form-item
+  a:for="{{ finalFormItemArr }}"
+  visible="{{item.visible}}"
+  label="{{item.title}}"
+  name="{{item.path}}"
+  requiredMarkStyle="{{ item.requiredMarkStyle }}"
+  className="{{ item.className }}"
+  relation="{{item.relation}}"
+  required="{{item.required}}"
+  rules="{{item.rules}}"
+  item="{{ item }}"
+  displayType="{{ item.displayType || displayType }}"
+  spmInfo="{{ item.props.spmInfo }}"
+  defaultValue="{{item.value}}"
+  tips="{{ item.tips }}"
+  tipsConfig="{{ item.tipsConfig }}"
+  widget="{{ item.widget }}"
+  type="{{item.type}}"
+  value="{{ mappingSjs.getFormItemValue(formData, item.path) }}"
+  extra="{{item.extra}}"
+>
+  <view
+    slot-scope="props"
+    style="opacity: {{ (item.disabled || item.props.disabled) ? '0.4' : '1' }}"
+    onTap="onDisabledTap"
+    data-listItem="{{listItem}}">
+    <!--内置组件-->
+    <template
+      a:if="{{mappingSjs.isInternalComponent(item.widget)}}"
+      is="{{item.widget || 'input'}}"
+      data="{{
+        item: item,
+        value: mappingSjs.getFormItemValue(formData, item.path)
+      }}"
+    />
+
+    <!--外部组件
+    <slot
+      a:if="{{ !mappingSjs.isInternalComponent(item.widget) }}"
+      field="{{ item.path }}"
+      config="{{mappingSjs.getComponentConfig(item)}}"
+      value="{{ mappingSjs.getFormItemValue(formData, item.path)}}"
+      widget="{{item.widget}}"
+    />-->
+  </view>
+
+  <slot
+    name="extra"
+    slot-scope="props"
+    slot="extra"
+    extra="{{props.extra}}"
+    field="{{ item.path }}"
+    config="{{mappingSjs.getComponentConfig(item)}}"
+    value="{{ mappingSjs.getFormItemValue(formData, item.path)}}"
+    widget="{{item.widget}}"
+  />
+
+  <slot
+    name="custom-error"
+    slot="custom-error"
+    slot-scope="props"
+    errorInfo="{{props.errorInfo}}"
+  />
+</form-item>

@@ -1,0 +1,34 @@
+<view
+  class="fr-textarea"
+  data-aspm-click="ca51271.da42051"
+  data-aspm-desc="表单组件-textarea"
+  data-aspm-param=""
+  data-aspm-expo>
+  <textarea
+    placeholder="{{config.placeholder || `请输入`}}"
+    value="{{value}}"
+    maxLength="{{config.maxLength}}"
+
+    focus="{{config.focus}}"
+    autoHeight="{{config.autoHeight}}"
+    showCount="{{config.showCount}}"
+    disabled="{{config.disabled}}"
+
+    controlled="{{ config.controlled || false }}"
+    enableNative="{{config.enableNative}}"
+
+    className="{{config.className || ''}}"
+    style="{{ config.style || '' }}"
+    placeholderClassName="{{config.placeholderClass || ''}}"
+    placeholderStyle="{{config.placeholderStyle || ''}}"
+    inputCls="{{ config.inputCls || '' }}"
+
+    randomNumber="{{config.randomNumber}}"
+    confirmType="{{config.confirmType}}"
+
+    onBlur="onBlur"
+    onFocus="onFocus"
+    onConfirm="onConfirm"
+    onChange="onChange"
+  />
+</view>

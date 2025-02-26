@@ -1,0 +1,24 @@
+@formItemMessagePrefix: fr-form-item-message;
+
+.@{formItemMessagePrefix} {
+  margin-top: 14rpx;
+  animation: formItemMessageAppear 0.2s ease both;
+}
+
+.fr-mapping-list {
+  .@{formItemMessagePrefix} {
+    .ant-icon {
+      font-size: 28rpx !important;
+      margin-left: 0 !important;
+      margin-right: 12rpx !important;
+    }
+  }
+}
+
+@keyframes formItemMessageAppear {
+  from {
+    height: 0;
+    opacity: 0;
+    padding: 0 16rpx;
+  }
+}

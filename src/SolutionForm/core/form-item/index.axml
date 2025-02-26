@@ -1,0 +1,74 @@
+<view
+  class="fr-form-item {{ className || '' }}"
+  style="{{ currentErrorInfo.message ? 'padding-bottom: 14rpx;' : '' }}"
+  a:if="{{ visible !== false }}">
+  <view class="fr-form-item-line fr-form-item-line-{{displayType}} {{ !!errorInfo ? 'noLine'  : '' }}">
+    <view class="fr-form-item-content fr-form-item-content-{{displayType}}">
+      <!--label-->
+      <view
+        a:if="{{!!label}}"
+        class="
+          fr-form-item-label
+          fr-form-item-label-{{displayType}}
+          {{ finalRequired ? 'fr-form-item-label-required': 'fr-form-item-label-not-required' }}
+        "
+      >
+        <!-- 必填小红点 -->
+        <view a:if="{{ finalRequired && finalRequiredMarkStyle === 'asterisk' }}" class="fr-form-item-label-text-asterisk">*</view>
+        {{ `${label}{${labelExtra}}` }}
+        <popover
+          content="{{ tips }}"
+          a:if="{{ tips }}"
+          className="{{ tipsConfig.className }}"
+          contentStyle="{{ tipsConfig.contentStyle }}"
+          contentClassName="{{ tipsConfig.contentClassName }}"
+          placement="{{ tipsConfig.placement || 'top-left' }}"
+          autoAdjustOverflow="{{ false }}"
+          destroyOnClose="{{ true }}"
+          showMask="{{ true }}"
+        >
+          <icon
+            type="InformationCircleOutline"
+            style="display: block;font-size: 28rpx !important; margin-left: 6rpx !important;transform: translateY(8rpx);"
+          />
+          {{ tips }}
+        </popover>
+      </view>
+
+      <view class="fr-form-item-field fr-form-item-field-{{displayType}}" onTap="onTapItem">
+        <!--表单项 内容组件的插槽 展示不同的表单组件-->
+        <slot />
+        <view
+          a:if="{{extra}}"
+          data-aspm-click="ca51271.da34832"
+          data-aspm-desc="表单组件-信息提示"
+          data-aspm-param="{{ { extra: extra, field: name, widget: widget } }}"
+          data-aspm-expo
+        >
+          <form-item-extra extra="{{extra}}">
+            <view slot-scope="props">
+              <slot
+                name="extra"
+                extra="{{ extra }}"
+              />
+            </view>
+          </form-item-extra>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 校验错误信息模块，支持自定义插槽传入 -->
+  <slot
+    a:if="{{  currentErrorInfo.message }}"
+    name="custom-error"
+    errorInfo="{{{
+      field: currentErrorInfo.field,
+      message: currentErrorInfo.message,
+      actionText: currentErrorInfo.actionText,
+      extraInfo: currentErrorInfo.extraInfo,
+    }}}"
+  >
+  </slot>
+</view>
+

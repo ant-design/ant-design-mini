@@ -1,0 +1,115 @@
+<import-sjs from="./index.sjs" name="formRenderSjs" />
+
+<template name="mapping">
+  <fr-mapping
+    formItemArr="{{subSchema.formItemArr}}"
+    showExpand="{{ subSchema.showExpand }}"
+    defaultShowCount="{{ subSchema.defaultShowCount }}"
+    displayType="{{ subSchema.displayType }}"
+    onDisabledTap="onDisabledTap"
+  >
+    <view slot-scope="props">
+      <slot
+        name="mapping"
+        field="{{ props.field }}"
+        config="{{props.config}}"
+        value="{{props.value}}"
+        widget="{{props.widget}}"
+      />
+    </view>
+
+    <slot
+      slot="extra"
+      name="extra"
+      slot-scope="props"
+      extra="{{props.extra}}"
+      field="{{props.field}}"
+      config="{{props.config}}"
+      value="{{props.value}}"
+      widget="{{props.widget}}"
+    />
+
+    <slot
+      slot="custom-error"
+      name="custom-error"
+      slot-scope="props"
+      errorInfo="{{props.errorInfo}}"
+    >
+      <!-- 底部提示信息内容 -->
+      <custom-error-fallback
+        slotConfig="{{slotConfig}}"
+        info="{{props.errorInfo}}"
+      ></custom-error-fallback>
+    </slot>
+  </fr-mapping>
+</template>
+
+<view
+  class="fr {{className ? className: ''}}"
+  data-aspm="ca51271"
+  data-aspm-desc="表单组件"
+  data-aspm-param=""
+  data-aspm-expo>
+  <fr-form class="fr-body">
+    <block
+      a:if="{{ hasGroup }}"
+      a:for="{{ subSchemaArr }}"
+      a:for-item="subSchema"
+    >
+      <fr-form-group
+        title="{{subSchema.title}}"
+        className="{{subSchema.className}}"
+        widget="{{ subSchema.widget }}"
+        a:if="{{ subSchema.visible !== false }}"
+        groupField="{{ subSchema.path }}"
+        groupConfig="{{subSchema.config}}"
+      >
+        <template
+          is="mapping"
+          data="{{
+            slotConfig: {
+              showInternalErrorMessage,
+            },
+            subSchema: {
+              displayType: subSchema.displayType,
+              formItemArr: subSchema.formItemArr,
+              defaultShowCount: subSchema.config.defaultShowCount,
+              widget: subSchema.widget,
+              showExpand: subSchema.widget === 'card-expand',
+              groupConfig: subSchema.config,
+            },
+          }}"
+        />
+        <!-- 分组右侧区域自定义 -->
+        <slot
+          slot="group-extra"
+          name="group-extra"
+          slot-scope="props"
+          groupExtra="{{ subSchema.extra }}"
+        />
+      </fr-form-group>
+    </block>
+    <fr-form-group a:if="{{ !hasGroup }}">
+      <template
+          is="mapping"
+          data="{{
+            slotConfig: {
+              showInternalErrorMessage,
+            },
+            subSchema: {
+              displayType: subSchema.displayType,
+              formItemArr: subSchemaArr,
+              defaultShowCount: subSchema.config.defaultShowCount,
+              showExpand: subSchema.widget === 'card-expand',
+            },
+          }}"
+        />
+    </fr-form-group>
+    <slot name="footer-button">
+      <!-- 原本的按钮区域 兼容老版本 -->
+
+    </slot>
+  </fr-form>
+  <!-- debug -->
+  <fr-debug a:if="{{ debug }}"/>
+</view>

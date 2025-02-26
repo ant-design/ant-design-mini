@@ -1,0 +1,29 @@
+<view
+  style="{{ config.style }}"
+  class="fr-radio"
+  data-aspm-click="ca51271.da34827"
+  data-aspm-desc="表单组件-表单子项radio"
+  data-aspm-param=""
+  data-aspm-expo>
+
+  <radio-group
+    options="{{config.options}}"
+    value="{{value}}"
+    disabled="{{ config.disabled }}"
+    className="{{ config.className }}"
+    color="{{ config.color }}"
+    onChange="onChange"
+    position="{{ config.position || 'horizontal' }}"
+  >
+    <view slot="label" slot-scope="radioItem" class="fr-radio-label">
+      {{ radioItem.value.label }}
+      <icon
+        a:if="{{ radioItem.value.toolTip.text }}"
+        catchTap="onClickQuestionIcon"
+        data-tooltip="{{ radioItem.value.toolTip }}"
+        type="QuestionCircleOutline"
+        style="color: #999999; font-size: 30rpx; margin-left: 8rpx;" />
+    </view>
+  </radio-group>
+
+</view>

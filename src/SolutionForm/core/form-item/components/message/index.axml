@@ -1,0 +1,14 @@
+<!--
+  为什么要在这里通过 slotConfig.showInternalErrorMessage 隐藏组件而不是在引用组件的地方？
+  这是因为触发了 APPX1.0 的 BUG，需要绕过去，否则无法构建成功：
+  https://links.antfin-inc.com/app/room/5c1771a4fbdf014b39fc6fb8/66a087619cca390446eec616/
+-->
+<view
+  a:if="{{ slotConfig.showInternalErrorMessage && message }}"
+  data-aspm-click="ca51271.da34830"
+  data-aspm-desc="表单组件-错误信息区域"
+  data-aspm-param="{{ { message } }}"
+  data-aspm-expo
+  class="fr-form-item-message">
+  {{ message }}
+</view>

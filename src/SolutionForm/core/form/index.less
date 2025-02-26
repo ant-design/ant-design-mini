@@ -1,0 +1,20 @@
+@formPrefix: fr-form;
+
+.@{formPrefix} {
+  &-group {
+    .fr-form-item:last-child {
+      .form-line {
+        display: none;
+      }
+    }
+  }
+
+  &-footer {
+    padding: 40rpx 24rpx 24rpx 24rpx;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+}

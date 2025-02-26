@@ -1,0 +1,20 @@
+<view
+  class="fr-footer"
+  data-aspm-click="ca51271.da34831"
+  data-aspm-desc="表单组件-底部按钮区域"
+  data-aspm-param=""
+  data-aspm-expo>
+  <slot name="footer-protocol"></slot>
+  <button
+    class="fr-footer-button"
+    type="primary"
+    disabled="{{ disableSubmit === true }}"
+    onTap="onSubmit"
+  >{{submitButtonText}}</button>
+</view>
+
+<!-- 
+<view class="fr-footer">
+  <operation-button footer="{{footer3}}" onActionTap="handleTap"/>
+</view>
+--> 

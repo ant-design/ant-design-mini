@@ -1,0 +1,8 @@
+<view class="fr-form-item-extra">
+  <block a:if="{{extra.widget}}">
+    <slot extra="{{ extra }}"  />
+  </block>
+  <block a:else>
+    {{extra}}
+  </block>
+</view>

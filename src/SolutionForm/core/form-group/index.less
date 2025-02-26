@@ -1,0 +1,88 @@
+@formGroupPrefix: fr-form-group;
+
+.@{formGroupPrefix} {
+  &-header {
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #666;
+    margin: 24rpx 24rpx 16rpx 24rpx;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &-body {
+    position: relative;
+  }
+
+  &-not-radius {
+    & .@{formGroupPrefix}-body {
+      background-color: #fff;
+    }
+  }
+
+  &-radius {
+    & .@{formGroupPrefix}-body {
+      margin: 0 24rpx;
+      &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 24rpx;
+        overflow: hidden;
+        background-color: #fff;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+    }
+  }
+}
+
+.fr-form-group-card {
+  border-radius: 24rpx;
+  background: #fff;
+  overflow: hidden;
+  margin: 24rpx 24rpx 16rpx 24rpx;
+  .fr-form-group-header {
+    font-weight: 500;
+    font-size: 32rpx;
+    line-height: 45rpx;
+    color: #333;
+    padding: 24rpx 24rpx 0 24rpx;
+    margin: 0;
+
+    &-wrap {
+      position: relative;
+      width: 100%;
+      &-expand {
+        outline: 10rpx solid transparent;
+        color: #bbb;
+        font-size: 32rpx;
+        font-weight: normal;
+        position: absolute;
+        right: 0;
+        top: 0;
+        &-icon {
+          color: #bbb;
+          margin-left: 16rpx;
+        }
+      }
+    }
+  }
+  .fr-form-group-body {
+    margin: 0;
+  }
+
+  .fr-form-group-body-expand-off {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 20rpx;
+  }
+}

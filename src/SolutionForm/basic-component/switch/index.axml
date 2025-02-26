@@ -1,0 +1,18 @@
+<view
+  data-aspm-click="ca51271.da34829"
+  data-aspm-desc="表单组件-表单子项switch"
+  data-aspm-param=""
+  class="fr-switch"
+  data-aspm-expo>
+  <switch 
+    checked="{{value}}"
+    color="{{ config.color }}"
+    className="{{ config.className }}"
+    disabled="{{ config.disabled }}"
+    checkedText="{{ config.checkedText }}"
+    uncheckedText="{{ config.uncheckedText }}"
+    size="{{ config.size || 'medium' }}"
+    style="{{ config.style }}"
+    onChange="onChange" 
+  />
+</view>

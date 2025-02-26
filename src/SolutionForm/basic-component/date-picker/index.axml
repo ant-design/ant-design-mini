@@ -1,0 +1,83 @@
+<view
+  class="fr-date-pick"
+  data-aspm-click="ca51271.da34650"
+  data-aspm-desc="表单组件-表单子项date-picker"
+  data-aspm-param=""
+  data-aspm-expo>
+  <date-picker
+    a:if="{{ config.type !== 'range' }}"
+    title="{{ config.title }}"
+    disabled="{{ config.disabled }}"
+    format="{{ config.format || 'YYYY.MM.DD' }}"
+    value="{{ value }}"
+    placeholder="{{ config.placeholder || '请选择时间' }}"
+
+    max="{{ config.max }}"
+    min="{{ config.min }}"
+
+    animationType="{{ config.animationType }}"
+    maskClosable="{{ config.maskClosable }}"
+    precision="{{ config.precision || 'day' }}"
+
+    style="{{ config.style }}"
+    className="{{ config.className }}"
+    indicatorStyle="{{ config.indicatorStyle }}"
+    indicatorClassName="{{ config.indicatorClassName }}"
+    maskStyle="{{ config.maskStyle }}"
+    maskClassName="{{ config.maskClassName }}"
+    popClassName="{{ config.popClassName }}"
+    popStyle="{{ config.popStyle }}"
+
+    cancelText="{{ config.cancelText || '取消' }}"
+    okText="{{ config.okText || '确定' }}"
+
+
+    onCancel="onCancel"
+    onPickerChange="onPickerChange"
+    onFormat="onFormat"
+    onFormatLabel="onFormatLabel"
+    onVisibleChange="onVisibleChange"
+    onOk="onChange">
+    <view a:if="{{ config.arrow === undefined ? true : config.arrow }}" slot="suffix" class="fr-date-pick-arrow" />
+  </date-picker>
+
+  <range-picker
+    a:else
+    title="{{ config.title }}"
+    disabled="{{ config.disabled }}"
+    format="{{ config.format || 'YYYY.MM.DD' }}"
+    value="{{ value }}"
+    placeholder="{{ config.placeholder || '请选择时间' }}"
+
+    animationType="{{ config.animationType }}"
+    maskClosable="{{ config.maskClosable }}"
+    precision="{{ config.precision || 'day' }}"
+
+    max="{{ config.max }}"
+    min="{{ config.min }}"
+
+    style="{{ config.style }}"
+    className="{{ config.className }}"
+    indicatorStyle="{{ config.indicatorStyle }}"
+    indicatorClassName="{{ config.indicatorClassName }}"
+    maskStyle="{{ config.maskStyle }}"
+    maskClassName="{{ config.maskClassName }}"
+    popClassName="{{ config.popClassName }}"
+    popStyle="{{ config.popStyle }}"
+
+    cancelText="{{ config.cancelText || '取消' }}"
+    okText="{{ config.okText || '确定' }}"
+    endPlaceholder="{{ config.endPlaceholder || '未选择' }}"
+    splitCharacter="{{ config.splitCharacter }}"
+    startPlaceholder="{{ config.startPlaceholder }}"
+
+
+    onCancel="onCancel"
+    onPickerChange="onPickerChange"
+    onFormat="onFormat"
+    onFormatLabel="onFormatLabel"
+    onVisibleChange="onVisibleChange"
+    onOk="onChange">
+    <view a:if="{{ config.arrow === undefined ? true : config.arrow }}" slot="suffix" class="fr-date-pick-arrow" />
+  </range-picker>
+</view>

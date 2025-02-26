@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "form-item-message": "./components/message/index",
+    "icon": "../../../Icon/index",
+    "popover": "../../../Popover/index",
+    "form-item-extra": "./components/extra/index"
+  }
+}

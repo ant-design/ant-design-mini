@@ -1,0 +1,49 @@
+<view
+  class="fr-input"
+  data-aspm-click="ca51271.da34653"
+  data-aspm-desc="表单组件-表单子项input"
+  data-aspm-param=""
+  data-aspm-expo>
+  <input
+    placeholder="{{config.placeholder || `请输入`}}"
+    value="{{value}}"
+    maxLength="{{config.maxLength}}"
+    password="{{config.password&&!showPassword}}"
+
+    focus="{{config.focus}}"
+    allowClear="{{config.allowClear&&!config.disabled}}"
+    disabled="{{config.disabled}}"
+
+    controlled="{{ config.controlled || false }}"
+    enableNative="{{config.enableNative}}"
+    alwaysSystem="{{config.alwaysSystem}}"
+    adjustPosition="{{config.adjustPosition}}"
+
+    className="{{config.className || ''}}"
+    style="{{ config.style || '' }}"
+    placeholderClassName="{{config.placeholderClass || ''}}"
+    placeholderStyle="{{config.placeholderStyle || ''}}"
+    inputCls="{{ config.inputCls || '' }}"
+
+    randomNumber="{{config.randomNumber}}"
+    type="{{config.type}}"
+    confirmType="{{config.confirmType}}"
+    confirmHold="{{config.confirmHold}}"
+
+    cursor="{{config.cursor}}"
+    selectionStart="{{config.selectionStart}}"
+    selectionEnd="{{config.selectionEnd}}"
+
+    onBlur="onBlur"
+    onFocus="onFocus"
+    onConfirm="onConfirm"
+    onChange="onChange"
+  >
+    <block slot="suffix">
+      <block a:if="{{config.password && !config.disabled}}">
+        <image a:if="{{!showPassword}}" class="fr-input-password-suffix" src="https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*p9UoQbk4GaMAAAAAAAAAAAAADtF8AQ/original" catchTap="changePassword" data-type="hide"/>
+        <image a:else class="fr-input-password-suffix" src="https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*StgCSbfIgywAAAAAAAAAAAAADtF8AQ/original" catchTap="changePassword" data-type="show"/>
+      </block>
+    </block>
+  </input>
+</view>

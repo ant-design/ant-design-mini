@@ -31,6 +31,7 @@
     ]
   },
   "dependencies": {
+    "@alipay/merchant-base-mini": "^0.0.90011117430-dev.1",
     "@mini-types/alipay": "^3.0.5",
     "@preact/signals-core": "^1.7.0",
     "async-validator": "^4.0.7",

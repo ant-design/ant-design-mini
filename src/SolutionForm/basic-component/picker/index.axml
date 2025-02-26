@@ -1,0 +1,67 @@
+<view
+  class="fr-pick"
+  data-aspm-click="ca51271.da34654"
+  data-aspm-desc="表单组件-表单子项picker"
+  data-aspm-param=""
+  data-aspm-expo>
+  <picker
+    a:if="{{ config.type !== 'cascader' }}"
+    value="{{ value }}"
+    options="{{ config.options }}"
+    title="{{ config.title }}"
+    disabled="{{ config.disabled }}"
+    placeholder="{{ config.placeholder }}"
+    animationType="{{ config.animationType || 'transform' }}"
+    maskClosable="{{ config.maskClosable }}"
+
+    style="{{ config.style }}"
+    className="{{ config.className }}"
+    indicatorClassName="{{ config.indicatorClassName }}"
+    indicatorStyle="{{ config.indicatorStyle || '' }}"
+    popClassName="{{ config.popClassName }}"
+    popStyle="{{ config.popStyle }}"
+    maskClassName="{{ config.maskClassName }}"
+    maskStyle="{{ config.maskStyle }}"
+
+    cancelText="{{ config.cancelText || '取消' }}"
+    okText="{{ config.okText || '确定' }}"
+
+    onOk="onOk"
+    onCancel="onCancel"
+    onChange="onChange"
+    onFormat="onFormat"
+    onVisibleChange="onVisibleChange"
+  >
+    <view a:if="{{ config.arrow === undefined ? true : config.arrow }}" slot="suffix" class="fr-pick-arrow" />
+  </picker>
+  <cascader-picker
+    a:else
+    value="{{ value }}"
+    options="{{ config.options }}"
+    title="{{ config.title }}"
+    disabled="{{ config.disabled }}"
+    placeholder="{{ config.placeholder }}"
+    animationType="{{ config.animationType || 'transform' }}"
+    maskClosable="{{ config.maskClosable }}"
+
+    style="{{ config.style }}"
+    className="{{ config.className }}"
+    indicatorClassName="{{ config.indicatorClassName }}"
+    indicatorStyle="{{ config.indicatorStyle || '' }}"
+    popClassName="{{ config.popClassName }}"
+    popStyle="{{ config.popStyle }}"
+    maskClassName="{{ config.maskClassName }}"
+    maskStyle="{{ config.maskStyle }}"
+
+    cancelText="{{ config.cancelText || '取消' }}"
+    okText="{{ config.okText || '确定' }}"
+
+    onOk="onOk"
+    onCancel="onCancel"
+    onChange="onChange"
+    onFormat="onFormat"
+    onVisibleChange="onVisibleChange"
+  >
+    <view a:if="{{ config.arrow }}" slot="suffix" class="fr-pick-arrow" />
+  </cascader-picker >
+</view>
