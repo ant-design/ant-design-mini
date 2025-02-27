@@ -1,0 +1,18 @@
+"use strict";(self.webpackChunkantd_mini=self.webpackChunkantd_mini||[]).push([[9449],{14530:function(o,e,a){a.r(e),a.d(e,{demos:function(){return t}});var n=a(67294),d=a(62396),t={"src-loading-demo-loading":{component:n.memo(n.lazy(function(){return a.e(2433).then(a.bind(a,23731))})),asset:{type:"BLOCK",id:"src-loading-demo-loading",refAtomIds:[],dependencies:{},entry:"index.ts"},context:{},renderOpts:void 0}}},92326:function(o,e,a){a.r(e),a.d(e,{texts:function(){return d}});var n=a(62396);const d=[{value:"Used to prompt that a part or page is loading.",paraId:0,tocIndex:0},{value:"In ",paraId:1,tocIndex:1},{value:"index.json",paraId:1,tocIndex:1},{value:" Introducing Components in",paraId:1,tocIndex:1},{value:`"usingComponents": {
+#if ALIPAY
+  "ant-loading": "antd-mini/es/Loading/index"
+#endif
+#if WECHAT
+  "ant-loading": "antd-mini/Loading/index"
+#endif
+}
+`,paraId:2,tocIndex:1},{value:`<ant-loading type="mini" />
+`,paraId:3,tocIndex:3},{value:`<ant-loading type="spin" size="x-large" />
+<ant-loading type="spin" size="large" />
+<ant-loading type="spin" size="medium" />
+<ant-loading type="spin" size="small" />
+`,paraId:4,tocIndex:4},{value:`<ant-loading type="mini" color="#1677ff" />
+<ant-loading color="#34B368" />
+`,paraId:5,tocIndex:5},{value:`<ant-loading style="width: 40px; height: 40px" />
+<ant-loading className="custom-size" />
+`,paraId:6,tocIndex:6},{value:"Property",paraId:7,tocIndex:8},{value:"Description",paraId:7,tocIndex:8},{value:"Type",paraId:7,tocIndex:8},{value:"Default Value",paraId:7,tocIndex:8},{value:"className",paraId:7,tocIndex:8},{value:"Root node class name",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"color",paraId:7,tocIndex:8},{value:"The color when loading, when type is ",paraId:7,tocIndex:8},{value:"spin",paraId:7,tocIndex:8},{value:" Only hexadecimal color codes are supported.",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"#fff",paraId:7,tocIndex:8},{value:"size",paraId:7,tocIndex:8},{value:"Load icon size, when type is ",paraId:7,tocIndex:8},{value:"spin",paraId:7,tocIndex:8},{value:" effective. Optional ",paraId:7,tocIndex:8},{value:"small",paraId:7,tocIndex:8},{value:"\u3001",paraId:7,tocIndex:8},{value:"medium",paraId:7,tocIndex:8},{value:"\u3001",paraId:7,tocIndex:8},{value:"large",paraId:7,tocIndex:8},{value:"\u3001",paraId:7,tocIndex:8},{value:"x-large",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"medium",paraId:7,tocIndex:8},{value:"style",paraId:7,tocIndex:8},{value:"root node style",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"-",paraId:7,tocIndex:8},{value:"type",paraId:7,tocIndex:8},{value:"Load style type, optional ",paraId:7,tocIndex:8},{value:"spin",paraId:7,tocIndex:8},{value:"\u3001",paraId:7,tocIndex:8},{value:"mini",paraId:7,tocIndex:8},{value:"string",paraId:7,tocIndex:8},{value:"spin",paraId:7,tocIndex:8},{value:"Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.",paraId:8,tocIndex:10},{value:"Variable name",paraId:9,tocIndex:10},{value:"Default Value",paraId:9,tocIndex:10},{value:"Dark Mode Default",paraId:9,tocIndex:10},{value:"Remarks",paraId:9,tocIndex:10},{value:"--loading-text-color",paraId:9,tocIndex:10},{value:"#d8d8d8",paraId:9,tocIndex:10},{value:"#454955",paraId:9,tocIndex:10},{value:"Load Text Color (Iron Black)",paraId:9,tocIndex:10},{value:"--loading-icon-light-color",paraId:9,tocIndex:10},{value:"rgba(255, 255, 255, 0.6)",paraId:9,tocIndex:10},{value:"rgba(255, 255, 255, 0.6)",paraId:9,tocIndex:10},{value:"Load icon light",paraId:9,tocIndex:10}]}}]);
