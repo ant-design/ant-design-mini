@@ -9,7 +9,7 @@ toc: 'content'
 
 # Selector
 
-Select one or more in a set of options. Provides multiple options for users to choose from and is typically used in filters and forms.
+Select one or more in a set of options. Provides multiple options for users to select, typically used in filters and forms.
 
 ## Introduction
 
@@ -46,7 +46,7 @@ In `index.json` Introducing Components in
 
 ### Limit the number of selections
 
-> `maxSelectedCount`、`minSelectedCount` attribute can limit the number of selections,`selectMax`、`selectMin` Event is triggered when the limit is exceeded.
+> `maxSelectedCount`、`minSelectedCount` property can limit the number of selections,`selectMax`、`selectMin` Event is triggered when the limit is exceeded.
 
 ```xml
 <ant-selector
@@ -182,7 +182,7 @@ Page({
 | multiple                  | Whether to allow multi-selection, the current radio/multi-selection status will be displayed when the tab bar is displayed. | boolean                                                                                                                                                                                                                                  | false  |
 | options                   | Option Data Source                                              | [SelectorItem](#selectoritem)[]                                                                                                                                                                                                          | []     |
 | style                     | Style                                                    | string                                                                                                                                                                                                                                   | -      |
-| value                     | The current selection, when multiple selection type is array                            | string \| number \| string[] \| number[]                                                                                                                                                                                                 | -      |
+| value                     | Current selection, array type for multiple selection                            | string \| number \| string[] \| number[]                                                                                                                                                                                                 | -      |
 | #if ALIPAY onChange       | The selected value changes, triggering a callback                                | (v: string \| number \| undefined \| string[] \| number[], selectedItem: [SelectorItem](#selectoritem) \| undefined \| [SelectorItem](#selectoritem)[], event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if ALIPAY onSelectMax    | Maximum Trigger Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
 | #if ALIPAY onSelectMin    | Trigger Minimum Limit                                            | (value: string \| number, item: [SelectorItem](#selectoritem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                                                                                          | -      |
@@ -196,19 +196,19 @@ Page({
 | -------- | ------------ | ---------------- | ------ |
 | disabled | Disable     | boolean          | -      |
 | subText  | Deputy Copywriter       | string           | -      |
-| text     | Copy         | string           | -      |
+| text     | Copywriting         | string           | -      |
 | value    | Current item value | string \| number | -      |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                            | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                 |
 | --------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
 | --selector-background-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div> | Selector Background Color       |
-| --selector-item-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Selector Item Background Color     |
+| --selector-item-background        | <div style="width: 150px; height: 30px; background-color: #f5f5f5; color: #333333;">#f5f5f5</div> | <div style="width: 150px; height: 30px; background-color: #121212; color: #ffffff;">#121212</div> | Selector item background color     |
 | --selector-item-active-background | <div style="width: 150px; height: 30px; background-color: #e7f1ff; color: #333333;">#e7f1ff</div> | <div style="width: 150px; height: 30px; background-color: #0d2543; color: #ffffff;">#0d2543</div> | Selector Activate Item Background Color |
 | --selector-item-color             | <div style="width: 150px; height: 30px; background-color: #1677ff; color: #ffffff;">#1677ff</div> | <div style="width: 150px; height: 30px; background-color: #3086ff; color: #ffffff;">#3086ff</div> | Selector item color         |
 | --selector-item-sub-color         | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Selector item sub-color       |

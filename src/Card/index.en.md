@@ -122,10 +122,10 @@ In `index.json` Introducing Components in
 | title                        | Card Title                                                            | string                      | -      |
 | divider                      | Whether there is a dividing line                                                        | boolean                     | false  |
 | needFold                     | Whether a foldable card is required, the operateText needs to be empty, otherwise it needs to be manually unfolded and stowed. | boolean                     | false  |
-| foldStatus                   | Collapse or not, passing true will cause collapse, regardless of whether the needFold is true or not             | boolean                     | false  |
+| foldStatus                   | Whether it is collapsed or not, passing true will cause it to be collapsed, regardless of whether the needFold is true or not.             | boolean                     | false  |
 | headSticky                   | Does the title need ceiling                                                    | boolean                     | false  |
 | stickyTransparentTitle       | Whether the ceiling is on the transparent head page, if so, the height of the transparent head will be calculated automatically.                      | boolean                     | false  |
-| stickyTop                    | How much distance from the top when the title is sucked                                  | string                      | -      |
+| stickyTop                    | How much distance should the title be from the top when it is sucked                                  | string                      | -      |
 | operateText                  | Default title bar right action button text                                          | string                      | -      |
 | #if ALIPAY onOperateClick    | Default title bar right operation button click callback                                      | () => void                  | -      |
 | #if ALIPAY onFoldChange      | Default title bar right collapse expand button click callback                                  | () => void                  | -      |
@@ -144,7 +144,7 @@ In `index.json` Introducing Components in
 
 | Name        | Description                 |
 | ----------- | -------------------- |
-| Default slot    | Card Content             |
+| Default Slot    | Card Content             |
 | headerTitle | Custom Title Bar Left Title |
 | headerRight | Customize the right content of the title bar |
 

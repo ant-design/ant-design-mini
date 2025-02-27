@@ -9,11 +9,11 @@ toc: 'content'
 
 # Badge
 
-A logo that displays a red dot, number, or text. Used to remind the user of pending matters or new updated quantities. Use when you need to display numbers, text, or little red dots in the upper right corner. It is suitable for prompting new messages, functions or services for productization, attracting users' attention through conspicuous visual forms and prompting them to perform related operations.
+徽标，显示红点、数字或文字。用于提醒用户，有待处理的事项或者新的更新数量。当需要在右上角展示数字、文字或小红点时使用。适合于提示产品化的新消息、功能或服务等内容，通过显眼的视觉形式吸引用户注意，并促使其进行相关操作。
 
-## Introduction
+## 引入
 
-In `index.json` Introducing Components in
+在 `index.json` 中引入组件
 
 ```json
 "usingComponents": {
@@ -26,9 +26,9 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## 代码示例
 
-### Basic use
+### 基本使用
 
 ```xml
 <ant-badge type="dot" position="top-right"><view class="box" /></ant-badge>
@@ -37,20 +37,20 @@ In `index.json` Introducing Components in
 <ant-badge type="bubble" text="new" position="top-right"><view class="box" /></ant-badge>
 ```
 
-### with border
+### 带边框
 
 ```xml
 <ant-badge stroke type="dot" position="top-right"><view class="box" /></ant-badge>
 ```
 
-### Custom background and location
+### 自定义背景和位置
 
 ```xml
 <ant-badge type="dot" position="bottom-right"><view class="box" /></ant-badge>
 <ant-badge type="dot" position="top-center" bgColor="#1677FF"><view class="box" /></ant-badge>
 ```
 
-### Set Offset
+### 设置偏移
 
 ```xml
 <ant-badge type="dot" position="bottom-right" offsetX="-20px" offsetY="-14px">
@@ -58,7 +58,7 @@ In `index.json` Introducing Components in
 </ant-badge>
 ```
 
-### Custom Content
+### 自定义内容
 
 ```xml
 <ant-badge type="text" position="top-right">
@@ -67,31 +67,31 @@ In `index.json` Introducing Components in
 </ant-badge>
 ```
 
-### Demo Code
+### Demo 代码
 
 <code src="../../demo/pages/Badge/index"></code>
 
 ## API
 
-| Property      | Description                                                                                                                                     | Type                     | Default Value      |
+| 属性      | 说明                                                                                                                                     | 类型                     | 默认值      |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ----------- |
-| bgColor   | Custom background color, CSS color values                                                                                                                   | string                   | -           |
-| className | Class name of the component root node                                                                                                                         | string                   | -           |
-| offsetX   | Horizontal offset                                                                                                                           | string                   | '-50%'      |
-| offsetY   | Offset in vertical direction                                                                                                                         | string                   | '-50%'      |
-| position  | Position of the logo relative to the container, options include:`top-left`、`top-right`、`top-center`、`left`、`right`、`bottom-left`、`bottom-center` and `bottom-right` | string                   | `top-right` |
-| stroke    | Does the logo have a stroke                                                                                                                         | boolean                  | false       |
-| style     | Custom Style                                                                                                                               | object                   | -           |
-| text      | Logo content. Empty means that only red dots are displayed. It can be numbers or text. If the number exceeds 99, it will be displayed `...`                                                        | string \| number \| slot | -           |
-| type      | Logo type, options include:`dot`(red dot),`number`(Number type, more than 99 will be automatically converted),`text`(text bubbles) and `bubble`(Bubble form, with arrow)         | string                   | `dot`       |
+| bgColor   | 自定义背景色，CSS 色值                                                                                                                   | string                   | -           |
+| className | 组件根节点的类名                                                                                                                         | string                   | -           |
+| offsetX   | 水平方向偏移量                                                                                                                           | string                   | '-50%'      |
+| offsetY   | 垂直方向的偏移量                                                                                                                         | string                   | '-50%'      |
+| position  | 徽标相对于容器的位置，选项包括：`top-left`、`top-right`、`top-center`、`left`、`right`、`bottom-left`、`bottom-center` 和 `bottom-right` | string                   | `top-right` |
+| stroke    | 徽标是否带有描边                                                                                                                         | boolean                  | false       |
+| style     | 自定义样式                                                                                                                               | object                   | -           |
+| text      | 徽标内容，为空代表仅展示红点；可以是数字或文字；若是数字且超过 99，则显示为 `...`                                                        | string \| number \| slot | -           |
+| type      | 徽标类型，选项包括：`dot`（红点）、`number`（数字类型，超过 99 会自动转换）、`text`（文字气泡）和 `bubble`（气泡形态，带有箭头）         | string                   | `dot`       |
 
-### Theme customization
+### 主题定制
 
-#### Style Variables
+#### 样式变量
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| Variable name                   | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks           |
+| 变量名                   | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注           |
 | ------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
-| --badge-text-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | Badge Text Color |
-| --badge-background-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div> | Badge background color |
+| --badge-text-color       | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #000000;">#ffffff</div> | Badge 文字颜色 |
+| --badge-background-color | <div style="width: 150px; height: 30px; background-color: #ff3141; color: #ffffff;">#ff3141</div> | <div style="width: 150px; height: 30px; background-color: #ff4a58; color: #ffffff;">#ff4a58</div> | Badge 背景颜色 |

@@ -39,7 +39,7 @@ In `index.json` Introducing Components in
 | cancelButtonStyle                  | Cancel Button Style                                      | string       | -         |
 | cancelButtonText                   | Cancel Button Text                                      | string       | -         |
 | className                          | Class Name                                              | string       | -         |
-| closable                           | Whether to display the close button in the upper right corner. Valid only when type is focus | boolean      | -         |
+| closable                           | Whether to display the close button in the upper right corner. Only valid when type is focus | boolean      | -         |
 | content                            | Content                                              | string\|slot | -         |
 | destroyOnClose                     | Whether to unload content when invisible                              | boolean      | false     |
 | footer                             | Custom Button Area                                      | slot         | -         |

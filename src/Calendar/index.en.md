@@ -259,10 +259,10 @@ Component provides the following CSS variables, which can be used to customize s
 | --calendar-cell-disabled-opacity | 0.4                                                                                                                               | 0.4                                                                                                                               | Calendar cell transparency disabled |
 | --calendar-weekday-names-bg      | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                 | <div style="width: 150px; height: 40px; background-color: #f8f8f8; color: #333333;">#f8f8f8</div>                                 | Calendar Week Name Background Color |
 | --calendar-default-color         | <div style="width: 150px; height: 40px; background-color: #333333; color: #FFFFFF;">#333333</div>                                 | <div style="width: 150px; height: 40px; background-color: #c5cad1; color: #000000;">#c5cad1</div>                                 | Calendar default color         |
-| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #ffffff;">rgba(22, 119, 255, 0.1)</div> | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #ffffff;">rgba(22, 119, 255, 0.1)</div> | Calendar selected color         |
+| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #ffffff;">rgba(22, 119, 255, 0.1)</div> | <div style="width: 150px; height: 40px; background-color: rgba(22, 119, 255, 0.1); color: #ffffff;">rgba(22, 119, 255, 0.1)</div> | Calendar Selected Color         |
 | --calendar-assist-color          | <div style="width: 150px; height: 40px; background-color: #999999; color: #FFFFFF;">#999999</div>                                 | <div style="width: 150px; height: 40px; background-color: #616161; color: #FFFFFF;">#616161</div>                                 | Calendar Auxiliary Color         |
 | --calendar-selected-end-color    | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                 | <div style="width: 150px; height: 40px; background-color: #ffffff; color: #333333;">#ffffff</div>                                 | Calendar selected end color     |
-| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div>                                 | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div>                                 | Calendar selected color         |
+| --calendar-selected-color        | <div style="width: 150px; height: 40px; background-color: #1677ff; color: #FFFFFF;">#1677ff</div>                                 | <div style="width: 150px; height: 40px; background-color: #3086ff; color: #FFFFFF;">#3086ff</div>                                 | Calendar Selected Color         |
 
 ## FAQ
 
@@ -278,7 +278,7 @@ For example, if we want to set the default start time to today and end time to s
 [dayjs().startOf('date'), dayjs().add(7, 'days').startOf('date')];
 ```
 
-### By `onFormatter` Set custom data for a cell
+### By `onFormatter` Set custom data for cells
 
 We can pass `onFormatter` method to set the custom data for the cell,`onFormatter` The format of is `(cell: CellState, currentValue: CalendarValue) => CellState`。
 

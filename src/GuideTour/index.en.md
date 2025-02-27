@@ -9,11 +9,11 @@ toc: 'content'
 
 # GuideTour
 
-Masked with the boot component of the custom card. Applies to an introduction to key features on the page.
+蒙层与自定义卡片的引导组件。适用于页面上关键功能的介绍。
 
-## Introduction
+## 引入
 
-In `index.json` Introducing Components in
+在 `index.json` 中引入组件
 
 ```json
 "usingComponents": {
@@ -26,9 +26,9 @@ In `index.json` Introducing Components in
 }
 ```
 
-## Code Sample
+## 代码示例
 
-### Basic use
+### 基本使用
 
 ```xml
 <ant-guide-tour
@@ -68,7 +68,7 @@ Page({
 });
 ```
 
-### Controlled Mode
+### 受控模式
 
 ```xml
 
@@ -117,52 +117,52 @@ Page({
 
 ```
 
-### Demo Code
+### Demo 代码
 
 <code src='../../demo/pages/GuideTour/index'></code>
 
 ## API
 
-| Property                   | Description             | Type                                | Default Value   |
+| 属性                   | 说明             | 类型                                | 默认值   |
 | ---------------------- | ---------------- | ----------------------------------- | -------- |
-| className              | Class Name             | `string`                            | -        |
-| current                | Current step         | `number`                            | -        |
-| defaultCurrent         | Default Current Step     | `number`                            | 0        |
-| items                  | Step Information         | [`GuideTourItem`](#guidetourttem)[] | -        |
-| maskClassName          | Class name of the layer       | `string`                            | -        |
-| maskStyle              | Mask Style       | `string`                            | -        |
-| style                  | Style             | `string`                            | -        |
-| swiperable             | Whether sliding mode is on | `boolean`                           | `false`  |
-| visible                | Whether to display         | `boolean`                           | `false`  |
-| jumpText               | Copy of skip button   | `string`                            | 'Skip'   |
-| prevStepText           | Copy of the previous button | `string`                            | 'One step' |
-| nextStepText           | Copy of the next button | `string`                            | 'Next step' |
-| gotItText              | I know the copy of the button. | `string`                            | "I know' |
-| #if ALIPAY onCancel    | Close Callback         | `() => void`                        | -        |
-| #if ALIPAY onChange    | Step Change Callback     | `(index: number) => void`           | -        |
-| #if WECHAT bindcancel | Close Callback         | `() => void`                        | -        |
-| #if WECHAT bindchange | Step Change Callback     | `(index: number) => void`           | -        |
+| className              | 类名             | `string`                            | -        |
+| current                | 当前步骤         | `number`                            | -        |
+| defaultCurrent         | 默认当前步骤     | `number`                            | 0        |
+| items                  | 步骤信息         | [`GuideTourItem`](#guidetourttem)[] | -        |
+| maskClassName          | 蒙层的类名       | `string`                            | -        |
+| maskStyle              | 蒙层的样式       | `string`                            | -        |
+| style                  | 样式             | `string`                            | -        |
+| swiperable             | 是否开启滑动模式 | `boolean`                           | `false`  |
+| visible                | 是否显示         | `boolean`                           | `false`  |
+| jumpText               | 跳过按钮的文案   | `string`                            | '跳过'   |
+| prevStepText           | 上一步按钮的文案 | `string`                            | '上一步' |
+| nextStepText           | 下一步按钮的文案 | `string`                            | '下一步' |
+| gotItText              | 知道了按钮的文案 | `string`                            | '知道了' |
+| #if ALIPAY onCancel    | 关闭回调         | `() => void`                        | -        |
+| #if ALIPAY onChange    | 步骤改变回调     | `(index: number) => void`           | -        |
+| #if WECHAT bindcancel | 关闭回调         | `() => void`                        | -        |
+| #if WECHAT bindchange | 步骤改变回调     | `(index: number) => void`           | -        |
 
 ### GuideTourItem
 
-| Parameters       | Description                       | Type     | Default Value |
+| 参数       | 说明                       | 类型     | 默认值 |
 | ---------- | -------------------------- | -------- | ------ |
-| left       | Distance from left, in units `px`    | `number` | -      |
-| imageMode  | Image mode, same as image mode | `string` | -      |
-| imageStyle | Picture Inline Style               | `string` | -      |
-| imageUrl   | Picture Address                   | `string` | -      |
-| top        | Distance from top, in units `px`    | `number` | -      |
+| left       | 距离左边距离，单位 `px`    | `number` | -      |
+| imageMode  | 图片模式，同 image 的 mode | `string` | -      |
+| imageStyle | 图片内联样式               | `string` | -      |
+| imageUrl   | 图片地址                   | `string` | -      |
+| top        | 距离顶部距离，单位 `px`    | `number` | -      |
 
-### Theme customization
+### 主题定制
 
-#### Style Variables
+#### 样式变量
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| Variable name                    | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks                 |
+| 变量名                    | 默认值                                                                                            | 深色模式默认值                                                                                    | 备注                 |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------- |
-| --guide-tour-text-color   | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | Bootstrap Tutorial Text Color     |
-| --guide-tour-clear-color  | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Bootstrap Tutorial Clear Button Color |
-| --guide-tour-dot-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | Guided Tutorial Step Point Color   |
-| --guide-tour-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | Bootstrap Tutorial Border Color     |
-| --guide-tour-btn-color    | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | Bootstrap Tutorial Button Color     |
+| --guide-tour-text-color   | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div> | 引导教程文本颜色     |
+| --guide-tour-clear-color  | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 引导教程清除按钮颜色 |
+| --guide-tour-dot-color    | <div style="width: 150px; height: 30px; background-color: #999999; color: #ffffff;">#999999</div> | <div style="width: 150px; height: 30px; background-color: #616161; color: #ffffff;">#616161</div> | 引导教程步骤点颜色   |
+| --guide-tour-border-color | <div style="width: 150px; height: 30px; background-color: #eeeeee; color: #333333;">#eeeeee</div> | <div style="width: 150px; height: 30px; background-color: #2b2b2b; color: #ffffff;">#2b2b2b</div> | 引导教程边框颜色     |
+| --guide-tour-btn-color    | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div> | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div> | 引导教程按钮颜色     |

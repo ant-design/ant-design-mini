@@ -280,7 +280,7 @@ Page({
 | ----- | ---- | ------ | ------ |
 | title | Title | string | -      |
 
-In addition to item can have `title`, you can also add custom properties, such. `content`, `badge` and so on, these properties can be used. `slot-scope` Visit:
+In addition to item can have `title`, you can also add custom attributes, such `content`, `badge` and so on, these properties can be used. `slot-scope` Visit:
 
 ```js
 Page({
@@ -315,7 +315,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                        | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks                |
 | ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------- |

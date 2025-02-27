@@ -9,7 +9,7 @@ toc: content
 
 # Input
 
-Through the keyboard input content, is the most basic form field packaging. Generally used in the form page for information collection.
+Enter content through the keyboard, is the most basic form field packaging. Generally used in the form page for information collection.
 
 ## Introduction
 
@@ -164,27 +164,27 @@ In `index.json` Introducing Components in
 
 ### Input, Textarea the same property
 
-| Property                   | Description                                                           | Type                                  | Default Value                  |
-| ---------------------- | -------------------------------------------------------------- | ------------------------------------- | ----------------------- |
-| className              | Class Name                                                           | string                                | -                       |
-| controlled             | There are keyboard input problems, you can use `controlled="{{false}}"`                | boolean                               | -                       |
-| defaultValue           | Initial value                                                         | string                                | -                       |
-| disabled               | Disable                                                       | boolean                               | false                   |
-| maxLength              | Maximum length                                                       | number                                | 140                     |
-| placeholder            | Placeholder                                                         | string                                | -                       |
-| style                  | Style                                                           | string                                | -                       |
-| max                    | The maximum value, which takes effect only when type is number, digit, numberpad, or digitpad, and a valid number is entered. | number                                | Number.MAX_SAFE_INTEGER |
-| min                    | The minimum value, which takes effect only when type is number, digit, numberpad, or digitpad, and a valid number is entered. | number                                | Number.MIN_SAFE_INTEGER |
-| precision              | Calculation accuracy, keep a few decimal places, enter a valid number to take effect                     | number                                | -1                      |
-| value                  | The value of the input box. Controlled mode.                                         | string                                | -                       |
-| #if ALIPAY onConfirm   | This callback is triggered when the keyboard is clicked                                       | (value: string, event: Event) => void | -                       |
-| #if ALIPAY onFocus     | Trigger this callback when focused                                               | (value: string, event: Event) => void | -                       |
-| #if ALIPAY onBlur      | Trigger this callback when out of focus                                               | (value: string, event: Event) => void | -                       |
-| #if ALIPAY onChange    | This callback is triggered when input                                               | (value: string, event: Event) => void | -                       |
-| #if WECHAT bindconfirm | This callback is triggered when the keyboard is clicked                                       | (value: string, event: Event) => void | -                       |
-| #if WECHAT bindfocus   | Trigger this callback when focused                                               | (value: string, event: Event) => void | -                       |
-| #if WECHAT bindblur    | Trigger this callback when out of focus                                               | (value: string, event: Event) => void | -                       |
-| #if WECHAT bindchange  | This callback is triggered when input                                               | (value: string, event: Event) => void | -                       |
+| Property                   | Description                                                                             | Type                                  | Default Value |
+| ---------------------- | -------------------------------------------------------------------------------- | ------------------------------------- | ------ |
+| className              | Class Name                                                                             | string                                | -      |
+| controlled             | There are keyboard input problems, you can use `controlled="{{false}}"`                                  | boolean                               | -      |
+| defaultValue           | Initial value                                                                           | string                                | -      |
+| disabled               | Disable                                                                         | boolean                               | false  |
+| maxLength              | Maximum length                                                                         | number                                | 140    |
+| placeholder            | Placeholder                                                                           | string                                | -      |
+| style                  | Style                                                                             | string                                | -      |
+| max                    | The maximum value, which takes effect only when type is number, digit, numberpad, or digitpad, and a valid number is entered. | number                                | -      |
+| min                    | The minimum value, which takes effect only when type is number, digit, numberpad, or digitpad, and a valid number is entered. | number                                | -      |
+| precision              | Calculation accuracy, keep a few decimal places, enter a valid number to take effect                                       | number                                | -1     |
+| value                  | The value of the input box. Controlled mode.                                                           | string                                | -      |
+| #if ALIPAY onConfirm   | This callback is triggered when the keyboard is clicked to complete                                                         | (value: string, event: Event) => void | -      |
+| #if ALIPAY onFocus     | Trigger this callback when focused                                                                 | (value: string, event: Event) => void | -      |
+| #if ALIPAY onBlur      | Trigger this callback when out of focus                                                                 | (value: string, event: Event) => void | -      |
+| #if ALIPAY onChange    | This callback is triggered when input                                                                 | (value: string, event: Event) => void | -      |
+| #if WECHAT bindconfirm | This callback is triggered when the keyboard is clicked to complete                                                         | (value: string, event: Event) => void | -      |
+| #if WECHAT bindfocus   | Trigger this callback when focused                                                                 | (value: string, event: Event) => void | -      |
+| #if WECHAT bindblur    | Trigger this callback when out of focus                                                                 | (value: string, event: Event) => void | -      |
+| #if WECHAT bindchange  | This callback is triggered when input                                                                 | (value: string, event: Event) => void | -      |
 
 ### Input property
 
@@ -233,7 +233,7 @@ Instance methods require small programs `component2` Can be used.
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                         | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks               |
 | ------------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------ |
