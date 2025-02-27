@@ -53,9 +53,9 @@ Page({
 });
 ```
 
-### Disable Mode
+### Disable mode
 
-> Incoming `disabled` property, disable the juxtaposition gray switch button.
+> Incoming `disabled` property, disable the collocated gray switch button.
 
 ```xml
 <ant-switch defaultChecked="{{true}}" disabled="{{true}}" />

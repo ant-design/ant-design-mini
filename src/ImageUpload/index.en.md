@@ -103,7 +103,7 @@ Page({
 
 ### Controlled Mode
 
-> `fileList`and `change` Events cooperate to achieve a controlled mode. If you want the component to trigger the upload logic externally, pass `ref` way to get the component instance and call the component. `chooseImage` method can be.
+> `fileList`and `change` Events cooperate to achieve controlled mode. If you want the component to trigger the upload logic externally, pass `ref` way to get the component instance and call the component. `chooseImage` method can be.
 
 ```xml
 <ant-uploader
@@ -200,7 +200,7 @@ Page({
 | fileList                | File List (Controlled)                                                                                                                                                                         | [File](#file)[]                                                                             | -                   |
 | imageMode               | Picture zoom mode and crop mode. See details in [Image Mode Description](https://opendocs.alipay.com/mini/component/image#mode)                                                                                     | string                                                                                      | scaleToFill         |
 | onBeforeUpload          | The hook before uploading the file. The parameter is the list of uploaded files. If false is returned, the upload is stopped. You can return a Promise object. When you Promise an object to reject, the upload is stopped and the upload is started when it is resolve (resolve the modified localFileList is passed in). | (localFileList: [localFile](#localfile)[]) => boolean \| Promise<[localFile](#localfile)[]> | -                   |
-| onChooseImageError      | Select the picture failure callback. See details in [onChooseImageError](###onChooseImageError)                                                                                                                       | (err) => void                                                                               | -                   |
+| onChooseImageError      | Select picture failure callback. See details in [onChooseImageError](###onChooseImageError)                                                                                                                       | (err) => void                                                                               | -                   |
 | onUpload                | Image upload method. See details in [onUpload](#onupload)                                                                                                                                                 | (localFile: [LocalFile](#localfile)) => Promise\<string\>                                   | -                   |
 | onRemove                | Click the callback when removing files. Do not remove if the return value is false. Support to return a Promise object, Promise object resolve(false) or reject does not remove                                                                 | (file: [File](#file)) => boolean \| Promise\<boolean\>                                      | -                   |
 | #if ALIPAY onChange     | Triggered when the list of uploaded files changes                                                                                                                                                               | (fileList: [File](#file)[]) => void                                                         | -                   |
@@ -263,14 +263,14 @@ onChooseImageError(err) {
 
 ### maxCount
 
-1. `maxCount` Indicates the maximum number of pictures that can be uploaded, and does not upload means unlimited. Since the small program selection picture interface has an upper limit of one-time selection of pictures, if `maxCount` More than this limit, multiple uploads are required. For example,`maxCount="{{10}}"`, 10 pictures are allowed to be uploaded. Users need to upload 9 pictures first and then 1 picture.
+1. `maxCount` Indicates the maximum number of pictures that can be uploaded, and does not transmit means unlimited. Since the small program selection picture interface has an upper limit of one-time selection of pictures, if `maxCount` More than this limit, multiple uploads are required. For example,`maxCount="{{10}}"`, 10 pictures are allowed to be uploaded. Users need to upload 9 pictures first and then 1 picture.
 2. `maxCount` No restrictions `defaultFileList` and `fileList`. For example,`maxCount` 1, and `defaultFileList` Contains 2 images, will not reduce `defaultFileList` in the picture. The upload button is hidden.
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                            | Default Value                                                                                                                  | Dark Mode Default                                                                                                          | Remarks                         |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------- |

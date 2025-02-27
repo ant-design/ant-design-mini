@@ -9,7 +9,7 @@ toc: 'content'
 
 # Popup
 
-Slide or pop-up a custom content area from the screen. It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
+Slides or pops up a custom content area from the screen. It is used to display pop-up windows, information prompts, selection input, switching, and other content. It supports multiple pop-up layers for overlay display.
 
 ## Introduction
 
@@ -30,8 +30,8 @@ In `index.json` Introducing Components in
 
 ### Basic use
 
-> - `ant-popup` components must pass through `visible` Property controls the show/hide state.`position` Specifies the direction of occurrence, optional `top` `bottom` `left` `right`. The contents of the pop-up window are filled in the form of slots.
-> - `close` The event will be triggered when you click the upper right corner to close the icon or click the layer to close.
+> - `ant-popup` Components must pass `visible` Property controls the show/hide state.`position` Specifies the direction of occurrence, optional `top` `bottom` `left` `right`. The contents of the pop-up window are filled in the form of slots.
+> - `close` The event will be triggered when the icon is closed by clicking the upper right corner or when the layer is closed by clicking the layer.
 > - `clickBack` event is triggered when the back button in the upper left corner is clicked.
 
 ```xml
@@ -148,13 +148,13 @@ Page({
 | width                        | The width, in position, is `left` or `right` unit px                                                                                                            | number     | -           |
 | zIndex                       | Pop-up Level                                                                                                                                                          | number     | 998         |
 | backgroundImage              | Background map of the bullet box                                                                                                                                                      | string     | -           |
-| showClose                    | Show the icon with the bullet box closed.                                                                                                                                               | boolean    | false       |
+| showClose                    | Show icon with bullet box closed                                                                                                                                               | boolean    | false       |
 | showBack                     | Show the icon returned by the bullet box                                                                                                                                               | boolean    | false       |
-| #if ALIPAY onClose           | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
+| #if ALIPAY onClose           | Click the mask to close and trigger the callback.                                                                                                                                            | () => void | -           |
 | #if ALIPAY onClickBack       | Click the back button to trigger the callback                                                                                                                                            | () => void | -           |
 | #if ALIPAY onAfterShow       | Trigger after full display                                                                                                                                                    | () => void | -           |
 | #if ALIPAY onAfterClose      | Trigger after full shutdown                                                                                                                                                    | () => void | -           |
-| #if WECHAT bindclose         | Click the layer to close and trigger the callback.                                                                                                                                            | () => void | -           |
+| #if WECHAT bindclose         | Click the mask to close and trigger the callback.                                                                                                                                            | () => void | -           |
 | #if WECHAT bindclickbackicon | Click the back button to trigger the callback                                                                                                                                            | () => void | -           |
 | #if WECHAT bindaftershow     | Trigger after full display                                                                                                                                                    | () => void | -           |
 | #if WECHAT bindafterclose    | Trigger after full shutdown                                                                                                                                                    | () => void | -           |
@@ -163,7 +163,7 @@ Page({
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                       | Default Value                                                                                                                    | Dark Mode Default                                                                                                            | Remarks                     |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
