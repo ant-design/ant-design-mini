@@ -3,8 +3,6 @@ import { expect, it, vi } from 'vitest';
 import { textInputAndTextArea } from './common';
 
 textInputAndTextArea('Input', {
-  'max': 9007199254740991,
-  'min': -9007199254740991,
   'precision': -1,
 });
 
