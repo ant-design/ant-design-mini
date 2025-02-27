@@ -83,7 +83,7 @@ Page({
 
 ### bubble position adaptive
 
-> `autoAdjustOverflow` Property to automatically adjust the position of the bubble when it is blocked
+> `autoAdjustOverflow` Property to automatically adjust the position of the bubble when it is occluded
 
 ```xml
 <ant-popover-list
@@ -116,7 +116,7 @@ Page({
 | placement                     | Bubble box position, optional `top`、`top-right`、`top-left`、`bottom`、`bottom-left`、`bottom-right`、`left`、`left-top`、`left-bottom`、`right`、`right-top` or `right-bottom` | string                                                                                                                       | top    |
 | showMask                      | Whether to show the layer, if true, click the blank to close the Popover.                                                                                                                    | boolean                                                                                                                      | true   |
 | style                         | Style                                                                                                                                                                | string                                                                                                                       | -      |
-| visible                       | Whether to display                                                                                                                                                            | boolean                                                                                                                      | -      |
+| visible                       | Display                                                                                                                                                            | boolean                                                                                                                      | -      |
 | #if ALIPAY onVisibleChange    | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |
 | #if ALIPAY onTapItem          | Callback at the time of visible change                                                                                                                                                | (item: [PopoverListItem](#popoverlistitem), event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -      |
 | #if WECHAT bindvisiblechange | Callback at the time of visible change                                                                                                                                                | (visible: boolean, event: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void                          | -      |

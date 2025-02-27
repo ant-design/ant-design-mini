@@ -149,7 +149,7 @@ Page({
 | content                 | Common Content Section       | `string`                                             | -       |
 | links                   | Link                 | `Array<`[ActionItem](#actionitem)`>`                 | -       |
 | chips                   | Bottom Label             | `Array<`[ActionItem](#actionitem)`>`                 | -       |
-| noLabelDivider          | There is no dividing line of label  | `boolean`                                            | `false` |
+| noLabelDivider          | No dividing line with label  | `boolean`                                            | `false` |
 | #if ALIPAY onLinkTap    | Callback after link click     | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
 | #if ALIPAY onChipTap    | Callback after bottom tab click | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |
 | #if WECHAT bindlinktap | Callback after link click     | `(actionItem?: `[ActionItem](#actionitem)`) => void` | -       |

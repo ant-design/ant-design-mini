@@ -111,7 +111,7 @@ The following table describes the API properties for the Button component:
 | loading                     | Whether it is loading or not, it cannot be clicked during loading.                                    | boolean                                                                       | -         |
 | size                        | Button size. Only in `inline` Effective under, optional `small`、`medium`、`large` | string                                                                        | `medium`  |
 | aide                        | Whether the button is a secondary button Only default and primary buttons consume this parameter     | boolean                                                                       | false     |
-| subText                     | Secondary text, displayed on the second line.`inline` Not effective                       | string                                                                        | -         |
+| subText                     | Secondary text, displayed on the second line.`inline` Do not take effect                       | string                                                                        | -         |
 | #if ALIPAY catchTap         | Click the button to trigger this callback, non-bubbling                                    | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onTap            | Click the button to trigger this callback                                            | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
 | #if ALIPAY onDisabledTap    | Click Departure Callback when disabled (not supported by WeChat)                                | (e: [Event](https://opendocs.alipay.com/mini/framework/event-object)) => void | -         |
@@ -165,4 +165,4 @@ The following are additional properties that the Button component supports:
 
 For specific attribute descriptions, please refer to the official documents of Alipay applet.
 
-[Button Component Property Description](https://opendocs.alipay.com/mini/component/button#%E5%B1%9E%E6%80%A7%E8%AF%B4%E6%98%8E)
+[Button component property description](https://opendocs.alipay.com/mini/component/button#%E5%B1%9E%E6%80%A7%E8%AF%B4%E6%98%8E)

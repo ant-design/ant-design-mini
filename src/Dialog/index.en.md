@@ -123,21 +123,21 @@ Page({
 | cancelButtonStyle            | Cancel Button Style                                      | string       | -      |
 | cancelButtonText             | Cancel Button Text                                      | string       | -      |
 | className                    | Class Name                                              | string       | -      |
-| closable                     | Whether to display the close button in the upper right corner. Only valid when type is focus | boolean      | -      |
+| closable                     | Whether to display the close button in the upper right corner. Effective only when type is focus | boolean      | -      |
 | content                      | Content                                              | string\|slot | -      |
 | destroyOnClose               | Whether to unload content when invisible                              | boolean      | false  |
 | footer                       | Custom Button Area                                      | slot         | -      |
-| maskClosable                 | Click whether the layer triggers the onClose.                          | boolean      | true   |
+| maskClosable                 | Click whether the mask triggers onClose                          | boolean      | true   |
 | maskClassName                | Class name of the layer                                        | string       | -      |
-| maskStyle                    | Masking Style                                        | string       | -      |
+| maskStyle                    | Mask Style                                        | string       | -      |
 | style                        | Style                                              | string       | -      |
 | title                        | Title                                              | string\|slot | -      |
 | visible                      | Whether to display                                          | boolean      | false  |
 | #if ALIPAY onCancelButtonTap | Cancel button click event                                  | ()=>void     | -      |
 | #if ALIPAY onClose           | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
-| #if ALIPAY onButtonTap       | Behavior Button Click Event                                  | ()=>void     | -      |
+| #if ALIPAY onButtonTap       | Behavior button click event                                  | ()=>void     | -      |
 | #if WECHAT bindclose        | Click the close button in the upper right corner in the layer or emphasis mode to trigger the callback  | ()=>void     | -      |
-| #if WECHAT bindbuttontap    | Behavior Button Click Event                                  | ()=>void     | -      |
+| #if WECHAT bindbuttontap    | Behavior button click event                                  | ()=>void     | -      |
 
 ### Theme customization
 
