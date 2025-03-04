@@ -13,6 +13,14 @@
   position="{{ position }}"
   ref="handleRef" />
 
+<form-picker
+  label="水果"
+  arrow
+  name="fruit"
+  options="{{ fruitList }}"
+  position="{{ position }}"
+  ref="handleRef" />
+
 <ant-form-switch
   label="选择"
   name="needDelivery"
