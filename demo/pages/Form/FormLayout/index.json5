@@ -13,6 +13,7 @@
     "ant-form-input": "../../../../src/Form/FormInput/index",
     "ant-form-switch": "../../../../src/Form/FormSwitch/index",
     "ant-form-stepper": "../../../../src/Form/FormStepper/index",
-    "ant-button": "../../../../src/Button/index"
+    "ant-button": "../../../../src/Button/index",
+    "form-picker": "../../../../src/Form/FormPicker/index"
   }
 }
