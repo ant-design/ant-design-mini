@@ -31,6 +31,7 @@
     ]
   },
   "dependencies": {
+    "@material/material-color-utilities": "^0.3.0",
     "@mini-types/alipay": "^3.0.5",
     "@preact/signals-core": "^1.7.0",
     "async-validator": "^4.0.7",
