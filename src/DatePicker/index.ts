@@ -40,20 +40,52 @@ Component({
     // 当前选中的picker值，处理无cValue时的情况，优先取当前时间，不在时间范围内取开始时间
     getCurrentValueWithCValue(currentProps) {
       const realValue = this.getValue();
-      const { min, max, precision } = currentProps;
+      const { min, max, precision, defaultPickerValue } = currentProps;
       if (realValue) {
-        return getValueByDate(realValue, precision);
-      } else {
-        const now = new Date();
-        if (
-          !(min && dayjs(now).isBefore(dayjs(min as any), precision)) &&
-          !(max && dayjs(now).isAfter(dayjs(max as any), precision))
-        ) {
-          return getValueByDate(now, precision);
-        } else {
-          return getValueByDate(this.getMin(min).toDate(), precision);
+        return getValueByDate(realValue, precision,);
+      } 
+      // 处理默认值
+      let baseDate: Date | null = null;
+      if (defaultPickerValue) {
+        try {
+          const defaultDate = dayjs(defaultPickerValue);
+          baseDate = defaultDate.isValid() ? defaultDate.toDate() : null;
+        } catch (e) {
+          console.error(e);
         }
       }
+      // 无效值则使用当前时间
+      if (!baseDate) {
+        baseDate = new Date();
+      }
+
+      // 获取最大最小日期
+      const minDayjs = this.getMin(min);
+      const maxDayjs = this.getMax(max);
+
+      // 校验日期
+      let adjustedDate = dayjs(baseDate);
+      // 判断最小日期
+      if (adjustedDate.isBefore(minDayjs)) {
+        adjustedDate = dayjs(new Date());
+        // 再次校验当前时间，当前日期需满足条件
+        if (adjustedDate.isBefore(minDayjs)) {
+          adjustedDate = minDayjs;
+        } else if (adjustedDate.isAfter(maxDayjs)) {
+          adjustedDate = maxDayjs;
+        }
+      } else if (adjustedDate.isAfter(maxDayjs)) { // 判断最大日期
+        // 如果 defaultPickerValue 超出 max，回退到当前时间
+        adjustedDate = dayjs(new Date());
+        // 再次校验当前时间
+        if (adjustedDate.isBefore(minDayjs)) {
+          adjustedDate = minDayjs;
+        } else if (adjustedDate.isAfter(maxDayjs)) {
+          adjustedDate = maxDayjs;
+        }
+      }
+
+      return getValueByDate(adjustedDate.toDate(), precision);
     },
 
     getMin(min) {
