@@ -48,7 +48,17 @@ Component({
       let baseDate: Date | null = null;
       if (defaultPickerValue) {
         try {
-          const defaultDate = dayjs(defaultPickerValue);
+          // 判断defaultPickerValue用户配置格式
+          let defaultDate = dayjs(defaultPickerValue, ['HH:mm:ss', 'HH:mm', 'HH']);
+          baseDate = defaultDate.isValid() ? defaultDate.toDate() : null;
+          if (!defaultDate.isValid() && typeof defaultPickerValue === 'string' && defaultPickerValue.includes(':')) {
+            const [hours, minutes, seconds] = defaultPickerValue.split(':').map(Number);
+            const now = dayjs();
+            defaultDate = now
+              .set('hour', hours || 0)
+              .set('minute', minutes || 0)
+              .set('second', seconds || 0);
+          }
           baseDate = defaultDate.isValid() ? defaultDate.toDate() : null;
         } catch (e) {
           console.error(e);
