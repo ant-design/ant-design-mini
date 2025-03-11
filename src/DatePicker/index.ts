@@ -49,8 +49,7 @@ Component({
       if (defaultPickerValue) {
         try {
           // 判断defaultPickerValue用户配置格式
-          let defaultDate = dayjs(defaultPickerValue, ['HH:mm:ss', 'HH:mm', 'HH']);
-          baseDate = defaultDate.isValid() ? defaultDate.toDate() : null;
+          let defaultDate = dayjs(defaultPickerValue, ['YYYY-MM-DD', 'YYYY/MM/DD', 'HH:mm:ss', 'HH:mm', 'HH']);
           if (!defaultDate.isValid() && typeof defaultPickerValue === 'string' && defaultPickerValue.includes(':')) {
             const [hours, minutes, seconds] = defaultPickerValue.split(':').map(Number);
             const now = dayjs();
@@ -59,14 +58,20 @@ Component({
               .set('minute', minutes || 0)
               .set('second', seconds || 0);
           }
-          baseDate = defaultDate.isValid() ? defaultDate.toDate() : null;
+          baseDate = defaultDate.isValid() ? defaultDate.toDate() : new Date();
         } catch (e) {
-          console.error(e);
+          baseDate = new Date();
         }
-      }
-      // 无效值则使用当前时间
-      if (!baseDate) {
-        baseDate = new Date();
+      }else {
+        // 没有 defaultPickerValue 时，回退原逻辑
+        const now = new Date();
+        const minDayjs = this.getMin(min);
+        const maxDayjs = this.getMax(max);
+        if (dayjs(now).isBefore(minDayjs) || dayjs(now).isAfter(maxDayjs)) {
+          baseDate = minDayjs.toDate();
+        } else {
+          baseDate = now;
+        }
       }
 
       // 获取最大最小日期
@@ -75,24 +80,11 @@ Component({
 
       // 校验日期
       let adjustedDate = dayjs(baseDate);
-      // 判断最小日期
+      // 强制对齐
       if (adjustedDate.isBefore(minDayjs)) {
-        adjustedDate = dayjs(new Date());
-        // 再次校验当前时间，当前日期需满足条件
-        if (adjustedDate.isBefore(minDayjs)) {
-          adjustedDate = minDayjs;
-        } else if (adjustedDate.isAfter(maxDayjs)) {
-          adjustedDate = maxDayjs;
-        }
-      } else if (adjustedDate.isAfter(maxDayjs)) { // 判断最大日期
-        // 如果 defaultPickerValue 超出 max，回退到当前时间
-        adjustedDate = dayjs(new Date());
-        // 再次校验当前时间
-        if (adjustedDate.isBefore(minDayjs)) {
-          adjustedDate = minDayjs;
-        } else if (adjustedDate.isAfter(maxDayjs)) {
-          adjustedDate = maxDayjs;
-        }
+        adjustedDate = minDayjs;
+      } else if (adjustedDate.isAfter(maxDayjs)) {
+        adjustedDate = maxDayjs;
       }
 
       return getValueByDate(adjustedDate.toDate(), precision);
