@@ -68,6 +68,22 @@
       disabled />
   </ant-list-item>
 </ant-list>
+<ant-list header="自定义选择默认时间">
+  <ant-list-item>
+    请选择时间
+    <ant-date-picker
+      min="{{ min }}"
+      max="{{ max }}"
+      slot="extra"
+      defaultPickerValue="{{ defaultDate }}"
+      precision="minute"
+      placeholder="选择"
+      onPickerChange="handlePickerChange"
+      onVisibleChange="handleTriggerPicker"
+      onCancel="handleDismiss"
+      onOk="handleOk" />
+  </ant-list-item>
+</ant-list>
 <ant-list header="自定义每列的渲染内容">
   <ant-list-item>
     每列不显示单位
