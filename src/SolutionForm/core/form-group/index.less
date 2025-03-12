@@ -1,3 +1,4 @@
+@import (reference) '../../variable.less';
 @formGroupPrefix: fr-form-group;
 
 .@{formGroupPrefix} {
@@ -22,7 +23,7 @@
 
   &-not-radius {
     & .@{formGroupPrefix}-body {
-      background-color: #fff;
+      background-color: @solution-form-bg;
       z-index: 2;
     }
   }
@@ -37,7 +38,7 @@
         position: absolute;
         border-radius: 24rpx;
         overflow: hidden;
-        background-color: #fff;
+        background-color: @solution-form-bg;
         top: 0;
         left: 0;
         z-index: 1;
@@ -48,7 +49,7 @@
 
 .fr-form-group-card {
   border-radius: 24rpx;
-  background: #fff;
+  background: @solution-form-bg;
   overflow: hidden;
   margin: 24rpx 24rpx 16rpx 24rpx;
   .fr-form-group-header {

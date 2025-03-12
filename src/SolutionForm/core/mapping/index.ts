@@ -1,6 +1,7 @@
 import { getStore } from '../../store/index';
 import { FormRenderMappingDefaultProps } from './props';
 import set from 'lodash.set';
+import get from 'lodash.get';
 import { createComponent } from '@alipay/merchant-base-mini';
 
 createComponent({
@@ -40,7 +41,8 @@ createComponent({
     },
     onDisabledTap(e) {
       const { listItem } = e.target.dataset || {};
-      if (listItem.item.disabled || listItem.item.props.disabled) {
+      const disabled = get(listItem, 'item.disabled') || get(listItem, 'item.props.disabled')
+      if (disabled) {
         // 禁用的情况下触发
         this.props.onDisabledTap(listItem);
       }
