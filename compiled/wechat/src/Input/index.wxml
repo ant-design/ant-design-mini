@@ -40,7 +40,7 @@
     <view
       wx:if="{{allowClear}}"
       class="ant-input-clear {{state.value && state.value.length > 0 ? 'ant-input-clear-show' : 'ant-input-clear-hidden'}}"
-      bind:tap="onClear"
+      bindtap="onClear"
     >
       <icon
         className="ant-input-clear-icon"

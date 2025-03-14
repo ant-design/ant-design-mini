@@ -2,7 +2,7 @@
   <list-item>
     <view
       class="number-code"
-      catch:tap="onCodeFocus"
+      catchtap="onCodeFocus"
     >
       <block
         wx:for="{{4}}"
@@ -22,7 +22,7 @@
     point="{{false}}"
     closeable="{{true}}"
     value="{{value}}"
-    bind:change="onChange"
+    bindchange="onChange"
     bind:close="onClose"
   ></number-keyboard>
 </list>

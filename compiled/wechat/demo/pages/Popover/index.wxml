@@ -13,7 +13,7 @@
   <popover
     content="prompt"
     placement="top"
-    bind:visiblechange="onVisibleChange"
+    bindvisiblechange="onVisibleChange"
   >
     <ant-button>点我</ant-button>
   </popover>
@@ -93,7 +93,7 @@
   <ant-button
     size="small"
     inline
-    bind:tap="handleVisibleChange"
+    bindtap="handleVisibleChange"
     style="margin-top: 8px"
   >change visible</ant-button>
 </container>

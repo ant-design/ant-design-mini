@@ -5,12 +5,12 @@
       size="small"
       inline
       style="margin-right: 16rpx"
-      bind:tap="handleDelete"
+      bindtap="handleDelete"
     >减少</ant-button>
     <ant-button
       size="small"
       inline
-      bind:tap="handleAdd"
+      bindtap="handleAdd"
     >增加</ant-button>
   </view>
 </container>

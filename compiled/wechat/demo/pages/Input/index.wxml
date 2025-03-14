@@ -42,7 +42,7 @@
     bind:change="handleChange"
   ></ant-input>
   <ant-button
-    bind:tap="clear"
+    bindtap="clear"
     inline
     size="small"
   >clear</ant-button>
@@ -65,12 +65,12 @@
   <ant-input
     placeholder="请输入内容"
     bind:change="onChange"
-    bind:ref="handleRef"
+    bindref="handleRef"
   ></ant-input>
   <view>
     <ant-button
       inline
-      bind:tap="clearByInputRef"
+      bindtap="clearByInputRef"
     >clear</ant-button>
   </view>
 </container>

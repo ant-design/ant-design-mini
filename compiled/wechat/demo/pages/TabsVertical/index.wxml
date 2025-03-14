@@ -1,14 +1,14 @@
 <ant-tabs
   items="{{items}}"
   current="{{current}}"
-  bind:change="onChange"
+  bindchange="onChange"
   className="tabs"
   direction="vertical"
 >
   <scroll-view
     scrollTop="{{scrollTop}}"
     scrollY="{{true}}"
-    bind:scroll="onScroll"
+    bindscroll="onScroll"
     scrollWithAnimation="{{true}}"
     scrollAnimationDuration="{{300}}"
     class="content"

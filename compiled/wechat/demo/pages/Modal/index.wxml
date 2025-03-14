@@ -85,19 +85,19 @@
 >
   <ant-button
     data-field="basicVisible"
-    bind:tap="handleOpen"
+    bindtap="handleOpen"
   >最简单的弹框</ant-button>
   <ant-button
     data-field="withTitleVisible"
-    bind:tap="handleOpen"
+    bindtap="handleOpen"
   >带有标题</ant-button>
   <ant-button
     data-field="basicTwoVisible"
-    bind:tap="handleOpen"
+    bindtap="handleOpen"
   >带辅助按钮</ant-button>
   <ant-button
     data-field="basicThreeVisible"
-    bind:tap="handleOpen"
+    bindtap="handleOpen"
   >带辅助和取消按钮</ant-button>
 </ant-container>
 <ant-container
@@ -106,15 +106,15 @@
 >
   <ant-button
     data-field="focusOneVisible"
-    bind:tap="handleOpen"
+    bindtap="handleOpen"
   >只有主按钮</ant-button>
   <ant-button
     data-field="focusTwoVisible"
-    bind:tap="handleOpen"
+    bindtap="handleOpen"
   >带辅助按钮</ant-button>
   <ant-button
     data-field="focusThreeVisible"
-    bind:tap="handleOpen"
+    bindtap="handleOpen"
   >带辅助和取消按钮</ant-button>
 </ant-container>
 <ant-container
@@ -123,6 +123,6 @@
 >
   <ant-button
     data-field="customVisible"
-    bind:tap="handleOpen"
+    bindtap="handleOpen"
   >自定义按钮样式</ant-button>
 </ant-container>

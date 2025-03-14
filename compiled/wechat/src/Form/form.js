@@ -61,8 +61,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import AsyncValidator from 'async-validator';
-import set from '../_util/set';
+import flattenObject from '../_util/flattenObject';
 import get from '../_util/get';
+import set from '../_util/set';
 import { getValueFromProps } from '../_util/simply';
 var EventEmitter = /** @class */ (function () {
     function EventEmitter() {
@@ -545,7 +546,7 @@ var Form = /** @class */ (function () {
      */
     Form.prototype.setFieldsValue = function (values) {
         var _this = this;
-        Object.keys(this.fields).forEach(function (name) {
+        Object.keys(flattenObject(values)).forEach(function (name) {
             _this.setFieldValue(name, get(values, name));
         });
     };

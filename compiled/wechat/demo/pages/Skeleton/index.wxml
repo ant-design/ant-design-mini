@@ -40,7 +40,7 @@
   <view slot="headerRight">显示骨架<switch
       style="margin-left: 8px"
       checked="{{showLoading}}"
-      bind:change="handleToggleShowLoading"
+      bindchange="handleToggleShowLoading"
     ></switch>
   </view>
 </container>

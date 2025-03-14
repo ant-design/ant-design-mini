@@ -47,6 +47,6 @@
   wx:if="{{show && showMask}}"
   className="ant-toast-mask"
   show="{{true}}"
-  bind:masktap="handleClickMask"
+  bindmasktap="handleClickMask"
   style="{{maskStyle}}"
 ></mask>

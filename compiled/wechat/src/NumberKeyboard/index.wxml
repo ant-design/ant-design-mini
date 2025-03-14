@@ -6,13 +6,13 @@
   <view
     wx:if="{{visible}}"
     class="ant-number-keyboard-modal"
-    bind:tap="handleHide"
+    bindtap="handleHide"
     onAppear="catchAppearModal"
   ></view>
   <view class="ant-number-keyboard-kb {{visible ? '' : 'ant-number-keyboard-kb_hide'}}">
     <view
       wx:if="{{closeable}}"
-      bind:tap="handleHide"
+      bindtap="handleHide"
       class="ant-number-keyboard-kb_none"
     >
       <ant-icon

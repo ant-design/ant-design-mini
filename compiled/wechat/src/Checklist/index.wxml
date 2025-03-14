@@ -15,7 +15,7 @@
       <ant-checklist-item
         checked="{{utils.getChecked(item.value, mixin.value, multiple)}}"
         item="{{item}}"
-        bind:change="onChange"
+        bindchange="onChange"
       >
         <view
           slot="content"
