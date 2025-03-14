@@ -10,6 +10,7 @@ import AsyncValidator, {
 } from 'async-validator';
 
 import { IMixin4Legacy } from '@mini-types/alipay';
+import flattenObject from '../_util/flattenObject';
 import get from '../_util/get';
 import set from '../_util/set';
 import { getValueFromProps } from '../_util/simply';
@@ -667,7 +668,7 @@ export class Form {
    * @param value 表单初始值
    */
   setFieldsValue(values: Values) {
-    Object.keys(values).forEach((name) => {
+    Object.keys(flattenObject(values)).forEach((name) => {
       this.setFieldValue(name, get(values, name));
     });
   }
