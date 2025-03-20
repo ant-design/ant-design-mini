@@ -100,7 +100,7 @@ $ npm i
     "ant-config-provider": "antd-mini/es/ConfigProvider/index"
   }
 }
-`,paraId:2,tocIndex:1},{value:"\u5728 js \u4E2D\u5F15\u5165\u5BF9\u5E94\u7684\u8BED\u8A00\u6E90\u6587\u4EF6",paraId:3,tocIndex:1},{value:`import enUS from '@antd-mini/locales/en-US';
+`,paraId:2,tocIndex:1},{value:"\u5728 js \u4E2D\u5F15\u5165\u5BF9\u5E94\u7684\u8BED\u8A00\u6E90\u6587\u4EF6",paraId:3,tocIndex:1},{value:`import enUS from 'antd-mini/es/_locale/en-US';
 Page({
   data: {
     locale: esES,

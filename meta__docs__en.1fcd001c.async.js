@@ -99,7 +99,7 @@ $ npm i
     "ant-config-provider": "antd-mini/es/ConfigProvider/index"
   }
 }
-`,paraId:2,tocIndex:1},{value:"introduce the corresponding language source file in js",paraId:3,tocIndex:1},{value:`import enUS from '@antd-mini/locales/en-US';
+`,paraId:2,tocIndex:1},{value:"introduce the corresponding language source file in js",paraId:3,tocIndex:1},{value:`import enUS from 'antd-mini/es/_locale/en-US';
 Page({
   data: {
     locale: esES,
