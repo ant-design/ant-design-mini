@@ -1,9 +1,4 @@
-<view
-  class="fr-input"
-  data-aspm-click="ca51271.da34653"
-  data-aspm-desc="表单组件-表单子项input"
-  data-aspm-param=""
-  data-aspm-expo>
+<view class="fr-input">
   <input
     placeholder="{{config.placeholder || `请输入`}}"
     value="{{value}}"

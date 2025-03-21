@@ -1,9 +1,4 @@
-<view
-  class="fr-date-pick"
-  data-aspm-click="ca51271.da34650"
-  data-aspm-desc="表单组件-表单子项date-picker"
-  data-aspm-param=""
-  data-aspm-expo>
+<view class="fr-date-pick">
   <date-picker
     a:if="{{ config.type !== 'range' }}"
     title="{{ config.title }}"

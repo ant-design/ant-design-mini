@@ -38,22 +38,14 @@
       <view class="fr-form-item-field fr-form-item-field-{{finalDisplayType}}">
         <!--表单项 内容组件的插槽 展示不同的表单组件-->
         <slot />
-        <view
-          a:if="{{extra}}"
-          data-aspm-click="ca51271.da34832"
-          data-aspm-desc="表单组件-信息提示"
-          data-aspm-param="{{ { extra: extra, field: name, widget: widget } }}"
-          data-aspm-expo
-        >
-          <form-item-extra extra="{{extra}}">
-            <view slot-scope="props">
-              <slot
-                name="extra"
-                extra="{{ extra }}"
-              />
-            </view>
-          </form-item-extra>
-        </view>
+        <form-item-extra a:if="{{extra}}" extra="{{extra}}">
+          <view slot-scope="props">
+            <slot
+              name="extra"
+              extra="{{ extra }}"
+            />
+          </view>
+        </form-item-extra>
       </view>
     </view>
   </view>

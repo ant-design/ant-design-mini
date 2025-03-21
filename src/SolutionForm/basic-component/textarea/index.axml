@@ -1,9 +1,4 @@
-<view
-  class="fr-textarea"
-  data-aspm-click="ca51271.da42051"
-  data-aspm-desc="表单组件-textarea"
-  data-aspm-param=""
-  data-aspm-expo>
+<view class="fr-textarea">
   <textarea
     placeholder="{{config.placeholder || `请输入`}}"
     value="{{value}}"

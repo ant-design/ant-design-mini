@@ -5,10 +5,6 @@
 -->
 <view
   a:if="{{ slotConfig.showInternalErrorMessage && message }}"
-  data-aspm-click="ca51271.da34830"
-  data-aspm-desc="表单组件-错误信息区域"
-  data-aspm-param="{{ { message } }}"
-  data-aspm-expo
   class="fr-form-item-message">
   {{ message }}
 </view>

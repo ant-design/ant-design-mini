@@ -44,12 +44,7 @@
   </fr-mapping>
 </template>
 
-<view
-  class="fr {{className ? className: ''}}"
-  data-aspm="ca51271"
-  data-aspm-desc="表单组件"
-  data-aspm-param=""
-  data-aspm-expo>
+<view class="fr {{className ? className: ''}}">
   <fr-form class="fr-body">
     <block
       a:if="{{ hasGroup }}"

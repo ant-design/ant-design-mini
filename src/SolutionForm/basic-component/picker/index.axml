@@ -1,9 +1,4 @@
-<view
-  class="fr-pick"
-  data-aspm-click="ca51271.da34654"
-  data-aspm-desc="表单组件-表单子项picker"
-  data-aspm-param=""
-  data-aspm-expo>
+<view class="fr-pick">
   <picker
     a:if="{{ config.type !== 'cascader' }}"
     value="{{ value }}"

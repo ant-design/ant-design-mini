@@ -1,9 +1,4 @@
-<view
-  class="fr-footer"
-  data-aspm-click="ca51271.da34831"
-  data-aspm-desc="表单组件-底部按钮区域"
-  data-aspm-param=""
-  data-aspm-expo>
+<view class="fr-footer">
   <slot name="footer-protocol"></slot>
   <button
     class="fr-footer-button"

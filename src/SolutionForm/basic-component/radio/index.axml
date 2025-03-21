@@ -1,11 +1,4 @@
-<view
-  style="{{ config.style }}"
-  class="fr-radio"
-  data-aspm-click="ca51271.da34827"
-  data-aspm-desc="表单组件-表单子项radio"
-  data-aspm-param=""
-  data-aspm-expo>
-
+<view style="{{ config.style }}" class="fr-radio">
   <radio-group
     options="{{config.options}}"
     value="{{value}}"

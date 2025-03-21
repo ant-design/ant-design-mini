@@ -1,9 +1,4 @@
-<view
-  data-aspm-click="ca51271.da34829"
-  data-aspm-desc="表单组件-表单子项switch"
-  data-aspm-param=""
-  class="fr-switch"
-  data-aspm-expo>
+<view class="fr-switch">
   <switch 
     checked="{{value}}"
     color="{{ config.color }}"
