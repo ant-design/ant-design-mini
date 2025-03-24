@@ -138,4 +138,19 @@
       </ant-button>
     </view>
   </collapse-container>
+
+  <ant-button
+    style="margin-top: 8rpx"
+    type="primary"
+    onTap="onPopupOpen">
+    在弹层中使用
+  </ant-button>
+  <ant-popup
+    visible="{{demo10.visible}}"
+    width="{{250}}"
+    height="{{600}}"
+    onClose="onPopupClose">
+    <ant-calendar></ant-calendar>
+  </ant-popup>
+
 </view>

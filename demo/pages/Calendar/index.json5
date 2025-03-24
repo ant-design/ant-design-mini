@@ -14,6 +14,7 @@
     "collapse-container": "./collapse-container/collapse-container",
     "ant-button": "../../../src/Button/index",
     "ant-calendar": "../../../src/Calendar/index",
-    "cn-day": "./collapse-container/cn-day/cn-day"
+    "cn-day": "./collapse-container/cn-day/cn-day",
+    "ant-popup": "../../../src/Popup/index"
   }
 }
