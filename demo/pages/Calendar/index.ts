@@ -100,6 +100,9 @@ Page({
       visible: true,
       value: nowDate,
     },
+    demo10: {
+      visible: false,
+    },
   },
   demo3NextMonth() {
     const current = this.data.demo3.monthRange[0];
@@ -146,6 +149,16 @@ Page({
   },
   demo9HandleScrollIntoView() {
     this.ref.scrollIntoView(dayjs().add(1, 'M').toDate().getTime());
+  },
+  onPopupOpen() {
+    this.setData({
+      'demo10.visible': true,
+    });
+  },
+  onPopupClose() {
+    this.setData({
+      'demo10.visible': false,
+    });
   },
   handleRef(ref) {
     /// #if ALIPAY
