@@ -1,8 +1,30 @@
 @import (reference) './variable.less';
 
+@font-face {
+  font-family: antdmini-checkbox;
+  src: url('https://mdn.alipayobjects.com/huamei_bsws4g/afts/file/eQ-8QL61r6wAAAAAAAAAAAAAeoEQAQFr/iconfont-checkbox.ttf')
+    format('truetype');
+}
+
 @checkboxItemPrefix: ant-checkbox-item;
 
 .@{checkboxItemPrefix} {
+  .ant-icon {
+    font-family: antdmini-checkbox !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    /// #if ALIPAY
+    line-height: @line-height-base;
+    /// #endif
+    /// #if WECHAT
+    font-size: @size-4;
+    /// #endif
+
+    &-CheckboxOutline:before {
+      content: '\e605';
+    }
+  }
+
   color: @checkbox-text-color;
   margin-right: 16 * @rpx;
 
@@ -37,6 +59,7 @@
     height: 100%;
     opacity: 0;
   }
+
   &-fake {
     position: absolute;
     top: 0;
