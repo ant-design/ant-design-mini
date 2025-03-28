@@ -28,10 +28,10 @@
         <view
           class="ant-checkbox-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}"
           style="{{ mixin.value && !disabled && color ? 'background:' + color : '' }}">
-          <text
+          <ant-icon
             a:if="{{ mixin.value }}"
-            class="ant-icon ant-icon-CheckboxOutline ant-checkbox-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}-icon"
-            />
+            type="CheckOutline"
+            className="ant-checkbox-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}-icon" />
         </view>
       </view>
     </view>
