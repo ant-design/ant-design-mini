@@ -16,7 +16,7 @@
       <!-- #if ALIPAY -->
       <slot name="readonly"formData="{{formData}}">
       <!-- #endif -->
-        <text a:if="{{formData.value}}">{{formData.value}}</text>
+        <text a:if="{{formData.value.length > 0}}">{{formData.value}}</text>
         <text a:else>-</text>
       <!-- #if ALIPAY -->
       </slot>
