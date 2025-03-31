@@ -16,7 +16,7 @@
   help="{{ help }}"
 >
   <view>
-    <block a:if="{{readonly && !formData.value}}">
+    <block a:if="{{readonly && !(formData.value && formData.value.length)}}">
       <!-- #if ALIPAY -->
       <slot name="readonly" formData="{{formData}}">
       <!-- #endif -->
@@ -26,7 +26,7 @@
       <!-- #endif -->
     </block>
     <ant-cascader-picker
-      style="{{readonly && !formData.value ? 'display:none' : ''}};{{ cascaderPickerStyle }}"
+      style="{{readonly && !(formData.value && formData.value.length) ? 'display:none' : ''}};{{ cascaderPickerStyle }}"
       options="{{ options }}"
       cancelText="{{ u.isPropsEmpty(cancelText) ? locale.global.cancelText : cancelText }}"
       okText="{{ u.isPropsEmpty(okText) ? locale.global.okText : okText }}"
