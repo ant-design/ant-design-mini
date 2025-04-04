@@ -11,9 +11,9 @@ import json5 from 'json5';
 import path, { resolve } from 'path';
 import * as through2 from 'through2';
 import axmlParser, { wechatCustomMapping } from './axml';
+import createConfigJson from './create-config';
 import { transformTsxJS } from './tsxjs';
 import * as tsxml from './tsxml/index';
-import createConfigJson from './create-config';
 
 interface MiniProgramSourceCompileOption {
   source: string;
@@ -345,14 +345,13 @@ export async function compileAntdMini(watch: boolean) {
       })
     );
   }
-  
+
   await createConfigJson();
   const wechatConfig = JSON.parse(
     ofs.readFileSync(resolve(__dirname, '..', 'config/wechat.json'), 'utf-8')
   );
-  
-  const allowList = wechatConfig.src;
 
+  const allowList = wechatConfig.src;
 
   const wechatBuildOption = {
     platformId: 'WECHAT',
@@ -363,6 +362,7 @@ export async function compileAntdMini(watch: boolean) {
     xmlExt: '.wxml',
     xmlScriptExt: '.wxs',
     defVar: {
+      platform: 'WECHAT',
       WECHAT: true,
       ALIPAY: false,
     },
@@ -421,6 +421,7 @@ export async function compileAntdMini(watch: boolean) {
   const alipayBuildOption = {
     platformId: 'ALIPAY',
     defVar: {
+      platform: 'ALIPAY',
       WECHAT: false,
       ALIPAY: true,
     },
