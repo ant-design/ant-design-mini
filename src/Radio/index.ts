@@ -5,7 +5,7 @@ import { RadioDefaultProps } from './props';
 Component({
   props: RadioDefaultProps,
   methods: {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     onChange(e) {
       const value = e.detail.value;
       if (!this.isControlled()) {

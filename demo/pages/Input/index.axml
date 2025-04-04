@@ -171,7 +171,7 @@
     placeholder="请输入内容"
     onChange="onChange" />
 </ant-container>
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || BUNDLE2H -->
 <!-- 微信不支持  placeholderClassName -->
 <ant-container title="自定义 placeholderClassName">
   <ant-input

@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Grid",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Grid",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

@@ -27,7 +27,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   onInit() {
     const [defaultCollapse, hide, title] = getValueFromProps(this, [
       'defaultCollapse',

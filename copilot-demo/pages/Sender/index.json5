@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Sender",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Sender",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

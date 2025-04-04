@@ -14,7 +14,7 @@
       checkedText="开"
       uncheckedText="关"
       onChange="onChange" />
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || BUNDLE2H -->
     <ant-switch>
       <ant-icon
         type="CheckOutline"

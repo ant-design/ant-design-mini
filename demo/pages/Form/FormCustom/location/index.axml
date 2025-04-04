@@ -23,11 +23,11 @@
     </view>
   </view>
   <view slot="extra">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || BUNDLE2H -->
     <slot name="extra">
     <!-- #endif -->
       {{ extra }}
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || BUNDLE2H -->
     </slot>
     <!-- #endif -->
   </view>

@@ -15,7 +15,7 @@
   destroyOnClose="{{ destroyOnClose }}"
   onClose="onMaskClose">
   <slot name="dialog-top" />
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || BUNDLE2H -->
   <slot>
   <!-- #endif -->
     <view
@@ -33,7 +33,7 @@
         wx:else
         name="title" />
       <!-- #endif -->
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       <slot name="title">
         <view
           a:if="{{ title }}"
@@ -53,7 +53,7 @@
         wx:else
         name="content" />
       <!-- #endif -->
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       <slot name="content">
         <view
           a:if="{{ content }}"
@@ -63,7 +63,7 @@
       </slot>
       <slot name="content-extra" />
       <!-- #endif -->
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       <slot name="footer">
       <!-- #endif -->
         <view class="ant-dialog-body-footer ant-dialog-body-footer-{{ footer.layout || 'vertical' }}">
@@ -89,11 +89,11 @@
             </ant-button>
           </view>
         </view>
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       </slot>
       <!-- #endif -->
     </view>
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || BUNDLE2H -->
   </slot>
   <!-- #endif -->
 

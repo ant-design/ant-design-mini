@@ -1,6 +1,6 @@
 <import-sjs from="./index.sjs" name="utils" />
 
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || BUNDLE2H -->
 <button
   form-type="{{ formType }}"
   hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"

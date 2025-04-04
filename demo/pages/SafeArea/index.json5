@@ -3,7 +3,7 @@
   "navigationBarTitleText": "SafeArea",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "SafeArea",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

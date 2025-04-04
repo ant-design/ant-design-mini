@@ -4,11 +4,11 @@
   <view
     a:if="{{ icon }}"
     class="ant-tag-icon-container">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || BUNDLE2H -->
     <slot name="icon">
     <!-- #endif -->
       <ant-icon type="{{ icon }}" />
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || BUNDLE2H -->
     </slot>
     <!-- #endif -->
   </view>

@@ -16,7 +16,7 @@
           disabled="{{ disabled }}" />
       </checkbox-group>
       <!-- #endif -->
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       <checkbox
         class="ant-checkbox-item-base"
         value="{{ value }}"

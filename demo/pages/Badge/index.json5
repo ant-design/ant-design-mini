@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Badge",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Badge",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

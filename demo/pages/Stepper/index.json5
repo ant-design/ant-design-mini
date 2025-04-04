@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Stepper",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Stepper",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

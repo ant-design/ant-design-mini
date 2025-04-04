@@ -41,7 +41,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   onInit() {
     const [foldStatus, config] = getValueFromProps(this, [
       'foldStatus',

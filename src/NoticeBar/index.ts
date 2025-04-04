@@ -33,7 +33,7 @@ Component({
         triggerEventOnly(this, 'tap');
       }
       if (mode === 'closeable') {
-        /// #if ALIPAY
+        /// #if ALIPAY || BUNDLE2H
         if (typeof this.props.onTap !== 'function') {
           return;
         }
@@ -119,7 +119,7 @@ Component({
       });
     },
 
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     onTransitionEnd() {
       const loop = getValueFromProps(this, 'loop');
       const trailing = 200;
@@ -135,7 +135,7 @@ Component({
     /// #endif
   },
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   didMount() {
     const { enableMarquee } = this.props;
 

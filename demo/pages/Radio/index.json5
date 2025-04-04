@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Radio",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Radio",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

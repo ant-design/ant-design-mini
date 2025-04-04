@@ -51,7 +51,7 @@ Page({
     data = args1.detail;
     /// #endif
 
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     e = args2;
     data = args1;
     /// #endif

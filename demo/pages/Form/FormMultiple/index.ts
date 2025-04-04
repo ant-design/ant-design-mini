@@ -19,7 +19,7 @@ Page({
     /// #endif
   },
   handleRef(ref) {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     this.form.addItem(ref);
     /// #endif
 
@@ -31,7 +31,7 @@ Page({
     /// #endif
   },
   handleRef2(ref) {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     this.form2.addItem(ref);
     /// #endif
 
@@ -50,7 +50,7 @@ Page({
   },
   async submit() {
     const values = await this.form.submit();
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     my.alert({
       title: '表单1提交',
       content: JSON.stringify(values, null, 2),
@@ -60,7 +60,7 @@ Page({
   },
   async submit2() {
     const values = await this.form2.submit();
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     my.alert({
       title: '表单2提交',
       content: JSON.stringify(values, null, 2),

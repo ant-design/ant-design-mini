@@ -62,7 +62,7 @@ Page({
   },
   handleItemTap(i) {
     let item = i;
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     console.log(item);
     my.showToast({ content: item.key });
     /// #endif
@@ -74,7 +74,7 @@ Page({
     /// #endif
   },
   handleMenuItemTap(menuItem, item) {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     console.log(menuItem, item);
     my.showToast({ content: `菜单${menuItem.index}_列表项${item.key}` });
     /// #endif

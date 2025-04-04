@@ -53,7 +53,7 @@ ComponentWithSignalStoreImpl({
     },
   },
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   didMount() {
     const props = getValueFromProps(this);
     this.updatePageStatus({}, props);

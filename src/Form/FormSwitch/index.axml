@@ -13,11 +13,11 @@
   help="{{ help }}">
   <view>
     <block a:if="{{readonly && !formData.value && formData.value!==false}}">
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       <slot name="readonly" formData="{{formData}}">
       <!-- #endif -->
         -
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       </slot>
       <!-- #endif -->
     </block>

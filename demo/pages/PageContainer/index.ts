@@ -12,7 +12,7 @@ Page({
     }, 1000);
   },
   handleRefresh() {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     my.reLaunch({
       url: 'index',
       fail(e) {

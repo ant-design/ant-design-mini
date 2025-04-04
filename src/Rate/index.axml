@@ -16,20 +16,20 @@
           a:if="{{ allowHalf && (displayValue !== null ? displayValue : mixin.value) === index + 0.5 }}"
           class="ant-rate-star-icon-active {{ characterClassName || '' }} {{ characterActiveClassName || '' }} ant-rate-star-icon-half-active"
         >
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
           <slot name="character" index="{{ index }}" isActive="{{ true }}">
             <!-- #endif -->
             <ant-icon type="StarFill" />
-            <!-- #if ALIPAY -->
+            <!-- #if ALIPAY || BUNDLE2H -->
           </slot>
           <!-- #endif -->
         </view>
         <view class="ant-rate-star-icon {{ (displayValue !== null ? displayValue : mixin.value) >= index + 1 ? 'ant-rate-star-icon-active' + ' ' + (characterClassName || '') + ' ' + (characterActiveClassName || '') : characterClassName }}">
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
           <slot name="character" index="{{ index }}">
             <!-- #endif -->
             <ant-icon type="StarFill" />
-            <!-- #if ALIPAY -->
+            <!-- #if ALIPAY || BUNDLE2H -->
           </slot>
           <!-- #endif -->
         </view>

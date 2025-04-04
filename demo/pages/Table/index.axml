@@ -14,7 +14,7 @@
   <ant-table dataSource="{{dataSource}}" columns="{{columns}}" scrollHeight="300rpx" />
 </ant-container>
 
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || BUNDLE2H -->
 <ant-container
   title="插槽"
   className="list"

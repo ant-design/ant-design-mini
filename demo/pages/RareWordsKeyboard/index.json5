@@ -3,7 +3,7 @@
   "navigationBarTitleText": "RareWordsKeyboard",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "RareWordsKeyboard",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

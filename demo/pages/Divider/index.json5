@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Divider",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Divider",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

@@ -24,7 +24,7 @@
     current="{{ 1 }}"
     direction="vertical" />
 </ant-container>
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || BUNDLE2H -->
 <ant-container title="自定义图标">
   <ant-steps
     items="{{ items }}"

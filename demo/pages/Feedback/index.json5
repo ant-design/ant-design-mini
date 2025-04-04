@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Feedback",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Feedback",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

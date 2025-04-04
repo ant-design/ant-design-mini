@@ -22,7 +22,7 @@
   visible="{{ controlledVisible }}"
   onCancel="closeTour"
   onChange="onChangeControlled" />
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || BUNDLE2H -->
 <ant-guide-tour
   items="{{ list }}"
   visible="{{ slotVisible }}"
@@ -62,7 +62,7 @@
   </ant-button>
 </ant-container>
 
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || BUNDLE2H -->
 <ant-container
   title="插槽用法"
   className="list">

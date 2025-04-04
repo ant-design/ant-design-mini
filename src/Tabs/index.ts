@@ -153,7 +153,7 @@ Component({
     }),
   ],
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   didMount() {
     this.updateScroll();
   },

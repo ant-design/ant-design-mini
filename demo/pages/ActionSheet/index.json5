@@ -3,7 +3,7 @@
   "navigationBarTitleText": "ActionSheet",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "ActionSheet",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

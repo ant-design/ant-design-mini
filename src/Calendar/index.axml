@@ -27,7 +27,7 @@
         </block>
       </ant-auto-resize>
       <!-- #endif -->
-        <!-- #if ALIPAY -->
+        <!-- #if ALIPAY || BUNDLE2H -->
         <ant-auto-resize text="{{ item }}" minFontSize="13" maxFontSize="28">
           <text>{{ item }}</text>
         </ant-auto-resize>
@@ -42,13 +42,13 @@
     a:if="{{ !!elementSize }}"
     class="ant-calendar-sticky">
     <view class="ant-calendar-sticky-title">
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       <slot name="calendarTitle">
       <!-- #endif -->
         <view class="ant-calendar-title">
           {{ monthList[headerState].title }}
         </view>
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       </slot>
       <!-- #endif -->
     </view>
@@ -73,11 +73,11 @@
       <view
         class="ant-calendar-body-container {{ currentMonth.className || '' }}" style="{{ currentMonth.style || '' }}">
         <view class="ant-calendar-title-container">
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
           <slot name="calendarTitle">
           <!-- #endif -->
             <view class="ant-calendar-title">{{ currentMonth.title }}</view>
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
           </slot>
           <!-- #endif -->
         </view>
@@ -112,7 +112,7 @@
                         </block>
                       </ant-auto-resize>
                       <!-- #endif -->
-                    <!-- #if ALIPAY -->
+                    <!-- #if ALIPAY || BUNDLE2H -->
                     <ant-auto-resize text="{{ item.top.label }}" minFontSize="13" maxFontSize="18">
                       <text
                       a:if="{{ item.top }}"
@@ -123,7 +123,7 @@
                   </view>
                   <view class="ant-calendar-cell-center">{{ item.date }}</view>
                   <view class="ant-calendar-cell-bottom">
-                    <!-- #if ALIPAY -->
+                    <!-- #if ALIPAY || BUNDLE2H -->
                     <slot
                       name="cell-bottom"
                       cell="{{ item }}">
@@ -134,7 +134,7 @@
                         class="{{ item.bottom.className }}"
                         >{{ item.bottom.label }}</text
                       >
-                    <!-- #if ALIPAY -->
+                    <!-- #if ALIPAY || BUNDLE2H -->
                     </slot>
                     <!-- #endif -->
                   </view>

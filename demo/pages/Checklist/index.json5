@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Checklist",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Checklist",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

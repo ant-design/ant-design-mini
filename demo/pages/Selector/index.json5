@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Selector",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Selector",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

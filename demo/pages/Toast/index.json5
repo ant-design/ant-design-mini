@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Toast",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Toast",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

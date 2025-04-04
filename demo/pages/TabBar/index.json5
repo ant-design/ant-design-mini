@@ -3,7 +3,7 @@
   "navigationBarTitleText": "TabBar",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "TabBar",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

@@ -7,7 +7,7 @@ Page({
     onError() {},
   },
   onLoad() {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     // Android 必须设置 canPullDown 为 false，否则滚动会有问题
     my.setCanPullDown({
       canPullDown: false,
@@ -19,7 +19,7 @@ Page({
   },
   onSelect(user) {
     console.log('user', user);
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     my.confirm({
       content: JSON.stringify(user),
     });

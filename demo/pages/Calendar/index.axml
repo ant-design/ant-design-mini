@@ -81,7 +81,7 @@
     </view>
   </collapse-container>
 
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || BUNDLE2H -->
   <collapse-container
     a:if="{{ demo6.visible }}"
     title="通过 slot 实现农历">

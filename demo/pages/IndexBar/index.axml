@@ -6,7 +6,7 @@
     items="{{items}}"
     current="{{current}}"
     onChange="onChange">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || BUNDLE2H -->
     <view slot-scope="props">
       <ant-list header="{{props.value.label}}">
         <ant-list-item

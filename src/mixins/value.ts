@@ -11,7 +11,7 @@ function equal(a, b) {
   return false;
 }
 
-/// #if ALIPAY
+/// #if ALIPAY || BUNDLE2H
 const component2 = my.canIUse('component2');
 /// #endif
 
@@ -45,7 +45,7 @@ export default ({
         controlled: false,
       },
     },
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     onInit() {
       this.init();
     },
@@ -102,7 +102,7 @@ export default ({
     methods: {
       init() {
         let value;
-        /// #if ALIPAY
+        /// #if ALIPAY || BUNDLE2H
         value =
           getValueFromProps(this, valueKey) !== undefined
             ? getValueFromProps(this, valueKey)
@@ -135,7 +135,7 @@ export default ({
           return getValueFromProps(this, 'controlled');
         }
 
-        /// #if ALIPAY
+        /// #if ALIPAY || BUNDLE2H
         return valueKey in getValueFromProps(this);
         /// #endif
         /// #if WECHAT

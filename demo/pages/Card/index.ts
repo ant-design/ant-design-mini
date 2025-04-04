@@ -4,7 +4,7 @@ Page({
     titleSticky: false,
   },
   handleLinkClick() {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     my.showToast({ content: '被点击了' });
     /// #endif
     /// #if WECHAT

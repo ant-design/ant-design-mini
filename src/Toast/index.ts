@@ -41,7 +41,7 @@ Component({
       }
     },
   },
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   didUpdate(prev) {
     const visible = getValueFromProps(this, 'visible');
     if (!prev.visible && visible) {

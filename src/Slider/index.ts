@@ -273,7 +273,7 @@ Component({
       },
     }),
   ],
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   didUpdate(prevProps) {
     const [min, max, step, range, showTicks, value] = getValueFromProps(this, [
       'min',

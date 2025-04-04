@@ -30,7 +30,7 @@ Component({
   methods: {
     // visible受控判断
     isVisibleControlled() {
-      /// #if ALIPAY
+      /// #if ALIPAY || BUNDLE2H
       return 'visible' in getValueFromProps(this);
       /// #endif
       /// #if WECHAT
@@ -43,7 +43,7 @@ Component({
       const { min, max, precision, defaultPickerValue } = currentProps;
       if (realValue) {
         return getValueByDate(realValue, precision,);
-      } 
+      }
       // 处理默认值
       let baseDate: Date | null = null;
       if (defaultPickerValue) {
@@ -268,7 +268,7 @@ Component({
     }),
   ],
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   onInit() {
     this.pickerVisible = false;
     const [visible, defaultVisible] = getValueFromProps(this, [

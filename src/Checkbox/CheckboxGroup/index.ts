@@ -13,7 +13,7 @@ Component({
       /// #if WECHAT
       event = args;
       /// #endif
-      /// #if ALIPAY
+      /// #if ALIPAY || BUNDLE2H
       event = e;
       /// #endif
       let currentValue = this.getValue();

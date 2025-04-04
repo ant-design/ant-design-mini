@@ -74,7 +74,7 @@ Page({
     this.alert('plus');
   },
   alert(content) {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     my.alert({
       title: content,
     });

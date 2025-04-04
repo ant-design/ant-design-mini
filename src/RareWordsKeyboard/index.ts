@@ -131,7 +131,7 @@ Component({
       this.handleHide();
     },
   },
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   didMount() {
     this.loadFont();
     this.computeMaxDisplayNum();

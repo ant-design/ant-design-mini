@@ -16,7 +16,7 @@ ComponentWithSignalStoreImpl({
   props: FormTextareaDefaultProps,
   methods: {
     handleRef(input) {
-      /// #if ALIPAY
+      /// #if ALIPAY || BUNDLE2H
       this.input = input;
       /// #endif
       /// #if WECHAT

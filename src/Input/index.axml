@@ -8,7 +8,7 @@
     <slot name="prefix">{{ prefix }}</slot>
   </view>
   <view class="ant-input-line">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || BUNDLE2H -->
     <input
       enableNative="{{ enableNative }}"
       name="{{ name }}"

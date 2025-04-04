@@ -18,7 +18,7 @@
       onFirstAppear="onFirstAppear">
       <view
         class="ant-grid-item-icon ant-grid-item-icon-{{ item.iconStyle || iconStyle }}">
-        <!-- #if ALIPAY -->
+        <!-- #if ALIPAY || BUNDLE2H -->
         <slot
           name="icon"
           value="{{ item }}"
@@ -28,32 +28,32 @@
             image="{{ item.icon }}"
             className="ant-grid-item-icon"
             style="{{ iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : '' }}" />
-        <!-- #if ALIPAY -->
+        <!-- #if ALIPAY || BUNDLE2H -->
         </slot>
         <!-- #endif -->
       </view>
       <view class="ant-grid-item-info">
         <view class="ant-grid-item-title">
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
           <slot
             name="title"
             value="{{ item }}"
             index="{{ index }}">
           <!-- #endif -->
             {{ item.title }}
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
           </slot>
           <!-- #endif -->
         </view>
         <view class="ant-grid-item-description">
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
           <slot
             name="description"
             value="{{ item }}"
             index="{{ index }}">
           <!-- #endif -->
             {{ item.description }}
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
           </slot>
           <!-- #endif -->
         </view>
@@ -80,7 +80,7 @@
         onFirstAppear="onFirstAppear">
         <view
           class="ant-grid-item-icon ant-grid-item-icon-{{ item.iconStyle || iconStyle }}">
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
           <slot
             name="icon"
             value="{{ item }}"
@@ -90,32 +90,32 @@
               image="{{ item.icon }}"
               className="ant-grid-item-icon"
               style="{{ iconSize ? 'width:' + iconSize + 'px;height:' + iconSize + 'px;font-size:' + iconSize + 'px' : '' }}" />
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
           </slot>
           <!-- #endif -->
         </view>
         <view class="ant-grid-item-info">
           <view class="ant-grid-item-title">
-            <!-- #if ALIPAY -->
+            <!-- #if ALIPAY || BUNDLE2H -->
             <slot
               name="title"
               value="{{ item }}"
               index="{{ index }}">
             <!-- #endif -->
               {{ item.title }}
-            <!-- #if ALIPAY -->
+            <!-- #if ALIPAY || BUNDLE2H -->
             </slot>
             <!-- #endif -->
           </view>
           <view class="ant-grid-item-description">
-            <!-- #if ALIPAY -->
+            <!-- #if ALIPAY || BUNDLE2H -->
             <slot
               name="description"
               value="{{ item }}"
               index="{{ index }}">
             <!-- #endif -->
               {{ item.description }}
-            <!-- #if ALIPAY -->
+            <!-- #if ALIPAY || BUNDLE2H -->
             </slot>
             <!-- #endif -->
           </view>

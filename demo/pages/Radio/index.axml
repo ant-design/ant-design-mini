@@ -78,7 +78,7 @@
       options="{{ options }}"
       onChange="handleRadioGroupChange" />
   </view>
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || BUNDLE2H -->
   <view class="line">
     <view class="title">自定义</view>
     <ant-radio-group

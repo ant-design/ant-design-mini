@@ -876,7 +876,7 @@ export function createForm({ methods = {} } = {}) {
       },
     },
 
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     didUnmount() {
       this.emit('didUnmount');
     },

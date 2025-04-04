@@ -144,7 +144,7 @@ Component({
     }),
   ],
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   didUpdate(prevProps, prevData) {
     console.log(
       prevProps.items !== this.props.items,

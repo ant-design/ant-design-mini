@@ -122,7 +122,7 @@ Page({
     });
   },
   handleTapItem(item) {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     my.alert({ title: '点击了', content: JSON.stringify(item) });
     /// #endif
 

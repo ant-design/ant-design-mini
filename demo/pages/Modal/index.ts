@@ -41,7 +41,7 @@ Page({
   },
 
   showToast(content: string) {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     my.showToast({ content, duration: 1000 });
     /// #endif
 

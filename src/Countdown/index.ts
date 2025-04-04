@@ -167,7 +167,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   onInit() {
     this.init();
   },

@@ -45,7 +45,7 @@
                 </view>
               </view>
               <view a:else class="ant-table-list-item-rows ant-table-list-item-value  {{itemIndex==0?'ant-table-list-item-value-first':''}} {{ val.textAlignRight ? 'ant-table-list-item-value-align-right' : '' }}">
-                <!-- #if ALIPAY -->
+                <!-- #if ALIPAY || BUNDLE2H -->
                 <slot
                   item="{{val}}"
                   index="{{itemIndex}}"
@@ -60,7 +60,7 @@
                   >
                     {{val.value}}
                   </view>
-                  <!-- #if ALIPAY -->
+                  <!-- #if ALIPAY || BUNDLE2H -->
                 </slot>
                 <!-- #endif -->
               </view>
@@ -72,11 +72,11 @@
 
     <view>
       <view a:if="{{list.length <= 1}}" class="ant-table-empty">
-        <!-- #if ALIPAY -->
+        <!-- #if ALIPAY || BUNDLE2H -->
         <slot item="{{val}}" name="empty">
           <!-- #endif -->
           <image class="ant-table-empty-image" src="https://mdn.alipayobjects.com/huamei_9iifqq/afts/img/A*AWeXQYuIODwAAAAAAAAAAAAADjWYAQ/original" />
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || BUNDLE2H -->
         </slot>
         <!-- #endif -->
       </view>

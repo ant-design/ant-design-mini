@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Collapse",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Collapse",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

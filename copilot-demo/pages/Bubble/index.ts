@@ -31,7 +31,7 @@ Page({
     // @ts-ignore
     item = item.detail;
     /// #endif
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     my.showToast({
       content: `${item.label} tapped`,
     });

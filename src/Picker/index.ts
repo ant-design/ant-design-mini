@@ -41,7 +41,7 @@ ComponentWithSignalStoreImpl({
   methods: {
     // visible受控判断
     isVisibleControlled() {
-      /// #if ALIPAY
+      /// #if ALIPAY || BUNDLE2H
       return 'visible' in getValueFromProps(this);
       /// #endif
       /// #if WECHAT
@@ -229,7 +229,7 @@ ComponentWithSignalStoreImpl({
     }),
   ],
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   onInit() {
     this.initData();
   },

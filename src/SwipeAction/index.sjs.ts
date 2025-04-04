@@ -230,7 +230,7 @@ export default {
 
 declare function getRegExp(reg: string, mode: string): any;
 function keys(obj) {
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
 
   if (typeof Object.keys === 'function') {
     return Object.keys(obj);

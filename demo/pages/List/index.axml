@@ -39,7 +39,7 @@
   <ant-list
     radius="{{ radius }}"
     header="复杂布局">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || BUNDLE2H -->
     <ant-list-item>
       圆角
       <ant-switch
@@ -58,7 +58,7 @@
       arrow="{{ item.arrow }}">
       授权管理
     </ant-list-item>
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || BUNDLE2H -->
     <ant-list-item
       title="标题"
       brief="描述信息"

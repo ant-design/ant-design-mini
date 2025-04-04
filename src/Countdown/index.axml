@@ -1,6 +1,6 @@
 <view class="ant-countdown {{className}}">
   <text class="ant-countdown-time-prefix ant-countdown-time"><slot name="prefix"></slot></text>
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || BUNDLE2H -->
   <slot day="{{countdownDay}}" hour="{{countdownHour}}" min="{{countdownMin}}" sec="{{countdownSec}}">
   <!-- #endif -->
     <block  a:if="{{ countdownType === 'day' && showDay }}">
@@ -12,7 +12,7 @@
     <text class="ant-countdown-time-num"><text class="ant-countdown-time">{{countdownMin}}</text></text>
     <text class="ant-countdown-time-colon">：</text>
     <text class="ant-countdown-time-num"><text class="ant-countdown-time">{{countdownSec}}</text></text>
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || BUNDLE2H -->
   </slot>
   <!-- #endif -->
   <text class="ant-countdown-time-suffix ant-countdown-time"><slot name="suffix"></slot></text>

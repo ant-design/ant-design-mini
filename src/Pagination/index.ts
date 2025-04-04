@@ -30,7 +30,7 @@ Component({
       }
     },
   },
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   onInit() {
     let supportSjs;
     if (typeof my === 'undefined') {

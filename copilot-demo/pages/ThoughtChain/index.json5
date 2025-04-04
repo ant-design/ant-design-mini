@@ -3,7 +3,7 @@
   "navigationBarTitleText": "ThoughtChain",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "ThoughtChain",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

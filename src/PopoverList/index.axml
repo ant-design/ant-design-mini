@@ -5,7 +5,7 @@
   <view
     id="ant-popover-list-children{{ $id ? '-' + $id : '' }}"
     onTap="onVisibleChange">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || BUNDLE2H -->
     <slot />
     <!-- #endif -->
     <!-- #if WECHAT -->

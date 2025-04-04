@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Typography",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Typography",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

@@ -43,7 +43,7 @@ Component({
       }
     },
   },
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   onInit() {
     const [transparentTitle, propsHeaderHeight, check] = getValueFromProps(
       this,

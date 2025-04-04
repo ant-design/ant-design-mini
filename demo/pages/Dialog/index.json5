@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Dialog",
   /// #endif
 
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   "defaultTitle": "Dialog",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

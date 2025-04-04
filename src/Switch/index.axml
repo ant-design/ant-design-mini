@@ -10,7 +10,7 @@
   </view>
   <view class="ant-switch-inner">
     <block a:if="{{ mixin.value }}">
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       <slot name="checkedText">{{ checkedText }}</slot>
       <!-- #endif -->
       <!-- #if WECHAT -->
@@ -18,7 +18,7 @@
       <!-- #endif -->
     </block>
     <block a:else>
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || BUNDLE2H -->
       <slot name="uncheckedText">{{ uncheckedText }}</slot>
       <!-- #endif -->
       <!-- #if WECHAT -->

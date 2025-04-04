@@ -47,7 +47,7 @@
   </ant-prompts>
 </ant-container>
 
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || BUNDLE2H -->
 <ant-container title="自定义提示标题">
   <ant-prompts
     items="{{ arrowList }}"

@@ -35,7 +35,7 @@ Page({
     });
   },
   handleRef(ref) {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     this.form.addItem(ref);
     /// #endif
 
@@ -55,7 +55,7 @@ Page({
   },
   async submit() {
     const values = await this.form.submit();
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     my.alert({
       title: '提交',
       content: JSON.stringify(values),

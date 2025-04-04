@@ -42,7 +42,7 @@ ComponentWithSignalStoreImpl({
   methods: {
     // visible受控判断
     isVisibleControlled() {
-      /// #if ALIPAY
+      /// #if ALIPAY || BUNDLE2H
       return 'visible' in getValueFromProps(this);
       /// #endif
       /// #if WECHAT
@@ -333,7 +333,7 @@ ComponentWithSignalStoreImpl({
     }),
     computed(),
   ],
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   didMount() {
     this.pickerVisible = false;
     const [visible, defaultVisible] = getValueFromProps(this, [

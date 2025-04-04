@@ -88,7 +88,7 @@
       color="red" />
   </view>
 
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || BUNDLE2H -->
   <view class="line">
     <view class="title">自定义标题</view>
     <ant-checkbox-group options="{{ options }}">

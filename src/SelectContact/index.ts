@@ -58,7 +58,7 @@ Component({
   methods: {
     init() {
       let platform;
-      /// #if ALIPAY
+      /// #if ALIPAY || BUNDLE2H
       platform = my.getSystemInfoSync().platform;
       /// #endif
       /// #if WECHAT
@@ -274,7 +274,7 @@ Component({
       this.setData({ searchable: false });
     },
   },
-  /// #if ALIPAY
+  /// #if ALIPAY || BUNDLE2H
   onInit() {
     this.init();
   },

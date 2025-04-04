@@ -1,4 +1,4 @@
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || BUNDLE2H -->
 <text
   class="ant-icon ant-icon-{{ type }} {{ className ? className : '' }}"
   style="{{ style }}"

@@ -17,7 +17,7 @@ Component<IListItemProps>({
     showDivider: true,
   },
   methods: {
-    /// #if ALIPAY
+    /// #if ALIPAY || BUNDLE2H
     onTap(e) {
       if (this.props.disabled) {
         return;
