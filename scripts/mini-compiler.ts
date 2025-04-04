@@ -15,6 +15,11 @@ import createConfigJson from './create-config';
 import { transformTsxJS } from './tsxjs';
 import * as tsxml from './tsxml/index';
 
+// 定义支持的平台类型
+type PlatformType = 'WECHAT' | 'ALIPAY' | 'BUNDLE2H';
+
+const ALL_PLATFORMS: PlatformType[] = ['WECHAT', 'ALIPAY', 'BUNDLE2H'];
+
 interface MiniProgramSourceCompileOption {
   source: string;
   dest: string;
@@ -24,7 +29,7 @@ interface MiniProgramSourceCompileOption {
   tsconfig: string;
   assets: string[];
   buildOption: {
-    platformId?: 'WECHAT' | 'ALIPAY' | string;
+    platformId?: PlatformType | string;
     defVar: any;
     compileTs: boolean;
     compileLess: boolean;
@@ -329,6 +334,180 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   );
 }
 
+// 构建DefVar配置，支持多平台组合，更易于扩展
+function buildDefVar(
+  primaryPlatform: PlatformType
+): Record<string, boolean | string> {
+  // 基础配置，所有平台默认关闭
+  const defVar: Record<string, boolean | string> = {
+    platform: primaryPlatform,
+  };
+
+  // 初始化所有平台为false
+  ALL_PLATFORMS.forEach((platform) => {
+    defVar[platform] = false;
+  });
+
+  // 设置主平台为true
+  defVar[primaryPlatform] = true;
+
+  return defVar;
+}
+
+// 创建通用编译配置
+function createPlatformBuildOption(
+  platformId: PlatformType,
+  platformConfig: {
+    compileTs: boolean;
+    compileLess: boolean;
+    platform: tsxml.PlatformConfig;
+    styleExt: string;
+    xmlExt: string;
+    xmlScriptExt: string;
+    xmlScriptOption?: {
+      forceCommonjs?: boolean;
+    };
+  }
+) {
+  return {
+    platformId,
+    defVar: buildDefVar(platformId),
+    ...platformConfig,
+  };
+}
+
+// 配置组件编译
+function compilePlatformComponents(
+  platformId: PlatformType,
+  watch: boolean,
+  allowList: string[] | undefined,
+  buildOption: any
+) {
+  // 常规组件
+  miniCompiler({
+    tsconfig: resolve(
+      __dirname,
+      '..',
+      platformId === 'WECHAT' ? 'tsconfig.wechat.json' : 'tsconfig.json'
+    ),
+    source: resolve(__dirname, '..', 'src'),
+    dest: resolve(__dirname, '..', 'compiled', platformId.toLowerCase(), 'src'),
+    watch,
+    allowList,
+    assets: [
+      'md',
+      platformId === 'WECHAT' ? 'js' : 'acss',
+      'js',
+      platformId === 'WECHAT' ? '' : 'sjs',
+      'json',
+    ].filter(Boolean),
+    buildOption,
+  });
+
+  // Copilot组件
+  miniCompiler({
+    tsconfig: resolve(
+      __dirname,
+      '..',
+      platformId === 'WECHAT' ? 'tsconfig.wechat.json' : 'tsconfig.json'
+    ),
+    source: resolve(__dirname, '..', 'copilot'),
+    dest: resolve(__dirname, '..', 'compiled', platformId.toLowerCase(), 'src'),
+    watch,
+    allowList,
+    assets: [
+      'md',
+      platformId === 'WECHAT' ? 'js' : 'acss',
+      'js',
+      platformId === 'WECHAT' ? '' : 'sjs',
+      'json',
+    ].filter(Boolean),
+    buildOption,
+  });
+
+  // 常规组件demo页面
+  miniCompiler({
+    tsconfig: resolve(
+      __dirname,
+      '..',
+      platformId === 'WECHAT'
+        ? 'tsconfig.wechat.demo.json'
+        : 'tsconfig.alipay.demo.json'
+    ),
+    source: resolve(__dirname, '..', 'demo'),
+    dest: resolve(
+      __dirname,
+      '..',
+      'compiled',
+      platformId.toLowerCase(),
+      'demo'
+    ),
+    watch,
+    assets: [
+      'md',
+      platformId === 'WECHAT' ? 'js' : 'acss',
+      'js',
+      platformId === 'WECHAT' ? '' : 'sjs',
+      'json',
+    ].filter(Boolean),
+    buildOption: {
+      ...buildOption,
+      compileTs: true,
+    },
+  });
+
+  // copilot组件demo页面
+  miniCompiler({
+    tsconfig: resolve(
+      __dirname,
+      '..',
+      platformId === 'WECHAT'
+        ? 'tsconfig.wechat.demo.json'
+        : 'tsconfig.alipay.demo.json'
+    ),
+    source: resolve(__dirname, '..', 'copilot-demo'),
+    dest: resolve(
+      __dirname,
+      '..',
+      'compiled',
+      platformId.toLowerCase(),
+      'demo'
+    ),
+    watch,
+    assets: [
+      'md',
+      platformId === 'WECHAT' ? 'js' : 'acss',
+      'js',
+      platformId === 'WECHAT' ? '' : 'sjs',
+      'json',
+    ].filter(Boolean),
+    buildOption: {
+      ...buildOption,
+      compileTs: true,
+    },
+  });
+
+  // 配置文件编译
+  miniCompiler({
+    tsconfig: resolve(
+      __dirname,
+      '..',
+      platformId === 'WECHAT' ? 'tsconfig.wechat.json' : 'tsconfig.json'
+    ),
+    source: resolve(__dirname, '..', 'config', platformId.toLowerCase()),
+    dest: resolve(
+      __dirname,
+      '..',
+      'compiled',
+      platformId.toLowerCase(),
+      platformId === 'WECHAT' ? '' : 'demo'
+    ),
+    watch,
+    assets: [platformId === 'WECHAT' ? 'wxss' : 'less', 'js', 'json'],
+    buildOption,
+  });
+}
+
 export async function compileAntdMini(watch: boolean) {
   if (!watch) {
     await Promise.all(
@@ -337,6 +516,8 @@ export async function compileAntdMini(watch: boolean) {
         'compiled/alipay/src',
         'compiled/wechat/demo',
         'compiled/wechat/src',
+        'compiled/bundle2h/demo/pages',
+        'compiled/bundle2h/src',
       ].map((dir) => {
         return fs.rm(resolve(__dirname, '..', dir), {
           recursive: true,
@@ -353,78 +534,21 @@ export async function compileAntdMini(watch: boolean) {
 
   const allowList = wechatConfig.src;
 
-  const wechatBuildOption = {
-    platformId: 'WECHAT',
+  // 微信平台配置
+  const wechatPlatformConfig = {
     compileTs: true,
     compileLess: true,
     platform: tsxml.wechat,
     styleExt: '.wxss',
     xmlExt: '.wxml',
     xmlScriptExt: '.wxs',
-    defVar: {
-      platform: 'WECHAT',
-      WECHAT: true,
-      ALIPAY: false,
-    },
     xmlScriptOption: {
       forceCommonjs: true,
     },
   };
-  // wechat 常规组件
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
-    source: resolve(__dirname, '..', 'src'),
-    dest: resolve(__dirname, '..', 'compiled', 'wechat', 'src'),
-    watch,
-    allowList,
-    assets: ['md', 'js', 'json'],
-    buildOption: wechatBuildOption,
-  });
-  // wechat copilot组件
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
-    source: resolve(__dirname, '..', 'copilot'),
-    dest: resolve(__dirname, '..', 'compiled', 'wechat', 'src'),
-    watch,
-    allowList,
-    assets: ['md', 'js', 'json'],
-    buildOption: wechatBuildOption,
-  });
-  // wechat 常规组件demo页面
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.demo.json'),
-    source: resolve(__dirname, '..', 'demo'),
-    dest: resolve(__dirname, '..', 'compiled', 'wechat', 'demo'),
-    watch,
-    assets: ['md', 'js', 'json'],
-    buildOption: wechatBuildOption,
-  });
-  // wechat copilot组件demo页面
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.demo.json'),
-    source: resolve(__dirname, '..', 'copilot-demo'),
-    dest: resolve(__dirname, '..', 'compiled', 'wechat', 'demo'),
-    watch,
-    assets: ['md', 'js', 'json'],
-    buildOption: wechatBuildOption,
-  });
-  // wechat demo配置
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.wechat.json'),
-    source: resolve(__dirname, '..', 'config', 'wechat'),
-    dest: resolve(__dirname, '..', 'compiled', 'wechat'),
-    watch,
-    assets: ['wxss', 'json', 'js'],
-    buildOption: wechatBuildOption,
-  });
 
-  const alipayBuildOption = {
-    platformId: 'ALIPAY',
-    defVar: {
-      platform: 'ALIPAY',
-      WECHAT: false,
-      ALIPAY: true,
-    },
+  // 支付宝平台配置
+  const alipayPlatformConfig = {
     compileTs: false,
     compileLess: false,
     platform: tsxml.alipay,
@@ -433,55 +557,30 @@ export async function compileAntdMini(watch: boolean) {
     xmlScriptExt: '.sjs',
     xmlScriptOption: {},
   };
-  // alipay常规组件编译
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
-    source: resolve(__dirname, '..', 'src'),
-    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
-    watch,
-    assets: ['md', 'acss', 'js', 'sjs', 'json'],
-    buildOption: alipayBuildOption,
-  });
-  // alipay Copilot组件编译
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
-    source: resolve(__dirname, '..', 'copilot'),
-    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'src'),
-    watch,
-    assets: ['md', 'acss', 'js', 'sjs', 'json'],
-    buildOption: alipayBuildOption,
-  });
-  // alipay 常规组件demo文件编译
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
-    source: resolve(__dirname, '..', 'demo'),
-    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
-    watch,
-    assets: ['md', 'acss', 'js', 'sjs', 'json'],
-    buildOption: {
-      ...alipayBuildOption,
-      compileTs: true,
-    },
-  });
-  // alipay copilot组件demo文件编译
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.alipay.demo.json'),
-    source: resolve(__dirname, '..', 'copilot-demo'),
-    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
-    watch,
-    assets: ['md', 'acss', 'js', 'sjs', 'json'],
-    buildOption: {
-      ...alipayBuildOption,
-      compileTs: true,
-    },
-  });
-  // alipay配置文件编译
-  miniCompiler({
-    tsconfig: resolve(__dirname, '..', 'tsconfig.json'),
-    source: resolve(__dirname, '..', 'config', 'alipay'),
-    dest: resolve(__dirname, '..', 'compiled', 'alipay', 'demo'),
-    watch,
-    assets: ['less', 'js', 'json'],
-    buildOption: alipayBuildOption,
-  });
+
+  // BUNDLE2H平台配置 (与支付宝相同)
+  const bundle2hPlatformConfig = {
+    ...alipayPlatformConfig,
+  };
+
+  // 创建各平台的编译配置
+  const wechatBuildOption = createPlatformBuildOption(
+    'WECHAT',
+    wechatPlatformConfig
+  );
+
+  const alipayBuildOption = createPlatformBuildOption(
+    'ALIPAY',
+    alipayPlatformConfig
+  );
+
+  const bundle2hBuildOption = createPlatformBuildOption(
+    'BUNDLE2H',
+    bundle2hPlatformConfig
+  );
+
+  // 各平台组件编译
+  compilePlatformComponents('WECHAT', watch, allowList, wechatBuildOption);
+  compilePlatformComponents('ALIPAY', watch, undefined, alipayBuildOption);
+  compilePlatformComponents('BUNDLE2H', watch, undefined, bundle2hBuildOption);
 }

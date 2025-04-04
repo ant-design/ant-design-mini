@@ -1,0 +1,12 @@
+{
+  "format": 2,
+  "compileOptions": {
+    "component2": true
+  },
+  "uploadExclude": [
+    "miniapptools_dist/**/*"
+  ],
+  "unknownConfig": {
+    "axmlStrictCheck": false
+  }
+}
