@@ -1,0 +1,57 @@
+.ant-space {
+  display: inline-flex;
+  
+  &-horizontal {
+    flex-direction: row;
+  }
+  
+  &-vertical {
+    flex-direction: column;
+  }
+  
+  &-wrap {
+    flex-wrap: wrap;
+  }
+  
+  // 对齐方式
+  &-align {
+    &-start {
+      align-items: flex-start;
+    }
+    
+    &-end {
+      align-items: flex-end;
+    }
+    
+    &-center {
+      align-items: center;
+    }
+    
+    &-baseline {
+      align-items: baseline;
+    }
+  }
+  
+  // 主轴对齐方式
+  &-justify {
+    &-start {
+      justify-content: flex-start;
+    }
+    
+    &-end {
+      justify-content: flex-end;
+    }
+    
+    &-center {
+      justify-content: center;
+    }
+    
+    &-space-around {
+      justify-content: space-around;
+    }
+    
+    &-space-between {
+      justify-content: space-between;
+    }
+  }
+}

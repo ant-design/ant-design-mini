@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+compiled/
+es/
+lib/
+
+# Cache directories
+.cache/
+.temp/
+.tmp/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Test coverage
+coverage/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Documentation
+docs-dist/
+docs/_site/
+
+# Temporary files
+*.tmp
+*.temp
+.cursor/
