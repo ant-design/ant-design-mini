@@ -38,7 +38,7 @@
     <ant-button>按钮3</ant-button>
   </ant-space>
 
-  <view class="sub-title">Custom Size (32px)</view>
+  <view class="sub-title">Custom Size (32rpx)</view>
   <ant-space size="{{32}}">
     <ant-button type="primary">按钮1</ant-button>
     <ant-button>按钮2</ant-button>

@@ -28,19 +28,19 @@ function getSpaceStyle(size) {
   // 处理间距大小
   switch (size) {
     case 'small':
-      gap = '8px';
+      gap = '0.08rem';
       break;
     case 'large':
-      gap = '24px';
+      gap = '0.24rem';
       break;
     case 'middle':
     default:
-      gap = '16px';
+      gap = '0.16rem';
   }
 
   // 如果size是数字，直接使用
   if (!isNaN(size)) {
-    gap = size + 'px';
+    gap = size / 100 + 'rem';
   }
 
   return `gap: ${gap}`;
@@ -48,5 +48,5 @@ function getSpaceStyle(size) {
 
 export default {
   getSpaceClass,
-  getSpaceStyle
+  getSpaceStyle,
 };

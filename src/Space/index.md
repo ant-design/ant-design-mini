@@ -93,15 +93,15 @@ toc: 'content'
 
 ## API
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| direction | 间距方向 | `'horizontal'` \| `'vertical'` | `'horizontal'` |
-| size | 间距大小 | `'small'` \| `'middle'` \| `'large'` \| `number` | `'middle'` |
-| align | 对齐方式 | `'start'` \| `'end'` \| `'center'` \| `'baseline'` | `'center'` |
-| justify | 主轴对齐方式 | `'start'` \| `'end'` \| `'center'` \| `'space-around'` \| `'space-between'` | `'start'` |
-| wrap | 是否自动换行 | `boolean` | `false` |
-| className | 自定义类名 | `string` | - |
-| style | 自定义样式 | `string` | - |
+| 属性      | 说明         | 类型                                                                        | 默认值         |
+| --------- | ------------ | --------------------------------------------------------------------------- | -------------- |
+| direction | 间距方向     | `'horizontal'` \| `'vertical'`                                              | `'horizontal'` |
+| size      | 间距大小     | `'small'` \| `'middle'` \| `'large'` \| `number`                            | `'middle'`     |
+| align     | 对齐方式     | `'start'` \| `'end'` \| `'center'` \| `'baseline'`                          | `'center'`     |
+| justify   | 主轴对齐方式 | `'start'` \| `'end'` \| `'center'` \| `'space-around'` \| `'space-between'` | `'start'`      |
+| wrap      | 是否自动换行 | `boolean`                                                                   | `false`        |
+| className | 自定义类名   | `string`                                                                    | -              |
+| style     | 自定义样式   | `string`                                                                    | -              |
 
 ### 主题定制
 
@@ -109,6 +109,6 @@ toc: 'content'
 
 组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 ConfigProvider 组件。
 
-| 变量名 | 默认值 | 深色模式默认值 | 备注 |
-| --- | --- | --- | --- |
-| --space-gap | 8px | 8px | 间距大小 |
+| 变量名      | 默认值  | 深色模式默认值 | 备注     |
+| ----------- | ------- | -------------- | -------- |
+| --space-gap | 0.08rem | 0.08rem        | 间距大小 |
