@@ -1,4 +1,4 @@
 import { Component } from '../_util/simply';
-import { SpaceFunctionalProps } from './props';
+import { SpaceDefaultProps } from './props';
 
-Component({ props: SpaceFunctionalProps });
+Component({ props: SpaceDefaultProps });
