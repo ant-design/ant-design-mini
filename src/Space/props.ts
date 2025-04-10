@@ -40,7 +40,7 @@ export interface SpaceProps {
   style?: string;
 }
 
-export const SpaceFunctionalProps = {
+export const SpaceDefaultProps = {
   direction: 'horizontal',
   size: 'middle',
   wrap: false,
@@ -48,4 +48,4 @@ export const SpaceFunctionalProps = {
   justify: 'start',
   className: '',
   style: '',
-} as const;
+};
