@@ -10,7 +10,7 @@
   /// #endif
 
   "usingComponents": {
-    "space": "../../../src/Space/index",
+    "ant-space": "../../../src/Space/index",
     "ant-button": "../../../src/Button/index",
     "ant-container": "../../../src/Container/index"
   }

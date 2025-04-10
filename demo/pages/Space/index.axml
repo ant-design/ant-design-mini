@@ -1,83 +1,83 @@
 <view class="navigation-bar"/>
 
 <ant-container title="基础用法">
-  <space>
+  <ant-space>
     <ant-button type="primary">按钮1</ant-button>
     <ant-button>按钮2</ant-button>
     <ant-button>按钮3</ant-button>
-  </space>
+  </ant-space>
 </ant-container>
 
 <ant-container title="垂直间距">
-  <space direction="vertical">
+  <ant-space direction="vertical">
     <ant-button type="primary">按钮1</ant-button>
     <ant-button>按钮2</ant-button>
     <ant-button>按钮3</ant-button>
-  </space>
+  </ant-space>
 </ant-container>
 
 <ant-container title="间距大小">
   <view class="sub-title">Small Size</view>
-  <space size="small">
+  <ant-space size="small">
     <ant-button type="primary">按钮1</ant-button>
     <ant-button>按钮2</ant-button>
     <ant-button>按钮3</ant-button>
-  </space>
+  </ant-space>
 
   <view class="sub-title">Middle Size</view>
-  <space size="middle">
+  <ant-space size="middle">
     <ant-button type="primary">按钮1</ant-button>
     <ant-button>按钮2</ant-button>
     <ant-button>按钮3</ant-button>
-  </space>
+  </ant-space>
 
   <view class="sub-title">Large Size</view>
-  <space size="large">
+  <ant-space size="large">
     <ant-button type="primary">按钮1</ant-button>
     <ant-button>按钮2</ant-button>
     <ant-button>按钮3</ant-button>
-  </space>
+  </ant-space>
 
   <view class="sub-title">Custom Size (32px)</view>
-  <space size="{{32}}">
+  <ant-space size="{{32}}">
     <ant-button type="primary">按钮1</ant-button>
     <ant-button>按钮2</ant-button>
     <ant-button>按钮3</ant-button>
-  </space>
+  </ant-space>
 </ant-container>
 
 <ant-container title="对齐方式">
   <view class="sub-title">Align Start</view>
-  <space align="start">
+  <ant-space align="start">
     <ant-button type="primary">按钮1</ant-button>
     <view class="custom-box">高度不同的内容</view>
     <ant-button>按钮3</ant-button>
-  </space>
+  </ant-space>
 
   <view class="sub-title">Align Center</view>
-  <space align="center">
+  <ant-space align="center">
     <ant-button type="primary">按钮1</ant-button>
     <view class="custom-box">高度不同的内容</view>
     <ant-button>按钮3</ant-button>
-  </space>
+  </ant-space>
 
   <view class="sub-title">Align End</view>
-  <space align="end">
+  <ant-space align="end">
     <ant-button type="primary">按钮1</ant-button>
     <view class="custom-box">高度不同的内容</view>
     <ant-button>按钮3</ant-button>
-  </space>
+  </ant-space>
 
   <view class="sub-title">Space Between</view>
-  <space justify="space-between">
+  <ant-space justify="ant-space-between">
     <ant-button type="primary">按钮1</ant-button>
     <ant-button>按钮2</ant-button>
     <ant-button>按钮3</ant-button>
-  </space>
+  </ant-space>
 </ant-container>
 
 <ant-container title="自动换行">
-  <space wrap>
+  <ant-space wrap>
     <ant-button type="primary">按钮1</ant-button>
     <ant-button>按钮2</ant-button>
     <ant-button>按钮3</ant-button>
@@ -86,5 +86,5 @@
     <ant-button>按钮6</ant-button>
     <ant-button>按钮7</ant-button>
     <ant-button>按钮8</ant-button>
-  </space>
+  </ant-space>
 </ant-container>
