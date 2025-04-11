@@ -28,14 +28,14 @@ function getSpaceStyle(size) {
   // 处理间距大小
   switch (size) {
     case 'small':
-      gap = '0.08rem';
+      gap = '0.16rem';
       break;
     case 'large':
-      gap = '0.24rem';
+      gap = '0.48rem';
       break;
     case 'middle':
     default:
-      gap = '0.16rem';
+      gap = '0.32rem';
   }
 
   // 如果size是数字，直接使用
