@@ -16,7 +16,7 @@
   help="{{ help }}"
 >
   <view>
-    <block a:if="{{readonly && !formData.value}}">
+    <block a:if="{{readonly && !(formData.value && formData.value.length)}}">
       <!-- #if ALIPAY -->
       <slot name="readonly" formData="{{formData}}">
       <!-- #endif -->
@@ -26,7 +26,7 @@
       <!-- #endif -->
     </block>
     <ant-range-picker
-      style="{{readonly && !formData.value ? 'display:none' : ''}};{{ rangePickerStyle }}"
+      style="{{readonly && !(formData.value && formData.value.length) ? 'display:none' : ''}};{{ rangePickerStyle }}"
       endPlaceholder="{{ u.isPropsEmpty(cancelText) ? locale.rangePicker.endPlaceholder : cancelText }}"
       startPlaceholder="{{ u.isPropsEmpty(cancelText) ? locale.rangePicker.startPlaceholder : cancelText }}"
       splitCharacter="{{ splitCharacter }}"
