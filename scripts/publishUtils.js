@@ -156,7 +156,7 @@ function writePkgJson(str) {
 function publish(npmName, tag, version) {
   const pkgJsonStr = updatePkgJson(npmName, version);
   writePkgJson(pkgJsonStr);
-  execSync(`npm publish --tag=${tag}`, { stdio: 'inherit' });
+  execSync(`npm publish --tag=${tag}`);
 }
 
 function updatePkgJson(npmName, version) {
