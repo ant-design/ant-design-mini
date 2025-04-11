@@ -56,7 +56,7 @@ Page({
 
 ## 常见问题
 
-1. 微信小程序不支持给插槽设置默认值和作用域插槽，所以微信版本中组件的插槽能力受限。参考：[插槽默认值相关讨论](https://developers.weixin.qq.com/community/develop/doc/000a0e58acc32809d04cc948856c00)、[作用域插槽相关讨论](https://developers.weixin.qq.com/community/develop/doc/00008c24ad42083cea899887851800)
+1. 微信小程序不支持给插槽设置默认值和作用域插槽，所以微信版本中组件的插槽能力受限。
 
 ```axml
 <!-- 微信小程序本身不支持下面例子中这样的 给插槽设置默认值 -->

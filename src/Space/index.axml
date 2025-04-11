@@ -1,0 +1,10 @@
+<!-- Space组件模板 -->
+<import-sjs
+  from="./index.sjs"
+  name="spaceSjs" />
+
+<view
+  class="ant-space {{ spaceSjs.getSpaceClass(direction, wrap, align, justify) }} {{ className || '' }}"
+  style="{{ spaceSjs.getSpaceStyle(size) }}{{ style ? ';' + style : '' }}">
+  <slot />
+</view>

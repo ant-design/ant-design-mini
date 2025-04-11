@@ -13,7 +13,7 @@
     a:key="title">
     <view
       data-item="{{ item }}"
-      class="ant-grid-item ant-grid-item-{{ gridItemLayout }} {{ sjs.checkNeedVerticalSpace(items.length, index, columns) ? 'ant-grid-item-vertical-space' : '' }} ant-grid-item-columns-{{ columns }} {{ sjs.checkShowSplitLine(index, items.length, columns, mode, showDivider) ? 'ant-grid-item-line' : '' }}"
+      class="ant-grid-item ant-grid-item-{{ gridItemLayout }} {{ sjs.checkNeedVerticalSpace(items.length, index, columns) ? 'ant-grid-item-vertical-' : '' }} ant-grid-item-columns-{{ columns }} {{ sjs.checkShowSplitLine(index, items.length, columns, mode, showDivider) ? 'ant-grid-item-line' : '' }}"
       onTap="onTap"
       onFirstAppear="onFirstAppear">
       <view

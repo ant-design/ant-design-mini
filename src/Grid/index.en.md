@@ -2,8 +2,8 @@
 nav:
   path: /components
 group:
-  title: Navigation
-  order: 6
+  title: Layout
+  order: 1
 toc: 'content'
 ---
 
