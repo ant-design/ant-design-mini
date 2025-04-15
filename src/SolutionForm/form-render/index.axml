@@ -3,7 +3,6 @@
 <template name="mapping">
   <fr-mapping
     formItemArr="{{subSchema.formItemArr}}"
-    showExpand="{{ subSchema.showExpand }}"
     defaultShowCount="{{ subSchema.defaultShowCount }}"
     displayType="{{ subSchema.displayType }}"
     onDisabledTap="onDisabledTap"
@@ -70,7 +69,6 @@
               formItemArr: subSchema.formItemArr,
               defaultShowCount: subSchema.config.defaultShowCount,
               widget: subSchema.widget,
-              showExpand: subSchema.widget === 'card-expand',
               groupConfig: subSchema.config,
             },
           }}"
@@ -95,7 +93,6 @@
               displayType: subSchema.displayType,
               formItemArr: subSchemaArr,
               defaultShowCount: subSchema.config.defaultShowCount,
-              showExpand: subSchema.widget === 'card-expand',
             },
           }}"
         />

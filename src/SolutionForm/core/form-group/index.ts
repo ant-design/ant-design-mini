@@ -31,10 +31,6 @@ createComponent({
   onInit() {
     this.store = getStore();
     this.isCardExpand = this.props.groupConfig?.cardExpand?.expand;
-
-    this.setData({
-      ...this.props,
-    });
   },
 
   didUnmount() {

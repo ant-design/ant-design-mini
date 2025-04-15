@@ -13,10 +13,11 @@ import {
   cloneDeep,
   startsWith,
 } from 'lodash';
+import { State } from '../Interface/store';
 
 const STORE_MAP = {};
 
-const originalState: STORE.IState = {
+const originalState: State = {
   // 提取的表单schema里面的全局配置信息
   formRenderPropsConfig: {},
   // 表单数据
@@ -290,7 +291,7 @@ const getStoreInstance = () => {
 
           const [currentKey] = validateFields;
           const validateActions = getValidator(
-            state,
+            { rules: state.rules, hasGroup: state.hasGroup },
             payload?.useSingleKey ? currentKey : '',
           );
 

@@ -6,12 +6,9 @@ import { FormRenderDefaultProps } from './props';
 createComponent({
   props: FormRenderDefaultProps,
 
-  data: {
-    message: '',
-  },
-
   computed() {
     return {
+
       ...getStore().mapState([
         'changeFormData',
         'subSchemaArr',

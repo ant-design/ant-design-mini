@@ -2,8 +2,6 @@ export const FormRenderDefaultProps = {
   schema: {},
   initialValues: {},
   initialValidate: false,
-  showSubmitButton: false,
-  submitButtonText: '提交',
   debug: false,
   disableSubmit: false,
   /**

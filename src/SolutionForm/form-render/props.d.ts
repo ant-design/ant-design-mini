@@ -1,7 +1,5 @@
 import type { Schema } from '../Interface/schema';
 
-export interface IComponentData {}
-
 export interface IComponentProps {
   /**
    * @description 传入的表单 schema ，引擎会根据其渲染出对应表单内容
@@ -11,19 +9,6 @@ export interface IComponentProps {
    * 表单初始值
    */
   initialValues: Record<string, any>;
-
-  /**
-   * @description 是否需要在表单底部展示提交按钮
-   * @default false
-   */
-  showSubmitButton: boolean;
-
-  /**
-   * @description 自定义提交按钮文字
-   * @default '提交'
-   */
-  submitButtonText: string;
-
 
   /**
    * @description 顶层 className
@@ -75,6 +60,3 @@ export interface IComponentMethods {
   handleSubmit(): void;
 }
 
-export interface IComponentExtraThis {
-  store: any;
-}

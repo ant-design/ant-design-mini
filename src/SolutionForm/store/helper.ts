@@ -1,8 +1,8 @@
 import Validator from 'async-validator';
 import { get } from 'lodash';
+import { FormItem, Group } from '../Interface/schema';
 
-export const getValidator = (state, key = '') => {
-  const { rules, hasGroup } = state || {};
+export const getValidator = ({ rules, hasGroup }, key = '') => {
   const rule = get(rules, key);
   if (key && !rule) {
     return new Validator({});
@@ -23,7 +23,7 @@ export const getValidator = (state, key = '') => {
 };
 
 export const getFormItemArr = (
-  properties,
+  properties: FormItem,
   groupPath: string,
   formData: Record<string, any>,
 ) => {
@@ -57,7 +57,7 @@ export const findFieldInfoByField = (field: string, subSchemaArr: any[]) => {
   }, null);
 };
 
-export const getGroupRelationInfo = (formInfo, formData) => {
+export const getGroupRelationInfo = (formInfo: Group, formData) => {
   if (!formInfo.relation) {
     return {};
   }

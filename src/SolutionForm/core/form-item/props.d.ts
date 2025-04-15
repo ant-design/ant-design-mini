@@ -36,6 +36,3 @@ export interface IComponentMethods {
   setFieldRules(props: IComponentProps): void;
 }
 
-export interface IComponentExtraThis {
-  store: Record<string, any>;
-}

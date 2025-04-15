@@ -4,7 +4,6 @@
     "fr-form": "../core/form/index",
     "fr-form-group": "../core/form-group/index",
     "fr-mapping": "../core/mapping/index",
-    "fr-footer": "../components/footer/index",
     "fr-debug": "../components/debug-panel/index",
     "custom-error-fallback": "../core/form-item/components/message/index"
   }
