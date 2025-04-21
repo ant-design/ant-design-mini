@@ -1,4 +1,6 @@
 import type { Schema } from '../Interface/schema';
+import type { Error } from '../Interface/store';
+import type { ObjectType } from '../Interface/index';
 
 export interface IComponentProps {
   /**
@@ -8,7 +10,7 @@ export interface IComponentProps {
   /**
    * 表单初始值
    */
-  initialValues: Record<string, any>;
+  initialValues: ObjectType;
 
   /**
    * @description 顶层 className
@@ -16,37 +18,19 @@ export interface IComponentProps {
   className: string;
 
   /**
-   * @description 是否开启debug模式
-   * @default false
-   */
-  debug?: boolean;
-
-  /**
    * 置灰提交按钮
    */
   disableSubmit?: false,
 
   /**
-   * @description 是否展示内部的错误信息
-   * @default true
-   *
-   * 是否展示默认的错误信息，一般不需要启用，用在二次封装透传 slot 时默认插槽不被替换的场景
-   * https://yuque.antfin.com/marshall.lhy/nr1kze/gbggb1
-   */
-  showInternalErrorMessage: boolean;
-
-  /**
    * @description 点击默认提交按钮后的回调
    */
-  onSubmit: (data, errors: STORE.IError[]) => void;
+  onSubmit: (data: ObjectType, errors: Error[]) => void;
 
   /**
    * @description 表单项变化时返回对应的key-value
    */
-  onValueChange: (changedValues: Record<string, any>, formData: Record<string, any>, option: {
-    // 是否填写所有的表单项
-    fillAllFields: boolean;
-  }) => void;
+  onValueChange: (changedValues: ObjectType, formData: ObjectType) => void;
 }
 
 export interface IComponentMethods {

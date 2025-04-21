@@ -1,6 +1,6 @@
 import { FormItem, Rule } from "./schema";
 
-export interface ErrorField {
+export interface Error {
   /** 
    * 校验未通过的表单项路径
    */
@@ -47,7 +47,7 @@ export interface State {
   schemaData: Record<string, any>;
   changeFormData: Record<string, any>;
   formData: Record<string, any>;
-  errorInfo: Record<string, ErrorField[]>;
+  errorInfo: Record<string, Error[]>;
   rules: Record<string, Rule | Rule[]>;
   fields: string[];
 }

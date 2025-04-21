@@ -1,8 +1,3 @@
-<!--
-  为什么要在这里通过 slotConfig.showInternalErrorMessage 隐藏组件而不是在引用组件的地方？
-  这是因为触发了 APPX1.0 的 BUG，需要绕过去，否则无法构建成功：
-  https://links.antfin-inc.com/app/room/5c1771a4fbdf014b39fc6fb8/66a087619cca390446eec616/
--->
 <view
   a:if="{{ slotConfig.showInternalErrorMessage && message }}"
   class="fr-form-item-message">

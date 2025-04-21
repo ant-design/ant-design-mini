@@ -1,3 +1,5 @@
+import type { ObjectType } from './index';
+
 export type Type = 'object' | 'array' | 'string' | 'number';
 
 export type DisplayType = 'row' | 'column';
@@ -25,7 +27,7 @@ export interface Rule {
   message: string;
   type?: string;
   required?: boolean;
-  validator?: (_: any, value: Record<string, any>) => Promise;
+  validator?: (_: any, value: ObjectType) => Promise;
 }
 
 export interface FormItem {
@@ -44,7 +46,7 @@ export interface FormItem {
   /**
    * @description 当基础字段不够描述组件的展示时，使用 props 字段作为扩展
    */
-  props: Record<string, any>;
+  props: ObjectType;
   /**
    * @description 表单项是否置灰
    */
@@ -58,7 +60,7 @@ export interface FormItem {
    */
   extra: string | { widget: string };
 
-  relation: (formData: Record<string, any>) => Record<string, any>;
+  relation: (formData: ObjectType) => ObjectType;
 }
 
 export interface Group {
@@ -66,7 +68,7 @@ export interface Group {
   type: Type;
   className?: string;
   widget?: 'group-card' | '';
-  props?: Record<string, any>;
+  props?: ObjectType;
   /**
    * @description 组件是否隐藏状态
    * @default true
@@ -78,7 +80,7 @@ export interface Group {
   };
   order: number;
   displayType?: DisplayType;
-  relation: (formData: Record<string, any>) => Record<string, any>;
+  relation: (formData: ObjectType) => ObjectType;
   properties: Record<string, FormItem>
 }
 export interface SchemaBase {

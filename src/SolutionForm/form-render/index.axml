@@ -1,5 +1,3 @@
-<import-sjs from="./index.sjs" name="formRenderSjs" />
-
 <template name="mapping">
   <fr-mapping
     formItemArr="{{subSchema.formItemArr}}"
@@ -62,7 +60,7 @@
           is="mapping"
           data="{{
             slotConfig: {
-              showInternalErrorMessage,
+              showInternalErrorMessage: true,
             },
             subSchema: {
               displayType: subSchema.displayType,
@@ -87,7 +85,7 @@
           is="mapping"
           data="{{
             slotConfig: {
-              showInternalErrorMessage,
+              showInternalErrorMessage: true,
             },
             subSchema: {
               displayType: subSchema.displayType,
@@ -102,6 +100,4 @@
 
     </slot>
   </fr-form>
-  <!-- debug -->
-  <fr-debug a:if="{{ debug }}"/>
 </view>
