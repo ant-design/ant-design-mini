@@ -24,6 +24,10 @@
   onVisibleChange="onVisibleChange"
   maskClosable="{{ maskClosable }}">
   <slot
+    name="content-header"
+    slot="content-header"
+  />
+  <slot
     name="content"
     slot="content" />
   <slot

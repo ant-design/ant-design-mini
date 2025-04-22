@@ -365,6 +365,11 @@ ComponentWithSignalStoreImpl({
         this.setCurrentValue(currentProps);
       }
     }
+    if (!equal(currentProps, prevProps)) {
+      if (this.pickerVisible) {
+        this.setCurrentValue(currentProps);
+      }
+    }
   },
   /// #endif
   /// #if WECHAT
@@ -380,6 +385,15 @@ ComponentWithSignalStoreImpl({
     });
   },
   observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      if (!equal(prevData, data)) {
+        if (this.pickerVisible) {
+          this.setCurrentValue(getValueFromProps(this));
+        }
+      }
+    },
     'visible': function (data) {
       const prevVisible = this._prevVisible;
       this._prevVisible = data;
