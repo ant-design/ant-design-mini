@@ -12,7 +12,9 @@
       onPickerChange="handlePickerChange"
       onVisibleChange="handleTriggerPicker"
       onCancel="handleDismiss"
-      onOk="handleOk" />
+      onOk="handleOk" >
+      <view slot="content-header">插入一些内容</view>
+    </ant-date-picker>
   </ant-list-item>
   <ant-list-item>
     请选择日期（点击蒙层不关闭）
@@ -109,7 +111,9 @@
       defaultValue="{{ defaultDateRange }}"
       onPickerChange="handlePickerRangeChange"
       onVisibleChange="handleTriggerPicker"
-      onOk="handleRangeOk" />
+      onOk="handleRangeOk" >
+      <view slot="content-header">插入一些内容</view>
+    </ant-date-picker>
   </ant-list-item>
   <ant-list-item>
     受控模式
