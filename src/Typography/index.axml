@@ -18,7 +18,7 @@
   hover-start-time="{{20}}"
   hover-stay-time="{{40}}"
   style="{{style}}"
-  onTap="onTap"
+  catchTap="onTap"
 >
 <!-- #endif -->
   <!-- 左侧图标 -->
