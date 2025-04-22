@@ -21,7 +21,7 @@ Page({
       // 当前表单的标识用于数据收集
       formId: 'demo-id-card',
       type: 'object',
-      radius: true,
+      radius: false,
       displayType: 'row',
       operation: {
         flex: true,
@@ -49,6 +49,46 @@ Page({
         idCardInfo: {
           title: '身份证信息',
           type: 'object',
+          // widget: 'card-overall',
+          properties: {
+            number: {
+              title: '身份证',
+              type: 'string',
+              widget: 'input',
+              props: {
+                placeholder: '请选输入身份证号码'
+              },
+              rules: {
+                pattern: idCardReg,
+                message: '请输入正确的身份证号',
+              }
+            },
+            age: {
+              title: '年龄',
+              type: 'string',
+              widget: 'input',
+              relation: getAge,
+              props: {
+                disabled: true,
+                placeholder: '请选输入年龄'
+              }
+            },
+            gender: {
+              title: '性别',
+              type: 'string',
+              widget: 'input',
+              props: {
+                disabled: true,
+                placeholder: '请选输入性别'
+              },
+              relation: getGender
+            }
+          },
+        },
+        idCardInfo2: {
+          title: '身份证信息',
+          type: 'object',
+          widget: 'card-overall',
           properties: {
             number: {
               title: '身份证',

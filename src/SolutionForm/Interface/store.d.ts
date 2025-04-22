@@ -31,7 +31,6 @@ interface StoreFormItem extends FormItem {
 export interface SubSchemaItem {
   title: string;
   path: string;
-  radius: boolean;
   displayType: DisplayType;
   formItemArr: StoreFormItem[];
 }
@@ -40,7 +39,6 @@ export interface State {
   hasGroup: boolean;
   formRenderPropsConfig: Partial<{
     displayType: string;
-    radius: boolean;
     formId: string;
   }>;
   subSchemaArr: SubSchemaItem[];

@@ -67,7 +67,10 @@ export interface Group {
   title: string;
   type: Type;
   className?: string;
-  widget?: 'group-card' | '';
+  /**
+   * 分组类型 默认值card
+   */
+  widget?: 'card' | 'card-radius' | 'card-overall' | 'card-overall-radius';
   props?: ObjectType;
   /**
    * @description 组件是否隐藏状态
@@ -99,11 +102,6 @@ export interface SchemaBase {
    */
   displayType: DisplayType;
 
-  /**
-   * @description 分组是否圆角
-   * @default false
-   */
-  radius: boolean;
   /**
    * @description schema类型
    * @default 'object'

@@ -2,8 +2,7 @@
   class="
     fr-form-group
     {{className}}
-    {{ widget === 'group-card' ? 'fr-form-group-card' : '' }}
-    {{formRenderPropsConfig.radius ? 'fr-form-group-radius' : 'fr-form-group-not-radius'}}
+    fr-form-group-{{ widget || 'card' }}
   "
   a:if="{{ visible !== false }}"
 >
@@ -14,30 +13,17 @@
     <view
       class="fr-form-group-header-wrap"
     >
-      <text>{{gourpTitle || title}}</text>
-      <view
-        a:if="{{groupConfig.cardExpand.enable}}"
-        class="fr-form-group-header-wrap-expand"
-        onTap="handleExpand"
-      >
-        <text>{{isCardExpand ? '收起' : '展开'}}</text>
-        <icon
-          type="{{isCardExpand ? 'UpOutline' : 'DownOutline'}}"
-          class="fr-form-group-header-wrap-expand-icon"
-        />
-      </view>
+      <text>{{groupTitle || title}}</text>
     </view>
     <slot name="group-extra" />
   </view>
-  <!-- gourpTitle 不存在的时候高度占位-->
+  <!-- groupTitle 不存在的时候高度占位-->
   <view
     a:else
     style="height: 24rpx;"
     class="fr-form-group-no-title-space"
   />
-  <view
-    class="fr-form-group-body {{groupConfig.cardExpand.enable && !isCardExpand ? 'fr-form-group-body-expand-off': ''}}"
-  >
+  <view class="fr-form-group-body">
     <slot />
   </view>
 </view>

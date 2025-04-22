@@ -27,31 +27,35 @@
       z-index: 2;
     }
   }
-
-  &-radius {
-    & .@{formGroupPrefix}-body {
-      margin: 0 24rpx;
-      &::after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        border-radius: 24rpx;
-        overflow: hidden;
-        background-color: @solution-form-bg;
-        top: 0;
-        left: 0;
-        z-index: 1;
-      }
-    }
+}
+.fr-form-group {
+  & .@{formGroupPrefix}-body {
+    background-color: @solution-form-bg;
+    z-index: 2;
   }
 }
+.fr-form-group-card-overall {
+  background: @solution-form-bg;
+  margin-top: 16rpx;
+  & .@{formGroupPrefix}-body {
+    background-color: @solution-form-bg;
+    z-index: 2;
+  }
+  .fr-form-group-header {
+    margin: 0;
+    padding: 24rpx 24rpx 16rpx 24rpx;
+  }
 
-.fr-form-group-card {
+}
+.fr-form-group-card-overall-radius {
   border-radius: 24rpx;
   background: @solution-form-bg;
   overflow: hidden;
   margin: 24rpx 24rpx 16rpx 24rpx;
+  & .@{formGroupPrefix}-body {
+    background-color: @solution-form-bg;
+    z-index: 2;
+  }
   .fr-form-group-header {
     font-weight: 500;
     font-size: 32rpx;
@@ -86,5 +90,31 @@
     height: 0;
     overflow: hidden;
     padding-bottom: 20rpx;
+  }
+}
+
+.fr-form-group-card {
+  & .@{formGroupPrefix}-body {
+    background-color: @solution-form-bg;
+    z-index: 2;
+  }
+}
+
+.fr-form-group-card-radius {
+  & .@{formGroupPrefix}-body {
+    margin: 0 24rpx;
+    border-radius: 24rpx;
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 24rpx;
+      overflow: hidden;
+      background-color: @solution-form-bg;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
   }
 }
