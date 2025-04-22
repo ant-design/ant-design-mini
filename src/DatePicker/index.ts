@@ -43,7 +43,7 @@ Component({
       const { min, max, precision, defaultPickerValue } = currentProps;
       if (realValue) {
         return getValueByDate(realValue, precision,);
-      } 
+      }
       // 处理默认值
       let baseDate: Date | null = null;
       if (defaultPickerValue) {
@@ -300,6 +300,11 @@ Component({
         this.setCurrentValue(currentProps);
       }
     }
+    if (!equal(currentProps, prevProps)) {
+      if (this.pickerVisible) {
+        this.setCurrentValue(currentProps);
+      }
+    }
   },
   /// #endif
   /// #if WECHAT
@@ -315,6 +320,15 @@ Component({
     });
   },
   observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      if (!equal(prevData, data)) {
+        if (this.pickerVisible) {
+          this.setCurrentValue(getValueFromProps(this));
+        }
+      }
+    },
     'mixin.value': function () {
       this.setData({
         forceUpdate: this.data.forceUpdate + 1,
