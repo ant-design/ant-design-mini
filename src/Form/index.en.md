@@ -125,7 +125,7 @@ Page({
 
 <code src='../../demo/pages/Form/FormJSON/index'></code>
 
-### Custom Error Style
+### Custom Error Styles
 
 Use `validateStatus: success` and `footer slot` Customize the error style.
 
@@ -424,7 +424,7 @@ For more methods, please refer `createForm` Method-related documentation. Use `f
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                | Default Value                                                                                            | Dark Mode Default                                                                                    | Remarks             |
 | --------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |

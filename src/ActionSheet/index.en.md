@@ -30,7 +30,7 @@ In `index.json` Introducing Components in
 
 ### Basic use
 
-> `ant-action-sheet` components must pass through `visible` Property controls the show/hide state.`actions` property to pass in the data-driven options rendering.
+> `ant-action-sheet` Components must pass `visible` Property controls the show/hide state.`actions` property passes in the data to drive the options rendering.
 
 ```xml
 <ant-action-sheet
@@ -106,7 +106,7 @@ Page({
 
 ### Option Status
 
-> [actions](#actionsheetitem) Each of the provided `icon` `danger` `description` `disabled` Used to set the option state.
+> [actions](#actionsheetitem) Each of the items provided `icon` `danger` `description` `disabled` Used to set the option state.
 
 ```xml
 <ant-action-sheet

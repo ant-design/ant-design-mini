@@ -139,7 +139,7 @@ export const InputDefaultProps: InputProps = {
   name: null,
   focusStyle: null,
   randomNumber: null,
-  min: Number.MIN_SAFE_INTEGER,
-  max: Number.MAX_SAFE_INTEGER,
+  min: null,
+  max: null,
   precision: -1,
 };

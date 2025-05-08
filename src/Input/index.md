@@ -164,27 +164,27 @@ toc: content
 
 ### Input、Textarea 相同的属性
 
-| 属性                   | 说明                                                           | 类型                                  | 默认值                  |
-| ---------------------- | -------------------------------------------------------------- | ------------------------------------- | ----------------------- |
-| className              | 类名                                                           | string                                | -                       |
-| controlled             | 有键盘输入问题，可使用 `controlled="{{false}}"`                | boolean                               | -                       |
-| defaultValue           | 初始值                                                         | string                                | -                       |
-| disabled               | 是否禁用                                                       | boolean                               | false                   |
-| maxLength              | 最大长度                                                       | number                                | 140                     |
-| placeholder            | 占位符                                                         | string                                | -                       |
-| style                  | 样式                                                           | string                                | -                       |
-| max                    | 最大值，仅在 type 为 number、digit、numberpad、digitpad 时，且输入有效数字后生效 | number                                | Number.MAX_SAFE_INTEGER |
-| min                    | 最小值，仅在 type 为 number、digit、numberpad、digitpad 时，且输入有效数字后生效 | number                                | Number.MIN_SAFE_INTEGER |
-| precision              | 计算精度，保留几位小数，输入有效数字后生效                     | number                                | -1                      |
-| value                  | 输入框的值。受控模式。                                         | string                                | -                       |
-| #if ALIPAY onConfirm   | 点击键盘完成时触发此回调                                       | (value: string, event: Event) => void | -                       |
-| #if ALIPAY onFocus     | 聚焦时触发此回调                                               | (value: string, event: Event) => void | -                       |
-| #if ALIPAY onBlur      | 失焦时触发此回调                                               | (value: string, event: Event) => void | -                       |
-| #if ALIPAY onChange    | 输入时触发此回调                                               | (value: string, event: Event) => void | -                       |
-| #if WECHAT bindconfirm | 点击键盘完成时触发此回调                                       | (value: string, event: Event) => void | -                       |
-| #if WECHAT bindfocus   | 聚焦时触发此回调                                               | (value: string, event: Event) => void | -                       |
-| #if WECHAT bindblur    | 失焦时触发此回调                                               | (value: string, event: Event) => void | -                       |
-| #if WECHAT bindchange  | 输入时触发此回调                                               | (value: string, event: Event) => void | -                       |
+| 属性                   | 说明                                                                             | 类型                                  | 默认值 |
+| ---------------------- | -------------------------------------------------------------------------------- | ------------------------------------- | ------ |
+| className              | 类名                                                                             | string                                | -      |
+| controlled             | 有键盘输入问题，可使用 `controlled="{{false}}"`                                  | boolean                               | -      |
+| defaultValue           | 初始值                                                                           | string                                | -      |
+| disabled               | 是否禁用                                                                         | boolean                               | false  |
+| maxLength              | 最大长度                                                                         | number                                | 140    |
+| placeholder            | 占位符                                                                           | string                                | -      |
+| style                  | 样式                                                                             | string                                | -      |
+| max                    | 最大值，仅在 type 为 number、digit、numberpad、digitpad 时，且输入有效数字后生效 | number                                | -      |
+| min                    | 最小值，仅在 type 为 number、digit、numberpad、digitpad 时，且输入有效数字后生效 | number                                | -      |
+| precision              | 计算精度，保留几位小数，输入有效数字后生效                                       | number                                | -1     |
+| value                  | 输入框的值。受控模式。                                                           | string                                | -      |
+| #if ALIPAY onConfirm   | 点击键盘完成时触发此回调                                                         | (value: string, event: Event) => void | -      |
+| #if ALIPAY onFocus     | 聚焦时触发此回调                                                                 | (value: string, event: Event) => void | -      |
+| #if ALIPAY onBlur      | 失焦时触发此回调                                                                 | (value: string, event: Event) => void | -      |
+| #if ALIPAY onChange    | 输入时触发此回调                                                                 | (value: string, event: Event) => void | -      |
+| #if WECHAT bindconfirm | 点击键盘完成时触发此回调                                                         | (value: string, event: Event) => void | -      |
+| #if WECHAT bindfocus   | 聚焦时触发此回调                                                                 | (value: string, event: Event) => void | -      |
+| #if WECHAT bindblur    | 失焦时触发此回调                                                                 | (value: string, event: Event) => void | -      |
+| #if WECHAT bindchange  | 输入时触发此回调                                                                 | (value: string, event: Event) => void | -      |
 
 ### Input 属性
 

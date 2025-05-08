@@ -40,20 +40,54 @@ Component({
     // 当前选中的picker值，处理无cValue时的情况，优先取当前时间，不在时间范围内取开始时间
     getCurrentValueWithCValue(currentProps) {
       const realValue = this.getValue();
-      const { min, max, precision } = currentProps;
+      const { min, max, precision, defaultPickerValue } = currentProps;
       if (realValue) {
-        return getValueByDate(realValue, precision);
-      } else {
+        return getValueByDate(realValue, precision,);
+      }
+      // 处理默认值
+      let baseDate: Date | null = null;
+      if (defaultPickerValue) {
+        try {
+          // 判断defaultPickerValue用户配置格式
+          let defaultDate = dayjs(defaultPickerValue, ['YYYY-MM-DD', 'YYYY/MM/DD', 'HH:mm:ss', 'HH:mm', 'HH']);
+          if (!defaultDate.isValid() && typeof defaultPickerValue === 'string' && defaultPickerValue.includes(':')) {
+            const [hours, minutes, seconds] = defaultPickerValue.split(':').map(Number);
+            const now = dayjs();
+            defaultDate = now
+              .set('hour', hours || 0)
+              .set('minute', minutes || 0)
+              .set('second', seconds || 0);
+          }
+          baseDate = defaultDate.isValid() ? defaultDate.toDate() : new Date();
+        } catch (e) {
+          baseDate = new Date();
+        }
+      }else {
+        // 没有 defaultPickerValue 时，回退原逻辑
         const now = new Date();
-        if (
-          !(min && dayjs(now).isBefore(dayjs(min as any), precision)) &&
-          !(max && dayjs(now).isAfter(dayjs(max as any), precision))
-        ) {
-          return getValueByDate(now, precision);
+        const minDayjs = this.getMin(min);
+        const maxDayjs = this.getMax(max);
+        if (dayjs(now).isBefore(minDayjs) || dayjs(now).isAfter(maxDayjs)) {
+          baseDate = minDayjs.toDate();
         } else {
-          return getValueByDate(this.getMin(min).toDate(), precision);
+          baseDate = now;
         }
       }
+
+      // 获取最大最小日期
+      const minDayjs = this.getMin(min);
+      const maxDayjs = this.getMax(max);
+
+      // 校验日期
+      let adjustedDate = dayjs(baseDate);
+      // 强制对齐
+      if (adjustedDate.isBefore(minDayjs)) {
+        adjustedDate = minDayjs;
+      } else if (adjustedDate.isAfter(maxDayjs)) {
+        adjustedDate = maxDayjs;
+      }
+
+      return getValueByDate(adjustedDate.toDate(), precision);
     },
 
     getMin(min) {
@@ -266,6 +300,11 @@ Component({
         this.setCurrentValue(currentProps);
       }
     }
+    if (!equal(currentProps, prevProps)) {
+      if (this.pickerVisible) {
+        this.setCurrentValue(currentProps);
+      }
+    }
   },
   /// #endif
   /// #if WECHAT
@@ -281,6 +320,15 @@ Component({
     });
   },
   observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      if (!equal(prevData, data)) {
+        if (this.pickerVisible) {
+          this.setCurrentValue(getValueFromProps(this));
+        }
+      }
+    },
     'mixin.value': function () {
       this.setData({
         forceUpdate: this.data.forceUpdate + 1,

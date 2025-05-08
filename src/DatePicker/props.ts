@@ -139,6 +139,10 @@ export interface IDatePickerProps extends IBaseProps {
     type: 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second',
     value: number
   ): string;
+  /**
+   * @description 用户选择日期时的默认时分秒
+   */
+  defaultPickerValue?: PickerValue;
 }
 
 export const DatePickerDefaultProps: IDatePickerProps = {
@@ -162,4 +166,5 @@ export const DatePickerDefaultProps: IDatePickerProps = {
   readonly: false,
   onFormatLabel: null,
   onFormat: null,
+  defaultPickerValue: null,
 };

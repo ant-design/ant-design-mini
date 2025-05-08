@@ -53,7 +53,7 @@ In `index.json` Introducing Components in
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                          | Light Mode Default                                                                                    | Dark Mode Default                                                                                    | Remarks         |
 | ------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
@@ -71,4 +71,4 @@ Component provides the following CSS variables, which can be used to customize s
 
 Set the combineSymbol attribute to the required connection symbol (such as "" or space), and click the shortcut input option to automatically splice with the existing content.
 
-If you want the shortcut input content to overwrite existing content, remove the combineSymbol attribute.
+If you need the shortcut input content to overwrite the existing content, remove the combineSymbol attribute.

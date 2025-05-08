@@ -94,13 +94,13 @@ Page({
 | icon       | bottom icon, support [Icon](./Icon) or picture address           | string | -      |
 | activeIcon | bottom icon for active state, support [Icon](./Icon) or picture address | string | -      |
 | text       | Bottom Text                                           | string | -      |
-| badge      | Type of logo, see [Badge](./Badge) Components               | object | -      |
+| badge      | Logo type, see [Badge](./Badge) Components               | object | -      |
 
 ### Theme customization
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                | Light Mode Default                                                                                           | Dark Mode Default                                                                                           | Remarks            |
 | --------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------- |

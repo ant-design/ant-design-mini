@@ -367,13 +367,13 @@ Page({
 | checkboxTipsVisible             | Check box to guide display status   | `boolean`                                                         | `false`      |
 | readCurrent                     | Current sequence number read       | `number`                                                          | `-`          |
 | defaultReadCurrent              | Current sequence number of default reading   | `number`                                                          | `-`          |
-| #if ALIPAY onButtonTap          | Action Point Button Click Callback   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
+| #if ALIPAY onButtonTap          | Action point button click callback   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
 | #if ALIPAY onTermTap            | Protocol Click Callback         | `(t?: Term, index?: number, event?) => void`                      | `-`          |
 | #if ALIPAY onCheckChange        | Check callback             | `(c?: boolean) => void`                                           | `-`          |
 | #if ALIPAY onTermPrefixTap      | Protocol Prefix Click Callback     | `(c?: boolean) => void`                                           | `-`          |
 | #if ALIPAY onCountdownFinish    | Countdown End Callback       | `(b?: Button, index?: number, event?) => void`                    | `-`          |
 | #if ALIPAY onReadChange         | Protocol reading switch         | `(index?: number) => void`                                        | `-`          |
-| #if WECHAT bindbuttontap       | Action Point Button Click Callback   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
+| #if WECHAT bindbuttontap       | Action point button click callback   | `(b?: Button, index?: number, checked?: boolean, event?) => void` | `-`          |
 | #if WECHAT bindtermtap         | Protocol Click Callback         | `(t?: Term, index?: number, event?) => void`                      | `-`          |
 | #if WECHAT bindcheckchange     | Check callback             | `(c?: boolean) => void`                                           | `-`          |
 | #if WECHAT bindtermprefixtap   | Protocol Prefix Click Callback     | `(c?: boolean) => void`                                           | `-`          |
@@ -393,5 +393,5 @@ Page({
 | ----------------------------------------------------- | ------------------ | -------- | ------ |
 | key                                                   | Unique identification           | `string` | `-`    |
 | text                                                  | Button Copy           | `string` | `-`    |
-| countdownTime                                         | Number of seconds, in seconds | `number` | `-`    |
+| countdownTime                                         | Timing seconds, in seconds | `number` | `-`    |
 | Transparent transmission [ant-button](/components/button#button) All Properties |

@@ -30,7 +30,7 @@ In `index.json` Introducing Components in
 
 ### Basic use
 
-> `count` property specifies the total number of stars, `allowHalf` Attribute allows half a star, `allowClear` Property allows to clear after clicking again.
+> `count` property specifies the total number of stars, `allowHalf` Stats allow half a star, `allowClear` Property allows to clear after clicking again.
 
 ```xml
 <ant-rate

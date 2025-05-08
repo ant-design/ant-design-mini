@@ -94,11 +94,11 @@ In `index.json` Introducing Components in
 | ------------- | ---------------------------------------------------------------------------------------------- | ------------ | ------- |
 | className     | Class Name                                                                                           | string       | -       |
 | enableMarquee | Whether to turn on scroll animation                                                                               | boolean      | false   |
-| ellipsisRow     | The copy multi-line shows the maximum number of lines, and`enableMarquee`Cannot be configured simultaneously             | number\|boolean       | false       |
+| ellipsisRow     | The copy multi-line shows the maximum number of rows, and`enableMarquee`Cannot be configured simultaneously             | number\|boolean       | false       |
 | extra         | Customize right content                                                                                 | slot         | -       |
 | icon          | The icon on the left supports all built-in iconType and custom links, as well as custom slots (WeChat version requires slotIcon settings) | string       | -       |
 | loop          | Whether to cycle scrolling,`enableMarquee` Valid when true                                                   | boolean      | false   |
-| mode          | the type of announcement,`link` Indicates connection, the whole line can be pointed;`closeable` Indicates that clicking x can be closed; If you do not fill in, there is no icon on the right.   | string       | -       |
+| mode          | the type of announcement,`link` Indicates connection, the whole line can be dotted;`closeable` Indicates that clicking x can be closed; If you do not fill in, there is no icon on the right.   | string       | -       |
 | style         | Style                                                                                           | string       | -       |
 | title         | Title                                                                                           | string\|slot | -       |
 | type          | type, optional `default`, `error`, `primary`, `info`                                               | string       | default |
@@ -109,7 +109,7 @@ In `index.json` Introducing Components in
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name                            | Default Value                                                                                                              | Dark Mode Default                                                                                                                      | Remarks             |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------- |

@@ -68,7 +68,12 @@ ComponentWithSignalStoreImpl({
         'precision',
       ]);
       const NUMBER_KEYBOARD = ['number', 'digit', 'numberpad', 'digitpad'];
-      if (NUMBER_KEYBOARD.indexOf(type) !== -1 && isNumber(value)) {
+      if (
+        NUMBER_KEYBOARD.indexOf(type) !== -1 &&
+        isNumber(value) &&
+        isNumber(max) &&
+        isNumber(min)
+      ) {
         return formatNumberWithLimits(value, max, min, precision);
       }
       return null;

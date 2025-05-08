@@ -28,14 +28,14 @@ The problem of rare characters has always been a difficult point in the society.
 | ---------------------- | ------------------------------------- | ------------------------- | ------ |
 | visible                | Whether visible                              | boolean                   | false  |
 | type                   | Keyboard type, currently only supported `pinyin`(Pinyin) | string                    | pinyin |
-| showMask               | Whether to show background layer                      | boolean                   | true   |
+| showMask               | Whether to show background mask                      | boolean                   | true   |
 | safeArea               | Whether to keep safe distance                      | boolean                   | true   |
 | #if ALIPAY onClose     | Callback triggered when keyboard is closed                  | `() => void`              | -      |
 | #if ALIPAY onChange    | Callback triggered when input completes                  | `(value: string) => void` | -      |
-| #if ALIPAY onError     | Open the callback triggered when the keyboard goes wrong              | `(err: Error) => void`    | -      |
+| #if ALIPAY onError     | Open the callback that is triggered when the keyboard goes wrong              | `(err: Error) => void`    | -      |
 | #if WECHAT bindclose  | Callback triggered when keyboard is closed                  | `() => void`              | -      |
 | #if WECHAT bindchange | Callback triggered when input completes                  | `(value: string) => void` | -      |
-| #if WECHAT binderror  | Open the callback triggered when the keyboard goes wrong              | `(err: Error) => void`    | -      |
+| #if WECHAT binderror  | Open the callback that is triggered when the keyboard goes wrong              | `(err: Error) => void`    | -      |
 
 ### Theme customization
 

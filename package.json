@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "3.1.6",
+  "version": "3.1.12",
   "description": "antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。",
   "miniprogram": "compiled/wechat/src",
   "scripts": {
@@ -8,8 +8,8 @@
     "build:axml": "tsx ./scripts/compile-axml.ts",
     "transform": "tsx ./scripts/transform.ts",
     "generate": "tsx ./scripts/generate.ts",
-    "dev:doc": "rm -rf node_modules/.cache && node ./scripts/dev-doc.js",
-    "build": "rm -rf node_modules/.cache && npm run build:axml && node ./scripts/build.js",
+    "dev:doc": "rimraf node_modules/.cache && node ./scripts/dev-doc.js",
+    "build": "rimraf node_modules/.cache && npm run build:axml && node ./scripts/build.js",
     "deploy:docs": "npm run build && echo 'mini.ant.design' > ./docs-dist/CNAME && gh-pages -d docs-dist",
     "changelog": "auto-changelog -p --ignore-commit-pattern \"chore\\(release\\)\"",
     "prepublishOnly": "npm run build",
@@ -129,6 +129,7 @@
     "react-dom": "^18.0.0",
     "react-intersection-observer": "^9.13.1",
     "resize-observer-polyfill": "^1.5.1",
+    "rimraf": "^6.0.1",
     "shallowequal": "^1.1.0",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0",

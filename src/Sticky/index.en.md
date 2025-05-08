@@ -65,7 +65,7 @@ In `index.json` Introducing Components in
 #endif
 >
   <view>
-    <view>I'll be ceiling 180px away from the top</view>
+    <view>I will ceiling at 180px from the top</view>
     <view>Whether it has sucked {{stickyStatus}}</view>
   </view>
 </ant-sticky>
@@ -101,7 +101,7 @@ Page({
 | Property                            | Type     | Default Value         | Description                                                                 |
 | ------------------------------- | -------- | -------------- | -------------------------------------------------------------------- |
 | className                       | string   | ""             | Container className                                                       |
-| top                             | string   | ""             | The ceiling height, need to write units, such as 10px,24rpx                                |
+| top                             | string   | ""             | Cesting height, need to write units, such as 10px,24rpx                                |
 | check                           | bool     | false          | Whether it is necessary to sense whether the ceiling has been absorbed, because the ceiling inspection still has a certain cost.                 |
 | sticky                          | bool     | true           | Whether to ceiling, some scenes do not necessarily need                                       |
 | transparentTitle                | bool     | false          | Whether it is a transparent head, the transparent head will automatically calculate the titleBar height, and the default adsorption is under the titlebar |
@@ -122,7 +122,7 @@ It should be noted that the automatic calculation of head height in the transpar
 
 #### Style Variables
 
-Component provides the following CSS variables, which can be used to customize styles. For more information, see ConfigProvider Components.
+Component provides the following CSS variables, which can be used to customize styles. For details, see ConfigProvider Components.
 
 | Variable name            | Default Value                                                                                                                      | Dark Mode Default                                                                                                               | Remarks           |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------- |

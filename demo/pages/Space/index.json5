@@ -1,0 +1,17 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Space",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Space",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-space": "../../../src/Space/index",
+    "ant-button": "../../../src/Button/index",
+    "ant-container": "../../../src/Container/index"
+  }
+}

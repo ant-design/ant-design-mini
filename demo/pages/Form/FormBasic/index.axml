@@ -103,7 +103,12 @@
     style="margin-bottom: 12px">
     提交
   </ant-button>
-  <ant-button onTap="reset">重置</ant-button>
+  <ant-button
+    onTap="reset"
+    style="margin-bottom: 12px"
+    >重置
+  </ant-button>
+  <ant-button onTap="update">更新</ant-button>
 </view>
 <ant-toast
   content="账号的自定义 tooltip"

@@ -139,7 +139,7 @@ Page({
 </ant-table>
 ```
 
-### Beyond Line Break Display
+### Beyond line break display
 You can use the column configuration parameters.```ellipsisRow```Controls whether to wrap lines and how many lines are eventually displayed, beyond the ellipsis
 
 ```xml
@@ -159,7 +159,7 @@ You can use the column configuration parameters.```ellipsisRow```Controls whethe
 | ------------ | ---------------------------------------------------------------------- | ------------------- | ------- |
 | className    | Container className                                                         | string              | -       |
 | dataSource   | Data Source                                                                 | any[]               | -       |
-| columns      | Table column configuration description                                                       | [Column](#column)[] | -       |
+| columns      | Configuration description of table columns                                                       | [Column](#column)[] | -       |
 | displayType  | Table style type. The default style is displayed based on the configured width. Optional `FULL`、`DEFAULT` | string              | DEFAULT |
 | scrollHeight | Specify scrollable area height                                                     | string              | -       |
 
@@ -170,7 +170,7 @@ You can use the column configuration parameters.```ellipsisRow```Controls whethe
 | title          | Column Header                       | string  | -      |
 | dataIndex      | Column Value Field                   | string  | -      |
 | key            | Column Unique Identifier                   | string  | -      |
-| width          | Column width                       | number  | -      |
+| width          | Column Width                       | number  | -      |
 | fixed          | Fixed column                   | boolean | -      |
 | textAlignRight | Whether column text is right-justified             | boolean | -      |
 | ellipsisRow    | The maximum number of rows displayed in a cell, which exceeds omission. | number  | -      |
@@ -180,7 +180,7 @@ You can use the column configuration parameters.```ellipsisRow```Controls whethe
 
 | Name     | Description                                                                                    |
 | -------- | --------------------------------------------------------------------------------------- |
-| Default slot | Data source is empty slot                                                                          |
+| Default Slot | Data source is empty slot                                                                          |
 | item     | Cell Slot (Scope Slot, Exposed Properties `item`、`index`、`row`、`rowIndex`. WeChat is not supported) |
 
 ### Theme customization
@@ -191,7 +191,7 @@ Component provides the following CSS variables, which can be used to customize s
 
 | Variable name               | Default Value                                                                                                                    | Dark Mode Default                                                                                                            | Remarks               |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| --table-item-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                         | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | Item Color           |
+| --table-item-color   | <div style="width: 150px; height: 30px; background-color: #333333; color: #ffffff;">#333333</div>                         | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | Table Item Color           |
 | --table-item-bg      | <div style="width: 150px; height: 30px; background-color: #ffffff; color: #333333;">#ffffff</div>                         | <div style="width: 150px; height: 30px; background-color: #1a1a1a; color: #ffffff;">#1a1a1a</div>                         | Table Item Background Color       |
 | --table-shadow-color | <div style="width: 150px; height: 30px; background-color: rgba(5, 5, 5, 0.06); color: #ffffff;">rgba(5, 5, 5, 0.06)</div> | <div style="width: 150px; height: 30px; background-color: rgba(5, 5, 5, 0.06); color: #ffffff;">rgba(5, 5, 5, 0.06)</div> | Table Shadow Color       |
 | --table-empty-bg     | <div style="width: 150px; height: 30px; background-color: #fff; color: #333333;">#fff</div>                               | <div style="width: 150px; height: 30px; background-color: #c5cad1; color: #ffffff;">#c5cad1</div>                         | Table empty state background color |

@@ -1,17 +1,18 @@
 import AsyncValidator, {
   InternalRuleItem,
-  Value,
-  Values,
   Rule as RawRule,
-  Rules as RawRules,
   RuleItem,
+  Rules as RawRules,
   ValidateError,
   ValidateMessages,
+  Value,
+  Values,
 } from 'async-validator';
 
-import set from '../_util/set';
-import get from '../_util/get';
 import { IMixin4Legacy } from '@mini-types/alipay';
+import flattenObject from '../_util/flattenObject';
+import get from '../_util/get';
+import set from '../_util/set';
 import { getValueFromProps } from '../_util/simply';
 
 export { Value, Values };
@@ -667,7 +668,7 @@ export class Form {
    * @param value 表单初始值
    */
   setFieldsValue(values: Values) {
-    Object.keys(this.fields).forEach((name) => {
+    Object.keys(flattenObject(values)).forEach((name) => {
       this.setFieldValue(name, get(values, name));
     });
   }

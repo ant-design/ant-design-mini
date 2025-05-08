@@ -20,27 +20,27 @@ Component({
     },
     adjustFontSize() {
       // 用createSelectorQuery来获取容器尺寸信息
-      this.getBoundingClientRect('.ant-autoresize-fontsize-container').then(
-        (rect) => {
-          if (!rect) return;
-          const [text, maxFontSize, ratio] = getValueFromProps(this, [
-            'text',
-            'maxFontSize',
-            'ratio',
-          ]);
-          // 假设自适应逻辑是基于容器宽度来设置字号
-          const containerWidth = rect.width;
-          const textLength = text.length;
+      this.getBoundingClientRect(
+        `.ant-autoresize-fontsize-container-${this.$id}`
+      ).then((rect) => {
+        if (!rect) return;
+        const [text, maxFontSize, ratio] = getValueFromProps(this, [
+          'text',
+          'maxFontSize',
+          'ratio',
+        ]);
+        // 假设自适应逻辑是基于容器宽度来设置字号
+        const containerWidth = rect.width;
+        const textLength = text.length;
 
-          /** 判断是否还有空隙 总宽度 - 字体宽度 > 0 */
-          const hasSpace =
-            containerWidth - (maxFontSize / ratio) * textLength > 0;
+        /** 判断是否还有空隙 总宽度 - 字体宽度 > 0 */
+        const hasSpace =
+          containerWidth - (maxFontSize / ratio) * textLength > 0;
 
-          if (!hasSpace) {
-            this.checkTextOverflow();
-          }
+        if (!hasSpace) {
+          this.checkTextOverflow();
         }
-      );
+      });
     },
     // 检查是否超长
     checkTextOverflow() {

@@ -3,6 +3,7 @@ import { Form } from '../../../../src/Form/form';
 Page({
   data: {
     position: 'horizontal',
+    fruitList: ['苹果', '香蕉', '橘子', '西瓜'],
   },
   onLoad() {
     this.form = new Form();

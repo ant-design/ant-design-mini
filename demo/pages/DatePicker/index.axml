@@ -12,7 +12,9 @@
       onPickerChange="handlePickerChange"
       onVisibleChange="handleTriggerPicker"
       onCancel="handleDismiss"
-      onOk="handleOk" />
+      onOk="handleOk" >
+      <view slot="content-header">插入一些内容</view>
+    </ant-date-picker>
   </ant-list-item>
   <ant-list-item>
     请选择日期（点击蒙层不关闭）
@@ -68,6 +70,22 @@
       disabled />
   </ant-list-item>
 </ant-list>
+<ant-list header="自定义选择默认时间">
+  <ant-list-item>
+    请选择时间
+    <ant-date-picker
+      min="{{ min }}"
+      max="{{ max }}"
+      slot="extra"
+      defaultPickerValue="{{ defaultDate }}"
+      precision="minute"
+      placeholder="选择"
+      onPickerChange="handlePickerChange"
+      onVisibleChange="handleTriggerPicker"
+      onCancel="handleDismiss"
+      onOk="handleOk" />
+  </ant-list-item>
+</ant-list>
 <ant-list header="自定义每列的渲染内容">
   <ant-list-item>
     每列不显示单位
@@ -93,7 +111,9 @@
       defaultValue="{{ defaultDateRange }}"
       onPickerChange="handlePickerRangeChange"
       onVisibleChange="handleTriggerPicker"
-      onOk="handleRangeOk" />
+      onOk="handleRangeOk" >
+      <view slot="content-header">插入一些内容</view>
+    </ant-date-picker>
   </ant-list-item>
   <ant-list-item>
     受控模式
