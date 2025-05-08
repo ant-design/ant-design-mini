@@ -11,7 +11,7 @@ createComponent({
       this.props?.config?.onOk?.(v, dateStr, e);
     },
     onCancel(e) {
-      this.props?.config?.onCancel(e);
+      this.props?.config?.onCancel?.(e);
     },
     onPickerChange(v, dateStr, e) {
       this.props?.config?.onPickerChange?.(v, dateStr, e);
