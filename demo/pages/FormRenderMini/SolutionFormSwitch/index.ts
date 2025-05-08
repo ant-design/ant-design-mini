@@ -61,14 +61,6 @@ Page({
                 disabled: true
               }
             },
-            loadingSwitch: {
-              title: '加载状态',
-              type: 'boolean',
-              widget: 'switch',
-              props: {
-                loading: true
-              }
-            },
             mediumSwitch: {
               title: '中等尺寸',
               type: 'boolean',
