@@ -135,7 +135,7 @@ createComponent({
 
   methods: {
     initValue(props) {
-      const { name: field, defaultValue } = props || {};
+      const { path: field, value: defaultValue } = props.item || {};
       if (defaultValue !== undefined) {
         const _value = {};
         set(_value, field, defaultValue);

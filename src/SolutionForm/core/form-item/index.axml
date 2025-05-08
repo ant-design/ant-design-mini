@@ -38,17 +38,18 @@
       <view class="fr-form-item-field fr-form-item-field-{{finalDisplayType}}">
         <!--表单项 内容组件的插槽 展示不同的表单组件-->
         <slot />
-        <form-item-extra a:if="{{extra}}" extra="{{extra}}">
-          <view slot-scope="props">
-            <slot
-              name="extra"
-              extra="{{ extra }}"
-            />
-          </view>
-        </form-item-extra>
       </view>
     </view>
   </view>
+
+  <form-item-extra a:if="{{item.extra}}" extra="{{item.extra}}">
+    <view slot-scope="props">
+      <slot
+        name="extra"
+        extra="{{ item.extra }}"
+      />
+    </view>
+  </form-item-extra>
 
   <!-- 校验错误信息模块，支持自定义插槽传入 -->
   <slot

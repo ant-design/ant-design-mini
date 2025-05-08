@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "SolutionFormInput",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "SolutionFormInput",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-container": "../../../../src/Container/index",
+    "form-render-mini": "../../../../src/SolutionForm/form-render/index"
+  }
+} 
