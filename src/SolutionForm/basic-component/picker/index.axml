@@ -57,6 +57,6 @@
     onFormat="onFormat"
     onVisibleChange="onVisibleChange"
   >
-    <view a:if="{{ config.arrow }}" slot="suffix" class="fr-pick-arrow" />
+    <view a:if="{{ config.arrow === undefined ? true : config.arrow }}" slot="suffix" class="fr-pick-arrow" />
   </cascader-picker >
 </view>
