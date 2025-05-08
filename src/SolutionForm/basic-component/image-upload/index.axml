@@ -1,0 +1,20 @@
+<view style="{{ config.style }}" class="fr-upload-image {{ config.disabled ? 'fr-upload-image-disabled' : '' }}">
+  <ant-uploader
+    defaultFileList="{{defaultFileList}}"
+    fileList="{{ value }}"
+    uploadingText="{{ config.uploadingText }}"
+    uploadfailedText="{{ config.uploadfailedText }}"
+    maxCount="{{ config.maxCount }}"
+    className="{{ config.className }}"
+    sourceType="{{ config.sourceType }}"
+    style="{{ config.style }}"
+    imageMode="{{ config.imageMode }}"
+
+    onBeforeUpload="onBeforeUpload"
+    onUpload="onUpload"
+    onRemove="onRemove"
+    onChooseImageError="onChooseImageError"
+    onPreview="onPreview"
+    onChange="onChange"
+  />
+</view>

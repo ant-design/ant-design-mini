@@ -1,14 +1,6 @@
 <import-sjs from="./index.sjs" name="mappingSjs" />
 
-<template name="uploadVideoImage">
-  <upload-video-image
-    onTriggerChange="onTriggerChange"
-    field="{{ item.path }}"
-    config="{{mappingSjs.getComponentConfig(item)}}"
-    value="{{ value }}"/>
-</template>
-
-<template name="imageUpload">
+<template name="image-upload">
   <image-upload
     onTriggerChange="onTriggerChange"
     field="{{ item.path }}"

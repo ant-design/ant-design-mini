@@ -5,6 +5,7 @@
     "picker": "../../basic-component/picker/index",
     "date-picker": "../../basic-component/date-picker/index",
     "radio": "../../basic-component/radio/index",
+    "image-upload": "../../basic-component/image-upload/index",
     "input": "../../basic-component/input/index",
     "switch": "../../basic-component/switch/index",
     "textarea": "../../basic-component/textarea/index"
