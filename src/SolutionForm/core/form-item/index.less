@@ -8,9 +8,22 @@
   .ant-popover-top-left {
     left: -20rpx !important;
   }
+  &:first-child {
+    &::after {
+      height: 0;
+    }
+  }
 
   &::after {
     margin: 0 24rpx;
+    content: ' ';
+    display: block;
+    height: 1rpx;
+    background-color: #e5e5e5;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
   }
 
   &-disabled {

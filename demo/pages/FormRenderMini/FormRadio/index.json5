@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "SolutionFormRadio",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "SolutionFormRadio",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-container": "../../../../src/Container/index",
+    "form-render-mini": "../../../../src/SolutionForm/form-render/index"
+  }
+} 

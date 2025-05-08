@@ -17,7 +17,7 @@ Page({
       },
       properties: {
         card: {
-          title: '内置组件input的使用',
+          title: '内置组件 input 的使用',
           type: 'object',
           widget: 'card',
           properties: {
