@@ -8,7 +8,6 @@ createComponent({
 
   computed() {
     return {
-
       ...getStore().mapState([
         'changeFormData',
         'subSchemaArr',

@@ -1,7 +1,6 @@
 <template name="mapping">
   <fr-mapping
     formItemArr="{{subSchema.formItemArr}}"
-    defaultShowCount="{{ subSchema.defaultShowCount }}"
     displayType="{{ subSchema.displayType }}"
     onDisabledTap="onDisabledTap"
   >
@@ -65,7 +64,6 @@
             subSchema: {
               displayType: subSchema.displayType,
               formItemArr: subSchema.formItemArr,
-              defaultShowCount: subSchema.config.defaultShowCount,
               widget: subSchema.widget,
               groupConfig: subSchema.config,
             },
@@ -90,7 +88,6 @@
             subSchema: {
               displayType: subSchema.displayType,
               formItemArr: subSchemaArr,
-              defaultShowCount: subSchema.config.defaultShowCount,
             },
           }}"
         />
