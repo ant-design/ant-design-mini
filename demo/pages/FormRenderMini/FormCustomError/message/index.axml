@@ -1,0 +1,11 @@
+<view class="fr-form-item-message fr-form-item-message-{{type}}">
+  <icon 
+    class="fr-form-item-message-icon"
+    type="ExclamationCircleOutline" 
+    size="x-small" 
+  />
+  <view class="fr-form-item-message-text">
+    {{data.message}}
+    <slot/>
+  </view>
+</view>

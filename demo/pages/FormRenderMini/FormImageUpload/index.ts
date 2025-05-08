@@ -1,5 +1,4 @@
 const onUpload = (file) => {
-  console.log('<<<<file', file);
   return file.path;
 };
 Page({
@@ -43,6 +42,7 @@ Page({
               props: {
                 maxCount: 1,
                 multiple: false,
+                onUpload: (file) => onUpload(file),
                 uploadText: '上传单张图片'
               }
             },
@@ -58,6 +58,7 @@ Page({
               props: {
                 maxCount: 2,
                 multiple: true,
+                onUpload: (file) => onUpload(file),
                 uploadText: '上传图片'
               }
             },
@@ -73,6 +74,7 @@ Page({
               props: {
                 maxCount: 3,
                 multiple: true,
+                onUpload: (file) => onUpload(file),
                 uploadText: '上传图片',
                 disabled: true
               }
@@ -85,6 +87,7 @@ Page({
                 maxCount: 3,
                 multiple: true,
                 uploadText: '上传图片',
+                onUpload: (file) => onUpload(file),
                 className: 'custom-image-upload'
               }
             },
@@ -95,6 +98,7 @@ Page({
               props: {
                 maxCount: 3,
                 multiple: true,
+                onUpload: (file) => onUpload(file),
                 uploadText: '最多上传3张图片'
               }
             },
@@ -114,6 +118,7 @@ Page({
                 maxCount: 2,
                 multiple: true,
                 uploadText: '上传图片',
+                onUpload: (file) => onUpload(file),
                 onPreview: (file) => {
                   my.previewImage({
                     urls: [file.url]

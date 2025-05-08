@@ -1,0 +1,27 @@
+.fr-form-item-message {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  padding: 16rpx;
+  margin-top: 14rpx;
+  color: #ff3b30;
+  background: rgba(255, 49, 65, 0.06);
+  border: 1rpx solid rgba(255, 49, 65, 0.2);
+  border-radius: 8rpx;
+  display: flex;
+  align-items: flex-start;
+  animation: formItemMessageAppear 0.2s ease both;
+}
+.fr-form-item-message-icon {
+  font-size: 28rpx;
+  line-height: 34rpx;
+}
+.fr-form-item-message-text {
+  margin-left: 12rpx;
+}
+@keyframes formItemMessageAppear {
+  from {
+    height: 0;
+    opacity: 0;
+    padding: 0 16rpx;
+  }
+}

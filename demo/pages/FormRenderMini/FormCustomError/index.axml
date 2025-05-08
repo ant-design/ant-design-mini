@@ -1,0 +1,21 @@
+<form-render-mini schema="{{schema}}">
+  <block slot="custom-error" slot-scope="props">
+    <message data="{{props.errorInfo}}">
+      <text
+        style="color: #1677ff; margin-left: 12"
+        data-error-info="{{props.errorInfo}}"
+        onTap="onDetailTap"
+      >
+        {{props.errorInfo.actionText}}
+      </text>
+    </message>
+  </block>
+</form-render-mini>
+
+<view style="padding: 12">
+  <button
+    type="primary"
+    onTap="setFormError"
+    style="border-radius:49rpx;"
+  >设置自定义 Error</button>
+</view>

@@ -53,10 +53,10 @@
 
   <!-- 校验错误信息模块，支持自定义插槽传入 -->
   <slot
-    a:if="{{  currentErrorInfo.message }}"
+    a:if="{{ currentErrorInfo.message }}"
     name="custom-error"
     errorInfo="{{{
-      field: currentErrorInfo.field,
+      field: filed,
       message: currentErrorInfo.message,
       actionText: currentErrorInfo.actionText,
       extraInfo: currentErrorInfo.extraInfo,

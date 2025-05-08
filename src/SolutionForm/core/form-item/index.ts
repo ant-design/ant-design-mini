@@ -19,6 +19,9 @@ createComponent({
         'subSchemaArr',
         'formRenderPropsConfig',
       ]),
+      filed() {
+        return this.item.path;
+      },
       tipsConfig() {
         return this.item.tipsConfig || {};
       },
@@ -69,7 +72,8 @@ createComponent({
     errorInfo: {
       deep: true,
       handler() {
-        const errorInfo = get(this.errorInfo, this.props.name, []);
+        const { path: field } = this.props.item || {};
+        const errorInfo = get(this.errorInfo, field, []);
 
         this.currentErrorInfo = errorInfo[0] || {};
       },
@@ -84,7 +88,7 @@ createComponent({
     const { path: field } = this.item || {};
 
     if (!field) {
-      throw new Error('props name is required in item');
+      throw new Error('props field is required in item');
     }
 
     this.initValue(this.props);
@@ -99,14 +103,14 @@ createComponent({
       return;
     }
     if (
-      nextProps.visible === false &&
-      nextProps.name &&
-      this.props.visible === true
+      nextProps.item.visible === false &&
+      nextProps.item.path &&
+      this.props.item.visible === true
     ) {
-      this.store.commit('removeField', nextProps.name);
+      this.store.commit('removeField', nextProps.item.path);
     }
 
-    if (this.props.visible === false && nextProps.visible === true) {
+    if (this.props.item.visible === false && nextProps.item.visible === true) {
       this.setFieldRules(nextProps);
       this.setFields(this.props);
       this.initValue(nextProps);
@@ -114,8 +118,8 @@ createComponent({
     }
     // 如果校验规则更改 重制当前表单项的校验规则
     if (
-      this.props.required !== nextProps.required ||
-      !isEqual(nextProps.rules, this.props.rules)
+      this.props.item.required !== nextProps.item.required ||
+      !isEqual(nextProps.item.rules, this.props.item.rules)
     ) {
       this.setFieldRules(nextProps);
     }
@@ -129,7 +133,7 @@ createComponent({
   },
 
   didUnmount() {
-    const { name: fieldName } = this.props;
+    const { path: fieldName } = this.props.item;
     this.store.commit('removeField', fieldName);
   },
 
@@ -143,11 +147,11 @@ createComponent({
       }
     },
     setFields(props) {
-      const { name } = props;
-      this.store.commit('setFields', name);
+      const { path } = props.item;
+      this.store.commit('setFields', path);
     },
     setFieldRules(props) {
-      const { name, required, title, rules } = props.item || {};
+      const { path, required, title, rules } = props.item || {};
       let fieldRules = [];
       if (rules instanceof Array) {
         fieldRules = [...rules];
@@ -165,14 +169,14 @@ createComponent({
       if (required && !hasRequiredRule) {
         const requiredItem = {
           required: true,
-          message: `请完善${title || name}`,
+          message: `请完善${title || path}`,
         };
         fieldRules = [requiredItem, ...fieldRules];
       }
 
       if (fieldRules?.length > 0) {
         this.store.commit('setFieldRules', {
-          fieldName: name,
+          fieldName: path,
           rule: fieldRules,
         });
       }

@@ -1,0 +1,17 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "FormCustomError",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "FormCustomError",
+  "transparentTitle": "none",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "button": "../../../../src/Button/index",
+    "message": "./message/index",
+    "form-render-mini": "../../../../src/SolutionForm/form-render/index"
+  }
+} 
