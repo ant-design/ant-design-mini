@@ -3,6 +3,7 @@
   "usingComponents": {
     "form-item": "../form-item/index",
     "picker": "../../basic-component/picker/index",
+    "selector": "../../basic-component/selector/index",
     "date-picker": "../../basic-component/date-picker/index",
     "radio": "../../basic-component/radio/index",
     "image-upload": "../../basic-component/image-upload/index",

@@ -1,0 +1,16 @@
+<view style="{{ config.style }}" class="fr-selector">
+  <ant-selector
+    value="{{value}}"
+    options="{{config.options}}"
+    activeItemClassName="{{config.activeItemClassName}}"
+    activeItemStyle="{{config.activeItemStyle}}"
+    className="{{config.className}}"
+    disabled="{{config.disabled}}"
+    maxSelectedCount="{{config.maxSelectedCount}}"
+    minSelectedCount="{{config.minSelectedCount}}"
+    multiple="{{config.multiple}}"
+    onChange="onChange"
+    onSelectMax="onSelectMax"
+    onSelectMin="onSelectMin"
+  ></ant-selector>
+</view>

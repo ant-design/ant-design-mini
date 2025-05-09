@@ -2,17 +2,18 @@
 
 function isInternalComponent (widgetName) {
   const internalComponents = [
-    'imageUpload',
-    'uploadVideoImage',
+    'image-upload',
+    // 'uploadVideoImage',
     'input',
     'selector',
     'switch',
     'radio',
     'picker',
     'date-picker',
-    'html',
+    // 'html',
     'textarea',
   ];
+  console.log('<<<widgetName', widgetName, internalComponents.indexOf(widgetName) !== -1);
   return internalComponents.indexOf(widgetName) !== -1;
 }
 

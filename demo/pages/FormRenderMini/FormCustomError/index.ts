@@ -28,7 +28,6 @@ Page({
   },
   async setFormError() {
     const res = await getErrorInfo();
-    console.log('<<<res', res);
     const errorInfo = {};
     set(errorInfo, `trustInfo.name`, {
       message: '自定义错误信息，输入会消失',

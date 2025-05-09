@@ -8,6 +8,14 @@
     value="{{ value }}"/>
 </template>
 
+<template name="selector">
+  <selector
+    onTriggerChange="onTriggerChange"
+    field="{{ item.path }}"
+    config="{{mappingSjs.getComponentConfig(item)}}"
+    value="{{ value }}"/>
+</template>
+
 <template name="input">
   <input
     onTriggerChange="onTriggerChange"
