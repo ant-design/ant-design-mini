@@ -58,7 +58,8 @@ Page({
                   { text: '选项3', value: '3', disabled: true }
                 ],
                 multiple: true,
-              }
+              },
+              extra: 'selector选项部分禁用，禁用选项3',
             },
             multipleMaxSelector: {
               title: '多选上限',
@@ -91,7 +92,8 @@ Page({
                   { text: '选项3', value: '3' }
                 ],
                 disabled: true
-              }
+              },
+              extra: 'selector选项全部禁用',
             },
             customSelector: {
               title: '样式设置',
