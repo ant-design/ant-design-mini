@@ -1,0 +1,17 @@
+<form-render-mini 
+  schema="{{schema}}"
+  showSubmitButton="{{true}}"
+  debug="{{true}}"
+>
+  <view slot="extra" class="extra" slot-scope="props">
+    <view style="color: #ff0000;" a:if="{{ props.extra.widget === 'red-text' }}">
+      {{ props.extra.text }}
+    </view>
+    <view style="font-weight: bold;" a:elif="{{ props.extra.widget === 'thick-text' }}">
+      {{ props.extra.text }}
+    </view>
+    <view style="padding-left: 190rpx;" a:elif="{{ props.extra.widget === 'padding-text' }}">
+      {{ props.extra.text }}
+    </view>
+  </view>
+</form-render-mini>
