@@ -1,0 +1,80 @@
+
+.mui-operation-footer {
+  padding: 24rpx;
+
+  // 按钮区域
+  &-container-wrap {
+    box-sizing: border-box;
+    padding: 24rpx 24rpx 0rpx 24rpx;
+
+    .mui-operation-footer-btn-single {
+      height: 98rpx;
+      padding: 0;
+      justify-content: center;
+    }
+
+    &-fixed {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      position: fixed;
+      border-top: 1rpx solid #eee;
+    }
+
+    .protocol {
+      text-align: left;
+      padding-bottom: 24rpx;
+      line-height: 37rpx;
+      .mui-operation-footer-protocol-text {
+        vertical-align: middle;
+        color: #999;
+        font-family: PingFangSC-Regular;
+        font-size: 26rpx;
+        line-height: 37rpx;
+        padding-left: 16rpx;
+      }
+      .ant-checkbox-item {
+        margin-right: 0;
+        vertical-align: middle;
+        .ant-checkbox-item-content {
+          padding-left: 0;
+          font-size: 0;
+        }
+        &-wrap {
+          width: 36rpx;
+          height: 36rpx;
+          flex: 0 0 36rpx;
+        }
+      }
+    }
+
+    .protocol-item {
+      vertical-align: middle;
+      font-family: PingFangSC-Regular;
+      font-size: 26rpx;
+      line-height: 37rpx;
+      color: #1677ff;
+    }
+  }
+
+  &-btn-item {
+    margin-bottom: 24rpx;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &-btn-flex {
+    display: flex;
+    .mui-operation-footer-btn-item {
+      margin-bottom: 0;
+      flex: 1;
+      margin-right: 24rpx;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}

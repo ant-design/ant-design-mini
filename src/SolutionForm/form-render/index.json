@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "fr-form": "../core/form/index",
+    "fr-operation": "../core/fr-operation/index",
     "fr-form-group": "../core/form-group/index",
     "fr-mapping": "../core/mapping/index",
     "custom-error-fallback": "../core/form-item/components/message/index"

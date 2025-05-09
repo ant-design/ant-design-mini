@@ -1,6 +1,3 @@
 <view class="fr-form">
   <slot></slot>
-  <view class="ant-form-footer">
-    <slot name="footer"/>
-  </view>
 </view>

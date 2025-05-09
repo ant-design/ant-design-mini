@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "button": "../../../Button/index",
+    "ant-safe-area": "../../../SafeArea/index",
+    "checkbox": "../../../Checkbox/index"
+  }
+}

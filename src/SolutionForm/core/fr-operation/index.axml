@@ -1,0 +1,68 @@
+<import-sjs name="util" from="./util.sjs" />
+
+<view
+  class="mui-operation-footer-container-wrap c-operation-footer-container-wrap {{fixedFooter ? 'mui-operation-footer-container-wrap-fixed c-operation-footer-container-wrap-fixed' : ''}} {{className}}"
+>
+  <view
+    class="protocol"
+    a:if="{{protocols.length}}"
+    >
+    <block a:if="{{showProtocolCheck}}">
+      <checkbox
+        checked="{{checked}}"
+        onChange="onProtocolChange"
+      >
+      </checkbox>
+      <text
+        a:if="{{protocolPrefix}}"
+        onTap="handleTapProtocolPrefix"
+        class="mui-operation-footer-protocol-text">{{protocolPrefix}}
+      </text>
+    </block>
+
+    <text
+      a:if="{{!showProtocolCheck && (protocolPrefix)}}"
+      class="mui-operation-footer-protocol-text"
+    >
+      {{protocolPrefix}}
+    </text>
+
+    <text
+      class="protocol-item"
+      a:for="{{protocols}}"
+      onTap="onProtocolTap"
+      data-item="{{item}}"
+      data-index="{{index}}">
+      {{item.name}}
+    </text>
+  </view>
+  <view
+  onFirstAppear="onFooterFirstAppear"
+  class="mui-operation-footer-btn c-operation-footer-btn {{flex ? 'mui-operation-footer-btn-flex c-operation-footer-btn-flex' : ''}}"
+  a:if="{{util.getFooterConfig(footer).length}}"
+  >
+  <view
+    a:for="{{util.getFooterConfig(footer)}}"
+    class="mui-operation-footer-btn-item c-operation-footer-btn-item {{flex ? 'mui-operation-footer-btn-item-flex c-operation-footer-btn-item-flex' : ''}}"
+    data-item="{{item}}"
+    onTap="onActionTap"
+    data-index="{{index}}"
+  >
+    <button
+      onDisabledTap="onDisabledTap"
+      type="{{item.type || 'primary'}}"
+      style="{{item.style || ''}}"
+      inline="{{item.inline}}"
+      size="{{item.size}}"
+      loading="{{item.loading}}"
+      disabled="{{item.disabled}}"
+      icon="{{item.icon}}"
+      activeClassName="{{item.activeClassName}}"
+      className="{{util.getFooterConfig(footer).length === 1 ? 'mui-operation-footer-btn-single' : ''}} {{item.className}}"
+    >
+      {{item.text}}
+    </button>
+  </view>
+  </view>
+  <ant-safe-area position="bottom" />
+</view>

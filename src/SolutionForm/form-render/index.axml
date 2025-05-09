@@ -93,8 +93,7 @@
         />
     </fr-form-group>
     <slot name="footer-button">
-      <!-- 原本的按钮区域 兼容老版本 -->
-
+      <fr-operation />
     </slot>
   </fr-form>
 </view>
