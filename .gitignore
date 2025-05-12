@@ -48,6 +48,8 @@ server
 
 # compiled
 /compiled
+config/alipay/app.json
 config/wechat.json
 config/wechat/app.json
-config/alipay/app.json
+config/bundle2h.json
+config/bundle2h/app.json
