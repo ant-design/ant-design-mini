@@ -12,10 +12,7 @@ createComponent({
       operation: () => this.formRenderPropsConfig?.operation || {},
       fixedFooter: () => this.operation?.fixedFooter,
       flex: () => this.operation?.flex,
-      className: () => {
-        console.log('<<<operation', this.operation);
-        return get(this.operation, 'className', '');
-      },
+      className: () => get(this.operation, 'className', ''),
       protocolPrefix: () => get(this.operation, 'protocolPrefix', '我已阅读并同意'),
       protocols: () => get(this.operation, 'protocols', []),
       showProtocolCheck: () => get(this.operation, 'showProtocolCheck', true),

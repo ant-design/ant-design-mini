@@ -13,7 +13,6 @@ function isInternalComponent (widgetName) {
     // 'html',
     'textarea',
   ];
-  console.log('<<<widgetName', widgetName, internalComponents.indexOf(widgetName) !== -1);
   return internalComponents.indexOf(widgetName) !== -1;
 }
 

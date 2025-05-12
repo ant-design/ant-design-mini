@@ -37,7 +37,6 @@ Page({
   },
   onDetailTap(event) {
     const { errorInfo } = event.currentTarget.dataset;
-    console.log('<<<errorInfo', errorInfo);
     my.alert({
       content: `点击了 ${errorInfo.field} 的详情按钮`,
     });
