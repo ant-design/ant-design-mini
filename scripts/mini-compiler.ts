@@ -301,7 +301,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
     task(
       {
         name: `copy-${ext}`,
-        glob: ['**/*.' + ext],
+        glob: ['**/{,.}*.' + ext],
         destExtension: '.' + ext,
       },
       function (stream: NodeJS.ReadWriteStream) {
@@ -313,7 +313,7 @@ export function miniCompiler(option: MiniProgramSourceCompileOption) {
   task(
     {
       name: 'json5',
-      glob: ['**/*.json5'],
+      glob: ['**/{,.}*.json5'],
       destExtension: '.json',
     },
     function (stream: NodeJS.ReadWriteStream, factory) {
@@ -503,7 +503,7 @@ function compilePlatformComponents(
       platformId === 'WECHAT' ? '' : 'demo'
     ),
     watch,
-    assets: [platformId === 'WECHAT' ? 'wxss' : 'less', 'js', 'json'],
+    assets: [platformId === 'WECHAT' ? 'wxss' : 'less', 'js', 'ts', 'json'],
     buildOption,
   });
 }
@@ -587,7 +587,17 @@ export async function compileAntdMini(watch: boolean) {
   );
 
   // 各平台组件编译
-  compilePlatformComponents('WECHAT', watch, wechatAllowList, wechatBuildOption);
+  compilePlatformComponents(
+    'WECHAT',
+    watch,
+    wechatAllowList,
+    wechatBuildOption
+  );
   compilePlatformComponents('ALIPAY', watch, undefined, alipayBuildOption);
-  compilePlatformComponents('BUNDLE2H', watch, bundle2hAllowList, bundle2hBuildOption);
+  compilePlatformComponents(
+    'BUNDLE2H',
+    watch,
+    bundle2hAllowList,
+    bundle2hBuildOption
+  );
 }
