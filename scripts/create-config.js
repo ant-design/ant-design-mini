@@ -131,7 +131,7 @@ async function createConfig() {
   /** 生成config/bundle2h/app.json */
   writeFileSync(path.resolve(__dirname, '..', 'config', 'bundle2h', 'app.json'), JSON.stringify({
     "darkmode": true,
-    pages: ['demo/pages/index/index', ...bundle2hAppJsonList.filter(item => item !== 'index').map(fileName => `demo/pages/${fileName}/index`)],
+    pages: ['pages/index/index', ...bundle2hAppJsonList.filter(item => item !== 'index').map(fileName => `pages/${fileName}/index`)],
   }, null, 2), 'utf8');
 
   /** 生成config/alipay/app.json */
