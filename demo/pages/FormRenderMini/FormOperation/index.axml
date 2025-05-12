@@ -1,0 +1,8 @@
+<view class="navigation-bar"/>
+
+<form-render-mini 
+  schema="{{schema}}"
+  className="form-operation"
+  onValueChange="onValueChange"
+  onTapOperation="onTapOperation"
+/> 

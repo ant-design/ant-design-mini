@@ -27,6 +27,8 @@ interface StoreFormItem extends FormItem {
   path: string;
 }
 
+type DisplayType = 'row' | 'column';
+
 
 export interface SubSchemaItem {
   title: string;

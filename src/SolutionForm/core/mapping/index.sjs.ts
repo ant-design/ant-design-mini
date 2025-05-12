@@ -1,5 +1,3 @@
-
-
 function isInternalComponent (widgetName) {
   const internalComponents = [
     'image-upload',
