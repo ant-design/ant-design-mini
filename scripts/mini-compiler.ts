@@ -452,7 +452,7 @@ function compilePlatformComponents(
     ].filter(Boolean),
     buildOption: {
       ...buildOption,
-      compileTs: true,
+      compileTs: platformId !== 'BUNDLE2H',
     },
   });
 
@@ -483,7 +483,7 @@ function compilePlatformComponents(
     ].filter(Boolean),
     buildOption: {
       ...buildOption,
-      compileTs: true,
+      compileTs: platformId !== 'BUNDLE2H',
     },
   });
 
@@ -532,7 +532,14 @@ export async function compileAntdMini(watch: boolean) {
     ofs.readFileSync(resolve(__dirname, '..', 'config/wechat.json'), 'utf-8')
   );
 
-  const allowList = wechatConfig.src;
+  const wechatAllowList = wechatConfig.src;
+
+  // 读取BUNDLE2H配置
+  const bundle2hConfig = JSON.parse(
+    ofs.readFileSync(resolve(__dirname, '..', 'config/bundle2h.json'), 'utf-8')
+  );
+
+  const bundle2hAllowList = bundle2hConfig.src;
 
   // 微信平台配置
   const wechatPlatformConfig = {
@@ -580,7 +587,7 @@ export async function compileAntdMini(watch: boolean) {
   );
 
   // 各平台组件编译
-  compilePlatformComponents('WECHAT', watch, allowList, wechatBuildOption);
+  compilePlatformComponents('WECHAT', watch, wechatAllowList, wechatBuildOption);
   compilePlatformComponents('ALIPAY', watch, undefined, alipayBuildOption);
-  compilePlatformComponents('BUNDLE2H', watch, undefined, bundle2hBuildOption);
+  compilePlatformComponents('BUNDLE2H', watch, bundle2hAllowList, bundle2hBuildOption);
 }
