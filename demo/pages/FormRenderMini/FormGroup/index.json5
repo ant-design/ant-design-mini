@@ -1,10 +1,10 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "SolutionForm",
+  "navigationBarTitleText": "Group",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "Card",
+  "defaultTitle": "Group",
   "transparentTitle": "none",
   "titlePenetrate": "YES",
   /// #endif

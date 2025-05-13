@@ -1,5 +1,3 @@
-<view class="navigation-bar"/>
-
 <form-render-mini 
   className="group-demo"
   schema="{{schema}}"
