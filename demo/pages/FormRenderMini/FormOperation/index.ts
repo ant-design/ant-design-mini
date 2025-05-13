@@ -90,18 +90,25 @@ Page({
           title: '基本信息',
           type: 'object',
           properties: {
+            flex: {
+              title: '按钮布局',
+              type: 'string',
+              required: true,
+              widget: 'selector',
+              value: true,
+              props: {
+                options: [
+                  { text: 'row', value: true },
+                  { text: 'column', value: false },
+                ],
+              },
+            },
             showProtocolCheck: {
               title: '协议check展示',
               type: 'boolean',
-              // required: true,
+              required: true,
               value: false,
               widget: 'selector',
-              rules: [
-                {
-                  required: true,
-                  message: '请选择',
-                },
-              ],
               props: {
                 options: [
                   { text: '展示', value: true },
@@ -112,13 +119,7 @@ Page({
             showProtocol: {
               title: '协议展示',
               type: 'boolean',
-              // required: true,
-              rules: [
-                {
-                  required: true,
-                  message: '请选择',
-                },
-              ],
+              required: true,
               value: true,
               widget: 'selector',
               props: {
@@ -131,48 +132,15 @@ Page({
             fixedFooter: {
               title: '按钮是否吸底',
               type: 'boolean',
-              // required: true,
-              rules: [
-                {
-                  required: true,
-                  message: '请选择',
-                },
-              ],
               value: true,
               widget: 'switch',
             },
             disableSubmitButton: {
               title: '提交按钮置灰',
               type: 'boolean',
-              required: true,
               value: false,
-              // rules: [
-              //   {
-              //     required: true,
-              //     message: '请选择',
-              //   },
-              // ],
               widget: 'switch',
             },
-            flex: {
-              title: '按钮布局',
-              type: 'string',
-              // required: true,
-              rules: [
-                {
-                  required: true,
-                  message: '请选择',
-                },
-              ],
-              widget: 'selector',
-              value: true,
-              props: {
-                options: [
-                  { text: 'row', value: true },
-                  { text: 'column', value: false },
-                ],
-              },
-            }
           }
         }
       }
@@ -185,7 +153,9 @@ Page({
         ...this.data.schema,
         operation: {
           ...get(this.data, 'schema.operation', {}),
-          ...pick(formData.basicInfo || {}, ['showProtocolCheck', 'fixedFooter', 'flex']),
+          showProtocolCheck: get(formData.basicInfo || {}, 'showProtocolCheck'),
+          fixedFooter: get(formData.basicInfo || {}, 'fixedFooter'),
+          flex: get(formData.basicInfo || {}, 'flex'),
           protocols: realShowProtocol ? protocols : [],
           footer: get(formData, 'basicInfo.disableSubmitButton') ? disableFooter : footer,
         },
