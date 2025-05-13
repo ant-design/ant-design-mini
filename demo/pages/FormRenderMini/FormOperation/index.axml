@@ -4,5 +4,4 @@
   schema="{{schema}}"
   className="form-operation"
   onValueChange="onValueChange"
-  onTapOperation="onTapOperation"
 /> 

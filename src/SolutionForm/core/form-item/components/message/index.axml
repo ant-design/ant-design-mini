@@ -1,5 +1,6 @@
 <view
   a:if="{{ slotConfig.showInternalErrorMessage && message }}"
   class="fr-form-item-message">
-  {{ message }}
+  <ant-icon type="ExclamationCircleOutline" className="fr-form-item-message-icon" />
+  <text class="fr-form-item-message-text"> {{ message }} </text>
 </view>

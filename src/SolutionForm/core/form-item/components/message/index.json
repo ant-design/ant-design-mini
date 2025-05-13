@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "ant-icon": "../../../../../Icon/index"
+  }
 }

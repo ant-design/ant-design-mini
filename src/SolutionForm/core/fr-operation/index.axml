@@ -37,9 +37,9 @@
     </text>
   </view>
   <view
-  onFirstAppear="onFooterFirstAppear"
-  class="mui-operation-footer-btn c-operation-footer-btn {{flex ? 'mui-operation-footer-btn-flex c-operation-footer-btn-flex' : ''}}"
-  a:if="{{util.getFooterConfig(footer).length}}"
+    onFirstAppear="onFooterFirstAppear"
+    class="mui-operation-footer-btn c-operation-footer-btn {{flex ? 'mui-operation-footer-btn-flex c-operation-footer-btn-flex' : ''}}"
+    a:if="{{util.getFooterConfig(footer).length}}"
   >
   <view
     a:for="{{util.getFooterConfig(footer)}}"
@@ -49,11 +49,11 @@
     data-index="{{index}}"
   >
     <button
-      onDisabledTap="onDisabledTap"
       type="{{item.type || 'primary'}}"
       style="{{item.style || ''}}"
       inline="{{item.inline}}"
       size="{{item.size}}"
+      data-item="{{ item }}"
       loading="{{item.loading}}"
       disabled="{{item.disabled}}"
       icon="{{item.icon}}"

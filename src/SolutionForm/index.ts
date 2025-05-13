@@ -1,4 +1,4 @@
-import { findFieldInfoByField, getPathArr } from './store/helper';
+import { findFieldInfoByField } from './store/helper';
 import { getStore } from './store';
 
 // 设置表单内容

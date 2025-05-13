@@ -1,4 +1,5 @@
-import { get } from 'lodash';
+import { get, pick } from 'lodash';
+import { onSubmit, resetFieldsValue } from '../../../../src/SolutionForm';
 
 const protocols = [
   {
@@ -27,10 +28,13 @@ Page({
           {
             text: '清空配置信息',
             type: 'default',
+            id: 'clear',
           },
           {
             text: '确认提交',
             type: 'primary',
+            disabled: true,
+            id: 'submit',
           },
         ],
         protocols,
@@ -38,6 +42,31 @@ Page({
           my.alert({
             content: `点击了协议${item.name}`
           });
+        },
+        onActionTap: async (item) => {
+          const { id } = item || {};
+          if (id === 'submit') {
+            try {
+              const res = await onSubmit();
+              console.log('<<<<res', res);
+              
+            } catch (error) {
+              console.log('<<<error', error);
+            }
+          } else if (id === 'clear') {
+            resetFieldsValue();
+          }
+        },
+        onDisabledTap: (...arg) => {
+          console.log('onDisabledTap', ...arg);
+        },
+        onProtocolChange: (checked) => {
+          my.alert({
+            content: checked ? '勾选了协议' : '取消协议选择',
+          });
+        },
+        onFooterFirstAppear() {
+          console.log('footer组件第一次展示');
         },
       },
       properties: {
@@ -48,9 +77,15 @@ Page({
             showProtocolCheck: {
               title: '协议check展示',
               type: 'boolean',
-              required: true,
-              value: true,
+              // required: true,
+              value: false,
               widget: 'selector',
+              rules: [
+                {
+                  required: true,
+                  message: '请选择',
+                },
+              ],
               props: {
                 options: [
                   { text: '展示', value: true },
@@ -61,7 +96,13 @@ Page({
             showProtocol: {
               title: '协议展示',
               type: 'boolean',
-              required: true,
+              // required: true,
+              rules: [
+                {
+                  required: true,
+                  message: '请选择',
+                },
+              ],
               value: true,
               widget: 'selector',
               props: {
@@ -74,14 +115,26 @@ Page({
             fixedFooter: {
               title: '按钮是否吸底',
               type: 'boolean',
-              required: true,
+              // required: true,
+              rules: [
+                {
+                  required: true,
+                  message: '请选择',
+                },
+              ],
               value: true,
               widget: 'switch',
             },
             flex: {
               title: '按钮布局',
               type: 'string',
-              required: true,
+              // required: true,
+              rules: [
+                {
+                  required: true,
+                  message: '请选择',
+                },
+              ],
               widget: 'selector',
               value: true,
               props: {
@@ -96,43 +149,17 @@ Page({
       }
     }
   },
-  onTapOperation(e) {
-    console.log('操作按钮点击', e);
-    const { type } = e.detail;
-    if (type === 'submit') {
-      my.showToast({
-        content: '提交成功'
-      });
-    } else if (type === 'cancel') {
-      my.navigateBack();
-    }
-  },
-  onValueChange(changeFormData) {
-    console.log('<<<changeFormData', changeFormData);
-    const {
-      showProtocol,
-      ...others
-    } = changeFormData.basicInfo || {};
-    if (showProtocol !== undefined) {
-      this.setData({
-        schema: {
-          ...this.data.schema,
-          operation: {
-            ...get(this.data, 'schema.operation', {}),
-            protocols: showProtocol ? protocols : [],
-          },
-        }
-      });
-    } else {
-      this.setData({
-        schema: {
-          ...this.data.schema,
-          operation: {
-            ...get(this.data, 'schema.operation', {}),
-            ...others,
-          },
-        }
-      });
-    }
+  onValueChange(_, formData) {
+    const realShowProtocol = get(formData, 'basicInfo.showProtocol')
+    this.setData({
+      schema: {
+        ...this.data.schema,
+        operation: {
+          ...get(this.data, 'schema.operation', {}),
+          ...pick(formData.basicInfo || {}, ['showProtocolCheck', 'fixedFooter', 'flex']),
+          protocols: realShowProtocol ? protocols : [],
+        },
+      }
+    });
   }
 }); 

@@ -15,7 +15,7 @@ createComponent({
       className: () => get(this.operation, 'className', ''),
       protocolPrefix: () => get(this.operation, 'protocolPrefix', '我已阅读并同意'),
       protocols: () => get(this.operation, 'protocols', []),
-      showProtocolCheck: () => get(this.operation, 'showProtocolCheck', true),
+      showProtocolCheck: () => get(this.operation, 'showProtocolCheck', false),
       footer: () => get(this.operation, 'footer', []),
       // onActionTap: () => {},
       // onProtocolTap
@@ -29,7 +29,6 @@ createComponent({
   },
 
   methods: {
-
     // 协议选框
     onProtocolChange(checked) {
       this.checked = checked;
@@ -58,15 +57,14 @@ createComponent({
     },
 
     onActionTap(event) {
-      const { onActionTap } = this.operation;
+      const { onActionTap, onDisabledTap } = this.operation;
       const { item, index } = event.currentTarget.dataset;
+      if (item.disabled) {
+        onDisabledTap?.(item, index, event);
+        return;
+      }
 
       onActionTap?.(item, index, event);
-    },
-    onDisabledTap(event) {
-      const { onDisabledTap } = this.operation;
-      const { item, index } = event.currentTarget.dataset;
-      onDisabledTap?.(item, index, event);
     },
   },
 });
