@@ -1,7 +1,7 @@
 App({
   onLaunch(launchParams: any) {
     ac.call('navigateTo', {
-      url: 'pages/index/index',
+      url: 'demo/pages/index/index',
     });
   },
   onRelaunch(launchParams: any) {},
