@@ -1,3 +1,5 @@
+import { onSubmit } from '../../../../src/SolutionForm/index';
+
 Page({
   data: {
     schema: {
@@ -130,5 +132,6 @@ Page({
   
   onTapOperation(e) {
     console.log('操作按钮点击', e);
+    onSubmit();
   }
 }); 

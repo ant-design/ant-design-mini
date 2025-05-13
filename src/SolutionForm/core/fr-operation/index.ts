@@ -3,6 +3,9 @@ import { getStore } from '../../store/index';
 import { get } from 'lodash';
 
 createComponent({
+  props: {
+    onTapOperation: () => {},
+  },
   data: {
     checked: false,
   },
@@ -17,11 +20,6 @@ createComponent({
       protocols: () => get(this.operation, 'protocols', []),
       showProtocolCheck: () => get(this.operation, 'showProtocolCheck', false),
       footer: () => get(this.operation, 'footer', []),
-      // onActionTap: () => {},
-      // onProtocolTap
-      // onDisabledTap: () => {},
-      // onProtocolChange: () => {},
-      // onFooterFirstAppear: () => {},
     };
   },
   onInit() {
@@ -58,13 +56,15 @@ createComponent({
 
     onActionTap(event) {
       const { onActionTap, onDisabledTap } = this.operation;
-      const { item, index } = event.currentTarget.dataset;
+      const { item } = event.currentTarget.dataset;
       if (item.disabled) {
-        onDisabledTap?.(item, index, event);
+        onDisabledTap?.(item);
         return;
       }
 
-      onActionTap?.(item, index, event);
+      this.props.onTapOperation && this.props.onTapOperation(item);
+
+      onActionTap?.(item);
     },
   },
 });

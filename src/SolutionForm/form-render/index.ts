@@ -83,16 +83,11 @@ createComponent({
         onSubmit(get(this.store.state, 'formData', {}), errors);
       }
     },
-
-    onTapOperation(action, index, event) {
-      if (!this.props.onTapOperation) {
-        console.error('没有传入操作区的点击事件 onTapOperation');
-        return;
-      }
-      this.props.onTapOperation(action, index, event);
-    },
     onDisabledTap(listItem) {
-      this.props.onDisabledTap(listItem);
+      this.props.onDisabledTap?.(listItem);
+    },
+    onTapOperation(footerItem) {
+      this.props.onTapOperation?.(footerItem);
     },
   },
 });

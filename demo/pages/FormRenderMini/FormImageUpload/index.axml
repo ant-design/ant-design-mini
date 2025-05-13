@@ -3,5 +3,4 @@
 <form-render-mini 
   schema="{{schema}}"
   className="form-image-upload"
-  onTapOperation="onTapOperation"
 /> 

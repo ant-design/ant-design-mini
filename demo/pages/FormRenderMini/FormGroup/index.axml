@@ -1,6 +1,5 @@
 <form-render-mini 
   className="group-demo"
   schema="{{schema}}"
-  onTapOperation="onTapOperation"
 />
 

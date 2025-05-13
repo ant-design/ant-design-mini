@@ -5,3 +5,5 @@
   className="form-input"
   onTapOperation="onTapOperation"
 /> 
+
+<ant-safe-area position="bottom" />

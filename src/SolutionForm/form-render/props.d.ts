@@ -23,6 +23,20 @@ export interface IComponentProps {
   disableSubmit?: false,
 
   /**
+   * 禁用表单项点击
+   * @param formItem 
+   * @returns 
+   */
+  onDisabledTap: (formItem) => void;
+
+  /**
+   * 操作区按钮点击
+   * @param footerItem 
+   * @returns 
+   */
+  onTapOperation: (footerItem) => void;
+
+  /**
    * @description 点击默认提交按钮后的回调
    */
   onSubmit: (data: ObjectType, errors: Error[]) => void;

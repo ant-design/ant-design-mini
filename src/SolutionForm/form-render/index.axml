@@ -93,7 +93,7 @@
         />
     </fr-form-group>
     <slot name="footer-button">
-      <fr-operation />
+      <fr-operation onTapOperation="onTapOperation" />
     </slot>
   </fr-form>
 </view>
