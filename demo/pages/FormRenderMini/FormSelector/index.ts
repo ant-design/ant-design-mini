@@ -28,14 +28,14 @@ Page({
               props: {
                 options: [
                   { text: '选项1', value: '1' },
-                  { text: '选项2', value: '2' },
-                  { text: '选项3', value: '3' }
+                  { text: '选项2', value: '2' }
                 ],
                 placeholder: '请选择'
               }
             },
             defaultSelector: {
               title: '默认值',
+              displayType: 'column',
               type: 'string',
               widget: 'selector',
               value: '2',
@@ -44,8 +44,9 @@ Page({
                   { text: '选项一', subText: '描述文案一', value: '1' },
                   { text: '选项二', subText: '描述文案二', value: '2' },
                   { text: '选项三', subText: '描述文案三', value: '3' },
-              ],
-              }
+                ],
+              },
+              extra: '表单项 column 布局',
             },
             multipleSelector: {
               title: '多选',
@@ -103,11 +104,10 @@ Page({
                 options: [
                   { text: '选项1', value: '1' },
                   { text: '选项2', value: '2' },
-                  { text: '选项3', value: '3' }
                 ],
                 className: 'custom-selector'
               },
-              extra: '自定义className，border设置成4，border-radius设置成16',
+              extra: '自定义className，border设置成4，border-radius设置成16,同时设置了选择块的宽度',
             },
           }
         }
