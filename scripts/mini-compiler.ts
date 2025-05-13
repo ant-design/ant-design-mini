@@ -500,7 +500,7 @@ function compilePlatformComponents(
       '..',
       'compiled',
       platformId.toLowerCase(),
-      platformId === 'WECHAT' ? '' : 'demo'
+      platformId === 'ALIPAY' ? 'demo' : ''
     ),
     watch,
     assets: [platformId === 'WECHAT' ? 'wxss' : 'less', 'js', 'ts', 'json'],
