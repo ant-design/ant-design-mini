@@ -12,6 +12,34 @@ const protocols = [
   },
 ];
 
+const footer = [
+  {
+    text: '清空配置信息',
+    type: 'default',
+    id: 'clear',
+  },
+  {
+    text: '确认提交',
+    type: 'primary',
+    disabled: false,
+    id: 'submit',
+  },
+];
+
+const disableFooter = [
+  {
+    text: '清空配置信息',
+    type: 'default',
+    id: 'clear',
+  },
+  {
+    text: '确认提交',
+    type: 'primary',
+    disabled: true,
+    id: 'submit',
+  },
+]
+
 Page({
   data: {
     schema: {
@@ -24,19 +52,7 @@ Page({
         fixedFooter: true,
         protocolPrefix: '我已阅读并同意',
         showProtocolCheck: true,
-        footer: [
-          {
-            text: '清空配置信息',
-            type: 'default',
-            id: 'clear',
-          },
-          {
-            text: '确认提交',
-            type: 'primary',
-            disabled: true,
-            id: 'submit',
-          },
-        ],
+        footer,
         protocols,
         onProtocolTap: (item) => {
           my.alert({
@@ -125,6 +141,19 @@ Page({
               value: true,
               widget: 'switch',
             },
+            disableSubmitButton: {
+              title: '提交按钮置灰',
+              type: 'boolean',
+              required: true,
+              value: false,
+              // rules: [
+              //   {
+              //     required: true,
+              //     message: '请选择',
+              //   },
+              // ],
+              widget: 'switch',
+            },
             flex: {
               title: '按钮布局',
               type: 'string',
@@ -150,7 +179,7 @@ Page({
     }
   },
   onValueChange(_, formData) {
-    const realShowProtocol = get(formData, 'basicInfo.showProtocol')
+    const realShowProtocol = get(formData, 'basicInfo.showProtocol');
     this.setData({
       schema: {
         ...this.data.schema,
@@ -158,6 +187,7 @@ Page({
           ...get(this.data, 'schema.operation', {}),
           ...pick(formData.basicInfo || {}, ['showProtocolCheck', 'fixedFooter', 'flex']),
           protocols: realShowProtocol ? protocols : [],
+          footer: get(formData, 'basicInfo.disableSubmitButton') ? disableFooter : footer,
         },
       }
     });

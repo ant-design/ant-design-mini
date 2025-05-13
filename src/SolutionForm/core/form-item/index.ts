@@ -156,14 +156,14 @@ createComponent({
       if (rules instanceof Array) {
         fieldRules = [...rules];
       } else {
-        fieldRules = [rules];
+        fieldRules = rules ? [rules] : [];
       }
 
       /**
        * 如果通过rules的方式定义了required则可以覆盖默认的错误信息
        */
       const hasRequiredRule = fieldRules.some(
-        (rule = {}) => (rule.required && rule.message) || rule.required,
+        (rule = {}) => rule.required && rule.message
       );
 
       if (required && !hasRequiredRule) {
