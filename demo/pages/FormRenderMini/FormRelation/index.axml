@@ -1,0 +1,3 @@
+<form-render-mini 
+  schema="{{schema}}"
+/>

@@ -126,7 +126,7 @@ createComponent({
 
     if (
       !isEqual(nextProps?.item?.value, this.props?.item?.value) &&
-      nextProps.visible
+      nextProps?.item.visible
     ) {
       this.initValue(nextProps);
     }

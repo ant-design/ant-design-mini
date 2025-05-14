@@ -178,7 +178,7 @@ const getStoreInstance = () => {
             // 分组的布局可以自己设置
             displayType: properties[key]?.displayType || '',
             // 分组的额外信息
-            extra: properties[key]?.extra || {},
+            extra: properties[key]?.extra || '',
             // 是否展示
             visible: properties[key]?.visible,
             // 有group的场景才展示
