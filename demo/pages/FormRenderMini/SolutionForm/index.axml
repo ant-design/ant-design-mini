@@ -1,7 +1,0 @@
-<view class="navigation-bar"/>
-
-<form-render-mini 
-  schema="{{schema}}"
-  onTapOperation="onTapOperation"
-/>
-
