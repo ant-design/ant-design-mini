@@ -92,7 +92,6 @@ Page({
               title: '自定义样式',
               type: 'string',
               widget: 'input',
-              value: '',
               required: true,
               props: {
                 className: 'custom-className',
@@ -106,7 +105,6 @@ Page({
               title: '密码',
               type: 'string',
               widget: 'input',
-              value: '',
               required: true,
               props: {
                 placeholder: '请填写密码',
