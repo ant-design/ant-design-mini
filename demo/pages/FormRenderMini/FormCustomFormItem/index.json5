@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "自定义表单组件",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "自定义表单组件",
+  "transparentTitle": "none",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "my-text": "./my-text/index",
+    "form-render-mini": "../../../../src/SolutionForm/form-render/index"
+  }
+} 

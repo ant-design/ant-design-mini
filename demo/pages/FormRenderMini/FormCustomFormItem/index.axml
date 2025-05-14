@@ -1,0 +1,25 @@
+<template name="my-text">
+  <my-text config="{{ config }}" field="{{ field }}" value="{{ value }}" />
+</template>
+
+<view class="demo-form-render">
+  <view>
+    <form-render-mini
+      schema="{{schema}}"
+    >
+      <view
+        slot="mapping"
+        slot-scope="props"
+      >
+        <template
+          is="{{props.widget}}"
+          data="{{
+            field: props.field,
+            config: props.config,
+            value: props.value,
+          }}"
+        />
+      </view>
+    </form-render-mini>
+  </view>
+</view>

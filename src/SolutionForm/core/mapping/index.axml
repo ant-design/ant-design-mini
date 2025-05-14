@@ -85,14 +85,14 @@
       }}"
     />
 
-    <!--外部组件
+    <!--自定义组件-->
     <slot
       a:if="{{ !mappingSjs.isInternalComponent(item.widget) }}"
       field="{{ item.path }}"
       config="{{mappingSjs.getComponentConfig(item)}}"
       value="{{ mappingSjs.getFormItemValue(formData, item.path)}}"
       widget="{{item.widget}}"
-    />-->
+    />
   </view>
 
   <slot

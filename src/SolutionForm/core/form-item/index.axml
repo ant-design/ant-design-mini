@@ -1,5 +1,5 @@
 <view
-  class="fr-form-item {{ className || '' }}"
+  class="fr-form-item {{ item.className || '' }}"
   style="{{ currentErrorInfo.message ? 'padding-bottom: 14rpx;' : '' }}"
   a:if="{{ item.visible !== false }}">
   <view class="fr-form-item-line fr-form-item-line-{{finalDisplayType}} {{ !!errorInfo ? 'noLine'  : '' }}">

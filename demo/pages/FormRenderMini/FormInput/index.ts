@@ -23,17 +23,6 @@ Page({
           type: 'object',
           widget: 'card',
           properties: {
-            basicPicker: {
-              title: '基础选择器',
-              type: 'string',
-              widget: 'picker',
-              required: true,
-              props: {
-                placeholder: '请选择',
-                title: '请选择',
-                options: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
-              }
-            },
             basicInput: {
               title: '基础输入框',
               type: 'string',

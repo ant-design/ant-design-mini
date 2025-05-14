@@ -1,0 +1,32 @@
+.my-text {
+  background: rgba(0, 255, 0, 0.1);
+  padding: 24rpx;
+  border-radius: 8rpx;
+  &-extra {
+    color: #f00;
+    font-size: 32rpx;
+  }
+  &-default {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 32rpx;
+    color:blue;
+  }
+  &-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color:blueviolet;
+    &-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 24rpx;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

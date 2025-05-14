@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "Switch": "../../../../../src/Switch/index"
+  }
+}

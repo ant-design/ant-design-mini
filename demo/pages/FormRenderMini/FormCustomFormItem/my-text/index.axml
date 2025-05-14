@@ -1,0 +1,36 @@
+
+<view class="my-text">
+  <view a:if="{{ config.formData.group1.basicSwitch }}" class="my-text-default">
+    重启出行计划
+    <switch onChange="onChange" />
+  </view>
+  <view a:elif="{{
+    config.formData.group1.basicInput ||
+    config.formData.group1.basicPicker || 
+    config.formData.group1.basicDatePicker
+  }}" class="my-text-list">
+    <view 
+      class="my-text-list-item"
+      a:if="{{ config.formData.group1.basicInput }}"
+    > 
+      出行人：{{ config.formData.group1.basicInput }}
+    </view>
+
+    <view 
+      class="my-text-list-item"
+      a:if="{{ config.formData.group1.basicPicker }}"
+    > 
+      出行城市：{{ config.formData.group1.basicPicker }}
+    </view>
+
+    <view 
+      class="my-text-list-item"
+      a:if="{{ basicDatePicker }}"
+    > 
+      出行时间：{{ basicDatePicker }}
+    </view>
+  </view>
+  <view a:else class="my-text-extra">
+    请填写上面的出行计划
+  </view>
+</view>
