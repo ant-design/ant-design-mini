@@ -1,10 +1,10 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "FormRelation",
+  "navigationBarTitleText": "表单联动",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "FormRelation",
+  "defaultTitle": "表单联动",
   "transparentTitle": "none",
   "titlePenetrate": "YES",
   /// #endif
