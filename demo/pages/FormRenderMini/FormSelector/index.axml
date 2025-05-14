@@ -1,4 +1,5 @@
 <form-render-mini 
   schema="{{schema}}"
   className="form-selector"
+  onTapOperation="onTapOperation"
 /> 

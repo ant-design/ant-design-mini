@@ -56,8 +56,8 @@ Page({
               title: '禁用状态',
               type: 'boolean',
               widget: 'switch',
+              value: true,
               props: {
-                defaultChecked: true,
                 disabled: true
               }
             },
@@ -92,6 +92,6 @@ Page({
   },
   
   onTapOperation(e) {
-    console.log('操作按钮点击', e);
+    my.alert({ content: `点击了按钮「${e.text}」` });
   }
 }); 

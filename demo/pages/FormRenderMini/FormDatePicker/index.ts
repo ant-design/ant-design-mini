@@ -1,3 +1,5 @@
+import { onSubmit } from '../../../../src/SolutionForm/index';
+
 Page({
   data: {
     schema: {
@@ -24,6 +26,7 @@ Page({
             basicDatePicker: {
               title: '基础日期选择',
               type: 'string',
+              required: true,
               widget: 'date-picker',
               props: {
                 placeholder: '请选择日期',
@@ -124,8 +127,12 @@ Page({
     }
   },
   
-  onTapOperation(e) {
-    console.log('操作按钮点击', e);
+  async onTapOperation(e) {
+    const { errors } = await onSubmit();
+    if (errors.length > 0) {
+      return;
+    }
+    my.alert({ content: `点击了按钮「${e.text}」` });
   },
 
   handleFormatLabel(type, value) {

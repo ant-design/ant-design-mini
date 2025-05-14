@@ -1,3 +1,5 @@
+import { onSubmit } from '../../../../src/SolutionForm/index';
+
 Page({
   data: {
     schema: {
@@ -25,6 +27,7 @@ Page({
               title: '基础选择器',
               type: 'string',
               widget: 'picker',
+              required: true,
               props: {
                 placeholder: '请选择',
                 title: '请选择',
@@ -183,7 +186,11 @@ Page({
     }
   },
   
-  onTapOperation(e) {
-    console.log('操作按钮点击', e);
+  async onTapOperation(e) {
+    const { errors } = await onSubmit();
+    if (errors.length > 0) {
+      return;
+    }
+    my.alert({ content: `点击了按钮「${e.text}」` });
   }
 }); 

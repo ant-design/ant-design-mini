@@ -1,3 +1,5 @@
+import { onSubmit } from '../../../../src/SolutionForm/index';
+
 Page({
   data: {
     schema: {
@@ -25,6 +27,7 @@ Page({
               title: '基础单选',
               type: 'string',
               widget: 'radio',
+              required: true,
               props: {
                 options: [
                   { value: 'apple', label: '苹果' },
@@ -105,7 +108,11 @@ Page({
     }
   },
   
-  onTapOperation(e) {
-    console.log('操作按钮点击', e);
-  }
+  async onTapOperation(e) {
+    const { errors } = await onSubmit();
+    if (errors.length > 0) {
+      return;
+    }
+    my.alert({ content: `点击了按钮「${e.text}」` });
+  },
 }); 

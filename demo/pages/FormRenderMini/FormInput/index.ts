@@ -23,6 +23,17 @@ Page({
           type: 'object',
           widget: 'card',
           properties: {
+            basicPicker: {
+              title: '基础选择器',
+              type: 'string',
+              widget: 'picker',
+              required: true,
+              props: {
+                placeholder: '请选择',
+                title: '请选择',
+                options: ['北京', '上海', '深圳', '广州', '南京', '武汉', '无锡', '苏州'],
+              }
+            },
             basicInput: {
               title: '基础输入框',
               type: 'string',
@@ -128,8 +139,11 @@ Page({
     }
   },
   
-  onTapOperation(e) {
-    console.log('操作按钮点击', e);
-    onSubmit();
-  }
+  async onTapOperation(e) {
+    const { errors } = await onSubmit();
+    if (errors.length > 0) {
+      return;
+    }
+    my.alert({ content: `点击了按钮「${e.text}」` });
+  },
 }); 

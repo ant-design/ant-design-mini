@@ -2,5 +2,6 @@
 
 <form-render-mini 
   schema="{{schema}}"
+  onTapOperation="onTapOperation"
   className="form-picker"
 /> 

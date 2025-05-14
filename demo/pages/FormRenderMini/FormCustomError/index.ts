@@ -1,5 +1,5 @@
 import { set } from 'lodash';
-import { setFieldsError, getErrorInfo } from '../../../../src/SolutionForm/index';
+import { setFieldsError, onSubmit } from '../../../../src/SolutionForm/index';
 
 Page({
   data: {
@@ -27,7 +27,6 @@ Page({
     },
   },
   async setFormError() {
-    const res = await getErrorInfo();
     const errorInfo = {};
     set(errorInfo, `trustInfo.name`, {
       message: '自定义错误信息，输入会消失',
@@ -41,7 +40,7 @@ Page({
       content: `点击了 ${errorInfo.field} 的详情按钮`,
     });
   },
-  saveRef(ref) {
-    this.formRef = ref;
-  },
+  onTapOperation(e) {
+    onSubmit();
+  }
 });

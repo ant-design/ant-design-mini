@@ -5,7 +5,7 @@
 
   /// #if ALIPAY
   "defaultTitle": "FormSelector",
-  "transparentTitle": "auto",
+  "transparentTitle": "none",
   "titlePenetrate": "YES",
   /// #endif
 
