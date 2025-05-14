@@ -10,7 +10,6 @@
   /// #endif
 
   "usingComponents": {
-    "ant-container": "../../../../src/Container/index",
     "ant-safe-area": "../../../../src/SafeArea/index",
     "form-render-mini": "../../../../src/SolutionForm/form-render/index"
   }
