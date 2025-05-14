@@ -19,21 +19,33 @@
     style="{{ utils.getContentStyle(position, animation, duration, width, height) }}"
     onAnimationEnd="onAnimationEnd">
     <view a:if="{{ backgroundImage }}" class="ant-popup-content-bg" style="background-image: url({{backgroundImage}});"/>
-    <view a:if="{{ title || showClose || showBack }}" class="ant-popup-content-header">
-      <ant-icon
-        className="ant-popup-content-header-icon ant-popup-content-header-icon-back"
-        type="LeftOutline"
-        a:if="{{ showBack }}"
-        onTap="onClickBack" />
-      <view class="ant-popup-content-header-title">
-        {{ title }}
+    <slot name="header">
+      <view a:if="{{ title || showClose || showBack }}" class="ant-popup-content-header">
+        <view
+          className="ant-popup-content-header-icon ant-popup-content-header-icon-back"
+          a:if="{{ showBack }}"
+          onTap="onClickBack">
+          <slot name="header-back">
+            <ant-icon
+              type="LeftOutline" />
+          </slot>
+        </view>
+        <view class="ant-popup-content-header-title">
+          <slot name="header-title">
+            {{ title }}
+          </slot>
+        </view>
+        <view
+          className="ant-popup-content-header-icon ant-popup-content-header-icon-close"
+          a:if="{{ showClose }}"
+          onTap="onClickCloseIcon">
+            <slot name="header-close">
+              <ant-icon
+                type="CloseOutline" />
+            </slot>
+          </view>
       </view>
-      <ant-icon
-        className="ant-popup-content-header-icon ant-popup-content-header-icon-close"
-        type="CloseOutline"
-        a:if="{{ showClose }}"
-        onTap="onClickCloseIcon" />
-    </view>
+    </slot>
     <slot />
     <slot
       a:if="{{ isOldVersion }}"
