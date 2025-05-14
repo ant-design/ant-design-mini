@@ -19,21 +19,49 @@
     style="{{ utils.getContentStyle(position, animation, duration, width, height) }}"
     onAnimationEnd="onAnimationEnd">
     <view a:if="{{ backgroundImage }}" class="ant-popup-content-bg" style="background-image: url({{backgroundImage}});"/>
-    <view a:if="{{ title || showClose || showBack }}" class="ant-popup-content-header">
-      <ant-icon
-        className="ant-popup-content-header-icon ant-popup-content-header-icon-back"
-        type="LeftOutline"
-        a:if="{{ showBack }}"
-        onTap="onClickBack" />
-      <view class="ant-popup-content-header-title">
-        {{ title }}
+    <!-- #if ALIPAY -->
+    <slot name="header">
+    <!-- #endif -->
+      <view a:if="{{ title || showClose || showBack }}" class="ant-popup-content-header">
+        <view
+          class="ant-popup-content-header-icon ant-popup-content-header-icon-back"
+          a:if="{{ showBack }}"
+          onTap="onClickBack">
+          <!-- #if ALIPAY -->
+          <slot name="header-back">
+          <!-- #endif -->
+            <ant-icon
+              type="LeftOutline" />
+          <!-- #if ALIPAY -->
+          </slot>
+          <!-- #endif -->
+        </view>
+        <view class="ant-popup-content-header-title">
+          <!-- #if ALIPAY -->
+          <slot name="header-title">
+          <!-- #endif -->
+            {{ title }}
+          <!-- #if ALIPAY -->
+          </slot>
+          <!-- #endif -->
+        </view>
+        <view
+          class="ant-popup-content-header-icon ant-popup-content-header-icon-close"
+          a:if="{{ showClose }}"
+          onTap="onClickCloseIcon">
+            <!-- #if ALIPAY -->
+            <slot name="header-close">
+            <!-- #endif -->
+              <ant-icon
+                type="CloseOutline" />
+            <!-- #if ALIPAY -->
+            </slot>
+            <!-- #endif -->
+          </view>
       </view>
-      <ant-icon
-        className="ant-popup-content-header-icon ant-popup-content-header-icon-close"
-        type="CloseOutline"
-        a:if="{{ showClose }}"
-        onTap="onClickCloseIcon" />
-    </view>
+    <!-- #if ALIPAY -->
+    </slot>
+    <!-- #endif -->
     <slot />
     <slot
       a:if="{{ isOldVersion }}"
