@@ -12,6 +12,7 @@ function equal(a, b) {
 }
 
 /// #if ALIPAY
+// @ts-ignore
 const component2 = my.canIUse('component2') || typeof ac === 'object';
 /// #endif
 
