@@ -12,7 +12,7 @@ function equal(a, b) {
 }
 
 /// #if ALIPAY
-const component2 = my.canIUse('component2');
+const component2 = my.canIUse('component2') || typeof ac === 'object';
 /// #endif
 
 export default ({
