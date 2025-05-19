@@ -16,6 +16,7 @@ Page({
       scrollVisible: false,
       customizeVisible: false,
       topImageVisible: false,
+      slotVisible: false,
     });
   },
   handleShowBasic(e) {
@@ -27,6 +28,9 @@ Page({
   },
   handleShowScroll() {
     this.setData({ scrollVisible: true });
+  },
+  handleShowSlot() {
+    this.setData({ slotVisible: true });
   },
   handleChangeAnimation(checked) {
     /// #if ALIPAY
