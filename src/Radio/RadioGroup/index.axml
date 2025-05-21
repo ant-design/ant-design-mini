@@ -23,7 +23,7 @@
               disabled="{{ disabled || item.disabled }}"
               color="{{ item.color || color }}"
               onChange="onChange">
-              <!-- #if ALIPAY || BUNDLE2H -->
+              <!-- #if ALIPAY || ALIPAYNATIVE -->
               <slot
                 name="label"
                 value="{{ item }}"
@@ -32,7 +32,7 @@
                 <view class="ant-radio-group-item-label-default">
                   {{ item.label }}
                 </view>
-              <!-- #if ALIPAY || BUNDLE2H -->
+              <!-- #if ALIPAY || ALIPAYNATIVE -->
               </slot>
               <!-- #endif -->
             </radio>
@@ -52,7 +52,7 @@
             disabled="{{ disabled || item.disabled }}"
             color="{{ item.color || color }}"
             onChange="onChange">
-            <!-- #if ALIPAY || BUNDLE2H -->
+            <!-- #if ALIPAY || ALIPAYNATIVE -->
             <slot
               name="label"
               value="{{ item }}"
@@ -61,7 +61,7 @@
               <view class="ant-radio-group-item-label-default">
                 {{ item.label }}
               </view>
-            <!-- #if ALIPAY || BUNDLE2H -->
+            <!-- #if ALIPAY || ALIPAYNATIVE -->
             </slot>
             <!-- #endif -->
           </radio>

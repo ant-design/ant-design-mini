@@ -17,11 +17,11 @@
 >
   <view>
     <block a:if="{{readonly && !(formData.value && formData.value.length)}}">
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <slot name="readonly" formData="{{formData}}">
       <!-- #endif -->
         -
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </slot>
       <!-- #endif -->
     </block>
@@ -70,11 +70,11 @@
     <slot name="tooltip" />
   </view>
   <view slot="extra">
-    <!-- #if ALIPAY || BUNDLE2H -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="extra">
       <!-- #endif -->
       {{ extra }}
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
     </slot>
     <!-- #endif -->
   </view>

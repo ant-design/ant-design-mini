@@ -2,7 +2,7 @@
   from="./index.sjs"
   name="componentUtils" />
 
-<!-- #if ALIPAY || BUNDLE2H -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <label
   class="ant-radio-item {{ className || '' }}"
   style="{{ style }}">
@@ -15,7 +15,7 @@
 <!-- #endif -->
   <view class="ant-radio-item-container">
     <view class="ant-radio-item-wrap">
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <radio
         value="{{ value }}"
         class="ant-radio-item-base"

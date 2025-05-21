@@ -39,7 +39,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   onInit() {
     this.updateData();
   },

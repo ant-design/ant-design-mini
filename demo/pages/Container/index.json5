@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Container",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Container",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

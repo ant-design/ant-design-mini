@@ -13,7 +13,7 @@ Component({
         triggerEventOnly(this, 'close');
       }
       /// #endif
-      /// #if ALIPAY || BUNDLE2H
+      /// #if ALIPAY || ALIPAYNATIVE
       if (this.props.maskClosable) {
         triggerEventOnly(this, 'close');
       }

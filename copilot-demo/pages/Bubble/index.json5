@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Bubble",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Bubble",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

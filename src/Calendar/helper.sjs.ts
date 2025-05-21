@@ -1,7 +1,7 @@
 declare function getRegExp(reg: string, mode: string): any;
 
 function keys(obj) {
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
 
   if (typeof Object.keys === 'function') {
     return Object.keys(obj);

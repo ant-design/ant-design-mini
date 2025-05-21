@@ -1,4 +1,4 @@
-/// #if ALIPAY || BUNDLE2H
+/// #if ALIPAY || ALIPAYNATIVE
 const nameMap = {
   'A': ['Alice', 'Andy', 'Amanda'],
   'B': ['Bob', 'Brian', 'Bella'],
@@ -30,7 +30,7 @@ const nameMap = {
 /// #endif
 Page({
   data: {
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     nameMap,
     /// #endif
     items: [],
@@ -40,7 +40,7 @@ Page({
     // 异步获取数据
     setTimeout(() => {
       this.setData({
-        /// #if ALIPAY || BUNDLE2H
+        /// #if ALIPAY || ALIPAYNATIVE
         nameMap,
         /// #endif
         items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((u) => {
@@ -51,7 +51,7 @@ Page({
     }, 1000);
   },
   onChange(...args) {
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     const [item, index] = args;
     console.log(item, index);
     this.setData({ current: item.label });

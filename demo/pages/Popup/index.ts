@@ -29,7 +29,7 @@ Page({
     this.setData({ scrollVisible: true });
   },
   handleChangeAnimation(checked) {
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({ animation: checked });
     /// #endif
 
@@ -44,7 +44,7 @@ Page({
     this.setData({ topImageVisible: true });
   },
   showToast(content) {
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     my.showToast({ content, duration: 1000 });
     /// #endif
 

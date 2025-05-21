@@ -21,7 +21,7 @@
           position="{{ item.badge.position || 'top-right' }}"
           offsetX="{{ item.badge.offsetX || '-9px' }}"
           offsetY="{{ item.badge.offsetY || '0px' }}">
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           <slot
             name="icon"
             active="{{ mixin.value == index }}"
@@ -31,12 +31,12 @@
             <image-icon
               className="ant-tab-bar"
               image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           </slot>
           <!-- #endif -->
         </ant-badge>
         <block a:else>
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           <slot
             name="icon"
             active="{{ mixin.value == index }}"
@@ -46,12 +46,12 @@
             <image-icon
               className="{{ !item.text ? 'ant-tab-bar  ant-tab-bar-large-icon' : 'ant-tab-bar' }}"
               image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           </slot>
           <!-- #endif -->
         </block>
         <view class="ant-tab-bar-text-wrap">
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           <slot
             name="text"
             active="{{ mixin.value === index }}"
@@ -60,7 +60,7 @@
           <!-- #endif -->
             <!-- display: inline -->
             <text class="ant-tab-bar-text">{{ item.text }}</text>
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           </slot>
           <!-- #endif -->
         </view>

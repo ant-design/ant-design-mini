@@ -16,7 +16,7 @@
         class="ant-steps-item-indicator ant-steps-item-indicator-{{ direction }}">
         <view
           class="ant-steps-item-indicator-icon ant-steps-item-{{ utils.getClassName(current, index, status) }}-icon">
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           <slot
             name="icon"
             value="{{ item }}"
@@ -26,7 +26,7 @@
           <!-- #endif -->
             <view
               class="ant-steps-item-{{ utils.getClassName(current, index, status) }}-icon-default" />
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           </slot>
           <!-- #endif -->
         </view>
@@ -34,26 +34,26 @@
       <view class="ant-steps-item-text">
         <view
           class="ant-steps-item-title ant-steps-item-title-{{ utils.getClassName(current, index, status) }}">
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           <slot
             name="title"
             value="{{ item }}"
             index="{{ index }}">
           <!-- #endif -->
             {{ item.title }}
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           </slot>
           <!-- #endif -->
         </view>
         <view class="ant-steps-item-desc">
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           <slot
             name="description"
             value="{{ item }}"
             index="{{ index }}">
           <!-- #endif -->
             {{ item.description }}
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           </slot>
           <!-- #endif -->
         </view>

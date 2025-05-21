@@ -78,7 +78,7 @@ Page({
     this.setData({ current: index.detail });
     /// #endif
 
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({ current: index });
     /// #endif
   },

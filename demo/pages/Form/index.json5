@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Form Demo",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Form Demo",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

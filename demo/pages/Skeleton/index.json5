@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Skeleton",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Skeleton",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

@@ -16,9 +16,9 @@ import { transformTsxJS } from './tsxjs';
 import * as tsxml from './tsxml/index';
 
 // 定义支持的平台类型
-type PlatformType = 'WECHAT' | 'ALIPAY' | 'BUNDLE2H';
+type PlatformType = 'WECHAT' | 'ALIPAY' | 'ALIPAYNATIVE';
 
-const ALL_PLATFORMS: PlatformType[] = ['WECHAT', 'ALIPAY', 'BUNDLE2H'];
+const ALL_PLATFORMS: PlatformType[] = ['WECHAT', 'ALIPAY', 'ALIPAYNATIVE'];
 
 interface MiniProgramSourceCompileOption {
   source: string;
@@ -452,7 +452,7 @@ function compilePlatformComponents(
     ].filter(Boolean),
     buildOption: {
       ...buildOption,
-      compileTs: platformId !== 'BUNDLE2H',
+      compileTs: platformId !== 'ALIPAYNATIVE',
     },
   });
 
@@ -483,7 +483,7 @@ function compilePlatformComponents(
     ].filter(Boolean),
     buildOption: {
       ...buildOption,
-      compileTs: platformId !== 'BUNDLE2H',
+      compileTs: platformId !== 'ALIPAYNATIVE',
     },
   });
 
@@ -516,8 +516,8 @@ export async function compileAntdMini(watch: boolean) {
         'compiled/alipay/src',
         'compiled/wechat/demo',
         'compiled/wechat/src',
-        'compiled/bundle2h/demo/pages',
-        'compiled/bundle2h/src',
+        'compiled/alipaynative/demo/pages',
+        'compiled/alipaynative/src',
       ].map((dir) => {
         return fs.rm(resolve(__dirname, '..', dir), {
           recursive: true,
@@ -534,12 +534,15 @@ export async function compileAntdMini(watch: boolean) {
 
   const wechatAllowList = wechatConfig.src;
 
-  // 读取BUNDLE2H配置
-  const bundle2hConfig = JSON.parse(
-    ofs.readFileSync(resolve(__dirname, '..', 'config/bundle2h.json'), 'utf-8')
+  // 读取alipaynative配置
+  const alipaynativeConfig = JSON.parse(
+    ofs.readFileSync(
+      resolve(__dirname, '..', 'config/alipaynative.json'),
+      'utf-8'
+    )
   );
 
-  const bundle2hAllowList = bundle2hConfig.src;
+  const alipaynativeAllowList = alipaynativeConfig.src;
 
   // 微信平台配置
   const wechatPlatformConfig = {
@@ -565,8 +568,8 @@ export async function compileAntdMini(watch: boolean) {
     xmlScriptOption: {},
   };
 
-  // BUNDLE2H平台配置 (与支付宝相同)
-  const bundle2hPlatformConfig = {
+  // alipaynative平台配置 (与支付宝相同)
+  const alipaynativePlatformConfig = {
     ...alipayPlatformConfig,
   };
 
@@ -581,9 +584,9 @@ export async function compileAntdMini(watch: boolean) {
     alipayPlatformConfig
   );
 
-  const bundle2hBuildOption = createPlatformBuildOption(
-    'BUNDLE2H',
-    bundle2hPlatformConfig
+  const alipaynativeBuildOption = createPlatformBuildOption(
+    'ALIPAYNATIVE',
+    alipaynativePlatformConfig
   );
 
   // 各平台组件编译
@@ -595,9 +598,9 @@ export async function compileAntdMini(watch: boolean) {
   );
   compilePlatformComponents('ALIPAY', watch, undefined, alipayBuildOption);
   compilePlatformComponents(
-    'BUNDLE2H',
+    'ALIPAYNATIVE',
     watch,
-    bundle2hAllowList,
-    bundle2hBuildOption
+    alipaynativeAllowList,
+    alipaynativeBuildOption
   );
 }

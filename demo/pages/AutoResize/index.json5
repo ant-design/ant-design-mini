@@ -3,7 +3,7 @@
   "navigationBarTitleText": "AutoResize",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "AutoResize",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

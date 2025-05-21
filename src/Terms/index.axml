@@ -4,7 +4,7 @@
 >
   <slot name="button-top"></slot>
   <view>
-    <!-- #if ALIPAY || BUNDLE2H -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="button-group-top">
     <!-- #endif -->
       <view
@@ -65,11 +65,11 @@
         <slot name="read-content"></slot>
         <view class="ant-terms-read-shadow">
           <view class="ant-terms-read-shadow-total">
-            <!-- #if ALIPAY || BUNDLE2H -->
+            <!-- #if ALIPAY || ALIPAYNATIVE -->
             <slot name="read-total">
             <!-- #endif -->
               共{{terms.length}}份
-            <!-- #if ALIPAY || BUNDLE2H -->
+            <!-- #if ALIPAY || ALIPAYNATIVE -->
             </slot>
             <!-- #endif -->
           </view>
@@ -92,7 +92,7 @@
                 data-item="{{item}}"
                 data-index="{{index}}"
               >
-                <!-- #if ALIPAY || BUNDLE2H -->
+                <!-- #if ALIPAY || ALIPAYNATIVE -->
                 <slot name="read-term-item" item="{{item}}" index="{{index}}">
                 <!-- #endif -->
                   <text
@@ -115,7 +115,7 @@
                   >
                     {{termSuffix}}
                   </text>
-                <!-- #if ALIPAY || BUNDLE2H -->
+                <!-- #if ALIPAY || ALIPAYNATIVE -->
                 </slot>
                 <!-- #endif -->
               </view>
@@ -123,7 +123,7 @@
           </block>
         </swiper>
       </block>
-    <!-- #if ALIPAY || BUNDLE2H -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     </slot>
     <!-- #endif -->
 
@@ -156,11 +156,11 @@
           className="{{buttons.length === 1 ? 'ant-terms-btn-single' : ''}} {{item.className}}"
         >
           <slot name="button-prefix" slot="prefix" index="{{index}}" item="{{item}}"></slot>
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           <slot name="button-content" index="{{index}}" item="{{item}}">
           <!-- #endif -->
             {{item.text}}
-          <!-- #if ALIPAY || BUNDLE2H -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           </slot>
           <!-- #endif -->
           {{ countdownArr[index] ? '（' + countdownArr[index] + 's）' : '' }}

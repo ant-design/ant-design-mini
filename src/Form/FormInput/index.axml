@@ -12,12 +12,12 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <view a:if="{{readonly}}">
-    <!-- #if ALIPAY || BUNDLE2H -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="readonly" formData="{{formData}}">
     <!-- #endif -->
     <text a:if="{{formData.value}}">{{formData.value}}</text>
     <text a:else>-</text>
-    <!-- #if ALIPAY || BUNDLE2H -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     </slot>
     <!-- #endif -->
   </view>
@@ -67,7 +67,7 @@
       wx:else
       name="extra" />
     <!-- #endif -->
-    <!-- #if ALIPAY || BUNDLE2H -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="extra">{{ extra }}</slot>
     <!-- #endif -->
   </view>

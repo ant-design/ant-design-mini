@@ -11,7 +11,7 @@ Page({
       checked: checked.detail,
     });
     /// #endif
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({
       checked,
     });

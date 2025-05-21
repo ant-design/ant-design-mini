@@ -25,7 +25,7 @@ Page({
     });
   },
   onTapAction() {
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     my.showToast({ content: '点击了行动点按钮' });
     /// #endif
     /// #if WECHAT

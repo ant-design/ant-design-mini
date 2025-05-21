@@ -18,7 +18,7 @@ Page({
     ],
   },
   handleTap() {
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     my.alert({
       title: '点击按钮',
     });

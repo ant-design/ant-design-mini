@@ -3,7 +3,7 @@
   "navigationBarTitleText": "NumberInput",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "NumberInput",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

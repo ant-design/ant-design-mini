@@ -9,7 +9,7 @@
   />
 </ant-container>
 
-<!-- #if ALIPAY || BUNDLE2H -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container title="自定义插槽">
   <ant-conversations
     items="{{items.slice(2,5)}}"

@@ -12,7 +12,7 @@
   "apps": [
     {
       "appId": "xxx",
-      "name": "antd-mini-bundle2h"
+      "name": "alipaynative"
     }
   ],
   "dependencies": {}

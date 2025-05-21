@@ -3,7 +3,7 @@
   "navigationBarTitleText": "ProgressCircle",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "ProgressCircle",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

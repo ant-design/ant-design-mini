@@ -11,11 +11,11 @@
       size="small"
       onTap="onCancel"
     >
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <ant-auto-resize text="{{ u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}" ratio="{{ 4 }}" minFontSize="20" maxFontSize="30">
       <!-- #endif -->
         {{ u.isPropsEmpty(jumpText) ? locale.guideTour.jumpText : jumpText}}
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </ant-auto-resize>
       <!-- #endif -->
     </ant-button>
@@ -26,11 +26,11 @@
       onTap="onPrev"
       data-currentValue="{{ mixin.value }}"
     >
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <ant-auto-resize text="{{ u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}" ratio="{{ 4 }}" minFontSize="20" maxFontSize="30">
       <!-- #endif -->
         {{ u.isPropsEmpty(prevStepText) ? locale.guideTour.prevStepText : prevStepText}}
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </ant-auto-resize>
       <!-- #endif -->
     </ant-button>
@@ -41,11 +41,11 @@
       onTap="onNext"
       data-currentValue="{{ mixin.value }}"
     >
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <ant-auto-resize text="{{ u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}" ratio="{{4}}" minFontSize="20" maxFontSize="30">
       <!-- #endif -->
         {{ u.isPropsEmpty(nextStepText) ? locale.guideTour.nextStepText : nextStepText}}
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </ant-auto-resize>
       <!-- #endif -->
     </ant-button>
@@ -55,11 +55,11 @@
       size="small"
       onTap="onCancel"
     >
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <ant-auto-resize text="{{ u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}" ratio="{{ 4 }}" minFontSize="20" maxFontSize="30">
       <!-- #endif -->
         {{ u.isPropsEmpty(gotItText) ? locale.guideTour.gotItText : gotItText}}
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </ant-auto-resize>
       <!-- #endif -->
     </ant-button>
@@ -93,7 +93,7 @@
             />
             <slot wx:else name="step" index="{{ mixin.current }}" />
             <!-- #endif -->
-            <!-- #if ALIPAY || BUNDLE2H -->
+            <!-- #if ALIPAY || ALIPAYNATIVE -->
             <slot name="step" index="{{ mixin.current }}">
               <image
                 a:if="{{ item.imageUrl }}"
@@ -126,7 +126,7 @@
         />
         <slot wx:else name="step" index="{{ index }}" />
         <!-- #endif -->
-        <!-- #if ALIPAY || BUNDLE2H -->
+        <!-- #if ALIPAY || ALIPAYNATIVE -->
         <slot name="step" index="{{ index }}">
           <image
             a:if="{{ item.imageUrl }}"

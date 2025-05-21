@@ -3,7 +3,7 @@
   "navigationBarTitleText": "ConfigProvider",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "ConfigProvider",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

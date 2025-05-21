@@ -3,7 +3,7 @@
   "navigationBarTitleText": "TermsFixed",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Terms",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

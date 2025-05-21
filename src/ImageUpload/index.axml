@@ -1,21 +1,21 @@
 <import-sjs from="../_util/isPropsEmpty.sjs" name="u" />
 
 <view class="ant-image-upload {{ className || '' }}" style="{{ style || '' }}">
-  <!-- #if ALIPAY || BUNDLE2H -->
+  <!-- #if ALIPAY || ALIPAYNATIVE -->
   <slot fileList="{{ mixin.value }}">
     <!-- #endif -->
     <block a:for="{{ mixin.value }}" a:for-index="index" a:for-item="item" a:key="uid">
       <view class="ant-image-upload-show">
         <view data-uid="{{ item.uid }}" onTap="onRemove">
-          <!-- #if ALIPAY || BUNDLE2H  -->
+          <!-- #if ALIPAY || ALIPAYNATIVE  -->
           <slot name="removeButton">
             <!-- #endif -->
             <view class="ant-image-upload-close" />
-            <!-- #if ALIPAY || BUNDLE2H  -->
+            <!-- #if ALIPAY || ALIPAYNATIVE  -->
           </slot>
           <!-- #endif -->
         </view>
-        <!-- #if ALIPAY || BUNDLE2H  -->
+        <!-- #if ALIPAY || ALIPAYNATIVE  -->
         <slot name="image" value="{{ item }}">
           <!-- #endif -->
           <view
@@ -44,23 +44,23 @@
             data-uid="{{ item.uid }}"
             onTap="onPreview"
           />
-          <!-- #if ALIPAY || BUNDLE2H  -->
+          <!-- #if ALIPAY || ALIPAYNATIVE  -->
         </slot>
         <!-- #endif -->
       </view>
     </block>
     <view onTap="chooseImage">
-      <!-- #if ALIPAY || BUNDLE2H  -->
+      <!-- #if ALIPAY || ALIPAYNATIVE  -->
       <slot name="uploadButton">
         <!-- #endif -->
         <view a:if="{{ showUploadButton }}" class="ant-image-upload-add-image-wrapper">
           <ant-icon type="AddOutline" className="ant-image-upload-add-image-icon" />
         </view>
-        <!-- #if ALIPAY || BUNDLE2H  -->
+        <!-- #if ALIPAY || ALIPAYNATIVE  -->
       </slot>
       <!-- #endif -->
     </view>
-    <!-- #if ALIPAY || BUNDLE2H  -->
+    <!-- #if ALIPAY || ALIPAYNATIVE  -->
   </slot>
   <!-- #endif -->
 </view>

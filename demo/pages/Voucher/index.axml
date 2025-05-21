@@ -16,7 +16,7 @@
   <ant-voucher size="small" onTap="onTap" dataSource="{{dataSource3}}" />
 </ant-container>
 
-<!-- #if ALIPAY || BUNDLE2H -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container title="基础用法-small-整体禁用-插槽">
   <ant-voucher size="small" dataSource="{{dataSource4}}" >
     <view slot="voucher-action-area" class="slot-demo">
@@ -55,7 +55,7 @@
   />
 </ant-container>
 
-<!-- #if ALIPAY || BUNDLE2H -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container title="多列（多列样式不区分small和large）">
   <ant-voucher
     direction="multipleColumn"

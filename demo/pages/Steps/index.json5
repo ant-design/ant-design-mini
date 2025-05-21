@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Steps",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Steps",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

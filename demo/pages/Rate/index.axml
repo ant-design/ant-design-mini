@@ -96,7 +96,7 @@
     characterActiveClassName="star-active-gradient" />
   <view class="description">渐变</view>
 </ant-container>
-<!-- #if ALIPAY || BUNDLE2H -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container title="自定义图标">
   <ant-rate defaultValue="{{ 3 }}">
     <ant-icon

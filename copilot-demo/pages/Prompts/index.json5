@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Prompts",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Prompts",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

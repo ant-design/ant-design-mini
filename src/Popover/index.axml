@@ -4,7 +4,7 @@
   <view
     id="ant-popover-children{{ $id ? '-' + $id : '' }}"
     onTap="onVisibleChange">
-    <!-- #if ALIPAY || BUNDLE2H -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot />
     <!-- #endif -->
     <!-- #if WECHAT -->
@@ -30,7 +30,7 @@
       </view>
       <slot a:else name="leftContent">
       </slot>
-      <!-- #if ALIPAY || BUNDLE2H -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <slot name="content">
         <view class="ant-popover-inner-text">
           {{ content }}

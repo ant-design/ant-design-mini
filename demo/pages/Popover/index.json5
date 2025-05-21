@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Popover",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Popover",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

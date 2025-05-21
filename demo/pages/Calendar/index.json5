@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Calendar",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Calendar",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

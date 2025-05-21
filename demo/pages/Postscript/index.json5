@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Postscript",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Postscript",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

@@ -4,7 +4,7 @@
   <ant-container title="基础页脚">
     <ant-footer label="没有更多了" />
     <ant-footer label="没有更多了" noLabelDivider/>
-    <!-- #if ALIPAY || BUNDLE2H -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <ant-footer label="placeholder">
       <view slot="label">
         <ant-icon type="HandPayCircleOutline" style="margin-right: 4px"/>
@@ -18,7 +18,7 @@
     <ant-footer
       content="@ 2004-2020 Alipay.com All rights reserved"
     />
-    <!-- #if ALIPAY || BUNDLE2H -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <ant-footer
       content="placeholder"
     >
@@ -49,7 +49,7 @@
 
   <ant-container title="组合使用">
 
-    <!-- #if ALIPAY || BUNDLE2H -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <ant-footer
       label="placeholder"
       content="过往业绩不预示产品未来表现，市场有风险，投资需谨慎"

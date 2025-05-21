@@ -3,7 +3,7 @@
   "navigationBarTitleText": "CheckBox",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "CheckBox",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

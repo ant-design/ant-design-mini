@@ -7,7 +7,7 @@ Component({
   methods: {
     onChange(_, e) {
       let event;
-      /// #if ALIPAY || BUNDLE2H
+      /// #if ALIPAY || ALIPAYNATIVE
       event = e;
       /// #endif
       /// #if WECHAT

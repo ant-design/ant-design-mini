@@ -30,7 +30,7 @@ Component({
   methods: {
     // visible受控判断
     isVisibleControlled() {
-      /// #if ALIPAY || BUNDLE2H
+      /// #if ALIPAY || ALIPAYNATIVE
       return 'visible' in getValueFromProps(this);
       /// #endif
       /// #if WECHAT
@@ -268,7 +268,7 @@ Component({
     }),
   ],
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   onInit() {
     this.pickerVisible = false;
     const [visible, defaultVisible] = getValueFromProps(this, [

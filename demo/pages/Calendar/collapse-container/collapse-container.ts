@@ -27,7 +27,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   onInit() {
     const [defaultCollapse, hide, title] = getValueFromProps(this, [
       'defaultCollapse',

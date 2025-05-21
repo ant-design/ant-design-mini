@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Sticky",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Sticky",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

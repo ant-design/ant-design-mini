@@ -23,7 +23,7 @@
               value="{{ item.value }}"
               disabled="{{ disabled || item.disabled }}"
               onChange="onChange">
-              <!-- #if ALIPAY || BUNDLE2H -->
+              <!-- #if ALIPAY || ALIPAYNATIVE -->
               <slot
                 name="label"
                 value="{{ item }}"
@@ -32,7 +32,7 @@
                 <view class="ant-checkbox-group-item-label-default">
                   {{ item.label }}
                 </view>
-              <!-- #if ALIPAY || BUNDLE2H -->
+              <!-- #if ALIPAY || ALIPAYNATIVE -->
               </slot>
               <!-- #endif -->
             </ant-checkbox>
@@ -52,7 +52,7 @@
             value="{{ item.value }}"
             disabled="{{ disabled || item.disabled }}"
             onChange="onChange">
-            <!-- #if ALIPAY || BUNDLE2H -->
+            <!-- #if ALIPAY || ALIPAYNATIVE -->
             <slot
               name="label"
               value="{{ item }}"
@@ -61,7 +61,7 @@
               <view class="ant-checkbox-group-item-label-default">
                 {{ item.label }}
               </view>
-            <!-- #if ALIPAY || BUNDLE2H -->
+            <!-- #if ALIPAY || ALIPAYNATIVE -->
             </slot>
             <!-- #endif -->
           </ant-checkbox>

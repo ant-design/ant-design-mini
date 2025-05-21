@@ -53,7 +53,7 @@ Page({
       url: '/demo' + e.currentTarget.dataset.url,
     });
     /// #endif
-    /// #if BUNDLE2H
+    /// #if ALIPAYNATIVE
     ac.call('navigateTo', {
       url: 'demo' + e.currentTarget.dataset.url,
     });

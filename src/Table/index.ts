@@ -152,7 +152,7 @@ Component({
       return this.sysInfo;
     },
   },
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   onInit() {
     this.init();
   },

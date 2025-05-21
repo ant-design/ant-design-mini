@@ -7,7 +7,7 @@ Component({
   props: FormImageUploadDefaultProps,
   methods: {
     handleRef(imageUpload) {
-      /// #if ALIPAY || BUNDLE2H
+      /// #if ALIPAY || ALIPAYNATIVE
       this.imageUpload = imageUpload;
       /// #endif
       /// #if WECHAT

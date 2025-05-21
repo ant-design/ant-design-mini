@@ -40,7 +40,7 @@ Component({
   /// #endif
   props: ButtonDefaultProps,
   methods: {
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     onTap(e) {
       const { onTap, disabled, loading, onDisabledTap } = this.props;
       if (disabled && onDisabledTap) {

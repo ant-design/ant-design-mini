@@ -20,7 +20,7 @@
     wx:else
     name="text" />
   <!-- #endif -->
-  <!-- #if ALIPAY || BUNDLE2H -->
+  <!-- #if ALIPAY || ALIPAYNATIVE -->
   <slot name="text">
     <view
       a:if="{{ text }}"

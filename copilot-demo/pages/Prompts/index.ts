@@ -109,7 +109,7 @@ Page({
   },
   onItemTap(i) {
     let item = i;
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     console.log(item);
     my.showToast({ content: item.key });
     /// #endif

@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Modal",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Modal",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

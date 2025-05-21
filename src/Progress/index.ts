@@ -141,7 +141,7 @@ Component({
   ctx: null as any,
   drawColor: null as any,
   canvas: null,
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   didMount() {
     this.calProgress();
   },

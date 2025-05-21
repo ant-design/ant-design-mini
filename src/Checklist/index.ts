@@ -15,7 +15,7 @@ Component({
         'options',
       ]);
       let value;
-      /// #if ALIPAY || BUNDLE2H
+      /// #if ALIPAY || ALIPAYNATIVE
       value = item.value;
       /// #endif
       /// #if WECHAT

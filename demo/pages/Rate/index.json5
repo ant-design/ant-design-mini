@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Rate",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Rate",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Card",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Card",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

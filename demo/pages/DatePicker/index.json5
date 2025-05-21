@@ -3,7 +3,7 @@
   "navigationBarTitleText": "DatePicker",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "DatePicker",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

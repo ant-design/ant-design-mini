@@ -30,7 +30,7 @@
     visible="{{ visible4 }}"
     onClose="onTap4" />
 </ant-list>
-<!-- #if ALIPAY || BUNDLE2H -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-list header="自定义按钮">
   <ant-list-item onTap="onTap6">自定义标题</ant-list-item>
   <ant-number-keyboard

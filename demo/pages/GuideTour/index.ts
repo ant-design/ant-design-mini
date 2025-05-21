@@ -32,7 +32,7 @@ Page({
     console.log('index', index);
   },
   onChangeControlled(value) {
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({ current: value });
     /// #endif
     /// #if WECHAT

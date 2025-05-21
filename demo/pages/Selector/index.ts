@@ -76,7 +76,7 @@ Page({
       value: value.detail[0],
     });
     /// #endif
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({
       value,
     });
@@ -94,7 +94,7 @@ Page({
     });
     /// #endif
 
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     my.alert({ content: '不允许清空' });
     /// #endif
   },
@@ -107,7 +107,7 @@ Page({
     });
     /// #endif
 
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     my.alert({ content: '选择已达上限' });
     /// #endif
   },

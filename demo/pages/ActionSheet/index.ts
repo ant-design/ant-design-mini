@@ -67,7 +67,7 @@ Page({
   },
 
   handleAction(item, index, e) {
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     if (item.key === 'delete') {
       my.confirm({
         content: '你确定要删除吗?',

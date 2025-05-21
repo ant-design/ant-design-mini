@@ -13,7 +13,7 @@ function onRemove(file) {
     });
     /// #endif
 
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     my.confirm({
       title: '是否确认移除图片',
       confirmButtonText: '确定',
@@ -83,7 +83,7 @@ Page({
   onPreview(file) {
     console.log('preview', file);
   },
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   onRemove,
   onUpload(file) {
     return new Promise((resolve) => {
@@ -109,7 +109,7 @@ Page({
       fileList: fileList.detail,
     });
     /// #endif
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({
       fileList,
     });
@@ -121,7 +121,7 @@ Page({
     /// #if WECHAT
     this.handleUploaderRef = ref.detail;
     /// #endif
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     this.handleUploaderRef = ref;
     /// #endif
   },

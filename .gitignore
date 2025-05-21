@@ -51,5 +51,5 @@ server
 config/alipay/app.json
 config/wechat.json
 config/wechat/app.json
-config/bundle2h.json
-config/bundle2h/app.json
+config/alipaynative.json
+config/alipaynative/app.json

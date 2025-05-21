@@ -8,7 +8,7 @@ async function createConfig() {
     'config',
     'config/wechat',
     'config/alipay',
-    'config/bundle2h'
+    'config/alipaynative'
   ];
 
   configDirs.forEach(dir => {
@@ -24,8 +24,8 @@ async function createConfig() {
       'config/alipay/app.json',
       'config/wechat.json',
       'config/wechat/app.json',
-      'config/bundle2h.json',
-      'config/bundle2h/app.json',
+      'config/alipaynative.json',
+      'config/alipaynative/app.json',
     ].map((dir) => {
       return fs.rm(path.resolve(__dirname, '..', dir), {
         recursive: true,
@@ -56,27 +56,27 @@ async function createConfig() {
   /** 生成平台配置文件 **/
   // 获取微信平台支持的组件列表
   const wechatFiles = [...(await getComponentsList('src', 'wechat')), ...(await getComponentsList('copilot', 'wechat'))]
-  // 获取bundle2h平台支持的组件列表
-  const bundle2hFiles = [...(await getComponentsList('src', 'bundle2h')), ...(await getComponentsList('copilot', 'bundle2h'))]
+  // 获取alipaynative平台支持的组件列表
+  const alipaynativeFiles = [...(await getComponentsList('src', 'alipaynative')), ...(await getComponentsList('copilot', 'alipaynative'))]
 
   // 生成微信平台配置
   writeFileSync(path.resolve(__dirname, '..', 'config', 'wechat.json'), JSON.stringify({
     src: wechatFiles,
   }, null, 2), 'utf8')
 
-  // 生成bundle2h平台配置
-  writeFileSync(path.resolve(__dirname, '..', 'config', 'bundle2h.json'), JSON.stringify({
-    src: bundle2hFiles,
+  // 生成alipaynative平台配置
+  writeFileSync(path.resolve(__dirname, '..', 'config', 'alipaynative.json'), JSON.stringify({
+    src: alipaynativeFiles,
   }, null, 2), 'utf8')
 
   const wechatAppJsonList = [];
-  const bundle2hAppJsonList = [];
+  const alipaynativeAppJsonList = [];
 
   const getDemoPageFiles = async (demoDir = 'demo', platform = 'wechat') => {
     // 获取demo文件列表
     const demoPageFiles = await fs.readdir(path.resolve(__dirname, '..', demoDir, 'pages'));
-    const appJsonList = platform === 'wechat' ? wechatAppJsonList : bundle2hAppJsonList;
-    const platformFiles = platform === 'wechat' ? wechatFiles : bundle2hFiles;
+    const appJsonList = platform === 'wechat' ? wechatAppJsonList : alipaynativeAppJsonList;
+    const platformFiles = platform === 'wechat' ? wechatFiles : alipaynativeFiles;
 
     // 遍历页面
     await Promise.all(demoPageFiles.map(async fileName => {
@@ -118,9 +118,9 @@ async function createConfig() {
 
   // 获取微信平台页面
   const demoPageFiles = [...(await getDemoPageFiles('demo', 'wechat')), ...(await getDemoPageFiles('copilot-demo', 'wechat'))];
-  // 获取bundle2h平台页面
-  await getDemoPageFiles('demo', 'bundle2h');
-  await getDemoPageFiles('copilot-demo', 'bundle2h');
+  // 获取alipaynative平台页面
+  await getDemoPageFiles('demo', 'alipaynative');
+  await getDemoPageFiles('copilot-demo', 'alipaynative');
 
   /** 生成config/wechat/app.json */
   writeFileSync(path.resolve(__dirname, '..', 'config', 'wechat', 'app.json'), JSON.stringify({
@@ -128,10 +128,10 @@ async function createConfig() {
     pages: ['demo/pages/index/index', ...wechatAppJsonList.filter(item => item !== 'index').map(fileName => `demo/pages/${fileName}/index`)],
   }, null, 2), 'utf8');
 
-  /** 生成config/bundle2h/app.json */
-  writeFileSync(path.resolve(__dirname, '..', 'config', 'bundle2h', 'app.json'), JSON.stringify({
+  /** 生成config/alipaynative/app.json */
+  writeFileSync(path.resolve(__dirname, '..', 'config', 'alipaynative', 'app.json'), JSON.stringify({
     "worklet": {},
-    pages: ['demo/pages/index/index', ...bundle2hAppJsonList.filter(item => item !== 'index').map(fileName => `demo/pages/${fileName}/index`)],
+    pages: ['demo/pages/index/index', ...alipaynativeAppJsonList.filter(item => item !== 'index').map(fileName => `demo/pages/${fileName}/index`)],
   }, null, 2), 'utf8');
 
   /** 生成config/alipay/app.json */

@@ -3,7 +3,7 @@
   "navigationBarTitleText": "ImageUpload",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "ImageUpload",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

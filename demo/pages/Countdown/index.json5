@@ -3,7 +3,7 @@
   "navigationBarTitleText": "Countdown",
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   "defaultTitle": "Countdown",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

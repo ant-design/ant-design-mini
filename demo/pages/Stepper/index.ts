@@ -15,7 +15,7 @@ Page({
   handleChange(value) {
     console.log('onChange', value);
 
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({
       value: value,
     });

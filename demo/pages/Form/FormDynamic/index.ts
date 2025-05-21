@@ -23,7 +23,7 @@ Page({
     /// #endif
   },
   handleRef(ref) {
-    /// #if ALIPAY || BUNDLE2H
+    /// #if ALIPAY || ALIPAYNATIVE
     this.form.addItem(ref);
     /// #endif
 

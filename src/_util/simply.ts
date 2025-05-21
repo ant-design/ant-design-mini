@@ -81,7 +81,7 @@ export const ComponentWithSignalStoreImpl = <
   };
   const instanceMethodsCopy: ExtendedInstanceMethods = { ...instanceMethods };
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   // 确保 instanceMethods 存在
   // 备份原有的 onInit 和 didUnmount 方法
   const onInitBackup = instanceMethodsCopy.onInit || (() => {});
@@ -145,7 +145,7 @@ export const ComponentWithSignalStoreImpl = <
   });
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   Component({
     props: removeNullProps(mergeDefaultProps(defaultProps)),
     methods,
@@ -245,7 +245,7 @@ function ComponentImpl<
   });
   /// #endif
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   Component({
     props: removeNullProps(mergeDefaultProps(defaultProps)),
     methods,
@@ -273,7 +273,7 @@ export function triggerEvent(
 ) {
   // 首字母大写，然后加上 on
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   const alipayCallbackName =
     'on' + eventName.charAt(0).toUpperCase() + eventName.slice(1);
   const props = instance.props;
@@ -290,7 +290,7 @@ export function triggerEvent(
 export function triggerEventOnly(instance: any, eventName: string, e?: any) {
   // 首字母大写，然后加上 on
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   const alipayCallbackName =
     'on' + eventName.charAt(0).toUpperCase() + eventName.slice(1);
   const props = instance.props;
@@ -312,7 +312,7 @@ export function triggerEventValues(
 ) {
   // 首字母大写，然后加上 on
 
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   const alipayCallbackName =
     'on' + eventName.charAt(0).toUpperCase() + eventName.slice(1);
   const props = instance.props;
@@ -327,7 +327,7 @@ export function triggerEventValues(
 }
 
 export function triggerCatchEvent(instance: any, eventName: string, e?: any) {
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   const props = instance.props;
   if (props[eventName]) {
     props[eventName](fmtEvent(props, e));
@@ -341,7 +341,7 @@ export function triggerCatchEvent(instance: any, eventName: string, e?: any) {
 
 export function getValueFromProps(instance: any, propName?: string | string[]) {
   let value;
-  /// #if ALIPAY || BUNDLE2H
+  /// #if ALIPAY || ALIPAYNATIVE
   const props = instance.props;
   if (!propName) {
     return props;
