@@ -5,6 +5,7 @@ group:
   title: 数据录入
   order: 12
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Form 表单

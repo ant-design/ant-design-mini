@@ -11,10 +11,10 @@
 
   "usingComponents": {
     "ant-icon": "../../../src/Icon/index",
-    "collapse-container": "./collapse-container/collapse-container",
+    "collapse-container": "../../components/collapse-container/index",
     "ant-button": "../../../src/Button/index",
     "ant-calendar": "../../../src/Calendar/index",
-    "cn-day": "./collapse-container/cn-day/cn-day",
+    "cn-day": "../../components/collapse-container/cn-day/index",
     "ant-popup": "../../../src/Popup/index"
   }
 }

@@ -2,6 +2,6 @@
   "component": true,
   "styleIsolation": "apply-shared",
   "usingComponents": {
-    "ant-container": "../../../../src/Container/index"
+    "ant-container": "../../../src/Container/index"
   }
 }
