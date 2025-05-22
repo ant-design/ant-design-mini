@@ -24,7 +24,8 @@
     "demo/**/*",
     "copilot-demo/**/*",
     "tests/**/*",
-    "demo/wechat.d.ts"
+    "demo/wechat.d.ts",
+    "typings.d.ts"
   ],
   "exclude": ["node_modules", "tests/**/*"]
 }
