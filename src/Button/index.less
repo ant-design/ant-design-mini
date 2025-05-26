@@ -16,6 +16,9 @@
   box-sizing: border-box;
   font-size: @button-font-size;
   z-index: 2;
+  /// #if ALIPAYNATIVE
+  margin-bottom: 16rpx;
+  /// #endif
 
   &-large {
     font-size: @button-large-font-size;
@@ -112,6 +115,12 @@
     margin-left: @h-spacing-standard;
   }
   &-content-text {
+    /// #if ALIPAYNATIVE
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /// #endif
     &:empty {
       margin-left: 0;
       width: 0;

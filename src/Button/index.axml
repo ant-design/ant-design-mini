@@ -1,6 +1,6 @@
 <import-sjs from="./index.sjs" name="utils" />
 
-<!-- #if ALIPAY || ALIPAYNATIVE -->
+<!-- #if ALIPAY -->
 <button
   form-type="{{ formType }}"
   hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"
@@ -17,27 +17,6 @@
   class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : (utils.isAide(aide, type) ? '-aide' : '' )) }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
   style="{{ style }}"
 >
-<!-- #endif -->
-<!-- #if WECHAT -->
-<button
-  form-type="{{ formType }}"
-  hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"
-  scope="{{ scope }}"
-  bindgetuserinfo="onGetUserInfo"
-  bindcontact="onContact"
-  bindgetphonenumber="onGetPhoneNumber"
-  bindgetrealtimephonenumber="onGetRealTimePhoneNumber"
-  binderror="onError"
-  bindlaunchapp="onLaunchApp"
-  bindopensetting="onOpenSetting"
-  bindagreeprivacyauthorization="onAgreePrivacyAuthorization"
-  bindchooseavatar="onChooseAvatar"
-  public-id="{{ publicId }}"
-  open-type="{{ openType }}"
-  class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : (utils.isAide(aide, type) ? '-aide' : '' )) }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
-  style="{{ style }}"
->
-<!-- #endif -->
   <view class="ant-button-wrap">
     <ant-icon a:if="{{ !!icon }}" type="{{ icon }}" />
     <view class="ant-button-content-text {{ icon ? 'ant-button-content-text-margin' : '' }}">
@@ -58,3 +37,75 @@
     </view>
   </view>
 </button>
+<!-- #endif -->
+<!-- #if WECHAT -->
+<button
+  form-type="{{ formType }}"
+  hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"
+  scope="{{ scope }}"
+  bindgetuserinfo="onGetUserInfo"
+  bindcontact="onContact"
+  bindgetphonenumber="onGetPhoneNumber"
+  bindgetrealtimephonenumber="onGetRealTimePhoneNumber"
+  binderror="onError"
+  bindlaunchapp="onLaunchApp"
+  bindopensetting="onOpenSetting"
+  bindagreeprivacyauthorization="onAgreePrivacyAuthorization"
+  bindchooseavatar="onChooseAvatar"
+  public-id="{{ publicId }}"
+  open-type="{{ openType }}"
+  class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : (utils.isAide(aide, type) ? '-aide' : '' )) }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
+  style="{{ style }}"
+>
+  <view class="ant-button-wrap">
+    <ant-icon a:if="{{ !!icon }}" type="{{ icon }}" />
+    <view class="ant-button-content-text {{ icon ? 'ant-button-content-text-margin' : '' }}">
+      <slot />
+      <view a:if="{{ !inline && subText }}" class="ant-button-content-subtext">
+        {{ subText }}
+      </view>
+    </view>
+    <view
+      a:if="{{loading}}"
+      class="ant-button-content-loading-container"
+    >
+      <loading
+        type="mini"
+        color="currentColor"
+        className="ant-button-content-loading"
+      ></loading>
+    </view>
+  </view>
+</button>
+<!-- #endif -->
+
+
+<!-- #if ALIPAYNATIVE -->
+<view
+  hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"
+  onTap="{{ onTap ? 'onTap' : '' }}"
+  catchTap="{{ catchTap ? 'catchTap' : '' }}"
+  class="ant-button {{ inline ? 'ant-button-inline ' + utils.getClass(size) : '' }} {{ 'ant-button-' + type + (danger ? '-danger' : (utils.isAide(aide, type) ? '-aide' : '' )) }} {{ disabled || loading ? 'ant-button-disabled' : '' }} {{ className ? className : '' }}"
+  style="{{ style }}"
+>
+  <view class="ant-button-wrap">
+    <ant-icon a:if="{{ !!icon }}" type="{{ icon }}" />
+    <view class="ant-button-content-text {{ icon ? 'ant-button-content-text-margin' : '' }}">
+      <slot />
+      <view a:if="{{ !inline && subText }}" class="ant-button-content-subtext">
+        {{ subText }}
+      </view>
+    </view>
+    <view
+      a:if="{{loading}}"
+      class="ant-button-content-loading-container"
+    >
+      <loading
+        type="mini"
+        color="currentColor"
+        className="ant-button-content-loading"
+      ></loading>
+    </view>
+  </view>
+</view>
+<!-- #endif -->
