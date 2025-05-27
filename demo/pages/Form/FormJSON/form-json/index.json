@@ -8,5 +8,6 @@
     "form-input": "../../../../../src/Form/FormInput/index",
     "form-stepper": "../../../../../src/Form/FormStepper/index",
     "button": "../../../../../src/Button/index"
-  }
+  },
+  "styleIsolation": "shared"
 }

@@ -6,5 +6,6 @@
     "form-json": "./form-json/index",
     "form-input": "../../../../src/Form/FormInput/index",
     "form-switch": "../../../../src/Form/FormSwitch/index"
-  }
+  },
+  "styleIsolation": "shared"
 }
