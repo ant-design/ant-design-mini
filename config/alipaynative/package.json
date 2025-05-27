@@ -6,12 +6,12 @@
   "scripts": {
     "build": "b2h build",
     "serve": "b2h server",
-    "preview": "b2h preview --app-id=xxx",
-    "dev": "b2h alive --app-id=xxx --debug"
+    "preview": "b2h preview --app-id=20002183",
+    "dev": "b2h alive --app-id=20002183 --debug"
   },
   "apps": [
     {
-      "appId": "xxx",
+      "appId": "20002183",
       "name": "alipaynative"
     }
   ],

@@ -15,7 +15,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: @prompts-list-gap;
     &-item {
       display: flex;
       flex-direction: row;
@@ -26,7 +25,10 @@
       border-radius: 50vh;
       padding: 20rpx 32rpx;
 
-      gap: @prompts-item-gap;
+      margin-bottom: @prompts-list-gap;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
 
       &.disabled {
         opacity: 0.45;
@@ -41,6 +43,7 @@
         width: 40rpx;
         height: 40rpx;
         flex-shrink: 0;
+        margin-right: @prompts-item-gap;
       }
 
       &-label {
@@ -49,6 +52,7 @@
         color: @prompts-item-label-color;
         line-height: @prompts-item-description-line-height;
         text-wrap: nowrap;
+        margin-right: @prompts-item-gap;
       }
 
       &-description {
@@ -56,6 +60,7 @@
         font-size: 28rpx;
         color: @prompts-item-description-color;
         line-height: @prompts-item-description-line-height;
+        margin-right: @prompts-item-gap;
       }
 
       &-arrow {
