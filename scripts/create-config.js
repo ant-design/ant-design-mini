@@ -136,6 +136,7 @@ async function createConfig() {
   /** 生成config/alipaynative/app.json */
   writeFileSync(path.resolve(__dirname, '..', 'config', 'alipaynative', 'app.json'), JSON.stringify({
     "worklet": {},
+    "darkMode": true,
     pages: ['demo/pages/index/index', ...alipaynativeAppJsonList.filter(item => item !== 'index').map(fileName => `demo/pages/${fileName}/index`)],
   }, null, 2), 'utf8');
 

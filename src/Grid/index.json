@@ -1,5 +1,6 @@
 {
   "component": true,
+  "styleIsolation": "shared",
   "usingComponents": {
     "image-icon": "../ImageIcon/index",
     "ant-pagination": "../Pagination/index"
