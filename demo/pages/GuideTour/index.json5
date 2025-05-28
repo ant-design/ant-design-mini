@@ -4,7 +4,7 @@
   "navigationBarTitleText": "GuideTour",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "GuideTour",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Picker",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Picker",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

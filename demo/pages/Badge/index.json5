@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Badge",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Badge",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

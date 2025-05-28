@@ -4,7 +4,7 @@
   "navigationBarTitleText": "NumberInput",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "NumberInput",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

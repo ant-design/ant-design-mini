@@ -4,7 +4,7 @@
   "navigationBarTitleText": "ProgressCircle",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "ProgressCircle",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

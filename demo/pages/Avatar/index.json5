@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Avatar",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Avatar",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

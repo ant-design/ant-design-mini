@@ -4,7 +4,7 @@
   "navigationBarTitleText": "TermsFixed",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Terms",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

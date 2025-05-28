@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Stepper",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Stepper",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

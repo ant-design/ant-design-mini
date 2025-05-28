@@ -2,7 +2,9 @@
   from="./index.sjs"
   name="utils" />
 
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container title="Checkbox 用法">
   <view>

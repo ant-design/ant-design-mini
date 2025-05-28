@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <view class="t-swipe">
   <view class="t-swipe-item">

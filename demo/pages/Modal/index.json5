@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Modal",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Modal",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

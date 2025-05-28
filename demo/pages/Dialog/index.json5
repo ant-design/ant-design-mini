@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Dialog",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Dialog",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

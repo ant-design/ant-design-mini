@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-list header="数字键盘示例: 金额输入">
   <ant-list-item>

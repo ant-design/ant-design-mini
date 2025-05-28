@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <import-sjs
   from="./slice.sjs"

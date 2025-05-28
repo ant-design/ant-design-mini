@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Toast",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Toast",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

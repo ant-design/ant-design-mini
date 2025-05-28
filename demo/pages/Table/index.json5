@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Table",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Table",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

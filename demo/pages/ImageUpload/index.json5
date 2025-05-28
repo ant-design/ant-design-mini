@@ -4,7 +4,7 @@
   "navigationBarTitleText": "ImageUpload",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "ImageUpload",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

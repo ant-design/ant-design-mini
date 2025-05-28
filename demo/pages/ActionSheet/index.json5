@@ -4,7 +4,7 @@
   "navigationBarTitleText": "ActionSheet",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "ActionSheet",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

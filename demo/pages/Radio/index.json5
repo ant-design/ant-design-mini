@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Radio",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Radio",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

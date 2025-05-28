@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Empty",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Empty",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

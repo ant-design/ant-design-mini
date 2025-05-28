@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Swipe-Action",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Swipe-Action",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

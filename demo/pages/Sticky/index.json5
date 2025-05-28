@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Sticky",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Sticky",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

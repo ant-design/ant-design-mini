@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-page-container
   loading="{{loading}}"

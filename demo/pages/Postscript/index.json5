@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Postscript",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Postscript",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

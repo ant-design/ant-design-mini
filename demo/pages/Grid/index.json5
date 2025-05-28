@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Grid",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Grid",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

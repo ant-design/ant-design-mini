@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Collapse",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Collapse",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

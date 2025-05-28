@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Prompts",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Prompts",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

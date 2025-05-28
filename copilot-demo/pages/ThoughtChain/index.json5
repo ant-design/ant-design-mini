@@ -4,7 +4,7 @@
   "navigationBarTitleText": "ThoughtChain",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "ThoughtChain",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

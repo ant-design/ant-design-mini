@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Icon",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Icon",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

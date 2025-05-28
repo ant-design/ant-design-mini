@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Checklist",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Checklist",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

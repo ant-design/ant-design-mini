@@ -4,7 +4,7 @@
   "navigationBarTitleText": "DatePicker",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "DatePicker",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

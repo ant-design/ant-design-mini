@@ -4,7 +4,7 @@
   "navigationBarTitleText": "SelectContact",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "SelectContact",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

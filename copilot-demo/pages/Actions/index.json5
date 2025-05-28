@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Actions",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Actions",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",

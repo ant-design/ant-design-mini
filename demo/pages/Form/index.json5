@@ -4,7 +4,7 @@
   "navigationBarTitleText": "Form Demo",
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   "defaultTitle": "Form Demo",
   "transparentTitle": "auto",
   "titlePenetrate": "YES",
