@@ -59,7 +59,7 @@ Component({
     const enableAnimation = animation && duration > 0;
 
     if (
-      nextProps.visible !== visible &&
+      Boolean(nextProps.visible) !== Boolean(visible) &&
       enableAnimation &&
       !nextProps.visible &&
       !this.data.closing
