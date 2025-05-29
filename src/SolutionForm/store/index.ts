@@ -191,6 +191,7 @@ const getStoreInstance = () => {
                     properties[key].properties,
                     key,
                     state.formData,
+                    properties[key],
                   ).map((item) => ({
                     ...item,
                     groupTitle: properties[key]?.title || '',

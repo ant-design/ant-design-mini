@@ -1,10 +1,10 @@
 {
   /// #if WECHAT
-  "navigationBarTitleText": "Form API",
+  "navigationBarTitleText": "表单-必填标识",
   /// #endif
 
   /// #if ALIPAY
-  "defaultTitle": "Form API",
+  "defaultTitle": "表单-必填标识",
   "transparentTitle": "none",
   "titlePenetrate": "YES",
   /// #endif

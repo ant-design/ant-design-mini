@@ -42,6 +42,8 @@ export interface FormItem {
    */
   widget: string;
   value: any;
+  path?: string;
+  visible?: boolean;
   order: number;
   /**
    * @description 当基础字段不够描述组件的展示时，使用 props 字段作为扩展
@@ -51,6 +53,7 @@ export interface FormItem {
    * @description 表单项是否置灰
    */
   disabled: boolean;
+  requiredMarkStyle?: 'empty' | 'text-not-required' | 'text-required' | 'asterisk';
   /**
    * @description 用于描述细致的、定制化的校验，支持 async-validator 所有的 api
    */

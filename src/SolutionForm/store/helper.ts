@@ -23,9 +23,10 @@ export const getValidator = ({ rules, hasGroup }, key = '') => {
 };
 
 export const getFormItemArr = (
-  properties: FormItem,
+  properties: Record<string, FormItem>,
   groupPath: string,
   formData: Record<string, any>,
+  groupOption: Record<string, any>,
 ) => {
   const formItemArr = Object.keys(properties)
     .map((formItem) => {
@@ -35,6 +36,7 @@ export const getFormItemArr = (
         ...(relation ? relation(formData) : {}),
         // 表单项的key优先取schema的path 默认group.key的形式
         path: path || `${groupPath}.${formItem}`,
+        requiredMarkStyle: properties[formItem].requiredMarkStyle || groupOption.requiredMarkStyle,
       };
       newSchema.visible = newSchema.visible !== false;
       return newSchema;

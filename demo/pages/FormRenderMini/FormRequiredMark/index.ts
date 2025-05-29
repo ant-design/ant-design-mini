@@ -18,24 +18,75 @@ Page({
       // requiredMarkStyle: 'text-not-required',
       displayType: 'row',
       properties: {
-        info: {
+        group1: {
+          title: '分组设置必填标识',
+          requiredMarkStyle: 'text-required',
           properties: {
             input1: {
               title: '输入框一',
               type: 'string',
               widget: 'input',
+              required: true,
               props: {
                 placeholder: '请输入',
               },
             },
+          },
+        },
+        group2: {
+          title: '表单项设置非必填标识',
+          properties: {
             input2: {
               title: '输入框二',
               type: 'string',
-              required: true,
               widget: 'input',
               props: {
                 placeholder: '请输入',
               },
+              required: true,
+              extra: '',
+            },
+            input3: {
+              title: '输入框三',
+              type: 'string',
+              widget: 'input',
+              requiredMarkStyle: 'text-not-required',
+              props: {
+                placeholder: '请输入',
+              },
+              extra: '',
+            },
+          },
+        },
+        group3: {
+          title: '设置红点必填标识',
+          requiredMarkStyle: 'asterisk',
+          properties: {
+            input4: {
+              title: '输入框四',
+              type: 'string',
+              widget: 'input',
+              props: {
+                placeholder: '请输入',
+              },
+              required: true,
+              extra: '',
+            },
+          },
+        },
+        group4: {
+          title: '不展示必填标识',
+          requiredMarkStyle: 'empty',
+          properties: {
+            input5: {
+              title: '输入框五',
+              type: 'string',
+              widget: 'input',
+              props: {
+                placeholder: '请输入',
+              },
+              required: true,
+              extra: '',
             },
           },
         },

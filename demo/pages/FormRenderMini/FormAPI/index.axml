@@ -1,17 +1,41 @@
-<form-render-mini 
-  schema="{{schema}}"
-  showSubmitButton="{{true}}"
-  debug="{{true}}"
->
-  <view slot="extra" class="extra" slot-scope="props">
-    <view style="color: #ff0000;" a:if="{{ props.extra.widget === 'red-text' }}">
-      {{ props.extra.text }}
-    </view>
-    <view style="font-weight: bold;" a:elif="{{ props.extra.widget === 'thick-text' }}">
-      {{ props.extra.text }}
-    </view>
-    <view style="padding-left: 190rpx;" a:elif="{{ props.extra.widget === 'padding-text' }}">
-      {{ props.extra.text }}
-    </view>
-  </view>
-</form-render-mini>
+<form-render-mini schema="{{schema}}" />
+
+<view class="form-api">
+  <ant-button type="primary" onTap="handleSetFieldsValue">
+    设置表单内容
+  </ant-button>
+  
+  <ant-button type="primary" onTap="handleResetFieldsValue">
+    重置表单内容
+  </ant-button>
+  
+  <ant-button type="primary" onTap="handleSetFieldsError">
+    设置错误信息
+  </ant-button>
+  
+  <ant-button type="primary" onTap="handleRemoveFieldsError">
+    移除错误信息
+  </ant-button>
+  
+  
+  <ant-button type="primary" onTap="handleOnSubmit">
+    表单提交
+  </ant-button>
+  
+  <ant-button type="primary" onTap="handleValidate">
+    校验-单个表单项
+  </ant-button>
+  
+  <ant-button type="primary" onTap="handleValidateAll">
+    校验-全部表单
+  </ant-button>
+  
+  <ant-button type="primary" onTap="handleGetValues">
+    获取表单内容
+  </ant-button>
+  
+  <ant-button type="primary" onTap="handleGetErrorInfo">
+    获取错误信息
+  </ant-button>
+    
+</view>
