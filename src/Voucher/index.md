@@ -5,6 +5,7 @@ group:
   title: 业务组件
   order: 15
 toc: content
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Voucher 优惠券

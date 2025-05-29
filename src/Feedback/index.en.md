@@ -5,6 +5,7 @@ group:
   title: Feedback
   order: 15
 toc: content
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Feedback

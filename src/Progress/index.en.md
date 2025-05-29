@@ -5,6 +5,7 @@ group:
   title: Feedback
   order: 12
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Progress

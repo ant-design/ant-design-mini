@@ -5,7 +5,6 @@ group:
   title: 反馈引导
   order: 12
 toc: 'content'
-supportPlatform: ['alipay', 'wechat']
 ---
 
 # ActionSheet 动作面板

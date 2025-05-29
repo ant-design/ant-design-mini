@@ -5,6 +5,7 @@ group:
   title: 反馈引导
   order: 15
 toc: content
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Feedback 信息反馈

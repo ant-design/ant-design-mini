@@ -5,6 +5,7 @@ group:
   title: 业务组件
   order: 15
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Postscript 资金附言组件
