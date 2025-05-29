@@ -5,6 +5,7 @@ group:
   title: 业务组件
   order: 15
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Terms 协议

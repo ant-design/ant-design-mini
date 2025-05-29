@@ -182,8 +182,8 @@ export const componentList = [
       { name: 'Loading', nameZN: '加载中', path: '/pages/Loading/index' },
       { name: 'Skeleton', nameZN: '骨架屏', path: '/pages/Skeleton/index' },
       { name: 'Dialog', nameZN: '弹窗', path: '/pages/Dialog/index' },
-      { name: 'Popover', nameZN: '气泡卡片', path: '/pages/Popover/index' },
       /// #if ALIPAY || WECHAT
+      { name: 'Popover', nameZN: '气泡卡片', path: '/pages/Popover/index' },
       {
         name: 'PopoverList',
         nameZN: '气泡菜单',
@@ -217,13 +217,13 @@ export const componentList = [
         nameZN: '选人组件',
         path: '/pages/SelectContact/index',
       },
-      /// #endif
       { name: 'Terms', nameZN: '协议', path: '/pages/Terms/index' },
       {
         name: 'TermsFixed',
         nameZN: '固定底部协议',
         path: '/pages/Terms/Fixed/index',
       },
+      /// #endif
     ],
   },
   {
