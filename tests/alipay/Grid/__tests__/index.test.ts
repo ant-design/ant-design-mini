@@ -7,7 +7,7 @@ describe('grid onTap', () => {
     const instance = getInstance('Grid', {
       onTap,
     });
-    instance.callMethod('onTap', { target: { dataset: { item: {} } } });
+    instance.callMethod('onTap', { currentTarget: { dataset: { item: {} } } });
     expect(onTap).toBeCalled();
   });
 });
@@ -17,7 +17,7 @@ describe('grid onFirstAppear', () => {
     const instance = getInstance('Grid', {
       onFirstAppear,
     });
-    instance.callMethod('onFirstAppear', { target: { dataset: { item: {} } } });
+    instance.callMethod('onFirstAppear', { currentTarget: { dataset: { item: {} } } });
     expect(onFirstAppear).toBeCalled();
   });
 });
