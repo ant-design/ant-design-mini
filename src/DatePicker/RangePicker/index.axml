@@ -44,10 +44,13 @@
   onVisibleChange="onVisibleChange"
   maskClosable="{{ maskClosable }}"
 >
-  <view class="ant-range-picker-selector" slot="content-header">
-    <template is="selector" data="{{ placeholder: u.isPropsEmpty(startPlaceholder) ? locale.RangePicker.startPlaceholder : startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision }}" />
-    <view class="ant-range-picker-selector-split">{{ splitCharacter }}</view>
-    <template is="selector" data="{{ placeholder: u.isPropsEmpty(endPlaceholder) ? locale.RangePicker.endPlaceholder : endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision }}" />
+  <view slot="content-header">
+    <slot name="content-header"></slot>
+    <view class="ant-range-picker-selector">
+      <template is="selector" data="{{ placeholder: u.isPropsEmpty(startPlaceholder) ? locale.RangePicker.startPlaceholder : startPlaceholder, active: pickerType === 'start', type: 'start', value: currentStartValueStr, precision: precision }}" />
+      <view class="ant-range-picker-selector-split">{{ splitCharacter }}</view>
+      <template is="selector" data="{{ placeholder: u.isPropsEmpty(endPlaceholder) ? locale.RangePicker.endPlaceholder : endPlaceholder, active: pickerType === 'end', type: 'end', value: currentEndValueStr, precision: precision }}" />
+    </view>
   </view>
   <slot name="content" slot="content" />
   <slot name="title" slot="title" />

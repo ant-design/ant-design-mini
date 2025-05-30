@@ -42,16 +42,28 @@ Component({
       const realValue = this.getValue();
       const { min, max, precision, defaultPickerValue } = currentProps;
       if (realValue) {
-        return getValueByDate(realValue, precision,);
+        return getValueByDate(realValue, precision);
       }
       // 处理默认值
       let baseDate: Date | null = null;
       if (defaultPickerValue) {
         try {
           // 判断defaultPickerValue用户配置格式
-          let defaultDate = dayjs(defaultPickerValue, ['YYYY-MM-DD', 'YYYY/MM/DD', 'HH:mm:ss', 'HH:mm', 'HH']);
-          if (!defaultDate.isValid() && typeof defaultPickerValue === 'string' && defaultPickerValue.includes(':')) {
-            const [hours, minutes, seconds] = defaultPickerValue.split(':').map(Number);
+          let defaultDate = dayjs(defaultPickerValue, [
+            'YYYY-MM-DD',
+            'YYYY/MM/DD',
+            'HH:mm:ss',
+            'HH:mm',
+            'HH',
+          ]);
+          if (
+            !defaultDate.isValid() &&
+            typeof defaultPickerValue === 'string' &&
+            defaultPickerValue.includes(':')
+          ) {
+            const [hours, minutes, seconds] = defaultPickerValue
+              .split(':')
+              .map(Number);
             const now = dayjs();
             defaultDate = now
               .set('hour', hours || 0)
@@ -62,7 +74,7 @@ Component({
         } catch (e) {
           baseDate = new Date();
         }
-      }else {
+      } else {
         // 没有 defaultPickerValue 时，回退原逻辑
         const now = new Date();
         const minDayjs = this.getMin(min);
@@ -115,7 +127,12 @@ Component({
             });
           }
         );
+        return;
       }
+      this.setData({
+        currentValue,
+        formattedValueText: this.onFormat(),
+      });
     },
 
     // 生成选项数据，didmound、picker change、打开弹窗触发
@@ -300,6 +317,11 @@ Component({
         this.setCurrentValue(currentProps);
       }
     }
+    if (!equal(currentProps, prevProps)) {
+      if (this.pickerVisible) {
+        this.setCurrentValue(currentProps);
+      }
+    }
   },
   /// #endif
   /// #if WECHAT
@@ -315,6 +337,15 @@ Component({
     });
   },
   observers: {
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      if (!equal(prevData, data)) {
+        if (this.pickerVisible) {
+          this.setCurrentValue(getValueFromProps(this));
+        }
+      }
+    },
     'mixin.value': function () {
       this.setData({
         forceUpdate: this.data.forceUpdate + 1,

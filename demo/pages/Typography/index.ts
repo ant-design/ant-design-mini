@@ -16,6 +16,7 @@ Page({
     /// #endif
 
     /// #if WECHAT
+    console.log(e);
     if (type === 'copy') {
       // @ts-ignore
       wx.setClipboardData({

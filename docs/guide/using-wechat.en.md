@@ -56,7 +56,7 @@ Page({
 
 ## FAQ
 
-1. The WeChat applet does not support setting default values and scope slots for slots, so the slot capability of components in the WeChat version is limited. Reference:[Slot Default Value Related Discussions](https://developers.weixin.qq.com/community/develop/doc/000a0e58acc32809d04cc948856c00)、[Scope Slot Related Discussions](https://developers.weixin.qq.com/community/develop/doc/00008c24ad42083cea899887851800)
+1. The WeChat applet does not support setting default values and scope slots for slots, so the slot capability of components in the WeChat version is limited.
 
 ```axml
 <!-- 微信小程序本身不支持下面例子中这样的 给插槽设置默认值 -->

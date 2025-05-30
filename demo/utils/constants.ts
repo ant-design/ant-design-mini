@@ -34,6 +34,14 @@ export const componentList = [
     ],
   },
   {
+    type: '布局',
+    list: [
+      { name: 'Divider', nameZN: '分割线', path: '/pages/Divider/index' },
+      { name: 'Grid', nameZN: '宫格', path: '/pages/Grid/index' },
+      { name: 'Space', nameZN: '间距', path: '/pages/Space/index' },
+    ],
+  },
+  {
     type: '导航',
     list: [
       { name: 'Footer页脚', nameZN: 'Footer页脚', path: '/pages/Footer/index' },
@@ -64,7 +72,6 @@ export const componentList = [
       { name: 'IndexBar', nameZN: '索引', path: '/pages/IndexBar/index' },
       /// #endif
       { name: 'Collapse', nameZN: '折叠面板', path: '/pages/Collapse/index' },
-      { name: 'Grid', nameZN: '宫格', path: '/pages/Grid/index' },
       { name: 'List', nameZN: '列表', path: '/pages/List/index' },
       /// #if ALIPAY || WECHAT
       {
@@ -78,9 +85,6 @@ export const componentList = [
       { name: 'Tag', nameZN: ' 标签', path: '/pages/Tag/index' },
       /// #if ALIPAY || WECHAT
       { name: 'Progress', nameZN: '进度条', path: '/pages/Progress/index' },
-      /// #endif
-      { name: 'Divider', nameZN: '分割线', path: '/pages/Divider/index' },
-      /// #if ALIPAY || WECHAT
       { name: 'Table', nameZN: '表格', path: '/pages/Table/index' },
       /// #endif
     ],

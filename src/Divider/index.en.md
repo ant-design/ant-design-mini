@@ -2,7 +2,8 @@
 nav:
   path: /components
 group:
-  title: Information Display
+  title: Layout
+  order: 1
 toc: 'content'
 ---
 

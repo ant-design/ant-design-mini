@@ -127,6 +127,7 @@ Page({
     /// #endif
 
     /// #if WECHAT
+    console.log(item)
     //@ts-ignore
     wx.showToast({
       title: '点击',

@@ -12,7 +12,8 @@ function equal(a, b) {
 }
 
 /// #if ALIPAY || ALIPAYNATIVE
-const component2 = my.canIUse('component2');
+// @ts-ignore
+const component2 = my.canIUse('component2') || typeof ac === 'object';
 /// #endif
 
 export default ({

@@ -1,6 +1,3 @@
-<!-- #if ALIPAY || WECHAT -->
-<view class="navigation-bar"/>
-<!-- #endif -->
 
 <ant-popup
   visible="{{ basicVisible }}"
@@ -121,6 +118,29 @@
     proident elit.
   </scroll-view>
 </ant-popup>
+<!-- #if ALIPAY -->
+<ant-popup
+  visible="{{ slotVisible }}"
+  position="bottom"
+  showClose="{{ true }}"
+  showBack="{{ true }}"
+  animation="{{ animation }}"
+  onClickBack="onClickBack"
+  onClose="handlePopupClose">
+    <view slot="header-close" class="header-close">
+      x
+    </view>
+    <view slot="header-back" class="header-back">
+      返回
+    </view>
+    <view slot="header-title" class="header-title">
+      标题
+    </view>
+    <view class="customize-content">
+      从屏幕滑出或弹出一块自定义内容区，用于展示弹窗、信息提示、选择输入、切换等内容。
+    </view>
+</ant-popup>
+<!-- #endif -->
 <container
   title="弹出位置"
   className="list">
@@ -147,6 +167,9 @@
   <ant-button onTap="handleShowCustomize">自定义弹框内容 并支持背景图</ant-button>
   <ant-button onTap="handleShowTopImage">顶部图片</ant-button>
   <ant-button onTap="handleShowScroll">超长内容滚动</ant-button>
+  <!-- #if ALIPAY -->
+  <ant-button onTap="handleShowSlot">插槽定制Header</ant-button>
+  <!-- #endif -->
 </container>
 <list>
   <list-item>
