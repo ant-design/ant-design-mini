@@ -5,11 +5,11 @@ Component({
   props: GridFunctionalProps,
   methods: {
     onTap(e: IPlatformEvent) {
-      const { item } = e.target.dataset;
+      const { item } = e.currentTarget.dataset;
       triggerEvent(this, 'tap', item);
     },
     onFirstAppear(e: IPlatformEvent) {
-      const { item } = e.target.dataset;
+      const { item } = e.currentTarget.dataset;
       triggerEvent(this, 'firstAppear', item);
     },
   },
