@@ -8,6 +8,7 @@
 /package-lock.json
 
 # production
+/native
 /es
 /less
 /docs-dist
