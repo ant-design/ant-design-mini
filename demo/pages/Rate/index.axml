@@ -39,6 +39,7 @@
     count="{{ 8 }}" />
 </ant-container>
 
+<!-- #if ALIPAY || WECHAT -->
 <ant-container title="受控模式">
   <view style="display: flex; justify-content: space-around">
     <view>
@@ -60,7 +61,7 @@
     </view>
   </view>
 </ant-container>
-
+<!-- #endif -->
 <ant-container title="自定义间距">
   <ant-rate
     defaultValue="{{ 3 }}"

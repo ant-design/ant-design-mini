@@ -9,11 +9,13 @@
   /// #endif
 
   "usingComponents": {
+    /// #if ALIPAY || WECHAT
+    "ant-input": "../../../src/Input/index",
+    /// #endif
     "ant-list": "../../../src/List/index",
     "ant-list-item": "../../../src/List/ListItem/index",
     "ant-tag": "../../../src/Tag/index",
-    "ant-icon": "../../../src/Icon/index",
-    "ant-input": "../../../src/Input/index"
+    "ant-icon": "../../../src/Icon/index"
   },
   "transparentTitle": "always"
 }

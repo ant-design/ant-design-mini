@@ -13,7 +13,9 @@
   "usingComponents": {
     "ant-slider": "../../../src/Slider/index",
     "ant-icon": "../../../src/Icon/index",
+    /// #if ALIPAY || WECHAT
     "ant-stepper": "../../../src/Stepper/index",
+    /// #endif
     "ant-container": "../../../src/Container/index"
   }
 }

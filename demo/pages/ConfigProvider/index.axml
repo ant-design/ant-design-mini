@@ -1,7 +1,7 @@
 <!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
 <!-- #endif -->
-
+<!-- #if ALIPAY || WECHAT -->
 <ant-container>
   <ant-config-provider locale="{{locale}}">
     <ant-list>
@@ -31,6 +31,7 @@
     </ant-list>
   </ant-config-provider>
 </ant-container>
+<!-- #endif -->
 <ant-container title="DarkMode">
   <ant-config-provider theme='dark' locale="{{locale}}">
     <ant-button type="primary" onTap="handleTap">

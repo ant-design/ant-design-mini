@@ -5,6 +5,7 @@ group:
   title: 数据展示
   order: 8
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Card 卡片
