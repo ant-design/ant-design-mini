@@ -150,7 +150,9 @@
     width="{{250}}"
     height="{{600}}"
     onClose="onPopupClose">
-    <ant-calendar></ant-calendar>
+    <ant-calendar
+      monthRange="{{demo10.monthRange}}"
+      ></ant-calendar>
   </ant-popup>
 
 </view>
