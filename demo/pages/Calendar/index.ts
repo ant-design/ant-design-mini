@@ -102,6 +102,10 @@ Page({
     },
     demo10: {
       visible: false,
+      monthRange: [
+        dayjs().subtract(1, 'year').valueOf(),
+        dayjs().add(1, 'year').valueOf(),
+      ],
     },
   },
   demo3NextMonth() {

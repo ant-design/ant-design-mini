@@ -5,8 +5,8 @@ function handleScroll(event, ownerComponent) {
   if (!elementSize) {
     return;
   }
-  // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHight 为 0
-  if (elementSize.cellHight === 0) {
+  // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHeight 为 0
+  if (elementSize.cellHeight === 0) {
     ownerComponent.callMethod('measurement');
     return;
   }
@@ -19,7 +19,7 @@ function handleScroll(event, ownerComponent) {
   }
   const monthHeight = elementSize.monthTitleHeight;
   const paddingHeight = elementSize.paddingHeight;
-  const cellHeight = elementSize.cellHight;
+  const cellHeight = elementSize.cellHeight;
   const heightList = monthList.map((p) => {
     return monthHeight + (cellHeight * p.cells.length) / 7;
   });
