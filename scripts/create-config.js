@@ -154,7 +154,7 @@ async function createConfig() {
     },
     "lazyCodeLoading": "requiredComponents",
     "debug": true,
-    pages: ['pages/index/index', ...demoPageFiles.filter(item => item !== 'index').map(fileName => `pages/${fileName}/index`)],
+    pages: [...demoPageFiles.filter(item => item !== 'pages').map(fileName => `pages/${fileName}/index`)],
   }, null, 2), 'utf8');
 }
 module.exports = createConfig;
