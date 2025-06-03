@@ -12,8 +12,8 @@
 
   "usingComponents": {
     "form-input": "../../../../src/Form/FormInput/index",
-    "form-checklist": "./checklist",
-    "form-location": "./location",
+    "form-checklist": "../../../components/Form/checklist",
+    "form-location": "../../../components/Form/location",
     "ant-button": "../../../../src/Button/index"
   }
 }

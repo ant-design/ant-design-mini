@@ -8,7 +8,7 @@
  */
 import dayjs from 'dayjs';
 import equal from 'fast-deep-equal';
-import { Component, getValueFromProps } from '../../../../src/_util/simply';
+import { Component, getValueFromProps } from '../../../../../src/_util/simply';
 import Converter from './js-calendar-converter';
 
 interface Props {

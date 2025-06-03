@@ -1,4 +1,4 @@
-import { Form } from '../../../../../src/Form/form';
+import { Form } from '../../../../src/Form/form';
 
 
 Component({
@@ -7,7 +7,7 @@ Component({
     this.form.setInitialValues(this.props.config.initialValues);
     this.form.reset();
   },
-  
+
   methods: {
     handleRef(ref) {
       this.form.addItem(ref);
