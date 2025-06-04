@@ -82,9 +82,9 @@ ComponentWithSignalStoreImpl({
     },
     measurement() {
       const { elementSize } = this.data;
-      // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHight 为 0
+      // 组件如果内嵌在 slot 里, 一定会被渲染出来, 但是此时 cellHeight 为 0
       // 此时需要重新计算
-      if (!elementSize || elementSize.cellHight === 0) {
+      if (!elementSize || elementSize.cellHeight === 0) {
         this.measurementFn();
       }
     },
@@ -92,24 +92,27 @@ ComponentWithSignalStoreImpl({
       Promise.all([
         this.getBoundingClientRect('.ant-calendar-body-container'),
         this.getBoundingClientRect('.ant-calendar-cells'),
+        this.getBoundingClientRect('.ant-calendar-cell'),
         this.getBoundingClientRect('.ant-calendar-title-container'),
       ])
-        .then(([bodyContainer, cellContainer, Title]) => {
-          // 滚动的时候 top 和 bottom 等尺寸会变
-          // 所以只能依赖 height 来计算
-          const paddingHeight =
-            bodyContainer.height - cellContainer.height - Title.height;
-          const monthTitleHeight = Title.height + paddingHeight;
-          const cellHight =
-            cellContainer.height / (this.data.monthList[0].cells.length / 7);
-          this.setData({
-            elementSize: {
-              monthTitleHeight,
-              cellHight,
-              paddingHeight,
-            },
-          });
-        })
+        .then(
+          ([bodyContainer, cellsContainer, cellContainer, titleContainer]) => {
+            // 滚动的时候 top 和 bottom 等尺寸会变
+            // 所以只能依赖 height 来计算
+            const paddingHeight =
+              bodyContainer.height -
+              cellsContainer.height -
+              titleContainer.height;
+            const monthTitleHeight = titleContainer.height + paddingHeight;
+            this.setData({
+              elementSize: {
+                monthTitleHeight,
+                cellHeight: cellContainer.height,
+                paddingHeight,
+              },
+            });
+          }
+        )
         .catch(() => {
           this.setData({ elementSize: null });
         });
