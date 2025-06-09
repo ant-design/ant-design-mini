@@ -1,6 +1,7 @@
+@import (reference) '../../variable.less';
 .fr-textarea {
   textarea {
-    font-family: PingFangSC-Regular;
+    font-weight: 400;
     caret-color: #000;
     line-height: 45rpx;
     font-size: 32rpx;
@@ -13,16 +14,16 @@
   }
 
   .ant-textarea-content {
-    font-family: PingFangSC-Regular;
+    font-weight: 400;
     font-size: 32rpx;
     line-height: 45rpx;
-    color: #666;
+    color: @form-item-value;
   }
 
   .a-textarea-content {
-    font-family: PingFangSC-Regular;
+    font-weight: 400;
     font-size: 32rpx;
-    color: #666;
+    color: @form-item-value;
     line-height: 45rpx;
   }
 
@@ -31,18 +32,18 @@
   }
 
   .a-textarea-count-wrap {
-    font-family: PingFangSC-Regular;
+    font-weight: 400;
     font-size: 28rpx;
     line-height: 40rpx;
-    color: #bbb;
+    color: @form-item-placeholder;
     margin-right: -10rpx;
   }
 
   .a-textarea-placeholder {
-    font-family: PingFangSC-Regular;
+    font-weight: 400;
     margin-left: -6rpx;
     font-size: 32rpx;
     line-height: 45rpx;
-    color: #bbb;
+    color: @form-item-placeholder;
   }
 }

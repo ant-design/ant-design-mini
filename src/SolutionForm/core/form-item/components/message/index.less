@@ -1,9 +1,11 @@
+@import (reference) '../../../../variable.less';
+
 @formItemMessagePrefix: fr-form-item-message;
 
 .@{formItemMessagePrefix} {
   margin-top: 14rpx;
   animation: formItemMessageAppear 0.2s ease both;
-  color: #ff3141;
+  color: @form-item-error;
   background: rgba(255, 49, 65, 0.05);
   border: 1rpx solid rgba(255, 49, 65, 0.3);
 
@@ -11,14 +13,14 @@
   justify-content: flex-start;
   align-items: center;
 
-  font-family: PingFangSC-Regular;
+  font-weight: 400;
   font-size: 28rpx;
   line-height: 40rpx;
   padding: 16rpx 16rpx 16rpx 15rpx;
   border-radius: 16rpx;
   &-icon {
     font-size: 24rpx;
-    color: #ff3141;
+    color: @form-item-error;
     margin-right: 8rpx;
   }
 }

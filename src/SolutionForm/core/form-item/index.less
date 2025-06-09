@@ -1,3 +1,5 @@
+@import (reference) '../../variable.less';
+
 @formItemPrefix: fr-form-item;
 
 .@{formItemPrefix} {
@@ -18,7 +20,7 @@
     content: ' ';
     display: block;
     height: 1rpx;
-    background-color: #e5e5e5;
+    background-color: @form-border-color;
     position: absolute;
     left: 0;
     right: 0;
@@ -71,11 +73,6 @@
       align-items: center;
       position: relative;
 
-      .a-text {
-        font-size: 32rpx;
-        line-height: 45rpx;
-        color: #333;
-      }
       &-asterisk {
         font-size: 30rpx;
         color: #f00;
@@ -105,8 +102,8 @@
     &-row {
       min-width: 160rpx;
       margin-right: 32rpx;
-      font-family: PingFangSC-Regular;
-      color: #666;
+      font-weight: 400;
+      color: @form-item-label;
       font-size: 34rpx;
       line-height: 45rpx;
       flex-shrink: 0;
@@ -116,7 +113,7 @@
     &-column {
       font-size: 34rpx;
       line-height: 42rpx;
-      color: #666;
+      color: @form-item-label;
       width: 100%;
       margin-bottom: 16rpx;
     }
@@ -134,7 +131,7 @@
 
   &-arrow {
     margin-left: 24rpx;
-    color: #ccc;
+    color: ;
     display: flex;
     align-items: center;
 

@@ -1,3 +1,4 @@
+@import (reference) '../../variable.less';
 .fr-input {
   .ant-input-disabled {
     opacity: 1 !important;
@@ -6,12 +7,6 @@
     opacity: 1 !important;
   }
   height: 45rpx;
-  &-price-prefix {
-    font-size: 32rpx;
-    line-height: 45rpx;
-    color: #666;
-    margin: 0 16rpx 0 0;
-  }
   .ant-input-prefix {
     display: flex;
     align-items: center;
@@ -46,13 +41,12 @@
     font-size: 32rpx;
     line-height: 45rpx;
     height: 45rpx;
-    color: #666;
+    color: @form-item-value;
   }
 
   .a-input-content {
-    font-family: PingFangSC-Regular;
+    font-weight: 400;
     font-size: 32rpx;
-    color: #666;
     line-height: 45rpx;
   }
 
@@ -60,7 +54,7 @@
     margin-left: -6rpx;
     font-size: 32rpx;
     line-height: 45rpx;
-    font-family: PingFangSC-Regular;
-    color: #bbb;
+    font-weight: 400;
+    color: @form-item-placeholder;
   }
 }

@@ -1,20 +1,21 @@
+@import (reference) '../../variable.less';
 .fr-date-pick {
   padding-right: 20rpx;
   position: relative;
   .ant-picker {
     width: 100%;
-    font-family: PingFangSC-Regular;
+    font-weight: 400;
     font-size: 32rpx;
-    color: #666;
+    color: @form-item-value;
     line-height: 45rpx;
     &.ant-picker-disabled {
       opacity: 1;
     }
     .ant-picker-value-placeholder {
-      font-family: PingFangSC-Regular;
+      font-weight: 400;
       font-size: 32rpx;
       line-height: 45rpx;
-      color: #bbb;
+      color: @form-item-placeholder;
     }
   }
   &-arrow {

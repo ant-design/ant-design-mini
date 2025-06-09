@@ -1,4 +1,4 @@
-
+@import (reference) '../../variable.less';
 .mui-operation-footer {
   padding: 24rpx;
 
@@ -17,7 +17,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: #fff;
+      background-color: @solution-form-bg;
       position: fixed;
       border-top: 1rpx solid #eee;
     }
@@ -28,8 +28,8 @@
       line-height: 37rpx;
       .mui-operation-footer-protocol-text {
         vertical-align: middle;
-        color: #999;
-        font-family: PingFangSC-Regular;
+        color: @form-protocol-prefix;
+        font-weight: 400;
         font-size: 26rpx;
         line-height: 37rpx;
         padding-left: 16rpx;
@@ -51,10 +51,10 @@
 
     .protocol-item {
       vertical-align: middle;
-      font-family: PingFangSC-Regular;
+      font-weight: 400;
       font-size: 26rpx;
       line-height: 37rpx;
-      color: #1677ff;
+      color: @form-protocol-item;
     }
   }
 
