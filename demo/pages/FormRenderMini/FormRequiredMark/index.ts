@@ -15,8 +15,17 @@ Page({
     schema: {
       type: 'object',
       radius: true,
-      // requiredMarkStyle: 'text-not-required',
       displayType: 'row',
+      operation: {
+        flex: true,
+        fixedFooter: true,
+        footer: [
+          {
+            text: '提交',
+            type: 'primary',
+          },
+        ],
+      },
       properties: {
         group1: {
           title: '分组设置必填标识',
@@ -151,5 +160,12 @@ Page({
   async handleGetValues() {
     const formData = await getValues();
     my.alert({ content: `表单值如下：${JSON.stringify(formData)}` });
+  },
+  async onTapOperation(e) {
+    const { errors } = await onSubmit();
+    if (errors.length > 0) {
+      return;
+    }
+    my.alert({ content: `点击了按钮「${e.text}」` });
   },
 });

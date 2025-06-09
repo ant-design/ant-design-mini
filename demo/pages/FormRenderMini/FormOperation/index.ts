@@ -59,10 +59,14 @@ Page({
             content: `点击了协议${item.name}`
           });
         },
-        onActionTap: (item) => {
+        onActionTap: async (item) => {
           const { id } = item || {};
           if (id === 'submit') {
-            onSubmit();
+            const { errors } = await onSubmit();
+            if (errors.length > 0) {
+              return;
+            }
+            my.alert({ content: `点击了按钮「${item.text}」` });
           } else if (id === 'clear') {
             resetFieldsValue();
           }

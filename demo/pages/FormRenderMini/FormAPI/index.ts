@@ -67,7 +67,7 @@ Page({
     my.alert({ content: `表单提交校验结果：${JSON.stringify(errorInfo)}` });
   },
   async handleRemoveFieldsError() {
-    await removeFieldsError(['info.input1']);
+    await removeFieldsError(['info.input1', 'info.input2']);
   },
   async handleOnSubmit() {
     const { errors, values } = await onSubmit();
