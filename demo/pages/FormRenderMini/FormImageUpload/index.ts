@@ -31,6 +31,7 @@ Page({
               title: '基础图片上传',
               type: 'array',
               widget: 'image-upload',
+              required: true,
               props: {
                 maxCount: 3,
                 onUpload: (file) => onUpload(file),
@@ -135,7 +136,12 @@ Page({
     }
   },
   
-  onTapOperation(e) {
-    onSubmit();
-  }
+  async onTapOperation(e) {
+    const { errors } = await onSubmit();
+    console.log('<<<<errors', errors);
+    if (errors.length > 0) {
+      return;
+    }
+    my.alert({ content: `点击了按钮「${e.text}」` });
+  },
 }); 

@@ -2,6 +2,8 @@
   <my-text config="{{ config }}" field="{{ field }}" value="{{ value }}" />
 </template>
 
+<view class="navigation-bar"/>
+
 <view class="demo-form-render">
   <view>
     <form-render-mini

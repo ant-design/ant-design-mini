@@ -1,3 +1,4 @@
+@import (reference) '../variable.less';
 
 @frPrefix: fr;
 
@@ -6,16 +7,27 @@
     padding-bottom: 300rpx;
   }
   .a-picker-view-picker-mask {
+    // background-image: linear-gradient(
+    //     to bottom,
+    //     rgba(255, 255, 255, 0.4),
+    //     rgba(255, 255, 255, 0.9)
+    //   ),
+    //   linear-gradient(
+    //     to top,
+    //     rgba(255, 255, 255, 0.4),
+    //     rgba(255, 255, 255, 0.9)
+    //   );
     background-image: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0.9)
-      ),
-      linear-gradient(
-        to top,
-        rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0.9)
-      );
+          to bottom,
+          @picker-mask-bg-faded-90,
+          @picker-mask-bg-faded-40
+        ),
+        linear-gradient(
+          to top,
+          @picker-mask-bg-faded-90,
+          @picker-mask-bg-faded-40
+        );
+      will-change: transform;
     will-change: transform;
   }
 }

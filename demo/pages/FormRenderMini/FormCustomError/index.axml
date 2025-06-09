@@ -1,3 +1,5 @@
+<view class="navigation-bar"/>
+
 <form-render-mini schema="{{schema}}">
   <block slot="custom-error" slot-scope="props">
     <message data="{{props.errorInfo}}">
