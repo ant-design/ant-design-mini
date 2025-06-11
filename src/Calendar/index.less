@@ -76,10 +76,10 @@
   }
 
   &-cell {
-    box-sizing: border-box;
+    box-sizing: content-box;
     width: calc((100% - 6 * @calendar-cell-space-size) / 7);
     height: @calendar-cell-height;
-    margin-bottom: @calendar-cell-bottom-margin;
+    padding-bottom: @calendar-cell-bottom-margin;
     position: relative;
 
     &-container {
