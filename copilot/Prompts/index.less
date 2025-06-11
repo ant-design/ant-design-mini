@@ -22,6 +22,9 @@
       align-items: center;
 
       border: 2rpx solid @prompts-item-border-color;
+      /// #if ALIPAYNATIVE
+      border-color: @prompts-item-border-color;
+      /// #endif
       border-radius: 50vh;
       padding: 20rpx 32rpx;
 
@@ -102,6 +105,9 @@
       flex-shrink: 0;
       padding: 8 * @rpx 24 * @rpx;
       border: 2 * @rpx solid @prompts-item-border-color;
+      /// #if ALIPAYNATIVE
+      border-color: @prompts-item-border-color;
+      /// #endif
       border-radius: 30 * @rpx;
       margin-right: 16 * @rpx;
       display: flex;
