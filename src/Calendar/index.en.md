@@ -5,6 +5,7 @@ group:
   title: Information Display
   order: 8
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Calendar

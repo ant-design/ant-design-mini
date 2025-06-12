@@ -1,18 +1,18 @@
 <import-sjs name="util" from="./index.sjs" />
 
 <view class="ant-copilot-prompts {{ className }}" style="{{ style }}">
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || ALIPAYNATIVE -->
   <slot name="prompts-title">
   <!-- #endif -->
     <view a:if="{{ title }}" class="ant-copilot-prompts-title">
       {{ title }}
     </view>
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || ALIPAYNATIVE -->
   </slot>
   <!-- #endif -->
   <view a:if="{{vertical}}" class="ant-copilot-prompts-vertical-list">
     <block a:for="{{ items }}">
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <slot name="prompts-item" item="{{ item }}">
       <!-- #endif -->
         <view class="ant-copilot-prompts-vertical-list-item {{item.disabled ? 'disabled' : ''}}" data-item="{{item}}" data-index="{{index}}" onTap="onItemTap">
@@ -31,7 +31,7 @@
           <text a:if="{{ item.description }}" class="ant-copilot-prompts-vertical-list-item-description">{{ item.description }}</text>
           <ant-icon a:if="{{ item.showArrow }}" type="RightOutline" class="ant-copilot-prompts-vertical-list-item-arrow" />
         </view>
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </slot>
       <!-- #endif -->
     </block>
@@ -39,7 +39,7 @@
 
   <scroll-view a:else scroll-x="{{!wrap}}" enable-flex="true" class="ant-copilot-prompts-horizontal-list {{wrap ? 'wrap' : ''}}">
     <view a:for="{{items}}" class="ant-copilot-prompts-horizontal-list-item {{item.disabled ? 'disabled' : ''}}">
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <slot name="prompts-item" item="{{item}}" index="{{index}}">
       <!-- #endif -->
         <ant-typography
@@ -52,7 +52,7 @@
         >
           {{item.label}}
         </ant-typography>
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </slot>
       <!-- #endif -->
     </view>

@@ -32,7 +32,7 @@ function computedData(this: any) {
 
 export default function () {
   let mixin = {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     didMount(): void {
       computedData.call(this);
     },

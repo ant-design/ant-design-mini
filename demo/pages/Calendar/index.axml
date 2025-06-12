@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <view class="page">
   <collapse-container
@@ -81,7 +83,7 @@
     </view>
   </collapse-container>
 
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || ALIPAYNATIVE -->
   <collapse-container
     a:if="{{ demo6.visible }}"
     title="通过 slot 实现农历">
@@ -152,6 +154,7 @@
     onClose="onPopupClose">
     <ant-calendar
       monthRange="{{demo10.monthRange}}"
+      selectionMode="single"
       ></ant-calendar>
   </ant-popup>
 

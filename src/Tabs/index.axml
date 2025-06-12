@@ -14,7 +14,7 @@
       class="ant-tabs-bar-fade ant-tabs-bar-fade-right"
       style="opacity: {{ rightFade ? '1' : '0' }}" />
 
-    <!-- #if ALIPAY  -->
+    <!-- #if ALIPAY || ALIPAYNATIVE  -->
     <scroll-view
       class="ant-tabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{ $id ? '-' + $id : '' }}"
@@ -51,14 +51,14 @@
             onTap="onChange"
             data-index="{{ index }}">
             <view class="ant-tabs-bar-basic-title">
-              <!-- #if ALIPAY  -->
+              <!-- #if ALIPAY || ALIPAYNATIVE  -->
               <slot
                 name="title"
                 value="{{ item }}"
                 index="{{ index }}">
               <!-- #endif -->
                 {{ item.title }}
-              <!-- #if ALIPAY  -->
+              <!-- #if ALIPAY || ALIPAYNATIVE  -->
               </slot>
               <!-- #endif -->
             </view>
@@ -69,14 +69,14 @@
             onTap="onChange"
             data-index="{{ index }}">
             <view class="ant-tabs-bar-capsule-title">
-              <!-- #if ALIPAY  -->
+              <!-- #if ALIPAY || ALIPAYNATIVE  -->
               <slot
                 name="title"
                 value="{{ item }}"
                 index="{{ index }}">
               <!-- #endif -->
                 {{ item.title }}
-              <!-- #if ALIPAY  -->
+              <!-- #if ALIPAY || ALIPAYNATIVE  -->
               </slot>
               <!-- #endif -->
             </view>
@@ -87,26 +87,26 @@
             onTap="onChange"
             data-index="{{ index }}">
             <view class="ant-tabs-bar-mixin-title">
-              <!-- #if ALIPAY  -->
+              <!-- #if ALIPAY || ALIPAYNATIVE  -->
               <slot
                 name="title"
                 value="{{ item }}"
                 index="{{ index }}">
               <!-- #endif -->
                 {{ item.title }}
-              <!-- #if ALIPAY  -->
+              <!-- #if ALIPAY || ALIPAYNATIVE  -->
               </slot>
               <!-- #endif -->
             </view>
             <view class="ant-tabs-bar-mixin-subtitle">
-              <!-- #if ALIPAY  -->
+              <!-- #if ALIPAY || ALIPAYNATIVE  -->
               <slot
                 name="subTitle"
                 value="{{ item }}"
                 index="{{ index }}">
               <!-- #endif -->
                 {{ item.subTitle }}
-              <!-- #if ALIPAY  -->
+              <!-- #if ALIPAY || ALIPAYNATIVE  -->
               </slot>
               <!-- #endif -->
             </view>
@@ -128,7 +128,7 @@
   class="ant-vtabs {{ className ? className : '' }}"
   style="{{ style }}">
   <view class="ant-vtabs-bar {{ tabsBarClassName ? tabsBarClassName : '' }}">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <scroll-view
       class="ant-vtabs-bar-scroll-view"
       id="ant-tabs-bar-scroll-view{{ $id ? '-' + $id : '' }}"
@@ -163,14 +163,14 @@
             data-index="{{ index }}">
             <!-- display: inline -->
             <text class="ant-vtabs-bar-item-title">
-              <!-- #if ALIPAY  -->
+              <!-- #if ALIPAY || ALIPAYNATIVE  -->
               <slot
                 name="title"
                 value="{{ item }}"
                 index="{{ index }}">
               <!-- #endif -->
                 {{ item.title }}
-              <!-- #if ALIPAY  -->
+              <!-- #if ALIPAY || ALIPAYNATIVE  -->
               </slot>
               <!-- #endif -->
             </text>
@@ -180,13 +180,13 @@
     </scroll-view>
   </view>
   <view class="ant-vtabs-content">
-    <!-- #if ALIPAY  -->
+    <!-- #if ALIPAY || ALIPAYNATIVE  -->
     <slot
       value="{{ items[mixin.value] }}"
       index="{{ mixin.value }}">
     <!-- #endif -->
       {{ items[mixin.value].content }}
-    <!-- #if ALIPAY  -->
+    <!-- #if ALIPAY || ALIPAYNATIVE  -->
     </slot>
     <!-- #endif -->
   </view>

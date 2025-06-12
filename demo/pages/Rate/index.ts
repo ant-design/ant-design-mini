@@ -12,7 +12,7 @@ Page({
       value: value.detail,
     });
     /// #endif
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({
       value,
     });

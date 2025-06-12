@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-dialog
   content="人在天边月上明"
@@ -97,7 +99,7 @@
     </view>
   </view>
 </ant-dialog>
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-dialog
   visible="{{ customBodyVisible }}"
   closable="{{ false }}"
@@ -146,7 +148,7 @@
   </ant-button>
 </ant-container>
 
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container
   title="局部插槽"
   className="list">
@@ -163,7 +165,7 @@
 </ant-container>
 <!-- #endif -->
 
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container
   title="自定义"
   className="list">

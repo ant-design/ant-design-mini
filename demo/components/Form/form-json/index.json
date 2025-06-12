@@ -1,0 +1,13 @@
+{
+  "component": true,
+  "defaultTitle": "Form",
+  "transparentTitle": "auto",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+    "form-item": "../../../../src/Form/FormItem/index",
+    "form-input": "../../../../src/Form/FormInput/index",
+    "form-stepper": "../../../../src/Form/FormStepper/index",
+    "button": "../../../../src/Button/index"
+  },
+  "styleIsolation": "shared"
+}

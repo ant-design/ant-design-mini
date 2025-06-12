@@ -45,7 +45,7 @@ Page({
     /// #endif
   },
   handleRef(ref) {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     this.form.addItem(ref);
     /// #endif
 
@@ -62,14 +62,14 @@ Page({
   async submit() {
     const values = await this.form.submit();
     console.log(values);
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     my.alert({
       title: '提交',
       content: JSON.stringify(values),
     });
     /// #endif
   },
-  /// #if ALIPAY
+  /// #if ALIPAY || ALIPAYNATIVE
   onUpload(localFile) {
     return new Promise((resolve) => {
       console.log('上传的图片为：', localFile);

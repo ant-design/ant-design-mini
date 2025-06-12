@@ -5,6 +5,7 @@ group:
   title: General
   order: 2
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Sticky

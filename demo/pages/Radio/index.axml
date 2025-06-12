@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container title="Radio 用法">
   <view>
@@ -78,7 +80,7 @@
       options="{{ options }}"
       onChange="handleRadioGroupChange" />
   </view>
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || ALIPAYNATIVE -->
   <view class="line">
     <view class="title">自定义</view>
     <ant-radio-group

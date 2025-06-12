@@ -5,6 +5,7 @@ group:
   title: Express
   order: 3
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Sender

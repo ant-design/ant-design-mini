@@ -17,6 +17,10 @@
   min-width: @switch-width;
   height: @switch-height;
   border: @switch-border solid @switch-border-color;
+  /// #if ALIPAYNATIVE
+  border-color: @switch-border-color;
+  /// #endif
+
   border-radius: @switch-height * 0.5;
   background: @COLOR_WHITE;
   overflow: hidden;
@@ -52,7 +56,7 @@
   }
   &-loading-icon {
     font-size: 20 * @rpx;
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     animation: loading-rotate 1s linear infinite;
     /// #endif
     color: @switch-loading-color;

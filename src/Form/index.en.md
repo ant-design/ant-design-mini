@@ -5,6 +5,7 @@ group:
   title: Information Entry
   order: 12
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Form

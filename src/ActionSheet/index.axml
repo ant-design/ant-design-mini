@@ -11,7 +11,7 @@
   <view
     style="{{ style }}"
     class="ant-actionsheet {{ className ? className : '' }} {{ helper.isIconMode(actions) ? 'ant-actionsheet-icon' : '' }}">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="title">
     <!-- #endif -->
       <view
@@ -19,7 +19,7 @@
         class="ant-actionsheet-title-wrap">
         <view class="ant-actionsheet-title-content">{{ title }}</view>
       </view>
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     </slot>
     <!-- #endif -->
 
@@ -55,7 +55,7 @@
       </block>
     </view>
     <view class="ant-actionsheet-cancel-gap" />
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="cancelText">
     <!-- #endif -->
       <view
@@ -63,7 +63,7 @@
         onTap="onClose">
         {{ cancelText }}
       </view>
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     </slot>
     <!-- #endif -->
   </view>

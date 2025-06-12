@@ -2,22 +2,22 @@
 <view class="ant-footer {{className}}">
   <ant-divider a:if="{{label && !noLabelDivider }}" className="ant-footer-label">
     <text slot="text" class="ant-footer-label-text">
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <slot name="label">
       <!-- #endif -->
         {{label}}
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </slot>
       <!-- #endif -->
     </text>
   </ant-divider>
 
   <text a:if="{{label && noLabelDivider }}" slot="text" class="ant-footer-label-text">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="label">
     <!-- #endif -->
       {{label}}
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     </slot>
     <!-- #endif -->
   </text>
@@ -42,11 +42,11 @@
   </view>
 
   <view a:if="{{content}}" class="ant-footer-content">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="content">
     <!-- #endif -->
       <text>{{content}}</text>
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     </slot>
     <!-- #endif -->
   </view>

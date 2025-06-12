@@ -58,7 +58,7 @@ Component({
   methods: {
     init() {
       let platform;
-      /// #if ALIPAY
+      /// #if ALIPAY || ALIPAYNATIVE
       platform = my.getSystemInfoSync().platform;
       /// #endif
       /// #if WECHAT
@@ -274,7 +274,7 @@ Component({
       this.setData({ searchable: false });
     },
   },
-  /// #if ALIPAY
+  /// #if ALIPAY || ALIPAYNATIVE
   onInit() {
     this.init();
   },

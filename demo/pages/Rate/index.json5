@@ -1,4 +1,5 @@
 {
+  "styleIsolation": "shared",
   /// #if WECHAT
   "navigationBarTitleText": "Rate",
   /// #endif
@@ -11,7 +12,9 @@
 
   "usingComponents": {
     "ant-rate": "../../../src/Rate/index",
+    /// #if ALIPAY || WECHAT
     "ant-stepper": "../../../src/Stepper/index",
+    /// #endif
     "ant-container": "../../../src/Container/index",
     "ant-icon": "../../../src/Icon/index"
   },

@@ -2,7 +2,9 @@
   from="./index.sjs"
   name="utils" />
 
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container title="Checkbox 用法">
   <view>
@@ -88,7 +90,7 @@
       color="red" />
   </view>
 
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || ALIPAYNATIVE -->
   <view class="line">
     <view class="title">自定义标题</view>
     <ant-checkbox-group options="{{ options }}">

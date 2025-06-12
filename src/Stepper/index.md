@@ -5,6 +5,7 @@ group:
   title: 数据录入
   order: 10
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Stepper 步进器

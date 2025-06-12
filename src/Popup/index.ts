@@ -49,7 +49,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY
+  /// #if ALIPAY || ALIPAYNATIVE
   async deriveDataFromProps(nextProps) {
     const [visible, duration, animation] = getValueFromProps(this, [
       'visible',

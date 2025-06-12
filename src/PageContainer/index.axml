@@ -8,7 +8,7 @@
     class="ant-page-container-loading-wrap"
   >
     <view class="ant-page-container-loading">
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <slot name="loading">
       <!-- #endif -->
         <ant-loading
@@ -16,7 +16,7 @@
           size="{{loadingSize}}"
           color="{{loadingColor}}"
         />
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </slot>
       <!-- #endif -->
     </view>

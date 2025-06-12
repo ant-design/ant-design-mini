@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container title="简单布局-单选">
   <ant-checklist
@@ -40,7 +42,7 @@
     onChange="onChange" />
 </ant-container>
 
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container title="自定义勾选图标&&组件内容">
   <ant-checklist
     defaultValue="{{ [2] }}"

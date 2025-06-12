@@ -13,7 +13,7 @@ Component({
     async clacWidth() {
       const rect = await getInstanceBoundingClientRect(
         this,
-        `#ant-pageInfinite-${this.$id ? `-${this.$id}` : ''}`
+        `#ant-pageInfinite${this.$id ? `-${this.$id}` : ''}`
       );
       if (rect) {
         return rect.width;
@@ -30,14 +30,17 @@ Component({
       }
     },
   },
-  /// #if ALIPAY
   onInit() {
+    /// #if ALIPAY
     let supportSjs;
     if (typeof my === 'undefined') {
       supportSjs = true;
     }
     supportSjs = my.canIUse('sjs.event');
     this.setData({ supportSjs });
+    /// #endif
+    /// #if ALIPAYNATIVE
+    this.setData({ supportSjs: false });
+    /// #endif
   },
-  /// #endif
 });

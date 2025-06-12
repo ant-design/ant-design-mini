@@ -1,5 +1,6 @@
 {
   "component": true,
+  "styleIsolation": "shared",
   "usingComponents": {
     "form-item": "../FormItem/index",
     "ant-picker": "../../Picker/index",

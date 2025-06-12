@@ -33,7 +33,7 @@ Component({
     init(nextProps) {
       const { defaultCurrent, current, items } = nextProps;
       this.initItemHeight();
-      /// #if ALIPAY
+      /// #if ALIPAY || ALIPAYNATIVE
       this.initTopRange();
       /// #endif
       const initCurrent = this.isControlled(nextProps)
@@ -92,7 +92,7 @@ Component({
     },
     async onAlphabetClick(item, index) {
       const vibrate = getValueFromProps(this, 'vibrate');
-      /// #if ALIPAY
+      /// #if ALIPAY || ALIPAYNATIVE
       vibrate && (await my.vibrateShort());
       /// #endif
       /// #if WECHAT
@@ -166,7 +166,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY
+  /// #if ALIPAY || ALIPAYNATIVE
   didMount() {
     this.init(getValueFromProps(this));
   },

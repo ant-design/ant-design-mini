@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-modal
   content="人在天边月上明"
@@ -73,7 +75,7 @@
   secondaryButtonText="取消"
   onPrimaryButtonTap="handlePrimaryButtonTap"
   onSecondaryButtonTap="handleSecondaryButtonTap" />
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-modal
   visible="{{ customBodyVisible }}"
   onClose="handleClose">
@@ -142,7 +144,7 @@
     onTap="handleOpen">
     自定义按钮样式
   </ant-button>
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || ALIPAYNATIVE -->
   <ant-button
     data-field="customBodyVisible"
     onTap="handleOpen">

@@ -50,7 +50,7 @@ Page({
   },
 
   showToast(content: string) {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     my.showToast({ content, duration: 1000 });
     /// #endif
 

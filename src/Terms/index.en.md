@@ -5,6 +5,7 @@ group:
   title: Bizness Components
   order: 15
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Terms

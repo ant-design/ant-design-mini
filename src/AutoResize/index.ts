@@ -73,7 +73,7 @@ Component({
       });
     },
   },
-  /// #if ALIPAY
+  /// #if ALIPAY || ALIPAYNATIVE
   didMount() {
     this.adjustFontSize();
   },

@@ -5,7 +5,7 @@ import { RadioDefaultProps } from './props';
 Component({
   props: RadioDefaultProps,
   methods: {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     onChange(e) {
       const value = e.detail.value;
       if (!this.isControlled()) {

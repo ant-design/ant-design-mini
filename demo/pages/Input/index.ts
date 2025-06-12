@@ -7,7 +7,7 @@ Page({
     console.log(value, e);
   },
   handleChange(value) {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({
       value,
     });
@@ -23,7 +23,7 @@ Page({
   handleMoney(value) {
     console.log(value);
 
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     if (isNaN(Number(value))) {
       return;
     }
@@ -51,7 +51,7 @@ Page({
     this.input = input.detail;
     /// #endif
 
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     this.input = input;
     /// #endif
   },
@@ -60,7 +60,7 @@ Page({
     this.textArea = textArea.detail;
     /// #endif
 
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     this.textArea = textArea;
     /// #endif
   },

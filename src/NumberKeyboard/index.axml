@@ -10,7 +10,7 @@
 
   <view
     class="ant-number-keyboard-kb {{ visible ? '' : 'ant-number-keyboard-kb_hide' }}">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="header">
     <!-- #endif -->
       <view
@@ -21,7 +21,7 @@
           type="DownOutline"
           className="ant-number-keyboard-down" />
       </view>
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     </slot>
     <!-- #endif -->
     <view class="ant-number-keyboard-kb_bd">
@@ -106,11 +106,11 @@
           onTouchStart="tapButton"
           class="ant-number-keyboard-kb_transfer"
           data-key="enter">
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           <slot name="confirm">
           <!-- #endif -->
             <view class="amount-input-kb_transfer-btn">{{ confirmText }}</view>
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           </slot>
           <!-- #endif -->
         </view>

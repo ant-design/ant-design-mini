@@ -5,6 +5,7 @@ group:
   title: General
   order: 1
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Conversations

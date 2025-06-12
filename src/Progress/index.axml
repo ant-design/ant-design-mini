@@ -1,7 +1,7 @@
 <view
   class="ant-progress ant-progress-{{ type }} {{ className || '' }}"
   style="{{ style || '' }};{{ type === 'circle' ? 'width:' + width + 'px;height:' + width + 'px;' : '' }}">
-  <!-- #if ALIPAY  -->
+  <!-- #if ALIPAY || ALIPAYNATIVE  -->
   <canvas
     a:if="{{ type === 'circle' }}"
     class="ant-progress-canvas"
@@ -24,7 +24,7 @@
       style="width: {{ curProgress }}%; {{ strokeColor ? 'background-color:' + strokeColor : '' }};{{animation ? '' : 'transition: none;'}}" />
   </view>
   <view class="ant-progress-indicator">
-    <!-- #if ALIPAY  -->
+    <!-- #if ALIPAY || ALIPAYNATIVE  -->
     <slot
       name="indicator"
       percent="{{ percent }}">
@@ -34,7 +34,7 @@
         type="{{ status === 'success' ? 'CheckCircleFill' : 'CloseCircleFill' }}"
         className="ant-progress-status-icon ant-progress-status-icon-{{ status }}" />
       <block a:else>{{ percent }}%</block>
-    <!-- #if ALIPAY  -->
+    <!-- #if ALIPAY || ALIPAYNATIVE  -->
     </slot>
     <!-- #endif -->
   </view>

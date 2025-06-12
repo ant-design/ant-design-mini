@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container
   title="基础用法"
@@ -14,7 +16,7 @@
   <ant-table dataSource="{{dataSource}}" columns="{{columns}}" scrollHeight="300rpx" />
 </ant-container>
 
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container
   title="插槽"
   className="list"

@@ -2,7 +2,7 @@ Page({
   data: {},
   handleTap(e) {
     const { type, text } = e.currentTarget.dataset;
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     if (type === 'copy') {
       my.setClipboard({
         text,
@@ -34,7 +34,7 @@ Page({
   },
   handleDisabledTap(e) {
     const { type } = e.currentTarget.dataset;
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     my.alert({ content: `禁用状态下点击${type}` });
     /// #endif
     /// #if WECHAT

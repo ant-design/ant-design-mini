@@ -1,3 +1,4 @@
+/// #if ALIPAY
 export function assertComponent2() {
   if (typeof my === 'undefined') {
     return;
@@ -15,3 +16,4 @@ export function assertComponent2() {
 }
 
 assertComponent2();
+/// #endif

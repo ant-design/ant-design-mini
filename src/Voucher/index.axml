@@ -29,7 +29,7 @@
               {{item.desc}}
             </view>
           </view>
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           <slot name="voucher-action-area" item="{{item}}" index="{{index}}">
           <!-- #endif -->
             <view class="voucher-action-area-default">
@@ -45,7 +45,7 @@
                 {{item.actionAreaInfo.text}}
               </ant-button>
             </view>
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           </slot>
           <!-- #endif -->
         </view>

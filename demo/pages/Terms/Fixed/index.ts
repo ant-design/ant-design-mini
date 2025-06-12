@@ -19,7 +19,7 @@ Page({
     ],
   },
   handleButtonTap(item, index, checked, event) {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     console.log(item, index, checked, event);
     my.showToast({ content: `点击了第 ${index + 1} 个按钮` });
     /// #endif
@@ -29,7 +29,7 @@ Page({
     /// #endif
   },
   handleTermTap(item, index, event) {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     console.log(item, index, event);
     my.showToast({ content: `点击了第 ${index + 1} 个协议` });
     /// #endif

@@ -41,7 +41,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY
+  /// #if ALIPAY || ALIPAYNATIVE
   onInit() {
     const [foldStatus, config] = getValueFromProps(this, [
       'foldStatus',

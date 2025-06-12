@@ -88,7 +88,7 @@ Page({
     data = args1.detail;
     /// #endif
 
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     e = args2;
     data = args1;
     /// #endif

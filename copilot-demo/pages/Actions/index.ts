@@ -47,7 +47,7 @@ Page({
         ? 'https://mdn.alipayobjects.com/huamei_bsws4g/afts/img/JmVoRp-2UwMAAAAAAAAAAAAADoEQAQFr/original'
         : 'LikeOutline';
     } else {
-      /// #if ALIPAY
+      /// #if ALIPAY || ALIPAYNATIVE
       my.showToast({
         content: `${item.label} tapped`,
       });
@@ -68,7 +68,7 @@ Page({
     // @ts-ignore
     item = item.detail;
     /// #endif
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     my.showToast({
       content: `${item.label} tapped`,
     });

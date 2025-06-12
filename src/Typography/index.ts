@@ -27,7 +27,7 @@ Component({
       triggerCatchEvent(this, 'catchTap', e);
     },
   },
-  /// #if ALIPAY
+  /// #if ALIPAY || ALIPAYNATIVE
   onInit() {
     const { platform } = my.env;
     this.setData({

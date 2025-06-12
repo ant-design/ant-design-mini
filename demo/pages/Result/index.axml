@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container title="成功状态">
   <ant-result
@@ -34,7 +36,7 @@
     message="内容详情可折行，建议不超过两行\n建议不超过两行建议不超过两行"
     type="error" />
 </ant-container>
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container title="自定义-按钮">
   <ant-result
     image="https://gw.alipayobjects.com/mdn/miniProgram_mendian/afts/img/A*wiFYTo5I0m8AAAAAAAAAAABjAQAAAQ/original">

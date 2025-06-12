@@ -28,7 +28,7 @@ Component({
         touchKey: alphabet[index],
       });
       this.onAlphabetClick(item);
-      /// #if ALIPAY
+      /// #if ALIPAY || ALIPAYNATIVE
       my.vibrateShort();
       /// #endif
       /// #if WECHAT
@@ -56,7 +56,7 @@ Component({
       this.setData({ touchKey: alphabet[newIndex] }, () => {
         d = false;
       });
-      /// #if ALIPAY
+      /// #if ALIPAY || ALIPAYNATIVE
       my.vibrateShort();
       /// #endif
       /// #if WECHAT

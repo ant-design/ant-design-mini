@@ -59,7 +59,7 @@ ComponentWithSignalStoreImpl({
       });
     },
   },
-  /// #if ALIPAY
+  /// #if ALIPAY || ALIPAYNATIVE
   onInit() {
     this.update();
   },

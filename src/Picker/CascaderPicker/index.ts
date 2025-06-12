@@ -21,7 +21,7 @@ Component({
   methods: {
     // visible受控判断
     isVisibleControlled() {
-      /// #if ALIPAY
+      /// #if ALIPAY || ALIPAYNATIVE
       return 'visible' in getValueFromProps(this);
       /// #endif
       /// #if WECHAT
@@ -165,7 +165,7 @@ Component({
 
   mixins: [mixinValue()],
 
-  /// #if ALIPAY
+  /// #if ALIPAY || ALIPAYNATIVE
   onInit() {
     this.initColumns();
   },

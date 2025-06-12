@@ -5,6 +5,7 @@ group:
   title: 反馈引导
   order: 12
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Progress 进度条

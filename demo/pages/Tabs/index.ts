@@ -74,7 +74,7 @@ Page({
     this.alert('plus');
   },
   alert(content) {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     my.alert({
       title: content,
     });

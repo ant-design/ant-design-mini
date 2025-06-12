@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <view>
   <ant-container title="基础用法">
@@ -14,7 +16,7 @@
       checkedText="开"
       uncheckedText="关"
       onChange="onChange" />
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <ant-switch>
       <ant-icon
         type="CheckOutline"

@@ -10,7 +10,7 @@
         wx:else
         name="title" />
       <!-- #endif -->
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <slot name="title">{{ title }}</slot>
       <!-- #endif -->
     </view>

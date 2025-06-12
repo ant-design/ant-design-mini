@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "@alipay/bundle2h-types": "^1.0.40",
+    "@alipay/bundle2h-cli": "^1.0.77"
+  },
+  "scripts": {
+    "build": "b2h build",
+    "serve": "b2h server",
+    "preview": "b2h preview --app-id=20002183",
+    "dev": "b2h alive --app-id=20002183 --debug"
+  },
+  "apps": [
+    {
+      "appId": "20002183",
+      "name": "alipaynative"
+    }
+  ],
+  "dependencies": {}
+}

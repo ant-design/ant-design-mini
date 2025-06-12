@@ -9,5 +9,6 @@
     "ant-index-bar": "../../../src/IndexBar/index",
     "ant-list": "../../../src/List/index",
     "ant-list-item": "../../../src/List/ListItem/index"
-  }
+  },
+  "styleIsolation": "shared"
 }

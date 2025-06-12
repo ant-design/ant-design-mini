@@ -16,7 +16,7 @@
         </view>
       </view>
     </view>
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <view
       a:if="{{utils.isExpand(collapsible, item.key || index, foldStatusMap)}}"
       class="ant-copilot-thoughtchain-node-content"

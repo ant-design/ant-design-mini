@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container title="基础用法">
   <ant-conversations
@@ -9,7 +11,7 @@
   />
 </ant-container>
 
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container title="自定义插槽">
   <ant-conversations
     items="{{items.slice(2,5)}}"

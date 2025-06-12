@@ -5,7 +5,7 @@
   style="{{ style || '' }};{{ focusStyle || '' }}"
 >
   <view class="ant-textarea-line">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <textarea
       enableNative="{{ enableNative }}"
       name="{{ name }}"

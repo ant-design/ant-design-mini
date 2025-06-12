@@ -4,7 +4,7 @@ Page({
     stickyStatus1: false,
   },
   handleStickyChange(status) {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({ stickyStatus: status });
     /// #endif
     /// #if WECHAT
@@ -12,7 +12,7 @@ Page({
     /// #endif
   },
   handleStickyChange1(status) {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({ stickyStatus1: status });
     /// #endif
     /// #if WECHAT

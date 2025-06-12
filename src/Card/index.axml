@@ -11,17 +11,17 @@
       class="ant-card-header"
       onTap="handleTapCardHeader"
     >
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <slot name="headerTitle">
       <!-- #endif -->
         <view class="ant-card-header-title">
           {{title}}
         </view>
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </slot>
       <!-- #endif -->
 
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <slot name="headerRight" class="ant-card-header-right">
       <!-- #endif -->
         <view
@@ -41,7 +41,7 @@
           <text class="ant-card-header-fold-btn">{{finalFoldStatus ? '展开' : '收起'}}</text>
           <ant-icon class="ant-card-header-fold-icon" type="{{ finalFoldStatus ? 'DownOutline' : 'UpOutline'}}"/>
         </view>
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </slot>
       <!-- #endif -->
     </view>

@@ -1,53 +1,54 @@
-<view
-  a:if="{{ show }}"
-  class="ant-toast {{ className || '' }} {{ icon || image || type ? 'ant-toast-icon-wrapper' : `ant-toast-text-${textType}` }}"
-  style="{{ style || '' }}">
+<view a:if="{{ show }}">
   <view
-    a:if="{{ type }}"
-    class="ant-toast-normal">
-    <loading
-      a:if="{{ type === 'loading' }}"
-      type="mini" />
+    class="ant-toast {{ className || '' }} {{ icon || image || type ? 'ant-toast-icon-wrapper' : `ant-toast-text-${textType}` }}"
+    style="{{ style || '' }}">
+    <view
+      a:if="{{ type }}"
+      class="ant-toast-normal">
+      <loading
+        a:if="{{ type === 'loading' }}"
+        type="mini" />
+      <am-icon
+        a:elif="{{ type === 'warning' }}"
+        type="ExclamationOutline"
+        className="ant-toast-icon" />
+      <am-icon
+        a:elif="{{ type === 'error' }}"
+        type="CloseOutline"
+        className="ant-toast-icon" />
+      <am-icon
+        a:elif="{{ type === 'success' }}"
+        type="CheckOutline"
+        className="ant-toast-icon" />
+      <am-icon
+        a:elif="{{ type === 'alipay' }}"
+        type="AlipayCircleFill"
+        className="ant-toast-icon" />
+    </view>
     <am-icon
-      a:elif="{{ type === 'warning' }}"
-      type="ExclamationOutline"
+      a:elif="{{ icon }}"
+      type="{{ icon }}"
       className="ant-toast-icon" />
-    <am-icon
-      a:elif="{{ type === 'error' }}"
-      type="CloseOutline"
-      className="ant-toast-icon" />
-    <am-icon
-      a:elif="{{ type === 'success' }}"
-      type="CheckOutline"
-      className="ant-toast-icon" />
-    <am-icon
-      a:elif="{{ type === 'alipay' }}"
-      type="AlipayCircleFill"
-      className="ant-toast-icon" />
-  </view>
-  <am-icon
-    a:elif="{{ icon }}"
-    type="{{ icon }}"
-    className="ant-toast-icon" />
-  <view
-    a:elif="{{ image }}"
-    style="background-image: url({{ image }})"
-    class="ant-toast-image" />
-  <view class="ant-toast-text-body">
-    <view class="ant-toast-text-box">
-      <!-- #if ALIPAY -->
-      <view class="ant-toast-text-content">{{ content.substring(0, 24) }}</view>
-      <!-- #endif -->
-      <!-- #if WECHAT -->
-      <view class="ant-toast-text-content">{{displayContent}}</view>
-      <!-- #endif -->
+    <view
+      a:elif="{{ image }}"
+      style="background-image: url({{ image }})"
+      class="ant-toast-image" />
+    <view class="ant-toast-text-body">
+      <view class="ant-toast-text-box">
+        <!-- #if ALIPAY || ALIPAYNATIVE -->
+        <view class="ant-toast-text-content">{{ content.substring(0, 24) }}</view>
+        <!-- #endif -->
+        <!-- #if WECHAT -->
+        <view class="ant-toast-text-content">{{displayContent}}</view>
+        <!-- #endif -->
+      </view>
     </view>
   </view>
-</view>
 
-<ant-mask
-  a:if="{{ show && showMask }}"
-  className="ant-toast-mask"
-  show="{{ true }}"
-  onMaskTap="handleClickMask"
-  style="{{ maskStyle }}" />
+  <ant-mask
+    a:if="{{ showMask }}"
+    className="ant-toast-mask"
+    show="{{ true }}"
+    onMaskTap="handleClickMask"
+    style="{{ maskStyle }}" />
+</view>

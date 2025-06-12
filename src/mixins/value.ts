@@ -11,7 +11,7 @@ function equal(a, b) {
   return false;
 }
 
-/// #if ALIPAY
+/// #if ALIPAY || ALIPAYNATIVE
 // @ts-ignore
 const component2 = my.canIUse('component2') || typeof ac === 'object';
 /// #endif
@@ -46,7 +46,7 @@ export default ({
         controlled: false,
       },
     },
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     onInit() {
       this.init();
     },
@@ -103,7 +103,7 @@ export default ({
     methods: {
       init() {
         let value;
-        /// #if ALIPAY
+        /// #if ALIPAY || ALIPAYNATIVE
         value =
           getValueFromProps(this, valueKey) !== undefined
             ? getValueFromProps(this, valueKey)
@@ -136,7 +136,7 @@ export default ({
           return getValueFromProps(this, 'controlled');
         }
 
-        /// #if ALIPAY
+        /// #if ALIPAY || ALIPAYNATIVE
         return valueKey in getValueFromProps(this);
         /// #endif
         /// #if WECHAT

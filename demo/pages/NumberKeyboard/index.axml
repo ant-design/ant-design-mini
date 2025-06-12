@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-list header="基础使用">
   <ant-list-item onTap="onTap">默认键盘</ant-list-item>
@@ -30,7 +32,7 @@
     visible="{{ visible4 }}"
     onClose="onTap4" />
 </ant-list>
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-list header="自定义按钮">
   <ant-list-item onTap="onTap6">自定义标题</ant-list-item>
   <ant-number-keyboard

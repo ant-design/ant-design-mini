@@ -72,16 +72,24 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: @empty-horizontal-button-gap;
+      .ant-button {
+        margin-right: @empty-horizontal-button-gap;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
     }
     &-layout-vertical {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      gap: @empty-vertical-button-gap;
       .ant-button {
         min-width: @empty-vertical-button-width;
+        margin-bottom: @empty-vertical-button-gap;
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
   }

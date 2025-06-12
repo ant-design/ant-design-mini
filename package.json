@@ -139,7 +139,8 @@
   "files": [
     "es",
     "less",
-    "compiled/wechat/src"
+    "compiled/wechat/src",
+    "native"
   ],
   "repository": {
     "type": "git",

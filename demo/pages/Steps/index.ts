@@ -37,7 +37,7 @@ Page({
   },
   onNextTap() {
     if (this.data.current === this.data.items.length - 1) {
-      /// #if ALIPAY
+      /// #if ALIPAY || ALIPAYNATIVE
       my.showToast({ content: '完成', duration: 1000 });
       /// #endif
       /// #if WECHAT

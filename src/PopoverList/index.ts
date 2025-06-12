@@ -66,7 +66,7 @@ Component({
     },
 
     onVisibleChange(e) {
-      /// #if ALIPAY
+      /// #if ALIPAY || ALIPAYNATIVE
       if (
         !this.getValue() &&
         e.target.id &&
@@ -103,7 +103,7 @@ Component({
     }),
   ],
 
-  /// #if ALIPAY
+  /// #if ALIPAY || ALIPAYNATIVE
   didUpdate(prevProps) {
     const [placement, autoAdjustOverflow] = getValueFromProps(this, [
       'placement',

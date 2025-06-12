@@ -1,6 +1,6 @@
 Page({
   handleTap() {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     my.alert({
       title: '点击按钮',
     });
@@ -14,7 +14,7 @@ Page({
     /// #endif
   },
   handleDisabledTap() {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     my.alert({
       title: '禁用点击',
     });

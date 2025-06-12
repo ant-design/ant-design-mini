@@ -35,7 +35,7 @@ Page({
 
   handleLinkTap(item) {
     if (item.disabled) return;
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     if (item.disabled) return;
     my.showToast({ content: item.key });
     /// #endif
@@ -48,7 +48,7 @@ Page({
     /// #endif
   },
   handleChipTap(item) {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     if (item.disabled) return;
     my.showToast({ content: item.key });
     /// #endif

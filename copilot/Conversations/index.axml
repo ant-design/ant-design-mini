@@ -23,7 +23,7 @@
           data-item="{{item}}"
           data-index="{{index}}"
         >
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           <slot item="{{item}}" index="{{index}}">
           <!-- #endif -->
             <image a:if="{{item.icon}}" class="ant-copilot-conversations-swipe-item-view-icon" src="{{item.icon}}" />
@@ -34,7 +34,7 @@
               </view>
               <view a:if="{{item.description}}" class="ant-copilot-conversations-swipe-item-view-desc">{{item.description}}</view>
             </view>
-          <!-- #if ALIPAY -->
+          <!-- #if ALIPAY || ALIPAYNATIVE -->
           </slot>
           <!-- #endif -->
         </view>

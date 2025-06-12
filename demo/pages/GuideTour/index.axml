@@ -1,4 +1,7 @@
+
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-guide-tour
   items="{{ [list[0]] }}"
@@ -22,7 +25,7 @@
   visible="{{ controlledVisible }}"
   onCancel="closeTour"
   onChange="onChangeControlled" />
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-guide-tour
   items="{{ list }}"
   visible="{{ slotVisible }}"
@@ -62,7 +65,7 @@
   </ant-button>
 </ant-container>
 
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container
   title="插槽用法"
   className="list">

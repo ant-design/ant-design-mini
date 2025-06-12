@@ -112,6 +112,12 @@
     margin-left: @h-spacing-standard;
   }
   &-content-text {
+    /// #if ALIPAYNATIVE
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /// #endif
     &:empty {
       margin-left: 0;
       width: 0;
@@ -141,7 +147,7 @@
   }
 
   &-inline {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     display: inline-block;
     /// #endif
     /// #if WECHAT

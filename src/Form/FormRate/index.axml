@@ -12,11 +12,11 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <block a:if="{{readonly && !formData.value && formData.value!==0}}">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="readonly" formData="{{formData}}">
     <!-- #endif -->
       -
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     </slot>
     <!-- #endif -->
   </block>
@@ -33,11 +33,11 @@
     characterClassName="{{ characterClassName }}"
     onChange="onChange">
     <view slot="character">
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       <slot name="character">
       <!-- #endif -->
         <ant-icon type="StarFill" />
-      <!-- #if ALIPAY -->
+      <!-- #if ALIPAY || ALIPAYNATIVE -->
       </slot>
       <!-- #endif -->
     </view>
@@ -48,11 +48,11 @@
     <slot name="tooltip" />
   </view>
   <view slot="extra">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <slot name="extra">
     <!-- #endif -->
       {{ extra }}
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     </slot>
     <!-- #endif -->
   </view>

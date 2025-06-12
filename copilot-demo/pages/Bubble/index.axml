@@ -1,4 +1,6 @@
-<view class="navigation-bar" />
+<!-- #if ALIPAY || WECHAT -->
+<view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container title="基础用法">
   <ant-bubble content="这是一条普通消息" avatar="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*5m0ZQYhxhjEAAAAAAAAAAAAAARQnAQ" />

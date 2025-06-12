@@ -2,7 +2,7 @@
   a:if="{{ show }}"
   class="ant-notice-bar {{ className || '' }} {{ type ? 'ant-notice-bar-' + type : '' }} {{ellipsisRow > 1 ? 'ant-notice-bar-no-height' : ''}}"
   style="{{ style }}">
-  <!-- #if ALIPAY -->
+  <!-- #if ALIPAY || ALIPAYNATIVE -->
   <slot name="icon">
     <view class="ant-notice-bar-icon">
       <image-icon

@@ -1,5 +1,6 @@
 {
   "component": true,
+  "styleIsolation": "shared",
   "usingComponents": {
     "list-item": "../List/ListItem/index",
     "list": "../List/index",

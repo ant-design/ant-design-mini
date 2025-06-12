@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container title="3列">
   <ant-grid
@@ -106,7 +108,7 @@
     columns="{{ 5 }}"
     iconSize="{{ 44 }}" />
 </ant-container>
-<!-- #if ALIPAY -->
+<!-- #if ALIPAY || ALIPAYNATIVE -->
 <ant-container title="自定义">
   <ant-grid
     items="{{ itemsCustom }}"

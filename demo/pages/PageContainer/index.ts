@@ -12,7 +12,7 @@ Page({
     }, 1000);
   },
   handleRefresh() {
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     my.reLaunch({
       url: 'index',
       fail(e) {

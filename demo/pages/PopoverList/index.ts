@@ -32,7 +32,7 @@ Page({
   },
   handleVisibleChange(visible, e) {
     console.log(visible, e);
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({ visible });
     /// #endif
     /// #if WECHAT
@@ -41,7 +41,7 @@ Page({
   },
   handleVisibleChange2(visible, e) {
     console.log(visible, e);
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     this.setData({ visible2: visible });
     /// #endif
     /// #if WECHAT
@@ -52,7 +52,7 @@ Page({
     console.log(e, item);
     this.setData({ visible: false });
 
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     my.showToast({ content: '点击列表', duration: 1000 });
     /// #endif
     /// #if WECHAT
@@ -64,7 +64,7 @@ Page({
     console.log(e, item);
     this.setData({ visible2: false });
 
-    /// #if ALIPAY
+    /// #if ALIPAY || ALIPAYNATIVE
     my.showToast({ content: '点击列表', duration: 1000 });
     /// #endif
     /// #if WECHAT

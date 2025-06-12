@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <view class="base">
   <ant-index-bar
@@ -6,7 +8,7 @@
     items="{{items}}"
     current="{{current}}"
     onChange="onChange">
-    <!-- #if ALIPAY -->
+    <!-- #if ALIPAY || ALIPAYNATIVE -->
     <view slot-scope="props">
       <ant-list header="{{props.value.label}}">
         <ant-list-item
