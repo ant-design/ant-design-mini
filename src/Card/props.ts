@@ -8,7 +8,7 @@ export interface ICardProps {
   headSticky?: boolean; // 标题是否需要吸顶
   stickyTransparentTitle?: boolean; // 吸顶是否在透明头页面，是的话会自动算透明头高度
   stickyTop?: string; // 透传给sticky组件用于决定title区域的吸顶位置
-
+  divider?: boolean; // 是否显示分割线
   onOperateClick?: (e) => void; // 默认头部右侧操作按钮点击回调
   onFoldChange?: () => void; // 展开收起态发生变化时的回调
   onTitleSticky?: (status) => void; // title区域是否吸顶变化时的回调
@@ -30,7 +30,7 @@ export const CardDefaultProps: ICardProps = {
   headSticky: false,
   stickyTransparentTitle: false,
   stickyTop: '',
-
+  divider: false,
   onOperateClick: () => {},
   onFoldChange: () => {},
   onTitleSticky: (status: boolean) => status,
