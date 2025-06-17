@@ -20,10 +20,12 @@ Component({
     },
     onButtonTap(e) {
       const onButtonTap = getValueFromProps(this, 'onButtonTap');
+      /// #if ALIPAY || ALIPAYNATIVE
       // 按钮点击没有回调的场景直接关闭弹框
       if (!onButtonTap) {
         return this.onClose();
       }
+      /// #endif
       const { item } = e.currentTarget.dataset;
       triggerEvent(this, 'buttonTap', item, e);
     },
