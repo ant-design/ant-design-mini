@@ -252,7 +252,9 @@ const Sidebar: FC = () => {
       pathname.startsWith('/components/') ||
       matchedRoute?.meta?.frontmatter?.nav?.path === '/components' ||
       pathname.startsWith('/copilots/') ||
-      matchedRoute?.meta?.frontmatter?.nav?.path === '/copilot'
+      matchedRoute?.meta?.frontmatter?.nav?.path === '/copilot' ||
+      pathname.startsWith('/formRenderMini/') ||
+      matchedRoute?.meta?.frontmatter?.nav?.path === '/formRenderMini'
     );
   }, [matchedRoute]);
 

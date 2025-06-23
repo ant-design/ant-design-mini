@@ -65,6 +65,12 @@ export default defineConfig({
             'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*iiKoT73_9ucAAAAAAAAAAAAAetF8AQ/original',
         },
         {
+          title: 'ForMRenderMini',
+          link: '/formRenderMini/bubble',
+          // @ts-ignore
+          isNew: true,
+        },
+        {
           title: '资源',
           link: '/resources',
         },

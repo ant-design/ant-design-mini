@@ -2,14 +2,14 @@
 nav:
   path: /components
 group:
-  title: 数据展示
-  order: 8
-toc: content
+  title: 数据录入
+  order: 13
+toc: 'content'
 ---
 
-# Avatar 头像
+# Solution 表单解决方案
 
-需要更加直观地展现人物或事物特征时。
+通过数据 schema 的形式驱动表单的渲染，提供内置表单组件以及自定义组件的形式，通知支持全局表单 API 获取以及驱动表单数据。
 
 ## 引入
 
@@ -18,10 +18,10 @@ toc: content
 ```json
 "usingComponents": {
 #if ALIPAY
-  "ant-avatar": "antd-mini/es/Avatar/index"
+  "form-render-mini": "antd-mini/es/SolutionForm/index"
 #endif
 #if WECHAT
-  "ant-avatar": "antd-mini/Avatar/index"
+  "form-render-mini": "antd-mini/es/SolutionForm/index"
 #endif
 }
 ```
@@ -30,20 +30,18 @@ toc: content
 
 ### 基本使用
 ```xml
-<ant-avatar src="{{imagesUrl}}" className="avatar" />
-<ant-avatar size="large" src="{{imagesUrl}}" className="avatar" />
-<ant-avatar size="x-small" src="{{imagesUrl}}" style="width: 100rpx" />
+<form-render-mini schema="{{ schema }}" />
+<form-render-mini schema="{{ schema }}" className="form" onTapOperation="onTapOperation" />
 ```
 
 ### Demo 代码
 
-<code src='../../demo/pages/Avatar/index'></code>
+<code src='../../demo/pages/FormRenderMini/FormInput/index'></code>
 
 ## API
 
 | 属性      | 说明       | 类型   | 默认值       |
 |---------|----------|------|-----------|
 | className | 类名      | string | -         |
-| size     | 大小，可选 `x-small`、`small`、`medium`、`large` | string | `medium` |
-| src      | 头像地址    | string | 灰色内置图片 |
-| style    | 样式      | string | -         |
+| schema      | 表单渲染的 schema    | object | {} |
+| onTapOperation    | 表单 operation 点击的回调      | (item: footerItem) => void | -         |
