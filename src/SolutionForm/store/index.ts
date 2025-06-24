@@ -1,4 +1,4 @@
-import { createStore } from '@alipay/merchant-base-mini';
+import { createStore } from 'miniapp-store';
 import {
   findFieldInfoByField,
   getFormItemArr,

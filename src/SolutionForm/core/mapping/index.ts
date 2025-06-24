@@ -2,7 +2,7 @@ import { getStore } from '../../store/index';
 import { FormRenderMappingDefaultProps } from './props';
 import set from 'lodash.set';
 import get from 'lodash.get';
-import { createComponent } from '@alipay/merchant-base-mini';
+import { createComponent } from 'miniapp-store';
 
 createComponent({
   props: FormRenderMappingDefaultProps,

@@ -1,3 +1,3 @@
-import { createComponent } from '@alipay/merchant-base-mini';
+import { createComponent } from 'miniapp-store';
 
 createComponent({});

@@ -31,7 +31,6 @@
     ]
   },
   "dependencies": {
-    "@alipay/merchant-base-mini": "^0.0.90011117430-dev.1",
     "@mini-types/alipay": "^3.0.5",
     "@preact/signals-core": "^1.7.0",
     "async-validator": "^4.0.7",
@@ -42,7 +41,7 @@
     "lodash.isfunction": "^3.0.9",
     "lodash.kebabcase": "^4.1.1",
     "lodash.reduce": "^4.6.0",
-    "miniapp-store": "^0.0.1",
+    "miniapp-store": "^1.1.0",
     "pinyin-firstletter": "^1.0.2",
     "tslib": "2.5.0"
   },
