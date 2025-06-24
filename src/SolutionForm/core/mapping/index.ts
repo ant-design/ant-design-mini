@@ -2,9 +2,9 @@ import { getStore } from '../../store/index';
 import { FormRenderMappingDefaultProps } from './props';
 import set from 'lodash.set';
 import get from 'lodash.get';
-import { createComponent } from 'miniapp-store';
+import { Component } from 'miniapp-store';
 
-createComponent({
+Component({
   props: FormRenderMappingDefaultProps,
   computed() {
     return {

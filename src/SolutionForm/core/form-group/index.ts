@@ -1,8 +1,8 @@
 import { FormGroupDefaultProps } from './props';
 import { getStore } from '../../store/index';
-import { createComponent } from 'miniapp-store';
+import { Component } from 'miniapp-store';
 
-createComponent({
+Component({
   props: FormGroupDefaultProps,
 
   computed() {

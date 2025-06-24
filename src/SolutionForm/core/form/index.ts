@@ -1,3 +1,3 @@
-import { createComponent } from 'miniapp-store';
+import { Component } from 'miniapp-store';
 
-createComponent({});
+Component({});

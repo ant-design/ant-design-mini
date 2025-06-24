@@ -1,5 +1,5 @@
-import { createComponent } from 'miniapp-store';
-createComponent({
+import { Component } from 'miniapp-store';
+Component({
   props: {
     info: {},
   },

@@ -1,8 +1,8 @@
-import { createComponent } from 'miniapp-store';
+import { Component } from 'miniapp-store';
 import { getStore } from '../../store/index';
 import { get } from 'lodash';
 
-createComponent({
+Component({
   props: {
     onTapOperation: () => {},
   },

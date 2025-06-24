@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
 import { setFieldsValue } from '../../../../../src/SolutionForm/index';
-import { createComponent } from 'miniapp-store';
+import { Component } from 'miniapp-store';
 import { get } from 'lodash';
 
-createComponent({
+Component({
   props: {
     config: {},
     value: '',

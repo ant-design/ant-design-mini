@@ -1,9 +1,9 @@
 import { get, isEqual, isFunction } from 'lodash';
 import { destroyStore, getStore } from '../store/index';
-import { createComponent } from 'miniapp-store';
+import { Component } from 'miniapp-store';
 import { FormRenderDefaultProps } from './props';
 
-createComponent({
+Component({
   props: FormRenderDefaultProps,
 
   computed() {

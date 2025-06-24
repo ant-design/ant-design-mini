@@ -1,11 +1,6 @@
-Component<
-  {},
-  {
-    field: string;
-    config: any;
-    onTriggerChange: (val: string, field: string) => {};
-  }
->({
+import { Component } from 'miniapp-store';
+
+Component({
   methods: {
     onChange(v) {
       this.props?.onTriggerChange(v?.trim() || '', this.props.field);
