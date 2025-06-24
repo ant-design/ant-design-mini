@@ -58,7 +58,7 @@
                     class="{{val.ellipsisRow ? 'ant-table-list-item-ellipsis' : ''}}"
                     style="{{val.ellipsisRow ? `-webkit-line-clamp:${val.ellipsisRow}`: ''}}"
                   >
-                    {{val.value}}
+                    {{val.cellValue}}
                   </view>
                   <!-- #if ALIPAY || ALIPAYNATIVE -->
                 </slot>
