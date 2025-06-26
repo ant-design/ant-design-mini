@@ -65,10 +65,8 @@ export default defineConfig({
             'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*iiKoT73_9ucAAAAAAAAAAAAAetF8AQ/original',
         },
         {
-          title: 'ForMRenderMini',
-          link: '/formRenderMini/bubble',
-          // @ts-ignore
-          isNew: true,
+          title: 'FormRenderMini',
+          link: '/form/introduction',
         },
         {
           title: '资源',
@@ -99,6 +97,10 @@ export default defineConfig({
           isNew: true,
           rightIcon:
             'https://mdn.alipayobjects.com/huamei_2jrq4g/afts/img/A*iiKoT73_9ucAAAAAAAAAAAAAetF8AQ/original',
+        },
+        {
+          title: 'ForMRenderMini',
+          link: '/form/introduction-en',
         },
         {
           title: 'Resources',
