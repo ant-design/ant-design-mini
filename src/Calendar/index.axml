@@ -47,7 +47,6 @@
     class="ant-calendar-body"
     data-elementsize="{{ elementSize }}"
     data-monthlist="{{ monthList }}"
-    onScroll="{{ scroll.handleScroll }}"
     scroll-into-view="{{ scrollIntoViewId }}"
     scroll-with-animation
     scroll-animation-duration="{{ 300 }}"
