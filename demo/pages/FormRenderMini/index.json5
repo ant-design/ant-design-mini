@@ -1,0 +1,16 @@
+{
+  /// #if WECHAT
+  "navigationBarTitleText": "Form API",
+  /// #endif
+
+  /// #if ALIPAY
+  "defaultTitle": "Form API",
+  "transparentTitle": "none",
+  "titlePenetrate": "YES",
+  /// #endif
+
+  "usingComponents": {
+    "ant-button": "../../../src/Button/index",
+    "form-render-mini": "../../../src/SolutionForm/form-render/index"
+  }
+}
