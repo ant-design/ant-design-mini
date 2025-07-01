@@ -15,6 +15,21 @@
 @popup-mask-close-bg: var(--popup-mask-close-bg, @COLOR_BLACK_FADED);
 
 
+.mask-appear(@duration: 400ms){
+  animation-fill-mode: forwards;
+  animation-duration: @duration;
+  animation-timing-function: cubic-bezier(0.35, 0.00, 0.65, 1.00);
+  animation-name: ant-popup-mask-appear;
+}
+
+.mask-close(@duration: 400ms){
+  animation-delay: 100ms;
+  animation-fill-mode: forwards;
+  animation-duration: @duration;
+  animation-timing-function: cubic-bezier(0.35, 0.00, 0.65, 1.00);
+  animation-name: ant-popup-mask-close;
+}
+
 .animation-transform(@name){
   animation-name: @name;
   animation-delay: 100ms;

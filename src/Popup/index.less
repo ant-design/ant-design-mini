@@ -17,14 +17,9 @@
     width: 100%;
     height: 100%;
     background-color: @popup-mask-product;
-    animation-fill-mode: forwards;
-    animation-duration: 400ms;
-    animation-timing-function: cubic-bezier(0.35, 0.00, 0.65, 1.00);
-    animation-name: ant-popup-mask-appear;
-
+    .mask-appear(400ms);
     &-closing {
-      animation-delay: 100ms;
-      animation-name: ant-popup-mask-close;
+      .mask-close(400ms)
     }
   }
   &-content {
