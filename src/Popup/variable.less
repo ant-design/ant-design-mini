@@ -13,3 +13,17 @@
 @popup-assit-color: var(--popup-assit-color, @COLOR_TEXT_ASSIST);
 
 @popup-mask-close-bg: var(--popup-mask-close-bg, @COLOR_BLACK_FADED);
+
+
+.animation-transform(@name){
+  animation-name: @name;
+  animation-delay: 100ms;
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.00, 0.40, 0.00, 1.00);
+}
+
+.animation-transform-close(@name){
+  animation-name: @name;
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.60, 0.00, 1.00, 0.60);
+}

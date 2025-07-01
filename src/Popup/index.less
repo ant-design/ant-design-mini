@@ -18,7 +18,12 @@
     height: 100%;
     background-color: @popup-mask-product;
     animation-fill-mode: forwards;
+    animation-duration: 400ms;
+    animation-timing-function: cubic-bezier(0.35, 0.00, 0.65, 1.00);
+    animation-name: ant-popup-mask-appear;
+
     &-closing {
+      animation-delay: 100ms;
       animation-name: ant-popup-mask-close;
     }
   }
@@ -76,38 +81,46 @@
       top: 0;
       left: 0;
       right: 0;
-      animation-name: ant-popup-transform-top;
+      transform: translateY(-100%);
+      .animation-transform(ant-popup-transform-top);
       border-radius: 0 0 @popup-radius @popup-radius;
       &-close {
-        animation-name: ant-popup-transform-top-close;
+        transform: translateY(0);
+        .animation-transform-close(ant-popup-transform-top-close)
       }
     }
     &-right {
       top: 0;
       right: 0;
       bottom: 0;
-      animation-name: ant-popup-transform-right;
+      transform: translateX(100%);
+      .animation-transform(ant-popup-transform-right);
       &-close {
-        animation-name: ant-popup-transform-right-close;
+        transform: translateX(0);
+        .animation-transform-close(ant-popup-transform-right-close)
       }
     }
     &-bottom {
       left: 0;
       right: 0;
       bottom: 0;
-      animation-name: ant-popup-transform-bottom;
+      transform: translateY(100%);
+      .animation-transform(ant-popup-transform-bottom);
       border-radius: @popup-radius @popup-radius 0 0;
       &-close {
-        animation-name: ant-popup-transform-bottom-close;
+        transform: translateY(0);
+        .animation-transform(ant-popup-transform-bottom-close);
       }
     }
     &-left {
       top: 0;
       left: 0;
       bottom: 0;
-      animation-name: ant-popup-transform-left;
+      transform: translateX(-100%);
+      .animation-transform(ant-popup-transform-left);
       &-close {
-        animation-name: ant-popup-transform-left-close;
+        transform: translateX(0);
+        .animation-transform(ant-popup-transform-left-close);
       }
     }
     &-center {
@@ -369,6 +382,16 @@
     transform: translate3d(-50%, -50%, 0) scale(0.9);
   }
 }
+
+@keyframes ant-popup-mask-appear {
+  0% {
+    background-color: @popup-mask-close-bg;
+  }
+  100% {
+    background-color: @popup-mask-product;
+  }
+}
+
 
 @keyframes ant-popup-mask-close {
   0% {
