@@ -137,41 +137,45 @@
   }
   &-position {
     &-top {
-      top: 0;
       left: 0;
       right: 0;
-      animation-name: ant-popup-position-top;
+      top: -100%;
+      .animation-transform(ant-popup-position-top);
       border-radius: 0 0 @popup-radius @popup-radius;
       &-close {
-        animation-name: ant-popup-position-top-close;
+        top: 0;
+        .animation-transform(ant-popup-position-top-close);
       }
     }
     &-right {
       top: 0;
-      right: 0;
       bottom: 0;
-      animation-name: ant-popup-position-right;
+      right: -100%;
+      .animation-transform(ant-popup-position-right);
       &-close {
-        animation-name: ant-popup-position-right-close;
+        right: 0;
+        .animation-transform(ant-popup-position-right-close);
       }
     }
     &-bottom {
       left: 0;
       right: 0;
-      bottom: 0;
-      animation-name: ant-popup-position-bottom;
+      bottom: -100%;
+      .animation-transform(ant-popup-position-bottom);
       border-radius: @popup-radius @popup-radius 0 0;
       &-close {
-        animation-name: ant-popup-position-bottom-close;
+        bottom: 0;
+        .animation-transform(ant-popup-position-bottom-close);
       }
     }
     &-left {
       top: 0;
-      left: 0;
       bottom: 0;
-      animation-name: ant-popup-position-left;
+      left: -100%;
+      .animation-transform(ant-popup-position-left);
       &-close {
-        animation-name: ant-popup-position-left-close;
+        left: 0;
+        .animation-transform(ant-popup-position-left-close);
       }
     }
     &-center {
