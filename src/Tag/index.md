@@ -48,7 +48,7 @@ toc: 'content'
 ```xml
 <ant-tag type="fill">fill</ant-tag>
 <ant-tag type="outline">outline</ant-tag>
-<ant-tag color="fill-light">fill-light</ant-tag>
+<ant-tag type="fill-light">fill-light</ant-tag>
 ```
 
 ### 自定义图标
