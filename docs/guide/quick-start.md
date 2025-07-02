@@ -19,7 +19,7 @@ $ npm i antd-mini --save
 
 开启方法：在 IDE 中的“详情 > 项目配置”中，勾选“启用 component2 编译”。
 
-详情可以参考[升级到 v2](./migration-v2.md)。
+详情可以参考[升级到 v2](https://2x-mini.ant.design/guide/migration-v2)。
 
 ### 3. 在页面 JSON 文件中引入组件
 

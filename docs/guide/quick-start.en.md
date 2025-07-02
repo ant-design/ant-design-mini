@@ -19,7 +19,7 @@ From v2.11.0 onwards, small programs are required to open `component2`. When ena
 
 How to enable it: In Details> Project Configuration in the IDE, select Enable component2 Compilation ".
 
-Details can refer[Upgrade to v2](./migration-v2.md)。
+Details can refer[Upgrade to v2](https://2x-mini.ant.design/guide/migration-v2)。
 
 ### 3. Introduce components into the page JSON file.
 
