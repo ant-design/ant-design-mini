@@ -63,6 +63,7 @@ Page({
             objectPicker: {
               title: '对象选择器',
               type: 'string',
+              value: 'Mon',
               widget: 'picker',
               props: {
                 placeholder: '请选择',

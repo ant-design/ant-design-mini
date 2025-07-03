@@ -16,9 +16,8 @@
 
     className="{{config.className || ''}}"
     style="{{ config.style || '' }}"
-    placeholderClassName="{{config.placeholderClass || ''}}"
+    placeholderClassName="{{config.placeholderClassName || ''}}"
     placeholderStyle="{{config.placeholderStyle || ''}}"
-    inputCls="{{ config.inputCls || '' }}"
 
     randomNumber="{{config.randomNumber}}"
     type="{{config.type}}"
