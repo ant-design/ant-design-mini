@@ -24,9 +24,6 @@ createComponent({
     onChange(v) {
       this.props?.onTriggerChange(v?.trim() || '', this.props.field);
     },
-    onClear(v) {
-      this.props?.onTriggerChange(v, this.props.field);
-    },
     onBlur(v) {
       this.props?.config?.onBlur?.(v, this.props.field);
     },
