@@ -38,8 +38,8 @@ group:
 
 | 属性          | 类型                                                                 |   功能描述               |
 | :--------    | :--------                                                            |  :---                  |
-| onSelectMin  | (value: string | number, item: SelectorItem, event: Event) => void   |  触发最大限制         |
-| onSelectMax  | (value: string | number, item: SelectorItem, event: Event) => void   |  触发最小限制          |
+| onSelectMin  | (value: string \| number, item: SelectorItem, event: Event) => void   |  触发最大限制         |
+| onSelectMax  | (value: string \| number, item: SelectorItem, event: Event) => void   |  触发最小限制          |
 
 
 ## schema 示例
