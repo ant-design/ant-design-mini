@@ -6,7 +6,7 @@ group:
   order: 1
 ---
 
-# 输入框
+# 输入框 input
 
 输入框组件 input 直接使用的 `antd-mini` 的 `input` 组件，支持以下属性透传
 
