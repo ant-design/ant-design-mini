@@ -3,7 +3,7 @@ nav:
   path: /form
 group:
   title: 内置组件
-  order: 1
+  order: 3
 ---
 
 # 单选框 radio
