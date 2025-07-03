@@ -23,7 +23,7 @@ group:
 | disabled               | boolean          |  否         |  --            |  是否置灰禁止更改         |
 | maxSelectedCount       | number           |  否         |  --            |  最大可选中项的数量        |
 | minSelectedCount       | number           |  否         |  --            |  最小可选中项的数量        |
-| multiple               | boolean          |  否         | false          |  是否多选                |
+| multiple               | boolean          |  否         | `false`          |  是否多选                |
 
 ## IOption 
 
