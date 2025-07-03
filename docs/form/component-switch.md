@@ -1,9 +1,10 @@
 ---
+order: 5
 nav:
   path: /form
 group:
   title: 内置组件
-  order: 5
+  order: 1
 ---
 
 # 开关 switch

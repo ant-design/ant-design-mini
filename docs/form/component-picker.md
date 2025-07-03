@@ -1,9 +1,10 @@
 ---
+order: 2
 nav:
   path: /form
 group:
   title: 内置组件
-  order: 2
+  order: 1
 ---
 
 # 选择框 picker

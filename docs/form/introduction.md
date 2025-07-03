@@ -3,7 +3,7 @@ nav:
   path: /form
 group:
   title: 通用
-  order: 1
+  order: 0
 ---
 
 # 简介

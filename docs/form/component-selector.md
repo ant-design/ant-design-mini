@@ -1,9 +1,10 @@
 ---
+order: 4
 nav:
   path: /form
 group:
   title: 内置组件
-  order: 4
+  order: 1
 ---
 
 # 选择器 selector
