@@ -35,7 +35,6 @@ Page({
               props: {
                 maxCount: 3,
                 onUpload: (file) => onUpload(file),
-                multiple: true,
                 uploadText: '上传图片'
               }
             },
@@ -45,7 +44,6 @@ Page({
               widget: 'image-upload',
               props: {
                 maxCount: 1,
-                multiple: false,
                 onUpload: (file) => onUpload(file),
                 uploadText: '上传单张图片'
               }
@@ -61,7 +59,6 @@ Page({
               ],
               props: {
                 maxCount: 2,
-                multiple: true,
                 onUpload: (file) => onUpload(file),
                 uploadText: '上传图片'
               }
@@ -77,7 +74,6 @@ Page({
               ],
               props: {
                 maxCount: 3,
-                multiple: true,
                 onUpload: (file) => onUpload(file),
                 uploadText: '上传图片',
                 disabled: true
@@ -89,7 +85,6 @@ Page({
               widget: 'image-upload',
               props: {
                 maxCount: 3,
-                multiple: true,
                 uploadText: '上传图片',
                 onUpload: (file) => onUpload(file),
                 className: 'custom-image-upload'
@@ -101,7 +96,6 @@ Page({
               widget: 'image-upload',
               props: {
                 maxCount: 3,
-                multiple: true,
                 onUpload: (file) => onUpload(file),
                 uploadText: '最多上传3张图片'
               }
@@ -120,7 +114,6 @@ Page({
               ],
               props: {
                 maxCount: 2,
-                multiple: true,
                 uploadText: '上传图片',
                 onUpload: (file) => onUpload(file),
                 onPreview: (file) => {

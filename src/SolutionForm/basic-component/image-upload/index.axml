@@ -1,6 +1,5 @@
 <view style="{{ config.style }}" class="fr-upload-image {{ config.disabled ? 'fr-upload-image-disabled' : '' }}">
   <ant-uploader
-    defaultFileList="{{defaultFileList}}"
     fileList="{{ value }}"
     uploadingText="{{ config.uploadingText }}"
     uploadfailedText="{{ config.uploadfailedText }}"

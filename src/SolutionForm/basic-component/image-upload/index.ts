@@ -11,7 +11,7 @@ createComponent({
     },
     onBeforeUpload(localFileList) {
       if (this.props.config?.onBeforeUpload) {
-        return this.props.config.onBeforeUploadlocalFileList();
+        return this.props.config.onBeforeUpload();
       }
       return localFileList;
     },
