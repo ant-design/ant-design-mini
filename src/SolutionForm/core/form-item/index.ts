@@ -1,5 +1,5 @@
 import { set, get, isEqual } from 'lodash';
-import { createComponent } from '@alipay/merchant-base-mini';
+import { createComponent } from 'miniapp-store';
 import { getStore } from '../../store/index';
 
 createComponent({

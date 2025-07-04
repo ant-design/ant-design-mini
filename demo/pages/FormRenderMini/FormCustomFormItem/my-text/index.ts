@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { setFieldsValue } from '../../../../../src/SolutionForm/index';
-import { createComponent } from '@alipay/merchant-base-mini';
+import { createComponent } from 'miniapp-store';
 import { get } from 'lodash';
 
 createComponent({
