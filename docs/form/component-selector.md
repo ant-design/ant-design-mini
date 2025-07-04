@@ -43,27 +43,6 @@ group:
 | onSelectMax  | (value: string \| number, item: SelectorItem, event: Event) => void   |  触发最小限制          |
 
 
-## schema 示例
+## Demo 代码
 
-```js
-const formItemSchema = {
-  title: '多选上限',
-  type: 'array',
-  widget: 'selector',
-  props: {
-    maxSelectedCount: 2,
-    options: [
-      { text: '选项1', value: '1' },
-      { text: '选项2', value: '2' },
-      { text: '选项3', value: '3', disabled: true }
-    ],
-    onSelectMax: () => {
-      my.alert({
-        content: '最多选择2个选项'
-      });
-    },
-    multiple: true,
-  }
-}
-```
-
+<code src='../../demo/pages/FormRenderMini/FormSelector/index'></code>

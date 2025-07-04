@@ -5,7 +5,7 @@
 
   /// #if ALIPAY
   "defaultTitle": "Group",
-  "transparentTitle": "none",
+  "transparentTitle": "always",
   "titlePenetrate": "YES",
   /// #endif
 

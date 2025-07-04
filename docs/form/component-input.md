@@ -40,24 +40,7 @@ group:
 | onBlur              | (val: string, field: string) = > void          |  出入框失焦的时候触发                 |
 | onConfirm           | (val: string, field: string) = > void          |  点击键盘完成时触发此回调              |
 
-## schema 示例
 
-```js
-const formItemSchema = {
-  title: 'input输入框',
-  type: 'string',
-  widget: 'input',
-  value: '内容',
-  required: true,
-  disabled: true,
-  props: {
-    placeholder: '请填写内容',
-    disabled: true, // 优先级大于外层的 disabled
-    onBlur: (v, field) => {
-      // v: 当前输入框的值
-      // field: 当前表单项的key，groupName.formItemKey 的形式
-    },
-  },
-}
-```
+## Demo 代码
 
+<code src='../../demo/pages/FormRenderMini/FormInput/index'></code>

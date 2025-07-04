@@ -24,19 +24,6 @@ group:
 | style           | string       |  否          |  --         |  样式                                             |
 | className       | string       |  否          |  --         |  样式类名称                                        |
 
-## schema 示例
+## Demo 代码
 
-```js
-const formItemSchema = {
-  title: '开关',
-  type: 'boolean',
-  widget: 'switch',
-  props: {
-    checkedText: '开',
-    color: '#00b578',
-    size: 'medium',
-    uncheckedText: '关'
-  }
-}
-```
-
+<code src='../../demo/pages/FormRenderMini/FormSwitch/index'></code>

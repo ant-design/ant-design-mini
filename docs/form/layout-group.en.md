@@ -40,6 +40,23 @@ group:
 | text                | string          |  alert的文案                                         |
 | buttonText          | string          |  alert确定按钮文案                                    |
 
-## Demo 代码
+## schema 示例
 
-<code src='../../demo/pages/FormRenderMini/FormRadio/index'></code>
+```js
+const formItemSchema = {
+  title: '单选框',
+  type: 'string',
+  value: 'banana',
+  widget: 'radio',
+  props: {
+    position: 'vertical',
+    color: 'red',
+    options: [
+      { value: 'apple', label: '苹果', disabled: true },
+      { value: 'orange', label: '橘子' },
+      { value: 'banana', label: '香蕉' }
+    ]
+  }
+}
+```
+

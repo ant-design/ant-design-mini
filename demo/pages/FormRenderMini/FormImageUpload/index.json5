@@ -5,7 +5,7 @@
 
   /// #if ALIPAY
   "defaultTitle": "FormImageUpload",
-  "transparentTitle": "auto",
+  "transparentTitle": "always",
   "titlePenetrate": "YES",
   /// #endif
 

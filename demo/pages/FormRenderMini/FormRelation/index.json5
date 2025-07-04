@@ -5,7 +5,7 @@
 
   /// #if ALIPAY
   "defaultTitle": "表单联动",
-  "transparentTitle": "none",
+  "transparentTitle": "always",
   "titlePenetrate": "YES",
   /// #endif
 

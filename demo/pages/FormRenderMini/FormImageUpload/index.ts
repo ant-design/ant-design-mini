@@ -131,7 +131,6 @@ Page({
   
   async onTapOperation(e) {
     const { errors } = await onSubmit();
-    console.log('<<<<errors', errors);
     if (errors.length > 0) {
       return;
     }

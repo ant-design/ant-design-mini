@@ -36,27 +36,8 @@ group:
 | onPreview    | (file: File[]) => void                             |  点击移除文件时的回调。返回值为 false 时不移除            |
 
 
-## schema 示例
+## Demo 代码
 
-```js
-const formItemSchema = {
-  title: '上传图片',
-  type: 'array',
-  widget: 'image-upload',
-  value: [
-    {
-      url: 'https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*znK_ToIL8rQAAAAAAAAAAAAAARQnAQ',
-    }],
-  props: {
-    maxCount: 2,
-    uploadText: '上传图片',
-    onUpload: (file) => onUpload(file),
-    onPreview: (file) => {
-      my.previewImage({
-        urls: [file.url]
-      });
-    }
-  }
-}
-```
+<code src='../../demo/pages/FormRenderMini/FormImageUpload/index'></code>
+
 
