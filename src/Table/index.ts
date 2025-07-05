@@ -73,6 +73,7 @@ Component({
             index: idx,
             dataIndex: val.dataIndex,
             value: v[val.dataIndex],
+            cellValue: val.render ? val.render(v[val.dataIndex], v, i) : v[val.dataIndex],
             textAlignRight: v.textAlignRight || val.textAlignRight,
             rowsData: v,
             widthPx: rpx2px(val.width || defaultWidth, windowWidth),
