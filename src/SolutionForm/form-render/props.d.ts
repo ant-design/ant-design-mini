@@ -18,11 +18,6 @@ export interface IComponentProps {
   className: string;
 
   /**
-   * 置灰提交按钮
-   */
-  disableSubmit?: false,
-
-  /**
    * 禁用表单项点击
    * @param formItem 
    * @returns 

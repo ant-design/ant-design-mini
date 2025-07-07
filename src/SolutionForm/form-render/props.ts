@@ -3,5 +3,4 @@ export const FormRenderDefaultProps = {
   className: '',
   initialValues: {},
   initialValidate: false,
-  disableSubmit: false,
 };
