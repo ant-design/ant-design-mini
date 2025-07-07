@@ -109,7 +109,7 @@ export interface SchemaBase {
    * @description schema类型
    * @default 'object'
    */
-  type: 'string' | 'number' | 'boolean' | 'array' | 'object' | 'range' | 'html';
+  type: 'string' | 'number' | 'boolean' | 'array' | 'object' | 'range';
   properties: Record<string, Group>
 }
 

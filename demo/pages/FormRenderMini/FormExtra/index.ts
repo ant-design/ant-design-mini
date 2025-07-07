@@ -3,7 +3,6 @@ Page({
   data: {
     schema: {
       type: 'object',
-      radius: true,
       requiredMarkStyle: 'text-not-required',
       displayType: 'row',
       properties: {

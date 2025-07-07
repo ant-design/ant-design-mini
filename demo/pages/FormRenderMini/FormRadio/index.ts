@@ -5,7 +5,6 @@ Page({
     schema: {
       formId: 'demo-radio',
       type: 'object',
-      radius: false,
       displayType: 'row',
       operation: {
         flex: true,

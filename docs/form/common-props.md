@@ -1,4 +1,5 @@
 ---
+order: 2
 nav:
   path: /form
 group:
@@ -6,7 +7,7 @@ group:
   order: 0
 ---
 
-# Props
+# 组件 props
 
 表单组件接收的方法和属性，通过组件 `props` 传入，有如下字段：
 

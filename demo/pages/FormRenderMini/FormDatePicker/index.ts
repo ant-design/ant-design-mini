@@ -5,7 +5,6 @@ Page({
     schema: {
       formId: 'demo-date-picker',
       type: 'object',
-      radius: false,
       displayType: 'row',
       operation: {
         flex: true,

@@ -3,7 +3,7 @@ order: 3
 nav:
   path: /form
 group:
-  title: 
+  title: 通用
   order: 1
 ---
 

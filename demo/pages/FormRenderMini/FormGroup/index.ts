@@ -6,7 +6,6 @@ Page({
       // 当前表单的标识用于数据收集
       formId: 'demo-id-card',
       type: 'object',
-      radius: false,
       displayType: 'row',
       properties: {
         idCardInfo1: {

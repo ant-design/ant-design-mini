@@ -14,7 +14,6 @@ Page({
   data: {
     schema: {
       type: 'object',
-      radius: true,
       displayType: 'row',
       operation: {
         flex: true,

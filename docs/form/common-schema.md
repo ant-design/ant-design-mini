@@ -1,12 +1,13 @@
 ---
+order: 3
 nav:
   path: /form
 group:
-  title: 基础使用
-  order: 1
+  title: 通用
+  order: 0
 ---
 
-# schema
+# 表单 schema
 
 
 ```js
@@ -26,12 +27,21 @@ interface SchemaBase {
    * @description schema类型
    * @default 'object'
    */
-  type: 'string' | 'number' | 'boolean' | 'array' | 'object' | 'range' | 'html';
+  type: 'string' | 'number' | 'boolean' | 'array' | 'object' | 'range';
   /**
    * @description 表单项的信息，可能是分组也可是具体的表单项
    * @default 'object'
    */
   properties: Record<string, Group ｜ FormItem>
+}
+
+interface Operation {
+  flex: boolean;
+  fixedFooter: boolean;
+  protocolPrefix: string;
+  showProtocolCheck: boolean;
+  footer: Footer[];
+  protocols: Protocol[];
 }
 
 interface Group {

@@ -5,7 +5,6 @@ Page({
     schema: {
       formId: 'demo-input',
       type: 'object',
-      radius: false,
       displayType: 'row',
       operation: {
         flex: true,

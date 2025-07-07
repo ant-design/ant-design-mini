@@ -9,7 +9,6 @@ Page({
     schema: {
       formId: 'demo-image-upload',
       type: 'object',
-      radius: false,
       displayType: 'row',
       operation: {
         flex: true,

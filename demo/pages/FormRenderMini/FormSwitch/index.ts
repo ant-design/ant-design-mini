@@ -3,7 +3,6 @@ Page({
     schema: {
       formId: 'demo-switch',
       type: 'object',
-      radius: false,
       displayType: 'row',
       operation: {
         flex: true,
