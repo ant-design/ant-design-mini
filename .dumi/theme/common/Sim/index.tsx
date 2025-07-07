@@ -86,7 +86,7 @@ const Previewer: React.FC<IProps> = () => {
     return (
       matchedRoute?.meta?.frontmatter?.nav?.path === '/components' ||
       matchedRoute?.meta?.frontmatter?.nav?.path === '/copilot'||
-      (matchedRoute?.meta?.frontmatter?.nav?.path === '/form' && matchedRoute?.path !== 'form/introduction')
+      matchedRoute?.path.indexOf('form/common') < 0
     );
   }, [matchedRoute]);
 
