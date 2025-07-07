@@ -79,35 +79,6 @@ const schema2 = {
 
 对于 **`form-render-mini`** 组件我们提供了很多属性和事件配置，简单介绍下最外层的配置，详细信息请参考 `Props` 章节。
 
-```js
-interface SchemaBase {
-  /**
-   * 表单唯一标识
-   */
-  formId: string;
-  /**
-   * 底部操作栏配置
-   */
-  operation: Operation | null;
-
-  /**
-   * @description Label 与 widget 的展示关系，row 表示并排展示，column 表示两排展示，写在 schema 顶层时代表表单整体的排列方式
-   * @default 'row'
-   */
-  displayType: DisplayType;
-
-  /**
-   * @description schema类型
-   * @default 'object'
-   */
-  type: 'string' | 'number' | 'boolean' | 'array' | 'object' | 'range' | 'html';
-  /**
-   * @description 表单项的信息，可能是分组也可是具体的表单项
-   * @default 'object'
-   */
-  properties: Record<string, Group ｜ FormItem>
-}
-```
 
 ## **全局方法**
 
