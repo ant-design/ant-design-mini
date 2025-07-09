@@ -6,6 +6,7 @@ export type DisplayType = 'row' | 'column';
 
 export interface Footer {
   text: string;
+  disabled?: boolean;
   type: 'default' | 'primary';
 }
 
