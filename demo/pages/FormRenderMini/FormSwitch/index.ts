@@ -1,7 +1,6 @@
 Page({
   data: {
     schema: {
-      formId: 'demo-switch',
       type: 'object',
       displayType: 'row',
       operation: {

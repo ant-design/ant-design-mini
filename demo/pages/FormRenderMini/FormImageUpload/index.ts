@@ -7,7 +7,6 @@ const onUpload = (file) => {
 Page({
   data: {
     schema: {
-      formId: 'demo-image-upload',
       type: 'object',
       displayType: 'row',
       operation: {

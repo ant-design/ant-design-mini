@@ -3,7 +3,6 @@ import { onSubmit } from '../../../../src/SolutionForm/index';
 Page({
   data: {
     schema: {
-      formId: 'demo-date-picker',
       type: 'object',
       displayType: 'row',
       operation: {

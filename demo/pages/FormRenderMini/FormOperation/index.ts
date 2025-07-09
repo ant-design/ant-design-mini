@@ -43,7 +43,6 @@ const disableFooter = [
 Page({
   data: {
     schema: {
-      formId: 'demo-operation',
       type: 'object',
       displayType: 'row',
       operation: {

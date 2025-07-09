@@ -172,6 +172,7 @@ const getStoreInstance = () => {
             className: properties[key]?.className || '',
             // 优先级去schema的path 如果没有配置则去对象的key
             path: `${key}`,
+            order: properties[key]?.order,
             // 分组类型
             widget: properties[key]?.widget || '',
             config: properties[key]?.props || {},
@@ -208,6 +209,8 @@ const getStoreInstance = () => {
                 }),
           }))
           .sort((a, b) => a.order - b.order);
+
+        console.log('<<<subSchemaArr', subSchemaArr);
 
         Object.assign(state, {
           subSchemaArr,

@@ -3,7 +3,6 @@ import { onSubmit } from '../../../../src/SolutionForm/index';
 Page({
   data: {
     schema: {
-      formId: 'demo-input',
       type: 'object',
       displayType: 'row',
       operation: {
