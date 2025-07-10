@@ -31,7 +31,6 @@ Page({
           properties: {
             qual: {
               title: '联动测试',
-              required: true,
               type: 'string',
               widget: 'selector',
               props: {
@@ -45,7 +44,6 @@ Page({
             name: {
               title: '姓名',
               type: 'string',
-              required: true,
               widget: 'input',
               props: {
                 placeholder: '请填写联系人姓名',
@@ -73,7 +71,6 @@ Page({
               title: '邮箱',
               type: 'string',
               widget: 'input',
-              required: true,
               rules: [
                 {
                   pattern: '^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(.[a-zA-Z0-9_-]+)+$',
@@ -138,7 +135,6 @@ Page({
           properties: {
             groupName: {
               title: '隐藏的分组',
-              required: true,
               type: 'string',
               widget: 'selector',
               props: {
