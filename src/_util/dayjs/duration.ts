@@ -1,68 +1,151 @@
 /**
- * Duration utility for time calculations
+ * Duration utility for time calculations (simplified version)
+ * Only supports asHours, asDays, and format methods
  *
- * see: https://github.com/iamkun/dayjs/blob/dev/src/plugin/duration/index.js
+ * see: https://github.com/iamkun/dayjs/blob/dev/src/duration.js
  */
 
-export interface DurationObject {
-  /**
-   * Get as days (total number of days in duration)
-   */
-  asDays(): number;
+import {
+  MILLISECONDS_A_DAY,
+  MILLISECONDS_A_HOUR,
+  REGEX_FORMAT,
+} from './constant';
 
-  /**
-   * Get as hours (total number of hours in duration)
-   */
-  asHours(): number;
+// Type declarations for dayjs extension
+declare module 'dayjs' {
+  interface Dayjs {
+    duration: (input?: number | DurationData, unit?: string) => Duration;
+  }
 
-  /**
-   * Format duration using template
-   * @param template 格式字符串，支持 HH, mm, ss
-   */
-  format(template: string): string;
+  export function duration(
+    input?: number | DurationData,
+    unit?: string
+  ): Duration;
 }
 
-/**
- * Create a Duration object
- * @param input 毫秒数
- * @returns Duration对象
- */
-export function duration(input: number): DurationObject {
-  const $ms = Math.abs(input);
+interface DurationData {
+  years?: number;
+  months?: number;
+  days?: number;
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
+  milliseconds?: number;
+  weeks?: number;
+}
 
-  // 按照 dayjs 标准计算时间单位
-  const $s = Math.floor($ms / 1000);
-  const $m = Math.floor($s / 60);
-  const $h = Math.floor($m / 60);
-  const $d = Math.floor($h / 24);
+interface DurationUtils {
+  s: (num: number, length: number, pad: string) => string;
+  p: (unit: string) => string;
+}
 
-  return {
-    asDays(): number {
-      return $d;
-    },
+const unitToMS = {
+  days: MILLISECONDS_A_DAY,
+  hours: MILLISECONDS_A_HOUR,
+};
 
-    asHours(): number {
-      return $h;
-    },
+let $u: DurationUtils;
 
-    format(template: string): string {
-      // 计算显示单位 (取余数)
-      const hours = $h % 24;
-      const minutes = $m % 60;
-      const seconds = $s % 60;
+const prettyUnit = (unit: string) => `${$u.p(unit)}s`;
+const isNegative = (number: number) => number < 0;
+const roundNumber = (number: number) =>
+  isNegative(number) ? Math.ceil(number) : Math.floor(number);
 
-      return template.replace(/HH|mm|ss/g, (match) => {
-        switch (match) {
-          case 'HH':
-            return hours.toString().padStart(2, '0');
-          case 'mm':
-            return minutes.toString().padStart(2, '0');
-          case 'ss':
-            return seconds.toString().padStart(2, '0');
-          default:
-            return match;
-        }
+class Duration {
+  private $d: DurationData;
+  private $ms: number;
+  private $l: string;
+
+  constructor(input?: number | DurationData, unit?: string, locale?: string) {
+    this.$d = {};
+    this.$l = locale || 'en';
+
+    if (input === undefined) {
+      this.$ms = 0;
+      this.parseFromMilliseconds();
+      return;
+    }
+
+    if (typeof input === 'number') {
+      this.$ms = input;
+      this.parseFromMilliseconds();
+      return;
+    }
+
+    if (typeof input === 'object') {
+      Object.keys(input).forEach((k) => {
+        this.$d[prettyUnit(k) as keyof DurationData] =
+          input[k as keyof DurationData];
       });
-    },
-  };
+      this.calMilliseconds();
+      return;
+    }
+  }
+
+  private calMilliseconds() {
+    this.$ms = Object.keys(this.$d).reduce(
+      (total, unit) =>
+        total +
+        (this.$d[unit as keyof DurationData] || 0) *
+          (unitToMS[unit as keyof typeof unitToMS] || 0),
+      0
+    );
+  }
+
+  private parseFromMilliseconds() {
+    let { $ms } = this;
+    this.$d.days = roundNumber($ms / MILLISECONDS_A_DAY);
+    $ms %= MILLISECONDS_A_DAY;
+    this.$d.hours = roundNumber($ms / MILLISECONDS_A_HOUR);
+    $ms %= MILLISECONDS_A_HOUR;
+    this.$d.minutes = roundNumber($ms / (60 * 1000));
+    $ms %= 60 * 1000;
+    this.$d.seconds = roundNumber($ms / 1000);
+    $ms %= 1000;
+    this.$d.milliseconds = $ms;
+  }
+
+  format(formatStr?: string): string {
+    const str = formatStr || 'YYYY-MM-DDTHH:mm:ss';
+    const matches = {
+      Y: this.$d.years || 0,
+      YY: $u.s(this.$d.years || 0, 2, '0'),
+      YYYY: $u.s(this.$d.years || 0, 4, '0'),
+      M: this.$d.months || 0,
+      MM: $u.s(this.$d.months || 0, 2, '0'),
+      D: this.$d.days || 0,
+      DD: $u.s(this.$d.days || 0, 2, '0'),
+      H: this.$d.hours || 0,
+      HH: $u.s(this.$d.hours || 0, 2, '0'),
+      m: this.$d.minutes || 0,
+      mm: $u.s(this.$d.minutes || 0, 2, '0'),
+      s: this.$d.seconds || 0,
+      ss: $u.s(this.$d.seconds || 0, 2, '0'),
+      SSS: $u.s(this.$d.milliseconds || 0, 3, '0'),
+    };
+    return str.replace(
+      REGEX_FORMAT,
+      (match, $1) => $1 || String(matches[match as keyof typeof matches])
+    );
+  }
+
+  private as(unit: 'hours' | 'days'): number {
+    return this.$ms / unitToMS[unit];
+  }
+
+  asHours(): number {
+    return this.as('hours');
+  }
+
+  asDays(): number {
+    return this.as('days');
+  }
 }
+
+export default (option: any, Dayjs: any, dayjs: any) => {
+  $u = dayjs().$utils();
+  dayjs.duration = function (input?: number | DurationData, unit?: string) {
+    const $l = dayjs.locale();
+    return new Duration(input, unit, $l);
+  };
+};

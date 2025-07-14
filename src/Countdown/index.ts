@@ -1,4 +1,5 @@
-import { duration } from '../_util/dayjs/duration';
+import duration from '../_util/dayjs/duration';
+import dayjs from 'dayjs';
 import {
   Component,
   getValueFromProps,
@@ -6,6 +7,8 @@ import {
   triggerEventOnly,
 } from '../_util/simply';
 import { CountdownDefaultProps } from './props';
+
+dayjs.extend(duration);
 
 Component({
   props: CountdownDefaultProps,
@@ -60,7 +63,7 @@ Component({
           });
         }
 
-        const durationTime = duration(remainTime);
+        const durationTime = dayjs.duration(remainTime);
 
         const day = Math.floor(durationTime.asDays()).toString();
 
