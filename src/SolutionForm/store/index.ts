@@ -210,8 +210,6 @@ const getStoreInstance = () => {
           }))
           .sort((a, b) => a.order - b.order);
 
-        console.log('<<<subSchemaArr', subSchemaArr);
-
         Object.assign(state, {
           subSchemaArr,
           hasGroup: !!subSchemaArr[0]?.formItemArr,

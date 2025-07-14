@@ -83,10 +83,11 @@ const Previewer: React.FC<IProps> = () => {
   const matchedRoute = useMatchedRoute();
 
   const isShowSim = useMemo(() => {
+    // TODO: 逻辑需要优化@沧沫
     return (
-      matchedRoute?.meta?.frontmatter?.nav?.path === '/components' ||
+      (matchedRoute?.meta?.frontmatter?.nav?.path === '/components' ||
       matchedRoute?.meta?.frontmatter?.nav?.path === '/copilot'||
-      matchedRoute?.path.indexOf('form/common') < 0
+      matchedRoute?.path.indexOf('form/common') < 0) &&  matchedRoute?.path.indexOf('form/form-schema') < 0
     );
   }, [matchedRoute]);
 

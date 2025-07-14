@@ -44,6 +44,7 @@
     "lodash.reduce": "^4.6.0",
     "miniapp-store": "^1.2.0",
     "pinyin-firstletter": "^1.0.2",
+    "react-highlight": "^0.15.0",
     "tslib": "2.5.0"
   },
   "overrides": {
