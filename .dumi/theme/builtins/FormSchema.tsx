@@ -1,11 +1,10 @@
 import { css } from '@emotion/react';
-import { ConfigProvider, Row, Col, Typography, Space, Button, Input, message } from 'antd';
+import { ConfigProvider, Row, Col, Space, Button, Input, message } from 'antd';
 import { useContext, useState, useRef, useEffect, useMemo } from 'react';
 import hljs from 'highlight.js';
 import useSiteToken from '../hooks/useSiteToken';
 import SiteContext from '../slots/SiteContext';
 import 'highlight.js/styles/dark.css';
-import { json } from 'stream/consumers';
 
 function buildUrl(
   basic: string,
@@ -70,38 +69,13 @@ const initSchemaData = {
           "widget": "input",
           "required": true,
           "props": {
-            "placeholder": "Enter text"
-          }
+            "placeholder": "输入字符"
+          },
         }
       }
     }
   }
 };
-
-const _initSchemaData = {
-  "type": "object",
-  "radius": false,
-  "displayType": "row",
-  "properties": {
-    "group1": {
-      "title": "Group 1",
-      "type": "group-card",
-      "widget": "group-card",
-      "order": 1,
-      "properties": {
-        "input": {
-          "title": "Input11111",
-          "widget": "input",
-          "required": true,
-          "props": {
-            "placeholder": "Enter text"
-          }
-        }
-      }
-    }
-  }
-};
-
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -110,11 +84,10 @@ const useStyle = () => {
   return {
     mainContainer: css`
       font-family: ${fontFamily};
-`
+    `,
   };
 };
 
-const { Title } = Typography;
 const { TextArea } = Input;
 
 export default ({ lang }) => {
@@ -127,6 +100,7 @@ export default ({ lang }) => {
   const [btnLoading, setBtnLoading] = useState(false);
   const [formDescription, setFormDescription] = useState('');
   const previewerRef = useRef<any>(null);
+  const codeRef = useRef<HTMLElement>(null);
   const [previewerLoaded, setPreviewerLoaded] = useState(false);
 
 
@@ -159,21 +133,17 @@ export default ({ lang }) => {
       data: `
         const currentPage = getCurrentPages()[0];
         currentPage.setData({
-          schema: ${JSON.stringify(_initSchemaData)},
+          schema: ${JSON.stringify(schema)},
         });
     `,
     });
   }
 
   useEffect(() => {
-    document.querySelectorAll("pre").forEach(block => {
-      try {
-        hljs.highlightBlock(block);
-      } catch(e) {
-        console.log(e);
-      }
-  });
-  }, []);
+    if (codeRef.current) {
+      hljs.highlightElement(codeRef.current);
+    }
+  }, [schema]);
 
   const { theme, platform, herboxUrl } =
     useContext(SiteContext);
@@ -197,7 +167,7 @@ export default ({ lang }) => {
     >
       <div css={style.mainContainer}>
         <Row>
-          <Col span={12}>
+          <Col span={14}>
             <Space direction="vertical" size="large" style={{ width: '100%' }}>
               <TextArea 
                 rows={4} 
@@ -208,14 +178,14 @@ export default ({ lang }) => {
                 placeholder="请输入表单描述，例如：创建一个表单，包含一个输入框"  />
               <Button loading={btnLoading} type="primary" onClick={() => createSchemaByDescription()}>生成schema</Button>
               <pre>
-                <code> 
-                  { `${schema}` }
+                <code ref={codeRef} style={{ minHeight: '600px', maxHeight: '1200px' }}> 
+                  {JSON.stringify(schema, null, 2)}
                 </code>
               </pre>
             </Space>
           </Col>
-          <Col span={12}>
-            <div style={{ height: '800px', width: '420rpx', paddingLeft: 24 }}>
+          <Col span={10}>
+            <div style={{ height: '800px', width: '420rpx', paddingLeft: 100 }}>
               <iframe
                 style={{ height: '633px', width: '390rpx', border: 0, }}
                 ref={previewerRef}

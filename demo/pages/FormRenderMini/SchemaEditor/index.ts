@@ -25,7 +25,4 @@ Page({
       }
     }
   },
-  updateSchema(schema) {
-    this.setData({ schema });
-  },
 });
