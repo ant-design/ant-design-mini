@@ -105,37 +105,43 @@ export default ({ lang }) => {
 
 
   const createSchemaByDescription = () => {
-    // setBtnLoading(true);
-    // fetch('http://127.0.0.1:7001/api/form/create', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     content: formDescription,
-    //   }),
-    // }).then(res => res.json()).then(res => {
-    //   message.success({
-    //     content: 'schema生成成功',
-    //   })
-    //   setSchema(res.data.data);
-    //   setBtnLoading(false);
+    setBtnLoading(true);
+    fetch('http://127.0.0.1:7001/api/form/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        content: formDescription,
+        image: formDescription.startsWith('http') ? formDescription : '',
+      }),
+    }).then(res => res.json()).then(res => {
+      if (!res.success) {
+        throw res;
+      }
+      console.log('<<<<res', res);
+      message.success({
+        content: 'schema生成成功',
+      });
+      setSchema(res.data.data);
+      setBtnLoading(false);
 
-    // }).catch(() => {
-    //   setBtnLoading(false);
-    //   message.error({
-    //     content: 'schema生成失败，请重试',
-    //   });
-    // });
-    const previeweriframe = previewerRef.current;
-    previeweriframe?.contentWindow?.postMessage({
+      const previeweriframe = previewerRef.current;
+      previeweriframe?.contentWindow?.postMessage({
       type: 'evaluateJavaScriptInWorkerCode',
       data: `
         const currentPage = getCurrentPages()[0];
         currentPage.setData({
-          schema: ${JSON.stringify(schema)},
+          schema: ${JSON.stringify(res.data.data || {})},
         });
     `,
+    });
+
+    }).catch(() => {
+      setBtnLoading(false);
+      message.error({
+        content: 'schema生成失败，请重试',
+      });
     });
   }
 
@@ -175,17 +181,17 @@ export default ({ lang }) => {
                 onChange={e => {
                   setFormDescription(e.target.value);
                 }} 
-                placeholder="请输入表单描述，例如：创建一个表单，包含一个输入框"  />
+                placeholder="请输入表单描述，例如：创建一个表单，包含一个输入框，或者表单图片的链接" />
               <Button loading={btnLoading} type="primary" onClick={() => createSchemaByDescription()}>生成schema</Button>
               <pre>
-                <code ref={codeRef} style={{ minHeight: '600px', maxHeight: '1200px' }}> 
+                <code ref={codeRef} style={{ minHeight: '600px', maxHeight: '1000px' }}> 
                   {JSON.stringify(schema, null, 2)}
                 </code>
               </pre>
             </Space>
           </Col>
-          <Col span={10}>
-            <div style={{ height: '800px', width: '420rpx', paddingLeft: 100 }}>
+          <Col span={10} style={{ position: 'relative' }}>
+            <div style={{ height: '800px', width: '420rpx', position: 'fixed', top: 128, right: 100 }}>
               <iframe
                 style={{ height: '633px', width: '390rpx', border: 0, }}
                 ref={previewerRef}
