@@ -80,7 +80,7 @@
 <!-- #endif -->
 
 
-<!-- #if ALIPAY -->
+<!--
 <view
   hover-class="{{ utils.getHoverClass(loading, type, activeClassName) }}"
   onTap="{{ onTap ? 'onTap' : '' }}"
@@ -107,5 +107,4 @@
       ></loading>
     </view>
   </view>
-</view>
-<!-- #endif -->
+</view> -->
