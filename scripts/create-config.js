@@ -124,6 +124,7 @@ async function createConfig() {
 
   /** 生成config/alipay/app.json */
   writeFileSync(path.resolve(__dirname, '..', 'config', 'alipay', 'app.json'), JSON.stringify({
+    "darkmode": true,
     "window": {
       "enableWK": "YES",
       "enableDSL": "YES",
