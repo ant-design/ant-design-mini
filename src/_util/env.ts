@@ -1,5 +1,5 @@
 export function isNative() {
-  if (typeof ac === 'object') {
+  if (typeof (globalThis as any).ac === 'object') {
     return true;
   }
   return false;

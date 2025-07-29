@@ -45,7 +45,7 @@ Page({
     console.log('navigateTo', e.currentTarget.dataset.url);
     /// #if ALIPAY
     if (isNative()) {
-      ac.call('navigateTo', {
+      (globalThis as any).ac.call('navigateTo', {
         url: e.currentTarget.dataset.url.slice(1),
       });
       return;
