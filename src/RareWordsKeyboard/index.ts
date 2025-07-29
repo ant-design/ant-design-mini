@@ -131,7 +131,7 @@ Component({
       this.handleHide();
     },
   },
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   didMount() {
     this.loadFont();
     this.computeMaxDisplayNum();

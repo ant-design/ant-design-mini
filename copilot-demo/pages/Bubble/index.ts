@@ -31,7 +31,7 @@ Page({
     // @ts-ignore
     item = item.detail;
     /// #endif
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({
       content: `${item.label} tapped`,
     });

@@ -43,7 +43,7 @@ Component({
       }
     },
   },
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   onInit() {
     const [transparentTitle, propsHeaderHeight, check] = getValueFromProps(
       this,

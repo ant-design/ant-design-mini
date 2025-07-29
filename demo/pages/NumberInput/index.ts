@@ -45,7 +45,7 @@ Page({
     });
   },
   handleLinkTap() {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.alert({
       content: '交易明细',
     });
@@ -65,7 +65,7 @@ Page({
     this.input = input.detail;
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.input = input;
     /// #endif
   },

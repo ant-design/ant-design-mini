@@ -273,7 +273,7 @@ Component({
       },
     }),
   ],
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   didUpdate(prevProps) {
     const [min, max, step, range, showTicks, value] = getValueFromProps(this, [
       'min',

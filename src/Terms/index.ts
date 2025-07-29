@@ -63,7 +63,7 @@ Component({
 
     onCheckChange(value) {
       let checked;
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       checked = value;
       /// #endif
       /// #if WECHAT
@@ -111,7 +111,7 @@ Component({
       defaultValueKey: 'defaultReadCurrent',
     }),
   ],
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   onInit() {
     this.countdownTimeRecord = []; // 缓存记录需要倒计时的项和时间，变化时用于判断要不要重置倒计时
     this.countdownTimerArr = []; // 记录倒计时timerId，方便销毁组件时销毁

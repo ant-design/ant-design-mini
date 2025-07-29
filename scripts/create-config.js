@@ -39,7 +39,6 @@ async function createConfig() {
     'config',
     'config/wechat',
     'config/alipay',
-    'config/alipaynative'
   ];
 
   configDirs.forEach(dir => {
@@ -55,8 +54,6 @@ async function createConfig() {
       'config/alipay/app.json',
       'config/wechat.json',
       'config/wechat/app.json',
-      'config/alipaynative.json',
-      'config/alipaynative/app.json',
     ].map((dir) => {
       return fs.rm(path.resolve(__dirname, '..', dir), {
         recursive: true,
@@ -87,27 +84,19 @@ async function createConfig() {
   /** 生成平台配置文件 **/
   // 获取微信平台支持的组件列表
   const wechatFiles = [...(await getComponentsList('src', 'wechat')), ...(await getComponentsList('copilot', 'wechat'))]
-  // 获取alipaynative平台支持的组件列表
-  const alipaynativeFiles = [...(await getComponentsList('src', 'alipaynative')), ...(await getComponentsList('copilot', 'alipaynative'))]
 
   // 生成微信平台配置
   writeFileSync(path.resolve(__dirname, '..', 'config', 'wechat.json'), JSON.stringify({
     src: wechatFiles,
   }, null, 2), 'utf8')
 
-  // 生成alipaynative平台配置
-  writeFileSync(path.resolve(__dirname, '..', 'config', 'alipaynative.json'), JSON.stringify({
-    src: alipaynativeFiles,
-  }, null, 2), 'utf8')
-
   const wechatAppJsonList = [];
-  const alipaynativeAppJsonList = [];
 
-  const getDemoPageFiles = async (demoDir = 'demo', platform = 'wechat') => {
+  const getDemoPageFiles = async (demoDir = 'demo') => {
     // 获取demo文件列表
     const demoPageFiles = await getFilesWithIdentifiers(path.resolve(__dirname, '..', demoDir, 'pages'));
-    const appJsonList = platform === 'wechat' ? wechatAppJsonList : alipaynativeAppJsonList;
-    const platformFiles = platform === 'wechat' ? wechatFiles : alipaynativeFiles;
+    const appJsonList = wechatAppJsonList
+    const platformFiles = wechatFiles
 
     // 遍历页面
     demoPageFiles.map(fileName => {
@@ -121,23 +110,16 @@ async function createConfig() {
   }
 
 
-  const demoPageFiles = [...(await getDemoPageFiles('demo', 'alipay')), ...(await getDemoPageFiles('copilot-demo', 'alipay'))];
+  const demoPageFiles = [...(await getDemoPageFiles('demo')), ...(await getDemoPageFiles('copilot-demo'))];
   // 获取wechat平台页面
-  await getDemoPageFiles('demo', 'wechat');
-  await getDemoPageFiles('copilot-demo', 'wechat');
+  await getDemoPageFiles('demo');
+  await getDemoPageFiles('copilot-demo');
 
 
   /** 生成config/wechat/app.json */
   writeFileSync(path.resolve(__dirname, '..', 'config', 'wechat', 'app.json'), JSON.stringify({
     "darkmode": true,
     pages: ['demo/pages/index/index', ...wechatAppJsonList.filter(item => item !== 'index').map(fileName => `demo/pages/${fileName}/index`)],
-  }, null, 2), 'utf8');
-
-  /** 生成config/alipaynative/app.json */
-  writeFileSync(path.resolve(__dirname, '..', 'config', 'alipaynative', 'app.json'), JSON.stringify({
-    "worklet": {},
-    "darkMode": true,
-    pages: ['demo/pages/index/index', ...alipaynativeAppJsonList.filter(item => item !== 'index').map(fileName => `demo/pages/${fileName}/index`)],
   }, null, 2), 'utf8');
 
   /** 生成config/alipay/app.json */

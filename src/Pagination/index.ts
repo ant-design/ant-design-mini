@@ -39,8 +39,5 @@ Component({
     supportSjs = my.canIUse('sjs.event');
     this.setData({ supportSjs });
     /// #endif
-    /// #if ALIPAYNATIVE
-    this.setData({ supportSjs: false });
-    /// #endif
   },
 });

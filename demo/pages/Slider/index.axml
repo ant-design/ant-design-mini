@@ -97,7 +97,7 @@
     activeDotStyle="background-color: red"
     onChange="onChange"
     onAfterChange="onAfterChange">
-    <!-- #if ALIPAY || ALIPAYNATIVE -->
+    <!-- #if ALIPAY -->
     <!-- 微信暂时不支持 slot -->
     <!-- display: inline -->
     <text

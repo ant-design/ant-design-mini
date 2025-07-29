@@ -53,10 +53,5 @@ Page({
       url: '/demo' + e.currentTarget.dataset.url,
     });
     /// #endif
-    /// #if ALIPAYNATIVE
-    ac.call('navigateTo', {
-      url: 'demo' + e.currentTarget.dataset.url,
-    });
-    /// #endif
   },
 });

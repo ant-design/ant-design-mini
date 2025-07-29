@@ -3,7 +3,7 @@ Page({
     radius: false,
   },
   handleTap(e) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.alert({
       title: 'onTap',
       content: e.currentTarget.dataset.info,
@@ -13,7 +13,7 @@ Page({
     console.log(e);
   },
   catchTap(e) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.alert({
       title: 'catchTap',
       content: e.currentTarget.dataset.info,

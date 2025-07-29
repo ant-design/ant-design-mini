@@ -154,53 +154,9 @@ async function buildPreview(theme = 'default') {
   );
 }
 
-function copyNative() {
-  const nativePath = path.join(__dirname, '../native');
-  const nativeSourcePath = path.join(__dirname, '../compiled/alipaynative/src');
-
-  // 检查目标目录是否存在
-  if (fs.existsSync(nativePath)) {
-    // 如果存在，先删除
-    fs.rmdirSync(nativePath, { recursive: true });
-  }
-
-  // 创建目录
-  fs.mkdirSync(nativePath, { recursive: true });
-
-  // 递归复制目录内容
-  function copyFolderSync(from, to) {
-    // 确保目标目录存在
-    if (!fs.existsSync(to)) {
-      fs.mkdirSync(to, { recursive: true });
-    }
-
-    // 读取源目录中的所有文件/文件夹
-    const files = fs.readdirSync(from);
-
-    // 遍历并复制每个文件/文件夹
-    files.forEach(file => {
-      const fromPath = path.join(from, file);
-      const toPath = path.join(to, file);
-
-      // 检查是文件还是目录
-      if (fs.statSync(fromPath).isDirectory()) {
-        // 如果是目录，递归复制
-        copyFolderSync(fromPath, toPath);
-      } else {
-        // 如果是文件，直接复制
-        fs.copyFileSync(fromPath, toPath);
-      }
-    });
-  }
-
-  // 执行复制
-  copyFolderSync(nativeSourcePath, nativePath);
-}
-
 (async () => {
   try {
     await compile();
-    copyNative()
     await Promise.all([buildMiniProgram(), buildDocs()]);
     await Promise.all([buildPreview(), buildPreview('dark')]);
     console.log('build success!');

@@ -13,7 +13,7 @@ Component({
       /// #if WECHAT
       event = args;
       /// #endif
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       event = e;
       /// #endif
       let currentValue = this.getValue();

@@ -33,7 +33,7 @@ Page({
     this.setData({ slotVisible: true });
   },
   handleChangeAnimation(checked) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({ animation: checked });
     /// #endif
 
@@ -48,7 +48,7 @@ Page({
     this.setData({ topImageVisible: true });
   },
   showToast(content) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({ content, duration: 1000 });
     /// #endif
 

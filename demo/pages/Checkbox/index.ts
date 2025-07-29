@@ -56,7 +56,7 @@ Page({
     });
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({
       checked,
     });
@@ -68,7 +68,7 @@ Page({
       value: value.detail,
     });
     /// #endif
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({
       value,
     });
@@ -93,7 +93,7 @@ Page({
     }
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     if (checked) {
       value = value.concat(e.target.dataset.value);
     } else {

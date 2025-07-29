@@ -152,7 +152,7 @@ Component({
       return this.sysInfo;
     },
   },
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   onInit() {
     this.init();
   },

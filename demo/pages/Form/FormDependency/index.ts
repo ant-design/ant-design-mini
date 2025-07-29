@@ -12,7 +12,7 @@ Page({
     /// #endif
   },
   handleRef(ref) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.form.addItem(ref);
     /// #endif
 
@@ -30,7 +30,7 @@ Page({
     needFruit: false,
   },
   onChange(value) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({
       needFruit: value,
     });
@@ -51,7 +51,7 @@ Page({
   async submit() {
     const values = await this.form.submit();
     console.log(values);
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.alert({
       title: '提交',
       content: JSON.stringify(values),

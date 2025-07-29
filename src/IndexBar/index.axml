@@ -35,7 +35,7 @@
   </view>
 </view>
 
-<!-- #if ALIPAY || ALIPAYNATIVE -->
+<!-- #if ALIPAY -->
 <scroll-view
   a:if="{{ hasDefaultSlot }}"
   scroll-y

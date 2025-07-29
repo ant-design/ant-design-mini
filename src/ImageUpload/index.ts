@@ -182,7 +182,7 @@ ComponentWithSignalStoreImpl({
       this.count = (this.count || 0) + 1;
       // 使用 Date.now() 与 useId 作为前缀，防止每次前缀都相同
       let id = this.id;
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       id = this.$id;
       /// #endif
       const prefix = id + '-' + Date.now();
@@ -215,7 +215,7 @@ ComponentWithSignalStoreImpl({
       },
     }),
   ],
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   didMount() {
     this.updateShowUploadButton();
   },
