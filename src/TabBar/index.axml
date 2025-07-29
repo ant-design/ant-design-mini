@@ -29,8 +29,8 @@
             index="{{ index }}">
           <!-- #endif -->
             <image-icon
-              className="ant-tab-bar"
-              image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
+              className="ant-tab-bar-icon"
+              image="{{ mixin.value === index ? item.activeIcon : item.icon }}"/>
           <!-- #if ALIPAY -->
           </slot>
           <!-- #endif -->
@@ -44,8 +44,8 @@
             index="{{ index }}">
           <!-- #endif -->
             <image-icon
-              className="{{ !item.text ? 'ant-tab-bar  ant-tab-bar-large-icon' : 'ant-tab-bar' }}"
-              image="{{ mixin.value === index ? item.activeIcon : item.icon }}" />
+              className="{{ !item.text ? 'ant-tab-bar-icon  ant-tab-bar-large-icon' : 'ant-tab-bar-icon' }}"
+              image="{{ mixin.value === index ? item.activeIcon : item.icon }}"/>
           <!-- #if ALIPAY -->
           </slot>
           <!-- #endif -->
