@@ -8,7 +8,8 @@ export function isAilpayNative() {
 
 export function isSupport(componentName) {
   if (typeof componentName !== 'string') {
-    throw Error('supportInNative 的入参需要是字符串类型');
+    console.error('supportInNative 的入参需要是字符串类型');
+    return;
   }
   if (typeof my === 'undefined') {
     // @ts-ignore
@@ -19,7 +20,7 @@ export function isSupport(componentName) {
 
 export function assertAilpayNativeNotSupport(componentName) {
   if (isAilpayNative()) {
-    throw new Error(
+    console.error(
       `Ant Design Mini 暂不支持在 AlipayNative 环境使用: ${componentName} 组件`
     );
   }
