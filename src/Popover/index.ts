@@ -7,8 +7,11 @@ import {
   triggerEvent,
   triggerEventOnly,
 } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { PopoverDefaultProps } from './props';
 import { getPopoverStyle } from './utils';
+
+assertAilpayNativeNotSupport('Popover');
 
 Component({
   props: PopoverDefaultProps,
@@ -67,7 +70,7 @@ Component({
     },
 
     onVisibleChange(e) {
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       if (
         !this.getValue() &&
         e.target.id &&
@@ -107,7 +110,7 @@ Component({
     }),
   ],
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   didUpdate(prevProps) {
     const [placement, autoAdjustOverflow] = getValueFromProps(this, [
       'placement',

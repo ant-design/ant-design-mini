@@ -17,7 +17,7 @@ Component<IListItemProps>({
     showDivider: true,
   },
   methods: {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     onTap(e) {
       if (this.props.disabled) {
         return;

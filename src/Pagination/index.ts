@@ -1,3 +1,4 @@
+import { isAilpayNative } from '../_util/support';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { Component } from '../_util/simply';
 import { PaginationDefaultProps } from './props';
@@ -37,10 +38,10 @@ Component({
       supportSjs = true;
     }
     supportSjs = my.canIUse('sjs.event');
+    if (isAilpayNative()) {
+      supportSjs = false;
+    }
     this.setData({ supportSjs });
-    /// #endif
-    /// #if ALIPAYNATIVE
-    this.setData({ supportSjs: false });
     /// #endif
   },
 });

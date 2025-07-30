@@ -8,7 +8,10 @@ import {
   getValueFromProps,
   triggerEventValues,
 } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { IndexBarDefaultProps } from './props';
+
+assertAilpayNativeNotSupport('IndexBar');
 
 Component({
   props: IndexBarDefaultProps,
@@ -33,7 +36,7 @@ Component({
     init(nextProps) {
       const { defaultCurrent, current, items } = nextProps;
       this.initItemHeight();
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       this.initTopRange();
       /// #endif
       const initCurrent = this.isControlled(nextProps)
@@ -92,7 +95,7 @@ Component({
     },
     async onAlphabetClick(item, index) {
       const vibrate = getValueFromProps(this, 'vibrate');
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       vibrate && (await my.vibrateShort());
       /// #endif
       /// #if WECHAT
@@ -166,7 +169,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   didMount() {
     this.init(getValueFromProps(this));
   },

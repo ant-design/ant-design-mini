@@ -1,11 +1,20 @@
 import mixinValue from '../mixins/value';
 import { Component, triggerEvent } from '../_util/simply';
+import { isAilpayNative } from '../_util/support';
 import { RadioDefaultProps } from './props';
 
 Component({
+  data: {
+    isLabelSupport: true,
+  },
   props: RadioDefaultProps,
+  onInit() {
+    this.setData({
+      isLabelSupport: !isAilpayNative(),
+    });
+  },
   methods: {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     onChange(e) {
       const value = e.detail.value;
       if (!this.isControlled()) {

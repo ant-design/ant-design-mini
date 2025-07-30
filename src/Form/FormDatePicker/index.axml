@@ -17,11 +17,11 @@
 >
   <view>
     <block a:if="{{readonly && !formData.value}}">
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <slot name="readonly" formData="{{formData}}">
       <!-- #endif -->
         -
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       </slot>
       <!-- #endif -->
     </block>
@@ -67,11 +67,11 @@
     <slot name="tooltip" />
   </view>
   <view slot="extra">
-    <!-- #if ALIPAY || ALIPAYNATIVE -->
+    <!-- #if ALIPAY -->
     <slot name="extra">
       <!-- #endif -->
       {{ extra }}
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
     </slot>
     <!-- #endif -->
   </view>

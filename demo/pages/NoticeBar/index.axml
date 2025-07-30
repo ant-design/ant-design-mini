@@ -73,7 +73,7 @@
 </ant-container>
 
 <ant-container title="自定义通告栏">
-  <!-- #if ALIPAY || ALIPAYNATIVE -->
+  <!-- #if ALIPAY -->
   <ant-notice style="margin-bottom: 8px">
     不展示图标
     <view slot="icon" />

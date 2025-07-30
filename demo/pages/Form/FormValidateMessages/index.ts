@@ -44,7 +44,7 @@ Page({
     /// #endif
   },
   handleRef(ref) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.form.addItem(ref);
     /// #endif
 
@@ -62,7 +62,7 @@ Page({
     const values = await this.form.submit();
     console.log(values);
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.alert({
       title: '提交',
       content: JSON.stringify(values),

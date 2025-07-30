@@ -230,7 +230,7 @@ export default {
 
 declare function getRegExp(reg: string, mode: string): any;
 function keys(obj) {
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
 
   if (typeof Object.keys === 'function') {
     return Object.keys(obj);

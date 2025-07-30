@@ -1,5 +1,8 @@
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { PostscriptProps } from './props';
+
+assertAilpayNativeNotSupport('Postscript');
 
 Component({
   props: PostscriptProps,

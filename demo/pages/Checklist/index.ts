@@ -73,7 +73,7 @@ Page({
     console.log('当前选中的值为：', v, items, e);
   },
   onChangeControlled(value) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({ value });
     /// #endif
 

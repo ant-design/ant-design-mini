@@ -122,7 +122,7 @@ Page({
     });
   },
   handleTapItem(item) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.alert({ title: '点击了', content: JSON.stringify(item) });
     /// #endif
 

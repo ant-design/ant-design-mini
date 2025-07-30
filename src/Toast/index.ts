@@ -41,7 +41,7 @@ Component({
       }
     },
   },
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   didUpdate(prev) {
     const visible = getValueFromProps(this, 'visible');
     if (!prev.visible && visible) {

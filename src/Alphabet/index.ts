@@ -1,4 +1,7 @@
 import { Component, getValueFromProps } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
+
+assertAilpayNativeNotSupport('Alphabet');
 
 let d = false;
 
@@ -28,7 +31,7 @@ Component({
         touchKey: alphabet[index],
       });
       this.onAlphabetClick(item);
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       my.vibrateShort();
       /// #endif
       /// #if WECHAT
@@ -56,7 +59,7 @@ Component({
       this.setData({ touchKey: alphabet[newIndex] }, () => {
         d = false;
       });
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       my.vibrateShort();
       /// #endif
       /// #if WECHAT

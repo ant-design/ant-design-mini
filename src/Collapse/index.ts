@@ -144,7 +144,7 @@ Component({
     }),
   ],
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   didUpdate(prevProps, prevData) {
     console.log(
       prevProps.items !== this.props.items,

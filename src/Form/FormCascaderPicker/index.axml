@@ -17,11 +17,11 @@
 >
   <view>
     <block a:if="{{readonly && !(formData.value && formData.value.length)}}">
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <slot name="readonly" formData="{{formData}}">
       <!-- #endif -->
         -
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       </slot>
       <!-- #endif -->
     </block>

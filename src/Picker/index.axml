@@ -8,7 +8,7 @@
 >
   <slot name="prefix" value="{{formatValue}}" />
   <view class="ant-picker-value">
-    <!-- #if ALIPAY || ALIPAYNATIVE -->
+    <!-- #if ALIPAY -->
     <slot name="content" value="{{formatValue}}">
       <!-- #endif -->
       <view a:if="{{ formatValue }}" class="ant-picker-value-text">
@@ -19,7 +19,7 @@
           {{ u.isPropsEmpty(placeholder) ? locale.global.placeholder : placeholder }}
         </view>
       </block>
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
     </slot>
     <!-- #endif -->
   </view>
@@ -45,7 +45,7 @@
       {{ u.isPropsEmpty(cancelText)  ? locale.global.cancelText : cancelText }}
     </view>
     <view class="ant-picker-header-item ant-picker-header-title">
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <slot name="title">{{ title }}</slot>
       <!-- #endif -->
       <!-- #if WECHAT -->

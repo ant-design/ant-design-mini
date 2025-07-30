@@ -80,7 +80,7 @@
       options="{{ options }}"
       onChange="handleRadioGroupChange" />
   </view>
-  <!-- #if ALIPAY || ALIPAYNATIVE -->
+  <!-- #if ALIPAY -->
   <view class="line">
     <view class="title">自定义</view>
     <ant-radio-group

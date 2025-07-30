@@ -23,7 +23,7 @@ Page({
       checked: checked.detail,
     });
     /// #endif
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({
       checked,
     });
@@ -39,7 +39,7 @@ Page({
       value: value.detail,
     });
     /// #endif
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({
       value,
     });

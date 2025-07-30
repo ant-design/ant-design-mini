@@ -42,7 +42,7 @@
     onChange="onChange" />
 </ant-container>
 
-<!-- #if ALIPAY || ALIPAYNATIVE -->
+<!-- #if ALIPAY -->
 <ant-container title="自定义勾选图标&&组件内容">
   <ant-checklist
     defaultValue="{{ [2] }}"

@@ -9,6 +9,7 @@ import {
   triggerEventOnly,
   triggerEventValues,
 } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { DatePickerDefaultProps } from './props';
 import {
   getDateByValue,
@@ -16,6 +17,8 @@ import {
   getValidValue,
   getValueByDate,
 } from './util';
+
+assertAilpayNativeNotSupport('DatePicker');
 
 Component({
   props: DatePickerDefaultProps,
@@ -30,7 +33,7 @@ Component({
   methods: {
     // visible受控判断
     isVisibleControlled() {
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       return 'visible' in getValueFromProps(this);
       /// #endif
       /// #if WECHAT
@@ -285,7 +288,7 @@ Component({
     }),
   ],
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   onInit() {
     this.pickerVisible = false;
     const [visible, defaultVisible] = getValueFromProps(this, [

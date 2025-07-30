@@ -1,3 +1,4 @@
+import { isAilpayNative } from '../../../src/_util/support';
 import { allComponents, componentList } from '../../utils/constants';
 
 Page({
@@ -43,6 +44,13 @@ Page({
   listPress(e) {
     console.log('navigateTo', e.currentTarget.dataset.url);
     /// #if ALIPAY
+    if (isAilpayNative()) {
+      // @ts-ignore
+      ac.call('navigateTo', {
+        url: e.currentTarget.dataset.url.slice(1),
+      });
+      return;
+    }
     my.navigateTo({
       url: e.currentTarget.dataset.url,
     });
@@ -51,11 +59,6 @@ Page({
     //@ts-ignore
     wx.navigateTo({
       url: '/demo' + e.currentTarget.dataset.url,
-    });
-    /// #endif
-    /// #if ALIPAYNATIVE
-    ac.call('navigateTo', {
-      url: 'demo' + e.currentTarget.dataset.url,
     });
     /// #endif
   },
