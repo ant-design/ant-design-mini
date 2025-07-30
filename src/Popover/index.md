@@ -5,6 +5,7 @@ group:
   title: 反馈引导
   order: 12
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Popover 气泡

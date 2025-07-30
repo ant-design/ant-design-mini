@@ -13,6 +13,7 @@
     class="side-image"
     mode="heightFix"
     src="https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*kQ_zRK8YuGoAAAAAAAAAAAAAARQnAQ" />
+  <!-- #if ALIPAY || WECHAT -->
   <view class="input-container">
     <ant-input
       placeholder="输入组件名称"
@@ -25,6 +26,7 @@
         type="SearchOutline" />
     </ant-input>
   </view>
+  <!-- #endif  -->
 </view>
 <block a:if="{{ finding }}">
   <ant-list

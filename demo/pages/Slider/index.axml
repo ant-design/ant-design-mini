@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container title="基本使用">
   <ant-slider
@@ -70,6 +72,7 @@
     onAfterChange="onAfterChange" />
 </ant-container>
 
+<!-- #if ALIPAY || WECHAT -->
 <ant-container title="受控模式">
   <ant-slider
     min="{{ 0 }}"
@@ -82,7 +85,7 @@
     value="{{ value }}"
     onChange="handleChange" />
 </ant-container>
-
+<!-- #endif -->
 <ant-container title="自定义">
   <ant-slider
     defaultValue="{{ 80 }}"

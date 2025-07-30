@@ -1,5 +1,6 @@
 {
   "component": true,
+  "styleIsolation": "shared",
   "usingComponents": {
     "ant-mask": "../Mask/index",
     "ant-button": "../Button/index",

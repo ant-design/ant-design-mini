@@ -5,6 +5,7 @@ group:
   title: Information Entry
   order: 10
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Radio

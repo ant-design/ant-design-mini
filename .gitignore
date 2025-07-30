@@ -8,6 +8,7 @@
 /package-lock.json
 
 # production
+/native
 /es
 /less
 /docs-dist
@@ -48,6 +49,11 @@ server
 
 # compiled
 /compiled
+config/alipay/app.json
 config/wechat.json
 config/wechat/app.json
-config/alipay/app.json
+config/alipaynative.json
+config/alipaynative/app.json
+
+CLAUDE.md
+.claude

@@ -5,6 +5,7 @@ group:
   title: 表达
   order: 3
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Sender 消息发送

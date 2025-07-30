@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-container
   title="基本使用"
@@ -36,6 +38,7 @@
   />
 </ant-container>
 
+<!-- #if ALIPAY || WECHAT -->
 <ant-container
   title="带 Checkbox"
   class="container"
@@ -68,3 +71,4 @@
     </view>
   </ant-collapse>
 </ant-container>
+<!-- #endif -->

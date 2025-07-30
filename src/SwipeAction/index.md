@@ -5,6 +5,7 @@ group:
   title: 数据展示
   order: 8
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # SwipeAction 滑动组件

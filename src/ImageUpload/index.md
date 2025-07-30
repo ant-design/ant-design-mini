@@ -4,6 +4,7 @@ nav:
 group:
   title: 数据录入
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # ImageUpload 图片上传

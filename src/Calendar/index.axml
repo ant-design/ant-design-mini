@@ -16,17 +16,6 @@
       a:for-item="item"
       a:key="*this">
       <view class="{{ helper.getMarkCellClassName(index, markItems) }}">
-        <!-- display: inline -->
-        <!-- #if WECHAT -->
-        <ant-auto-resize wx:if="{{ item }}" text="{{ item }}" minFontSize="13" maxFontSize="28">
-          <text>{{ item }}</text>
-      </ant-auto-resize>
-      <ant-auto-resize wx:else text="{{ item }}" minFontSize="13" maxFontSize="28">
-        <block>
-          <text name="item">{{ item }}</text>
-        </block>
-      </ant-auto-resize>
-      <!-- #endif -->
         <!-- #if ALIPAY -->
         <ant-auto-resize text="{{ item }}" minFontSize="13" maxFontSize="28">
           <text>{{ item }}</text>

@@ -4,6 +4,7 @@ nav:
 group:
   title: Information Entry
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # ImageUpload

@@ -9,7 +9,7 @@ export function assertComponent2() {
     console.log(
       '请在 IDE 中的 详情 > 项目配置 中，勾选 启用 component2 编译 。'
     );
-    console.log('参考文档 https://mini.ant.design/guide/migration-v2');
+    console.log('参考文档 https://2x-mini.ant.design/guide/migration-v2');
     throw new Error('Ant Design Mini 组件库需要依赖 component2 特性');
   }
 }

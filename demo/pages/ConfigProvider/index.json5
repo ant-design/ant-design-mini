@@ -1,4 +1,5 @@
 {
+  "styleIsolation": "shared",
   /// #if WECHAT
   "navigationBarTitleText": "ConfigProvider",
   /// #endif
@@ -14,8 +15,10 @@
     "ant-list": "../../../src/List/index",
     "ant-list-item": "../../../src/List/ListItem/index",
     "ant-config-provider": "../../../src/ConfigProvider/index",
+    /// #if ALIPAY || WECHAT
     "ant-picker": "../../../src/Picker/index",
-    "ant-container": "../../../src/Container/index",
-    "ant-range-picker": "../../../src/DatePicker/RangePicker/index"
+    "ant-range-picker": "../../../src/DatePicker/RangePicker/index",
+    /// #endif
+    "ant-container": "../../../src/Container/index"
   }
 }

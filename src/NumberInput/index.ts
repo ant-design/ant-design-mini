@@ -4,7 +4,10 @@ import {
   triggerEvent,
   triggerEventOnly,
 } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { NumberInputProps } from './props';
+
+assertAilpayNativeNotSupport('NumberInput');
 
 const UNIT_LIST = [
   '百',

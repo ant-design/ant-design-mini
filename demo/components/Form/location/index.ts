@@ -1,4 +1,5 @@
-import { createForm } from '../../../../../src/Form/form';
+import { createForm } from '../../../../src/Form/form';
+
 
 Component({
   mixins: [createForm()],
@@ -7,8 +8,10 @@ Component({
   },
   methods: {
     showPopup() {
-      this.setData({
-        visible: true,
+      my.chooseLocation({
+        success:(res) => {
+          this.emit('onChange', res);
+        },
       });
     },
     handlePopupClose() {
@@ -19,5 +22,5 @@ Component({
     onChange(value, e) {
       this.emit('onChange', value);
     },
-  },
+  }
 });

@@ -9,6 +9,7 @@ import {
   triggerEventOnly,
   triggerEventValues,
 } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { DatePickerDefaultProps } from './props';
 import {
   getDateByValue,
@@ -16,6 +17,8 @@ import {
   getValidValue,
   getValueByDate,
 } from './util';
+
+assertAilpayNativeNotSupport('DatePicker');
 
 Component({
   props: DatePickerDefaultProps,

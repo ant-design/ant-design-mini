@@ -1,4 +1,6 @@
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-list>
   <ant-list-item arrow="right" data-src="FormBasic" onTap="gotoPage">基本使用</ant-list-item>

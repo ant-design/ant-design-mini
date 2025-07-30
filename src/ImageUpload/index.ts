@@ -6,8 +6,11 @@ import {
   getValueFromProps,
   triggerEvent,
 } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import i18nController from '../_util/store';
 import { File, LocalFile, UploaderDefaultProps } from './props';
+
+assertAilpayNativeNotSupport('ImageUpload');
 
 ComponentWithSignalStoreImpl({
   storeOptions: {

@@ -7,8 +7,11 @@ import {
   triggerEvent,
   triggerEventOnly,
 } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { PopoverDefaultProps } from './props';
 import { getPopoverStyle } from './utils';
+
+assertAilpayNativeNotSupport('Popover');
 
 Component({
   props: PopoverDefaultProps,

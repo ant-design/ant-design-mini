@@ -15,7 +15,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: @prompts-list-gap;
     &-item {
       display: flex;
       flex-direction: row;
@@ -23,10 +22,16 @@
       align-items: center;
 
       border: 2rpx solid @prompts-item-border-color;
+      /// #if ALIPAY
+      border-color: @prompts-item-border-color;
+      /// #endif
       border-radius: 50vh;
       padding: 20rpx 32rpx;
 
-      gap: @prompts-item-gap;
+      margin-bottom: @prompts-list-gap;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
 
       &.disabled {
         opacity: 0.45;
@@ -41,6 +46,7 @@
         width: 40rpx;
         height: 40rpx;
         flex-shrink: 0;
+        margin-right: @prompts-item-gap;
       }
 
       &-label {
@@ -49,6 +55,8 @@
         color: @prompts-item-label-color;
         line-height: @prompts-item-description-line-height;
         text-wrap: nowrap;
+        flex-shrink: 0;
+        margin-right: @prompts-item-gap;
       }
 
       &-description {
@@ -56,6 +64,7 @@
         font-size: 28rpx;
         color: @prompts-item-description-color;
         line-height: @prompts-item-description-line-height;
+        margin-right: @prompts-item-gap;
       }
 
       &-arrow {
@@ -96,6 +105,7 @@
       flex-shrink: 0;
       padding: 8 * @rpx 24 * @rpx;
       border: 2 * @rpx solid @prompts-item-border-color;
+      border-color: @prompts-item-border-color;
       border-radius: 30 * @rpx;
       margin-right: 16 * @rpx;
       display: flex;

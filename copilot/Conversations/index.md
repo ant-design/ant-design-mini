@@ -5,6 +5,7 @@ group:
   title: 通用
   order: 1
 toc: 'content'
+supportPlatform: ['alipay', 'wechat']
 ---
 
 # Conversations 管理会话

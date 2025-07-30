@@ -1,4 +1,7 @@
+
+<!-- #if ALIPAY || WECHAT -->
 <view class="navigation-bar"/>
+<!-- #endif -->
 
 <ant-guide-tour
   items="{{ [list[0]] }}"

@@ -1,5 +1,6 @@
 {
   "component": true,
+  "styleIsolation": "shared",
   "usingComponents": {
     "form-item": "../FormItem/index",
     "checkbox-group": "../../Checkbox/CheckboxGroup/index"

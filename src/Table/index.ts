@@ -4,7 +4,10 @@ import get from 'lodash.get';
 import reduce from 'lodash.reduce';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
 import { Component, getValueFromProps } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { RenderRuleProps, TableDefaultProps } from './props';
+
+assertAilpayNativeNotSupport('Table');
 
 const rpx2px = (rpx, windowWidth = 375) => {
   let numRpx = rpx;

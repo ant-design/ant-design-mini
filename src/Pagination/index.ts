@@ -1,3 +1,4 @@
+import { isAilpayNative } from '../_util/support';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { Component } from '../_util/simply';
 import { PaginationDefaultProps } from './props';
@@ -13,7 +14,7 @@ Component({
     async clacWidth() {
       const rect = await getInstanceBoundingClientRect(
         this,
-        `#ant-pageInfinite-${this.$id ? `-${this.$id}` : ''}`
+        `#ant-pageInfinite${this.$id ? `-${this.$id}` : ''}`
       );
       if (rect) {
         return rect.width;
@@ -30,14 +31,17 @@ Component({
       }
     },
   },
-  /// #if ALIPAY
   onInit() {
+    /// #if ALIPAY
     let supportSjs;
     if (typeof my === 'undefined') {
       supportSjs = true;
     }
     supportSjs = my.canIUse('sjs.event');
+    if (isAilpayNative()) {
+      supportSjs = false;
+    }
     this.setData({ supportSjs });
+    /// #endif
   },
-  /// #endif
 });
