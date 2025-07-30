@@ -1,4 +1,7 @@
 import { Component, getValueFromProps } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
+
+assertAilpayNativeNotSupport('Alphabet');
 
 let d = false;
 

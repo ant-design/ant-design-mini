@@ -1,10 +1,13 @@
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import {
   IContactInfo,
   IContactUserInfo,
   SelectContactDefaultProps,
 } from './props';
 import { AlphabetMap, getFirstLetterInMap, getId } from './util';
+
+assertAilpayNativeNotSupport('SelectContact');
 
 Component({
   props: SelectContactDefaultProps,

@@ -6,7 +6,10 @@ import {
   triggerEvent,
   triggerEventValues,
 } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { DefaultProps } from './props';
+
+assertAilpayNativeNotSupport('Terms');
 
 Component({
   props: DefaultProps,

@@ -9,12 +9,15 @@ import {
   triggerEventValues,
 } from '../_util/simply';
 import i18nController from '../_util/store';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { PickerDefaultProps } from './props';
 import {
   getMatchedItemByIndex,
   getMatchedItemByValue,
   getStrictMatchedItemByValue,
 } from './utils';
+
+assertAilpayNativeNotSupport('Picker');
 
 ComponentWithSignalStoreImpl({
   storeOptions: {

@@ -1,11 +1,14 @@
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { Component, triggerEvent, triggerEventOnly } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { PINYIN_MAP } from './constants';
 import { RareWordsKeyboardProps } from './props';
 import { formatZDatas, loadFontFace, matchWordsRecommend } from './utils';
 import { ZDATAS } from './zdatas';
 
 const wordsData = formatZDatas(ZDATAS.datas);
+
+assertAilpayNativeNotSupport('RareWordsKeyboard');
 
 Component({
   props: RareWordsKeyboardProps,

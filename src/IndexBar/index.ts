@@ -8,7 +8,10 @@ import {
   getValueFromProps,
   triggerEventValues,
 } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { IndexBarDefaultProps } from './props';
+
+assertAilpayNativeNotSupport('IndexBar');
 
 Component({
   props: IndexBarDefaultProps,
