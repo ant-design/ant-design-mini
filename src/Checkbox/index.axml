@@ -2,9 +2,7 @@
   from="./index.sjs"
   name="componentUtils" />
 
-<label
-  class="ant-checkbox-item {{ className || '' }}"
-  style="{{ style || '' }}">
+<template name="checkbox-item">
   <view class="ant-checkbox-item-container">
     <view class="ant-checkbox-item-wrap">
       <!-- #if WECHAT -->
@@ -40,4 +38,37 @@
       <slot />
     </view>
   </view>
+</template>
+
+<label
+  a:if="{{isLabelSupport}}"
+  class="ant-checkbox-item {{ className || '' }}"
+  style="{{ style || '' }}"
+  bindtap="handleTap"
+>
+  <template
+    is="checkbox-item"
+    data="{{
+      value,
+      mixin,
+      disabled,
+      color
+    }}"
+  />
 </label>
+<view
+  a:else
+  class="ant-checkbox-item {{ className || '' }}"
+  style="{{ style || '' }}"
+  catchTap="onChange"
+>
+  <template
+    is="checkbox-item"
+    data="{{
+      value,
+      mixin,
+      disabled,
+      color
+    }}"
+  />
+</view>
