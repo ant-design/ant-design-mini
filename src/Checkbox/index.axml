@@ -40,12 +40,20 @@
   </view>
 </template>
 
+
+<!-- #if ALIPAY -->
+<label
+  a:if="{{isLabelSupport}}"
+  class="ant-checkbox-item {{ className || '' }}"
+  style="{{ style || '' }}">
+<!-- #endif -->
+<!-- #if WECHAT -->
 <label
   a:if="{{isLabelSupport}}"
   class="ant-checkbox-item {{ className || '' }}"
   style="{{ style || '' }}"
-  bindtap="onChange"
->
+  bindtap="onChange">
+<!-- #endif -->
   <template
     is="checkbox-item"
     data="{{
