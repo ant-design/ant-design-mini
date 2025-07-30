@@ -44,7 +44,7 @@
   a:if="{{isLabelSupport}}"
   class="ant-checkbox-item {{ className || '' }}"
   style="{{ style || '' }}"
-  bindtap="handleTap"
+  bindtap="onChange"
 >
   <template
     is="checkbox-item"
