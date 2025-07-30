@@ -1,4 +1,4 @@
-import { isNative } from '../../../src/_util/env';
+import { isAilpayNative } from '../../../src/_util/support';
 import { allComponents, componentList } from '../../utils/constants';
 
 Page({
@@ -44,8 +44,9 @@ Page({
   listPress(e) {
     console.log('navigateTo', e.currentTarget.dataset.url);
     /// #if ALIPAY
-    if (isNative()) {
-      (globalThis as any)?.ac?.call('navigateTo', {
+    if (isAilpayNative()) {
+      // @ts-ignore
+      ac.call('navigateTo', {
         url: e.currentTarget.dataset.url.slice(1),
       });
       return;
