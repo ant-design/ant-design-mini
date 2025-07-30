@@ -67,7 +67,7 @@ Component({
       }
     },
   },
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   didMount() {
     this.startTyping();
   },

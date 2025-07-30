@@ -2,7 +2,10 @@ import deepEqual from 'fast-deep-equal';
 import { createCanvasContext } from '../_util/jsapi/create-canvas-context';
 import { getSystemInfo } from '../_util/jsapi/get-system-info';
 import { Component, getValueFromProps } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { ProgressBarDefaultProps } from './props';
+
+assertAilpayNativeNotSupport('Progress');
 
 const animationFrameDuration = 16;
 
@@ -141,7 +144,7 @@ Component({
   ctx: null as any,
   drawColor: null as any,
   canvas: null,
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   didMount() {
     this.calProgress();
   },

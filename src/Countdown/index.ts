@@ -167,7 +167,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   onInit() {
     this.init();
   },

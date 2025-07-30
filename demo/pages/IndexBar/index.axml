@@ -8,7 +8,7 @@
     items="{{items}}"
     current="{{current}}"
     onChange="onChange">
-    <!-- #if ALIPAY || ALIPAYNATIVE -->
+    <!-- #if ALIPAY -->
     <view slot-scope="props">
       <ant-list header="{{props.value.label}}">
         <ant-list-item

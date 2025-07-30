@@ -1,5 +1,5 @@
 <view class="navigation-bar" />
-<!-- #if ALIPAY || ALIPAYNATIVE -->
+<!-- #if ALIPAY -->
 <ant-container title="基础用法">
   <ant-thought-chain items="{{basicList}}" onContentTap="onContentItemTap" collapsible="{{true}}">
   </ant-thought-chain>

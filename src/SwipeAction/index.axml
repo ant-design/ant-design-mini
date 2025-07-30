@@ -58,7 +58,7 @@
             data-item="{{ util.axmlObj({ item, idx }) }}"
             aria-hidden="{{ !swipedR }}"
             style="{{ util.getMovableContentRightStyle(item, tapTypeR, idx, rightWidth, inTouch, inertiaWidth, myStyle) }}">
-            <!-- #if ALIPAY || ALIPAYNATIVE -->
+            <!-- #if ALIPAY -->
             <slot name="{{ util.getRightSlotName(tapTypeR, idx, item) }}">
               <!-- display: inline -->
               <text
@@ -102,7 +102,7 @@
             data-item="{{ util.axmlObj({ itemL, idx }) }}"
             aria-hidden="{{ !swipedL }}"
             style="{{ util.getMovableContentLeftStyle(itemL, tapTypeL, idx, leftWidth, inTouch, inertiaWidth, myStyle) }}">
-            <!-- #if ALIPAY || ALIPAYNATIVE -->
+            <!-- #if ALIPAY -->
             <slot name="{{ util.getLeftSlotName(tapTypeL, idx, itemL) }}">
               <!-- display: inline -->
               <text

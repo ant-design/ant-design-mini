@@ -13,12 +13,12 @@
   help="{{ help }}">
   <view>
     <view a:if="{{readonly}}">
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <slot name="readonly" formData="{{formData}}">
       <!-- #endif -->
       <text a:if="{{formData.value}}">{{formData.value}}</text>
       <text a:else>-</text>
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       </slot>
       <!-- #endif -->
     </view>

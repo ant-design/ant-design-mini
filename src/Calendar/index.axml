@@ -16,7 +16,7 @@
       a:for-item="item"
       a:key="*this">
       <view class="{{ helper.getMarkCellClassName(index, markItems) }}">
-        <!-- #if ALIPAY || ALIPAYNATIVE -->
+        <!-- #if ALIPAY -->
         <ant-auto-resize text="{{ item }}" minFontSize="13" maxFontSize="28">
           <text>{{ item }}</text>
         </ant-auto-resize>
@@ -31,13 +31,13 @@
     a:if="{{ !!elementSize }}"
     class="ant-calendar-sticky">
     <view class="ant-calendar-sticky-title">
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <slot name="calendarTitle">
       <!-- #endif -->
         <view class="ant-calendar-title">
           {{ monthList[headerState].title }}
         </view>
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       </slot>
       <!-- #endif -->
     </view>
@@ -47,7 +47,6 @@
     class="ant-calendar-body"
     data-elementsize="{{ elementSize }}"
     data-monthlist="{{ monthList }}"
-    onScroll="{{ scroll.handleScroll }}"
     scroll-into-view="{{ scrollIntoViewId }}"
     scroll-with-animation
     scroll-animation-duration="{{ 300 }}"
@@ -62,11 +61,11 @@
       <view
         class="ant-calendar-body-container {{ currentMonth.className || '' }}" style="{{ currentMonth.style || '' }}">
         <view class="ant-calendar-title-container">
-          <!-- #if ALIPAY || ALIPAYNATIVE -->
+          <!-- #if ALIPAY -->
           <slot name="calendarTitle">
           <!-- #endif -->
             <view class="ant-calendar-title">{{ currentMonth.title }}</view>
-          <!-- #if ALIPAY || ALIPAYNATIVE -->
+          <!-- #if ALIPAY -->
           </slot>
           <!-- #endif -->
         </view>
@@ -101,7 +100,7 @@
                         </block>
                       </ant-auto-resize>
                       <!-- #endif -->
-                    <!-- #if ALIPAY || ALIPAYNATIVE -->
+                    <!-- #if ALIPAY -->
                     <ant-auto-resize text="{{ item.top.label }}" minFontSize="13" maxFontSize="18">
                       <text
                       a:if="{{ item.top }}"
@@ -112,7 +111,7 @@
                   </view>
                   <view class="ant-calendar-cell-center">{{ item.date }}</view>
                   <view class="ant-calendar-cell-bottom">
-                    <!-- #if ALIPAY || ALIPAYNATIVE -->
+                    <!-- #if ALIPAY -->
                     <slot
                       name="cell-bottom"
                       cell="{{ item }}">
@@ -123,7 +122,7 @@
                         class="{{ item.bottom.className }}"
                         >{{ item.bottom.label }}</text
                       >
-                    <!-- #if ALIPAY || ALIPAYNATIVE -->
+                    <!-- #if ALIPAY -->
                     </slot>
                     <!-- #endif -->
                   </view>

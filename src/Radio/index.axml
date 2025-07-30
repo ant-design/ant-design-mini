@@ -2,20 +2,10 @@
   from="./index.sjs"
   name="componentUtils" />
 
-<!-- #if ALIPAY || ALIPAYNATIVE -->
-<label
-  class="ant-radio-item {{ className || '' }}"
-  style="{{ style }}">
-<!-- #endif -->
-<!-- #if WECHAT -->
-<label
-  class="ant-radio-item {{ className || '' }}"
-  style="{{ style }}"
-  bindtap="handleTap">
-<!-- #endif -->
+<template name="radio-item">
   <view class="ant-radio-item-container">
     <view class="ant-radio-item-wrap">
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <radio
         value="{{ value }}"
         class="ant-radio-item-base"
@@ -46,4 +36,44 @@
       <slot />
     </view>
   </view>
+</template>
+
+<!-- #if ALIPAY -->
+<label
+  a:if="{{isLabelSupport}}"
+  class="ant-radio-item {{ className || '' }}"
+  style="{{ style }}">
+<!-- #endif -->
+<!-- #if WECHAT -->
+<label
+  a:if="{{isLabelSupport}}"
+  class="ant-radio-item {{ className || '' }}"
+  style="{{ style }}"
+  bindtap="handleTap">
+<!-- #endif -->
+  <template
+    is="radio-item"
+    data="{{
+      value,
+      mixin,
+      disabled,
+      color
+    }}"
+  />
 </label>
+<view
+  a:else
+  class="ant-radio-item {{ className || '' }}"
+  style="{{ style }}"
+  catchTap="handleTap"
+>
+  <template
+    is="radio-item"
+    data="{{
+      value,
+      mixin,
+      disabled,
+      color
+    }}"
+  />
+</view>

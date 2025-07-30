@@ -23,7 +23,7 @@ ComponentWithSignalStoreImpl({
   methods: {
     onOk(date, dateStr, e) {
       const v = resolveEventValues(date, dateStr);
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       this.emit('onChange', v[0]);
       /// #endif
       /// #if WECHAT

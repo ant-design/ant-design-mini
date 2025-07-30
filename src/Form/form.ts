@@ -876,7 +876,7 @@ export function createForm({ methods = {} } = {}) {
       },
     },
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     didUnmount() {
       this.emit('didUnmount');
     },

@@ -9,6 +9,7 @@ import {
   triggerEvent,
 } from '../_util/simply';
 import i18nController from '../_util/store';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { CalendarDefaultProps, CalendarValue, CellState } from './props';
 import {
   getMonthListFromRange,
@@ -16,6 +17,8 @@ import {
   getSelectionModeFromValue,
   renderCells,
 } from './utils';
+
+assertAilpayNativeNotSupport('Calendar');
 
 ComponentWithSignalStoreImpl({
   storeOptions: {

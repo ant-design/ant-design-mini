@@ -7,7 +7,7 @@ Component({
   props: FormInputDefaultProps,
   methods: {
     handleRef(input) {
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       this.input = input;
       /// #endif
       /// #if WECHAT

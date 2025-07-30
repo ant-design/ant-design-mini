@@ -35,7 +35,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   onInit() {
     const [defaultCollapse, hide, title] = getValueFromProps(this, [
       'defaultCollapse',

@@ -14,7 +14,7 @@
   zIndex="{{ zIndex }}"
   destroyOnClose="{{ destroyOnClose }}"
   onClose="onMaskClose">
-  <!-- #if ALIPAY || ALIPAYNATIVE -->
+  <!-- #if ALIPAY -->
   <slot>
   <!-- #endif -->
     <view
@@ -31,7 +31,7 @@
         wx:else
         name="title" />
       <!-- #endif -->
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <slot name="title">
         <view
           a:if="{{ title }}"
@@ -51,7 +51,7 @@
         wx:else
         name="content" />
       <!-- #endif -->
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <slot name="content">
         <view
           a:if="{{ content }}"
@@ -60,7 +60,7 @@
         </view>
       </slot>
       <!-- #endif -->
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <slot name="footer">
       <!-- #endif -->
         <view
@@ -138,11 +138,11 @@
             {{ cancelButtonText }}
           </view>
         </view>
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       </slot>
       <!-- #endif -->
     </view>
-  <!-- #if ALIPAY || ALIPAYNATIVE -->
+  <!-- #if ALIPAY -->
   </slot>
   <!-- #endif -->
 

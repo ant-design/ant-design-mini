@@ -34,7 +34,7 @@ Page({
   },
   onClickButton(buttonInfo) {
     console.log('onClickButton buttonInfo: ', buttonInfo);
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({ content: `点击了按钮「${buttonInfo.text}」` });
     /// #endif
     /// #if WECHAT

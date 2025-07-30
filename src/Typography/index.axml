@@ -1,6 +1,6 @@
 <import-sjs name="util" from="./index.sjs" />
 
-<!-- #if ALIPAY || ALIPAYNATIVE -->
+<!-- #if ALIPAY -->
 <view
   class="ant-typography-container {{disabled ? 'ant-typography-disabled' : ''}} {{className}}"
   hover-class="{{onTap || catchTap ? `ant-typography-hover {{activeClassName}}` : ''}}"

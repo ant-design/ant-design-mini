@@ -11,7 +11,7 @@ Page({
     }
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showLoading({
       content: '表单加载中...',
     });
@@ -48,7 +48,7 @@ Page({
     /// #endif
   },
   handleRef(ref) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.form.addItem(ref);
     /// #endif
 
@@ -66,7 +66,7 @@ Page({
   async submit() {
     const values = await this.form.submit();
     console.log(values);
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.alert({
       title: '提交',
       content: JSON.stringify(values),

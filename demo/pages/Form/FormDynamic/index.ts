@@ -23,7 +23,7 @@ Page({
     /// #endif
   },
   handleRef(ref) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.form.addItem(ref);
     /// #endif
 

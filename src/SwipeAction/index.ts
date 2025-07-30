@@ -4,7 +4,10 @@ import { compareVersion } from '../_util/compareVersion';
 import '../_util/assert-component2';
 import { platform } from '../_util/platform';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { transformOptions } from './wechat';
+
+assertAilpayNativeNotSupport('SwipeAction');
 
 const setStyleObj1 = (buttons: any[], inertiaWidth?: number) => {
   const widthPos = buttons.length === 2 ? 0.5 : 0.3333;

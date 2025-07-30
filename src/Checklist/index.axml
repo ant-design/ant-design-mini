@@ -18,7 +18,7 @@
         <view
           slot="content"
           class="ant-checklist-item-content-box-nut">
-          <!-- #if ALIPAY || ALIPAYNATIVE -->
+          <!-- #if ALIPAY -->
           <slot
             name="content"
             item="{{ item }}">
@@ -39,18 +39,18 @@
                 {{ item.description }}
               </view>
             </view>
-          <!-- #if ALIPAY || ALIPAYNATIVE -->
+          <!-- #if ALIPAY -->
           </slot>
           <!-- #endif -->
         </view>
         <view slot="icon">
-          <!-- #if ALIPAY || ALIPAYNATIVE -->
+          <!-- #if ALIPAY -->
           <slot name="icon">
           <!-- #endif -->
             <ant-icon
               type="CheckOutline"
               className="ant-checklist-item-check-icon" />
-          <!-- #if ALIPAY || ALIPAYNATIVE -->
+          <!-- #if ALIPAY -->
           </slot>
           <!-- #endif -->
         </view>

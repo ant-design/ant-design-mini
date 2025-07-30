@@ -9,7 +9,7 @@
   hover-start-time="{{ 20 }}"
   hover-stay-time="{{ 40 }}">
 <!-- #endif -->
-<!-- #if ALIPAY || ALIPAYNATIVE -->
+<!-- #if ALIPAY -->
 <view
   class="ant-list-item  {{ className ? className : '' }}"
   style="{{ style || '' }}"
@@ -32,7 +32,7 @@
         <slot name="image" />
       </block>
       <!-- #endif -->
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <slot name="image">
         <image-icon
           a:if="{{ image }}"
@@ -53,7 +53,7 @@
           wx:else
           name="title" />
         <!-- #endif -->
-        <!-- #if ALIPAY || ALIPAYNATIVE -->
+        <!-- #if ALIPAY -->
         <slot name="title">
           <view
             a:if="{{ title }}"
@@ -77,7 +77,7 @@
           wx:else
           name="brief" />
         <!-- #endif -->
-        <!-- #if ALIPAY || ALIPAYNATIVE -->
+        <!-- #if ALIPAY -->
         <slot name="brief">
           <view
             a:if="{{ brief }}"
@@ -96,7 +96,7 @@
           <slot name="extra" />
         </block>
         <!-- #endif -->
-        <!-- #if ALIPAY || ALIPAYNATIVE -->
+        <!-- #if ALIPAY -->
         <slot name="extra">
           {{ extra }}
         </slot>
@@ -109,7 +109,7 @@
           <slot name="extraBrief" />
         </block>
         <!-- #endif -->
-        <!-- #if ALIPAY || ALIPAYNATIVE -->
+        <!-- #if ALIPAY -->
         <slot name="extraBrief">{{ extraBrief }}</slot>
         <!-- #endif -->
       </view>

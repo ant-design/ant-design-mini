@@ -49,7 +49,7 @@ Page({
     this.updateVisible('visible4', visible);
   },
   updateVisible(field, visible) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({
       [field]: visible,
     });
@@ -67,7 +67,7 @@ Page({
     });
   },
   onTapFeedItem2(feedItem) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({
       content: `点击了反馈项${feedItem.text}`,
     });
@@ -82,7 +82,7 @@ Page({
     /// #endif
   },
   onTapFeedItem4(feedItem) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({
       content: `点击了反馈项${feedItem.text}`,
     });
@@ -97,7 +97,7 @@ Page({
     /// #endif
   },
   onTapFeedItem3(feedItem) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({
       content: `点击了反馈项${feedItem.text}`,
     });
@@ -112,7 +112,7 @@ Page({
     /// #endif
   },
   handleTapItem() {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({
       content: `已反馈`,
     });

@@ -52,7 +52,7 @@ Page({
   },
   onContentItemTap(e) {
     const { content } = e.currentTarget.dataset || {};
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({ content: content });
     /// #endif
     /// #if WECHAT

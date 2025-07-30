@@ -1,6 +1,9 @@
 import isFunction from 'lodash.isfunction';
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { componentsProps } from './props';
+
+assertAilpayNativeNotSupport('Voucher');
 
 Component({
   props: componentsProps,

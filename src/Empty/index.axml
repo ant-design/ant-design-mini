@@ -3,14 +3,14 @@
   style="{{ style || '' }}">
   <view class="ant-empty-{{size}}">
     <view class="ant-empty-image">
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       <slot name="image">
       <!-- #endif -->
         <image
           class="ant-empty-image-element"
           mode="{{imageMode}}"
           src="{{ image || 'https://mdn.alipayobjects.com/huamei_mnxlps/afts/img/A*J9z7RqVm1soAAAAAAAAAAAAADkqGAQ/original' }}" />
-      <!-- #if ALIPAY || ALIPAYNATIVE -->
+      <!-- #if ALIPAY -->
       </slot>
       <!-- #endif -->
     </view>
@@ -26,7 +26,7 @@
           </block>
         </ant-auto-resize>
         <!-- #endif -->
-        <!-- #if ALIPAY || ALIPAYNATIVE -->
+        <!-- #if ALIPAY -->
           <ant-auto-resize text="{{ title }}" minFontSize="24" maxFontSize="40">
             <slot name="title">{{ title }}</slot>
           </ant-auto-resize>
@@ -43,7 +43,7 @@
           </block>
         </ant-auto-resize>
         <!-- #endif -->
-        <!-- #if ALIPAY || ALIPAYNATIVE -->
+        <!-- #if ALIPAY -->
         <ant-auto-resize text="{{ message }}" minFontSize="24" maxFontSize="40">
           <slot name="message">{{ message }}</slot>
         </ant-auto-resize>

@@ -9,12 +9,15 @@ import {
   triggerEventValues,
 } from '../_util/simply';
 import i18nController from '../_util/store';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { PickerDefaultProps } from './props';
 import {
   getMatchedItemByIndex,
   getMatchedItemByValue,
   getStrictMatchedItemByValue,
 } from './utils';
+
+assertAilpayNativeNotSupport('Picker');
 
 ComponentWithSignalStoreImpl({
   storeOptions: {
@@ -41,7 +44,7 @@ ComponentWithSignalStoreImpl({
   methods: {
     // visible受控判断
     isVisibleControlled() {
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       return 'visible' in getValueFromProps(this);
       /// #endif
       /// #if WECHAT
@@ -229,7 +232,7 @@ ComponentWithSignalStoreImpl({
     }),
   ],
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   onInit() {
     this.initData();
   },

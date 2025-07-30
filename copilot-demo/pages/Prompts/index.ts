@@ -109,7 +109,7 @@ Page({
   },
   onItemTap(i) {
     let item = i;
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     console.log(item);
     my.showToast({ content: item.key });
     /// #endif

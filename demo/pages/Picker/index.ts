@@ -72,7 +72,7 @@ Page({
     cascaderVisible: false,
   },
   handleDismiss(e) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({
       content: '取消操作，关闭 picker',
     });
@@ -90,7 +90,7 @@ Page({
     });
   },
   handleControlledOk(value) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({
       value,
     });
@@ -108,7 +108,7 @@ Page({
   handleChange(value, column, e) {
     console.log('onChange value', value, 'onChange  column', column, e);
   },
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   formatTime(value, column) {
     return column.map((c) => c && c.label).join('');
   },
@@ -127,7 +127,7 @@ Page({
     });
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     console.log('handleTriggerControlledPicker', visible, e);
     this.setData({
       pickerVisible: visible,
@@ -150,7 +150,7 @@ Page({
     console.log('cityOk', cascaderValue, selectedOption, e);
   },
   handleCascaderControlledOk(cascaderValue, selectedOption, e) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({ cascaderValue: cascaderValue });
     /// #endif
 
@@ -173,7 +173,7 @@ Page({
     });
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     console.log('handleTriggerControlledPicker', visible, e);
     this.setData({
       cascaderVisible: visible,

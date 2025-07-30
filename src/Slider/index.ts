@@ -2,7 +2,10 @@ import equal from 'fast-deep-equal';
 import createValue from '../mixins/value';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { sliderDefaultProps, SliderValue } from './props';
+
+assertAilpayNativeNotSupport('Slider');
 
 Component({
   props: sliderDefaultProps,
@@ -273,7 +276,7 @@ Component({
       },
     }),
   ],
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   didUpdate(prevProps) {
     const [min, max, step, range, showTicks, value] = getValueFromProps(this, [
       'min',

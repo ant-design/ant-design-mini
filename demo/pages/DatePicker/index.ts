@@ -29,7 +29,7 @@ Page({
     });
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({
       controlledDateRange: value,
     });
@@ -68,7 +68,7 @@ Page({
     });
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     console.log('handleTriggerControlledPicker', visible, e);
     this.setData({
       pickerVisible: visible,
@@ -89,7 +89,7 @@ Page({
     });
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     console.log('handleTriggerControlledDateRangePicker', visible, e);
     this.setData({
       dateRangePickerVisible: visible,

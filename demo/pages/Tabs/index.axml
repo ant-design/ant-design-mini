@@ -5,7 +5,7 @@
 <ant-container title="基础用法">
   <ant-tabs items="{{ items }}" />
 </ant-container>
-<!-- #if ALIPAY || ALIPAYNATIVE -->
+<!-- #if ALIPAY -->
 <ant-container title="带有content">
   <ant-tabs items="{{ items }}">
     <view class="content" slot-scope="item">
@@ -21,7 +21,7 @@
 <ant-container title="带副标题">
   <ant-tabs type="mixin" items="{{ items }}" />
 </ant-container>
-<!-- #if ALIPAY || ALIPAYNATIVE -->
+<!-- #if ALIPAY -->
 <ant-container title="带徽标">
   <ant-tabs items="{{ items }}">
     <view slot="title" slot-scope="item">

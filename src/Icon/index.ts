@@ -25,7 +25,7 @@ Component({
   },
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   props: IconDefaultProps,
   methods: {
     onTap(e) {
