@@ -148,6 +148,7 @@ async function main() {
 
     // 2. 安装依赖
     log('2/6 安装依赖');
+    execCommand('rimraf node_modules', '删除依赖');
     execCommand('npm install', '安装依赖');
 
     // 3. 构建项目
