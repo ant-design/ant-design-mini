@@ -11,9 +11,8 @@
  * 1. 版本管理 - 自动生成或使用指定版本号
  * 2. 环境检查 - 验证 NPM Token 和包信息
  * 3. 安装依赖 - npm install
- * 4. 构建项目 - npm run build
- * 5. NPM 认证 - 配置 .npmrc 文件
- * 6. 发布包   - 发布到 NPM 并创建 Git 标签
+ * 4. NPM 认证 - 配置 .npmrc 文件
+ * 5. 发布包   - 发布到 NPM 并创建 Git 标签
  *
  * 🎯 基本使用方法:
  * node scripts/quick-release.js [dist-tag] [version-level]
@@ -151,13 +150,17 @@ async function main() {
     execCommand('rimraf node_modules', '删除依赖');
     execCommand('npm install', '安装依赖');
 
-    // 3. 构建项目
-    log('3/6 构建项目');
-    execCommand('npm run build', '构建项目');
-
     // 4. 设置 NPM 认证
     log('4/6 设置 NPM 认证');
-    log('NPM 认证配置完成', 'success');
+    if (process.env.NPM_TOKEN) {
+      // 临时创建 .npmrc 文件用于认证
+      const fs = require('fs');
+      const npmrcContent = `registry=https://registry.npmjs.org/\n//registry.npmjs.org/:_authToken=${process.env.NPM_TOKEN}\n`;
+      fs.writeFileSync('.npmrc', npmrcContent);
+      log('NPM 认证配置完成', 'success');
+    } else {
+      log('警告: 未设置 NPM_TOKEN，使用默认认证', 'warning');
+    }
 
     // 5. 发布包
     log('5/6 发布包');
@@ -180,6 +183,15 @@ async function main() {
       log(`Git 标签操作失败 (可忽略): ${error.message}`, 'warning');
     }
 
+    // 清理临时文件
+    if (process.env.NPM_TOKEN) {
+      const fs = require('fs');
+      if (fs.existsSync('.npmrc')) {
+        fs.unlinkSync('.npmrc');
+        log('清理临时认证文件', 'success');
+      }
+    }
+
     // 完成
     log('='.repeat(50));
     log('🎉 发布完成！', 'success');
@@ -191,6 +203,15 @@ async function main() {
 
   } catch (error) {
     log(`发布失败: ${error.message}`, 'error');
+
+    // 清理临时文件
+    if (process.env.NPM_TOKEN) {
+      const fs = require('fs');
+      if (fs.existsSync('.npmrc')) {
+        fs.unlinkSync('.npmrc');
+        log('清理临时认证文件');
+      }
+    }
 
     process.exit(1);
   }

@@ -152,7 +152,12 @@ function writePkgJson(str) {
 function publish(npmName, tag, version) {
   const pkgJsonStr = updatePkgJson(npmName, version);
   writePkgJson(pkgJsonStr);
-  execSync(`npm publish --tag=${tag}`, { stdio: 'inherit' });
+
+  // 显式指定 registry，防止使用错误的 registry
+  const registry = process.env.NPM_REGISTRY || 'https://registry.npmjs.org/';
+  console.log(`发布到 registry: ${registry}`);
+
+  execSync(`npm publish --tag=${tag} --registry=${registry}`, { stdio: 'inherit' });
 }
 
 function updatePkgJson(npmName, version) {
