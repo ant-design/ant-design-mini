@@ -15,42 +15,38 @@ function generateSematicVersion(tag, versionLevel, currentVersion) {
 
   if (versionLevel === 'Major') {
     const major = Number(curMajor) + 1;
-    newVersion = `${
-      tag === 'latest'
+    newVersion = `${tag === 'latest'
         ? `${major}.0.0`
         : tag === 'alpha'
-        ? `${major}.0.0-alpha.1`
-        : `${major}.0.0-beta.1`
-    }`;
+          ? `${major}.0.0-alpha.1`
+          : `${major}.0.0-beta.1`
+      }`;
   } else if (versionLevel === 'minor') {
     const minor = Number(curMinor) + 1;
-    newVersion = `${
-      tag === 'latest'
+    newVersion = `${tag === 'latest'
         ? `${curMajor}.${minor}.0`
         : tag === 'alpha'
-        ? `${curMajor}.${minor}.0-alpha.1`
-        : `${curMajor}.${minor}.0-beta.1`
-    }`;
+          ? `${curMajor}.${minor}.0-alpha.1`
+          : `${curMajor}.${minor}.0-beta.1`
+      }`;
   } else if (versionLevel === 'patch') {
     const patch = Number(curPatch) + 1;
-    newVersion = `${
-      tag === 'latest'
+    newVersion = `${tag === 'latest'
         ? `${curMajor}.${curMinor}.${patch}`
         : tag === 'alpha'
-        ? `${curMajor}.${curMinor}.${patch}-alpha.1`
-        : `${curMajor}.${curMinor}.${patch}-beta.1`
-    }`;
+          ? `${curMajor}.${curMinor}.${patch}-alpha.1`
+          : `${curMajor}.${curMinor}.${patch}-beta.1`
+      }`;
   } else {
     // 仅限 alpha 和 beta
     let newNumber = Number(curNumber) + 1;
     if (isNaN(newNumber)) {
       newNumber = 1;
     }
-    newVersion = `${
-      tag === 'alpha'
+    newVersion = `${tag === 'alpha'
         ? `${curMajor}.${curMinor}.${curPatch}-alpha.${newNumber}`
         : `${curMajor}.${curMinor}.${curPatch}-beta.${newNumber}`
-    }`;
+      }`;
   }
   return newVersion;
 }
@@ -156,7 +152,12 @@ function writePkgJson(str) {
 function publish(npmName, tag, version) {
   const pkgJsonStr = updatePkgJson(npmName, version);
   writePkgJson(pkgJsonStr);
-  execSync(`npm publish --tag=${tag}`, { stdio: 'inherit' });
+
+  // 显式指定 registry，防止使用错误的 registry
+  const registry = process.env.NPM_REGISTRY || 'https://registry.npmjs.org/';
+  console.log(`发布到 registry: ${registry}`);
+
+  execSync(`npm publish --tag=${tag} --registry=${registry}`, { stdio: 'inherit' });
 }
 
 function updatePkgJson(npmName, version) {

@@ -16,7 +16,10 @@
     "pub": "node scripts/publish.js",
     "test": "vitest run",
     "check-compiled": "tsx ./scripts/check-compiled.ts",
-    "cov": "vitest run --coverage && tsx ./scripts/patch-coverage.ts"
+    "cov": "vitest run --coverage && tsx ./scripts/patch-coverage.ts",
+    "local-pub:beta": "node scripts/quick-release.js beta",
+    "local-pub:alpha": "AUTO_VERSION=true node scripts/quick-release.js alpha",
+    "local-pub:latest": "AUTO_VERSION=true node scripts/quick-release.js latest"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
