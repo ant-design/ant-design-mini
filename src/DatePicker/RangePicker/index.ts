@@ -71,7 +71,7 @@ ComponentWithSignalStoreImpl({
       return max ? dayjs(max as any) : dayjs().add(10, 'year');
     },
     // didUpdate、弹窗打开、切换pickerType触发
-    setCurrentValue(currentProps) {
+    setCurrentValue(currentProps, forceUpdate = false) {
       const { pickerVisible } = this; // 隐藏状态下从CValue触发，展开状态使用当前数据
       const { precision } = currentProps;
       const { pickerType, columns } = this.data;
@@ -80,11 +80,10 @@ ComponentWithSignalStoreImpl({
       const currentStartDateByCValue = realValue?.[0] || null;
       const currentEndDateByCValue = realValue?.[1] || null;
 
-      // 展开状态，说明在切换pickerType
+      // 展开状态，说明在切换pickerType或者外部value发生变化
       if (pickerVisible) {
-        // 只在没有任何当前日期数据且两个日期都为空时，才从props的value中获取
-        // 这样可以避免覆盖用户在当前会话中已选择的日期
-        if (!currentStartDate && !currentEndDate) {
+        // 如果是强制更新（外部value变化）或者当前没有日期数据，则从props的value中获取
+        if (forceUpdate || (!currentStartDate && !currentEndDate)) {
           if (currentStartDateByCValue) {
             currentStartDate = currentStartDateByCValue;
           }
@@ -94,7 +93,11 @@ ComponentWithSignalStoreImpl({
         }
 
         // 确保日期范围的正确性：结束日期不能早于开始日期
-        if (currentStartDate && currentEndDate && currentEndDate < currentStartDate) {
+        if (
+          currentStartDate &&
+          currentEndDate &&
+          currentEndDate < currentStartDate
+        ) {
           if (pickerType === 'start') {
             // 如果当前选择开始日期，将结束日期调整为开始日期
             currentEndDate = currentStartDate;
@@ -384,12 +387,12 @@ ComponentWithSignalStoreImpl({
       });
       if (this.pickerVisible) {
         // 展开状态才更新picker的数据，否则下次triggerVisible触发
-        this.setCurrentValue(currentProps);
+        this.setCurrentValue(currentProps, true);
       }
     }
     if (!equal(currentProps, prevProps)) {
       if (this.pickerVisible) {
-        this.setCurrentValue(currentProps);
+        this.setCurrentValue(currentProps, true);
       }
     }
   },
@@ -412,7 +415,7 @@ ComponentWithSignalStoreImpl({
       this._prevData = { ...data };
       if (!equal(prevData, data)) {
         if (this.pickerVisible) {
-          this.setCurrentValue(getValueFromProps(this));
+          this.setCurrentValue(getValueFromProps(this), true);
         }
       }
     },
@@ -435,7 +438,7 @@ ComponentWithSignalStoreImpl({
       });
       if (this.pickerVisible) {
         // 展开状态才更新picker的数据，否则下次triggerVisible触发
-        this.setCurrentValue(currentProps);
+        this.setCurrentValue(currentProps, true);
       }
     },
   },

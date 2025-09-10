@@ -46,6 +46,7 @@ Page({
   },
   handleRangeOk(date, format, e) {
     console.log('onRangeOk', date, format, e);
+    this.setData({ controlledDateRange: date });
   },
   handleChangeDate() {
     this.setData({ defaultDate: new Date('2019/05/02').getTime() });
@@ -74,6 +75,15 @@ Page({
       pickerVisible: visible,
     });
     /// #endif
+  },
+
+  changeDateRange() {
+    this.setData({
+      controlledDateRange: [
+        new Date('2022/09/10').getTime(),
+        new Date('2022/09/30').getTime(),
+      ],
+    });
   },
 
   handleOpenPicker() {
