@@ -16,9 +16,9 @@ import { transformTsxJS } from './tsxjs';
 import * as tsxml from './tsxml/index';
 
 // 定义支持的平台类型
-type PlatformType = 'WECHAT' | 'ALIPAY' | 'ALIPAYNATIVE';
+type PlatformType = 'WECHAT' | 'ALIPAY';
 
-const ALL_PLATFORMS: PlatformType[] = ['WECHAT', 'ALIPAY', 'ALIPAYNATIVE'];
+const ALL_PLATFORMS: PlatformType[] = ['WECHAT', 'ALIPAY'];
 
 interface MiniProgramSourceCompileOption {
   source: string;
@@ -452,7 +452,7 @@ function compilePlatformComponents(
     ].filter(Boolean),
     buildOption: {
       ...buildOption,
-      compileTs: platformId !== 'ALIPAYNATIVE',
+      compileTs: true,
     },
   });
 
@@ -483,7 +483,7 @@ function compilePlatformComponents(
     ].filter(Boolean),
     buildOption: {
       ...buildOption,
-      compileTs: platformId !== 'ALIPAYNATIVE',
+      compileTs: true,
     },
   });
 
@@ -516,8 +516,6 @@ export async function compileAntdMini(watch: boolean) {
         'compiled/alipay/src',
         'compiled/wechat/demo',
         'compiled/wechat/src',
-        'compiled/alipaynative/demo/pages',
-        'compiled/alipaynative/src',
       ].map((dir) => {
         return fs.rm(resolve(__dirname, '..', dir), {
           recursive: true,
@@ -533,16 +531,6 @@ export async function compileAntdMini(watch: boolean) {
   );
 
   const wechatAllowList = wechatConfig.src;
-
-  // 读取alipaynative配置
-  const alipaynativeConfig = JSON.parse(
-    ofs.readFileSync(
-      resolve(__dirname, '..', 'config/alipaynative.json'),
-      'utf-8'
-    )
-  );
-
-  const alipaynativeAllowList = alipaynativeConfig.src;
 
   // 微信平台配置
   const wechatPlatformConfig = {
@@ -568,11 +556,6 @@ export async function compileAntdMini(watch: boolean) {
     xmlScriptOption: {},
   };
 
-  // alipaynative平台配置 (与支付宝相同)
-  const alipaynativePlatformConfig = {
-    ...alipayPlatformConfig,
-  };
-
   // 创建各平台的编译配置
   const wechatBuildOption = createPlatformBuildOption(
     'WECHAT',
@@ -584,11 +567,6 @@ export async function compileAntdMini(watch: boolean) {
     alipayPlatformConfig
   );
 
-  const alipaynativeBuildOption = createPlatformBuildOption(
-    'ALIPAYNATIVE',
-    alipaynativePlatformConfig
-  );
-
   // 各平台组件编译
   compilePlatformComponents(
     'WECHAT',
@@ -597,10 +575,4 @@ export async function compileAntdMini(watch: boolean) {
     wechatBuildOption
   );
   compilePlatformComponents('ALIPAY', watch, undefined, alipayBuildOption);
-  compilePlatformComponents(
-    'ALIPAYNATIVE',
-    watch,
-    alipaynativeAllowList,
-    alipaynativeBuildOption
-  );
 }

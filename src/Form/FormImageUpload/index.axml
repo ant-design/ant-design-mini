@@ -12,7 +12,7 @@
   validateStatus="{{ validateStatus }}"
   help="{{ help }}">
   <view a:if="{{readonly}}">
-    <!-- #if ALIPAY || ALIPAYNATIVE -->
+    <!-- #if ALIPAY -->
     <slot name="readonly" formData="{{formData}}">
     <!-- #endif -->
       <image
@@ -23,7 +23,7 @@
         src="{{ item.url || item.path }}"
       />
       <text a:if="{{formData.value.length <= 0}}">-</text>
-    <!-- #if ALIPAY || ALIPAYNATIVE -->
+    <!-- #if ALIPAY -->
     </slot>
     <!-- #endif -->
   </view>
@@ -46,11 +46,11 @@
     <slot name="tooltip" />
   </view>
   <view slot="extra">
-    <!-- #if ALIPAY || ALIPAYNATIVE -->
+    <!-- #if ALIPAY -->
     <slot name="extra">
     <!-- #endif -->
       {{ extra }}
-    <!-- #if ALIPAY || ALIPAYNATIVE -->
+    <!-- #if ALIPAY -->
     </slot>
     <!-- #endif -->
   </view>

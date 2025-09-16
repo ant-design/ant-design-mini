@@ -1,7 +1,10 @@
 import mixinValue from '../mixins/value';
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { StepperDefaultProps } from './props';
 import { getPrecision, getValidNumber } from './utils';
+
+assertAilpayNativeNotSupport('Stepper');
 
 Component({
   props: StepperDefaultProps,

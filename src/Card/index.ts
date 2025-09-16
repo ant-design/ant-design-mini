@@ -4,7 +4,11 @@ import {
   triggerEvent,
   triggerEventOnly,
 } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { CardDefaultProps } from './props';
+
+assertAilpayNativeNotSupport('Card');
+
 Component({
   props: CardDefaultProps,
   data: {
@@ -41,7 +45,7 @@ Component({
     },
   },
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   onInit() {
     const [foldStatus, config] = getValueFromProps(this, [
       'foldStatus',

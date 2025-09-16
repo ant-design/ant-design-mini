@@ -7,7 +7,7 @@ Page({
   },
   onAfterChange(value, e) {
     console.log('当前值:', value, e);
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({
       content: 'value: ' + value,
     });
@@ -30,7 +30,7 @@ Page({
     });
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({
       value,
     });

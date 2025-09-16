@@ -35,7 +35,7 @@
       class="ant-toast-image" />
     <view class="ant-toast-text-body">
       <view class="ant-toast-text-box">
-        <!-- #if ALIPAY || ALIPAYNATIVE -->
+        <!-- #if ALIPAY -->
         <view class="ant-toast-text-content">{{ content.substring(0, 24) }}</view>
         <!-- #endif -->
         <!-- #if WECHAT -->

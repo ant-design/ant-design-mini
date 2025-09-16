@@ -11,7 +11,7 @@
   />
 </ant-container>
 
-<!-- #if ALIPAY || ALIPAYNATIVE -->
+<!-- #if ALIPAY -->
 <ant-container title="自定义插槽">
   <ant-conversations
     items="{{items.slice(2,5)}}"

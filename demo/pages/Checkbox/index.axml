@@ -90,7 +90,7 @@
       color="red" />
   </view>
 
-  <!-- #if ALIPAY || ALIPAYNATIVE -->
+  <!-- #if ALIPAY -->
   <view class="line">
     <view class="title">自定义标题</view>
     <ant-checkbox-group options="{{ options }}">

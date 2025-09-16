@@ -130,7 +130,7 @@ Page({
   demo8Formatter,
   demo8MonthFormatter,
   demo9HandleChange(value) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({
       'demo9.value': value,
     });
@@ -165,7 +165,7 @@ Page({
     });
   },
   handleRef(ref) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.ref = ref;
     /// #endif
     /// #if WECHAT

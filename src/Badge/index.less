@@ -23,9 +23,7 @@
 
     &-stroke {
       border: 2 * @rpx solid @badge-text-color;
-      /// #if ALIPAYNATIVE
       border-color: @badge-text-color;
-      /// #endif
     }
 
     &-text {
@@ -34,7 +32,7 @@
       &:empty {
         display: none;
       }
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       .ant-badge-icon-container:empty ~ & {
         padding-left: 0;
       }

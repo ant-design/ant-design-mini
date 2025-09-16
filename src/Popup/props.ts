@@ -90,11 +90,7 @@ export interface IPopupProps extends IBaseProps {
   /**
    * @description 点击关闭icon时回调
    */
-  onClickBackIcon?: () => void;
-  /**
-   * @description 点击返回箭头icon时回调
-   */
-  onClickCloseIcon?: () => void;
+  onClickBack?: () => void;
 }
 
 export const PopupDefaultProps: Partial<IPopupProps> = {
@@ -117,6 +113,4 @@ export const PopupDefaultProps: Partial<IPopupProps> = {
   maskStyle: '',
   // 弹窗层级
   zIndex: 998,
-  onClickBackIcon: () => {},
-  onClickCloseIcon: () => {},
 };

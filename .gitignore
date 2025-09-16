@@ -54,3 +54,7 @@ config/wechat.json
 config/wechat/app.json
 config/alipaynative.json
 config/alipaynative/app.json
+
+CLAUDE.md
+.claude
+.npmrc

@@ -1,6 +1,6 @@
 {
   "name": "antd-mini",
-  "version": "3.2.1",
+  "version": "3.3.2",
   "description": "antd-mini 是支付宝小程序 UI 组件库，遵循 Ant Design 规范。",
   "miniprogram": "compiled/wechat/src",
   "scripts": {
@@ -16,7 +16,10 @@
     "pub": "node scripts/publish.js",
     "test": "vitest run",
     "check-compiled": "tsx ./scripts/check-compiled.ts",
-    "cov": "vitest run --coverage && tsx ./scripts/patch-coverage.ts"
+    "cov": "vitest run --coverage && tsx ./scripts/patch-coverage.ts",
+    "local-pub:beta": "node scripts/quick-release.js beta",
+    "local-pub:alpha": "node scripts/quick-release.js alpha",
+    "local-pub:latest": "node scripts/quick-release.js latest"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
@@ -139,8 +142,7 @@
   "files": [
     "es",
     "less",
-    "compiled/wechat/src",
-    "native"
+    "compiled/wechat/src"
   ],
   "repository": {
     "type": "git",

@@ -17,7 +17,7 @@ export function platform() {
   platform = 'wechat';
   /// #endif
 
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   platform = 'alipay';
   /// #endif
 

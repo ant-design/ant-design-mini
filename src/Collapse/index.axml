@@ -20,7 +20,7 @@
         onTap="onChange">
         <view class="ant-collapse-item-line">
           <view class="ant-collapse-item-title-node">
-            <!-- #if ALIPAY || ALIPAYNATIVE -->
+            <!-- #if ALIPAY -->
             <slot
               name="title"
               value="{{ item }}"
@@ -28,13 +28,13 @@
               current="{{ mixin.value }}">
             <!-- #endif -->
               {{ item.title }}
-            <!-- #if ALIPAY || ALIPAYNATIVE -->
+            <!-- #if ALIPAY -->
             </slot>
             <!-- #endif -->
           </view>
           <view class="ant-collapse-item-brief-container">
             <view class="ant-collapse-item-brief-node">
-              <!-- #if ALIPAY || ALIPAYNATIVE -->
+              <!-- #if ALIPAY -->
               <slot
                 name="brief"
                 value="{{ item }}"
@@ -42,13 +42,13 @@
                 current="{{ mixin.value }}">
               <!-- #endif -->
                 {{ brief }}
-              <!-- #if ALIPAY || ALIPAYNATIVE -->
+              <!-- #if ALIPAY -->
               </slot>
               <!-- #endif -->
             </view>
 
             <view class="ant-collapse-item-title-arrow">
-              <!-- #if ALIPAY || ALIPAYNATIVE -->
+              <!-- #if ALIPAY -->
               <slot
                 name="icon"
                 value="{{ item }}"
@@ -57,7 +57,7 @@
               <!-- #endif -->
                 <ant-icon
                   type="{{ utils.isActive(mixin.value, index, item.disabled) ? 'UpOutline' : 'DownOutline' }}" />
-              <!-- #if ALIPAY || ALIPAYNATIVE -->
+              <!-- #if ALIPAY -->
               </slot>
               <!-- #endif -->
             </view>
@@ -72,7 +72,7 @@
         <view class="ant-collapse-item-content-container">
           <view
             class="ant-collapse-item-content ant-collapse-item-content{{ $id ? '-' + $id : '' }}-{{ index }}">
-            <!-- #if ALIPAY || ALIPAYNATIVE -->
+            <!-- #if ALIPAY -->
             <slot
               name="content"
               value="{{ item }}"
@@ -80,7 +80,7 @@
               current="{{ mixin.value }}">
             <!-- #endif -->
               {{ item.content }}
-            <!-- #if ALIPAY || ALIPAYNATIVE -->
+            <!-- #if ALIPAY -->
             </slot>
             <!-- #endif -->
           </view>

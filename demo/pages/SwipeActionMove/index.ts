@@ -31,7 +31,7 @@ Page({
     data = args1.detail;
     /// #endif
 
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     e = args2;
     data = args1;
     /// #endif

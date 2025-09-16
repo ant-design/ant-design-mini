@@ -1,4 +1,10 @@
+let block = false;
 function handleScroll(event, ownerComponent) {
+  if (block) return;
+  block = true;
+  ownerComponent.setTimeout(() => {
+    block = false;
+  }, 200);
   let currentScroll = event.detail.scrollTop;
   const dataset = event.instance.getDataset();
   const { elementsize: elementSize, monthlist: monthList } = dataset;

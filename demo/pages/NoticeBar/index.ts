@@ -12,7 +12,7 @@ Page({
     this.showToast('点击关闭');
   },
   showToast(content: string) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     my.showToast({
       content: content,
       duration: 1000,

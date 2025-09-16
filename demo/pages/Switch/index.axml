@@ -16,7 +16,7 @@
       checkedText="开"
       uncheckedText="关"
       onChange="onChange" />
-    <!-- #if ALIPAY || ALIPAYNATIVE -->
+    <!-- #if ALIPAY -->
     <ant-switch>
       <ant-icon
         type="CheckOutline"

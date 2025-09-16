@@ -48,7 +48,7 @@ In `index.json` Introducing Components in
 ```xml
 <ant-tag type="fill">fill</ant-tag>
 <ant-tag type="outline">outline</ant-tag>
-<ant-tag color="fill-light">fill-light</ant-tag>
+<ant-tag type="fill-light">fill-light</ant-tag>
 ```
 
 ### Custom icon

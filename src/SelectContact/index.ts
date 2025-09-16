@@ -1,10 +1,13 @@
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import {
   IContactInfo,
   IContactUserInfo,
   SelectContactDefaultProps,
 } from './props';
 import { AlphabetMap, getFirstLetterInMap, getId } from './util';
+
+assertAilpayNativeNotSupport('SelectContact');
 
 Component({
   props: SelectContactDefaultProps,
@@ -58,7 +61,7 @@ Component({
   methods: {
     init() {
       let platform;
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       platform = my.getSystemInfoSync().platform;
       /// #endif
       /// #if WECHAT
@@ -274,7 +277,7 @@ Component({
       this.setData({ searchable: false });
     },
   },
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   onInit() {
     this.init();
   },

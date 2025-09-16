@@ -110,11 +110,11 @@
     <ant-range-picker
       slot="extra"
       placeholder="请选择"
-      defaultValue="{{ defaultDateRange }}"
+      value="{{ controlledDateRange }}"
       onPickerChange="handlePickerRangeChange"
       onVisibleChange="handleTriggerPicker"
       onOk="handleRangeOk" >
-      <view slot="content-header">插入一些内容</view>
+      <view slot="content-header" onTap="changeDateRange">范围一</view>
     </ant-date-picker>
   </ant-list-item>
   <ant-list-item>

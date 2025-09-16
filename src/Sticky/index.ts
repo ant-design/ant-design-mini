@@ -1,6 +1,9 @@
 import equal from 'fast-deep-equal';
 import { Component, getValueFromProps, triggerEvent } from '../_util/simply';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { StickyProps } from './props';
+
+assertAilpayNativeNotSupport('Sticky');
 
 Component({
   props: StickyProps,
@@ -43,7 +46,7 @@ Component({
       }
     },
   },
-  /// #if ALIPAY || ALIPAYNATIVE
+  /// #if ALIPAY
   onInit() {
     const [transparentTitle, propsHeaderHeight, check] = getValueFromProps(
       this,

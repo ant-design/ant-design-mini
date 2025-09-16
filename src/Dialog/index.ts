@@ -20,7 +20,7 @@ Component({
     },
     onButtonTap(e) {
       const onButtonTap = getValueFromProps(this, 'onButtonTap');
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       // 按钮点击没有回调的场景直接关闭弹框
       if (!onButtonTap) {
         return this.onClose();

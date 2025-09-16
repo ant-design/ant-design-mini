@@ -30,7 +30,7 @@ Component({
     onButtonTap(menu, e) {
       const menus = getValueFromProps(this, 'menus');
       let menuInfo, itemInfo;
-      /// #if ALIPAY || ALIPAYNATIVE
+      /// #if ALIPAY
       const { item, index } = e.currentTarget.dataset;
       menuInfo = { ...menus[menu.btnIdx], index: menu.btnIdx };
       itemInfo = { ...item, index };

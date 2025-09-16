@@ -6,8 +6,11 @@ import {
   triggerEvent,
 } from '../_util/simply';
 import i18nController from '../_util/store';
+import { assertAilpayNativeNotSupport } from '../_util/support';
 import { InputDefaultProps } from './props';
 import { formatNumberWithLimits, isNumber } from './utils';
+
+assertAilpayNativeNotSupport('Input');
 
 ComponentWithSignalStoreImpl({
   storeOptions: {

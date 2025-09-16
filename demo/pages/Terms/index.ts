@@ -49,7 +49,7 @@ Page({
     readCurrent: 1,
   },
   handleButtonTap(item, index, checked, event) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     console.log(item, index, checked, event);
     my.showToast({ content: `点击了第 ${index + 1} 个按钮` });
     /// #endif
@@ -59,7 +59,7 @@ Page({
     /// #endif
   },
   handleButton2Tap(item, index, checked) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({ checkboxTipsVisible: !checked });
     /// #endif
     /// #if WECHAT
@@ -67,7 +67,7 @@ Page({
     /// #endif
   },
   handleTermTap(item, index, event) {
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     console.log(item, index, event);
     my.showToast({ content: `点击了第 ${index + 1} 个协议` });
     /// #endif
@@ -78,7 +78,7 @@ Page({
   },
   handleCheckChange(checked) {
     console.log('handleCheckChange', checked);
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({ checkboxTipsVisible: !checked });
     if (checked) {
       this.setData({ checkboxTipsVisible: false });
@@ -93,7 +93,7 @@ Page({
   },
   handleTermPrefixTap(checked) {
     console.log('handleTermPrefixTap', checked);
-    /// #if ALIPAY || ALIPAYNATIVE
+    /// #if ALIPAY
     this.setData({ checkboxTipsVisible: !checked });
     if (checked) {
       this.setData({ checkboxTipsVisible: false });
