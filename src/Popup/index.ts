@@ -42,7 +42,8 @@ Component({
         'duration',
         'animation',
       ]);
-      const enableAnimation = animation && duration > 0;
+      const enableAnimation =
+        animation && (duration > 0 || typeof duration !== 'number');
       if (enableAnimation) {
         triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
       }
@@ -56,8 +57,8 @@ Component({
       'duration',
       'animation',
     ]);
-    const enableAnimation = animation && duration > 0;
-
+    const enableAnimation =
+      animation && (duration > 0 || typeof duration !== 'number');
     if (
       Boolean(nextProps.visible) !== Boolean(visible) &&
       enableAnimation &&
@@ -73,7 +74,8 @@ Component({
       'duration',
       'animation',
     ]);
-    const enableAnimation = animation && duration > 0;
+    const enableAnimation =
+      animation && (duration > 0 || typeof duration !== 'number');
     if (prevProps.visible !== visible && !enableAnimation) {
       triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
     }
@@ -83,7 +85,8 @@ Component({
   observers: {
     'visible': function (nextProps) {
       const { visible, duration, animation } = nextProps;
-      const enableAnimation = animation && duration > 0;
+      const enableAnimation =
+        animation && (duration > 0 || typeof duration !== 'number');
       if (enableAnimation && !visible && !this.data.closing) {
         this.setData({ closing: true });
       }

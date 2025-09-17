@@ -14,31 +14,30 @@
 
 @popup-mask-close-bg: var(--popup-mask-close-bg, @COLOR_BLACK_FADED);
 
-
-.mask-appear(@duration: 400ms){
+.mask-appear(@duration: 400ms) {
   animation-fill-mode: forwards;
   animation-duration: @duration;
-  animation-timing-function: cubic-bezier(0.35, 0.00, 0.65, 1.00);
+  animation-timing-function: cubic-bezier(0.35, 0, 0.65, 1);
   animation-name: ant-popup-mask-appear;
 }
 
-.mask-close(@duration: 400ms){
+.mask-close(@duration: 400ms) {
   animation-delay: 100ms;
   animation-fill-mode: forwards;
   animation-duration: @duration;
-  animation-timing-function: cubic-bezier(0.35, 0.00, 0.65, 1.00);
+  animation-timing-function: cubic-bezier(0.35, 0, 0.65, 1);
   animation-name: ant-popup-mask-close;
 }
 
-.animation-transform(@name){
+.animation-transform(@name, @duration: 300ms) {
   animation-name: @name;
   animation-delay: 100ms;
-  animation-duration: 300ms;
-  animation-timing-function: cubic-bezier(0.00, 0.40, 0.00, 1.00);
+  animation-duration: @duration;
+  animation-timing-function: cubic-bezier(0, 0.4, 0, 1);
 }
 
-.animation-transform-close(@name){
+.animation-transform-close(@name, @duration: 300ms) {
   animation-name: @name;
-  animation-duration: 300ms;
-  animation-timing-function: cubic-bezier(0.60, 0.00, 1.00, 0.60);
+  animation-duration: @duration;
+  animation-timing-function: cubic-bezier(0.6, 0, 1, 0.6);
 }
