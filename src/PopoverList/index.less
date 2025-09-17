@@ -11,8 +11,16 @@
   }
 
   &-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 998;
     background: none;
+    width: 300vw;
+    height: 300vh;
+    transform: translate3d(-100vw, -100vh, 0);
   }
   &-content {
     position: absolute;
@@ -23,6 +31,13 @@
     background: @popover-content-bg;
     box-shadow: 0 4 * @rpx 10 * @rpx 0 @popover-content-bg;
     color: @popover-content-color;
+    transform: translate(
+        var(--popover-list-translate-x),
+        var(--popover-list-translate-y)
+      )
+      scale(var(--popover-list-translate-scale));
+    opacity: 0;
+    --popover-list-translate-scale: 0.4;
     &-arrow {
       position: absolute;
       width: 0;
@@ -35,6 +50,15 @@
       background: @popover-list-item-bg;
     }
   }
+
+  &-opening {
+    .popover-list-scale-animation();
+  }
+
+  &-closing {
+    .popover-list-scale-animation-close();
+  }
+
   &-item {
     padding: 26 * @rpx 24 * @rpx 26 * @rpx 32 * @rpx;
     display: flex;
@@ -96,7 +120,8 @@
   }
 
   &-top {
-    transform: translate(-50%, -100%);
+    --popover-list-translate-x: -50%;
+    --popover-list-translate-y: -100%;
     &-arrow {
       bottom: 2 * @rpx;
       transform: translate(-50%, 100%) rotate(180deg);
@@ -105,7 +130,8 @@
   }
 
   &-bottom {
-    transform: translate(-50%, 100%);
+    --popover-list-translate-x: -50%;
+    --popover-list-translate-y: 100%;
     &-arrow {
       top: 2 * @rpx;
       transform: translate(-50%, -100%) rotate(0deg);
@@ -114,7 +140,8 @@
   }
 
   &-left {
-    transform: translate(-100%, -50%);
+    --popover-list-translate-x: -100%;
+    --popover-list-translate-y: -50%;
     &-arrow {
       right: 2 * @rpx;
       transform: translate(75%, -50%) rotate(90deg);
@@ -123,7 +150,8 @@
   }
 
   &-right {
-    transform: translate(100%, -50%);
+    --popover-list-translate-x: 100%;
+    --popover-list-translate-y: -50%;
     &-arrow {
       left: 2 * @rpx;
       transform: translate(-75%, -50%) rotate(-90deg);
@@ -132,7 +160,8 @@
   }
 
   &-top-left {
-    transform: translate(0, -100%);
+    --popover-list-translate-x: 0;
+    --popover-list-translate-y: -100%;
     &-arrow {
       bottom: 2 * @rpx;
       transform: translate(0, 100%) rotate(180deg);
@@ -141,7 +170,8 @@
   }
 
   &-top-right {
-    transform: translate(0, -100%);
+    --popover-list-translate-x: 0;
+    --popover-list-translate-y: -100%;
     &-arrow {
       bottom: 2 * @rpx;
       transform: translate(0, 100%) rotate(180deg);
@@ -150,7 +180,8 @@
   }
 
   &-bottom-left {
-    transform: translate(0, 100%);
+    --popover-list-translate-x: 0;
+    --popover-list-translate-y: 100%;
     &-arrow {
       top: 2 * @rpx;
       transform: translate(0, -100%) rotate(0deg);
@@ -159,7 +190,8 @@
   }
 
   &-bottom-right {
-    transform: translate(0, 100%);
+    --popover-list-translate-x: 0;
+    --popover-list-translate-y: 100%;
     &-arrow {
       top: 2 * @rpx;
       transform: translate(0, -100%) rotate(0deg);
@@ -168,7 +200,8 @@
   }
 
   &-left-top {
-    transform: translate(-100%, 0);
+    --popover-list-translate-x: -100%;
+    --popover-list-translate-y: 0;
     &-arrow {
       right: 2 * @rpx;
       transform: translate(75%, 0) rotate(90deg);
@@ -177,7 +210,8 @@
   }
 
   &-left-bottom {
-    transform: translate(-100%, 0);
+    --popover-list-translate-x: -100%;
+    --popover-list-translate-y: 0;
     &-arrow {
       right: 2 * @rpx;
       transform: translate(75%, 0) rotate(90deg);
@@ -186,7 +220,8 @@
   }
 
   &-right-top {
-    transform: translate(100%, 0);
+    --popover-list-translate-x: 100%;
+    --popover-list-translate-y: 0;
     &-arrow {
       left: 2 * @rpx;
       transform: translate(-75%, 0) rotate(-90deg);
@@ -195,11 +230,48 @@
   }
 
   &-right-bottom {
-    transform: translate(100%, 0);
+    --popover-list-translate-x: 100%;
+    --popover-list-translate-y: 0;
     &-arrow {
       left: 2 * @rpx;
       transform: translate(-75%, 0) rotate(-90deg);
       bottom: 24 * @rpx;
     }
+  }
+}
+
+@keyframes ant-popover-list-scale {
+  0% {
+    --popover-list-translate-scale: 0.4;
+  }
+  100% {
+    --popover-list-translate-scale: 1;
+  }
+}
+
+@keyframes ant-popover-list-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ant-popover-list-scale-close {
+  0% {
+    --popover-list-translate-scale: 1;
+  }
+  100% {
+    --popover-list-translate-scale: 0.6;
+  }
+}
+
+@keyframes ant-popover-list-opacity-close {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
