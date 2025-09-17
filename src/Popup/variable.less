@@ -41,3 +41,37 @@
   animation-duration: @duration;
   animation-timing-function: cubic-bezier(0.6, 0, 1, 0.6);
 }
+
+.animation-center() {
+  animation-name: ant-popup-transform-center-scale,
+    ant-popup-transform-center-opacity;
+  animation-delay: 100ms, 100ms;
+  animation-duration: 300ms, 200ms;
+  animation-timing-function: cubic-bezier(0.57, -0.22, 0, 1.2),
+    cubic-bezier(0.35, 0, 0.65, 1);
+}
+
+.animation-center-close() {
+  animation-name: ant-popup-transform-center-close-scale,
+    ant-popup-transform-center-close-opacity;
+  animation-duration: 300ms, 200ms;
+  animation-timing-function: cubic-bezier(0.6, 0, 1, 0.6),
+    cubic-bezier(0.35, 0, 0.65, 1);
+}
+
+.animation-position-center() {
+  animation-name: ant-popup-position-center-scale,
+    ant-popup-position-center-opacity;
+  animation-delay: 100ms, 100ms;
+  animation-duration: 300ms, 200ms;
+  animation-timing-function: cubic-bezier(0.57, -0.22, 0, 1.2),
+    cubic-bezier(0.35, 0, 0.65, 1);
+}
+
+.animation-position-center-close() {
+  animation-name: ant-popup-position-center-close-scale,
+    ant-popup-position-center-close-opacity;
+  animation-duration: 300ms, 200ms;
+  animation-timing-function: cubic-bezier(0.6, 0, 1, 0.6),
+    cubic-bezier(0.35, 0, 0.65, 1);
+}
