@@ -1,7 +1,8 @@
-<view a:if="{{ show }}">
+<view a:if="{{ show || closing }}">
   <view
-    class="ant-toast {{ className || '' }} {{ icon || image || type ? 'ant-toast-icon-wrapper' : `ant-toast-text-${textType}` }}"
-    style="{{ style || '' }}">
+    class="ant-toast {{ className || '' }} {{ icon || image || type ? 'ant-toast-icon-wrapper' : `ant-toast-text-${textType}` }} {{closing ? 'ant-toast-closing' : 'ant-toast-opening' }}"
+    style="{{ style || '' }}"
+    onAnimationEnd="onAnimationEnd">
     <view
       a:if="{{ type }}"
       class="ant-toast-normal">
@@ -45,10 +46,9 @@
     </view>
   </view>
 
-  <ant-mask
+  <view
     a:if="{{ showMask }}"
-    className="ant-toast-mask"
-    show="{{ true }}"
-    onMaskTap="handleClickMask"
-    style="{{ maskStyle }}" />
+    class="ant-mask ant-toast-mask {{ closing ? 'ant-toast-mask-closing' : '' }}"
+    onTap="handleClickMask"
+    style="{{ maskStyle || '' }}" />
 </view>

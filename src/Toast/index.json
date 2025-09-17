@@ -3,7 +3,6 @@
   "styleIsolation": "shared",
   "usingComponents": {
     "am-icon": "../Icon/index",
-    "ant-mask": "../Mask/index",
     "loading": "../Loading/index"
   }
 }
