@@ -83,14 +83,21 @@ Component({
   /// #endif
   /// #if WECHAT
   observers: {
-    'visible': function (nextProps) {
-      const { visible, duration, animation } = nextProps;
+    '**': function (data) {
+      const prevData = this._prevData || this.data;
+      this._prevData = { ...data };
+      const { visible, duration, animation, closing } = data;
       const enableAnimation =
         animation && (duration > 0 || typeof duration !== 'number');
-      if (enableAnimation && !visible && !this.data.closing) {
+      if (
+        enableAnimation &&
+        prevData.visible !== data.visible &&
+        !visible &&
+        !closing
+      ) {
         this.setData({ closing: true });
       }
-      if (!enableAnimation) {
+      if (prevData.visible !== data.visible && !enableAnimation) {
         triggerEventOnly(this, visible ? 'afterShow' : 'afterClose');
       }
     },
