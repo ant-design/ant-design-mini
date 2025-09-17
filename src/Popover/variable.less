@@ -13,3 +13,35 @@
 @popover-inner-bg: var(--popover-color-background, @COLOR_BACKGROUND_POPOVER);
 
 @popover-inner-color: var(--popover-inner-color, @COLOR_WHITE_DEFAULT);
+
+.popover-mask-appear(@duration: 300ms) {
+  animation-fill-mode: forwards;
+  animation-duration: @duration;
+  animation-delay: 100ms;
+  animation-timing-function: cubic-bezier(0.35, 0, 0.65, 1);
+  animation-name: ant-popover-mask-appear;
+}
+
+.popover-mask-close(@duration: 300ms) {
+  animation-delay: 100ms;
+  animation-fill-mode: forwards;
+  animation-duration: @duration;
+  animation-timing-function: cubic-bezier(0.35, 0, 0.65, 1);
+  animation-name: ant-popover-mask-close;
+}
+
+.popover-scale-animation() {
+  animation-name: ant-popover-scale, ant-popover-opacity;
+  animation-duration: 200ms, 100ms;
+  animation-timing-function: cubic-bezier(0.57, -0.22, 0, 1.2),
+    cubic-bezier(0.35, 0, 0.65, 1);
+  animation-fill-mode: forwards;
+}
+
+.popover-scale-animation-close() {
+  animation-name: ant-popover-scale-close, ant-popover-opacity-close;
+  animation-duration: 200ms, 200ms;
+  animation-timing-function: cubic-bezier(0.6, 0, 1, 0.6),
+    cubic-bezier(0.6, 0, 1, 0.6);
+  animation-fill-mode: forwards;
+}

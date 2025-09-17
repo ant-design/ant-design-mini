@@ -14,11 +14,12 @@
     <!-- #endif -->
   </view>
   <view
-    a:if="{{ !destroyOnClose || mixin.value }}"
-    hidden="{{ !mixin.value }}"
+    a:if="{{ !destroyOnClose || mixin.value || closing }}"
+    hidden="{{ !mixin.value && !closing }}"
     id="ant-popover-content{{ $id ? '-' + $id : '' }}"
-    class="ant-popover-content ant-popover-{{ adjustedPlacement }}"
-    style="{{ popoverContentStyle }}; {{ adjustedPlacement ? '' : 'opacity: 0' }}">
+    class="ant-popover-content ant-popover-{{ adjustedPlacement }} {{ closing ? 'ant-popover-closing' : 'ant-popover-opening' }}"
+    style="{{ popoverContentStyle }}; {{ adjustedPlacement ? '' : 'opacity: 0' }}"
+    onAnimationEnd="onAnimationEnd">
     <view
       class="ant-popover-arrow ant-popover-{{ adjustedPlacement }}-arrow"
       style="{{ color ? 'border-bottom-color:' + color : '' }}" />
@@ -53,9 +54,9 @@
     </view>
   </view>
 </view>
-<ant-mask
-  show="{{ showMask && mixin.value }}"
+<view
+  a:if="{{ showMask && (mixin.value || closing) }}"
   id="ant-popover-mask{{ $id ? '-' + $id : '' }}"
-  className="ant-popover-mask {{ maskClassName || '' }}"
-  style="{{ maskStyle }}"
-  onMaskTap="onVisibleChange" />
+  class="ant-mask ant-popover-mask {{ maskClassName || '' }} {{ closing ? 'ant-popover-mask-closing' : '' }}"
+  style="{{ maskStyle || '' }}"
+  onTap="onVisibleChange" />

@@ -43,14 +43,38 @@
   }
 
   &-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 998;
     background: none;
+    opacity: 0;
+    .popover-mask-appear();
+
+    &-closing {
+      opacity: 0.6;
+      .popover-mask-close();
+    }
   }
   &-content {
     position: absolute;
     min-width: 64 * @rpx;
     max-width: calc(100vw - 48 * @rpx);
     z-index: 999;
+    transform: translate(var(--popover-translate-x), var(--popover-translate-y))
+      scale(var(--popover-translate-scale));
+    opacity: 0;
+    --popover-translate-scale: 0.6;
+  }
+
+  &-opening {
+    .popover-scale-animation();
+  }
+
+  &-closing {
+    .popover-scale-animation-close();
   }
   &-inner {
     position: relative;
@@ -93,7 +117,8 @@
   }
 
   &-top {
-    transform: translate(-50%, -100%);
+    --popover-translate-x: -50%;
+    --popover-translate-y: -100%;
     &-arrow {
       bottom: 2 * @rpx;
       transform: translate(-50%, 100%) rotate(180deg);
@@ -102,7 +127,8 @@
   }
 
   &-bottom {
-    transform: translate(-50%, 100%);
+    --popover-translate-x: -50%;
+    --popover-translate-y: 100%;
     &-arrow {
       top: 2 * @rpx;
       transform: translate(-50%, -100%) rotate(0deg);
@@ -111,7 +137,8 @@
   }
 
   &-left {
-    transform: translate(-100%, -50%);
+    --popover-translate-x: -100%;
+    --popover-translate-y: -50%;
     &-arrow {
       right: 2 * @rpx;
       transform: translate(75%, -50%) rotate(90deg);
@@ -120,7 +147,8 @@
   }
 
   &-right {
-    transform: translate(100%, -50%);
+    --popover-translate-x: 100%;
+    --popover-translate-y: -50%;
     &-arrow {
       left: 2 * @rpx;
       transform: translate(-75%, -50%) rotate(-90deg);
@@ -129,7 +157,8 @@
   }
 
   &-top-left {
-    transform: translate(0, -100%);
+    --popover-translate-x: 0;
+    --popover-translate-y: -100%;
     &-arrow {
       bottom: 2 * @rpx;
       transform: translate(0, 100%) rotate(180deg);
@@ -138,7 +167,8 @@
   }
 
   &-top-right {
-    transform: translate(0, -100%);
+    --popover-translate-x: 0;
+    --popover-translate-y: -100%;
     &-arrow {
       bottom: 2 * @rpx;
       transform: translate(0, 100%) rotate(180deg);
@@ -147,7 +177,8 @@
   }
 
   &-bottom-left {
-    transform: translate(0, 100%);
+    --popover-translate-x: 0;
+    --popover-translate-y: 100%;
     &-arrow {
       top: 2 * @rpx;
       transform: translate(0, -100%) rotate(0deg);
@@ -156,7 +187,8 @@
   }
 
   &-bottom-right {
-    transform: translate(0, 100%);
+    --popover-translate-x: 0;
+    --popover-translate-y: 100%;
     &-arrow {
       top: 2 * @rpx;
       transform: translate(0, -100%) rotate(0deg);
@@ -165,7 +197,8 @@
   }
 
   &-left-top {
-    transform: translate(-100%, 0);
+    --popover-translate-x: -100%;
+    --popover-translate-y: 0;
     &-arrow {
       right: 2 * @rpx;
       transform: translate(75%, 0) rotate(90deg);
@@ -174,7 +207,8 @@
   }
 
   &-left-bottom {
-    transform: translate(-100%, 0);
+    --popover-translate-x: -100%;
+    --popover-translate-y: 0;
     &-arrow {
       right: 2 * @rpx;
       transform: translate(75%, 0) rotate(90deg);
@@ -183,7 +217,8 @@
   }
 
   &-right-top {
-    transform: translate(100%, 0);
+    --popover-translate-x: 100%;
+    --popover-translate-y: 0;
     &-arrow {
       left: 2 * @rpx;
       transform: translate(-75%, 0) rotate(-90deg);
@@ -192,11 +227,66 @@
   }
 
   &-right-bottom {
-    transform: translate(100%, 0);
+    --popover-translate-x: 100%;
+    --popover-translate-y: 0;
     &-arrow {
       left: 2 * @rpx;
       transform: translate(-75%, 0) rotate(-90deg);
       bottom: 24 * @rpx;
     }
+  }
+}
+
+@keyframes ant-popover-scale {
+  0% {
+    --popover-translate-scale: 0.6;
+  }
+  100% {
+    --popover-translate-scale: 1;
+  }
+}
+
+@keyframes ant-popover-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ant-popover-scale-close {
+  0% {
+    --popover-translate-scale: 1;
+  }
+  100% {
+    --popover-translate-scale: 0.6;
+  }
+}
+
+@keyframes ant-popover-opacity-close {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ant-popover-mask-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes ant-popover-mask-close {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
   }
 }

@@ -18,6 +18,7 @@ Component({
   data: {
     adjustedPlacement: '',
     popoverContentStyle: '',
+    closing: false,
   },
   methods: {
     getInstance() {
@@ -80,10 +81,33 @@ Component({
       }
       /// #endif
       const value = !this.getValue();
-      if (!this.isControlled()) {
-        this.update(value);
+
+      if (value) {
+        // 显示
+        if (!this.isControlled()) {
+          this.update(value);
+        }
+        triggerEvent(this, 'visibleChange', value, e);
+      } else {
+        // 隐藏 - 启用关闭动画
+        if (this.getValue()) {
+          this.setData({ closing: true });
+        } else {
+          if (!this.isControlled()) {
+            this.update(value);
+          }
+          triggerEvent(this, 'visibleChange', value, e);
+        }
       }
-      triggerEvent(this, 'visibleChange', value, e);
+    },
+    onAnimationEnd() {
+      if (this.data.closing) {
+        this.setData({ closing: false });
+        if (!this.isControlled()) {
+          this.update(false);
+        }
+        triggerEvent(this, 'visibleChange', false);
+      }
     },
     onTapAction() {
       this.onVisibleChange();
