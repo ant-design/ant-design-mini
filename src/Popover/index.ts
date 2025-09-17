@@ -89,8 +89,9 @@ Component({
         }
         triggerEvent(this, 'visibleChange', value, e);
       } else {
-        // 隐藏 - 启用关闭动画
+        // 隐藏
         if (this.getValue()) {
+          // 启用关闭动画
           this.setData({ closing: true });
         } else {
           if (!this.isControlled()) {
