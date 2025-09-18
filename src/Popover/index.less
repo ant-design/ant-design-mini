@@ -53,16 +53,18 @@
     z-index: 999;
     transform: translate(var(--popover-translate-x), var(--popover-translate-y))
       scale(var(--popover-translate-scale));
-    opacity: 0;
-    --popover-translate-scale: 0.6;
   }
 
   &-opening {
-    .popover-scale-animation();
+    --popover-translate-scale: 0.6;
+    opacity: 0;
+    .popover-animation();
   }
 
   &-closing {
-    .popover-scale-animation-close();
+    --popover-translate-scale: 1;
+    opacity: 1;
+    .popover-animation-close();
   }
   &-inner {
     position: relative;

@@ -28,8 +28,6 @@
         var(--popover-list-translate-y)
       )
       scale(var(--popover-list-translate-scale));
-    opacity: 0;
-    --popover-list-translate-scale: 0.4;
     &-arrow {
       position: absolute;
       width: 0;
@@ -44,10 +42,14 @@
   }
 
   &-opening {
+    opacity: 0;
+    --popover-list-translate-scale: 0.4;
     .popover-list-scale-animation();
   }
 
   &-closing {
+    opacity: 1;
+    --popover-list-translate-scale: 1;
     .popover-list-scale-animation-close();
   }
 
