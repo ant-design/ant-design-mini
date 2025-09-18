@@ -80,32 +80,18 @@ Component({
       }
       /// #endif
       const value = !this.getValue();
-      
-      if (value) {
-        // 显示
-        if (!this.isControlled()) {
-          this.update(value);
-        }
-        triggerEvent(this, 'visibleChange', value, e);
-      } else {
-        // 隐藏 - 启用关闭动画
-        if (this.getValue()) {
-          this.setData({ closing: true });
-        } else {
-          if (!this.isControlled()) {
-            this.update(value);
-          }
-          triggerEvent(this, 'visibleChange', value, e);
-        }
+
+      if (!this.isControlled()) {
+        this.update(value);
+      }
+      triggerEvent(this, 'visibleChange', value, e);
+      if (!value) {
+        this.setData({ closing: true });
       }
     },
     onAnimationEnd() {
       if (this.data.closing) {
         this.setData({ closing: false });
-        if (!this.isControlled()) {
-          this.update(false);
-        }
-        triggerEvent(this, 'visibleChange', false);
       }
     },
   },
@@ -117,10 +103,6 @@ Component({
       transformValue(value) {
         if (value) {
           this.updatePopover();
-        } else {
-          this.setData({
-            adjustedPlacement: '',
-          });
         }
         return {
           needUpdate: true,
