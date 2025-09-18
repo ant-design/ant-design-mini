@@ -39,9 +39,9 @@
     </view>
   </view>
 </view>
-<view
-  a:if="{{ showMask && (mixin.value || closing) }}"
+<ant-mask
+  show="{{ showMask && mixin.value }}"
   id="ant-popover-list-mask{{ $id ? '-' + $id : '' }}"
-  class="ant-mask ant-popover-list-mask {{ maskClassName || '' }}"
-  style="{{ maskStyle || '' }}"
-  onTap="onVisibleChange" />
+  className="ant-popover-list-mask {{ maskClassName || '' }}"
+  style="{{ maskStyle }}"
+  onMaskTap="onVisibleChange" />

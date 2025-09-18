@@ -43,23 +43,8 @@
   }
 
   &-mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     z-index: 998;
-    background-color: @color-product-mask;
-    width: 300vw;
-    height: 300vh;
-    transform: translate3d(-100vw, -100vh, 0);
-    opacity: 0;
-    .popover-mask-appear();
-
-    &-closing {
-      opacity: 0.6;
-      .popover-mask-close();
-    }
+    background: none;
   }
   &-content {
     position: absolute;
@@ -270,24 +255,6 @@
 @keyframes ant-popover-opacity-close {
   0% {
     opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes ant-popover-mask-appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-
-@keyframes ant-popover-mask-close {
-  0% {
-    opacity: 0.6;
   }
   100% {
     opacity: 0;

@@ -2,6 +2,7 @@
   "component": true,
   "styleIsolation": "shared",
   "usingComponents": {
-    "image-icon": "../ImageIcon/index"
+    "image-icon": "../ImageIcon/index",
+    "ant-mask": "../Mask/index"
   }
 }
