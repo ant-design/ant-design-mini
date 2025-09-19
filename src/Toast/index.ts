@@ -9,19 +9,24 @@ Component({
   props: ToastDefaultProps,
   data: {
     show: false,
+    closing: false,
   },
   timer: null,
   methods: {
     closeMask() {
+      const { closing } = this.data;
+      if (closing) {
+        return;
+      }
       if (this.timer) {
         clearTimeout(this.timer);
       }
-      this.setData({ show: false });
+      this.setData({ show: false, closing: true });
       this.timer = null;
       triggerEventOnly(this, 'close');
     },
     handleShowToast() {
-      this.setData({ show: true });
+      this.setData({ show: true, closing: false });
 
       const duration = getValueFromProps(this, 'duration');
       if (duration > 0) {
@@ -38,6 +43,13 @@ Component({
       ]);
       if (showMask && maskCloseable) {
         this.closeMask();
+      }
+    },
+    onAnimationEnd() {
+      if (this.data.closing) {
+        this.setData({ show: false, closing: false });
+        this.timer = null;
+        triggerEventOnly(this, 'close');
       }
     },
   },

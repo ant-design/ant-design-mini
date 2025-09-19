@@ -19,6 +19,11 @@ Page({
   onVisibleChange(visible, e) {
     console.log('onVisibleChange', visible, e);
   },
+  onControlledVisibleChange(visible) {
+    this.setData({
+      visible,
+    });
+  },
   handleVisibleChange() {
     this.setData({
       visible: !this.data.visible,

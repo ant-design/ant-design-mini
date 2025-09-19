@@ -13,6 +13,7 @@ Component({
   data: {
     adjustedPlacement: '',
     popoverContentStyle: '',
+    closing: false,
   },
   methods: {
     getInstance() {
@@ -79,10 +80,19 @@ Component({
       }
       /// #endif
       const value = !this.getValue();
+
       if (!this.isControlled()) {
         this.update(value);
       }
       triggerEvent(this, 'visibleChange', value, e);
+      if (!value) {
+        this.setData({ closing: true });
+      }
+    },
+    onAnimationEnd() {
+      if (this.data.closing) {
+        this.setData({ closing: false });
+      }
     },
   },
 
@@ -93,10 +103,6 @@ Component({
       transformValue(value) {
         if (value) {
           this.updatePopover();
-        } else {
-          this.setData({
-            adjustedPlacement: '',
-          });
         }
         return {
           needUpdate: true,

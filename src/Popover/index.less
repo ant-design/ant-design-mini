@@ -51,6 +51,20 @@
     min-width: 64 * @rpx;
     max-width: calc(100vw - 48 * @rpx);
     z-index: 999;
+    transform: translate(var(--popover-translate-x), var(--popover-translate-y))
+      scale(var(--popover-translate-scale));
+  }
+
+  &-opening {
+    --popover-translate-scale: 0.6;
+    opacity: 0;
+    .popover-animation();
+  }
+
+  &-closing {
+    --popover-translate-scale: 1;
+    opacity: 1;
+    .popover-animation-close();
   }
   &-inner {
     position: relative;
@@ -93,7 +107,9 @@
   }
 
   &-top {
-    transform: translate(-50%, -100%);
+    transform-origin: center bottom;
+    --popover-translate-x: -50%;
+    --popover-translate-y: -100%;
     &-arrow {
       bottom: 2 * @rpx;
       transform: translate(-50%, 100%) rotate(180deg);
@@ -102,7 +118,9 @@
   }
 
   &-bottom {
-    transform: translate(-50%, 100%);
+    transform-origin: center top;
+    --popover-translate-x: -50%;
+    --popover-translate-y: 100%;
     &-arrow {
       top: 2 * @rpx;
       transform: translate(-50%, -100%) rotate(0deg);
@@ -111,7 +129,9 @@
   }
 
   &-left {
-    transform: translate(-100%, -50%);
+    transform-origin: right center;
+    --popover-translate-x: -100%;
+    --popover-translate-y: -50%;
     &-arrow {
       right: 2 * @rpx;
       transform: translate(75%, -50%) rotate(90deg);
@@ -120,7 +140,9 @@
   }
 
   &-right {
-    transform: translate(100%, -50%);
+    transform-origin: left center;
+    --popover-translate-x: 100%;
+    --popover-translate-y: -50%;
     &-arrow {
       left: 2 * @rpx;
       transform: translate(-75%, -50%) rotate(-90deg);
@@ -129,7 +151,9 @@
   }
 
   &-top-left {
-    transform: translate(0, -100%);
+    transform-origin: left bottom;
+    --popover-translate-x: 0;
+    --popover-translate-y: -100%;
     &-arrow {
       bottom: 2 * @rpx;
       transform: translate(0, 100%) rotate(180deg);
@@ -138,7 +162,9 @@
   }
 
   &-top-right {
-    transform: translate(0, -100%);
+    transform-origin: right bottom;
+    --popover-translate-x: 0;
+    --popover-translate-y: -100%;
     &-arrow {
       bottom: 2 * @rpx;
       transform: translate(0, 100%) rotate(180deg);
@@ -147,7 +173,9 @@
   }
 
   &-bottom-left {
-    transform: translate(0, 100%);
+    transform-origin: left top;
+    --popover-translate-x: 0;
+    --popover-translate-y: 100%;
     &-arrow {
       top: 2 * @rpx;
       transform: translate(0, -100%) rotate(0deg);
@@ -156,7 +184,9 @@
   }
 
   &-bottom-right {
-    transform: translate(0, 100%);
+    transform-origin: right top;
+    --popover-translate-x: 0;
+    --popover-translate-y: 100%;
     &-arrow {
       top: 2 * @rpx;
       transform: translate(0, -100%) rotate(0deg);
@@ -165,7 +195,9 @@
   }
 
   &-left-top {
-    transform: translate(-100%, 0);
+    transform-origin: right top;
+    --popover-translate-x: -100%;
+    --popover-translate-y: 0;
     &-arrow {
       right: 2 * @rpx;
       transform: translate(75%, 0) rotate(90deg);
@@ -174,7 +206,9 @@
   }
 
   &-left-bottom {
-    transform: translate(-100%, 0);
+    transform-origin: right bottom;
+    --popover-translate-x: -100%;
+    --popover-translate-y: 0;
     &-arrow {
       right: 2 * @rpx;
       transform: translate(75%, 0) rotate(90deg);
@@ -183,7 +217,9 @@
   }
 
   &-right-top {
-    transform: translate(100%, 0);
+    transform-origin: left top;
+    --popover-translate-x: 100%;
+    --popover-translate-y: 0;
     &-arrow {
       left: 2 * @rpx;
       transform: translate(-75%, 0) rotate(-90deg);
@@ -192,11 +228,49 @@
   }
 
   &-right-bottom {
-    transform: translate(100%, 0);
+    transform-origin: left bottom;
+    --popover-translate-x: 100%;
+    --popover-translate-y: 0;
     &-arrow {
       left: 2 * @rpx;
       transform: translate(-75%, 0) rotate(-90deg);
       bottom: 24 * @rpx;
     }
+  }
+}
+
+@keyframes ant-popover-scale {
+  0% {
+    --popover-translate-scale: 0.6;
+  }
+  100% {
+    --popover-translate-scale: 1;
+  }
+}
+
+@keyframes ant-popover-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ant-popover-scale-close {
+  0% {
+    --popover-translate-scale: 1;
+  }
+  100% {
+    --popover-translate-scale: 0.6;
+  }
+}
+
+@keyframes ant-popover-opacity-close {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

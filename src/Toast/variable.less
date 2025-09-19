@@ -4,3 +4,34 @@
 @toast-default-color: var(--toast-default-color, @COLOR_WHITE);
 
 @toast-default-bg: var(--toast-default-bg, rgba(0, 0, 0, 0.75));
+
+.toast-animation-opening() {
+  animation-name: ant-toast-scale, ant-toast-opacity;
+  animation-duration: 200ms, 100ms;
+  animation-timing-function: cubic-bezier(0.57, -0.22, 0, 1.2),
+    cubic-bezier(0.35, 0, 0.65, 1);
+  animation-fill-mode: forwards;
+}
+
+.toast-animation-closing() {
+  animation-name: ant-toast-scale-close, ant-toast-opacity-close;
+  animation-duration: 200ms, 200ms;
+  animation-timing-function: cubic-bezier(0.6, 0, 1, 0.6),
+    cubic-bezier(0.6, 0, 1, 0.6);
+  animation-fill-mode: forwards;
+}
+
+.mask-appear(@duration: 300ms) {
+  animation-fill-mode: forwards;
+  animation-duration: @duration;
+  animation-timing-function: cubic-bezier(0.35, 0, 0.65, 1);
+  animation-name: ant-popup-mask-appear;
+}
+
+.mask-close(@duration: 300ms) {
+  animation-delay: 100ms;
+  animation-fill-mode: forwards;
+  animation-duration: @duration;
+  animation-timing-function: cubic-bezier(0.35, 0, 0.65, 1);
+  animation-name: ant-popup-mask-close;
+}

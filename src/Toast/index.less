@@ -88,6 +88,87 @@
   }
 
   &-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 998;
+    background-color: @color-product-mask;
+    width: 300vw;
+    height: 300vh;
+    transform: translate3d(-100vw, -100vh, 0);
+
+    .mask-appear();
+
+    &-closing {
+      .mask-close();
+    }
+  }
+
+  &-opening {
+    transform: translate3d(-50%, -50%, 0) scale(0.6);
+    opacity: 0;
+    .toast-animation-opening();
+  }
+
+  &-closing {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    opacity: 1;
+    .toast-animation-closing();
+  }
+}
+
+@keyframes ant-toast-scale {
+  0% {
+    transform: translate3d(-50%, -50%, 0) scale(0.6);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+}
+
+@keyframes ant-toast-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ant-toast-scale-close {
+  0% {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) scale(0.6);
+  }
+}
+
+@keyframes ant-toast-opacity-close {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ant-toast-mask-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes ant-toast-mask-close {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
   }
 }

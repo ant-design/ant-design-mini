@@ -111,9 +111,6 @@ async function createConfig() {
 
 
   const demoPageFiles = [...(await getDemoPageFiles('demo')), ...(await getDemoPageFiles('copilot-demo'))];
-  // 获取wechat平台页面
-  await getDemoPageFiles('demo');
-  await getDemoPageFiles('copilot-demo');
 
 
   /** 生成config/wechat/app.json */
