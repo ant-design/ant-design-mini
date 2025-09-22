@@ -14,11 +14,12 @@
     <!-- #endif -->
   </view>
   <view
-    a:if="{{ !destroyOnClose || mixin.value }}"
-    hidden="{{ !mixin.value }}"
+    a:if="{{ !destroyOnClose || mixin.value || closing }}"
+    hidden="{{ !mixin.value && !closing }}"
     id="ant-popover-content{{ $id ? '-' + $id : '' }}"
-    class="ant-popover-content ant-popover-{{ adjustedPlacement }}"
-    style="{{ popoverContentStyle }}; {{ adjustedPlacement ? '' : 'opacity: 0' }}">
+    class="ant-popover-content ant-popover-{{ adjustedPlacement }} {{ closing ? `ant-popover-${adjustedPlacement}-closing` : `ant-popover-${adjustedPlacement}-opening` }}"
+    style="{{ popoverContentStyle }}; {{ adjustedPlacement ? '' : 'opacity: 0' }}"
+    onAnimationEnd="onAnimationEnd">
     <view
       class="ant-popover-arrow ant-popover-{{ adjustedPlacement }}-arrow"
       style="{{ color ? 'border-bottom-color:' + color : '' }}" />

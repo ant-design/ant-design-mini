@@ -9,9 +9,9 @@
   hidden="{{ !destroyOnClose && !visible && !closing }}">
   <view
     a:if="{{ showMask }}"
-    class="ant-popup-mask {{ maskClassName || '' }} {{ closing && !visible ? 'ant-popup-mask-closing' : '' }}"
+    class="ant-popup-mask {{ maskClassName || '' }} {{ position }} {{ closing && !visible ? 'ant-popup-mask-closing' : '' }}"
     onTap="onTapMask"
-    style="{{ animation ? '-webkit-animation-duration:' + duration + 'ms; animation-duration:' + duration + 'ms;' : '' }} {{ maskStyle || '' }}">
+    style="{{utils.getCloseStyle(animation, duration, maskStyle)}}">
     <slot name="mask" />
   </view>
   <view

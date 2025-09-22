@@ -137,7 +137,7 @@ Page({
 | className                    | 类名                                                                                                                                                              | string     | -           |
 | title                        | 标题                                                                                                                                                              | string     | ''          |
 | destroyOnClose               | 不可见时卸载内容                                                                                                                                                  | boolean    | false       |
-| duration                     | 过渡动画时长，单位毫秒                                                                                                                                            | number     | 300         |
+| duration                     | 过渡动画时长，单位毫秒                                                                                                                                            | number     | -           |
 | height                       | 高度，在 position 为 `top` 或 `bottom` 时使用，单位 px。可选，不传时根据内容区高度自适应。                                                                        | number     | -           |
 | maskClassName                | 蒙层的类名                                                                                                                                                        | string     | -           |
 | maskStyle                    | 蒙层的样式                                                                                                                                                        | string     | -           |

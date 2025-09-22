@@ -355,6 +355,7 @@ page {
   --stepper-border-color: #444444;
   --stepper-background-color: #1a1a1a;
   --stepper-hover-bg: rgba(0, 0, 0, 0.92);
+  --stepper-input-font-color: #c5cad1;
 
   // switch
   --switch-fill: #3086ff;
@@ -362,6 +363,12 @@ page {
   --switch-loading-color: #3086ff;
   --switch-handle-bg: #ffffff;
   --switch-inner-color: #616161;
+
+  // dialog
+  --dialog-background-color: #1a1a1a;
+  --dialog-title-color: #c5cad1;
+  --dialog-content-color: #c5cad1;
+  --dialog-close-text-color: #616161;
 
   // modal
   --modal-background-color: #1a1a1a;
@@ -507,16 +514,18 @@ page {
   --thought-chain-title-color: rgba(255, 255, 255, 0.45);
   --thought-chain-content-color: rgba(255, 255, 255, 0.55);
   // welcome
-  --welcome-background-color: linear-gradient(106deg, #0D0601 0%, #080C00 100%);
+  --welcome-background-color: linear-gradient(106deg, #0d0601 0%, #080c00 100%);
   --welcome-text-color: rgba(255, 255, 255, 0.88);
   // terms
   --terms-fixed-background-color: #1a1a1a;
   --terms-fixed-border-color: #2b2b2b;
   --terms-protocol-item-color: #3086ff;
   --terms-protocol-text-color: #616161;
-  --terms-read-shadow-background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0) 12%,
-      #1a1a1a 86%);
+  --terms-read-shadow-background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 12%,
+    #1a1a1a 86%
+  );
   --terms-read-protocol-border: #2b2b2b;
   --terms-read-protocol-box-shadow-color: rgba(0, 0, 0, 0.1);
   --terms-read-protocol-item-color: #c5cad1;
@@ -544,7 +553,7 @@ page {
 
   // bubble
   --bubble-background-color: #1f1f1f;
-  --bubble-user-background-color: #1668dc;  // 深色模式下稍微暗一点的蓝色
+  --bubble-user-background-color: #1668dc; // 深色模式下稍微暗一点的蓝色
   --bubble-text-color: rgba(255, 255, 255, 0.85);
   --bubble-text-color-user: #ffffff;
 
@@ -556,5 +565,5 @@ page {
   --sender-input-text-color: rgba(255, 255, 255, 0.85);
   --sender-input-caret-color: #1668dc;
   --sender-focus-border-color: #1668dc;
-  --sender-max-height: 192rpx;  // 保持不变
+  --sender-max-height: 192rpx; // 保持不变
 }

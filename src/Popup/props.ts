@@ -41,7 +41,7 @@ export interface IPopupProps extends IBaseProps {
   /**
    * @description 过渡动画时长，单位毫秒
    */
-  duration: number;
+  duration?: number;
   /**
    * @description 内容区高度，单位px
    */
@@ -106,7 +106,7 @@ export const PopupDefaultProps: Partial<IPopupProps> = {
   animation: true,
   animationType: 'transform',
   // 动画持续时间
-  duration: 300,
+  duration: null,
   height: null,
   width: null,
   maskClassName: '',

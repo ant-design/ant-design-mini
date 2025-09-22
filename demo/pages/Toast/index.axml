@@ -89,7 +89,7 @@
   content="最少字符"
   visible="{{ toast1Show }}"
   duration="{{ 0 }}"
-  showMask="{{ true }}"
+  showMask="{{ false }}"
   textType="short"
   maskCloseable="{{ true }}"
   onClose="handleCloseToast"
@@ -101,7 +101,7 @@
   data-index="4"
   duration="{{ 0 }}"
   textType="long"
-  showMask="{{ true }}"
+  showMask="{{ false }}"
   maskCloseable="{{ true }}"
   onClose="handleCloseToast" />
 
@@ -110,7 +110,7 @@
   icon="LikeOutline"
   visible="{{ toast2Show }}"
   duration="{{ 0 }}"
-  showMask="{{ true }}"
+  showMask="{{ false }}"
   maskCloseable="{{ true }}"
   onClose="handleCloseToast"
   data-index="2"
@@ -121,7 +121,7 @@
   image="https://gw.alipayobjects.com/mdn/rms_5118be/afts/img/A*4NPGQ66arP0AAAAAAAAAAAAAARQnAQ"
   visible="{{ toast5Show }}"
   duration="{{ 0 }}"
-  showMask="{{ true }}"
+  showMask="{{ false }}"
   maskCloseable="{{ true }}"
   onClose="handleCloseToast"
   data-index="5" />
@@ -132,7 +132,7 @@
   duration="{{ 3000 }}"
   data-index="3"
   onClose="handleCloseToast"
-  showMask="{{ true }}"
+  showMask="{{ false }}"
   maskCloseable="{{ true }}" />
 
 <ant-toast
@@ -141,7 +141,7 @@
   data-index="6"
   type="loading"
   onClose="handleCloseToast"
-  showMask="{{ true }}"
+  showMask="{{ false }}"
   duration="{{ 0 }}"
   maskCloseable="{{ true }}" />
 
@@ -151,7 +151,7 @@
   data-index="7"
   type="success"
   onClose="handleCloseToast"
-  showMask="{{ true }}"
+  showMask="{{ false }}"
   duration="{{ 0 }}"
   maskCloseable="{{ true }}" />
 
@@ -161,7 +161,7 @@
   data-index="8"
   type="error"
   onClose="handleCloseToast"
-  showMask="{{ true }}"
+  showMask="{{ false }}"
   duration="{{ 0 }}"
   maskCloseable="{{ true }}" />
 
@@ -171,7 +171,7 @@
   data-index="9"
   type="warning"
   onClose="handleCloseToast"
-  showMask="{{ true }}"
+  showMask="{{ false }}"
   duration="{{ 0 }}"
   maskCloseable="{{ true }}" />
 
@@ -181,6 +181,6 @@
   data-index="10"
   type="alipay"
   onClose="handleCloseToast"
-  showMask="{{ true }}"
+  showMask="{{ false }}"
   duration="{{ 0 }}"
   maskCloseable="{{ true }}" />

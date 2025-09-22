@@ -126,6 +126,7 @@
       placement="right"
       showMask="{{ false }}"
       visible="{{ visible }}"
+      onVisibleChange="onControlledVisibleChange"
       style="display: inline-block">
       <!-- display: inline -->
       <text>点击按钮修改visible</text>
