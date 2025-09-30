@@ -2,38 +2,32 @@
   from="./index.sjs"
   name="componentUtils" />
 
-<template name="radio-item">
-  <view class="ant-radio-item-container">
-    <view class="ant-radio-item-wrap">
-      <!-- #if ALIPAY -->
-      <radio
-        value="{{ value }}"
-        class="ant-radio-item-base"
-        onChange="onChange"
-        checked="{{ mixin.value }}"
-        disabled="{{ disabled }}" />
-      <!-- #endif -->
-      <!-- #if WECHAT -->
-      <radio
-        value="{{ value }}"
-        class="ant-radio-item-base"
-        checked="{{ mixin.value }}"
-        disabled="{{ disabled }}" />
-      <!-- #endif -->
-      <view class="ant-radio-item-fake">
-        <view
-          class="ant-radio-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}"
-          style="{{ mixin.value && !disabled && color ? 'background:' + color : '' }}">
-          <ant-icon
-            a:if="{{ mixin.value }}"
-            type="CheckOutline"
-            className="ant-radio-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}-icon" />
-        </view>
+<template name="radio">
+  <view class="ant-radio-item-wrap">
+    <!-- #if ALIPAY -->
+    <radio
+      value="{{ value }}"
+      class="ant-radio-item-base"
+      onChange="onChange"
+      checked="{{ mixin.value }}"
+      disabled="{{ disabled }}" />
+    <!-- #endif -->
+    <!-- #if WECHAT -->
+    <radio
+      value="{{ value }}"
+      class="ant-radio-item-base"
+      checked="{{ mixin.value }}"
+      disabled="{{ disabled }}" />
+    <!-- #endif -->
+    <view class="ant-radio-item-fake">
+      <view
+        class="ant-radio-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}"
+        style="{{ mixin.value && !disabled && color ? 'background:' + color : '' }}">
+        <ant-icon
+          a:if="{{ mixin.value }}"
+          type="CheckOutline"
+          className="ant-radio-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}-icon" />
       </view>
-    </view>
-    <view
-      class="ant-radio-item-content {{ disabled ? 'ant-radio-item-disabled' : '' }}">
-      <slot />
     </view>
   </view>
 </template>
@@ -51,15 +45,20 @@
   style="{{ style }}"
   bindtap="handleTap">
 <!-- #endif -->
-  <template
-    is="radio-item"
-    data="{{
-      value,
-      mixin,
-      disabled,
-      color
-    }}"
-  />
+  <view class="ant-radio-item-container">
+    <template
+      is="radio"
+      data="{{
+        value,
+        mixin,
+        disabled,
+        color
+      }}"
+    />
+    <view class="ant-radio-item-content {{ disabled ? 'ant-radio-item-disabled' : '' }}">
+      <slot />
+    </view>
+  </view>
 </label>
 <view
   a:else
@@ -67,13 +66,18 @@
   style="{{ style }}"
   catchTap="handleTap"
 >
-  <template
-    is="radio-item"
-    data="{{
-      value,
-      mixin,
-      disabled,
-      color
-    }}"
-  />
+  <view class="ant-radio-item-container">
+    <template
+      is="radio"
+      data="{{
+        value,
+        mixin,
+        disabled,
+        color
+      }}"
+    />
+    <view class="ant-radio-item-content {{ disabled ? 'ant-radio-item-disabled' : '' }}">
+      <slot />
+    </view>
+  </view>
 </view>
