@@ -1,10 +1,10 @@
-import { SwipeActionDefaultProps } from './props';
-import fmtEvent from '../_util/fmtEvent';
-import { compareVersion } from '../_util/compareVersion';
 import '../_util/assert-component2';
-import { platform } from '../_util/platform';
+import { compareVersion } from '../_util/compareVersion';
+import fmtEvent from '../_util/fmtEvent';
 import { getInstanceBoundingClientRect } from '../_util/jsapi/get-instance-bounding-client-rect';
+import { platform } from '../_util/platform';
 import { assertAilpayNativeNotSupport } from '../_util/support';
+import { SwipeActionDefaultProps } from './props';
 import { transformOptions } from './wechat';
 
 assertAilpayNativeNotSupport('SwipeAction');
@@ -249,7 +249,7 @@ Component(
         if (platform() === 'wechat') {
           this.onChangeEnd(e);
         }
-        this.setData({ inTouch: false });
+        this.setData({ inTouch: false, swipedL: false, swipedR: false });
       },
       // 滑动过程中的事件，是内部事件不向外透出，用于控制右侧按钮的位置信息
       onChange(e: any) {

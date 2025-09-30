@@ -2,40 +2,34 @@
   from="./index.sjs"
   name="componentUtils" />
 
-<template name="checkbox-item">
-  <view class="ant-checkbox-item-container">
-    <view class="ant-checkbox-item-wrap">
-      <!-- #if WECHAT -->
-      <checkbox-group bindchange="onChange">
-        <checkbox
-          class="ant-checkbox-item-base"
-          value="{{ value }}"
-          checked="{{ mixin.value }}"
-          disabled="{{ disabled }}" />
-      </checkbox-group>
-      <!-- #endif -->
-      <!-- #if ALIPAY -->
+<template name="checkbox">
+  <view class="ant-checkbox-item-wrap">
+    <!-- #if WECHAT -->
+    <checkbox-group bindchange="onChange">
       <checkbox
         class="ant-checkbox-item-base"
         value="{{ value }}"
-        onChange="onChange"
         checked="{{ mixin.value }}"
         disabled="{{ disabled }}" />
-      <!-- #endif -->
-      <view class="ant-checkbox-item-fake">
-        <view
-          class="ant-checkbox-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}"
-          style="{{ mixin.value && !disabled && color ? 'background:' + color : '' }}">
-          <ant-icon
-            a:if="{{ mixin.value }}"
-            type="CheckOutline"
-            className="ant-checkbox-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}-icon" />
-        </view>
+    </checkbox-group>
+    <!-- #endif -->
+    <!-- #if ALIPAY -->
+    <checkbox
+      class="ant-checkbox-item-base"
+      value="{{ value }}"
+      onChange="onChange"
+      checked="{{ mixin.value }}"
+      disabled="{{ disabled }}" />
+    <!-- #endif -->
+    <view class="ant-checkbox-item-fake">
+      <view
+        class="ant-checkbox-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}"
+        style="{{ mixin.value && !disabled && color ? 'background:' + color : '' }}">
+        <ant-icon
+          a:if="{{ mixin.value }}"
+          type="CheckOutline"
+          className="ant-checkbox-item-fake-{{ componentUtils.getClassName(mixin.value, disabled) }}-icon" />
       </view>
-    </view>
-    <view
-      class="ant-checkbox-item-content {{ disabled ? 'ant-checkbox-item-disabled' : '' }}">
-      <slot />
     </view>
   </view>
 </template>
@@ -54,15 +48,20 @@
   style="{{ style || '' }}"
   bindtap="onChange">
 <!-- #endif -->
-  <template
-    is="checkbox-item"
-    data="{{
-      value,
-      mixin,
-      disabled,
-      color
-    }}"
-  />
+  <view class="ant-checkbox-item-container">
+    <template
+      is="checkbox"
+      data="{{
+        value,
+        mixin,
+        disabled,
+        color
+      }}"
+    />
+    <view class="ant-checkbox-item-content {{ disabled ? 'ant-checkbox-item-disabled' : '' }}">
+      <slot />
+    </view>
+  </view>
 </label>
 <view
   a:else
@@ -70,13 +69,18 @@
   style="{{ style || '' }}"
   catchTap="onChange"
 >
-  <template
-    is="checkbox-item"
-    data="{{
-      value,
-      mixin,
-      disabled,
-      color
-    }}"
-  />
+  <view class="ant-checkbox-item-container">
+    <template
+      is="checkbox"
+      data="{{
+        value,
+        mixin,
+        disabled,
+        color
+      }}"
+    />
+    <view class="ant-checkbox-item-content {{ disabled ? 'ant-checkbox-item-disabled' : '' }}">
+      <slot />
+    </view>
+  </view>
 </view>
