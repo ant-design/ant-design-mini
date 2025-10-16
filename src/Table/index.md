@@ -166,15 +166,16 @@ Page({
 
 ### Column
 
-| 属性           | 说明                         | 类型    | 默认值 |
-| -------------- | ---------------------------- | ------- | ------ |
-| title          | 列标题                       | string  | -      |
-| dataIndex      | 列取值字段                   | string  | -      |
-| key            | 列唯一标识                   | string  | -      |
-| width          | 列宽度                       | number  | -      |
-| fixed          | 是否固定列                   | boolean | -      |
-| textAlignRight | 列文本是否右对齐             | boolean | -      |
-| ellipsisRow    | 单元格最大展示行数，超出省略 | number  | -      |
+| 属性           | 说明                                                         | 类型                              | 默认值 |
+| -------------- | ------------------------------------------------------------ | --------------------------------- | ------ |
+| title          | 列标题                                                       | string                            | -      |
+| dataIndex      | 列取值字段                                                   | string                            | -      |
+| key            | 列唯一标识                                                   | string                            | -      |
+| width          | 列宽度                                                       | number                            | -      |
+| fixed          | 是否固定列                                                   | boolean                           | -      |
+| textAlignRight | 列文本是否右对齐                                             | boolean                           | -      |
+| ellipsisRow    | 单元格最大展示行数，超出省略                                 | number                            | -      |
+| render         | 生成复杂数据的渲染函数，参数分别为当前单元格的值，当前行数据，行索引 | function(value, record, index) {} | -      |
 
 
 ## 插槽
