@@ -1,29 +1,17 @@
-import { LoadingDefaultProps } from './props';
-import '../_util/assert-component2';
+import PropTypes from './props';
+import _assertComponent from '../_util/assert-component2';
 
-Component({
-  /// #if WECHAT
-  properties: {
-    type: {
-      value: 'spin',
-      type: String,
-    },
-    color: {
-      type: String,
-    },
-    size: {
-      type: String,
-    },
-    style: {
-      type: String,
-    },
-    className: {
-      type: String,
-    },
-  },
-  options: {
-    styleIsolation: 'shared',
-  } as unknown,
-  /// #endif
-  props: LoadingDefaultProps,
-});
+const Component = ({ type, color, size, style, className }: { type?: string; color?: string; size?: string; style?: string; className?: string }) => (
+  <div>
+    {type && typeof type === 'string' ? (
+      <>
+        <i class={`spin ${style || ''} spin-${color}`}>{type}</i>
+      </>
+    ) : null}
+    {className && className.includes('loading') && (
+      <div style={{ color }}>{/* ... */}</div> // Placeholder for the loading message or content
+    )}
+  </div>
+);
+
+_assertComponent(Component, PropTypes);
