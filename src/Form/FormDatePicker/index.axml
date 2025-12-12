@@ -46,6 +46,7 @@
       indicatorStyle="{{ indicatorStyle }}"
       indicatorClassName="{{ indicatorClassName }}"
       value="{{ formData.value }}"
+      defaultPickerValue="{{ defaultPickerValue }}"
       onOk="onOk"
       onPickerChange="onPickerChange"
       onCancel="onDismissPicker"
