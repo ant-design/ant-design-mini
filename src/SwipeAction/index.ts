@@ -95,27 +95,69 @@ Component(
   transformOptions({
     props: SwipeActionDefaultProps,
     didMount() {
-      const { defaultSwiped, elasticity } = this.getProps();
-      this.setButtonItemWidth();
+      const { defaultSwiped, swiped, elasticity } = this.getProps();
       this.setData({ inertiaWidth: !isOldVersion && elasticity ? 20 : 0 });
-      if (defaultSwiped) {
-        this.initWidth((maxSwipe: any) => {
-          maxSwipe &&
-            this.setData({
-              swipeX: (maxSwipe + 0.01) * (defaultSwiped === 'right' ? -1 : 1),
-              swipedR: defaultSwiped === 'right',
-              swipedL: defaultSwiped === 'left',
-            });
-        });
+
+      // 优先使用 swiped 属性(受控),其次使用 defaultSwiped(非受控)
+      const initialSwiped = swiped || defaultSwiped;
+
+      // 先设置按钮宽度,然后在回调中处理初始展开状态
+      this.setButtonItemWidth();
+
+      if (initialSwiped) {
+        // 需要等待按钮宽度设置完成后再初始化展开状态
+        setTimeout(() => {
+          this.initWidth((maxSwipe: any) => {
+            if (maxSwipe) {
+              const direction = initialSwiped === 'left' ? 'left' : 'right';
+              this.setData({
+                swipeX: (maxSwipe + 0.01) * (direction === 'right' ? -1 : 1),
+                swipedR: direction === 'right',
+                swipedL: direction === 'left',
+              });
+            }
+          });
+        }, 50);
       }
     },
     didUpdate(prevProp) {
       const { swiped, damping, elasticity } = this.getProps();
       // 设置不同的滑动位置时需要重置
-      const rs = prevProp.swiped !== swiped && !swiped;
+      const swipedChanged = prevProp.swiped !== swiped;
       const is = prevProp.elasticity !== elasticity;
       const ds = prevProp.damping !== damping;
-      if (rs || is || ds) {
+
+      // 处理 swiped 变化
+      if (swipedChanged) {
+        if (!swiped) {
+          // swiped 变为 false/空,需要关闭
+          this.setData({
+            swipeX: 0,
+            swipedR: false,
+            swipedL: false,
+            tapTypeL: '',
+            tapTypeR: '',
+          });
+        } else {
+          // swiped 变为 true/'left'/'right',需要打开
+          // 需要等待下一个事件循环,确保按钮宽度已经渲染
+          setTimeout(() => {
+            this.initWidth((maxSwipe: any) => {
+              if (maxSwipe) {
+                const direction = swiped === 'left' ? 'left' : 'right';
+                this.setData({
+                  swipeX: (maxSwipe + 0.01) * (direction === 'right' ? -1 : 1),
+                  swipedR: direction === 'right',
+                  swipedL: direction === 'left',
+                  tapTypeL: '',
+                  tapTypeR: '',
+                });
+              }
+            });
+          }, 50);
+        }
+      } else if (is || ds) {
+        // 只有 elasticity 或 damping 变化时,才需要重置
         this.setData({
           swipeX: 0,
           swipedR: false,
@@ -124,6 +166,7 @@ Component(
           tapTypeR: '',
         });
       }
+
       if (is) {
         this.setData({ inertiaWidth: elasticity ? 20 : 0 });
       }

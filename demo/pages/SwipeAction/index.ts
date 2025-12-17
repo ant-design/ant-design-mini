@@ -1,5 +1,6 @@
 Page({
   data: {
+    controlledSwipe: '',
     rightBtns: [
       {
         text: '取消关注',
@@ -98,5 +99,11 @@ Page({
   },
   onButtonTap(data, e) {
     console.log(data, e);
+  },
+  onControlSwipe(e) {
+    const { direction } = e.currentTarget.dataset;
+    this.setData({
+      controlledSwipe: direction,
+    });
   },
 });
