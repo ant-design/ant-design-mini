@@ -329,3 +329,54 @@
     </block>
   </view>
 </view>
+
+<view class="t-swipe">
+  <view class="t-swipe-item">
+    <view class="t-swipe-item-title">默认展开-使用 defaultSwiped</view>
+    <view class="t-swipe-item-con">
+      <ant-swipe-action
+        rightButtons="{{ rightBtns }}"
+        elasticity="{{ true }}"
+        defaultSwiped="right"
+        onSwipeEnd="onSwipeEnd"
+        onSwipeStart="onSwipeStart"
+        onButtonTap="onButtonTap">
+        <view class="t-swipe-item-con-view">默认展开右侧按钮(defaultSwiped="right")</view>
+      </ant-swipe-action>
+    </view>
+    <view class="t-swipe-item-con">
+      <ant-swipe-action
+        leftButtons="{{ leftBtns }}"
+        elasticity="{{ true }}"
+        defaultSwiped="left"
+        onSwipeEnd="onSwipeEnd"
+        onSwipeStart="onSwipeStart"
+        onButtonTap="onButtonTap">
+        <view class="t-swipe-item-con-view">默认展开左侧按钮(defaultSwiped="left")</view>
+      </ant-swipe-action>
+    </view>
+  </view>
+</view>
+
+<view class="t-swipe">
+  <view class="t-swipe-item">
+    <view class="t-swipe-item-title">受控模式-通过按钮控制展开</view>
+    <view class="control-buttons">
+      <button size="mini" onTap="onControlSwipe" data-index="0" data-direction="">关闭</button>
+      <button size="mini" onTap="onControlSwipe" data-index="0" data-direction="right">展开右侧</button>
+      <button size="mini" onTap="onControlSwipe" data-index="0" data-direction="left">展开左侧</button>
+    </view>
+    <view class="t-swipe-item-con">
+      <ant-swipe-action
+        rightButtons="{{ rightBtns }}"
+        leftButtons="{{ leftBtns }}"
+        elasticity="{{ true }}"
+        swiped="{{ controlledSwipe }}"
+        onSwipeEnd="onSwipeEnd"
+        onSwipeStart="onSwipeStart"
+        onButtonTap="onButtonTap">
+        <view class="t-swipe-item-con-view">受控组件示例1 - 当前状态: {{ controlledSwipe || '关闭' }}</view>
+      </ant-swipe-action>
+    </view>
+  </view>
+</view>
