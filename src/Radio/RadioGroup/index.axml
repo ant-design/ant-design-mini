@@ -7,7 +7,8 @@
   style="{{ style }}">
   <radio-group
     name="{{ name }}"
-    value="{{ mixin.value }}">
+    value="{{ mixin.value }}"
+    onChange="onChange">
     <view class="ant-radio-group-body">
       <block a:if="{{ position === 'vertical' }}">
         <block
@@ -18,11 +19,10 @@
           <list-item>
             <radio
               checked="{{ componentUtils.getChecked(index, options, mixin.value) }}"
-              data-index="{{ index }}"
               value="{{ item.value }}"
               disabled="{{ disabled || item.disabled }}"
               color="{{ item.color || color }}"
-              onChange="onChange">
+            >
               <!-- #if ALIPAY -->
               <slot
                 name="label"
@@ -47,11 +47,10 @@
           a:key="value">
           <radio
             checked="{{ componentUtils.getChecked(index, options, mixin.value) }}"
-            data-index="{{ index }}"
             value="{{ item.value }}"
             disabled="{{ disabled || item.disabled }}"
             color="{{ item.color || color }}"
-            onChange="onChange">
+          >
             <!-- #if ALIPAY -->
             <slot
               name="label"
